@@ -1,0 +1,54 @@
+------Start of DE processing------ = [04.10.15 17:23:38:422 MSD] , key = com.ibm.websphere.management.exception.AdminException com.ibm.ws.runtime.component.collaborator.JDBCResourceMBean 60
+Exception = com.ibm.websphere.management.exception.AdminException
+Source = com.ibm.ws.runtime.component.collaborator.JDBCResourceMBean
+probeid = 60
+Stack Dump = com.ibm.websphere.management.exception.AdminException: ADMN0005E: Unable to activate MBean: type JDBCProvider, collaborator com.ibm.ws.runtime.component.collaborator.JDBCResourceMBean@519b4f26, configuration id cells/localhost/nodes/localhost/servers/server1/resources.xml#JDBCProvider_3, descriptor null.
+	at com.ibm.ws.management.MBeanFactoryImpl.activateMBean(MBeanFactoryImpl.java:251)
+	at com.ibm.ws.runtime.component.collaborator.J2EEResourceMBean.activate(J2EEResourceMBean.java:56)
+	at com.ibm.ws.runtime.component.collaborator.J2EEResourceMBean.<init>(J2EEResourceMBean.java:37)
+	at com.ibm.ws.runtime.component.collaborator.JDBCResourceMBean.<init>(JDBCResourceMBean.java:32)
+	at com.ibm.ws.runtime.component.binder.DataSourceBinder.activateProviderMBean(DataSourceBinder.java:256)
+	at com.ibm.ws.runtime.component.ResourceMgrImpl.installResourceProvider(ResourceMgrImpl.java:650)
+	at com.ibm.ws.runtime.component.ResourceMgrImpl.installResource(ResourceMgrImpl.java:573)
+	at com.ibm.ws.runtime.component.ResourceMgrImpl.installResources(ResourceMgrImpl.java:533)
+	at com.ibm.ws.runtime.component.ResourceMgrImpl.loadResources(ResourceMgrImpl.java:413)
+	at com.ibm.ws.runtime.component.ResourceMgrImpl.reload(ResourceMgrImpl.java:366)
+	at com.ibm.ws.runtime.component.ApplicationMgrImpl.startApplication(ApplicationMgrImpl.java:453)
+	at com.ibm.ws.runtime.component.ApplicationMgrImpl$ApplicationNotifier.classChanged(ApplicationMgrImpl.java:525)
+	at com.ibm.ws.classloader.ClassLoaderManager.checkAndNotify(ClassLoaderManager.java:356)
+	at com.ibm.ws.classloader.ClassLoaderManager.access$100(ClassLoaderManager.java:31)
+	at com.ibm.ws.classloader.ClassLoaderManager$ReloadTimerTask.run(ClassLoaderManager.java:390)
+	at java.util.TimerThread.mainLoop(Timer.java:445)
+	at java.util.TimerThread.run(Timer.java:395)
+---- Begin backtrace for nested exception
+javax.management.InstanceAlreadyExistsException: JMXcr0053E The MBean " WebSphere:name=Informix provider,process=server1,platform=common,node=localhost,Server=server1,version=5.0,type=JDBCProvider,mbeanIdentifier=cells/localhost/nodes/localhost/servers/server1/resources.xml#JDBCProvider_3,cell=localhost " is already present in the MBeanServer
+	at com.tivoli.jmx.MapAdapter.putMBean(MapAdapter.java:80)
+	at com.tivoli.jmx.Registration.register(Registration.java:125)
+	at com.tivoli.jmx.MBeanServerImpl.registerMBean(MBeanServerImpl.java:965)
+	at com.ibm.ws.management.MBeanFactoryImpl.activateMBean(MBeanFactoryImpl.java:240)
+	at com.ibm.ws.runtime.component.collaborator.J2EEResourceMBean.activate(J2EEResourceMBean.java:56)
+	at com.ibm.ws.runtime.component.collaborator.J2EEResourceMBean.<init>(J2EEResourceMBean.java:37)
+	at com.ibm.ws.runtime.component.collaborator.JDBCResourceMBean.<init>(JDBCResourceMBean.java:32)
+	at com.ibm.ws.runtime.component.binder.DataSourceBinder.activateProviderMBean(DataSourceBinder.java:256)
+	at com.ibm.ws.runtime.component.ResourceMgrImpl.installResourceProvider(ResourceMgrImpl.java:650)
+	at com.ibm.ws.runtime.component.ResourceMgrImpl.installResource(ResourceMgrImpl.java:573)
+	at com.ibm.ws.runtime.component.ResourceMgrImpl.installResources(ResourceMgrImpl.java:533)
+	at com.ibm.ws.runtime.component.ResourceMgrImpl.loadResources(ResourceMgrImpl.java:413)
+	at com.ibm.ws.runtime.component.ResourceMgrImpl.reload(ResourceMgrImpl.java:366)
+	at com.ibm.ws.runtime.component.ApplicationMgrImpl.startApplication(ApplicationMgrImpl.java:453)
+	at com.ibm.ws.runtime.component.ApplicationMgrImpl$ApplicationNotifier.classChanged(ApplicationMgrImpl.java:525)
+	at com.ibm.ws.classloader.ClassLoaderManager.checkAndNotify(ClassLoaderManager.java:356)
+	at com.ibm.ws.classloader.ClassLoaderManager.access$100(ClassLoaderManager.java:31)
+	at com.ibm.ws.classloader.ClassLoaderManager$ReloadTimerTask.run(ClassLoaderManager.java:390)
+	at java.util.TimerThread.mainLoop(Timer.java:445)
+	at java.util.TimerThread.run(Timer.java:395)
+
+Dump of callerThis = 
+null
+
+Exception = com.ibm.websphere.management.exception.AdminException
+Source = com.ibm.ws.runtime.component.collaborator.JDBCResourceMBean
+probeid = 60
+Dump of callerThis = 
+null
+

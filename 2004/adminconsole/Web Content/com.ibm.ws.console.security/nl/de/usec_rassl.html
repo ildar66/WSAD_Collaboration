@@ -1,0 +1,190 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>SSL-Einstellungen f&uuml;r benutzerdefinierte Merkmale</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecrassl"></a>
+<h2>SSL-Einstellungen f&uuml;r benutzerdefinierte Merkmale</h2>
+
+<p>Verwenden Sie diese Seite, um weitere SSL-Einstellungen f&uuml;r einen definierten Aliasnamen zu konfigurieren.
+</p>
+
+<p>Klicken Sie zum Anzeigen dieser Seite der Administrationskonsole auf <strong>Sicherheit</strong> &gt; <strong>SSL</strong> &gt; <em>Aliasname</em> &gt; <strong>Benutzerdefinierte Merkmale</strong>.</p>
+
+<div>
+<p>
+<strong>Register "Konfiguration"</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="field_name"></a>Benutzerdefinierte Merkmale</strong>
+</dt>
+<dd>Gibt die Name/Wert-Paare an, die Sie verwenden k&ouml;nnen, um SSL-Einstellungen, die Sie
+zus&auml;tzlich zu den Einstellungen im
+Administrations-Interface <em>com.ibm.ssl.protocol</em> konfigurieren k&ouml;nnen. 
+<p>Das zu verwendende SSL-Protokoll (einschlie&szlig;lich der Version). Die g&uuml;ltigen Werte sind
+      SSL, SSLv2, SSLv3, TLS und TLSv1. Der Standardwert, SSL, ist mit
+anderen SSL-Protokollen abw&auml;rtskompatibel.</p>
+
+<dl>
+
+<dt>
+<strong>com.ibm.ssl.keyStoreProvider</strong>
+</dt>
+<dd>Der Name des zu verwenden Providers f&uuml;r das Speichern der Schl&uuml;ssel. Geben Sie
+einen der Sicherheitsprovider an, die in der Datei <samp>java.security</samp> aufgelistet sind und der eine Keystore-Implementierung
+besitzt. Der Standardwert ist
+        IBMJCE.</dd>
+
+<dt>
+<strong>com.ibm.ssl.keyManager</strong>
+</dt>
+<dd>Der Name des f&uuml;r die Schl&uuml;sselverwaltung zu
+verwendenden Algorithmus. Geben Sie einen
+Algorithmus f&uuml;r Schl&uuml;sselverwaltung an, der von einem der in der Datei
+<samp>java.security</samp> aufgelisteten Sicherheitsprovider implementiert wird. Der Standardwert
+ist IbmX509.  </dd>
+
+<dt>
+<strong>com.ibm.ssl.trustStoreProvider</strong>
+</dt>
+<dd>Der Name des zu verwendenden TrustStore-Providers. Geben Sie
+einen der Sicherheitsprovider an, die in der Datei <samp>java.security</samp> aufgelistet sind und der eine
+Truststore-Implementierung besitzt. Der Standardwert ist IBMJCE.
+ </dd>
+
+<dt>
+<strong>com.ibm.ssl.trustManager</strong>
+</dt>
+<dd>Der Name des zu verwendenden Algorithmus f&uuml;r Trust-Verwaltung. Geben
+Sie einen Algorithmus f&uuml;r Trust-Verwaltung an, der von einem der in der Datei
+<samp>java.security</samp> aufgelisteten Sicherheitsprovider implementiert wird. Der
+Standardwert ist IbmX509.  </dd>
+
+<dt>
+<strong>com.ibm.ssl.trustStoreType</strong>
+</dt>
+<dd>Der Typ oder das Format der Truststore-Datei. Die g&uuml;ltigen Werte sind
+JKS, PKCS12, JCEK. Der Standardwert lautet JKS.
+ </dd>
+
+<dt>
+<strong>com.ibm.ssl.enabledCipherSuites</strong>
+</dt>
+<dd>Die Liste der zu aktivierenden Cipher Suites. Standardm&auml;&szlig;ig
+ist dieses Attribut nicht gesetzt und die verwendeten Cipher Suites werden anhand des Wertes der Sicherheitsstufe
+(hoch, mittel, niedrig) bestimmt. Eine Cipher Suite
+ist eine Kombination von Verschl&uuml;sselungsalgorithmen, die f&uuml;r eine SSL-Verbindung verwendet werden.
+  Geben Sie eine Liste mit Cipher Suites aus der folgenden Liste (mit Leerzeichen als Trennungszeichen)
+ein: <ul>
+
+<li>SSL_RSA_WITH_RC4_128_MD5 </li>
+
+<li>SSL_RSA_WITH_RC4_128_SHA </li>
+
+<li>SSL_RSA_WITH_DES_CBC_SHA
+</li>
+
+<li>SSL_RSA_WITH_3DES_EDE_CBC_SHA
+</li>
+
+<li>SSL_DHE_RSA_WITH_DES_CBC_SHA
+</li>
+
+<li>SSL_DHE_RSA_WITH_3DES_EDE_CBC_SHA
+</li>
+
+<li>SSL_DHE_DSS_WITH_DES_CBC_SHA
+</li>
+
+<li>SSL_DHE_DSS_WITH_3DES_EDE_CBC_SHA
+</li>
+
+<li>SSL_RSA_EXPORT_WITH_RC4_40_MD5
+</li>
+
+<li>SSL_RSA_EXPORT_WITH_DES40_CBC_SHA
+</li>
+
+<li>SSL_RSA_EXPORT_WITH_RC2_CBC_40_MD5
+</li>
+
+<li>SSL_DHE_RSA_EXPORT_WITH_DES40_CBC_SHA
+</li>
+
+<li>SSL_DHE_DSS_EXPORT_WITH_DES40_CBC_SHA
+</li>
+
+<li>SSL_RSA_WITH_NULL_MD5
+</li>
+
+<li>SSL_RSA_WITH_NULL_SHA
+</li>
+
+<li>SSL_DH_anon_WITH_RC4_128_MD5</li>
+
+<li>SSL_DH_anon_WITH_DES_CBC_SHA
+</li>
+
+<li>SSL_DH_anon_WITH_3DES_EDE_CBC_SHA
+</li>
+
+<li>SSL_DH_anon_EXPORT_WITH_RC4_40_MD5
+</li>
+
+<li>SSL_DH_anon_EXPORT_WITH_DES40_CBC_SHA</li>
+
+</ul>
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+</dd>
+
+</dl>
+
+</dd>
+<dt>
+<strong><a name="SecureSocketLayer_cryptoHardware_description"></a>Verschl&uuml;sselungs-Token</strong>
+</dt>
+<dd>Gibt Informationen zu Verschl&uuml;sselungs-Token f&uuml;r die
+SSL-Unterst&uuml;tzung an.
+<p>Ein Verschl&uuml;sselungs-Token ist eine Hardware- oder Softwareeinheit, die
+eine integrierte KeyStore-Implementierung besitzt. Die genauen Werte f&uuml;r die folgenden Felder sind in
+der Dokumentation zur unterst&uuml;tzten Verschl&uuml;sselungseinheit beschrieben. </p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Zugeh&ouml;rige Informationen</strong>
+</p>
+<a href="rcon_buttons.html">Kn&ouml;pfe in der Adminstrationskonsole</a>
+<br>
+
+<a href="rcon_pageusage.html">Funktionen auf den Seiten der Administrationskonsole</a>
+<br>
+
+<a href="rcon_scope.html">Geltungsbereichseinstellungen f&uuml;r die Administrationskonsole</a>
+<br>
+
+<a href="rcon_filter.html">Filtereinstellungen f&uuml;r die Administrationskonsole</a>
+<br>
+
+<a href="rcon_preferences.html">Vorgaben f&uuml;r die Administrationskonsole</a>
+<br>
+
+</div>
+</body>
+</html>

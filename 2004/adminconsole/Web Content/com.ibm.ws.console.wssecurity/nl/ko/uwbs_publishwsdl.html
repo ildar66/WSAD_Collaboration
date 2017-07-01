@@ -1,0 +1,93 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>WSDL 파일 공개 설정</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_publishwsdl"></a>
+<h2>
+<img alt="[픽스팩 5.0.2 이상]" src="v502.gif" border="0">WSDL 파일 공개 설정</h2>
+
+<p>이 페이지를 참조하여 WSDL(Web Services Description Language) 파일을
+공개할 수 있습니다.      </p>
+
+<p>이 페이지를 보려면, <strong>응용프로그램</strong> &gt;<strong>엔터프라이즈 응용프로그램</strong> &gt; <em>application_instance</em> &gt; <strong>
+WSDL 공개</strong>를 클릭하십시오. </p>
+
+<p>
+<strong>확인</strong>을 클릭하면, 응용프로그램에 있는 모든 웹 서비스 사용 모듈의 zip 파일이
+생성됩니다. 공개된
+zip 파일의 이름은 <samp>application_name_WSDLFiles.zip</samp>입니다. 공개된
+zip 파일의 디렉토리 구조는 <em>application_name/module_name/[META-INF|WEB-INF]/wsdl/wsdl_file_name</em>입니다.
+ </p>
+
+<p>공개된 WSDL 파일에서, 서비스 <samp>soap:address</samp> 스탠자의 위치 속성에는
+웹 서비스에 액세스하는 URL이 포함되어 있습니다. 각 모듈의 웹 서비스에
+사용되도록 URL의 일부를 지정할 수 있습니다. HTTP 전송이나 JMS 전송
+또는 둘 모두를 사용하여, 모듈에서 웹 서비스에 액세스할 수
+있습니다. 두 전송 유형 모두에 URL 정보를 지정할 수 있습니다. </p>
+
+<div>
+<p>
+<strong>구성 탭</strong>
+</p>
+<dl>
+<dt>
+<strong>웹 서비스의 URL 접두부 지정</strong>
+</dt>
+<dd>URL에 사용할 <em>프로토콜</em>(http 또는 https), <em>host_name</em>
+및 <em>port_number</em>를 지정합니다. 
+<p>URL 접두부 형식은 프로토콜://<em>host_name:port_number</em>입니다(예를 들어,
+http://<em>myHost</em>:9045). 공개된 WSDL 파일에 나타나는
+실제 URL은 모듈의 컨텍스트 루트 및 웹 서비스 URL 패턴에 추가된 접두부로 이루어져 있습니다(예를 들어,
+http://<em>myHost</em>:9045/services/<em>myService</em>).</p>
+
+</dd>
+<dt>
+<strong>HTTP URL 접두부 선택</strong>
+</dt>
+<dd>URL 접두부의 기본 목록과 연관된 드롭 다운 목록을
+지정합니다. 이 목록은 모듈 가상 호스트의 포트 세트와 모듈
+Application Server의 포트 세트의 공통 부분입니다. 웹 서비스 Application Server에 직접 액세스하는 경우,
+이 목록의 항목을 사용하십시오. 
+<p>HTTP 접두부를 설정하려면, <strong>HTTP URL 접두부</strong> 또는 <strong>사용자 정의
+HTTP URL 접두부</strong>를 선택하여, 값을 입력하고, 접두부를 사용할 모듈의 선택란을
+선택한 후, <strong>적용</strong>을 클릭하십시오. <strong>적용</strong>을 누르면, 선택한 내용에 따라
+<strong>HTTP URL 접두부 선택</strong> 또는 <strong>사용자 정의 HTTP URL 접두부</strong> 필드의 항목이
+선택란(가장 왼쪽 열의)이 선택된 모듈의 <strong>HTTP URL 접두부</strong> 필드에
+복사됩니다. HTTP
+접두부는 JMS URL 접두부 열의 필드에 적용되지 않습니다. </p>
+
+</dd>
+<dt>
+<strong>HTTP URL 접두부 사용자 정의</strong>
+</dt>
+<dd>웹 서비스 게이트웨이 또는 IHS 서버와 같은 중간 노드를 통해
+모듈의 웹 서비스에 액세스하는 경우, 중간 서비스의
+<em>프로토콜</em>, <em>호스트</em> 및 <em>port_number</em>를 지정합니다. 
+<p>HTTP 접두부를 설정하려면, <strong>HTTP URL 접두부</strong> 또는 <strong>사용자 정의
+HTTP URL 접두부</strong>를 선택하여, 값을 입력하고, 접두부를 사용할 모듈의 선택란을
+선택한 후, <strong>적용</strong>을 클릭하십시오. <strong>적용</strong>을 누르면, 선택한 내용에 따라
+<strong>HTTP URL 접두부 선택</strong> 또는 <strong>사용자 정의 HTTP URL 접두부</strong> 필드의 항목이
+선택란(가장 왼쪽 열의)이 선택된 모듈의 <strong>HTTP URL 접두부</strong> 필드에
+복사됩니다. HTTP
+접두부는 JMS URL 접두부 열의 필드에 적용되지 않습니다. </p>
+
+</dd>
+<dt>
+<strong>JMS URL 접두부</strong>
+</dt>
+<dd>각 모듈에 사용되는 JMS URL 문자열을 지정합니다. 
+<p>지정된 URL 접두부에는 목적지와 connectionFactory 등록 정보가 포함되어야
+합니다. 다른 등록 정보 값 쌍을 포함할 수 있지만, 공개된 WSDL 파일이 작성될 때
+시스템에서 추가한 targetService 등록 정보를 포함하지 말아야 합니다. JMS URL 접두부의 형식은jms:/[<em>queue&amp;topic</em>]?destination=<em>target_queue_or_topic_jndi_name</em>&amp;connectionFactory=<em>factory_jndi_name</em>입니다(예를 들어,
+jms:/queue?destination=jms/Q1&amp;connectionFactory=jms/QCF).공개된 WSDL 파일에 나타나는 실제 URL은 웹 서비스 targetService에 추가된 접두부로 이루어져 있습니다(예를 들어,jms:/queue?destination=jms/Q1&amp;connectionFactory=jms/QCF&amp;targetService=StockQuote).</p>
+
+</dd>
+</dl>
+</div>
+</body>
+</html>

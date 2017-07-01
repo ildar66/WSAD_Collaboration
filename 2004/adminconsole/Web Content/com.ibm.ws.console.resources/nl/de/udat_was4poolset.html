@@ -1,0 +1,393 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Einstellungen f&uuml;r Verbindungspool (Version 4)</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="Connection_poolV4_settings"></a>
+<h2>Einstellungen f&uuml;r Verbindungspool (Version 4)</h2>
+
+<p>Auf dieser Seite k&ouml;nnen Sie einen Verbindungspool f&uuml;r eine Datenquelle der Version 4.0 erstellen.</p>
+
+<p>Klicken Sie, um diese Seite der Administrationskonsole
+anzuzeigen, auf <strong>Ressourcen</strong> &gt; <strong>JDBC-Provider</strong> &gt;
+<em>JDBC-Provider</em> &gt; <strong>Datenquellen (Version 4)</strong> &gt;
+<em>Datenquelle</em> &gt; <strong>Verbindungspool</strong>. </p>
+
+<div>
+<p>
+<strong>Register "Konfiguration"</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="WAS40ConnectionPool_detail_contextID"></a>Bereich</strong>
+</dt>
+<dd>Gibt die Ebene an, bis zu der diese Ressourcendefinition sichtbar ist - Zelle, Knoten oder Server.
+<p>Ressourcen, wie z. B. JDBC-Provider, Namespace-Bindungen oder gemeinsam
+benutzte Bibliotheken k&ouml;nnen in mehreren Bereichen definiert werden. Dabei &uuml;berschreiben Ressourcen, die in
+spezifischeren Bereichen
+definiert wurden, Ressourcen, die in allgemeineren Bereichen definiert wurden. </p>
+
+<p>Die Merkmale einer Ressource gelten nur f&uuml;r eine bestimmte Serverebene, unabh&auml;ngig vom
+Geltungsbereich einer definierten Ressource.
+Wenn Sie beispielsweise den Geltungsbereich einer Datenquelle auf Zellenebene definieren,
+k&ouml;nnen alle Benutzer in dieser Zelle diese Datenquelle durchsuchen und verwenden.
+Die Einstellungen von Ressourcenmerkmalen gelten jedoch lokal f&uuml;r jeden Server in der Zelle.
+Wenn Sie beispielsweise die <em>maximale Anzahl von Verbindungen</em> mit 10 definieren, kann jeder
+Server in dieser Zelle 10 Verbindungen haben.
+<dl>
+
+<dt>
+<strong>Zelle</strong>
+</dt>
+<dd>Der allgemeinste Bereich. Ressourcen, die im Zellenbereich definiert werden, sind auf
+allen Knoten und Servern sichtbar, vorausgesetzt, sie wurden nicht &uuml;berschrieben.
+M&ouml;chten Sie Ressourcen anzeigen, die im Zellenbereich definiert wurden, d&uuml;rfen Sie
+keinen Server oder Knotennamen im Formular f&uuml;r die Bereichsauswahl angeben.</dd>
+
+<dt>
+<strong>Knoten</strong>
+</dt>
+<dd>Der Standardbereich f&uuml;r die meisten Ressourcentypen.  Ressourcen, die im Knotenbereich
+definiert werden, &uuml;berschreiben alle Duplikate im Zellenbereich und sind auf allen Servern, die sich auf
+demselben
+Knoten befinden, sichtbar, vorausgesetzt, sie wurden nicht in einem Serverbereich auf diesem Knoten
+&uuml;berschrieben. M&ouml;chten Sie Ressourcen anzeigen, die in einem Knotenbereich
+definiert
+wurden, d&uuml;rfen Sie keinen Server angeben, sondern m&uuml;ssen einen Knotennamen im Formular f&uuml;r
+die Bereichsauswahl ausw&auml;hlen.</dd>
+
+<dt>
+<strong>Server</strong>
+</dt>
+<dd>Der spezifischste Bereich f&uuml;r die Definition von Ressourcen.  Ressourcen,
+die im Serverbereich definiert werden, &uuml;berschreiben alle Duplikate von
+Ressourcendefinitionen, die im Zellenbereich oder im &uuml;bergeordneten
+Knotenbereich definiert wurden, und k&ouml;nnen nur von einem spezifischen Server erkannt werden. M&ouml;chten
+Sie Ressourcen anzeigen, die in einem Serverbereich definiert wurden, m&uuml;ssen Sie im
+Formular f&uuml;r die Bereichsauswahl einen Servernamen und einen Knotennamen ausw&auml;hlen.</dd>
+
+</dl>
+</p>
+
+<p>Wenn Ressourcen erstellt werden, werden sie immer im aktuellen, in der Anzeige ausgew&auml;hlten Bereich
+erstellt. M&ouml;chten Sie Ressourcen in anderen Bereichen anzeigen,
+geben Sie einen anderen Knoten oder Server im Formular f&uuml;r die Bereichsauswahl an.  </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WAS40ConnectionPool_minimumPoolSize_description"></a>Mindestgr&ouml;&szlig;e des Pools </strong>
+</dt>
+<dd>Gibt die Mindestanzahl der Verbindungen im Pool an.  
+<p>Die Mindestgr&ouml;&szlig;e des Pools kann sich auf die Leistung einer Anwendung auswirken.  F&uuml;r kleine Pools ist bei
+geringem Bedarf weniger Systemaufwand erforderlich, da weniger Verbindungen f&uuml;r die
+Datenbank ge&ouml;ffnet bleiben. Das bedeutet andererseits, dass bei hohem Bedarf die Antwort f&uuml;r die ersten
+Anwendungen langsam erfolgt, da neue Verbindungen erstellt werden m&uuml;ssen,
+wenn alle anderen Verbindungen im Pool im Gebrauch sind.  </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">1</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">Alle positiven Integer.</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WAS40ConnectionPool_maximumPoolSize_description"></a>Maximale Gr&ouml;&szlig;e des Pools </strong>
+</dt>
+<dd>Gibt die Maximalanzahl der Verbindungen im Pool an. 
+<p> Wenn die Maximalanzahl der Verbindungen erreicht ist und alle Verbindungen verwendet werden, warten
+weitere Verbindungsanforderungen so lange, wie durch das Zeitlimit f&uuml;r Verbindungen (in Sekunden) angegeben. 
+Die maximale Gr&ouml;&szlig;e des Pools kann sich auf die Leistung einer Anwendung auswirken. F&uuml;r gro&szlig;e Pools ist bei hohem Bedarf mehr
+Systemaufwand erforderlich, da zu Spitzenzeiten mehr Verbindungen f&uuml;r die
+Datenbank ge&ouml;ffnet sind.  Diese Verbindungen bleiben bestehen, bis sie aus dem Pool entfernt werden.
+Das bedeutet andererseits, dass, wenn f&uuml;r die Maximalanzahl ein geringer Wert angegeben wird, zu
+Spitzenzeiten l&auml;ngere
+Wartezeiten bzw. Fehler aufgrund von Zeitlimit&uuml;berschreitungen f&uuml;r Verbindungen eintreten k&ouml;nnen. Die
+Datenbank muss die Maximalanzahl der auf dem Anwendungsserver ausgef&uuml;hrten Verbindungen zus&auml;tzlich zu der
+au&szlig;erhalb des Anwendungsservers anfallenden Last unterst&uuml;tzen k&ouml;nnen. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">10</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">Alle positiven Integer</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WAS40ConnectionPool_connectionTimeout_description"></a>Zeitlimit f&uuml;r Verbindungen </strong>
+</dt>
+<dd> Der maximal zul&auml;ssige Zeitraum (in Sekunden), in dem eine Anwendung auf eine Verbindung aus dem
+Pool wartet. Nach Ablauf dieses Zeitraums tritt die Zeitlimit&uuml;berschreitung
+ein, und eine ConnectionWaitTimeoutException wird f&uuml;r die Anwendung
+ausgel&ouml;st.
+<p>Durch Setzen dieses Werts auf 0 wird das Zeitlimit f&uuml;r Verbindungen inaktiviert.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Einheiten</td>
+<td align="left" valign="top" class="base">Sekunden</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">180</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">Alle positiven Integer</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WAS40ConnectionPool_idleTimeout_description"></a>Zeitlimit f&uuml;r Leerlauf </strong>
+</dt>
+<dd>Gibt den maximal zul&auml;ssigen Zeitraum an (in Sekunden), in dem eine im Leerlauf befindliche (nicht
+zugeordnete) Verbindung im Pool bleiben
+kann. Nach Ablauf dieses Zeitraums wird die Verbindung zur Freigabe von Ressourcen gel&ouml;scht. 
+<p>Verbindungen m&uuml;ssen aus dem Pool entfernt werden, da Speicherprobleme in der Datenbank auftreten k&ouml;nnen,
+wenn Verbindungen ge&ouml;ffnet bleiben.  Es werden jedoch nicht alle Verbindungen aus dem Pool entfernt, selbst
+wenn sie &auml;lter sind als durch das Zeitlimit f&uuml;r Leerlauf angegeben.  Eine Verbindung
+wird nicht entfernt, wenn der Pool durch das Entfernen die Mindestgr&ouml;&szlig;e
+unterschreiten w&uuml;rde.  Durch Setzen dieses Werts auf 0 wird das Zeitlimit f&uuml;r Leerlauf inaktiviert.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Einheiten</td>
+<td align="left" valign="top" class="base">Sekunden</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">1800</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">Alle positiven Integer</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WAS40ConnectionPool_orphanTimeout_description"></a>Zeitlimit f&uuml;r verwaiste Prozesse </strong>
+</dt>
+<dd>Der maximal zul&auml;ssige Zeitraum (in Sekunden), in dem eine Anwendung eine Verbindung ungenutzt
+aufrechterhalten kann. Nach Ablauf des Zeitraums wird die Verbindung in den Pool zur&uuml;ckgegeben. 
+<p>Wenn eine zugeordnete Verbindung l&auml;nger als durch das Zeitlimit f&uuml;r verwaiste Verbindungen angegeben nicht
+aktiv war, wird die Verbindung entsprechend markiert.  Wenn ein weiteres Zeitlimit f&uuml;r verwaiste
+Verbindungen, das in Sekunden angegeben wird, verstrichen ist, wird die Verbindung
+in den Pool zur&uuml;ckgegeben.  Versucht die
+Anwendung, die Verbindung wieder zu verwenden, wird eine
+StaleConnectionException
+ausgel&ouml;st.  Verbindungen, die in einer Transaktion registriert sind, gelten nicht
+als verwaist.  Durch Setzen dieses Werts auf 0 wird das Zeitlimit
+f&uuml;r verwaiste Verbindungen inaktiviert. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Einheiten</td>
+<td align="left" valign="top" class="base">Sekunden</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">1800</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">Alle positiven Integer</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WAS40ConnectionPool_statementCacheSize_description"></a>Gr&ouml;&szlig;e des Anweisungs-Cache </strong>
+</dt>
+<dd> Die Anzahl der zwischengespeicherten vorbereiteten Anweisungen, die pro
+Verbindung gespeichert werden sollen.
+<p>Der gr&ouml;&szlig;te Wert, auf den Sie die Cache-Gr&ouml;&szlig;e einstellen m&uuml;ssen, wenn Sie vermeiden m&ouml;chten, dass der Cache
+gel&ouml;scht wird, stellt sich wie folgt dar: F&uuml;r jede Anwendung, die diese Datenquelle auf einem bestimmten
+Server verwendet, m&uuml;ssen Sie die Anzahl eindeutiger vorbereiteter Anweisungen hinzuf&uuml;gen (wie durch
+<em>sql</em>-Zeichenfolge, gemeinsamen Zugriff und Bl&auml;ttertyp festgelegt). Das ist die Maximalanzahl
+m&ouml;glicher vorbereiteter Anweisungen, die f&uuml;r eine bestimmte Verbindung w&auml;hrend der Lebensdauer des
+Servers zwischengespeichert werden k&ouml;nnen. Wenn Sie die Cache-Gr&ouml;&szlig;e auf diesen Wert einstellen, bedeutet
+das, dass der Cache nie gel&ouml;scht wird. Auf diese Weise wird eine bessere Leistung erzielt. M&ouml;glicherweise
+ist dies aufgrund von Ressourceneinschr&auml;nkungen jedoch nicht immer m&ouml;glich. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">10</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">Alle positiven Integer</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WAS40ConnectionPool_disableAutoConnectionCleanup_description"></a>Automatische Verbindungsbereinigung  </strong>
+</dt>
+<dd>Gibt an, ob die Verbindungs-Pooling-Software Verbindungen am Ende einer
+Transaktion &uuml;ber diese Datenquelle automatisch l&ouml;schen soll. 
+<p> Der Standardwert ist <em>false</em>, d. h., dass WebSphere Application Server die Verbindung nach Abschluss einer
+Transaktion schlie&szlig;t und an den Pool zur&uuml;ckgibt. Das bedeutet, dass jeder Versuch, die Verbindung nach
+Abschluss der Transaktion zu verwenden, bewirkt, dass eine StaleConnectionException ausgel&ouml;st wird, da
+die Verbindung geschlossen und in den Pool zur&uuml;ckgegeben wurde. Durch
+dieses Verfahren wird sichergestellt, dass Verbindungen nicht unendlich von der
+Anwendung aufrechterhalten werden.  Ist der Wert auf <em>true</em> eingestellt, wird die Verbindung nach
+Abschluss einer Transaktion nicht in den Pool zur&uuml;ckgegeben.  In
+diesem Fall muss die Anwendung die Verbindung durch Aufruf von <em>close()</em> in den Pool zur&uuml;ckgeben.  Wenn
+die Anwendung die Verbindung nicht schlie&szlig;t, hat der Pool m&ouml;glicherweise nicht mehr
+gen&uuml;gend Verbindungen f&uuml;r andere Verbindungen zur Verf&uuml;gung.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Markierungsfeld</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">False (l&ouml;schen)</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Zugeh&ouml;rige Informationen</strong>
+</p>
+<a href="rcon_buttons.html">Kn&ouml;pfe in der Adminstrationskonsole</a>
+<br>
+
+<a href="rcon_pageusage.html">Funktionen auf den Seiten der Administrationskonsole</a>
+<br>
+
+</div>
+</body>
+</html>

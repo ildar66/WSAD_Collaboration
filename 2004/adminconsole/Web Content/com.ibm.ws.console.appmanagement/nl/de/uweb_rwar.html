@@ -1,0 +1,82 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Einstellungen f&uuml;r Deployment von Webmodulen</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uweb_rwar"></a>
+<h2>Einstellungen f&uuml;r Deployment von Webmodulen</h2>
+
+<p> Auf dieser Seite k&ouml;nnen Sie das Deployment einer Webmodulinstanz konfigurieren. </p>
+
+<p>Klicken Sie zum Anzeigen diese Seite der Administrationskonsole auf <strong>Anwendungen</strong> &gt; <strong>Enterprise-Anwendung</strong> &gt; <em>Anwendungsinstanz</em> &gt; <strong>Webmodule</strong> &gt; <em>Webmodulinstanz</em>.</p>
+
+<dl>
+<dt>
+<strong><a name="rwar_uri"></a>URI</strong>
+</dt>
+<dd>Der URI gibt die Position des Modularchivinhalts im Dateisystem an, wenn er im Verh&auml;ltnis
+zum
+Anwendungs-URL aufgel&ouml;st wird. Der URI muss mit dem ModuleRef-URI im Deployment-Deskriptor einer Anwendung
+&uuml;bereinstimmen, wenn das Modul als Teil einer implementierten (Deployment) Anwendung oder als
+EAR-Datei (Enterprise Archive) gepackt wurde.  </dd>
+<dt>
+<strong><a name="rwar_altdd"></a>Alternativer DD</strong>
+</dt>
+<dd>Gibt den Dateinamen einer alternativen Deployment-Deskriptordatei an, die anstelle der
+urspr&uuml;nglichen Deployment-Deskriptordatei in der JAR-Datei des Moduls verwendet werden soll.
+<p> Diese Datei ist die Version der Deployment-Deskriptordatei nach der Assemblierung.
+Die urspr&uuml;ngliche Deployment-Deskriptordatei kann ge&auml;ndert werden, um
+Abh&auml;ngigkeiten und Sicherheitsinformationen aufzul&ouml;sen. Die Verwendung des alternativen
+Deployment-Deskriptors erm&ouml;glicht Ihnen, die urspr&uuml;ngliche
+Deployment-Deskriptordatei unver&auml;ndert beizubehalten.)</p>
+
+<p>Der Wert des Merkmals <em>Alternativer DD</em> muss den vollst&auml;ndigen Pfad der Deployment-Deskriptordatei im Verh&auml;ltnis zum Stammverzeichnis des Moduls angeben. Standardm&auml;&szlig;ig
+wird die Datei im Verzeichnis <samp>ALT-INF</samp> abgelegt. Falls das Merkmal
+nicht definiert ist, wird die Deployment-Deskriptordatei aus der JAR-Datei
+des Moduls gelesen.</p>
+
+</dd>
+<dt>
+<strong><a name="rwar_wt"></a>Anfangswertigkeit</strong>
+</dt>
+<dd>Gibt die Reihenfolge an, in der Module gestartet werden.
+Module mit niedrigerer Wertigkeit werden vor Modulen mit h&ouml;herer Wertigkeit gestartet.</dd>
+<dt>
+<strong><a name="rwar_classloaderMode_description"></a>Klassenladermodus</strong>
+</dt>
+<dd>Gibt an, ob der Klassenlader zuerst im &uuml;bergeordneten Klassenlader oder im Klassenlader der
+Anwendung suchen soll, um eine Klasse zu laden. Der Standardwert f&uuml;r JDK-Klassenlader
+und WebSphere-Klassenlader ist PARENT_FIRST. Durch Angabe von PARENT_LAST kann die Anwendung Klassen, die im &uuml;bergeordneten Klassenlader enthalten
+sind, &uuml;berschreiben. Wenn &uuml;berschriebene und nicht &uuml;berschriebene Klassen gemischt verwendet werden, besteht
+jedoch die M&ouml;glichkeit, dass eine ClassCastException ausgel&ouml;st wird bzw. Verkn&uuml;pfungsfehler (LinkageErrors)
+auftreten.  
+<p>Die Optionen sind PARENT_FIRST und PARENT_LAST. Der Standardwert sieht
+vor, dass zuerst im &uuml;bergeordneten Klassenlader und dann im Klassenlader der
+Anwendung gesucht werden soll, um eine Klasse zu laden.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert </td>
+<td align="left" valign="top" class="base">PARENT_FIRST</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>發佈 WSDL 檔設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_publishwsdl"></a>
+<h2>
+<img alt="[修正套件 5.0.2 和更新版本]" src="v502.gif" border="0">發佈 WSDL 檔設定</h2>
+
+<p>請利用這個頁面來發佈 Web 服務說明語言 (WSDL) 檔。     </p>
+
+<p>如果要檢視這個頁面，請按一下<strong>應用程式</strong> &gt; <strong>企業應用程式</strong> &gt; <em>application_instance</em> &gt; <strong>發佈 WSDL</strong>。
+</p>
+
+<p>當您按一下<strong>確定</strong>時，會產生應用程式中所有啟用 Web 服務的模組之 ZIP 檔。
+發佈的 ZIP 檔的名稱是 <samp>application_name_WSDLFiles.zip</samp>。
+在發佈的 ZIP 檔中，目錄結構是 <em>application_name/module_name/[META-INF|WEB-INF]/wsdl/wsdl_file_name</em>。
+</p>
+
+<p>在發佈的 WSDL 檔中，服務 <samp>soap:address</samp> 段落的位置屬性含有用來存取 Web 服務的 URL。
+您可以指定要用於每個模組中的各 Web 服務之 URL 部分。
+您可以利用 HTTP 傳輸和/或 JMS 傳輸來存取模組中的 Web 服務。
+您可以指定這兩類傳輸的 URL 資訊。
+</p>
+
+<div>
+<p>
+<strong>「配置」標籤</strong>
+</p>
+<dl>
+<dt>
+<strong>指定 Web 服務的 URL 字首</strong>
+</dt>
+<dd>指定 URL 中要用的 <em>protocol</em>（http 或 https）、<em>host_name</em> 和 <em>port_number</em>。
+
+<p>URL 字首格式是 protocol://<em>host_name:port_number</em>，如 http://<em>myHost</em>:9045。
+出現在發佈的 WSDL 檔中之實際 URL 由附加至模組環境定義起始目錄的字首和 Web 服務 URL 型樣組成，如 http://<em>myHost</em>:9045/services/<em>myService</em>。
+</p>
+
+</dd>
+<dt>
+<strong>選取 HTTP URL 字首</strong>
+</dt>
+<dd>指定預設 URL 字首清單的相關下拉清單。
+這份清單是模組虛擬主機埠集和模組應用程式伺服器埠集的交集。
+如果直接存取 Web 服務應用程式，請使用這份清單中的項目。
+<p>如果要設定 HTTP 字首，您可以選取 <strong>HTTP URL 字首</strong>或<strong>自訂 HTTP URL 字首</strong>，輸入值，選取使用這個字首之模組的勾選框，再按一下<strong>套用</strong>。
+當您按一下<strong>套用</strong>時，會依所選項目而定，將<strong>選取 HTTP URL 字首</strong>或<strong>自訂 HTTP URL 字首</strong>欄位中的項目複製到選取了勾選框（在最左側直欄）的任何模組的 <strong>HTTP URL 字首</strong>欄位中。HTTP 字首不會套用在 JMS URL 字首直欄中的各欄位上。
+</p>
+
+</dd>
+<dt>
+<strong>自訂 HTTP URL 字首</strong>
+</dt>
+<dd>如果是利用中間節點（如 Web 服務閘道或 IHS 伺服器）存取模組中的 Web 服務，便指定中間服務的 <em>protocol</em>、<em>host</em> 和 <em>port_number</em>。
+
+<p>如果要設定 HTTP 字首，您可以選取 <strong>HTTP URL 字首</strong>或<strong>自訂 HTTP URL 字首</strong>，輸入值，選取使用這個字首之模組的勾選框，再按一下<strong>套用</strong>。
+當您按一下<strong>套用</strong>時，會依所選項目而定，將<strong>選取 HTTP URL 字首</strong>或<strong>自訂 HTTP URL 字首</strong>欄位中的項目複製到選取了勾選框（在最左側直欄）的任何模組的 <strong>HTTP URL 字首</strong>欄位中。HTTP 字首不會套用在 JMS URL 字首直欄中的各欄位上。
+</p>
+
+</dd>
+<dt>
+<strong>JMS URL 字首</strong>
+</dt>
+<dd>指定每個模組所用的 JMS URL 字首字串。
+<p>指定的 URL 字首必須含有 destination 和 connectionFactory 內容。
+它可以含有其他內容值組，但不能含有發佈的 WSDL 檔建立時所加入的 targetService 內容。JMS URL 字首的格式是 jms:/[<em>queue&amp;topic</em>]?destination=<em>target_queue_or_topic_jndi_name</em>&amp;connectionFactory=<em>factory_jndi_name</em>, for example, jms:/queue?destination=jms/Q1&amp;connectionFactory=jms/QCF。出現在發佈的 WSDL 檔中之實際 URL 由附加至 Web 服務 targetService 的字首組成，如 jms:/queue?destination=jms/Q1&amp;connectionFactory=jms/QCF&amp;targetService=StockQuote。</p>
+
+</dd>
+</dl>
+</div>
+</body>
+</html>

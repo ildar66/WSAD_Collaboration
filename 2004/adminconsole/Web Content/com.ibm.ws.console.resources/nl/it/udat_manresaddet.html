@@ -1,0 +1,203 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Impostazioni dell'adattatore risorse</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="manage_resource_adapter"></a>
+<h2>Impostazioni dell'adattatore risorse</h2>
+
+<p>Utilizzare questa pagina per specificare le impostazioni
+di un adattatore risorse.</p>
+
+<p>Tale adattatore risorse pu&ograve; essere offerto da fornitori terzi diversi da IBM. In
+genere, un singolo adattatore risorse pu&ograve; collegarsi a un tipo di
+sistema back-end (EIS) ma pu&ograve; supportare molte configurazioni
+diverse per le connessioni a quel sistema EIS. L'adattatore di risorse ha molte propriet&agrave; di configurazione che sono definite nelle specifiche J2C e impostate dal fornitore del codice. </p>
+
+<p>Per visualizzare questa pagina della console di gestione, fare clic su <strong>Risorse</strong>
+&gt;<strong>Adattatori risorse</strong> &gt; <em>adattatore_risorsa</em>.</p>
+
+<div>
+<p>
+<strong>Scheda Configurazione</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="J2CResourceAdapter_detail_contextID"></a>Ambito</strong>
+</dt>
+<dd>Specifica il livello in cui &egrave; visibile questa definizione di risorsa -- il
+livello cella, nodo o server.
+<p>WebSphere 5.0 rende disponibili risorse quali JDBCProvider, collegamenti spazio nome o
+librerie condivise a pi&ugrave; ambiti, insieme a risorse definite in ambiti pi&ugrave; specifici che
+sovrascrivono i duplicati definiti in ambiti pi&ugrave; generali. <dl>
+
+<dt>
+<strong>Cella</strong>
+</dt>
+<dd>L'ambito pi&ugrave; generale.  Le risorse definite
+nell'ambito cella sono visibili da tutti i nodi e i server a
+meno che non siano state sovrascritte.
+Per visualizzare le risorse definite nell'ambito cella, non specificare il nome di un
+server o di un nodo nel modulo di selezione dell'ambito.</dd>
+
+<dt>
+<strong>Nodo</strong>
+</dt>
+<dd>L'ambito predefinito per la maggior parte dei tipi
+di risorse.  Le risorse definite nell'ambito nodo sovrascrivono
+gli eventuali duplicati definiti nell'ambito cella e sono
+visibili a tutti i server sullo stesso nodo a meno che non siano
+state sovrascritte in un ambito server sul quel nodo. Per
+visualizzare le risorse definite in un ambito nodo, non specificare
+un server ma selezionare il nome di un nodo nel modulo di selezione
+dell'ambito.</dd>
+
+<dt>
+<strong>Server</strong>
+</dt>
+<dd>L'ambito pi&ugrave; specifico per la definizione delle
+risorse.  Le risorse definite nell'ambito server sovrascrivono eventuali
+definizioni di risorse duplicate specificate nell'ambito cella o
+nell'ambito nodo parent e sono visibili solo in un determinato server. Per
+visualizzare le risorse definite in un ambito server, specificare il
+nome di un server e il nome di un nodo nel modulo di selezione
+dell'ambito.</dd>
+
+</dl>
+</p>
+
+<p>Quando le risorse vengono generate, vengono sempre create
+nell'ambito corrente selezionato nel pannello.   Per visualizzare le
+risorse in altri ambiti, specificare un nodo o un server diverso nel
+modulo di selezione dell'ambito.  </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2EEResourceProvider_name_description"></a>Name</strong>
+</dt>
+<dd>Specifica il nome del provider di risorse. 
+<p>Una stringa senza spazi indica che si tratta di un identificativo
+di testo significativo per il provider di risorse.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2EEResourceProvider_description_description"></a>Descrizione</strong>
+</dt>
+<dd>Specifica una descrizione della produzione risorse. 
+<p>Una stringa di testo libera per descrivere la produzione di
+risorse e il relativo scopo.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2CResourceAdapter_archivePath_description"></a>Percorso archivio</strong>
+</dt>
+<dd>Specifica il percorso al file .RAR contenente il modulo per l'adattatore
+risorse specificato. 
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2EEResourceProvider_classpath_description"></a>Classpath</strong>
+</dt>
+<dd> Specifica un elenco di percorsi o nomi di file JAR che insieme costituiscono
+l'ubicazione delle classi dei provider di risorse. 
+<p>Sono incluse tutte le ulteriori librerie necessarie per
+l'adattatore risorse.
+Il codice base dell'adattatore risorse viene automaticamente aggiunto al percorso classe
+ma se sono necessari altri elementi oltre al file .RAR, possono essere specificati in
+questo punto.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2EEResourceProvider_nativepath_description"></a>Percorso nativo</strong>
+</dt>
+<dd>Specifica un elenco di percorsi che costituiscono l'ubicazione delle librerie
+native del provider di risorse. 
+<p>Il codice base dell'adattatore risorse viene automaticamente aggiunto al percorso
+classe ma se sono necessari altri elementi oltre al file .RAR, possono essere specificati
+in questo punto. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informazioni correlate</strong>
+</p>
+<a href="rcon_buttons.html">Pulsanti della console di gestione</a>
+<br>
+
+<a href="rcon_pageusage.html">Funzioni della pagina della console di gestione</a>
+<br>
+
+</div>
+</body>
+</html>

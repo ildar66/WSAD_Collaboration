@@ -1,0 +1,635 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>WebSphere MQ 队列连接工厂设置</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="MQQueueConnectionFactory"></a>
+<h2>
+<img alt="[Release 5.1 and later]" src="v51.gif" border="0">WebSphere MQ 队列连接工厂设置</h2>
+
+<p>使用此面板查看或更改所选队列连接工厂的配置属性，以与 WebSphere MQ JMS 提供程序一起使用。这些配置属性控制如何创建到关联 JMS 队列目标的连接。</p>
+
+<p>队列连接工厂用于创建到队列目标的 JMS 连接。队列连接工厂由 WebSphere MQ JMS 提供程序创建。WebSphere MQ JMS 提供程序的队列连接工厂具有下列属性。<p>
+<b>注: </b>
+<ul>
+
+<li>您指定的属性值必须与您在为 JMS 资源配置 WebSphere MQ 时指定的值匹配。要获得有关配置 WebSphere MQ JMS 资源的更多信息，请参阅 WebSphere MQ <cite>Using Java</cite> 一书，以及《<cite>WebSphere MQ 系统管理</cite>》一书（SC33-1873），它可从位于 <img border="0" alt="仅当此主题链接到万维网时可以访问目标" src="web.gif">&nbsp;&nbsp;               
+   <a target="_blank" href="http://www-3.ibm.com/software/ts/mqseries/library/manualsa/manuals/platspecific.html"><strong>http://www-3.ibm.com/software/ts/mqseries/library/manualsa/manuals/platspecific.html</strong></a>
+的 WebSphere MQ 消息传递平台特定的书籍，<img border="0" alt="仅当此主题链接到万维网时可以访问目标" src="web.gif">&nbsp;&nbsp;               
+   <a target="_blank" href="http://www.elink.ibmlink.ibm.com/public/applications/publications/cgibin/pbi.cgi"><strong>IBM 出版物中心</strong></a>
+ 或从 WebSphere MQ 集合工具箱（SK2T-0730）处获得。</li>
+
+<li>在 WebSphere MQ 中，名称最长可以是 48 个字符，但例外是通道最长为 20 个字符。</li>
+
+<li>
+<img alt="[Release 5.1 and later]" src="v51.gif" border="0">您可以使用&ldquo;定制&rdquo;属性页定义 WebSphere MQ 安全套接字层（SSL）属性。要获取更多关于设置那些属性的信息，请参阅<a href="#ConnectionFactory_customProperties">定制属性</a>。</li>
+
+</ul>
+</p>
+</p>
+
+<p>要查看此管理控制台页面，单击<strong>资源 -&gt; WebSphere
+MQ JMS 提供程序 -&gt;（在内容窗格中，&ldquo;其它属性&rdquo;下）WebSphere
+MQ 队列连接工厂 -&gt; <em>connection_factory</em></strong>
+</p>
+
+<dl>
+<dt>
+<strong><a name="MQQueueConnectionFactory_name"></a>名称</strong>
+</dt>
+<dd>在 IBM WebSphere Application Server 中出于管理目的，用于标识队列连接工厂的名称。此名称在跨 WebSphere 管理域的 JMS 连接工厂中是唯一的。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQQueueConnectionFactory_jndiName"></a>JNDI 名称</strong>
+</dt>
+<dd>用于将连接工厂绑定到应用程序服务器的名称空间的 JNDI 名称。
+<p>按约定，使用全限定 JNDI 名称；例如，格式为 jms/<em>Name</em>，其中 <em>Name</em> 是资源的逻辑名称。</p>
+
+<p>该名称用于链接平台绑定信息。绑定使模块部署描述符定义的资源与由平台绑定到 JNDI 的实际（物理）资源相关联。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQQueueConnectionFactory_description"></a>描述</strong>
+</dt>
+<dd>在 IBM WebSphere Application Server 中出于管理目的，对连接工厂的描述。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">空</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQQueueConnectionFactory_category"></a>类别</strong>
+</dt>
+<dd>为了您的 IBM WebSphere Application Server 管理记录，用于分类或分组此连接工厂的类别。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="AuthDataAlias"></a>组件管理的认证别名</strong>
+</dt>
+<dd>此别名指定用于认证连接到 JMS 提供程序的用户标识和密码，以进行应用程序管理的认证。
+<p>此属性提供已定义给 WebSphere Application Server 的 J2C 认证数据条目别名的列表。您可以选择数据条目别名，用它来认证创建的到 JMS 提供程序的新连接。</p>
+
+<p>如果您为 WebSphere Application Server 启用了全局安全性，那么请选择别名，该别名指定用于认证创建的到 JMS 提供程序的新连接的用户标识和密码。此别名的使用取决于资源认证（res-auth）设置，它在应用程序组件的部署描述符的连接工厂资源引用中声明。</p>
+
+<p>
+<b>注: </b>
+<ol>
+
+<li>长于 12 个字符的用户标识不能用于具有嵌入式 WebSphere JMS 提供程序的认证。例如，缺省 Windows NT 用户标识 <strong>Administrator</strong> 对于与嵌入式 WebSphere 消息传递一起使用是无效的，因为它包含 13 个字符。
+因此，WebSphere JMS 提供程序连接工厂的认证别名必须指定不多于 12 个字符的用户标识。</li>
+
+
+<li>当使用绑定传输方式时，如果您要使用 WebSphere MQ JMS 提供程序 JMS 连接，则在 WebSphere MQ 队列连接工厂上设置 <strong>Transport type</strong>=BINDINGS。您也必须选择以下选项之一：<ul>
+
+<li>要使用安全性凭证，确保指定的用户是 WebSphere Application Server 进程的当前登录的用户。如果指定的用户不是 WebSphere Application Server 进程的当前登录的用户，则 WebSphere MQ JMS 绑定认证抛出"为 MQQueueManager 提供了 MQJMS2013 无效安全性认证"错误。</li>
+
+<li>不要指定安全性凭证。在 WebSphere MQ 连接工厂上，确保未设置<strong>组件管理的认证别名</strong>和<strong>容器管理的认证别名</strong>属性。</li>
+
+</ul>
+</li>
+
+</ol>
+</p>
+
+</dd>
+<dt>
+<strong><a name="mappingAuthDataAlias"></a>容器管理的认证别名</strong>
+</dt>
+<dd>此别名指定用于认证连接到 JMS 提供程序的用户标识和密码，以进行容器管理的认证。
+<p>此属性提供已定义给 WebSphere Application Server 的 J2C 认证数据条目别名的列表。您可以选择数据条目别名，用它来认证创建的到 JMS 提供程序的新连接。</p>
+
+<p>如果您为 WebSphere Application Server 启用了全局安全性，那么请选择别名，该别名指定用于认证创建的到 JMS 提供程序的新连接的用户标识和密码。此别名的使用取决于资源认证（res-auth）设置，它在应用程序组件的部署描述符的连接工厂资源引用中声明。</p>
+
+<p>
+<b>注: </b>
+<ol>
+
+<li>长于 12 个字符的用户标识不能用于具有嵌入式 WebSphere JMS 提供程序的认证。例如，缺省 Windows NT 用户标识 <strong>Administrator</strong> 对于与嵌入式 WebSphere 消息传递一起使用是无效的，因为它包含 13 个字符。
+因此，WebSphere JMS 提供程序连接工厂的认证别名必须指定不多于 12 个字符的用户标识。</li>
+
+
+<li>当使用绑定传输方式时，如果您要使用 WebSphere MQ JMS 提供程序 JMS 连接，则在 WebSphere MQ 队列连接工厂上设置 <strong>Transport type</strong>=BINDINGS。您也必须选择以下选项之一：<ul>
+
+<li>要使用安全性凭证，确保指定的用户是 WebSphere Application Server 进程的当前登录的用户。如果指定的用户不是 WebSphere Application Server 进程的当前登录的用户，则 WebSphere MQ JMS 绑定认证抛出"为 MQQueueManager 提供了 MQJMS2013 无效安全性认证"错误。</li>
+
+<li>不要指定安全性凭证。在 WebSphere MQ 连接工厂上，确保未设置<strong>组件管理的认证别名</strong>和<strong>容器管理的认证别名</strong>属性。</li>
+
+</ul>
+</li>
+
+</ol>
+</p>
+
+</dd>
+<dt>
+<strong><a name="MQQueueConnectionFactory_queueManager"></a>Queue Manager</strong>
+</dt>
+<dd>此连接工厂的 WebSphere MQ Queue Manager 名。此工厂创建的连接连接到此 Queue Manager。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">空</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">范围</td>
+<td align="left" valign="top" class="base">有效的 WebSphere MQ Queue Manager 名，从 1 到 48 个 ASCII 字符</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQQueueConnectionFactory_host"></a>主机</strong>
+</dt>
+<dd>运行 WebSphere MQ Queue Manager 的主机名，仅用于客户机连接。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">空</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">范围</td>
+<td align="left" valign="top" class="base">有效的 TCP/IP 主机名</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQQueueConnectionFactory_port"></a>端口</strong>
+</dt>
+<dd>仅对于客户机连接，用于到 WebSphere MQ Queue Manager 的连接的 TCP/IP 端口号。
+<p>必须在 WebSphere MQ Queue Manager 上配置此端口。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">整型</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">空</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">范围</td>
+<td align="left" valign="top" class="base">有效的 TCP/IP 端口号，在 WebSphere MQ Queue Manager 上配置。</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQQueueConnectionFactory_channel"></a>通道</strong>
+</dt>
+<dd>仅对于客户机连接，用于到 WebSphere MQ Queue Manager 的连接的通道名。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">空</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">范围</td>
+<td align="left" valign="top" class="base">1 到 20 个 ASCII 字符</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQQueueConnectionFactory_transportType"></a>传送类型</strong>
+</dt>
+<dd>指定是 WebSphere MQ 客户机连接，还是 JNI 绑定用于到 WebSphere MQ Queue Manager 的连接。外部 JMS 提供程序控制 JMS 客户机和 JMS 服务器之间的通信协议。当您使用非 ASF 非持久性、非耐久性、非事务性消息传递，或者当您要满足安全性问题，而客户机对于 Queue Manager 节点是本地时，调整传输类型。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">枚举</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">单位</td>
+<td align="left" valign="top" class="base">不适用</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">BINDINGS</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">范围</td>
+<td align="left" valign="top" class="base">
+<dl>
+<dt>
+<strong>BINDINGS</strong>
+</dt>
+<dd>JNI 绑定用于连接到 Queue Manager。BINDINGS 是共享的内存协议，只能用在 Queue Manager 和 JMS 客户机位于同一节点上，而且具有相同的安全性风险（应该通过使用 EJB 角色来处理）时。<p>当使用绑定传输方式时，如果您要使用 WebSphere MQ JMS 提供程序 JMS 连接，则在 WebSphere MQ 队列连接工厂上设置 <strong>Transport type</strong>=BINDINGS。您也必须选择以下选项之一：<ul>
+
+<li>要使用安全性凭证，确保指定的用户是 WebSphere Application Server 进程的当前登录的用户。如果指定的用户不是 WebSphere Application Server 进程的当前登录的用户，则 WebSphere MQ JMS 绑定认证抛出"为 MQQueueManager 提供了 MQJMS2013 无效安全性认证"错误。</li>
+
+<li>不要指定安全性凭证。在 WebSphere MQ 连接工厂上，确保未设置<strong>组件管理的认证别名</strong>和<strong>容器管理的认证别名</strong>属性。</li>
+
+</ul>
+</p>
+</dd>
+<dt>
+<strong>CLIENT</strong>
+</dt>
+<dd>WebSphere MQ 客户机连接用于连接到 Queue Manager。CLIENT 是典型的基于 TCP 协议。</dd>
+<dt>
+<strong>DIRECT</strong>
+</dt>
+<dd>对于使用 DIRECT 方式的 WebSphere MQ 事件代理。DIRECT 是轻量级套接字协议，用于非事务性、非耐久性和非持久性 Publish/Subscribe 消息传递。
+DIRECT 仅作用于使用非 ASF 协议的客户机和消息驱动 bean。</dd>
+<dt>
+<strong>QUEUED</strong>
+</dt>
+<dd>QUEUED 是标准 TCP 协议。</dd>
+</dl>
+</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">建议</td>
+<td align="left" valign="top" class="base">
+<dl>
+<dt>
+<strong>队列连接工厂传输类型</strong>
+</dt>
+<dd>BINDINGS 可加快 30% 或更多，但是它缺乏安全性。当您具有安全性注意事项时，BINDINGS 比 CLIENT 更合适。</dd>
+<dt>
+<strong>主题连接工厂传输类型</strong>
+</dt>
+<dd>DIRECT 是最快速的，应该尽可能的使用。当您要满足其它安全性任务，而且 Queue Manager 对于 JMS 客户机是本地时，使用 BINDINGS。QUEUED 是所有其它情况的候补。注意，当带有 DIRECT 设置的 CSD2 之前的 WebSphere MQ 5.3 与消息驱动 bean 一起使用并处于欠载状态时，可丢失消息。这还发生在基于客户机端应用程序时，除非代理的 maxClientQueueSize 设置为 0。您可使用命令 <samp>#wempschangeproperties WAS_nodeName_server1
+-e default -o DynamicSubscriptionEngine -n maxClientQueueSize -v 0 -x executionGroupUUID 将其设置为 0，其中 executionGroupUUID 可通过启动代理并查看事件 2201 的事件日志／应用程序找到。</samp>此值通常是 ffffffff-0000-0000-000000000000。</dd>
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQQueueConnectionFactory_tempModel"></a>模型队列定义</strong>
+</dt>
+<dd>当请求的队列不存在时，Queue Manager 可用于创建临时队列的模型队列定义名。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">空</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">范围</td>
+<td align="left" valign="top" class="base">1 到 48 个 ASCII 字符</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQQueueConnectionFactory_clientID"></a>客户机标识</strong>
+</dt>
+<dd>用于到 WebSphere MQ Queue Manager 的连接的 JMS 客户机标识。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">空</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQQueueConnectionFactory_CCSID"></a>CCSID</strong>
+</dt>
+<dd>与 WebSphere MQ Queue Manager 一起使用的编码字符集标识。
+<p>此编码字符集标识（CCSID）必须是 WebSphere MQ 所支持 CCSID 之一。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">单位</td>
+<td align="left" valign="top" class="base">整型</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">空</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">范围</td>
+<td align="left" valign="top" class="base">1 到 65535</td>
+
+</tr>
+
+</table>
+
+<p>要获取有关所支持 CCSID 以及有关在消息数据之间从一个已编码字符集转换到另一个字符集的更多信息，请参阅 <cite>WebSphere MQ System Administration</cite> 和 <cite>WebSphere MQ Application Programming Reference</cite> 书籍。
+这些可从 WebSphere MQ 消息传递多平台和平台特定书籍的 Web 页面（例如，<img border="0" alt="仅当此主题链接到万维网时可以访问目标" src="web.gif">&nbsp;&nbsp;               
+   <a target="_blank" href="http://www-3.ibm.com/software/ts/mqseries/library/manualsa/manuals/crosslatest.html.html"><strong>http://www-3.ibm.com/software/ts/mqseries/library/manualsa/manuals/platspecific.html</strong></a>
+）、<img border="0" alt="仅当此主题链接到万维网时可以访问目标" src="web.gif">&nbsp;&nbsp;               
+   <a target="_blank" href="http://www.elink.ibmlink.ibm.com/public/applications/publications/cgibin/pbi.cgi"><strong>IBM 出版物中心</strong></a>
+或 WebSphere MQ collection kit，SK2T-0730 中获得。</p>
+
+</dd>
+<dt>
+<strong><a name="MQQueueConnectionFactory_msgRetention"></a>消息保留</strong>
+</dt>
+<dd>选择此记号框，以指定在队列上保留不要的消息。否则，根据不要消息的配置选项处理它们。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">枚举</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">单位</td>
+<td align="left" valign="top" class="base">不适用</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">已清除</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">范围</td>
+<td align="left" valign="top" class="base">
+<dl>
+<dt>
+<strong>已选择</strong>
+</dt>
+<dd>在队列上保留不要的消息。</dd>
+<dt>
+<strong>已清除</strong>
+</dt>
+<dd>根据不要消息的配置选项处理它们。</dd>
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASQueueConnectionFactory_type"></a>启用 XA</strong>
+</dt>
+<dd>指定连接工厂是用于消息的 XA 还是非 XA 坐标，并控制应用程序服务器是否使用 XA QCF/TCF。如果同一事务中未使用多个资源，则启用 XA。
+<p>如果您设置此属性为 <samp>NON_XA</samp>，JMS 会话仍参与事务中，但使用资源管理器本地事务调用（session.commit 和 session.rollback）而不是 XA 调用。这可以改进性能。然而，这意味着在 WebSphere Application Server 中仅单个资源能参与事务。在 WebSphere Application Server Enterprise 中，最后参与者支持使一个非 XA 资源与其它有 XA 能力的资源一起参与。</p>
+
+<p>对于 <strong>Port</strong> 属性设置为 <samp>DIRECT</samp> 的 WebSphere 主题连接工厂，此属性不适用，且总是采用值 <samp>NON_XA</samp>。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">枚举</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">单位</td>
+<td align="left" valign="top" class="base">不适用</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">启用 XA</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">范围</td>
+<td align="left" valign="top" class="base">
+<dl>
+<dt>
+<strong>XA</strong>
+</dt>
+<dd>此连接工厂用于消息的 XA 坐标</dd>
+<dt>
+<strong>NON_XA</strong>
+</dt>
+<dd>此连接工厂用于消息的非 XA 坐标</dd>
+</dl>
+</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">建议</td>
+<td align="left" valign="top" class="base">当接收的消息队列或主题仅是事务中的资源时，不要启用 XA。
+当涉及其它资源（包含其它队列或主题）时，启用 XA。</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ConnectionFactory_connectionPool"></a>连接池</strong>
+</dt>
+<dd>指定连接池设置的可选集合。
+<p>连接池属性对于所有 J2C 连接器是公共的。</p>
+
+<p>应用程序服务器将连接和会话与 JMS 提供程序合用，以改进性能。这独立于任何 WebSphere MQ 连接池。您需要为您的应用程序正确地配置连接和会话池属性，否则您也许不能获取想要的连接和会话行为。</p>
+
+<p>如果对 JMS 资源的并发服务器端访问超出缺省值，则更改连接池的大小。在每个队列或主题基础上设置连接池的大小。请参阅下表，以获得详细信息。</p>
+
+</dd>
+<dt>
+<strong><a name="ConnectionFactory_sessionPool"></a>会话池</strong>
+</dt>
+<dd>会话池设置的可选集合。
+<p>此链接提供对所有 J2C 连接器共有的可选连接池属性的面板。</p>
+
+<p>应用程序服务器将连接和会话与 JMS 提供程序合用，以改进性能。这独立于任何 WebSphere MQ 连接池。您需要为您的应用程序正确地配置连接和会话池属性，否则您也许不能获取想要的连接和会话行为。</p>
+
+</dd>
+<dt>
+<strong><a name="ConnectionFactory_customProperties"></a>定制属性</strong>
+</dt>
+<dd>传递到 WebSphere MQ 的定制属性的名称和值对的可选集合。
+<p>您可以使用&ldquo;定制&rdquo;属性页定义以下 WebSphere MQ 安全套接字层（SSL）属性。这些特性仅当您设置属性为 <a href="#MQQueueConnectionFactory_transportType">Transport type=CLIENT</a> 时应用。</p>
+
+<ul>
+
+<li>
+<a href="#SSLCIPHERSUITE">SSLCIPHERSUITE</a>
+</li>
+
+<li>
+<a href="#SSLCRL">SSLCRL</a>
+</li>
+
+<li>
+<a href="#SSLCRL">SSLPEERNAME</a>
+</li>
+
+</ul>
+
+<p>要获取更多关于设置这些属性的信息，请参阅《<cite>WebSphere MQ Using Java</cite>》一书中的 <a href="http://publibfp.boulder.ibm.com/epubs/html/csqzaw11/csqzaw1116.htm#HDRJSSLPR">SSL 属性</a>部分。</p>
+
+</dd>
+</dl>
+</body>
+</html>

@@ -1,0 +1,59 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>Results page</TITLE>
+</HEAD>
+
+<!--Styles-->
+<STYLE type="text/css">
+<!--
+BODY {
+	background-color: #ffffff !important;
+}H1 {text-align: center !important;
+}
+TH {
+	text-align:left !important;
+	vertical-align: top !important;color: #000000 !important;
+}-->
+</STYLE>
+
+
+<BODY>
+
+<TABLE border="0">
+<TBody>
+				<TR>
+			<TH>result</TH>
+			<TD>
+				<Table>
+				<TBody>
+					<TR>
+						<TH class="result">result</TH>
+					</TR>
+<%
+	if (referencesForm.getResult() != null) {
+		java.util.Iterator i = referencesForm.getResult().iterator();
+		int i0 = 0;
+		while (i.hasNext()) {
+			java.lang.Object resulti0 = (java.lang.Object)i.next();
+%>
+					<TR>
+						<TD class="result">
+
+	&lt;result&gt;						</TD>
+					</TR>
+<%
+		}
+		
+		i0++;
+	}
+%>
+				</Table>
+				</TBody>
+			</TD>
+		</TR>
+</TBody>
+</TABLE>
+</BODY>
+</HTML>

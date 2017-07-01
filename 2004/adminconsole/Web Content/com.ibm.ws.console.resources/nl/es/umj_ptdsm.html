@@ -1,0 +1,825 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Valores de tema de WebSphere MQ</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="MQTopic"></a>
+<h2>Valores de tema de WebSphere MQ</h2>
+
+<p>Utilice este panel para ver o modificar las propiedades de configuraci&oacute;n del destino
+de tema seleccionado que se va a utilizar con el proveedor de JMS de WebSphere MQ.</p>
+
+<p>Un destino de tema se utiliza para configurar las propiedades de un tema JMS para el proveedor de JMS asociado. La
+f&aacute;brica de conexiones de tema asociada crea las conexiones con el tema. Un tema que se vaya a
+utilizar con el proveedor de JMS de WebSphere MQ tiene las propiedades siguientes.<p>
+<b>Nota: </b>
+<ul>
+
+<li>Los valores de las propiedades que especifique deben coincidir con los valores especificados al configurar los recursos JMS de WebSphere MQ. Para obtener m&aacute;s informaci&oacute;n sobre la configuraci&oacute;n de recursos JMS
+de WebSphere MQ, consulte la publicaci&oacute;n WebSphere MQ <cite>Utilizaci&oacute;n
+de Java</cite>.</li>
+
+<li>En WebSphere MQ, los nombres pueden tener un m&aacute;ximo de 48 caracteres, a excepci&oacute;n de los
+canales, que tienen un m&aacute;ximo de 20 caracteres.</li>
+
+</ul>
+</p>
+</p>
+
+<p>Para ver esta p&aacute;gina de la consola administrativa, pulse <strong>Recursos-&gt; Proveedor de JMS
+de WebSphere MQ-&gt; (en el panel de contenido, en Propiedades adicionales) Destinos de tema
+de WebSphere MQ-&gt; <em>nombre_destino</em></strong>
+</p>
+
+<dl>
+<dt>
+<strong><a name="MQTopic_name"></a>Nombre</strong>
+</dt>
+<dd>Nombre por el que se conoce el
+tema para fines administrativos dentro de IBM WebSphere Application
+Server.<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+</dd>
+<dt>
+<strong><a name="MQTopic_jndiName"></a>Nombre JNDI</strong>
+</dt>
+<dd>Nombre JNDI utilizado para
+enlazar el tema con el espacio de nombres del servidor de aplicaciones.<p>Como convenci&oacute;n, utilice el nombre JNDI plenamente cualificado; por ejemplo, con el
+formato jms/<em>Nombre</em>, donde <em>Nombre</em> es el nombre
+l&oacute;gico del recurso.</p>
+<p>Este nombre se utiliza para enlazar la informaci&oacute;n de enlace de la plataforma. El enlace asocia los recursos definidos en el
+descriptor de despliegue del m&oacute;dulo con los recursos reales (f&iacute;sicos) enlazados con JNDI por la plataforma.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+</dd>
+<dt>
+<strong><a name="MQTopic_description"></a>Descripci&oacute;n</strong>
+</dt>
+<dd>Descripci&oacute;n del tema, para
+fines administrativos dentro de IBM WebSphere Application Server.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopic_category"></a>Categor&iacute;a</strong>
+</dt>
+<dd>Categor&iacute;a utilizada para
+clasificar o agrupar este tema, para sus registros administrativos de
+IBM WebSphere Application Server.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopic_persistence"></a>Persistencia</strong>
+</dt>
+<dd>Especifica si todos los mensajes enviados al destino son persistentes, no
+persistentes o la persistencia est&aacute; definida por la aplicaci&oacute;n.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unidades</td>
+<td align="left" valign="top" class="base">No se aplica</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">DEFINIDA_POR_APLICACI&Oacute;N</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>Definida por aplicaci&oacute;n</strong>
+</dt>
+<dd>La persistencia de los mensajes en el destino est&aacute; definida por la aplicaci&oacute;n que los
+ha colocado en la cola.</dd>
+
+<dt>
+<strong>Cola definida</strong>
+</dt>
+<dd>[S&oacute;lo para destino de WebSphere MQ] La persistencia de los mensajes
+en el destino est&aacute; definida por las propiedades de definici&oacute;n de cola de WebSphere MQ.</dd>
+
+<dt>
+<strong>Persistente</strong>
+</dt>
+<dd>Los mensajes en el destino son persistentes.</dd>
+
+<dt>
+<strong>No persistente</strong>
+</dt>
+<dd>Los mensajes en el destino no son persistentes.</dd>
+
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopic_priority"></a>Prioridad</strong>
+</dt>
+<dd>Especifica si la prioridad
+del mensaje para este destino est&aacute; definida por la aplicaci&oacute;n o por la
+propiedad <strong>Prioridad especificada</strong>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unidades</td>
+<td align="left" valign="top" class="base">No se aplica</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">DEFINIDA_POR_APLICACI&Oacute;N</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>Definida por aplicaci&oacute;n</strong>
+</dt>
+<dd>La prioridad de los mensajes en este destino est&aacute; definida por la aplicaci&oacute;n que los ha colocado en el destino.</dd>
+
+<dt>
+<strong>Cola definida</strong>
+</dt>
+<dd>[S&oacute;lo para destino de WebSphere MQ] La persistencia de los mensajes
+en el destino est&aacute; definida por las propiedades de definici&oacute;n de cola de WebSphere MQ.</dd>
+
+<dt>
+<strong>Especificada</strong>
+</dt>
+<dd>La prioridad de los mensajes en este destino
+est&aacute; definida por la propiedad <strong>Prioridad especificada</strong>.<em>Si selecciona esta opci&oacute;n, debe definir una prioridad
+en la propiedad <strong>Prioridad especificada</strong>.</em> 
+</dd>
+
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopic_specifiedPriority"></a>Prioridad especificada</strong>
+</dt>
+<dd>Si la propiedad <strong>Prioridad</strong> est&aacute; establecida en <samp>Especificada</samp>, escriba aqu&iacute; la prioridad de mensajes de esta cola, en el rango de 0 (menor) a 9 (mayor).
+<p>Si la propiedad <strong>Prioridad</strong> est&aacute; establecida en <samp>Especificada</samp>, los mensajes enviados a esta cola tienen el valor de prioridad especificado por esta propiedad.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unidades</td>
+<td align="left" valign="top" class="base">Nivel de prioridad de los mensajes</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">0 (prioridad menor) a 9 (prioridad mayor)</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopic_expiry"></a>Caducidad</strong>
+</dt>
+<dd>Especifica si el tiempo de
+espera de caducidad para esta cola est&aacute; definida por la aplicaci&oacute;n o
+por la propiedad<strong>Caducidad especificada</strong> o, de lo contrario, los
+mensajes de la cola no caducan nunca (tienen un tiempo espera de
+caducidad ilimitado).
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unidades</td>
+<td align="left" valign="top" class="base">No se aplica</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">DEFINIDA_POR_APLICACI&Oacute;N</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>Definida por aplicaci&oacute;n</strong>
+</dt>
+<dd>El tiempo de espera de caducidad de los mensajes de esta cola est&aacute; definido por la
+aplicaci&oacute;n que los ha colocado en la cola.</dd>
+
+<dt>
+<strong>Especificada</strong>
+</dt>
+<dd>El tiempo de espera de caducidad de los
+mensajes de esta cola est&aacute; definida por la propiedad <strong>Caducidad
+especificada</strong>.<em>Si selecciona esta opci&oacute;n, debe
+definir un tiempo de espera en la propiedad <strong>Caducidad
+especificada</strong>.</em> 
+</dd>
+
+<dt>
+<strong>Ilimitado</strong>
+</dt>
+<dd>Los mensajes de esta cola no tienen tiempo de espera de caducidad, es decir, no caducan nunca.</dd>
+
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopic_specifiedExpiry"></a>Caducidad especificada</strong>
+</dt>
+<dd>Si la propiedad <strong>Caducidad especificada</strong> est&aacute; establecida en <samp>Especificado</samp>, escriba aqu&iacute; el n&uacute;mero de milisegundos (mayor que 0) despu&eacute;s de los cuales caducan los mensajes de esta cola.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unidades</td>
+<td align="left" valign="top" class="base">Milisegundos</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">Mayor o igual a 0
+<ul>
+
+<li>El valor 0 indica que los mensajes nunca superan el tiempo de espera</li> 
+
+<li>Los dem&aacute;s valores son un n&uacute;mero entero de milisegundos</li>
+
+</ul>
+
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopic_baseTopicName"></a>Nombre de tema base</strong>
+</dt>
+<dd>Nombre del tema al que se env&iacute;an los mensajes.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">Depende del broker utilizado. Para obtener detalles, consulte
+la documentaci&oacute;n del broker; por ejemplo la biblioteca <cite>WebSphere
+MQ Event Broker</cite> en la direcci&oacute;n <img border="0" alt="S&oacute;lo se puede acceder al destino si este tema est&aacute; enlazado con la World Wide Web" src="web.gif">&nbsp;&nbsp;               
+   <a target="_blank" href="http://www-3.ibm.com/software/ts/mqseries/library/manualsa/manuals/wsmqebv21.html"><strong>http://www-3.ibm.com/software/ts/mqseries/library/manualsa/manuals/wsmqebv21.html</strong></a>
+.</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopic_CCSID"></a>CCSID</strong>
+</dt>
+<dd>Identificador del juego de caracteres codificado para utilizarlo con WebSphere MQ Queue Manager.
+<p>Este CCSID (identificador del juego de caracteres codificado) debe ser uno de los CCSID a
+los que WebSphere MQ da soporte.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unidades</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">1 a 65535</td>
+
+</tr>
+
+</table>
+
+<p>Para obtener m&aacute;s informaci&oacute;n sobre los CCSID admitidos y c&oacute;mo efectuar conversiones de
+datos de mensajes de un c&oacute;digo de juego de caracteres a otro, consulte los manuales <cite>WebSphere MQ System Administration</cite> y <cite>WebSphere MQ Application Programming Reference</cite>.
+Podr&aacute; encontrar estos manuales en las p&aacute;ginas Web de manuales de varias plataformas de mensajes de WebSphere MQ y espec&iacute;ficos de plataforma, por ejemplo, en la direcci&oacute;n <img border="0" alt="S&oacute;lo se puede acceder al destino si este tema est&aacute; enlazado con la World Wide Web" src="web.gif">&nbsp;&nbsp;               
+   <a target="_blank" href="http://www-3.ibm.com/software/ts/mqseries/library/manualsa/manuals/crosslatest.html.html"><strong>http://www-3.ibm.com/software/ts/mqseries/library/manualsa/manuals/platspecific.html</strong></a>
+, <img border="0" alt="S&oacute;lo se puede acceder al destino si este tema est&aacute; enlazado con la World Wide Web" src="web.gif">&nbsp;&nbsp;               
+   <a target="_blank" href="http://www.elink.ibmlink.ibm.com/public/applications/publications/cgibin/pbi.cgi"><strong>IBM Publications Center</strong></a>
+ o en WebSphere MQ collection kit, SK2T-0730.</p>
+</dd>
+<dt>
+<strong><a name="MQTopic_useNativeEncoding"></a>Utilizar codificaci&oacute;n nativa</strong>
+</dt>
+<dd>Seleccione este recuadro de selecci&oacute;n para indicar que el destino de cola debe utilizar codificaci&oacute;n nativa (valores de codificaci&oacute;n adecuados para la plataforma Java).
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unidades</td>
+<td align="left" valign="top" class="base">No se aplica</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">Deseleccionado</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>Deseleccionado</strong>
+</dt>
+<dd>No se utiliza la codificaci&oacute;n nativa, por lo que debe especificar las propiedades siguientes para la codificaci&oacute;n de entero, de decimal y de coma flotante.</dd>
+
+<dt>
+<strong>Seleccionado</strong>
+</dt>
+<dd>Se utiliza la codificaci&oacute;n nativa (para proporcionar valores de codificaci&oacute;n adecuados para la plataforma Java).</dd>
+
+</dl>
+<p>Para obtener m&aacute;s informaci&oacute;n sobre las propiedades de codificaci&oacute;n, consulte el
+documento WebSphere MQ <cite>Utilizaci&oacute;n de Java</cite>.</p>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopic_integerEncoding"></a>Codificaci&oacute;n de entero</strong>
+</dt>
+<dd>Si la codificaci&oacute;n nativa no est&aacute; habilitada, seleccione si la codificaci&oacute;n de entero es normal o invertida.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unidades</td>
+<td align="left" valign="top" class="base">No se aplica</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">NORMAL</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>NORMAL</strong>
+</dt>
+<dd>Se utiliza codificaci&oacute;n de entero normal.</dd>
+
+<dt>
+<strong>INVERTIDA</strong>
+</dt>
+<dd>Se utiliza codificaci&oacute;n de entero invertida.</dd>
+
+</dl>
+<p>Para obtener m&aacute;s informaci&oacute;n sobre las propiedades de codificaci&oacute;n, consulte el
+documento WebSphere MQ <cite>Utilizaci&oacute;n de Java</cite>.</p>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopic_decimalEncoding"></a>Codificaci&oacute;n de decimal</strong>
+</dt>
+<dd>Si la codificaci&oacute;n nativa no est&aacute; habilitada, seleccione si la codificaci&oacute;n de decimal es normal o invertida.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unidades</td>
+<td align="left" valign="top" class="base">No se aplica</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">NORMAL</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>NORMAL</strong>
+</dt>
+<dd>Se utiliza codificaci&oacute;n de decimal normal.</dd>
+
+<dt>
+<strong>INVERTIDA</strong>
+</dt>
+<dd>Se utiliza codificaci&oacute;n de decimal invertida.</dd>
+
+</dl>
+<p>Para obtener m&aacute;s informaci&oacute;n sobre las propiedades de codificaci&oacute;n, consulte el
+documento WebSphere MQ <cite>Utilizaci&oacute;n de Java</cite>.</p>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopic_floatingPointEncoding"></a>Codificaci&oacute;n de coma flotante</strong>
+</dt>
+<dd>Si la codificaci&oacute;n nativa no est&aacute; habilitada, seleccione el tipo de codificaci&oacute;n de coma flotante.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unidades</td>
+<td align="left" valign="top" class="base">No se aplica</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">IEEE NORMAL</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>IEEE NORMAL</strong>
+</dt>
+<dd>Se utiliza la codificaci&oacute;n de coma flotante IEEE normal.</dd>
+
+<dt>
+<strong>IEEE INVERTIDO</strong>
+</dt>
+<dd>Se utiliza la codificaci&oacute;n de coma flotante IEEE invertida.</dd>
+
+<dt>
+<strong>S390</strong>
+</dt>
+<dd>Se utiliza la codificaci&oacute;n de coma flotante S390.</dd>
+
+</dl>
+<p>Para obtener m&aacute;s informaci&oacute;n sobre las propiedades de codificaci&oacute;n, consulte el
+documento WebSphere MQ <cite>Utilizaci&oacute;n de Java</cite>.</p>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopic_targetClient"></a>Tipo de cliente de destino</strong>
+</dt>
+<dd>Especifica si la aplicaci&oacute;n receptora es compatible con JMS o es una aplicaci&oacute;n WebSphere MQ tradicional.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unidades</td>
+<td align="left" valign="top" class="base">No se aplica</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">MQ</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>MQ</strong>
+</dt>
+<dd>El destino es una aplicaci&oacute;n WebSphere MQ tradicional, no JMS.</dd>
+
+<dt>
+<strong>JMS</strong>
+</dt>
+<dd>El destino es una aplicaci&oacute;n compatible con JMS.</dd>
+
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopic_brokerDurSubQueue"></a>Cola de suscripci&oacute;n duradera de intermediario</strong>
+</dt>
+<dd>Nombre de la cola del intermediario de la que se recuperan mensajes de
+suscripciones duraderas.
+<p>Nombre de la cola del intermediario de la que se recuperan mensajes
+de suscripciones duraderas. El suscriptor
+especifica el nombre de la cola al registrar una suscripci&oacute;n.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unidades</td>
+<td align="left" valign="top" class="base">Caracteres ASCII En_US</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">1 a 48 caracteres ASCII</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopic_brokerDurCCSubQueue"></a>Cola de suscripci&oacute;n duradera de consumidor de conexi&oacute;n de intermediario</strong>
+</dt>
+<dd>Nombre de la cola del intermediario
+de la que se recuperan mensajes de suscripciones duraderas para
+ConnectionConsumer (consumidor de conexi&oacute;n). Esta propiedad s&oacute;lo se aplica para uso del contenedor Web.
+<p>Nombre de la cola del intermediario de la que se recuperan mensajes
+de suscripciones duraderas para ConnectionConsumer (consumidor de
+conexi&oacute;n). Esta propiedad s&oacute;lo se aplica para uso del contenedor Web.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unidades</td>
+<td align="left" valign="top" class="base">Caracteres ASCII En_US</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">1 a 48 caracteres ASCII</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.0//EN"
+                               "http://jakarta.apache.org/struts/dtds/struts-config_1_0.dtd">
+<struts-config>
+
+	<!-- Data Sources -->
+	<data-sources></data-sources>
+
+	<!-- Form Beans -->
+	<form-beans>
+		<form-bean name="referencesForm" type="com.hps.july.collaboration.formbean.ReferencesForm"></form-bean>
+		<form-bean name="referencesForm_0" type="com.hps.july.collaboration.formbean.ReferencesForm_0">
+		</form-bean>
+		<form-bean name="referencesForm_1" type="com.hps.july.collaboration.formbean.ReferencesForm_1">
+		</form-bean>
+		<form-bean name="referencesForm_Page" type="com.hps.july.collaboration.formbean.ReferencesForm_Page">
+		</form-bean>
+		<form-bean name="genericForm" type="com.hps.july.collaboration.formbean.GenericForm">
+		</form-bean>
+	</form-beans>
+
+	<!-- Global Forwards -->
+	<global-forwards></global-forwards>
+
+	<!-- Action Mappings -->
+	<action-mappings>
+		<action name="referencesForm" path="/references" scope="session" type="com.hps.july.collaboration.action.ReferencesAction">
+			<forward name="dbsPositions" path="./ejb/references/dbsPositions.jsp">
+			</forward>
+		</action>
+		<action path="/references_0" type="com.hps.july.collaboration.action.ReferencesAction_0" name="referencesForm_0" scope="session">
+			<forward name="dbsPositions" path="./ejb/references/dbsPositions_0.jsp">
+			</forward>
+			<forward name="dbsAntennaPlaces" path="./ejb/references/dbsAntennaPlaces_0.jsp">
+			</forward>
+		</action>
+		<action path="/references_1" type="com.hps.july.collaboration.action.ReferencesAction_1" name="referencesForm_1" scope="session">
+			<forward name="dbsPositions" path="./ejb/references/dbsPositions_1.jsp">
+			</forward>
+		</action>
+		<action path="/references_page" type="com.hps.july.collaboration.action.ReferencesAction_Page" name="referencesForm_Page" scope="session">
+			<forward name="dbsPositions" path="./ejb/references/dbsPositions_Page.jsp">
+			</forward>
+		</action>
+		<action path="/generic" type="com.hps.july.collaboration.action.GenericAction" name="genericForm" scope="session">
+			<forward name="genericPage" path="./ejb/references/genericPage.jsp">
+			</forward>
+		</action></action-mappings>
+
+</struts-config>

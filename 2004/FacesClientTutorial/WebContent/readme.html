@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<META name="GENERATOR" content="IBM WebSphere Studio">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>Faces Classifieds Example</TITLE>
+</HEAD>
+<BODY>
+<P><A name="top"></A></P>
+<H2 align="center"><FONT color="#3333cc" size="5" face="Arial">Introduction
+to the Faces Client  Examples</FONT></H2>
+<P align="left"><FONT face="Arial" size="2">This example illustrates how you can use the Faces Client technology to create a portfolio management application. There is also a very simple hello world example to illustrate the Faces Client technology.</FONT> </P>
+
+<HR width="100%">
+
+<H2 align="left"><B><FONT face="Arial" size="5">Contents</FONT></B></H2>
+<P align="left"><FONT size="2" face="Arial"> <A href="#ex_overview">Examples Overview</A><BR>
+<A href="#run">Running the Faces Client Example</A><BR>
+<A href="#doc">Portfolio Sample Documentation</A> <BR>
+<A href="#hellodoc">Hello World Sample Documentation</A>
+</FONT></P>
+
+<HR width="100%">
+
+<P><A name="ex_overview"></A></P>
+<H2 align="left"><B><FONT face="Arial" size="5">Examples Overview</FONT></B></H2>
+<P align="left"><FONT face="Arial" size="2">The portfolio sample mimics a web-based portfolio management 
+application. The goal is to enable users to view all their portfolios, navigate through them, display them graphically, and have them updated
+ on a regular basis with current stock prices as delivered to the page by a Web service. 
+Users will also be able to change quantities on their stocks for analysis purposes.
+<BR>
+<BR>
+The hello world sample demonstrates the power of the Faces Client 
+framework by showing an MVC (Model View Controller) setup on a page with a very simple model and using two input fields as the controls.</FONT></P>
+
+
+<P><FONT size="2" face="Arial"></FONT></P>
+<P align="right"><FONT size="2" face="Arial"><A href="#top">back to Top</A></FONT></P>
+
+<HR width="100%">
+
+<P><A name="run"></A></P>
+<H2 align="left"><B><FONT face="Arial" size="5">Running the Faces Client Example</FONT></B></H2>
+<P align="left"><FONT face="Arial" size="2">To run and test the Faces Client examples
+just follow these steps:</FONT></P>
+<OL>
+	<LI><FONT size="2" face="Arial">In the Project Navigator, select the
+	 FacesClientTutorial project and choose <B>Run on Server</B> from its context menu.</FONT></LI>
+	<LI><FONT size="2" face="Arial">On the Server Selection dialog create a
+	new WebSphere v5.1 Test Environment and <B>Finish</B></FONT>.</LI>
+	<LI><FONT size="2" face="Arial">The Server will be created  
+	   and the FacesClientTutorial project will be published to it. After publishing, a web
+	browser window will be opened displaying an initial index page. You can run the JSF-based Portfolio or hello world example from this page.</FONT></LI>
+</OL>
+<P align="left"></P>
+<P align="right"><FONT size="2" face="Arial"><A href="#top">back to Top</A></FONT></P>
+
+<HR width="100%">
+
+<P><A name="doc"></A></P>
+<H2 align="left"><B><FONT face="Arial" size="5">Portfolio Application Documentation</FONT></B></H2>
+<P align="left"><FONT face="Arial" size="2">The portfolio sample mimics a web-based portfolio management 
+application. The model for this application has a Root object, which contains a collection of Users and a collection of Stocks. It also contains a reference to a single Stock object used as a place holder to send and receive data from web-services in the sample. Then   there are Users. Each user can have zero or more portfolios, and each portfolio can have zero or more positions. Each position points to a Stock.<BR>
+<BR>Here  is an explanation  on the setup of the different controls on the page.<BR>
+<BR>The page has two tabbed panels. The first tabbed panel has 3 panels. The Tree Panel shows a TreeView bound to a list of users connected  to the Root and for each user his list of portfolios is shown. The DataGrid panel shows a DataGrid bound to the positions of a selected portfolio. The Full Panel shows the Tree and the DataGrid with the same setup as in the Tree Panel and the DataGrid Panel side by side.<BR>The second tabbed panel has two panels. The Graph Panel shows a graph control bound to the positions of a selected portfolio. The x-axis of the graph shows a list of stock symbols and the y-axis shows the corresponding price and quantity for each stock. The WebServices Panel shows some input and output text field bound to properties of the temporary place holder stock. The command button in this panel will be used to invoke a Stock Web Service.<BR>
+<BR>Here is a brief summary of the interactions between the controls<BR>
+<BR>Note that each control is independently mapped to the model, so that any changes in the model data will be reflected in the control. In addtion to these implicit bindings there are some explicit bindings between the controls. When you  highlight a portfolio in the TreeView, the DataGrid and the GraphDraw are updated with that Portfolio object and refreshed to show the positions in that portfolio object. We create this kind of an event system between the TreeView in the Tree Panel and the DataGrid in the DataGrid Panel and also between the TreeView in the Full Panel and the DataGrid in the same panel and the GraphDraw in the GraphDraw Panel. A second
+type of event that we create is between the DataGrid in the Full Panel and the  place holder stock object. When a particular row in the DataGrid is highlighted the all the fields in the stock object for that position are copied to the corresponding fields of the place holder stock object. As a result, the values in the input and output fields in the WebService Panel are refreshed.<BR>
+<BR>In order to invoke the Stock Web Service to get the stock quote for a particular symbol, click on the &quot;Fetch Info&quot; button in the WebServices Panel. The values   displayed by the form controls in the Web Service Panel will be updated with the values recieved from the Stock Web Service
+. </FONT></P><P align="right"><FONT size="2" face="Arial"><FONT size="2" face="Arial"><A
+	href="#top">back to Top</A></FONT></FONT></P>
+<HR width="100%">
+
+<P><A name="hellodoc"></A></P>
+<H2 align="left"><B><FONT face="Arial" size="5">Hello World Application Documentation</FONT></B></H2>
+<P align="left"><FONT face="Arial" size="2">For this application on the server side we have a simple class called Hello which contains an attribute called text of type String. On the client side, we have exported this same model in JavaScript and in the browser we have two input text fields, both of which we want to bind to the text attribute of the Hello object. When we update the value of one control, this will change the text field of the Hello object, which will then result in the value being propagated to the other control without making a round trip back to the server<BR>
+<BR>
+Try changing the value of the string inside the first input text box control to “Hello World!!!” the control will fire an event which updates the underlying data model (on the client side) and if you move out of the context of the first text box (click outside the box or navigate to the second text box) the value in the second text box will change to “Hello World!!!” since it is also bound to the same attribute of the same object as the first control.</FONT></P><P align="right"><FONT size="2" face="Arial"><FONT size="2" face="Arial"><A
+	href="#top">back to Top</A></FONT></FONT></P>
+<HR width="100%">
+
+<H2 align="left"><B><FONT face="Arial" size="5">Limitations</FONT></B></H2>
+<P align="left"><FONT face="Arial" size="2"> Disclaimer:<BR>
+The following [enclosed] code is sample code created by IBM<BR>
+Corporation. This sample code is not part of any standard IBM product<BR>
+and is provided to you solely for the purpose of assisting you in the<BR>
+development of your applications. The code is provided 'AS IS',<BR>
+without warranty or condition of any kind. IBM shall not be liable for
+any damages<BR>
+arising out of your use of the sample code, even if IBM has been<BR>
+advised of the possibility of such damages. </FONT></P>
+<P align="right"><FONT size="2" face="Arial"><A href="#top">back to Top</A></FONT></P>
+</BODY>
+</HTML>

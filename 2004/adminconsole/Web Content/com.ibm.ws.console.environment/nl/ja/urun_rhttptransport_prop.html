@@ -1,0 +1,133 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>HTTP トランスポート設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="urun_rhttptransport_prop"></a>
+<h2>HTTP トランスポート設定</h2>
+
+<p>このページを使用して、HTTP トランスポートの表示および構成を行います。
+ページ名が、SSL 設定の名前 (DefaultSSLSettings など) になっていることもあります。</p>
+
+<p>この管理コンソール・ページを表示するには、「
+<strong>サーバー</strong>」&gt;「<strong>アプリケーション・サーバー</strong>」&gt; <em>server_name</em> &gt;「<strong>Web コンテナー</strong>」&gt;「<strong>HTTP トランスポート</strong>」&gt; <em>host_name</em> をクリックします。</p>
+
+<div>
+<p>
+<strong>「構成」タブ</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="Transport_host_description"></a>ホスト</strong>
+</dt>
+<dd>トランスポートのバインド先となるホスト IP アドレスを指定します。
+
+<p>アプリケーション・サーバーがローカル・マシン上にある場合は、
+ホスト名は <samp>localhost</samp> などになります。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="Transport_port_description"></a>ポート</strong>
+</dt>
+<dd>トランスポートにバインドするポートを指定します。
+1 から 65535 の範囲のポート番号を指定します。ポート番号は、指定されたマシンのアプリケーション・サーバーごとに固有でなければなりません。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">整数</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">1 から 65535</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="Transport_sslEnabled_description"></a>SSL 使用可能</strong>
+</dt>
+<dd>WebSphere プラグインとアプリケーション・サーバー間の接続を Secure Sockets Layer (SSL) を使用して保護するかどうかを指定します。
+デフォルトでは SSL を使用しません。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ブール</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">false</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="Transport_sslConfig_description"></a>SSL</strong>
+</dt>
+<dd>WebSphere プラグインとアプリケーション・サーバーの間の接続に Secure Sockets Layer  (SSL) の設定タイプを指定します。
+オプションには、セキュリティー・センターで定義される SSL 設定 (DefaultSSLSettings、ORBSSLSettings、LDAPSSLSettings など) が 1 つ以上含まれています。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">セキュリティー・センターで定義される SSL 設定</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>関連情報</strong>
+</p>
+<a href="rcon_buttons.html">管理コンソールのボタン</a>
+<br>
+
+<a href="rcon_pageusage.html">管理コンソール・ページのフィーチャー</a>
+<br>
+
+<a href="urun_rproperty.html">カスタム・プロパティー・コレクション</a>
+<br>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,204 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Common Secure Interoperability outbound authentication settings</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecoutbound"></a>
+<h2>Common Secure Interoperability outbound authentication settings</h2>
+
+<p>Use this page to specify the features that a server supports when
+acting as a client to another downstream server.</p>
+
+<p>To view this administrative console page, click <strong>Security &gt; Authentication
+Protocol &gt; CSI Outbound Authentication</strong>.</p>
+
+<p>Authentication features include three layers of authentication that you
+can use simultaneously:  <dl>
+<dt>
+<strong>Transport layer</strong>
+</dt>
+<dd>The transport layer, the lowest layer, might contain a Secure Sockets
+:Layer (SSL) client certificate as the identity.</dd>
+<dt>
+<strong>Message layer</strong>
+</dt>
+<dd>The message layer might contain a user ID and password or authenticated
+token.</dd>
+<dt>
+<strong>Attribute layer</strong>
+</dt>
+<dd>The attribute layer might contain an identity token, which is an identity
+from an upstream server that is already authenticated. The attribute layer
+has the highest priority, followed by the message layer and then the transport
+layer. If this server sends all three, only the attribute layer
+is used by the downstream server. The only way to use the SSL client certificate
+as the identity is if it is the only information presented during the outbound
+request.</dd>
+</dl>  
+</p>
+
+<div>
+<p>
+<strong>Configuration tab</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="BasicAuthentication_o_description"></a>Basic Authentication</strong>
+</dt>
+<dd>Specifies whether to send a user ID and a password from the client
+to the server for authentication.
+<p>This type of authentication occurs over the message layer. Basic authentication
+also involves delegating a credential token from an already authenticated
+credential, provided the credential type is forwardable (for example, Lightweight
+Third Party Authentication (LTPA)). Basic authentication refers to any authentication
+over the message layer and indicates user ID and password as well as token-based
+authentication.</p>
+
+<p>Selecting <strong>Basic Authentication</strong> determines whether it is required
+or supported. Selecting <strong>Required</strong> indicates that when the server goes
+outbound to downstream servers, the downstream server must support basic authentication
+for this server to connect. Selecting <strong>Supported</strong> indicates that this
+server might or might not perform basic authentication to a downstream server.
+Other methods of authentication can occur if configured. Selecting <strong>Never</strong>,
+indicates that this server never sends a message layer token outbound to a
+downstream server. If the downstream server requires basic authentication,
+then the connection is not attempted.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type:</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ClientCertificateAuthentication_o_description"></a>Client Certificate Authentication</strong>
+</dt>
+<dd>Specifies whether a client certificate from the configured keystore
+file is used to authenticate to the server when the SSL connection is made
+between this server and a downstream server (provided that the downstream
+server supports client certificate authentication).
+<p>Typically, client certificate authentication has a higher performance than
+message layer authentication, but requires some additional setup steps. These
+additional steps include verifying that this server has a personal certificate
+and the downstream server has the signer certificate of this server.</p>
+
+<p>If you select client certificate authentication, decide whether it is required
+or supported.  Selecting <strong>Required</strong> indicates that this server can only
+connect to downstream servers with client certificate authentication also
+configured. Selecting <strong>Supported</strong> indicates that this server performs
+client certificate authentication with any downstream server, but might not
+use client certificate authentication depending on whether it is supported
+by the downstream server. Selecting <strong>Never</strong> indicates that this client
+does not perform client certificate authentication to any downstream server.
+This limitation prevents access to any downstream server that requires client
+certificate authentication.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type:</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="IdentityAssertion_o_description"></a>Identity Assertion</strong>
+</dt>
+<dd>Specifies whether to assert identities from one server to another
+during a downstream enterprise bean invocation. 
+<p>The identity asserted is the invocation credential that is determined by
+the RunAs mode for the enterprise bean. If the RunAs mode is <strong>Client</strong>,
+the identity is the client identity. If the RunAs mode is <strong>System</strong>, the
+identity is the server identity. If the RunAs mode is <strong>Specified</strong>, the
+identity is the identity specified. The receiving server receives the identity
+in an identity token and also receives the sending server identity in a client
+authentication token.  The receiving server validates the identity of the
+sending server to ensure a trusted identity.</p>
+
+<p>When specifying identity assertion on the <strong>CSIv2 Authentication Outbound</strong> panel,
+you must also select basic authentication as supported or required on the
+CSIv2 Authentication Outbound panel. This action allows the server identity
+to be submitted, along with the identity token, so that the receiving server
+can <em>trust</em> the sending server. Without specifying basic authentication
+as supported or required, trust is not established and the identity assertion
+fails. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type:</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="StatefulSession_description"></a>Stateful Sessions </strong>
+</dt>
+<dd>Specifies whether to reuse security information during authentication.
+This option is usually used to increase performance.
+<p>The first contact between a client and server must fully authenticate.
+However, all subsequent contacts with valid sessions, reuse the security information.
+The client passes  a context ID to the server, and that ID is used to look
+up the session. The context ID is scoped to the connection, which guarantees
+uniqueness. Whenever the security session is invalid and if authentication
+retry is enabled (it is enabled by default), the client-side security interceptor
+invalidates the client-side session and resubmits the request transparently.
+For example, if the session does not exist on the server; the server fails
+and resumes operation.</p>
+
+<p>When this value is disabled, every method invocation must re-authenticate.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type:</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Related information</strong>
+</p>
+<a href="rcon_buttons.html">Administrative console buttons</a>
+<br>
+
+<a href="rcon_pageusage.html">Administrative console page features</a>
+<br>
+
+<a href="rcon_scope.html">Administrative console scope settings</a>
+<br>
+
+<a href="rcon_filter.html">Administrative console filter settings</a>
+<br>
+
+<a href="rcon_preferences.html">Administrative console preference settings</a>
+<br>
+
+</div>
+</body>
+</html>

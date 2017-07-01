@@ -1,0 +1,193 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Impostazioni LTPA (Lightweight Third Party Authentication)</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecrltpa"></a>
+<h2>Impostazioni LTPA (Lightweight Third Party Authentication)</h2>
+
+<p>Utilizzare questa pagina per configurare le impostazioni LTPA (Lightweight
+Third Party Authentication).</p>
+
+<p>Per visualizzare questa pagina della console di gestione, fare clic su <strong>Sicurezza</strong> &gt;
+<strong>Meccanismi di autenticazione</strong> &gt; <strong>LTPA</strong>.</p>
+
+<p>Se si sta configurando per la prima volta la sicurezza, &egrave; necessaria solo la password. Una
+volta immessa quest'ultima, fare clic su <strong>Applica</strong>. Fare clic su <strong>SSO (Single
+Sign On)</strong> ed inserire il nome del dominio. Assicurarsi che l'SSO sia abilitato.
+Fare clic su <strong>Applica</strong>.  Per completare l'impostazione della sicurezza, verificare che sia configurato il registro
+appropriato e fare clic su <strong>Applica</strong> sul pannello Sicurezza globale. Quando viene abilitata la sicurezza, ed una qualsiasi di
+queste propriet&agrave; viene modificata, andare al pannello Sicurezza Globale e fare clic su
+ <strong>Applica</strong> per convalidare le modifiche.</p>
+
+<div>
+<p>
+<strong>Scheda Configurazione</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="button"></a>Crea chiavi</strong>
+</dt>
+<dd>Specifica se il server creer&agrave; nuove chiavi LTPA.
+<p>Quando la sicurezza viene attivata per la prima volta con LTPA come meccanismo di autenticazione, le chiavi
+LTPA vengono create automaticamente immettendo la password nel pannello. Se si desidera
+una nuova serie di chiavi, da creare mediante
+la password impostata in precedenza, fare clic su <strong>Crea chiavi</strong>. Se si utilizza
+una nuova password, non selezionare questo pulsante. Una volta immessa la nuova
+password e aver selezionato <strong>OK</strong> o <strong>Applica</strong>, si crea una nuova serie di
+chiavi. <em>Ogni volta che si genera un nuovo gruppo di chiavi, queste non vengono
+utilizzate fino a quando non sono salvate.</em> 
+</p>
+
+</dd>
+<dt>
+<strong><a name="LTPA_password_description"></a>Importa chiavi</strong>
+</dt>
+<dd>Specifica se il server importer&agrave; delle nuove chiavi LTPA.
+<p>Per supportare SSO (Single Sign-On) nel prodotto WebSphere attraverso pi&ugrave; domini
+WebSphere (celle), condividere le chiavi LTPA e la password tra i domini. Il pulsante <strong>Importa chiavi</strong> pu&ograve; essere utilizzato per importare le chiavi LTPA da altri domini. Le
+chiavi LTPA devono essere state esportate in precedenza da una delle celle su un file. Per
+importare una nuova serie di chiavi LTPA, immettere la password appropriata e il nome
+del file in cui si trovano tali chiavi.
+Selezionare solo <strong>Importa chiavi</strong> e <strong><em>non fare clic</em></strong> su <strong>OK</strong> o <strong>Applica</strong>.</p>
+
+</dd>
+<dt>
+<strong><a name="LTPA_password_description"></a>Esporta chiavi</strong>
+</dt>
+<dd>Specifica se il server esporter&agrave; le chiavi LTPA.
+<p>Per supportare SSO (single sign on) nel prodotto WebSphere attraverso pi&ugrave; domini
+WebSphere (celle), condividere le chiavi LTPA e la password tra i domini. Il pulsante <strong>Esporta chiavi</strong> pu&ograve; essere utilizzato per esportare le chiavi LTPA su altri domini.</p>
+
+<p>Per esportare le chiavi LTPA, verificare che il sistema sia in esecuzione con la
+sicurezza abilitata e che stia utilizzando LTPA. Immettere il nome file nel campo
+<strong>Nome file di chiavi</strong> e fare clic su <strong>Esporta chiavi</strong>. Le chiavi codificate
+verranno memorizzate nel file specificato.</p>
+
+</dd>
+<dt>
+<strong><a name="LTPA_password_description"></a>Password</strong>
+</dt>
+<dd>Specifica la password per codificare e decodificare le chiavi LTPA. Utilizzare
+questa password quando si importano tali chiavi in altre
+configurazioni di dominio di gestione di WebSphere Application Server (se presenti) e
+quando si
+configura SSO per il server Domino.
+<p>Dopo  aver creato o importato le chiavi, queste vengono utilizzate per codificare e
+decodificare il token LTPA. Ogni volta che la password viene modificata, si crea
+automaticamente una nuova serie di chiavi LTPA facendo clic su <strong>OK</strong> o
+<strong>Applica</strong>. Questo nuovo gruppo di chiavi verr&agrave; utilizzato dopo essere stato salvato.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LTPA_confirmPassword_description"></a>Conferma password</strong>
+</dt>
+<dd>Specifica la password confermata utilizzata per codificare e decodificare
+le chiavi LTPA.
+<p>Utilizzare questa password quando si importano tali chiavi in altre configurazioni di
+dominio di gestione di WebSphere Application Server (se presenti) e quando si
+configura SSO per il server Domino.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LTPA_timeout_description"></a>Timeout</strong>
+</dt>
+<dd>Specifica il periodo di tempo in minuti dopo il quale un token LTPA scadr&agrave;. Controllare che questo periodo di tempo sia maggiore del timeout della cache
+configurato nel
+pannello Sicurezza globale.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Numero intero</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&agrave;</td>
+<td align="left" valign="top" class="base">Minuti</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">120</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LTPA_keyFilename_description"></a>Nome file di chiavi</strong>
+</dt>
+<dd>Specifica il nome del file utilizzato durante l'importazione o l'esportazione di
+chiavi.
+<p>Immettere un nome file di chiavi completo e fare clic su <strong>Importa chiavi</strong> o <strong>Esporta
+chiavi</strong>.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informazioni correlate</strong>
+</p>
+<a href="rcon_buttons.html">Pulsanti della console di gestione</a>
+<br>
+
+<a href="rcon_pageusage.html">Funzioni della pagina della console di gestione</a>
+<br>
+
+<a href="rcon_scope.html">Impostazioni ambito della console di gestione</a>
+<br>
+
+<a href="rcon_filter.html">Impostazioni di filtro della console di gestione</a>
+<br>
+
+<a href="rcon_preferences.html">Impostazioni delle preferenze della console di gestione</a>
+<br>
+
+</div>
+</body>
+</html>

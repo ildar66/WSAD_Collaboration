@@ -1,0 +1,935 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Impostazioni della coda di WebSphere MQ
+(Configurazione MQ)</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="MQSeriesQueueHost"></a>
+<h2>Impostazioni della coda di WebSphere MQ
+(Configurazione MQ)</h2>
+
+<p>Utilizzare questo pannello per visualizzare o modificare le propriet&agrave; di
+configurazione definite in WebSphere MQ per la destinazione code selezionata.</p>
+
+<p>Una destinazione coda viene utilizzata per configurare le propriet&agrave; di una coda JMS.
+Una coda da utilizzare con il provider JMS di WebSphere MQ ha le seguenti ulteriori
+propriet&agrave; definite in WebSphere MQ.<p>
+<b>Note: </b>
+<ul>
+
+<li>Alcune propriet&agrave; visualizzate sono in sola lettura e non possono essere modificate.</li>
+
+<li>Per poter visualizzare o modificare le propriet&agrave;, il Gestore code di WebSphere MQ su cui
+si trova la coda deve essere configurato per la gestione remota e deve essere in esecuzione.</li>
+
+<li>I valori delle propriet&agrave; specificati devono corrispondere ai valori specificati
+durante la configurazione di WebSphere MQ per le risorse JMS. Per ulteriori informazioni
+sulla configurazione delle risorse JMS di WebSphere MQ, consultare il manuale <cite>Using
+Java</cite> di WebSphere MQ; ad esempio dalla pagina Web della libreria con pi&ugrave; piattaforme
+di WebSphere MQ all'indirizzo <img border="0" alt="&Egrave; possibile accedere alla destinazione solo quando
+questo argomento &egrave; collegato a World Wide Web" src="web.gif">&nbsp;&nbsp;               
+   <a target="_blank" href="http://www.ibm.com/software/ts/mqseries/library/manualsa/manuals/crosslatest.html"><strong>http://www.ibm.com/software/ts/mqseries/library/manualsa/manuals/crosslatest.html</strong></a>
+.</li>
+
+<li>In WebSphere MQ, i nomi possono avere un massimo di 48 caratteri, ad eccezione dei
+canali, che possono contenere un massimo di 20 caratteri.</li>
+
+</ul>
+</p>
+</p>
+
+<p>Per visualizzare questa pagina della console di gestione, fare clic su <strong>Risorse-&gt;
+Provider JMS di WebSphere MQ-&gt; (Nel pannello contenuto, in Ulteriori propriet&agrave;)
+Destinazioni code WebSphere MQ-&gt; <em>nome_destinazione</em>-&gt; (Nel pannello contenuto in Ulteriori propriet&agrave;) Configurazione MQ</strong>
+</p>
+
+<dl>
+<dt>
+<strong><a name="MQSeriesQueue_baseQueueName"></a>Nome coda di base</strong>
+</dt>
+<dd>Il nome della coda a cui vengono inviati i messaggi, sul gestore code
+specificato dalla propriet&agrave; <strong>Nome gestore code di base</strong>.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_baseQueueManagerName"></a>Nome gestore code base</strong>
+</dt>
+<dd>Il nome del gestore code WebSphere MQ a cui vengono inviati i messaggi.
+<p>Tale gestore code fornisce la coda specificata dalla propriet&agrave; <strong>Nome coda di base</strong>.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_queueManagerHost"></a>Host del gestore code</strong>
+</dt>
+<dd>Il nome dell'host per il gestore code su cui viene creata la destinazione code.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_queueManagerPort"></a>Porta gestore code</strong>
+</dt>
+<dd>Il numero della porta utilizzata dal gestore code su cui viene definita questa coda.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Numero intero</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo</td>
+<td align="left" valign="top" class="base">Un numero di porta TCP/IP valido. &Egrave; necessario configurare questa porta sul
+gestore code WebSphere MQ. </td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_serverConnectionChannelName"></a>Nome del canale di connessione del server</strong>
+</dt>
+<dd>Il nome del canale utilizzato per la connessione al gestore code WebSphere MQ.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo</td>
+<td align="left" valign="top" class="base">Da 1 a 20 caratteri ASCII</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_userName"></a>ID utente</strong>
+</dt>
+<dd>L'ID utente utilizzato, con la propriet&agrave; <strong>Password</strong>, per
+l'autenticazione quando ci si connette al gestore code per definire la destinazione coda.
+<p>Se si specifica un valore per la propriet&agrave; <strong>Nome utente</strong>, &egrave; necessario specificare un valore anche per la propriet&agrave; <strong>Password</strong>.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_password"></a>Password</strong>
+</dt>
+<dd>La password, utilizzata con la propriet&agrave; <strong>Nome utente</strong>,
+per l'autenticazione durante la connessione al gestore code per definire la destinazione code.
+<p>Se si specifica un valore per la propriet&agrave; <strong>Nome utente</strong>, &egrave; necessario specificare un valore anche per la propriet&agrave; <strong>Password</strong>.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue"></a>Nome</strong>
+</dt>
+<dd>Il nome della coda definita nel gestore code WebSphere MQ.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo</td>
+<td align="left" valign="top" class="base">Da 1 a 48 caratteri ASCII.</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_description"></a>Descrizione</strong>
+</dt>
+<dd>La descrizione della coda di WebSphere MQ, per scopi di gestione all'interno di WebSphere MQ.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">Nullo</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo</td>
+<td align="left" valign="top" class="base">Da 1 a 64 caratteri ASCII.</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue.inhibitPut"></a>Inibisci Put</strong>
+</dt>
+<dd>Specifica se le operazioni put sono consentite o meno per la coda specificata.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&agrave;</td>
+<td align="left" valign="top" class="base">Non applicabile</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">Deselezionato</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>Consentito</strong>
+</dt>
+<dd>Le operazioni put sono consentite per la coda specificata.</dd>
+
+<dt>
+<strong>Non consentito</strong>
+</dt>
+<dd>Le operazioni put non sono consentite per la coda specificata.</dd>
+
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_persistence"></a>Persistenza</strong>
+</dt>
+<dd>Se tutti i messaggi inviati alla destinazione sono o non sono persistenti o se la persistenza &egrave; definita dall'applicazione
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&agrave;</td>
+<td align="left" valign="top" class="base">Non applicabile</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">APPLICAZIONE_DEFINITA</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>Applicazione definita</strong>
+</dt>
+<dd>I messaggi sulla destinazione hanno la persistenza definita dall'applicazione che li ha inseriti nella coda.</dd>
+
+<dt>
+<strong>Coda definita</strong>
+</dt>
+<dd>[Solo una destinazione WebSphere MQ] I messaggi sulla
+destinazione hanno la persistenza definita dalle propriet&agrave; di definizione delle code di
+WebSphere MQ.</dd>
+
+<dt>
+<strong>Persistente</strong>
+</dt>
+<dd>I messaggi sulla destinazione sono persistenti.</dd>
+
+<dt>
+<strong>Non persistente</strong>
+</dt>
+<dd>I messaggi sulla destinazione non sono persistenti.</dd>
+
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_clusterName"></a>Nome cluster</strong>
+</dt>
+<dd>Il nome del cluster a cui appartiene il gestore code WebSphere MQ.
+<p>Se viene specificato un valore per <strong>Nome cluster</strong>, non &egrave; possibile specificare
+un valore per <strong>Elenco nomi cluster</strong>. I nomi cluster devono essere conformi alle
+regole descritte nel manuale <cite>WebSphere MQ MQSC Command Reference</cite>.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+
+
+
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">Nullo</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo</td>
+<td align="left" valign="top" class="base">Un nome WebSphere MQ valido per un cluster del gestore code, con un massimo di
+48
+caratteri ASCII</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_clusterNameList"></a>Elenco nomi cluster</strong>
+</dt>
+<dd>Il nome dell'elenco nomi cluster a cui appartiene il gestore code WebSphere
+MQ.
+<p>Se viene specificato un valore per <strong>Nome cluster</strong>, non &egrave; possibile specificare
+un valore per <strong>Elenco nomi cluster</strong>.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+
+
+
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">Nullo</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo</td>
+<td align="left" valign="top" class="base">Un nome WebSphere MQ valido per un elenco dei cluster del gestore code, con un
+massimo di 48 caratteri ASCII</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_defaultBind"></a>Collegamento predefinito</strong>
+</dt>
+<dd>Il collegamento predefinito da utilizzare quando la coda viene definita come
+una coda cluster.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+
+
+
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">Nullo</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo</td>
+<td align="left" valign="top" class="base">Un<dl>
+
+<dt>
+<strong>All'apertura</strong>
+</dt>
+<dd>Il gestore code &egrave; collegato a un'istanza specifica della coda
+cluster all'apertura della coda.</dd>
+
+<dt>
+<strong> Non fisso</strong>
+</dt>
+<dd>Il gestore code non &egrave; collegato a una istanza particolare
+della coda cluster. Ci&ograve; consente al gestore code di selezionare un'istanza della coda
+specifica quando viene inserito il messaggio e di modificare successivamente tale
+selezione se necessario.</dd>
+
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue.inhibitGet"></a>Inibisci Get</strong>
+</dt>
+<dd>Specifica se le operazioni get sono consentite o meno per la coda specificata.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&agrave;</td>
+<td align="left" valign="top" class="base">Non applicabile</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">Deselezionato</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>Consentito</strong>
+</dt>
+<dd>Le operazioni get sono consentite per la coda specificata.</dd>
+
+<dt>
+<strong>Non consentito</strong>
+</dt>
+<dd>Le operazioni get non sono consentite per la coda specificata.</dd>
+
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_maxQueueDepth"></a>Ampiezza massima coda</strong>
+</dt>
+<dd>Il numero massimo di messaggi consentito sulla coda.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Numero intero</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&agrave;</td>
+<td align="left" valign="top" class="base">Messaggi</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base"></td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo</td>
+<td align="left" valign="top" class="base">Un valore superiore o pari a zero e inferiore o pari a:<ul>
+
+<li>999 999 999 se la coda si trova su OS/390</li>
+
+<li>640 000 se la coda si trova su una qualsiasi altra piattaforma WebSphere MQ</li>
+
+</ul>
+<p>Per ulteriori
+informazioni sul valore massimo consentito, consultare <cite>WebSphere MQ MQSC Command
+Reference</cite>.</p>
+<p>Se questo valore viene ridotto,
+i messaggi che si trovano gi&agrave; sulla coda non vengono influenzati, anche se il numero
+di messaggi supera il nuovo limite impostato.</p>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_maxMessageLength"></a>Lunghezza massima messaggio</strong>
+</dt>
+<dd>La lunghezza massima, espressa in byte, dei messaggi su questa coda.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Numero intero</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&agrave;</td>
+<td align="left" valign="top" class="base">Byte</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base"></td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo</td>
+<td align="left" valign="top" class="base">Un valore superiore o pari a zero e inferiore o pari alla lunghezza massima del
+messaggio per il gestore code e la piattaforma di WebSphere MQ.
+Per ulteriori
+informazioni sul valore massimo consentito, consultare <cite>WebSphere MQ MQSC Command
+Reference</cite>.<p>Se questo valore viene ridotto, i messaggi che si trovano gi&agrave; sulla coda non vengono
+influenzati, anche se la loro lunghezza supera il nuovo limite impostato.</p>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_shareability"></a>Condivisibilit&agrave;</strong>
+</dt>
+<dd>Specifica se pi&ugrave; applicazioni possono ricevere i messaggi dalla coda specificata.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&agrave;</td>
+<td align="left" valign="top" class="base">Non applicabile</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">Non condivisibile</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>Non condivisibile</strong>
+</dt>
+<dd>Solo un'istanza dell'applicazione pu&ograve; ricevere i messaggi
+dalla coda.</dd>
+
+<dt>
+<strong>Condivisibile</strong>
+</dt>
+<dd>Pi&ugrave; di un'istanza dell'applicazione pu&ograve; ricevere i messaggi
+dalla coda.</dd>
+
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_inputOpenOption"></a>Opzione di apertura input</strong>
+</dt>
+<dd>L'opzione predefinita &egrave; "condiviso" per le applicazioni che aprono questa
+coda in input
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&agrave;</td>
+<td align="left" valign="top" class="base">Non applicabile</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">Deselezionato</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>Esclusivo</strong>
+</dt>
+<dd>La richiesta di apertura &egrave; con input esclusivo dalla coda.</dd>
+
+<dt>
+<strong>Condiviso</strong>
+</dt>
+<dd>La richiesta di apertura &egrave; con input condiviso dalla coda.</dd>
+
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_messageDeliverySequence"></a>Sequenza di consegna messaggi</strong>
+</dt>
+<dd>L'ordine con cui vengono inviati i messaggi dalla coda, in risposta alle
+richieste.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&agrave;</td>
+<td align="left" valign="top" class="base">Non applicabile</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">Priorit&agrave;</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>Priorit&agrave;</strong>
+</dt>
+<dd>I messaggi vengono inviati in ordine sequenziale di arrivo
+(FIFO, first-in-first-out) rispettando la priorit&agrave; definita. Questa &egrave;
+l'impostazione predefinita fornita con WebSphere MQ, ma l'installazione potrebbe
+averla modificata.</dd>
+
+<dt>
+<strong>FIFO</strong>
+</dt>
+<dd>I messaggi vengono inviati secondo l'ordine sequenziale di arrivo. La
+priorit&agrave; viene ignorata per i messaggi presenti su questa coda.</dd>
+
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_backoutThreshold"></a>Soglia di ripristino</strong>
+</dt>
+<dd>Il numero massimo di volte in cui un messaggio pu&ograve; essere
+ripristinato. Se viene raggiunta questa soglia, il messaggio viene accodato sulla coda di ripristino specificata dalla propriet&agrave; <strong>Nome riaccodamento di ripristino</strong>.
+<p>Il gestore code WebSphere MQ registra il numero di volte in cui un messaggio viene
+ripristinato. Quando questo numero raggiunge una soglia configurabile, l'utente di
+connessioni accoda di nuovo il messaggio su una coda di ripristino denominata. Se
+per qualsiasi motivo questo accodamento non ha esito positivo, il messaggio viene rimosso
+dalla coda e accodato di nuovo sulla coda lettere inattive oppure eliminato.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Numero intero</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">0</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>0</strong>
+</dt>
+<dd>Mai messaggi di accodamento</dd>
+
+<dt>
+<strong>1 o maggiore</strong>
+</dt>
+<dd>Il numero di volte in cui un messaggio viene ripristinato, in cui viene accodato su una coda di ripristino denominata.</dd>
+
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_backoutRequeue"></a>Nome riaccodamento di ripristino</strong>
+</dt>
+<dd>Il nome della coda di ripristino a cui vengono accodati di nuovo i messaggi
+ripristinati per un numero di volte superiore al valore stabilito dalla soglia di
+ripristino.
+<p>Il gestore code WebSphere MQ registra il numero di volte in cui un messaggio viene
+ripristinato. Quando questo numero raggiunge una soglia configurabile, l'utente di
+connessioni accoda di nuovo il messaggio su una coda di ripristino denominata. Se
+per qualsiasi motivo questo accodamento non ha esito positivo, il messaggio viene rimosso
+dalla coda e accodato di nuovo sulla coda lettere inattive oppure eliminato.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">Nullo</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo</td>
+<td align="left" valign="top" class="base">Da 1 a 48 caratteri.</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_hardenGetBackout"></a>Salva annullamenti get </strong>
+</dt>
+<dd>Consente di ottenere un conteggio pi&ugrave; accurato del numero di volte in cui un
+messaggio &egrave; stato annullato.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&agrave;</td>
+<td align="left" valign="top" class="base">Non applicabile</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">Deselezionato</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>Non salvato su disco</strong>
+</dt>
+<dd>Il conteggio non &egrave; stato salvato su disco. Questa &egrave;
+l'impostazione predefinita fornita con WebSphere MQ, ma l'installazione potrebbe
+averla modificata.</dd>
+
+<dt>
+<strong>Salvato su disco</strong>
+</dt>
+<dd>Il conteggio &egrave; stato salvato su disco.</dd>
+
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</body>
+</html>

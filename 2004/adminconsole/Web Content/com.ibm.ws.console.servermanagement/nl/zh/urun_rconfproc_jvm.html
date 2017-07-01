@@ -1,0 +1,422 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Java 虚拟机设置</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="urun_rconfproc_jvm"></a>
+<h2>Java 虚拟机设置</h2>
+
+<p>使用本页面查看和更改应用程序服务器进程的 Java 虚拟机（JVM）配置。</p>
+
+<p>要查看此管理控制台页面，单击<strong>服务器 &gt; 应用程序服务器 &gt; </strong><em>server_name</em><strong> &gt; 流程定义 &gt; Java 虚拟机</strong>。</p>
+
+<div>
+<p>
+<strong>&ldquo;配置&rdquo;选项卡</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="JavaVirtualMachine_classpath_description"></a>类路径</strong>
+</dt>
+<dd>指定 Java 虚拟机代码在其中查找类的标准类路径。
+<p>向表行输入每个类路径条目。您不需要在每个条目的末端添加冒号或分号。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">单位</td>
+<td align="left" valign="top" class="base">类路径</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_bootClasspath_description"></a>引导类路径</strong>
+</dt>
+<dd>指定 JVM 代码的引导类和资源。此选项仅对支持引导类和资源的 JVM 说明可用。您可以根据节点操作系统，使用冒号（:）或分号（;）分隔多个路径。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_verboseModeClass_description"></a>详细类的装入</strong>
+</dt>
+<dd>指定是否使用详细调试输出用于类装入。缺省为不启用详细类装入。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">false</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_verboseModeGarbageCollection_description"></a>详细垃圾收集</strong>
+</dt>
+<dd>指定是否使用详细调试输出用于垃圾收集。缺省为不启用详细垃圾收集。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">false</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_verboseModeJNI_description"></a>详细 JNI</strong>
+</dt>
+<dd>指定是否使用详细调试输出用于本地方法调用。缺省为不启用详细 Java 本机接口（JNI）活动。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">false</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_initialHeapSize_description"></a>初始的堆大小</strong>
+</dt>
+<dd>JVM 代码可用的最大堆大小（以兆字节计）。
+<p>增加最小堆大小可以改进启动。垃圾收集发生数减少，在性能上实现了 10% 的增益。</p>
+
+<p>通常，增加 Java 堆大小可改进吞吐量，直到堆不在驻留在物理内存。当堆开始交换到磁盘后，Java 性能强烈受到危害。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">整型</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">64 用于 OS/400，50 用于所有其它平台</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_maximumHeapSize_description"></a>堆大小的最大值</strong>
+</dt>
+<dd>指定 JVM 可用的最大堆大小（以兆字节计）。
+<p>增加堆大小可改进启动。垃圾收集发生数减少，在性能上实现了 10% 的增益。</p>
+
+<p>通常，增加 Java 堆大小可改进吞吐量，直到堆不在驻留在物理内存。当堆开始交换到磁盘后，Java 性能强烈受到危害。因此最大堆大小需要设置得足够低，以便将堆包含在物理内存中。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">整型</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">0（OS/400），256（其它所有平台）。将值保持足够低，避免页面调度或内存交换到磁盘。</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_runHProf_description"></a>运行 HProf</strong>
+</dt>
+<dd>指定是否使用 HProf 概要文件生成器支持。要使用另一个概要文件生成器，使用 HProf 自变量设置指定定制的概要文件生成器的设置。缺省为不启用 HProf 概要文件生成器支持。
+<p>如果您将 HProf 属性设置为真，然后必须命令行概要文件生成器自变量作为 HProf 自变量属性的值。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">false</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_hprofArguments_description"></a>HProf 自变量</strong>
+</dt>
+<dd>指定传递给启动应用程序服务器进程的 JVM 代码的命令行概要文件生成器自变量。您可以在启用 HProf 概要文件生成器支持时指定自变量。
+<p>如果&ldquo;运行 HProf&rdquo;属性设置为真，HProf 自变量才是必需的。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_debugMode_description"></a>调试方式</strong>
+</dt>
+<dd>指定是否以调试方式运行 JVM。缺省为不启用调试方式支持。
+<p>如果您将&ldquo;调试方式&rdquo;属性设置为真，然后必须指定命令行调试自变量作为调试自变量属性的值。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">false</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_debugArgs_description"></a>调试自变量</strong>
+</dt>
+<dd>指定传递给启动应用程序服务器进程的 JVM 代码的命令行调试自变量。您可以在启用调试方式时指定自变量。
+<p>如果&ldquo;调试方式&rdquo;属性设置为真，调试自变量才是必需的。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">单位</td>
+<td align="left" valign="top" class="base">Java 命令行自变量</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_genericJvmArguments_description"></a>类属 JVM 自变量</strong>
+</dt>
+<dd>指定传递给启动应用程序服务器进程的 Java 虚拟机代码的命令行自变量。
+<p>以下是可选的命令行自变量，您可通过将它们输入<strong>一般 JVM 自变量</strong>字段进行使用：<ul>
+
+<li>
+<strong>-Xquickstart：</strong>您可将此值用于较低优化级别的初始编译，而不是缺省方式，稍后，根据采样结果，您可以缺省方式重新编译初始编译级别。对早期适中速度比长时间运行吞吐量更重要的应用程序使用 quickstart。在一些调试方案中，测试装备和短运行工具，可能将启动时间增益 15-20%。<strong>-DCOPT_NQREACHDEF</strong> 可以将启动时间改进额外的 15%。</li>
+
+<li>
+<strong>-Xverify:none：</strong>当使用此值时，类装入期间跳过类验证阶段。通过使用已启用 Just In Time（JIT）编译器的 <strong>-Xverify:none</strong>，启动时间改进了 10-15%。</li>
+
+<li>
+<strong>-Xnoclassgc：</strong>您可使用此值禁用类垃圾收集，使类重用更可用，而且略微改进性能。缺省情况下，类垃圾收集是启用的，但是建议您启用它。您可以使用 verbose:gc 配置设置监控垃圾收集，因为其输出包含类垃圾收集统计信息。</li>
+
+<li>
+<strong>-Xgcthreads：</strong>您可以一次使用几个垃圾收集线程，也称为<em>并行垃圾收集</em>。当在<strong>一般 JVM 自变量</strong>字段中输入此值时，也输入您的机器具有的处理器数，例如 <samp>-Xgcthreads=</samp><em>number_of_processors</em>。
+如果您的机器具有多个处理器，建议您使用并行垃圾收集。此自变量仅适用于 IBM 开发者工具箱。</li>
+
+<li>
+<strong>-Xnocompactgc：</strong>此值禁用堆压缩（其是花费很大的垃圾收集操作）。在 IBM 开发者工具箱中避免压缩。 如果您禁用堆压缩，您可消除所有关联的开销。当在<strong>一般 JVM 自变量</strong>字段中输入此值时，也输入您的机器具有的处理器数，例如 <samp>-Xnocompactgc=</samp><em>number_of_processors</em>。
+</li>
+
+<li>
+<strong>-Xinitsh：</strong>您可使用此值设置存储类对象的初始堆大小。方法定义和静态字段也同类对象存储在一起。尽管系统堆大小没有上限，仍设置初始大小，以便您不会引起扩大系统堆大小的开销，这涉及对操作系统内存管理器的调用。您可通过了解 WebSphere 产品中装入的类数（大约 8000 个类）和其平均大小，以计算良好的初始系统堆大小。具有应用程序的知识帮助您将它们包含在计算中。</li>
+
+<li>
+<strong>-Xmc：</strong>线程本地堆大小是专门为线程分配的堆的一部分。由于线程本地堆大小，线程在分配对象时，不需要锁定整个堆。
+然而，当线程本地堆满时，对象分配从需要同步的堆完成。良好的本地高速缓存大小关键在于良好的性能，而且需要应用程序及其对象的知识。</li>
+
+<li>
+<strong>-Xml：</strong>您可使用此值设置从本地高速缓存分配的对象大小的限制。超出限制大小的对象需要在常规堆中分配。尽可能从本地高速缓存分配对象，或本地高速缓存耗尽，因为它不会动态增长。如果您了解一些对象将变得很大，则从常规堆分配它们。</li>
+
+</ul>
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">单位</td>
+<td align="left" valign="top" class="base">Java 命令行变量</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_executableJarFileName_description"></a>可执行的 JAR 文件名</strong>
+</dt>
+<dd>指定 Java 虚拟机代码使用的可执行 JAR 文件的完整路径名。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">单位</td>
+<td align="left" valign="top" class="base">路径名</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_disableJIT_description"></a>禁用 JIT</strong>
+</dt>
+<dd>指定是否禁用 JVM 代码的 Just in Time（JIT）编译器选项。
+<p>如果您禁用 JIT 编译器，吞吐量明显减少。因此，处于性能原因，保持 JIT 启用。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">false（启用 JIT）</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">建议</td>
+<td align="left" valign="top" class="base">启用 JIT</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_osName_description"></a>操作系统名称</strong>
+</dt>
+<dd>指定给定的操作系统的 JVM 设置。启动后，进程使用节点操作系统的 JVM 设置。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>相关信息</strong>
+</p>
+<a href="rcon_buttons.html">管理控制台按钮</a>
+<br>
+
+<a href="rcon_pageusage.html">管理控制台页面功能</a>
+<br>
+
+<a href="urun_rproperty.html">定制属性集合</a>
+<br>
+
+</div>
+</body>
+</html>

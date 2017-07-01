@@ -1,0 +1,524 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Einstellungen f&uuml;r virtuelle Java-Maschine (JVM)</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="urun_rconfproc_jvm"></a>
+<h2>Einstellungen f&uuml;r virtuelle Java-Maschine (JVM)</h2>
+
+<p>Auf dieser Seite k&ouml;nnen Sie die JVM-Konfiguration (Java Virtual Machine) f&uuml;r den
+Anwendungsserverprozess anzeigen und &auml;ndern.</p>
+
+<p>Klicken Sie zum Aufrufen dieser Seite der Administrationskonsole auf
+<strong>Server &gt; Anwendungsserver &gt; </strong><em>Servername</em><strong> &gt; Prozessdefinition &gt; Java Virtual
+Machine</strong>.</p>
+
+<div>
+<p>
+<strong>Register "Konfiguration"</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="JavaVirtualMachine_classpath_description"></a>Klassenpfad</strong>
+</dt>
+<dd>Gibt den Standardklassenpfad an, in dem der Code der virtuellen Java-Maschine (JVM) nach Klassen
+sucht.
+<p>Geben Sie jeden Klassenpfadeintrag in einer Tabellenzeile ein. Es ist
+nicht erforderlich, am Ende eines Eintrags einen Doppelpunkt bzw. ein
+Semikolon hinzuzuf&uuml;gen.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Einheiten</td>
+<td align="left" valign="top" class="base">Klassenpfad</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_bootClasspath_description"></a>Boot-Klassenpfad</strong>
+</dt>
+<dd>Gibt die Klassen des Bootprogramms und die Ressourcen f&uuml;r den JVM-Code an. Diese Option ist nur
+f&uuml;r JVM-Anweisungen verf&uuml;gbar, die Klassen des Bootprogramms und Ressourcen unterst&uuml;tzen. Sie k&ouml;nnen mehrere
+Pfade je nach Betriebssystem des Knotens mit einem Doppelpunkt (:) oder einem Semikolon (;) trennen. 
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_verboseModeClass_description"></a>Klassenladen im ausf&uuml;hrlichen Modus</strong>
+</dt>
+<dd>Gibt an, ob die Debug-Ausgabe f&uuml;r das Klassenladen im
+ausf&uuml;hrlichen Modus erfolgen soll.
+ Der Standardwert sieht vor, den
+ausf&uuml;hrlichen Modus f&uuml;r das Klassenladen nicht zu aktivieren.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Boolescher Wert</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">false</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_verboseModeGarbageCollection_description"></a>Garbage-Collection im ausf&uuml;hrlichen Modus</strong>
+</dt>
+<dd>Gibt an, ob die Debug-Ausgabe f&uuml;r die Garbage-Collection im ausf&uuml;hrlichen Modus
+erfolgen soll.
+ Der Standardwert sieht vor, den ausf&uuml;hrlichen
+Modus f&uuml;r die Garbage-Collection nicht zu aktivieren.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Boolescher Wert</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">false</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_verboseModeJNI_description"></a>JNI im ausf&uuml;hrlichen Modus</strong>
+</dt>
+<dd>Gibt an, ob die Debug-Ausgabe f&uuml;r den Aufruf nativer Methoden im ausf&uuml;hrlichen Modus erfolgen soll.
+Der Standardwert sieht vor, den ausf&uuml;hrlichen Modus f&uuml;r JNI (Java Native Interface) nicht zu aktivieren.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Boolescher Wert</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">false</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_initialHeapSize_description"></a>Ausgangsgr&ouml;&szlig;e des Freispeichers </strong>
+</dt>
+<dd>Gibt die Ausgangsgr&ouml;&szlig;e des Freispeichers an (in
+MB), die dem JVM-Code zur
+Verf&uuml;gung steht. 
+<p>Die Startzeit kann sich verk&uuml;rzen, wenn Sie die Mindestgr&ouml;&szlig;e f&uuml;r den Heap-Speicher heraufsetzen.
+Die Anzahl der Garbage-Collection-Durchl&auml;ufe verringert sich, und es wird eine Durchsatzsteigerung von 10 % erzielt.
+</p>
+
+<p>Im Allgemeinen verbessert sich der Durchsatz durch Vergr&ouml;&szlig;ern
+des Java-Heap-Speichers, solange sich der Heap-Speicher innerhalb des physischen Speichers befindet.
+Sobald der Heap-Speicher auf die Festplatte ausgelagert wird, verschlechtert sich der Java-Durchsatz drastisch.
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">64 f&uuml;r OS/400, 50 f&uuml;r alle anderen Plattformen</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_maximumHeapSize_description"></a>Maximale Gr&ouml;&szlig;e des Heap-Speichers</strong>
+</dt>
+<dd>Gibt die maximale Gr&ouml;&szlig;e des Heap-Speichers, die dem JVM-Code zur Verf&uuml;gung
+steht, in MB an. 
+<p>Die Startzeit kann sich verk&uuml;rzen, wenn Sie die Gr&ouml;&szlig;e des Heap-Speichers heraufsetzen.
+Die Anzahl der Garbage-Collection-Durchl&auml;ufe verringert sich, und es wird eine Durchsatzsteigerung von 10 % erzielt.
+</p>
+
+<p>Im Allgemeinen verbessert sich der Durchsatz durch Vergr&ouml;&szlig;ern
+des Java-Heap-Speichers, solange sich der Heap-Speicher innerhalb des physischen Speichers befindet.
+Sobald der Heap-Speicher auf die Festplatte ausgelagert wird, verschlechtert sich der Java-Durchsatz drastisch.
+Die maximale Heap-Gr&ouml;&szlig;e sollte deshalb auf einen Wert gesetzt werden, der niedrig genug ist, um das Verbleiben des
+Heap-Speichers im physischen Speicher zu gew&auml;hrleisten. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">0 f&uuml;r OS/400, 256 f&uuml;r alle anderen Plattformen. W&auml;hlen Sie einen m&ouml;glichst kleinen Wert, um Seitenauslagerungen
+(Paging) oder Prozessauslagerungen (Swapping) zu vermeiden.
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_runHProf_description"></a>HProf ausf&uuml;hren</strong>
+</dt>
+<dd>Gibt an, ob Unterst&uuml;tzung f&uuml;r HProf-Profiler verwendet werden soll. Wenn Sie einen anderen
+Profiler verwenden m&ouml;chten, geben Sie die benutzerdefinierten
+Profiler-Einstellungen &uuml;ber die HProf-Parameter ein.
+Der Standardwert sieht
+vor, die HProf-Profiler-Unterst&uuml;tzung nicht zu aktivieren.
+<p>Wenn Sie das Merkmal "HProfs ausf&uuml;hren" auf "true" einstellen, m&uuml;ssen Sie
+Befehlszeilenparameter f&uuml;r Profiler als Werte f&uuml;r das Merkmal
+"HProf-Parameter" angeben.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Boolescher Wert</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">false</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_hprofArguments_description"></a>HProf-Parameter</strong>
+</dt>
+<dd>Gibt die Befehlszeilenparameter f&uuml;r Profiler an, die an den JVM-Code, der den Anwendungsserverprozess startet, &uuml;bergeben werden sollen. Sie k&ouml;nnen Parameter angeben, wenn die
+Unterst&uuml;tzung f&uuml;r HProf-Profiler aktiviert ist.
+<p>HProf-Parameter sind nur erforderlich, wenn das Merkmal "HProfs ausf&uuml;hren" auf
+"true" eingestellt ist.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_debugMode_description"></a>Debug-Modus</strong>
+</dt>
+<dd>Gibt an, ob die JVM im Debug-Modus ausgef&uuml;hrt werden soll. Der Standardwert sieht vor, dass der Debug-Modus nicht aktiviert wird.
+<p>Wenn Sie das Merkmal "Debug-Modus" auf "true" einstellen, m&uuml;ssen
+Sie Befehlszeilenparameter f&uuml;r das Debugging als Werte f&uuml;r das Merkmal
+"Debug-Parameter" angeben.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Boolescher Wert</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">false</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_debugArgs_description"></a>Debug-Parameter</strong>
+</dt>
+<dd>Gibt die Debug-Befehlszeilenparameter an, die an den JVM-Code, der den
+Anwendungsserverprozess startet, &uuml;bergeben werden sollen. Sie k&ouml;nnen Parameter
+angeben, wenn der Debug-Modus aktiviert ist.
+<p>Debug-Parameter sind nur erforderlich, wenn das Merkmal "Debug-Modus"
+auf "true" eingestellt ist.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Einheiten</td>
+<td align="left" valign="top" class="base">Java-Befehlszeilenparameter</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_genericJvmArguments_description"></a>Generische JVM-Parameter</strong>
+</dt>
+<dd>Gibt die Befehlszeilenparameter an, die an den JVM-Code, der den Anwendungsserverprozess
+startet, &uuml;bergeben werden sollen.
+<p>Im Folgenden sind die optionalen Befehlszeilenparameter aufgef&uuml;hrt, die Sie im Feld
+<strong>General JVM Arguments</strong> eingeben k&ouml;nnen: <ul>
+
+<li>
+<strong>-Xquickstart:</strong> Sie k&ouml;nnen diesen Wert verwenden, um eine anf&auml;nglich
+weniger optimale Kompilierung als im Standardmodus durchzuf&uuml;hren.
+Sp&auml;ter k&ouml;nnen Sie die Kompilierung in Abh&auml;ngigkeit von einigen
+Testergebnissen noch einmal ganz neu im Standardmodus durchf&uuml;hren. Verwenden Sie
+"quickstart" f&uuml;r Anwendungen, f&uuml;r die sofortige schnelle Antwortzeiten wichtiger sind als dauerhafter
+Durchsatz.
+In einigen Debug-Szenarios, Testumgebungen und Tools mit kurzer Laufzeit k&ouml;nnen Startzeitverbesserungen zwischen
+15 und 20 % erzielt werden.
+Mit
+<strong>-DCOPT_NQREACHDEF</strong> kann die Startzeit um weitere 15 % verbessert werden.
+</li>
+
+<li>
+<strong>-Xverify:none:</strong> Wenn Sie diesen Wert verwenden, wird die Klassen&uuml;berpr&uuml;fung w&auml;hrend des Ladens der Klassen
+&uuml;bersprungen.
+Mit <strong>-Xverify:none</strong> und aktiviertem JIT-Compiler kann die Startzeit um 10 bis 15 % verbessert werden.
+</li>
+
+<li>
+<strong>-Xnoclassgc:</strong> Sie k&ouml;nnen diesen Wert verwenden, um die Garbage-Collection f&uuml;r Klassen im Hinblick auf eine
+verst&auml;rkte Wiederverwendung von Klassen zu inaktivieren und somit eine geringf&uuml;gig h&ouml;heren Durchsatz zu erzielen.
+Die Garbage-Collection f&uuml;r Klassen ist standardm&auml;&szlig;ig aktiviert, aber es wird empfohlen, sie zu inaktivieren.
+Die Garbage-Collection k&ouml;nnen Sie mit der Konfigurationseinstellung
+verbose:gc &uuml;berwachen.
+</li>
+
+<li>
+<strong>-Xgcthreads:</strong> Sie k&ouml;nnen mehrere Garbage-Collection-Threads gleichzeitig verwenden. Dieses Verfahren
+wird als <em>parallele Garbage-Collection</em> bezeichnet. Wenn Sie diesen Wert im Feld
+<strong>Generische JVM-Argumente</strong> eingeben, m&uuml;ssen Sie auch die Anzahl der Prozessoren in Ihrer Maschine eingeben,
+z. B. <samp>-Xgcthreads=</samp><em>Anzahl_Prozesse</em>.
+Es wird empfohlen, parallele Garbage-Collection zu verwenden, wenn Ihre Maschine mehrere Prozessoren besitzt.
+Dieses Argument gilt nur f&uuml;r IBM Developer
+Kit.</li>
+
+<li>
+<strong>-Xnocompactgc:</strong> Dieser Wert inaktiviert die Heap-Komprimierung, die die aufwendigste Operation der
+Garbage-Collection ist. Vermeiden Sie die Komprimierung in IBM Developer
+Kit.  Wenn Sie die Heap-Komprimierung inaktivieren, f&auml;llt der damit in Zusammenhang stehende Aufwand weg.
+Wenn Sie diesen Wert im Feld
+<strong>Generische JVM-Argumente</strong> eingeben, m&uuml;ssen Sie auch die Anzahl der Prozessoren in Ihrer Maschine eingeben,
+z. B. <samp>-Xnocompactgc=</samp><em>Anzahl_Prozesse</em>.
+</li>
+
+<li>
+<strong>-Xinitsh:</strong> Mit diesem Wert k&ouml;nnen Sie die anf&auml;ngliche Gr&ouml;&szlig;e des Heap-Speichers festlegen, in dem die Klassenobjekte
+gespeichert werden.
+Die Methodendefinitionen und statischen Felder werden zusammen mit den Klassenobjekten gespeichert.
+Obwohl die Gr&ouml;&szlig;e des Heap-Speichers des Systems nach oben hin nicht beschr&auml;nkt ist, sollten Sie
+die Anfangsgr&ouml;&szlig;e so w&auml;hlen, dass kein Risiko besteht, dass der Heap-Speicher des Systems vergr&ouml;&szlig;ert werden muss,
+was dazu f&uuml;hren w&uuml;rde, dass Aufrufe an den Speichermanager des Betriebssystems abgesetzt w&uuml;rden.
+Eine angemessene Anfangsgr&ouml;&szlig;e des Heap-Speichers l&auml;sst sich anhand der Anzahl der Klassen, die in das WebSphere-Produkt
+geladen werden (ca. 8.000 Klassen) und deren durchschnittlicher Gr&ouml;&szlig;e berechnen.
+Wenn Sie Kenntnisse der Anwendung haben, k&ouml;nnen Sie die in der Anwendung verwendeten Klassen in die Berechnung mit
+einbeziehen.
+</li>
+
+<li>
+<strong>-Xmc:</strong> Die lokale Heap-Gr&ouml;&szlig;e f&uuml;r den Thread ist ein Anteil des Heap-Speichers, der exklusiv f&uuml;r einen Thread
+reserviert wird.
+Aufgrund der lokalen Heap-Gr&ouml;&szlig;e f&uuml;r den Thread muss der Thread bei der Reservierung von Speicher f&uuml;r Objekte
+nicht den gesamten Heap-Speicher sperren.
+Wenn der lokale Heap-Speicher des Threads jedoch voll ist, erfolgt die Reservierung von Speicher f&uuml;r Objekte
+&uuml;ber den Heap-Speicher, der synchronisiert werden muss.
+Eine gut berechnete lokale Cache-Gr&ouml;&szlig;e ist f&uuml;r den Durchsatz entscheidend und setzt Kenntnisse der Anwendung
+und der Anwendungsobjekte voraus.
+</li>
+
+<li>
+<strong>-Xml:</strong> Mit diesem Wert k&ouml;nnen Sie den Grenzwert f&uuml;r eine Objektgr&ouml;&szlig;e festlegen, f&uuml;r die Speicher aus dem lokalen
+Cache reserviert wird.
+F&uuml;r Objekte, die diesen Grenzwert &uuml;berschreiten, muss Speicher aus dem regul&auml;ren Heap-Speicher reserviert werden.
+Ordnen Sie so viele Objekte wie m&ouml;glich aus dem lokalen Cache zu.
+Andernfalls wird der lokale Cache &uuml;berfl&uuml;ssig, weil er nicht dynamisch w&auml;chst.
+Wenn Sie wissen, dass einige Objekte sehr gro&szlig; werden, reservieren Sie f&uuml;r diese Speicher aus dem regul&auml;ren
+Heap-Speicher.
+</li>
+
+</ul>
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Einheiten</td>
+<td align="left" valign="top" class="base">Java-Befehlszeilenparameter</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_executableJarFileName_description"></a>Name der ausf&uuml;hrbaren JAR-Datei</strong>
+</dt>
+<dd>Gibt einen vollst&auml;ndigen Pfadnamen f&uuml;r eine ausf&uuml;hrbare JAR-Datei an, die vom
+JVM-Code verwendet wird.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Einheiten</td>
+<td align="left" valign="top" class="base">Pfadname</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_disableJIT_description"></a>JIT inaktivieren</strong>
+</dt>
+<dd>Gibt an, ob der JIT-Compiler des JVM-Codes inaktiviert werden soll. 
+<p>Wenn Sie den JIT-Compiler inaktivieren, nimmt der Durchsatz merklich ab.
+Im Hinblick auf den Durchsatz sollte JIT deshalb aktiviert bleiben.
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Boolescher Wert</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">false (JIT aktiviert)</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Empfohlene Einstellung</td>
+<td align="left" valign="top" class="base">JIT aktiviert</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_osName_description"></a>Name des Betriebssystems </strong>
+</dt>
+<dd>Gibt die JVM-Einstellungen f&uuml;r ein bestimmtes Betriebssystem an. Der Prozess verwendet nach dem
+Start die JVM-Einstellungen f&uuml;r das Betriebssystem des Knotens.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Zugeh&ouml;rige Informationen</strong>
+</p>
+<a href="rcon_buttons.html">Kn&ouml;pfe in der Adminstrationskonsole</a>
+<br>
+
+<a href="rcon_pageusage.html">Funktionen auf den Seiten der Administrationskonsole</a>
+<br>
+
+<a href="urun_rproperty.html">Benutzerdefinierte Merkmale</a>
+<br>
+
+</div>
+</body>
+</html>

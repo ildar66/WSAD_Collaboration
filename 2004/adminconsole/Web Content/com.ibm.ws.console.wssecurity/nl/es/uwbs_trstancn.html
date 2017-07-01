@@ -1,0 +1,101 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Valores de configuraci&oacute;n de anclas de confianza</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_trstancn"></a>
+<h2>
+<img alt="[Fix Pack 5.0.2 y posterior]" src="v502.gif" border="0">Valores de configuraci&oacute;n de anclas de confianza</h2>
+
+<p>Utilice esta informaci&oacute;n para configurar un ancla de confianza. Las anclas de confianza apuntan a los almacenes de claves que contienen los certificados ra&iacute;z de confianza o autofirmados.
+Esta informaci&oacute;n le permite especificar un nombre para el ancla de confianza y la informaci&oacute;n necesaria para acceder a un almac&eacute;n de claves. El enlace de aplicaci&oacute;n utiliza este nombre para hacer referencia a una definici&oacute;n de ancla de confianza predefinida en el archivo de enlace (o por omisi&oacute;n).</p>
+
+<p>Para ver esta p&aacute;gina de la consola administrativa, realice los pasos siguientes:<ol>
+
+<li>Pulse <strong>Servidores &gt; Servidores de aplicaciones &gt; </strong><em>nombre_servidor</em>.
+</li>
+
+<li>En Propiedades adicionales, pulse <strong>Servicios Web: Enlaces por omisi&oacute;n
+para Web Services Security &gt; Anclas de confianza &gt; Nueva</strong>.</li>
+
+</ol>
+</p>
+
+<dl>
+<dt>
+<strong><a name="sec_trstancname"></a>Nombre del ancla de confianza   </strong>
+</dt>
+<dd>Especifica el nombre exclusivo que utiliza el enlace de la aplicaci&oacute;n para hacer
+referencia a una definici&oacute;n de ancla de confianza definida previamente en el enlace por omisi&oacute;n.</dd>
+<dt>
+<strong><a name="sec_keystpass"></a>Contrase&ntilde;a del almac&eacute;n de claves </strong>
+</dt>
+<dd>Especifica la contrase&ntilde;a necesaria para acceder al archivo de
+almac&eacute;n de claves.</dd>
+<dt>
+<strong><a name="sec_keystpath"></a>V&iacute;a de acceso del almac&eacute;n de claves </strong>
+</dt>
+<dd>Especifica la ubicaci&oacute;n del archivo de almac&eacute;n de claves.
+<p>Utilice ${USER_INSTALL_ROOT} ya que esta v&iacute;a de acceso se ampl&iacute;a hasta
+la v&iacute;a de acceso de WebSphere Application Server en la m&aacute;quina.</p>
+
+</dd>
+<dt>
+<strong><a name="sec_keysttype"></a>Tipo de almac&eacute;n de claves</strong>
+</dt>
+<dd>Especifica el tipo del archivo de almac&eacute;n de claves.
+<p>El valor de este campo es <strong>JKS</strong> o <strong>JCEKS</strong>.<dl>
+
+<dt>
+<strong>JKS</strong>
+</dt>
+<dd>Especifique esta opci&oacute;n si no est&aacute; utilizando JCE (Java Cryptography Extensions).</dd>
+<dt>
+<strong>JCEKS</strong>
+</dt>
+<dd>Especifique esta opci&oacute;n si est&aacute; utilizando JCE (Java
+Cryptography Extensions). Aunque el formato del almac&eacute;n de claves JCEKS ese m&aacute;s seguro, disminuye el rendimiento.</dd>
+</dl>
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">JKS</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">JKS, JCEKS</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>Informaci&oacute;n relacionada</strong>
+</p>
+<a href="uwbs_trstanc.html">Grupo de anclas de confianza</a>
+<br>
+
+</div>
+</body>
+</html>

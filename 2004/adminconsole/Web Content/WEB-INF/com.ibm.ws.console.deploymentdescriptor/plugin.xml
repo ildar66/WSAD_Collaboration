@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin id="com.ibm.ws.console.deploymentdescriptor"
+        name="deploymentdescriptor"
+        version="5.0.0"
+        provider-name="IBM Corp. - WebSphere Server Group"
+        embedded="true"
+        context-root="deploymentdescriptor">  
+
+    <requires>
+        <import plugin="com.ibm.ws.console.core"/>
+        <import plugin="com.ibm.ws.console.appmanagement"/>
+        <import plugin="com.ibm.ws.console.resources"/>
+    </requires>
+
+    <extension point="com.ibm.ws.console.core.link">
+        <link
+            id="com.ibm.ws.console.deploymentdescriptor.DescriptorViewer"
+            label="ManagedObject.viewdd.displayName"
+            helpContextId=""
+            icon=""
+            actionUri="com.ibm.ws.console.deploymentdescriptor.viewCmd.do?resource=web.xml"
+            actionView="com.ibm.ws.console.deploymentdescriptor.viewCmd.do?resource=web.xml"
+            description="ManagedObject.viewdd.description"
+            contextTypePluginId="com.ibm.ws.console.appmanagement"
+            contextType="WebModuleDeployment"
+        />    
+    </extension>
+        
+    <extension point="com.ibm.ws.console.core.link">
+        <link
+            id="com.ibm.ws.console.deploymentdescriptor.DescriptorViewer"
+            label="ManagedObject.viewdd.displayName"
+            helpContextId=""
+            icon=""
+            actionUri="com.ibm.ws.console.deploymentdescriptor.viewCmd.do?resource=application.xml"
+            actionView="com.ibm.ws.console.deploymentdescriptor.viewCmd.do?resource=application.xml"
+            description="ManagedObject.viewdd.description"
+            contextTypePluginId="com.ibm.ws.console.appmanagement"
+            contextType="ApplicationDeployment"
+        />    
+    </extension>
+
+    <extension point="com.ibm.ws.console.core.link">
+        <link
+            id="com.ibm.ws.console.deploymentdescriptor.DescriptorViewer"
+            label="ManagedObject.viewdd.displayName"
+            helpContextId=""
+            icon=""
+            actionUri="com.ibm.ws.console.deploymentdescriptor.viewCmd.do?resource=ejb-jar.xml"
+            actionView="com.ibm.ws.console.deploymentdescriptor.viewCmd.do?resource=ejb-jar.xml"
+            description="ManagedObject.viewdd.description"
+            contextTypePluginId="com.ibm.ws.console.appmanagement"
+            contextType="EJBModuleDeployment"
+        />    
+    </extension>
+    <extension point="com.ibm.ws.console.core.link">
+        <link
+            id="com.ibm.ws.console.deploymentdescriptor.DescriptorViewer"
+            label="ManagedObject.viewdd.displayName"
+            helpContextId=""
+            icon=""
+            actionUri="com.ibm.ws.console.deploymentdescriptor.viewCmd.do?resource=ra.xml"
+            actionView="com.ibm.ws.console.deploymentdescriptor.viewCmd.do?resource=ra.xml"
+            description="ManagedObject.viewdd.description"
+            contextTypePluginId="com.ibm.ws.console.appmanagement"
+            contextType="ConnectorModuleDeployment"
+        />    
+    </extension>
+
+    <extension point="com.ibm.ws.console.core.link">
+        <link
+            id="com.ibm.ws.console.deploymentdescriptor.DescriptorViewer"
+            label="ManagedObject.viewdd.displayName"
+            helpContextId=""
+            icon=""
+            actionUri="com.ibm.ws.console.deploymentdescriptor.viewCmd.do?resource=j2c.xml"
+            actionView="com.ibm.ws.console.deploymentdescriptor.viewCmd.do?resource=j2c.xml"
+            description="ManagedObject.viewdd.description"
+            contextTypePluginId="com.ibm.ws.console.resources"
+            contextType="J2CResourceAdapter"
+        />    
+    </extension>
+
+    <extension point="com.ibm.ws.console.core.link">
+        <link
+            id="com.ibm.ws.console.deploymentdescriptor.DescriptorViewer"
+            label="ManagedObject.viewdd.displayName"
+            helpContextId=""
+            icon=""
+            actionUri="com.ibm.ws.console.deploymentdescriptor.viewCmd.do?resource=j2c.xml"
+            actionView="com.ibm.ws.console.deploymentdescriptor.viewCmd.do?resource=j2c.xml"
+            description="ManagedObject.viewdd.description"
+            contextTypePluginId="com.ibm.ws.console.resources"
+            contextType="J2CResourceAdapter.builtin"
+        />    
+    </extension>
+
+
+</plugin>
+
+

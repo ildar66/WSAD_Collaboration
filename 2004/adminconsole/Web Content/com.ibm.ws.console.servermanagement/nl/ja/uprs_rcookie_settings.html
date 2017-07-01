@@ -1,0 +1,79 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Cookie 設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="cook_set"></a>
+<h2>Cookie 設定</h2>
+
+<p>このページを使用して、セッション管理の Cookie 設定を構成します。</p>
+
+<p>この管理コンソール・ページを表示するには、「<strong>サーバー</strong>」&gt;「<strong>アプリケーション・サーバー</strong>」&gt;「<em>server_name</em>」&gt;「<strong>Web コンテナー</strong>」&gt;「<strong>セッション管理</strong>」&gt;「<strong>Cookie を使用可能にする</strong>」をクリックします。</p>
+
+<div>
+<p>
+<strong>「構成」タブ</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="Cookie_name_description"></a>Cookie 名</strong>
+</dt>
+<dd>セッション管理 Cookie の固有名を指定します。
+サーブレット仕様には、JSESSIONID という名前が必要です。
+ただし、柔軟性を考えてこの値を構成することは可能です。 </dd>
+<dt>
+<strong><a name="Cookie_secure_description"></a>セキュア Cookie </strong>
+</dt>
+<dd>セッション Cookie にセキュア・フィールドを組み込むように指定します。
+このフィーチャーを使用可能にすると、Cookie の交換は HTTPS セッションだけに制限されます。</dd>
+<dt>
+<strong><a name="Cookie_domain_description"></a>Cookie ドメイン</strong>
+</dt>
+<dd>セッション・トラッキング Cookie のドメイン・フィールドを指定します。
+この値は、ブラウザーが特定のサーバーに Cookie を送信するかどうかを制御します。
+例えば、特定のドメインを指定すると、
+セッション Cookie は、そのドメインのホストに送信されます。
+デフォルトのドメインはサーバーです。</dd>
+<dt>
+<strong><a name="Cookie_path_description"></a>Cookie パス</strong>
+</dt>
+<dd>このパスに指定されている URL に Cookie が送信されることを指定します。
+サーバー上のパスを表すストリングを指定します。
+"/" はルート・ディレクトリーを示します。
+値を指定して、Cookie が送信されるパスを制限します。
+パスを制限して、Cookie がサーバー上の特定の URL には送信されないようにします。
+ルート・ディレクトリーを指定すると、
+所定のサーバー上のどのパスにアクセスする場合でも Cookie は送信されます。</dd>
+<dt>
+<strong><a name="Cookie_maximum_age"></a>Cookie 最大経過時間</strong>
+</dt>
+<dd>Cookie がクライアント・ブラウザーで存続する時間を指定します。
+Cookie が、現行のブラウザー・セッションの間だけ、あるいは最大経過時間まで存続するように指定します。
+最大経過時間のオプションを選択する場合は、経過時間を秒単位で指定します。
+この値は、Cookie 仕様に記述されている存続時間 (TTL) 値に対応しています。
+
+<p>デフォルトは現行のブラウザー・セッションで、この値を -1 に設定するのと同等です。</p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>関連情報</strong>
+</p>
+<a href="rcon_buttons.html">管理コンソールのボタン</a>
+<br>
+
+<a href="rcon_pageusage.html">管理コンソール・ページのフィーチャー</a>
+<br>
+
+<a href="rcon_preferences.html">管理コンソールの設定の変更</a>
+<br>
+
+</div>
+</body>
+</html>

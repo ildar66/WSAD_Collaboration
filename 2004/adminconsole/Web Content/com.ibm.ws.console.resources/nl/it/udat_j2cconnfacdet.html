@@ -1,0 +1,324 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Impostazioni di produzioni di connessioni J2C</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="J2C_connection_factory"></a>
+<h2>Impostazioni di produzioni di connessioni J2C</h2>
+
+<p>Utilizzare questa pagina per specificare le impostazioni di una produzione
+connessioni. </p>
+
+<p>Per visualizzare questa pagina della console di gestione, fare clic su <strong>Risorse</strong>
+&gt; <strong>Adattatori risorse</strong> &gt; <em>adattatore_risorse</em> &gt; <strong>Produzione
+connessioni J2C</strong> &gt; <em>produzione_connessioni</em>.</p>
+
+<div>
+<p>
+<strong>Scheda Configurazione</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="J2CConnectionfactory_detail_contextID"></a>Ambito</strong>
+</dt>
+<dd>Specifica il livello in cui &egrave; visibile questa definizione di risorsa -- il
+livello cella, nodo o server.
+<p>&Egrave; possibile definire in pi&ugrave; ambiti, risorse quali provider di JDBC, collegamenti
+spazio nome o librerie condivise, insieme a risorse definite in ambiti pi&ugrave; specifici che
+sovrascrivono i duplicati definiti in ambiti pi&ugrave; generali.</p>
+
+<p>Notare che non &egrave; importante l'ambito di una risorsa definita, le propriet&agrave; della
+risorsa si applicano solo ad un singolo livello del server. Ad esempio, se si definisce
+l'ambito di un'origine dati al livello Cella, tutti gli utenti possono ricercare e
+utilizzare quella origine dati che risulta univoca all'interno di quella cella. Tuttavia,
+le impostazioni delle propriet&agrave; di risorsa sono locali per ogni server
+all'interno della Cella. Ad esempio, se si imposta <em>numero massimo connessioni</em> su
+10, ogni server in quella cella pu&ograve; disporre di 10 connessioni.<dl>
+
+<dt>
+<strong>Cella</strong>
+</dt>
+<dd>L'ambito pi&ugrave; generale.  Le risorse definite nell'ambito cella sono
+visibili da tutti i nodi e i server, a meno che non siano state sovrascritte. Per visualizzare le risorse definite nell'ambito cella, non specificare il nome di un
+server o di un nodo nel modulo di selezione dell'ambito.</dd>
+
+<dt>
+<strong>Nodo</strong>
+</dt>
+<dd>L'ambito predefinito per la maggior parte dei tipi
+di risorse.  Le risorse definite nell'ambito nodo sovrascrivono
+gli eventuali duplicati definiti nell'ambito cella e sono
+visibili a tutti i server sullo stesso nodo, a meno che non siano
+state sovrascritte in un ambito server sul quel nodo. Per
+visualizzare le risorse definite in un ambito nodo, non specificare
+un server ma selezionare il nome di un nodo nel modulo di selezione
+dell'ambito.</dd>
+
+<dt>
+<strong>Server</strong>
+</dt>
+<dd>L'ambito pi&ugrave; specifico per la definizione delle
+risorse.  Le risorse definite nell'ambito server sovrascrivono eventuali
+definizioni di risorse duplicate specificate nell'ambito cella o
+nell'ambito nodo parent e sono visibili solo in un determinato server. Per
+visualizzare le risorse definite in un ambito server, specificare il
+nome di un server e il nome di un nodo nel modulo di selezione
+dell'ambito.</dd>
+
+</dl>
+</p>
+
+<p>Quando le risorse vengono generate, vengono sempre create nell'ambito corrente
+selezionato nel pannello.   Per visualizzare le
+risorse in altri ambiti, specificare un nodo o un server diverso nel
+modulo di selezione dell'ambito.  </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2CConnectionFactory_displayName"></a>Nome</strong>
+</dt>
+<dd>Specifica un elenco di nomi visualizzati di produzioni connessioni.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2CConnectionFactory_jndiName_displayName"></a>Nome JNDI</strong>
+</dt>
+<dd>Specifica il nome JNDI di questa produzione connessioni.
+<p>Ad esempio il nome potrebbe essere <em>eis/myECIConnection</em>.</p>
+
+<p>Dopo aver impostato questo valore, salvarlo e riavviare il server. &Egrave; possibile visualizzare questa stringa durante l'esecuzione di <em>dumpNameSpace</em>. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">eis/<em>nome visualizzato</em></td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2CConnectionFactory_description_displayName"></a>Descrizione</strong>
+</dt>
+<dd>Specifica una descrizione di questa produzione connessioni.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2CConnectionFactory_category_displayName"></a>Categoria</strong>
+</dt>
+<dd>Specifica una stringa che &egrave; possibile utilizzare per classificare o
+raggruppare questa produzione connessioni.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2CConnectionFactory_authMechanismPreference_displayName"></a>Preferenze di autenticazione</strong>
+</dt>
+<dd>Specifica i meccanismi di autenticazione definiti per questa produzione
+connessioni. 
+<p>Questa impostazione specifica il meccanismo di autenticazione definito per
+l'adattatore risorse corrispondente che si applica a questa produzione connessioni.  I
+valori comuni, a seconda delle funzioni dell'adattatore risorse, sono:
+<em>KERBEROS</em>, <em>BASIC_PASSWORD</em> e <em>None</em>.  </p>
+
+<p>Se viene selezionato None, il componente dell'applicazione deve gestire
+l'autenticazione (&lt;res-auth&gt;Application&lt;/res-auth&gt;).  In questo caso, l'ID
+utente e la password derivano da: <ul>
+
+<li>L'alias dell'autenticazione gestita dal componente</li>
+
+<li>Propriet&agrave; personalizzare, nome utente e password</li>
+
+<li>Le stringhe inviate al metodo getConnection</li>
+
+</ul>
+</p>
+
+<p>Se, ad esempio, due voci del meccanismo di autenticazione sono state definite per un
+adattatore risorse nel documento <em>ra.xml</em>: <ul>
+
+<li>&lt;authentication-mechanism-type&gt;BasicPassword&lt;/authentication-mechanism-type&gt;</li>
+
+<li>&lt;authentication-mechanism-type&gt;Kerbv5&lt;/authentication-mechanism-type&gt;</li>
+
+</ul>la preferenza di autenticazione specifica il meccanismo da utilizzare per
+l'autenticazione gestita dal contenitore.  Se viene selezionato un meccanismo non
+supportato dall'adattatore risorse, all'avvio del server viene generata un'eccezione.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Elenco di selezione</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">BASIC_PASSWORD </td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2CConnectionFactory_authDataAlias_displayName"></a>Alias dell'autenticazione gestita dal componente</strong>
+</dt>
+<dd>Specifica i dati di autenticazione per
+il collegamento gestito dal componente alla risorsa. 
+Scegliere tra gli alias definiti in <strong>Sicurezza</strong> &gt; <strong>Configurazione JAAS</strong> &gt; <strong>Dati di autenticazione J2C</strong>.
+<p>Per definire un nuovo alias non visualizzato gi&agrave; nell'elenco di selezione:<ul>
+
+<li>Fare clic su <strong>Applica</strong> per visualizzare gli Elementi correlati. </li>
+
+<li>Fare clic su
+<strong>Voci dati di autenticazione J2C</strong>.</li>
+
+<li>Definire un alias.</li>
+
+<li>Fare clic sul nome della produzione connessioni sulla parte superiore della pagina
+<em>Voci dati di autenticazione J2C</em> per ritornare alla pagina produzione connessioni.</li>
+
+<li>Selezionare l'alias.</li>
+
+</ul> 
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Elenco di selezione</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2CConnectionFactory_mappingModule_authDataAlias_displayName"></a>Alias dell'autenticazione gestita dal contenitore</strong>
+</dt>
+<dd>Specifica i dati di autenticazione (un percorso di stringa convertito in Id utente e password) per il collegamento alla risorsa gestito dal contenitore.
+Scegliere tra gli alias definiti in <strong>Sicurezza</strong> &gt; <strong>Configurazione JAAS</strong> &gt; <strong>Dati di autenticazione J2C</strong>.
+<p>Per definire un nuovo alias non visualizzato gi&agrave; nell'elenco di selezione:<ul>
+
+<li>Fare clic su <strong>Applica</strong> per visualizzare gli Elementi correlati. </li>
+
+<li>Fare clic su
+<strong>Voci dati di autenticazione J2C</strong>.</li>
+
+<li>Definire un alias.</li>
+
+<li>Fare clic sul nome della produzione connessioni sulla parte superiore della pagina
+<em>Voci dati di autenticazione J2C</em> per ritornare alla pagina produzione connessioni.</li>
+
+<li>Selezionare l'alias.</li>
+
+</ul> 
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Elenco di selezione</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2C_mappingConfigAlias"></a>Mappatura degli alias di configurazione</strong>
+</dt>
+<dd>Consente agli utenti di scegliere dall'elenco <strong>Sicurezza</strong> &gt; <strong>Configurazione JAAS</strong> &gt; <strong>Configurazione login dell'applicazione</strong>.
+
+<p>La configurazione JAAS <strong>DefaultPrincipalMapping</strong> mappa gli alias di autenticazione sull'ID utente e sulla password. 
+  &Egrave; possibile definire e utilizzare altre configurazioni di mappature.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Elenco di selezione</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informazioni correlate</strong>
+</p>
+<a href="rcon_buttons.html">Pulsanti della console di gestione</a>
+<br>
+
+<a href="rcon_pageusage.html">Funzioni della pagina della console di gestione</a>
+<br>
+
+</div>
+</body>
+</html>

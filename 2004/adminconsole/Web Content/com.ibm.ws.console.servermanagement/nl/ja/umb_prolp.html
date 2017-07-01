@@ -1,0 +1,338 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>リスナー・ポート設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="ListenerPort"></a>
+<h2>リスナー・ポート設定</h2>
+
+<p>リスナー・ポートは、接続ファクトリー、宛先、
+およびデプロイ済みメッセージ・ドリブン Bean の間の関連の管理を単純化するために使用されます。
+</p>
+
+<p>このパネルを使用して、選択したリスナー・ポートの構成プロパティーを表示または変更します。
+</p>
+
+<p>この管理コンソール・ページを表示するには、「<strong>サーバー</strong>」-&gt;「<strong><em>application_server</em></strong>」-&gt;「<strong>メッセージ・リスナー・サービス</strong>」-&gt;「<strong>リスナー・ポート</strong>」-&gt;「<strong><em>listener_port</em></strong>」をクリックします。
+</p>
+
+<dl>
+<dt>
+<strong><a name="ListenerPort_name"></a>名前</strong>
+</dt>
+<dd>管理目的でリスナー・ポートを使用する際の名前。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ListenerPort_initialState"></a>初期状態</strong>
+</dt>
+<dd>アプリケーション・サーバーを次に再始動したときのリスナー・ポートの状態。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">列挙型</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">単位</td>
+<td align="left" valign="top" class="base">該当なし</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">開始済み</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">
+<dl>
+<dt>
+<strong>開始済み</strong>
+</dt>
+<dd>アプリケーション・サーバーの次回始動時に、リスナー・ポートを自動的に始動します。
+</dd>
+<dt>
+<strong>停止済み</strong>
+</dt>
+<dd>アプリケーション・サーバーの次回始動時に、
+リスナー・ポートを自動的に始動しません。
+メッセージ・ドリブン Bean がアプリケーション・サーバー上でこのリスナー・ポートを使用することになっている場合、
+システム管理者はポートを手動で開始するか、
+またはこのプロパティーの「開始済み」値を選択してからアプリケーション・サーバーを再始動する必要があります。</dd>
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ListenerPort_description"></a>説明</strong>
+</dt>
+<dd>IBM WebSphere Application Server 内で管理目的で使用する、リスナー・ポートの説明。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ListenerPort_connectionFactoryJNDIName"></a>接続ファクトリー JNDI 名</strong>
+</dt>
+<dd>リスナー・ポートで使用される JMS 接続ファクトリーの JNDI 名。
+例えば、<samp>jms/connFactory1</samp>。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ListenerPort_destinationJNDIName"></a>宛先 JNDI 名</strong>
+</dt>
+<dd>リスナー・ポートで使用される宛先の JNDI 名。
+例えば、<samp>jms/destn1</samp>。
+<p>拡張済みメッセージング・サービスがこのリスナー・ポートを使用して遅延応答を処理することになっている場合、
+このプロパティーの値は、送信側 Bean が使用する出力ポートの JMS 応答宛先と一致する必要があります。
+また、遅延応答に対して、一時宛先は使用できません。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ListenerPort_maxSessions"></a>最大セッション</strong>
+</dt>
+<dd>リスナーがメッセージを処理する際に使用する、
+並行 JMS サーバー・セッションの最大数を指定します。
+
+<p>各セッションは単一のリスナー・スレッドに対応していますが、並行処理されるメッセージの数は制御しません。処理アプリケーションを実行するマシンに十分な能力がなく、長い処理を実行することによってスループットが低下する場合は、このパラメーターを調整してください。
+</p>
+
+<p>このパラメーターは、
+メッセージ受信の同期化部分が発生する前に、メッセージが並行して受信されるように、
+あるレベルの並行性を追加する場合に役立ちます。スループットが 40% 増大すると、NetFinity 5500 500 MHz、4-way、4GB RAM システムの処理アプリケーションで、長時間かかる処理を行うことができます。
+</p>
+
+<p>管理コンソールでこの変更を行うもう 1 つの方法は、
+リスナー・ポート・スタンザの下の <samp>server.xml</samp> ファイルで、セッションの最大数の値を次のように変更することです。
+<pre>&lt;listenerPorts xmi:id="ListenerPort_1" name="bpeIntListenerPort" 
+description="Internal Listener Port for Process Choreographer" 
+connectionFactoryJNDIName="jms/bpeCF" destinationJNDIName="jms/bpeIntQueue" 
+<strong>maxSessions="5"</strong> maxRetries="10" maxMessages="1"&gt;
+&lt;stateManagement xmi:id="StateManageable_5" initialState="START"/&gt;
+&lt;/listenerPorts&gt;</pre>
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">整数</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">単位</td>
+<td align="left" valign="top" class="base">セッション</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">1
+</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">1 から 2147483647</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">推奨</td>
+<td align="left" valign="top" class="base">メッセージの並行性 (複数のメッセージが並行して処理されること) が必要な場合は、
+この値をシステム・プロセッサー当たり 2 から 4 に設定してください。クライアントのスラッシングが発生しないようにするために、
+この値はできるだけ小さく設定してください。厳密なメッセージ順序が望ましい場合は、この値を 4 に設定してください。
+これにより、常に 1 つのスレッドが、メッセージの受信にブロックされた、ホット状態で待機します。</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ListenerPort_maxRetries"></a>Maximum retries</strong>
+</dt>
+<dd>リスナーが、停止するまでにメッセージの配信を試みる最大回数。
+範囲は 0 から 2147483647 まで。
+<p>リスナーが、停止するまでにメッセージ・ドリブン Bean インスタンスにメッセージの配信を試みる最大回数。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">整数</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">単位</td>
+<td align="left" valign="top" class="base">再試行の回数</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">0 (再試行しない)</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">0 (再試行しない) から 2147483647</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ListenerPort_maxMessages"></a>Maximum messages</strong>
+</dt>
+<dd>リスナーが、1 つの JMS サーバー・セッションで処理できるメッセージの最大数。
+
+<p>メッセージの順序が厳密な要件ではない場合、この設定を調整してください。
+このパラメーターは、リスナー・サービスにおける並行性レベルを制御します。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">整数</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">単位</td>
+<td align="left" valign="top" class="base">メッセージ数</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">1</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">1 から 2147483647</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">推奨</td>
+<td align="left" valign="top" class="base">メッセージの並行性 (複数のメッセージが並行して処理されること) が必要な場合は、
+この値をシステム・プロセッサー当たり 2 から 4 に設定してください。クライアントのスラッシングが発生しないようにするために、
+この値はできるだけ小さく設定してください。厳密なメッセージ順序が望ましい場合は、この値を 1 に設定してください。</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</body>
+</html>

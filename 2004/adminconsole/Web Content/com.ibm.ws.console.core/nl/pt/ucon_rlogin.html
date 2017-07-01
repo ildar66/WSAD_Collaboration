@@ -1,0 +1,142 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Login settings</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="urun_rlogin"></a>
+<h2>Login settings</h2>
+
+<p>Use this page to specify the user for the WebSphere Application Server  administrative
+console. If you are using global security, then you also specify a  password.</p>
+
+<p>Specifying a user allows you to resume work done previously  with the product.
+After you type in a user ID, click <strong>OK</strong> to  proceed to the next page
+and access the administrative console.</p>
+
+<p>To view this page, start the administrative console.</p>
+
+<dl>
+<dt>
+<strong><a name="logon_desc"></a>User ID</strong>
+</dt>
+<dd>Specifies a string identifying the user. The user ID must  be unique
+to the administrative server.
+<p>Work that you do with the product and then save before exiting the product
+ will be saved to a configuration identified by the user ID that you enter.
+ To later access work done under that user ID, specify the user ID in  the
+Login page.</p>
+
+<p>If you are logging in from a client machine that currently has a browser
+ open on the administrative console and you connect to the same server, your
+two  connections might share the same HTTP session object, whether or not
+ you are logging in under different user IDs. You must use two different types
+ of browsers (for example, Microsoft Internet Explorer and Netscape Communicator)
+ to log in to the administrative console from the same client machine in order
+to  work from two different HTTP session objects, whether or not you use the
+same  user ID. That is, if you need two concurrent sessions on the same client
+machine,  access the administrative console from two different browser types.</p>
+
+<p>Note that you can use the same browser type to log in twice to the console,
+ but you must log in from different physical hosts and use different user
+IDs.  For example, suppose that Joe logs into the administrative console under
+the  user ID <em>joe</em> on the physical host <em>myhost1</em> using an Internet
+ Explorer browser. Joe can log into the same console a second time using an
+ Internet Explorer browser, but he must use a different user ID (such as <em>peggy</em>)
+ and a different physical host (such as <em>myhost2</em>).</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="UserExists_information"></a>Another user is currently logged in with the same user name</strong>
+</dt>
+<dd>Specifies whether to log out the user and continue work with the
+user ID   specified or to return to the Login page and specify a different
+user ID or wait  for the user to log out.
+<p>This field appears if the user closed a Web browser while browsing the
+administrative  console and did not first log out, then opened a new browser
+and tried accessing the  administrative console.</p>
+
+</dd>
+<dt>
+<strong><a name="ChangesFound_restore"></a>Work with the master configuration</strong>
+</dt>
+<dd>When enabled, specifies that you want to use the default administrative
+ configuration and not use the configuration last used for the user's session.
+ Changes made to the user's session since the last saving of the administrative
+ configuration will be lost.
+<p>This field appears only if the user changed the administrative configuration
+ and then logged out without saving the changes.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">false</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ChangesFound_recover"></a>Recover changes made in prior session</strong>
+</dt>
+<dd>When enabled, specifies that you want to use the same administrative
+ configuration last used for the user's session. Recovers changes made by
+the user  since the last saving of the administrative configuration for the
+user's session.
+<p>This field appears only if the user changed the administrative configuration
+ and then logged out without saving the changes.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">true</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>Related information</strong>
+</p>
+<a href="rcon_buttons.html">Administrative console buttons</a>
+<br>
+
+</div>
+</body>
+</html>

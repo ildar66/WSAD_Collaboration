@@ -1,0 +1,466 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Impostazioni JVM (Java Virtual Machine)</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="urun_rconfproc_jvm"></a>
+<h2>Impostazioni JVM (Java Virtual Machine)</h2>
+
+<p>Utilizzare questa pagina per visualizzare e modificare la configurazione JVM (Java Virtual Machine) per il processo del server delle applicazioni.</p>
+
+<p>Per visualizzare questa pagina della console di gestione, fare clic su <strong>Server &gt; Server delle
+applicazioni &gt; </strong><em>nome_server</em><strong> &gt; Definizione processo &gt; JVM (Java Virtual Machine)</strong>.</p>
+
+<div>
+<p>
+<strong>Scheda Configurazione</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="JavaVirtualMachine_classpath_description"></a>Classpath</strong>
+</dt>
+<dd>Specifica il percorso classe standard in cui il codice Java virtual machine ricerca le classi.
+<p>Immettere ciascuna voce del percorso classe in una riga della tabella. Non &egrave; necessario aggiungere i due punti o il punto e virgola alla fine di ogni voce.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&agrave;</td>
+<td align="left" valign="top" class="base">Percorso classe</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_bootClasspath_description"></a>Percorso classe boot</strong>
+</dt>
+<dd>Specifica le risorse e le classi bootstrap del codice JVM. Questa opzione &egrave; disponibile solo per le istruzioni JVM che supportano le risorse e le classi bootstrap. E' possibile separare i vari percorsi con il carattere due punti (:) o punto e virgola (;), a seconda del sistema operativo del nodo.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_verboseModeClass_description"></a>Caricamento classe Verbose</strong>
+</dt>
+<dd>Specifica se utilizzare o meno l'output di debug verbose per il caricamento della classe.
+ Il valore predefinito &egrave; quello di non abilitare il caricamento della classe verbose.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Valore booleano</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">false</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_verboseModeGarbageCollection_description"></a>Raccolta dati inutili di modalit&agrave; Verbose</strong>
+</dt>
+<dd>Specifica se utilizzare l'output di debug verbose per la raccolta dei dati inutili.
+ Il valore predefinito &egrave; quello di non abilitare la raccolta dei dati inutili di modalit&agrave; verbose.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Valore booleano</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">false</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_verboseModeJNI_description"></a>JNI verbose</strong>
+</dt>
+<dd>Specifica se utilizzare o meno l'output di debug verbose per il richiamo del metodo di origine.  Il valore predefinito &egrave; quello di non abilitare l'attivit&agrave; JNI (Java Native Interface) verbose.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Valore booleano</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">false</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_initialHeapSize_description"></a>Dimensione heap iniziale</strong>
+</dt>
+<dd>Specifica la dimensione heap iniziale disponibile per il codice JVM, in megabyte. 
+<p>L'aumento delle dimensioni minime dell'heap pu&ograve; migliorare l'avvio. Il numero di
+occorrenze di raccolta dati inutili viene ridotto e le prestazioni vengono ottimizzate del 10%.</p>
+
+<p>In generale, l'aumento delle dimensioni heap Java migliora la velocit&agrave; di trasmissione fino a quando l'heap non si trova pi&ugrave; nella memoria fisica. Dopo che l'heap inizia ad essere trasferito sul disco, le prestazioni Java ne risentono drasticamente. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Numero intero</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">64 per OS/400, 50 per tutte le altre piattaforme</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_maximumHeapSize_description"></a>Dimensione massima heap</strong>
+</dt>
+<dd>Specifica la dimensione heap massima disponibile per il codice JVM, in megabyte.
+ 
+<p>L'aumento delle dimensioni dell'heap pu&ograve; migliorare l'avvio. Il numero di occorrenze di
+raccolta dati inutili viene ridotto e le prestazioni vengono ottimizzate del 10%. </p>
+
+<p>In generale, l'aumento delle dimensioni heap Java migliora la velocit&agrave; di trasmissione fino a quando l'heap non si trova pi&ugrave; nella memoria fisica. Dopo che l'heap inizia ad essere trasferito sul disco, le prestazioni Java ne risentono drasticamente. Quindi, impostare la
+dimensione massima di heap a un valore sufficientemente basso per contenere l'heap nella
+memoria fisica.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Numero intero</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">0 per OS/400, 256 per tutte le altre piattaforme. Mantenere il valore
+sufficientemente basso per evitare lo spostamento o swapping dei dati dalla memoria su disco.</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_runHProf_description"></a>Esegui HProf</strong>
+</dt>
+<dd>Specifica se utilizzare o meno il supporto del gestore
+profili HProf. Per utilizzare un altro profiler, specificare le impostazioni del profiler personalizzato utilizzando l'impostazione Argomenti HProf.  Il valore predefinito &egrave; quello di non abilitare il supporto del profiler HProf.
+<p>Se la propriet&agrave; Esegui HProf viene impostata su true, &egrave; necessario specificare gli
+argomenti profiler della riga comandi come valori della propriet&agrave; Argomenti HProf.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Valore booleano</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">false</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_hprofArguments_description"></a>Argomenti HProf</strong>
+</dt>
+<dd>Specifica gli argomenti profiler della riga comandi da trasferire al codice JVM che avvia il processo del server delle applicazioni. E'
+possibile specificare gli argomenti quando il supporto del profiler HProf &egrave; abilitato.
+<p>Gli argomenti HProf sono obbligatori solo se la propriet&agrave; Esegui HProf &egrave; impostata su true.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_debugMode_description"></a>Modalit&agrave; di debug</strong>
+</dt>
+<dd>Specifica se eseguire JVM nella modalit&agrave; di debug. Il valore predefinito &egrave;
+quello di non abilitare il supporto della modalit&agrave; di debug.
+<p>Se la propriet&agrave; Modalit&agrave; di debug &egrave; impostata su true, &egrave; necessario specificare gli
+argomenti di debug della riga comandi come valori della propriet&agrave; Argomenti di debug.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Valore booleano</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">false</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_debugArgs_description"></a>Argomenti di debug</strong>
+</dt>
+<dd>Specifica gli argomenti della riga comandi da trasferire al codice JVM che avvia il processo del server delle applicazioni. E' possibile
+specificare gli argomenti quando la modalit&agrave; di debug &egrave; abilitata.
+<p>Gli argomenti di debug sono obbligatori solo se la propriet&agrave; Modalit&agrave; di debug &egrave; impostata su true.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&agrave;</td>
+<td align="left" valign="top" class="base">Argomenti riga comandi Java</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_genericJvmArguments_description"></a>Argomenti JVM generici</strong>
+</dt>
+<dd>Specifica gli argomenti della riga comandi da trasferire al codice Java Virtual Machine che avvia il processo del server delle applicazioni.
+<p>Di seguito vengono riportati gli argomenti facoltativi della riga comandi che &egrave; possibile
+utilizzare immettendoli nel campo <strong>Argomenti JVM generici</strong>:<ul>
+
+<li>
+<strong>-Xquickstart:</strong> &egrave; possibile utilizzare questo valore per la compilazione iniziale ad
+un livello di ottimizzazione inferiore rispetto alla modalit&agrave; predefinita e, successivamente,
+a seconda dei risultati di esempio, &egrave; possibile compilare di nuovo al livello della
+compilazione iniziale in modalit&agrave; predefinita. Utilizzare l'avvio rapido per le applicazioni
+in cui la velocit&agrave; moderata iniziale &egrave; pi&ugrave; importante della velocit&agrave; di trasmissione
+costante durante l'esecuzione. In alcuni scenari di debug, strumenti di test e strumenti che richiedono tempi di esecuzione brevi, &egrave; possibile migliorare il tempo di avvio del 15-20%. <strong>-DCOPT_NQREACHDEF </strong> consente di migliorare l'avvio di un ulteriore 15%.</li>
+
+<li>
+<strong>-Xverify:none:</strong> quando si utilizza questo valore, la fase di verifica di classe
+viene ignorata durante il caricamento della classe. Utilizzando <strong>-Xverify:none</strong> con il
+compilatore JIT (just in time) abilitato, il tempo di avvio viene migliorato del 10-15%.</li>
+
+<li>
+<strong>-Xnoclassgc:</strong> &egrave; possibile utilizzare questo valore per disabilitare la raccolta dati inutili, rendendo pi&ugrave; disponibile il riutilizzo della classe e migliorando leggermente le prestazioni. La raccolta dati inutili viene abilitata per impostazione predefinita, ma si
+consiglia di abilitare questa funzione. &Egrave; possibile monitorare la raccolta dati inutili
+mediante l'impostazione di configurazione verbose:gc, poich&eacute; l'output include le statistiche
+raccolta dati inutili della classe.</li>
+
+<li>
+<strong>-Xgcthreads:</strong> &egrave; possibile utilizzare contemporaneamente diversi thread raccolta dati inutili, noti anche come <em>raccolta dati inutili parallela</em>. Quando si immette questo
+valore nel campo <strong>Argomenti JVM generici</strong>, immettere anche il numero dei processori della
+macchina, ad esempio <samp>-Xgcthreads=</samp><em>numero_di_processori</em>.
+Si consiglia di utilizzare la raccolta dati inutili parallela se la macchina dispone di pi&ugrave; di un
+processore. Questo argomento si applica solo a IBM Developer Kit.</li>
+
+<li>
+<strong>-Xnocompactgc:</strong> questo valore disabilita la compressione heap che &egrave; l'operazione
+raccolta dati inutili pi&ugrave; dispendiosa. Evitare la compressione in IBM Developer
+Kit. Se si
+disabilita la compressione heap, eliminare tutti i sovraccarichi associati. Quando si immette questo valore nel campo <strong>Argomenti JVM generici</strong>, immettere anche il
+numero dei processori della macchina, ad esempio
+<samp>-Xnocompactgc=</samp><em>numero_di_processori</em>.</li>
+
+<li>
+<strong>-Xinitsh:</strong> &egrave; possibile utilizzare questo valore per impostare la dimensione iniziale dell'heap in cui vengono memorizzati gli oggetti di classe. Le definizioni del
+metodo e i campi statici vengono inoltre memorizzati con gli oggetti di classe. Sebbene le
+dimensioni dell'heap di sistema non presentino un limite superiore, impostare la dimensione
+iniziale in modo da non comportare dei costi di espansione delle dimensioni dell'heap di sistema, che richiedono chiamate al gestore della memoria del sistema operativo. &Egrave; possibile
+calcolare una buona dimensione iniziale dell'heap di sistema se si conosce il numero delle
+classi, circa 8000, caricate nel prodotto WebSphere e le relative dimensioni medie. Conoscendo le guide dell'applicazione, includerle nel calcolo.</li>
+
+<li>
+<strong>-Xmc:</strong> la dimensione heap locale del thread &egrave; una parte dell'heap assegnata
+esclusivamente a un thread. A causa della dimensione heap locale del thread, non &egrave; necessario
+che il thread blocchi l'intero heap durante l'allocazione degli oggetti.
+Tuttavia, quando l'heap locale del thread &egrave; pieno, l'allocazione degli oggetti viene eseguita
+dall'heap che deve essere sincronizzato. Una buona dimensione della cache locale &egrave; cruciale
+per le prestazioni e richiede di conoscere l'applicazione e i relativi oggetti.</li>
+
+<li>
+<strong>-Xml:</strong> &egrave; possibile utilizzare questo valore per impostare il limite della dimensione di un oggetto da allocare dalla cache locale. Gli oggetti la cui dimensione supera il limite devono essere allocati nell'heap regolare. Allocare gli oggetti dalla cache locale per quanto
+possibile oppure la cache locale viene scaricata poich&eacute; non aumenta in modo dinamico.
+Se alcuni oggetti diventano molto grandi, allocarli dall'heap regolare.</li>
+
+</ul>
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&agrave;</td>
+<td align="left" valign="top" class="base">Argomenti della riga comandi Java</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_executableJarFileName_description"></a>Nome file JAR eseguibile</strong>
+</dt>
+<dd>Specifica un nome percorso completo di un file JAR eseguibile utilizzato dal codice JVM.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&agrave;</td>
+<td align="left" valign="top" class="base">Nome percorso</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_disableJIT_description"></a>Disabilita JIT</strong>
+</dt>
+<dd>Specifica se disabilitare l'opzione del compilatore JIT (just in time) del codice JVM. 
+<p>Se si disabilita il compilatore JIT, la velocit&agrave; di trasmissione viene ridotta notevolmente. Pertanto, per motivi legati alle prestazioni, mantenere JIT abilitato.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Valore booleano</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">false (JIT abilitato)</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Consigliato</td>
+<td align="left" valign="top" class="base">JIT abilitato</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_osName_description"></a>Nome del sistema operativo</strong>
+</dt>
+<dd>Specifica le impostazioni JVM di un determinato sistema operativo. Quando avviato, il processo utilizza le impostazioni JVM del sistema operativo del nodo.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informazioni correlate</strong>
+</p>
+<a href="rcon_buttons.html">Pulsanti della console di gestione</a>
+<br>
+
+<a href="rcon_pageusage.html">Funzioni della pagina della console di gestione</a>
+<br>
+
+<a href="urun_rproperty.html">Raccolta di propriet&agrave; personalizzate</a>
+<br>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+	<!-- This is the base definition for all Hibernate based DAOs -->
+	<bean id="july.hibernateDaoSupport"
+		  class="org.springframework.orm.hibernate3.support.HibernateDaoSupport"
+		  abstract="true">
+		<property name="hibernateTemplate"><ref bean="july.hibernateTemplate"/></property>
+	</bean>
+
+	<bean id="july.hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate">
+		<property name="sessionFactory"><ref bean="july.hibernateSessionFactory"/></property>
+<!--        <property name="flushModeName"><value>FLUSH_NEVER</value></property>-->
+
+	</bean>
+
+
+
+	<!-- You can use Hibernate for 90% to 95% or so of database access.
+		The JdbcTemplate is for when you can't use Hibernate.
+		Don't use JDBC directly! Use the JdbcTemplate as it handles JDBC cleanup.-->
+	<bean id="july.jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource">
+			<ref bean="july.dataSource"/>
+		</property>
+	</bean>
+
+	<!-- This is the base definition for all Jdbc based DAOs -->
+	<bean id="july.jdbcDaoSupport"
+		  class="org.springframework.jdbc.core.support.JdbcDaoSupport"
+		  abstract="true">
+		<property name="jdbcTemplate">
+			<ref bean="july.jdbcTemplate"/>
+		</property>
+	</bean>
+
+   <bean id="july.hibernateJdbcDaoSupport"
+		  class="com.hps.april.common.utils.dao.HibernateJdbcDaoSupport"
+		  abstract="true">
+		<property name="sessionFactory">
+			<ref bean="july.hibernateSessionFactory"/>
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="july.jdbcTemplate"/>
+		</property>
+	</bean>
+
+	<!-- This is the base definition for all Hibernate based DAOs -->
+	<bean id="april.hibernateDaoSupport"
+		  class="org.springframework.orm.hibernate3.support.HibernateDaoSupport"
+		  abstract="true">
+		<property name="hibernateTemplate"><ref bean="july.hibernateTemplate"/></property>
+	</bean>
+
+
+	<!-- You can use Hibernate for 90% to 95% or so of database access.
+		The JdbcTemplate is for when you can't use Hibernate.
+		Don't use JDBC directly! Use the JdbcTemplate as it handles JDBC cleanup.-->
+	<bean id="april.jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource">
+			<ref bean="july.dataSource"/>
+		</property>
+	</bean>
+
+	<!-- This is the base definition for all Jdbc based DAOs -->
+	<bean id="april.jdbcDaoSupport"
+		  class="org.springframework.jdbc.core.support.JdbcDaoSupport"
+		  abstract="true">
+		<property name="jdbcTemplate">
+			<ref bean="july.jdbcTemplate"/>
+		</property>
+	</bean>
+
+   <bean id="april.hibernateJdbcDaoSupport"
+		  class="com.hps.april.common.utils.dao.HibernateJdbcDaoSupport"
+		  abstract="true">
+		<property name="sessionFactory">
+			<ref bean="july.hibernateSessionFactory"/>
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="july.jdbcTemplate"/>
+		</property>
+	</bean>
+
+</beans>

@@ -1,0 +1,114 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>EJB 高速缓存设置</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uejbcash"></a>
+<h2>EJB 高速缓存设置</h2>
+
+<p>使用该页面为特定的 EJB 容器配置和管理高速缓存。要确定高速缓存绝对限制，将任何给定事务中的企业 bean 数乘以期望的并发事务总数。然后，添加活动会话 bean 实例数。 您可以使用 Tivoli 性能查看器来查看 bean 性能信息。</p>
+
+<p>要查看此管理控制台页面，单击<strong>服务器</strong> <strong>&gt;</strong> <strong>应用程序服务器</strong> <strong>&gt;</strong> <em>serverName</em> <strong>&gt;</strong> <strong>EJB 容器</strong> <strong>&gt;</strong> <strong>EJB 高速缓存设置</strong>。</p>
+
+<div>
+<p>
+<strong>&ldquo;配置&rdquo;选项卡</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="EJBCache_cleanupInterval_description"></a>清除间隔</strong>
+</dt>
+<dd>指定容器试图除去高速缓存中未使用项以使项总数减少到高速缓存大小的值的时间间隔。
+<p>高速缓存管理器尝试维护一些未分配的条目，这些条目可在需要时被快速分配。当维护一些未分配条目时，后台线程会尝试释放一些条目。如果线程在应用程序服务器空闲时运行，当应用程序服务器需要分配新的高速缓存条目时，它不支付从高速缓存中除去条目的性能成本。通常，当高速缓存大小增加时，这个参数也增加。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">整型</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">单位</td>
+<td align="left" valign="top" class="base">毫秒</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">范围</td>
+<td align="left" valign="top" class="base">大于 0</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">3000</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="EJBCache_cacheSize_description"></a>高速缓存大小</strong>
+</dt>
+<dd>指定 EJB 容器内活动实例列表中的存储区数。
+<p>存储区可以包含多个活动企业 bean 实例，但如果表中的每个存储区具有指定给它的最小实例数，那么性能最高。当容器内的活动实例数超出存储区（即，高速缓存大小）数目时，容器定期尝试减少表中的活动实例数，这是通过钝化一些活动实例实现的。要获得性能和内存的最佳平衡，设置此值为典型工作负载期间期待的最大活动实例数。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">整型</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">单位</td>
+<td align="left" valign="top" class="base">散列表中的存储区</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">范围</td>
+<td align="left" valign="top" class="base">大于 0。容器选择下一个等于或大于指定值的最大素数。</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">2053</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>相关信息</strong>
+</p>
+<a href="rcon_buttons.html">管理控制台按钮</a>
+<br>
+
+<a href="uejb_recnt.html">EJB 容器设置</a>
+<br>
+
+</div>
+</body>
+</html>

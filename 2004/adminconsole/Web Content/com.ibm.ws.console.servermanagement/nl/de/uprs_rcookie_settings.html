@@ -1,0 +1,76 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Cookie-Einstellungen</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="cook_set"></a>
+<h2>Cookie-Einstellungen</h2>
+
+<p>Auf dieser Seite k&ouml;nnen Sie Cookie-Einstellungen f&uuml;r die Sitzungsverwaltung konfigurieren. </p>
+
+<p>Klicken Sie zum Anzeigen dieser Seite der Administrationskonsole auf
+<strong>Server</strong> &gt; <strong>Anwendungsserver</strong> &gt; <em>Servername</em> &gt; <strong>Webcontainer</strong> &gt;
+<strong>Sitzungsverwaltung</strong> &gt; <strong>Cookies aktivieren</strong>.</p>
+
+<div>
+<p>
+<strong>Register "Konfiguration"</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="Cookie_name_description"></a>Cookie-Name</strong>
+</dt>
+<dd>Gibt einen eindeutigen Namen f&uuml;r den Cookie der Sitzungsverwaltung an. Laut Servlet-Spezifikation
+muss dieser Name JSESSIONID lauten. Aus Flexibilit&auml;tsgr&uuml;nden kann dieser Wert jedoch konfiguriert werden.
+</dd>
+<dt>
+<strong><a name="Cookie_secure_description"></a>Sichere Cookies </strong>
+</dt>
+<dd>Gibt an, dass die Sitzungs-Cookies das Feld "Sicher" enthalten. Das Aktivieren der Funktion
+begrenzt den Austausch von Cookies ausschlie&szlig;lich auf HTTPS-Sitzungen.  </dd>
+<dt>
+<strong><a name="Cookie_domain_description"></a>Cookie-Dom&auml;ne</strong>
+</dt>
+<dd>Gibt das Feld "Dom&auml;ne" eines Cookie f&uuml;r Sitzungs&uuml;berwachung an. Dieser Wert legt fest, ob ein
+Browser ein Cookie an bestimmte Server sendet. Wenn Sie beispielsweise eine bestimmte Dom&auml;ne angeben, werden
+Session-Cookies an Hosts in dieser Dom&auml;ne gesendet. Die Standarddom&auml;ne ist der Server.</dd>
+<dt>
+<strong><a name="Cookie_path_description"></a>Cookie-Pfad</strong>
+</dt>
+<dd>Gibt an, dass ein Cookie an den im Pfad angegebenen URL gesendet wird. Geben Sie eine Zeichenfolge an, die einem Pfad auf dem Server entspricht. "/" steht f&uuml;r das
+Stammverzeichnis. Geben Sie einen Wert ein, um die Pfade, an die das Cookie gesendet wird, einzuschr&auml;nken. 
+Auf diese Weise k&ouml;nnen Sie verhindern, dass das Cookie an bestimmte URLs auf dem Server gesendet wird. Wenn
+Sie das Stammverzeichnis angeben, wird das Cookie immer gesendet, unabh&auml;ngig davon, auf welchen Pfad auf dem
+angegebenen Server der Zugriff erfolgt.</dd>
+<dt>
+<strong><a name="Cookie_maximum_age"></a>Maximale Lebensdauer des Cookie </strong>
+</dt>
+<dd>Gibt den Zeitraum an, f&uuml;r den das Cookie im Client-Browser aktiv bleibt. Sie k&ouml;nnen festlegen,
+dass das Cookie f&uuml;r die aktuelle Browser-Sitzung oder f&uuml;r eine maximale Lebensdauer aktiv sein soll. Wenn Sie die Option f&uuml;r maximale Lebensdauer ausw&auml;hlen, m&uuml;ssen Sie die Lebensdauer
+in Sekunden angeben.  Dieser Wert entspricht der Lebensdauer (Time To Live, TTL), die in der Cookie-Spezifikation
+beschrieben ist.
+<p>Der Standardwert ist "-1" und bezeichnet die aktuelle Browser-Sitzung.</p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Zugeh&ouml;rige Informationen</strong>
+</p>
+<a href="rcon_buttons.html">Kn&ouml;pfe in der Adminstrationskonsole</a>
+<br>
+
+<a href="rcon_pageusage.html">Funktionen auf den Seiten der Administrationskonsole</a>
+<br>
+
+<a href="rcon_preferences.html">Vorgaben f&uuml;r die Administrationskonsole</a>
+<br>
+
+</div>
+</body>
+</html>

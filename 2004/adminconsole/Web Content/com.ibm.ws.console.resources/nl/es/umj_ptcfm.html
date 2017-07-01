@@ -1,0 +1,952 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Valores de f&aacute;brica de conexiones de tema de WebSphere MQ</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="MQTopicConnectionFactory"></a>
+<h2>
+<img alt="[Release 5.1 y posterior]" src="v51.gif" border="0">Valores de f&aacute;brica de conexiones de tema de WebSphere MQ</h2>
+
+<p>Utilice este panel para ver o modificar las propiedades de configuraci&oacute;n de la f&aacute;brica de conexiones de tema seleccionada que se va a utilizar con el proveedor de JMS de WebSphere MQ.
+Estas propiedades de configuraci&oacute;n controlan c&oacute;mo se crean las conexiones para el destino de tema JMS asociado.</p>
+
+<p>Una f&aacute;brica de conexiones de tema sirve para crear conexiones de JMS con destinos de tema.
+El proveedor de JMS de WebSphere MQ crea la f&aacute;brica de conexiones de tema.
+Una f&aacute;brica
+de conexiones de tema del proveedor de JMS de WebSphere MQ tiene las propiedades siguientes.<p>
+<b>Nota: </b>
+<ul>
+
+<li>Los valores de las propiedades que especifique deben coincidir con los valores especificados al configurar los recursos JMS de WebSphere MQ. Para obtener m&aacute;s informaci&oacute;n sobre la configuraci&oacute;n de recursos JMS
+de WebSphere MQ, consulte la publicaci&oacute;n WebSphere MQ <cite>Utilizaci&oacute;n
+de Java</cite>.</li>
+
+<li>En WebSphere MQ, los nombres pueden tener un m&aacute;ximo de 48 caracteres, a excepci&oacute;n de los
+canales, que tienen un m&aacute;ximo de 20 caracteres.</li>
+
+<li>
+<img alt="[Release 5.1 y posterior]" src="v51.gif" border="0">Puede utilizar la p&aacute;gina Propiedades personalizadas
+para definir un subconjunto de propiedades de WebSphere MQ. Para obtener m&aacute;s
+informaci&oacute;n sobre el establecimiento de estas propiedades, consulte <a href="#ConnectionFactory_customProperties">Propiedades
+personalizadas</a>.</li>
+
+</ul>
+</p>
+</p>
+
+<p>Para ver esta p&aacute;gina de la consola administrativa, pulse <strong>Recursos-&gt;
+Proveedor de JMS de WebSphere MQ-&gt; (en el panel de contenido, en Propiedades
+adicionales) F&aacute;bricas de conexiones de tema de WebSphere MQ-&gt;
+<em>f&aacute;brica_conexiones</em></strong>
+</p>
+
+<dl>
+<dt>
+<strong><a name="MQTopicConnectionFactory_name"></a>Nombre</strong>
+</dt>
+<dd>Nombre por el que se conoce esta
+f&aacute;brica de conexiones de tema para fines administrativos dentro de
+WebSphere Application Server. El nombre debe ser exclusivo dentro del proveedor de JMS.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopicConnectionFactory_jndiName"></a>Nombre JNDI</strong>
+</dt>
+<dd>Nombre JNDI utilizado para
+enlazar la f&aacute;brica de conexiones de temas con el espacio de nombres del
+servidor de aplicaciones.
+<p>Como convenci&oacute;n, utilice el nombre JNDI plenamente cualificado; por ejemplo, con el
+formato jms/<em>Nombre</em>, donde <em>Nombre</em> es el nombre
+l&oacute;gico del recurso.</p>
+
+<p>Este nombre se utiliza para enlazar la informaci&oacute;n de enlace de la plataforma. El enlace asocia los recursos definidos en el
+descriptor de despliegue del m&oacute;dulo con los recursos reales (f&iacute;sicos) enlazados con JNDI por la plataforma.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopicConnectionFactory_description"></a>Descripci&oacute;n</strong>
+</dt>
+<dd>Descripci&oacute;n de esta f&aacute;brica
+de conexiones de tema, para fines administrativos dentro de IBM
+WebSphere Application Server.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopicConnectionFactory_category"></a>Categor&iacute;a</strong>
+</dt>
+<dd>Categor&iacute;a utilizada para
+clasificar o agrupar esta f&aacute;brica de conexiones de tema, para sus
+registros administrativos de IBM WebSphere Application Server.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="AuthDataAlias"></a>Alias de autenticaci&oacute;n gestionado por componentes</strong>
+</dt>
+<dd>Este alias especifica un ID de usuario y una contrase&ntilde;a que sirven para autenticar
+la conexi&oacute;n con un proveedor de JMS para la autenticaci&oacute;n gestionada por aplicaci&oacute;n.
+<p>Esta propiedad proporciona una lista de los alias de entradas de datos de autenticaci&oacute;n de J2C que se hayan definido en WebSphere Application Server. Puede seleccionar un alias de entrada de datos que sirva para autenticar la creaci&oacute;n de una nueva conexi&oacute;n con el proveedor de JMS.</p>
+
+<p>Si ha habilitado la seguridad global para WebSphere Application Server, seleccione el alias que especifica el ID de usuario y la contrase&ntilde;a que sirven para autenticar la creaci&oacute;n de una nueva conexi&oacute;n con el proveedor de JMS. La utilizaci&oacute;n del alias depende del valor de
+la autenticaci&oacute;n de recursos (res-auth) declarado en la referencia de
+recursos de la f&aacute;brica de conexiones de los descriptores de despliegue
+de un componente de aplicaci&oacute;n.</p>
+
+<p>
+<b>Nota: </b>No se pueden utilizar ID de usuario de m&aacute;s de 12 caracteres para la autenticaci&oacute;n con el proveedor de JMS
+incorporado de WebSphere. Por ejemplo, el ID de usuario por omisi&oacute;n de
+Windows NT, <strong>Administrator</strong>, no se puede utilizar en WebSphere Embedded Messaging, ya que contiene 13 caracteres. Por lo tanto, un alias de autenticaci&oacute;n para la f&aacute;brica de conexiones del proveedor de JMS de WebSphere debe especificar un ID de usuario que no contenga m&aacute;s de 12 caracteres.</p>
+
+</dd>
+<dt>
+<strong><a name="mappingAuthDataAlias"></a>Alias de autenticaci&oacute;n gestionado por contenedor</strong>
+</dt>
+<dd>Este alias especifica un ID de usuario y una contrase&ntilde;a que sirven para autenticar
+la conexi&oacute;n con un proveedor de JMS para la autenticaci&oacute;n gestionada por contenedor.
+<p>Esta propiedad proporciona una lista de los alias de entradas de datos de autenticaci&oacute;n de J2C que se hayan definido en WebSphere Application Server. Puede seleccionar un alias de entrada de datos que sirva para autenticar la creaci&oacute;n de una nueva conexi&oacute;n con el proveedor de JMS.</p>
+
+<p>Si ha habilitado la seguridad global para WebSphere Application Server, seleccione el alias que especifica el ID de usuario y la contrase&ntilde;a que sirven para autenticar la creaci&oacute;n de una nueva conexi&oacute;n con el proveedor de JMS. La utilizaci&oacute;n del alias depende del valor de
+la autenticaci&oacute;n de recursos (res-auth) declarado en la referencia de
+recursos de la f&aacute;brica de conexiones de los descriptores de despliegue
+de un componente de aplicaci&oacute;n.</p>
+
+<p>
+<b>Nota: </b>No se pueden utilizar ID de usuario de m&aacute;s de 12 caracteres para la autenticaci&oacute;n con el proveedor de JMS
+incorporado de WebSphere. Por ejemplo, el ID de usuario por omisi&oacute;n de
+Windows NT, <strong>Administrator</strong>, no se puede utilizar en WebSphere Embedded Messaging, ya que contiene 13 caracteres. Por lo tanto, un alias de autenticaci&oacute;n para la f&aacute;brica de conexiones del proveedor de JMS de WebSphere debe especificar un ID de usuario que no contenga m&aacute;s de 12 caracteres.</p>
+
+</dd>
+<dt>
+<strong><a name="MQTopicConnectionFactory_queueManager"></a>Queue Manager</strong>
+</dt>
+<dd>Nombre de WebSphere MQ Queue Manager de esta f&aacute;brica de
+conexiones. Las conexiones creadas por dicha f&aacute;brica se conectan a este Queue Manager.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">Un nombre v&aacute;lido para WebSphere MQ Queue Manager, de 1 a 48 caracteres ASCII</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopicConnectionFactory_host"></a>Sistema principal</strong>
+</dt>
+<dd>Nombre del sistema principal en el que se ejecuta WebSphere MQ Queue Manager, s&oacute;lo para la conexi&oacute;n del cliente.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">Un nombre de sistema principal TCP/IP v&aacute;lido</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopicConnectionFactory_port"></a>Puerto</strong>
+</dt>
+<dd>N&uacute;mero de puerto TCP/IP utilizado para la conexi&oacute;n con WebSphere MQ Queue Manager, s&oacute;lo para la conexi&oacute;n del cliente.
+<p>Este puerto debe configurarse en WebSphere MQ Queue Manager.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">Un n&uacute;mero de puerto TCP/IP v&aacute;lido, configurado en WebSphere MQ Queue Manager.</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopicConnectionFactory_channel"></a>Canal</strong>
+</dt>
+<dd>Nombre del canal utilizado para la conexi&oacute;n con WebSphere MQ
+Queue Manager, s&oacute;lo para la conexi&oacute;n del cliente.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">1 a 20 caracteres ASCII</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopicConnectionFactory_transportType"></a>Tipo de transporte</strong>
+</dt>
+<dd>Especifica si se utilizan la conexi&oacute;n del cliente
+de WebSphere MQ o enlaces JNI para la conexi&oacute;n con WebSphere MQ Queue Manager. El proveedor de JMS
+externo controla los protocolos de comunicaci&oacute;n entre clientes y servidores JMS. Ajuste el tipo de transporte cuando utilice un servicio de mensajes que no sea ASF, no persistente, no perdurable y no transaccional o cuando desea satisfacer asuntos de seguridad y el cliente es local al nodo de Queue Manager.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unidades</td>
+<td align="left" valign="top" class="base">No se aplica</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">ENLACES</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">
+<dl>
+<dt>
+<strong>ENLACES</strong>
+</dt>
+<dd>Los enlaces JNI se utilizan para conectar con Queue Manager. ENLACES (bindings) es un protocolo de
+memoria compartida y s&oacute;lo se puede utilizar cuando Queue Manager se encuentra en el mismo nodo que el
+cliente de JMS y viene con algunos riesgos de seguridad que se deben tratar mediante el uso de
+roles de EJB.</dd>
+<dt>
+<strong>CLIENTE</strong>
+</dt>
+<dd>La conexi&oacute;n del cliente de WebSphere MQ se utiliza para conectar con
+Queue Manager.
+ CLIENTE es un protocolo TCP t&iacute;pico. </dd>
+<dt>
+<strong>DIRECTO</strong>
+</dt>
+<dd>Para WebSphere MQ Event Broker mediante la modalidad DIRECTO. DIRECTO es un protocolo Lightweight Sockets que se utiliza
+en servicios de mensajes de publicaci&oacute;n/suscripci&oacute;n no transaccionales, no perdurables y no persistentes. DIRECTO es s&oacute;lo para que funcione en clientes y beans controlados por mensajes mediante el protocolo que no es ASF.</dd>
+<dt>
+<strong>EN COLA</strong>
+</dt>
+<dd>En COLA es un protocolo TCP sin estado.</dd>
+</dl>
+</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Recomendado</td>
+<td align="left" valign="top" class="base">
+<dl>
+<dt>
+<strong>Tipo de transporte de f&aacute;brica de conexiones de cola</strong>
+</dt>
+<dd>ENLACES es un 30% o m&aacute;s r&aacute;pido, pero
+carece de seguridad. Cuando le ata&ntilde;e la seguridad, es preferible ENLACES que CLIENTE.</dd>
+<dt>
+<strong>Tipo de transporte de f&aacute;brica de conexiones de tema</strong>
+</dt>
+<dd>DIRECTO es lo m&aacute;s r&aacute;pido y debe utilizarse
+cuando sea posible. Utilice ENLACES cuando desee satisfacer tareas de seguridad adicionales
+y el Queue Manager sea local para el cliente JMS. EN COLA es
+lo que se utiliza para todos los dem&aacute;s casos. Recuerde, WebSphere MQ 5.3 antes de CSD2 con el valor DIRECTO puede perder  mensajes cuando se utiliza con beans controlados por mensajes y bajo carga. 
+Esto tambi&eacute;n sucede con aplicaciones en el cliente a no ser que
+maxClientQueueSize del intermediario est&eacute; establecido en 0. Puede establecer este
+valor en 0 con el mandato <samp>#wempschangeproperties WAS_nodeName_server1 -e
+default -o DynamicSubscriptionEngine -n maxClientQueueSize -v 0 -x
+executionGroupUUID</samp>, donde executionGroupUUID se puede encontrar iniciando
+el intermediario y buscando en el archivo de anotaciones cronol&oacute;gicas o
+aplicaciones de sucesos del suceso 2201. Este valor suele ser ffffffff-0000-0000-000000000000.</dd>
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopicConnectionFactory_brokerControlQueue"></a>Cola de control de intermediario</strong>
+</dt>
+<dd>Nombre
+de la cola de control del intermediario a la que se env&iacute;an todos los
+mensajes de mandatos (excepto publicaciones y peticiones para suprimir
+publicaciones).
+<p>Nombre de la cola de control del intermediario. Las aplicaciones de editores y suscriptores, y otros intermediarios, env&iacute;an a esta cola todos los mensajes de mandatos (excepto las publicaciones y las peticiones para suprimir publicaciones).</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unidades</td>
+<td align="left" valign="top" class="base">Caracteres ASCII En_US</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">1 a 48 caracteres ASCII</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopicConnectionFactory_brokerQueueManager"></a>Broker Queue Manager</strong>
+</dt>
+<dd>Nombre de WebSphere MQ Queue Manager que proporciona el intermediario de mensajes de publicaci&oacute;n/suscripci&oacute;n.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unidades</td>
+<td align="left" valign="top" class="base">Caracteres ASCII En_US</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">1 a 48 caracteres ASCII</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopicConnectionFactory_brokerPubQueue"></a>Cola de publicaciones del intermediario</strong>
+</dt>
+<dd>Nombre de la cola de entrada del intermediario que recibe todos los
+mensajes de publicaciones de la corriente de datos por omisi&oacute;n.
+<p>Nombre de la cola de entrada del intermediario (cola de corriente de
+datos) que recibe todos los mensajes de publicaciones de la corriente
+de datos por omisi&oacute;n. Las aplicaciones tambi&eacute;n pueden enviar peticiones a esta cola para
+suprimir publicaciones en la corriente de datos por omisi&oacute;n.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unidades</td>
+<td align="left" valign="top" class="base">Caracteres ASCII En_US</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">1 a 48 caracteres ASCII</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopicConnectionFactory_brokerSubQueue"></a>Cola de suscripci&oacute;n de intermediario</strong>
+</dt>
+<dd>
+Nombre de la cola del intermediario de la que se recuperan mensajes de
+suscripciones no duraderas.
+<p>Nombre de la cola del intermediario de la que se recuperan mensajes
+de suscripciones no duraderas. El suscriptor
+especifica el nombre de la cola al registrar una suscripci&oacute;n.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unidades</td>
+<td align="left" valign="top" class="base">Caracteres ASCII En_US</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">1 a 48 caracteres ASCII</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopicConnectionFactory_brokerCCSubQueue"></a>Cola de suscripci&oacute;n de consumidor de conexi&oacute;n de intermediario</strong>
+</dt>
+<dd>Nombre de la cola del intermediario de la que se recuperan mensajes
+de suscripciones no duraderas para ConnectionConsumer (consumidor de
+conexi&oacute;n). Esta propiedad s&oacute;lo se aplica para uso del contenedor Web.
+<p>Nombre de la cola del intermediario de la que se recuperan mensajes
+de suscripciones no duraderas para ConnectionConsumer (consumidor de
+conexi&oacute;n). Esta propiedad s&oacute;lo se aplica para uso del contenedor Web.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unidades</td>
+<td align="left" valign="top" class="base">Caracteres ASCII En_US</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">1 a 48 caracteres ASCII</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopicConnectionFactory_brokerVersion"></a>Versi&oacute;n de intermediario</strong>
+</dt>
+<dd>Determina si el intermediario de mensajes lo proporciona WebSphere MQ MA0C
+SupportPac o las versiones m&aacute;s recientes de productos de intermediario de mensajes de WebSphere
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unidades</td>
+<td align="left" valign="top" class="base">No se aplica</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">Avanzada</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">
+<dl>
+<dt>
+<strong>Avanzada</strong>
+</dt>
+<dd>El intermediario de mensajes lo proporcionan las versiones m&aacute;s recientes de productos de intermediario de mensajes de WebSphere, como por ejemplo, WebSphere MQ Integrator y EventBroker. </dd>
+<dt>
+<strong>B&aacute;sico</strong>
+</dt>
+<dd>El intermediario de mensajes lo proporciona WebSphere MQ MA0C SupportPac (MQSeries - Publish/Subscribe) </dd>
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopicConnectionFactory_tempModel"></a>Definici&oacute;n de cola modelo</strong>
+</dt>
+<dd>Nombre de la definici&oacute;n de cola modelo que puede utilizar el intermediario para crear colas din&aacute;micas para corrientes de datos no definidas por omisi&oacute;n si la cola de corriente todav&iacute;a no existe.
+<p>Nombre de la definici&oacute;n de cola modelo que puede utilizar el intermediario para crear colas din&aacute;micas que reciban
+publicaciones de corrientes de datos que no sean las corrientes por omisi&oacute;n. Esto s&oacute;lo se utiliza si la corriente de datos
+no existe todav&iacute;a. Si esta definici&oacute;n de cola modelo no existe, el administrador debe definir todas las colas de
+corrientes de datos.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unidades</td>
+<td align="left" valign="top" class="base">Caracteres ASCII En_US</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">1 a 48 caracteres ASCII</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopicConnectionFactory_CCSID"></a>CCSID</strong>
+</dt>
+<dd>Identificador del juego de caracteres codificado para utilizarlo con WebSphere MQ Queue Manager.
+<p>Este CCSID (identificador del juego de caracteres codificado) debe ser uno de los CCSID a
+los que WebSphere MQ da soporte.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unidades</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">1 a 65535</td>
+
+</tr>
+
+</table>
+
+<p>Para obtener m&aacute;s informaci&oacute;n sobre los CCSID admitidos y c&oacute;mo efectuar conversiones de
+datos de mensajes de un c&oacute;digo de juego de caracteres a otro, consulte los manuales <cite>WebSphere MQ System Administration</cite> y <cite>WebSphere MQ Application Programming Reference</cite>. Podr&aacute; encontrar estos manuales en las p&aacute;ginas Web de manuales de varias plataformas de mensajes de WebSphere MQ y espec&iacute;ficos de plataforma, por ejemplo, en la direcci&oacute;n <img border="0" alt="S&oacute;lo se puede acceder al destino si este tema est&aacute; enlazado con la World Wide Web" src="web.gif">&nbsp;&nbsp;               
+   <a target="_blank" href="http://www-3.ibm.com/software/ts/mqseries/library/manualsa/manuals/crosslatest.html.html"><strong>http://www-3.ibm.com/software/ts/mqseries/library/manualsa/manuals/platspecific.html</strong></a>
+, <img border="0" alt="S&oacute;lo se puede acceder al destino si este tema est&aacute; enlazado con la World Wide Web" src="web.gif">&nbsp;&nbsp;               
+   <a target="_blank" href="http://www.elink.ibmlink.ibm.com/public/applications/publications/cgibin/pbi.cgi"><strong>IBM Publications Center</strong></a>
+ o en WebSphere MQ collection kit, SK2T-0730.</p>
+
+</dd>
+<dt>
+<strong><a name="MQTopicConnectionFactory_cloneSupport"></a>Soporte de clones</strong>
+</dt>
+<dd>Seleccione este recuadro de selecci&oacute;n para que el soporte de clones permita la misma suscripci&oacute;n duradera entre clones de tema.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unidades</td>
+<td align="left" valign="top" class="base">No se aplica</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">Deseleccionado</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">
+<dl>
+<dt>
+<strong>Seleccionado</strong>
+</dt>
+<dd>El soporte de clones est&aacute;s habilitado.</dd>
+<dt>
+<strong>Deseleccionado</strong>
+</dt>
+<dd>El soporte de clones est&aacute; inhabilitado.</dd>
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+<p>Si selecciona esta propiedad, tambi&eacute;n debe especificar un valor para
+la propiedad <strong>ID de cliente</strong>.</p>
+
+</dd>
+<dt>
+<strong><a name="MQTopicConnectionFactory_clientID"></a>ID de cliente</strong>
+</dt>
+<dd>Identificador de cliente de JMS utilizado para conexiones con Queue Manager.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">ID de cliente JMS v&aacute;lido, como caracteres ASCII</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASTopicConnectionFactory_type"></a>Habilitado para XA</strong>
+</dt>
+<dd>Especifica si la f&aacute;brica de conexiones es para coordinaci&oacute;n XA y no XA de los mensajes y controla si el servidor de aplicaciones utilizar&aacute; XA QCF/TCF. Habilite XA cuando no se utilizan en la misma transacci&oacute;n varios recursos.
+<p>Si establece esta propiedad en
+<samp>NON_XA</samp>, la sesi&oacute;n JMS est&aacute; todav&iacute;a incluida en una
+transacci&oacute;n, pero utiliza las llamadas de transacci&oacute;n local del gestor
+de recursos (session.commit y session.rollback) en lugar de las
+llamadas de XA. Esto puede producir una mejora en el rendimiento. Sin
+embargo, esto significa que s&oacute;lo un &uacute;nico recurso puede incluirse en
+una transacci&oacute;n en WebSphere Application Server. En WebSphere
+Application Server Enterprise, el soporte de &uacute;ltimo participante le
+permite incluir un recurso que no sea XA con otros recursos compatibles
+con XA.</p>
+
+<p>Esta propiedad no se aplica para una f&aacute;brica de
+conexiones de tema WebSphere con la propiedad <strong>Port</strong> establecida
+en <samp>DIRECT</samp> y siempre toma el valor <samp>NON_XA</samp>. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unidades</td>
+<td align="left" valign="top" class="base">No se aplica</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">Habilitado para XA</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">
+<dl>
+<dt>
+<strong>XA</strong>
+</dt>
+<dd>La f&aacute;brica de conexiones es para coordinaci&oacute;n XA de mensajes</dd>
+<dt>
+<strong>NON_XA</strong>
+</dt>
+<dd>La f&aacute;brica de conexiones es para coordinaci&oacute;n no XA de mensajes</dd>
+</dl>
+</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Recomendado</td>
+<td align="left" valign="top" class="base">No habilite
+XA cuando la cola de mensajes o el tema recibido sea el &uacute;nico recurso de la transacci&oacute;n. Habilite XA cuando otros recursos, incluidas otras colas o temas, est&eacute;n implicados.</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopicConnectionFactory_connectionPool"></a>Agrupaci&oacute;n de conexiones</strong>
+</dt>
+<dd>Especifica un conjunto opcional
+de valores de agrupaci&oacute;n de conexiones. 
+<p>Las propiedades de agrupaci&oacute;n de conexiones
+son comunes a todos los conectores J2C. </p>
+
+<p>El servidor de aplicaciones agrupa conexiones y sesiones con el proveedor de JMS para mejorar el rendimiento. Esta acci&oacute;n es
+independiente de cualquier agrupaci&oacute;n de conexiones de WebSphere MQ. Es necesario que configure
+las propiedades de agrupaci&oacute;n de sesiones y conexiones para las
+aplicaciones adecuadamente; de lo contrario, es posible que no obtenga
+el comportamiento de sesi&oacute;n o conexi&oacute;n deseado.</p>
+
+<p>Cambie el
+tama&ntilde;o de la agrupaci&oacute;n de conexiones si el acceso simult&aacute;neo en el servidor al
+recurso JMS supera el valor por omisi&oacute;n. El tama&ntilde;o de la agrupaci&oacute;n de conexiones se establece
+por cola o por tema. Para obtener m&aacute;s detalles, consulte la tabla siguiente.</p>
+
+</dd>
+<dt>
+<strong><a name="MQTopicConnectionFactory_sessionPool"></a>Agrupaci&oacute;n de sesiones</strong>
+</dt>
+<dd>Conjunto opcional de valores de agrupaciones de sesiones.
+<p>Este enlace proporciona un panel de propiedades de agrupaci&oacute;n de conexiones opcionales,
+comunes a todos los conectores J2C.</p>
+
+<p>El servidor de aplicaciones agrupa conexiones y sesiones con el proveedor de JMS para mejorar el rendimiento. Esta acci&oacute;n es
+independiente de cualquier agrupaci&oacute;n de conexiones de WebSphere MQ. Es necesario que configure
+las propiedades de agrupaci&oacute;n de sesiones y conexiones para las
+aplicaciones adecuadamente; de lo contrario, es posible que no obtenga
+el comportamiento de sesi&oacute;n o conexi&oacute;n deseado.</p>
+
+</dd>
+<dt>
+<strong><a name="ConnectionFactory_customProperties"></a>Propiedades personalizadas</strong>
+</dt>
+<dd>Conjunto opcional de pares de nombre y valor para propiedades
+personalizadas pasadas a WebSphere MQ.
+<p>Puede utilizar la p&aacute;gina Propiedades personalizadas para definir las
+siguientes propiedades de WebSphere MQ. Estas propiedades s&oacute;lo se aplican, si
+establece la propiedad <a href="#MQTopicConnectionFactory_transportType">Tipo de transporte=CLIENTE</a>.</p>
+
+<ul>
+
+<li>
+<a href="#SSLCIPHERSUITE">SSLCIPHERSUITE</a>
+</li>
+
+<li>
+<a href="#SSLCRL">SSLCRL</a>
+</li>
+
+<li>
+<a href="#SSLCRL">SSLPEERNAME</a>
+</li>
+
+<li>
+<a href="#MSGSELECTION">MSGSELECTION</a>
+</li>
+
+<li>
+<a href="#SUBSTORE">SUBSTORE</a>
+</li>
+
+</ul>
+
+<p>Para obtener m&aacute;s informaci&oacute;n sobre c&oacute;mo establecer las propiedades SSL,
+consulte la secci&oacute;n <a href="http://publibfp.boulder.ibm.com/epubs/html/csqzaw11/csqzaw1116.htm#HDRJSSLPR">SSL properties</a> en el
+manual <cite>WebSphere MQ Using Java</cite>.</p>
+
+</dd>
+</dl>
+</body>
+</html>

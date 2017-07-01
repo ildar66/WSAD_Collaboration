@@ -1,0 +1,139 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>로그인 설정</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="urun_rlogin"></a>
+<h2>로그인 설정</h2>
+
+<p>이 페이지를 참조하여 WebSphere Application Server 관리 콘솔의 사용자를 지정하십시오. 글로벌 보안을
+ 사용 중인 경우 암호도 지정합니다. </p>
+
+<p>사용자를 지정하면 이전에 제품과 함께 수행된 작업을 재개할 수
+ 있습니다. 사용자 ID를 입력한 후, <strong>확인</strong>을 클릭하여 다음 페이지로 이동한 다음
+관리 콘솔에 액세스하십시오.
+</p>
+
+<p>이 페이지를 보려면 관리 콘솔을 시작하십시오.</p>
+
+<dl>
+<dt>
+<strong><a name="logon_desc"></a>사용자 ID</strong>
+</dt>
+<dd>사용자를 식별하는 문자열을 지정합니다. 사용자 ID는
+ 관리 서버에서 고유해야 합니다.
+<p>이 제품을 사용하여 수행하고 제품을 종료하기 전에 저장한 작업은 사용자가 입력한 사용자
+ID로 식별되는 구성에 저장됩니다.
+나중에 이 사용자 ID로 수행된 작업에 액세스하려면 로그인 페이지에서 사용자 ID를 지정하십시오.
+</p>
+
+<p>현재 관리 콘솔에 브라우저가 열려있는 클라이언트 시스템에서 로그인하고 동일한 서버에 연결하는 경우,
+다른 사용자 ID로 로그인하는지와 상관없이 두 연결이 동일한 HTTP 세션 오브젝트를
+공유할 수 있습니다. 동일한 사용자 ID를 사용하는지와
+상관없이 두 가지 서로 다른 HTTP 세션 오브젝트에서 작업하려면 두 가지 다른 유형의
+브라우저(예: Microsoft Internet Explorer 및 Netscape Communicator)를 사용하여
+동일한 클라이언트 시스템에서 관리 콘솔에 로그인해야 합니다.즉, 동일한 클라이언트 시스템에 두 개의 동시 세션이 필요한 경우
+두 가지 브라우저 유형에서 관리 콘솔에 액세스하십시오.</p>
+
+<p>동일한 브라우저 유형을 사용하여 콘솔에 두 번 로그인할 수 있지만
+서로 다른 물리적 호스트에서 로그인하여 서로 다른 사용자 ID를 사용해야 합니다.
+ 예를 들어, Joe가 Internet
+ Explorer 브라우저를 사용하여 물리적 호스트 <em>myhost1</em>에서
+ 사용자 ID <em>joe</em>로 관리 콘솔에 로그인하는 것으로 가정합니다. Joe는
+Internet Explorer 브라우저를 사용하여 동일한 콘솔에 두 번째 로그인할 수 있지만
+서로 다른 사용자 ID (예: <em>peggy</em>)와 서로 다른 물리적 호스트(예: <em>myhost2</em>)를 사용해야 합니다.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">문자열</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="UserExists_information"></a>다른 사용자가 현재 동일한 사용자 이름으로 로그인되어 있습니다. </strong>
+</dt>
+<dd>사용자를 로그아웃시키고 지정된 사용자 ID로 작업을 계속할지
+ 아니면 로그인 페이지로 리턴하여 다른 사용자 ID를 지정하거나 해당 사용자가
+ 로그아웃하기를 기다릴지 여부를 지정합니다. 
+<p>이 필드는 사용자가 관리 콘솔을 보는 동안 웹 브라우저를 닫고
+ 먼저 로그 아웃하지 않고 새 브라우저를 열고 관리 콘솔에 액세스하려는
+ 경우에 나타납니다. </p>
+
+</dd>
+<dt>
+<strong><a name="ChangesFound_restore"></a>마스터 구성에 대한 작업</strong>
+</dt>
+<dd>사용 가능한 경우, 기본 관리 구성을 사용하고 사용자 세션에 사용된
+ 마지막 구성은 사용하지 않도록 지정합니다. 관리 구성의 마지막 저장 후
+ 사용자 세션에 대해 작성한 변경사항은 없어집니다.
+<p>이 필드는 사용자가 관리 구성을 변경하고 변경사항을 저장하지 않고
+ 로그 아웃한 경우에만 나타납니다. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">부울</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">기본값</td>
+<td align="left" valign="top" class="base">false</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ChangesFound_recover"></a>이전 세션에서 작성된 복구 변경사항</strong>
+</dt>
+<dd>사용 가능한 경우, 사용자 세션에 마지막으로 사용된 구성과 동일한 관리
+ 구성을 사용하도록 지정합니다. 사용자 세션에 대한 관리 구성의 마지막
+ 저장 후 사용자가 작성한 변경사항을 복구합니다.
+<p>이 필드는 사용자가 관리 구성을 변경하고 변경사항을 저장하지 않고
+ 로그 아웃한 경우에만 나타납니다. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">부울</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">기본값</td>
+<td align="left" valign="top" class="base">true</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>관련 정보</strong>
+</p>
+<a href="rcon_buttons.html">관리 콘솔 단추</a>
+<br>
+
+</div>
+</body>
+</html>

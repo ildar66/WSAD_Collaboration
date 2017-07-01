@@ -1,0 +1,262 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>查看 Web 服务客户机部署描述符</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_vwcdd"></a>
+<h2>
+<img alt="[Fix Pack 5.0.2 and later]" src="v502.gif" border="0">查看 Web 服务客户机部署描述符</h2>
+
+<p>使用此页面查看您的客户机部署描述符。</p>
+
+<p>要查看此管理控制台页面，完成以下步骤：<ol>
+
+<li>单击<strong>应用程序 &gt; 企业应用程序 &gt; </strong><em>application_name</em>。</li>
+
+<li>在&ldquo;相关项&rdquo;下，单击 <strong>Web 模块</strong> &gt; <em>URI_file_name</em> &gt; <strong>查看 Web 服务客户机部署描述符</strong>。</li>
+
+</ol>
+</p>
+
+<p>应用程序级别和服务器级别绑定是 WebSphere Application Server 提供的两个绑定级别。 应用程序级别、服务器级别和单元级别是 WebSphere Application
+Server Network Deployment 提供的三个绑定级别。下列实现描述中的信息表明如何配置应用程序级别绑定。要配置作为缺省的服务器级别绑定，完成以下步骤：<ol>
+
+<li>单击<strong>服务器 &gt; 应用程序服务器 &gt; </strong><em>server_name</em>。</li>
+
+<li>在&ldquo;相关项&rdquo;下，单击 <strong>Web 服务：Web 服务安全性的缺省绑定</strong>。</li>
+
+<li>要配置单元级别绑定，单击<strong>安全性 &gt; Web 服务</strong>。</li>
+
+</ol> 
+<p>
+<b>注: </b>如果 Web 服务器担当客户机，则使用缺省绑定。</p>如果您使用下列任何配置，验证部署描述符正确配置：<ul>
+
+<li>
+<a href="#reqsign">请求签名</a>
+</li>
+
+<li>
+<a href="#reqencrypt">请求加密</a>
+</li>
+
+<li>
+<a href="#basicauth">BasicAuth 认证</a>
+</li>
+
+<li>
+<a href="#idassert">身份（标识）声明认证</a>
+</li>
+
+<li>
+<a href="#idasserttrust">带有签名 TrustMode 的身份（标识）声明认证</a>
+</li>
+
+<li>
+<a href="#respdsig">响应数字签名验证</a>
+</li>
+
+<li>
+<a href="#respdecr">响应解密</a>
+</li>
+
+</ul>
+</p>
+
+<div>
+<a name="reqsign"></a>
+<p class="sectiontitle">
+<b>请求签名</b>
+</p>
+<p>如果已指定完整性约束（数字签名），则验证您已在绑定文件中配置签名信息。</p>
+<p>要配置签名参数，完成以下步骤：<ol>
+
+<li>单击<strong>应用程序 &gt; 企业应用程序 &gt; </strong><em>application_name</em>。</li>
+
+<li>在&ldquo;相关项&rdquo;下，单击 <strong>Web 模块 &gt; </strong><em>URI_file_name</em> <strong>Web 服务：客户机安全性绑定</strong>。</li>
+
+<li>在&ldquo;响应接收程序绑定&rdquo;列中，单击<strong>编辑 &gt; 签名信息 &gt; 新建</strong>。</li>
+
+</ol>
+</p>
+<p>要配置密钥定位器，完成以下步骤：<ol>
+
+<li>单击<strong>服务器 &gt; 应用程序服务器 &gt; </strong><em>server_name</em>。</li>
+
+<li>在&ldquo;其它属性&rdquo;下，单击 <strong>Web 服务：Web 服务安全性的缺省绑定 &gt; 密钥定位器</strong>。</li>
+
+</ol>
+</p>
+</div>
+
+<div>
+<a name="reqencrypt"></a>
+<p class="sectiontitle">
+<b>请求加密</b>
+</p>
+<p>如果已指定机密性约束（加密），则验证您已在绑定文件中配置加密信息。</p>
+<p>要配置加密参数，完成以下步骤：<ol>
+
+<li>单击<strong>应用程序 &gt; 企业应用程序 &gt; </strong><em>application_name</em>。</li>
+
+<li>在&ldquo;相关项&rdquo;下，单击 <strong>Web 模块 &gt; </strong><em>URI_file_name</em> <strong>&gt; Web 服务：客户机安全性绑定</strong>。</li>
+
+<li>在&ldquo;响应接收程序绑定&rdquo;列中，单击<strong>编辑 &gt; 加密信息 &gt; 新建</strong>。</li>
+
+</ol>
+</p>
+<p>要配置密钥定位器，完成以下步骤：</p>
+<p>单击<strong>服务器 &gt; 应用程序服务器 &gt; </strong><em>server_name</em>。</p>
+<p>在&ldquo;其它属性&rdquo;下，单击 <strong>Web 服务：Web 服务安全性的缺省绑定 &gt; 密钥定位器</strong>。</p>
+</div>
+
+<div>
+<a name="basicauth"></a>
+<p class="sectiontitle">
+<b>BasicAuth 认证</b>
+</p>
+<p>如果配置 BasicAuth 作为必需安全性令牌，则在绑定文件中指定 CallbackHandler，以收集基本认证数据。以下列表包含 CallBack 支持实现：<dl>
+<dt>
+<strong>com.ibm.wsspi.wssecurity.auth.callback.GuiPromptCallbackHandler</strong>
+</dt>
+<dd>此实现在界面中提示输入 BasicAuth 信息（用户名和密码）。</dd>
+<dt>
+<strong>com.ibm.wsspi.wssecurity.auth.callback.NonPromptCallbackHandler</strong>
+</dt>
+<dd>此实现从绑定文件读取 BasicAuth 信息。</dd>
+<dt>
+<strong>com.ibm.wsspi.wssecurity.auth.callback.StdPromptCallbackHandler</strong>
+</dt>
+<dd>此实现提示使用（stdin）输入用户名和密码。</dd>
+</dl>
+</p>
+<p>要配置登录绑定信息，完成以下步骤：<ol>
+
+<li>单击<strong>应用程序 &gt; 企业应用程序 &gt; </strong><em>application_name</em>。</li>
+
+<li>在&ldquo;相关项&rdquo;下，单击 <strong>Web 模块 &gt; </strong><em>URI_file_name</em> <strong> &gt; Web 服务：客户机安全性绑定</strong>。</li>
+
+<li>在&ldquo;请求发送程序绑定&rdquo;下，单击<strong>编辑 &gt; 登录绑定</strong>。</li>
+
+</ol>
+</p>
+</div>
+
+<div>
+<a name="idassert"></a>
+<p class="sectiontitle">
+<b>BasicAuth TrustMode 的身份（标识）断言认证</b>
+</p>
+<p>使用 com.ibm.wsspi.wssecurity.auth.callback.NonPromptCallbackHandler 实现在绑定文件中配置登录绑定。
+指定下游服务器上的 TrustedIDEvaluator 信任的 BasicjAuth 用户标识和密码。</p>
+<p>要配置登录绑定信息，完成以下步骤：<ol>
+
+<li>单击<strong>应用程序 &gt; 企业应用程序 &gt; </strong><em>application_name</em>。</li>
+
+<li>在&ldquo;相关项&rdquo;下，单击 <strong>Web 模块 &gt; </strong><em>URI_file_name</em><strong> &gt; Web 服务：客户机安全性绑定</strong>。</li>
+
+<li>在<strong>请求发送方绑定</strong>下，单击<strong>编辑 &gt; 登录绑定</strong>。</li>
+
+</ol>
+</p>
+</div>
+
+<div>
+<a name="idasserttrust"></a>
+<p class="sectiontitle">
+<b>带有签名 TrustMode 的身份（标识）声明认证</b>
+</p>
+<p>使用指向密钥定位器的签名密钥在绑定文件中配置签名信息。密钥定位器包含将由下行服务器信任的 X.509 证书。</p>
+<p>要配置标识断言，完成以下步骤：<ol>
+
+<li>单击<strong>服务器 &gt; 应用程序服务器 &gt; </strong><em>server_name</em>。</li>
+
+<li>在&ldquo;其它属性&rdquo;下，单击 <strong>Web 服务：Web 服务安全性的缺省绑定 &gt; 登录映射 &gt; IDAssertion</strong>。</li>
+
+</ol>
+</p>
+<p>要配置登录绑定信息，完成以下步骤：<ol>
+
+<li>单击<strong>应用程序 &gt; 企业应用程序 &gt; </strong><em>application_name</em>。</li>
+
+<li>在&ldquo;相关项&rdquo;下，单击 <strong>Web 模块 &gt; </strong><em>URI_file_name</em> <strong> &gt; Web 服务：客户机安全性绑定</strong>。</li>
+
+<li>在&ldquo;请求发送程序绑定&rdquo;下，单击<strong>编辑 &gt; 登录绑定</strong>。</li>
+
+</ol>
+</p>
+</div>
+
+<div>
+<a name="respdsig"></a>
+<p class="sectiontitle">
+<b>响应数字签名验证</b>
+</p>
+<p>如果定义完整性约束（必需签名），则验证您已在绑定文件中配置签名信息。</p>
+<p>要配置签名参数，完成以下步骤：<ol>
+
+<li>单击<strong>应用程序 &gt; 企业应用程序 &gt; </strong><em>application_name</em>。</li>
+
+<li>在&ldquo;相关项&rdquo;下，单击 <strong>Web 模块 &gt; </strong><em>URI_file_name</em> <strong>&gt; Web 服务：客户机安全性绑定</strong>。</li>
+
+<li>在&ldquo;响应接收程序绑定&rdquo;列中，单击<strong>编辑 &gt; 签名信息 &gt; 新建</strong>。</li>
+
+</ol>
+</p>
+<p>要配置信任锚，完成以下步骤：<ol>
+
+<li>单击<strong>服务器 &gt; 应用程序服务器 &gt; </strong><em>server_name</em>。</li>
+
+<li>在&ldquo;其它属性&rdquo;下，单击 <strong>Web 服务：Web 服务安全性的缺省绑定 &gt; 信任锚 &gt; 新建</strong>。</li>
+
+</ol>
+</p>
+<p>要配置集合证书存储，完成以下步骤：<ol>
+
+<li>单击<strong>服务器 &gt; 应用程序服务器 &gt; </strong><em>server_name</em>。</li>
+
+<li>在&ldquo;其它属性&rdquo;下，单击 <strong>Web 服务：Web 服务安全性的缺省绑定 &gt; 集合证书存储 &gt; 新建</strong>。</li>
+
+</ol>
+</p>
+</div>
+
+<div>
+<a name="respdecr"></a>
+<p class="sectiontitle">
+<b>响应解密</b>
+</p>
+<p>如果指定了机密性约束（加密），则验证您已定义了加密信息。</p>
+<p>要配置加密信息，完成以下步骤：<ol>
+
+<li>单击<strong>应用程序 &gt; 企业应用程序 &gt; </strong><em>application_name</em>。</li>
+
+<li>在&ldquo;相关项&rdquo;下，单击 <strong>Web 模块 &gt; </strong>&lt;<em>URI_file_name</em> <strong>&gt; Web 服务：客户机安全性绑定</strong>。</li>
+
+<li>在&ldquo;响应接收程序绑定&rdquo;列中，单击<strong>编辑 &gt; 加密信息 &gt; 新建</strong>。</li>
+
+</ol>
+</p>
+<p>要配置密钥定位器，完成以下步骤：<ol>
+
+<li>单击<strong>服务器 &gt; 应用程序服务器 &gt; </strong><em>server_name</em>。</li>
+
+<li>在&ldquo;其它属性&rdquo;下，单击 <strong>Web 服务：Web 服务安全性的缺省绑定 &gt; 密钥定位器</strong>。</li>
+
+</ol>
+</p>
+</div>
+
+<div>
+<p>
+<strong>相关信息</strong>
+</p>
+<a href="uwbs_websvcb.html">Web 服务：Web 服务安全性集合的缺省绑定</a>
+<br>
+
+</div>
+</body>
+</html>

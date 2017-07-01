@@ -1,0 +1,133 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Param&egrave;tres de la cache des EJB</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uejbcash"></a>
+<h2>Param&egrave;tres de la cache des EJB</h2>
+
+<p>Utilisez cette page pour configurer et g&eacute;rer la m&eacute;moire cache pour un conteneur EJB sp&eacute;cifique. Pour d&eacute;terminer la limite absolue de la cache (nombre maximal d'instances de beans
+enterprise qu'elle peut contenir), multipliez le nombre de beans actifs dans une transaction
+donn&eacute;e par le nombre total de transactions concurrentes attendues. Ajoutez ensuite le nombre d'instances de bean session actives. Vous pouvez utiliser Tivoli Performance Viewer pour afficher les
+informations relatives aux performances des beans.</p>
+
+<p>Pour afficher cette page de la console d'administration, cliquez
+sur <strong>Serveurs</strong> <strong>&gt;</strong> <strong>Serveurs d'applications</strong>
+<strong>&gt;</strong> <em>nomServeur</em> <strong>&gt;</strong> <strong>Conteneur d'EJB</strong>
+<strong>&gt;</strong> <strong>Param&egrave;tres de la cache des EJB</strong>.</p>
+
+<div>
+<p>
+<strong>Onglet Configuration</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="EJBCache_cleanupInterval_description"></a>Intervalle entre les nettoyages</strong>
+</dt>
+<dd>Indique la fr&eacute;quence &agrave; laquelle le conteneur tente de
+supprimer les &eacute;l&eacute;ments inutilis&eacute;s dans la m&eacute;moire cache afin que le
+nombre total d'&eacute;l&eacute;ments de la m&eacute;moire cache soit &eacute;gal &agrave; la valeur de
+la taille de la m&eacute;moire cache.
+<p>Le gestionnaire de m&eacute;moire cache tente de maintenir des entr&eacute;es non allou&eacute;es qui pourront l'&ecirc;tre rapidement en cas de besoin. Une unit&eacute; d'ex&eacute;cution en t&acirc;che de fond tente de lib&eacute;rer des entr&eacute;es tout en maintenant des entr&eacute;es non allou&eacute;es. Si l'unit&eacute; d'ex&eacute;cution est ex&eacute;cut&eacute;e
+alors que le serveur est inactif, lorsque le serveur d'applications doit allouer de nouvelles
+entr&eacute;es de cache, il n'a pas besoin de supprimer d'entr&eacute;es dans la m&eacute;moire, ce qui r&eacute;duit les
+performances. D'une mani&egrave;re g&eacute;n&eacute;rale, augmentez la valeur de ce param&egrave;tre si la taille de la m&eacute;moire cache augmente.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Entier</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&eacute;s</td>
+<td align="left" valign="top" class="base">Millisecondes</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Plage de valeurs</td>
+<td align="left" valign="top" class="base">Sup&eacute;rieur &agrave; 0</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">3000</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="EJBCache_cacheSize_description"></a>Taille de la cache</strong>
+</dt>
+<dd>Indique le nombre d'emplacements dans la liste d'instances actives dans le conteneur EJB.
+<p>Un emplacement peut contenir plusieurs instances de bean
+enterprise actives mais les performances augmentent si un nombre
+restreint d'instances est affect&eacute; &agrave; chaque compartiment de la table. Lorsque le nombre
+d'instances actives dans le conteneur d&eacute;passe le nombre d'emplacements, c'est-&agrave;-dire la taille
+de la m&eacute;moire cache, le conteneur tente p&eacute;riodiquement de r&eacute;duire le nombre d'instances
+actives dans la table en passivant certaines instances actives. Pour &eacute;quilibrer au mieux les performances et la m&eacute;moire, d&eacute;finissez cette valeur en indiquant
+le nombre maximal d'instances actives attendues pour une charge de travail classique.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Entier</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&eacute;s</td>
+<td align="left" valign="top" class="base">Nombre d'emplacements dans la table de hachage</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Plage de valeurs</td>
+<td align="left" valign="top" class="base">Sup&eacute;rieure &agrave; 0. Le conteneur s&eacute;lectionne le nombre premier
+le plus &eacute;lev&eacute; sup&eacute;rieur ou &eacute;gal &agrave; la valeur sp&eacute;cifi&eacute;e.</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">2053</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informations connexes</strong>
+</p>
+<a href="rcon_buttons.html">Boutons de la console administrative</a>
+<br>
+
+<a href="uejb_recnt.html">Param&egrave;tres de conteneur EJB</a>
+<br>
+
+</div>
+</body>
+</html>

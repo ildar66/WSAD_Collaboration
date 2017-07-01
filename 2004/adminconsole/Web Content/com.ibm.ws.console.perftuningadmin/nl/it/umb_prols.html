@@ -1,0 +1,200 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Servizio listener di messaggi</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="MessageListenerService"></a>
+<h2>Servizio listener di messaggi</h2>
+
+<p>Il servizio listener dei messaggi &egrave; un'estensione alle funzioni JMS del
+provider JMS. Fornisce un gestore listener che controlla uno o pi&ugrave; listener JMS, ognuno dei quali a sua volta controlla
+una destinazione JMS per conto di un bean basato sui messaggi, distribuito. </p>
+
+<p>Questo pannello visualizza i collegamenti alle pagine Ulteriori propriet&agrave; per le Porte Listener, Lotto thread e Propriet&agrave; personalizzate del servizio listener dei messaggi.</p>
+
+<p>Per visualizzare questa pagina della console di gestione, fare clic su <strong>Server-&gt;
+<em>server_applicazioni</em>-&gt; Servizio listener dei messaggi</strong>
+</p>
+
+<dl>
+<dt>
+<strong><a name="MessageListenerService_name"></a>Name</strong>
+</dt>
+<dd>Il nome attribuito al servizio listener di messaggi per scopi di gestione.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+
+
+
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">MsgLService</td>
+
+</tr>
+
+
+
+
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MessageListenerService_description"></a>Descrizione</strong>
+</dt>
+<dd>Una descrizione del servizio listener di messaggi, per scopi di gestione
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+
+
+
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">Nullo</td>
+
+</tr>
+
+
+
+
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MessageListenerService_threadPool"></a>Lotto thread</strong>
+            &nbsp;
+            </dt>
+<dd>Controlla il numero massimo di thread consentiti nel Servizio listener dei messaggi. Selezionare questo collegamento per visualizzare le propriet&agrave; del lotto thread di servizio.
+<p>Regolare questo parametro quando si distribuiscono pi&ugrave; bean basati sui messaggi nello stesso server delle applicazioni e la somma dei valori massimi delle sessioni supera il valore predefinito di 10.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Numero intero</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&agrave;</td>
+<td align="left" valign="top" class="base">Non applicabile</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">Minimo: 10, massimo 50</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo</td>
+<td align="left" valign="top" class="base">Non applicabile</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Consigliato</td>
+<td align="left" valign="top" class="base">Impostare il valore minimo sulla somma di tutti i valori massimi delle sessioni dei bean basati sui messaggi. Impostare il valore massimo a qualsiasi valore pari o maggiore di quello minimo.</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MessageListenerService_custom"></a>Propriet&agrave; personalizzate</strong>
+</dt>
+<dd>Propriet&agrave; personalizzate del servizio listener dei messaggi. Il server JMS dispone di due modalit&agrave; operative: ASF (Application Server Facility) e Non-ASF. La modalit&agrave;
+operativa ASF &egrave; designata per fornire supporto transazionale e simultaneit&agrave; alle
+applicazioni. La modalit&agrave; Non-ASF ignora tale supporto per semplificare la lunghezza del percorso. 
+<p>Utilizzare la modalit&agrave; Non-ASF se:<ul>
+
+<li>L'ordine messaggi &egrave; un requisito obbligatorio </li>
+
+<li>Vengono richiesti i messaggi PTP simultanei</li>
+
+<li>La propriet&agrave; <samp>non.asf.receive.timeout</samp> esiste e ha un valore maggiore di 0</li>
+
+</ul>Non utilizzare la modalit&agrave; Non-ASF se si desiderano messaggi delle sottoscizioni e delle pubblicazioni simultanee poich&eacute; la modalit&agrave; ASF fornisce una migliore velocit&agrave; di trasmissione. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Numero intero</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&agrave;</td>
+<td align="left" valign="top" class="base">Millisecondi</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">Modalit&agrave; ASF (propriet&agrave; personalizzata non creata)</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo</td>
+<td align="left" valign="top" class="base"></td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Consigliato</td>
+<td align="left" valign="top" class="base">Il valore rappresenta il numero di millisecondi necessari per consegnare un
+messaggio. In caso di timeout, deve essere riutilizzato determinando cos&igrave; ulteriore lavoro. Questo valore deve essere impostato su un valore leggermente inferiore a quello del timeout della transazione, con una differenza di circa 10 secondi. La differenza di secondi deve essere minore se in condizioni di sovraccarico i thread attendono lunghi intervalli di tempo per richiamare i cicli della CPU.</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>Informazioni correlate</strong>
+</p>
+<a href="umb_smlp.html">Raccolta porte listener di messaggi</a>
+<br>
+
+</div>
+</body>
+</html>

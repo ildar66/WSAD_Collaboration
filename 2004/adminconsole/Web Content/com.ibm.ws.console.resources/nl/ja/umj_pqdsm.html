@@ -1,0 +1,971 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>WebSphere MQ キュー設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="MQQueue"></a>
+<h2>WebSphere MQ キュー設定</h2>
+
+<p>このパネルを使用して、
+WebSphere MQ JMS プロバイダーで使用するために選択したキュー宛先の構成プロパティーを表示または変更します。
+</p>
+
+<p>キュー宛先を使用して、JMS キューのプロパティーを構成します。
+キューへの接続は、WebSphere MQ JMS プロバイダーの関連するキュー接続ファクトリーによって作成されます。
+WebSphere MQ JMS プロバイダーで使用するキューには、以下のプロパティーがあります。
+<p>
+<b>注: </b>
+<ul>
+
+<li>指定するプロパティー値は、WebSphere MQ の JMS リソースを構成する際に指定した値と一致していなければなりません。
+WebSphere MQ JMS リソースの構成の詳細については、資料「<cite>WebSphere MQ Java の使用 </cite>」を参照してください。</li>
+
+<li>WebSphere MQ では、名前には最大 48 文字まで使用できますが、
+チャネルの場合は例外で最大 20 文字までになります。</li>
+
+</ul>
+</p>
+</p>
+
+<p>この管理コンソール・ページを表示するには、「
+<strong>リソース</strong>」-&gt;「<strong>WebSphere MQ JMS プロバイダー</strong>」-&gt; (コンテンツ・ペイン内、「追加プロパティー」の下にある)「<strong>WebSphere MQ Queue Destinations</strong>」-&gt;「<strong><em>destination_name</em></strong>」をクリックします。
+</p>
+
+<dl>
+<dt>
+<strong><a name="MQQueue_name"></a>名前</strong>
+</dt>
+<dd>IBM WebSphere Application Server 内で、このキューを管理目的で使用する際の名前。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQQueue_jndiName"></a>JNDI 名</strong>
+</dt>
+<dd>キューをアプリケーション・サーバーのネーム・スペースにバインドする際に使用される JNDI 名。
+<p>規則として、完全修飾の JNDI 名を使用します。
+例えば、jms/<em>Name</em> の形式です。
+ここで、<em>Name</em> は、リソースの論理名です。</p>
+<p>この名前は、プラットフォームのバインディング情報をリンクするために使用します。
+バインディングにより、モジュールのデプロイメント記述子で定義されているリソースと、
+プラットフォーム別に JNDI にバインドされている実際の (物理的な) リソースとの関連付けが行われます。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+</dd>
+<dt>
+<strong><a name="MQQueue_description"></a>説明</strong>
+</dt>
+<dd>管理目的で使用するキューの説明
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQQueue_category"></a>カテゴリー</strong>
+</dt>
+<dd>IBM WebSphere Application Server 管理レコード用に、このキューを分類またはグループ化する際に使用されるカテゴリー。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQQueue_persistence"></a>パーシスタンス</strong>
+</dt>
+<dd>宛先に送信されるすべてのメッセージが永続的か非永続的か、
+あるいはメッセージのパーシスタンスをアプリケーションで定義するかを指定します。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">列挙型</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">単位</td>
+<td align="left" valign="top" class="base">該当なし</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">APPLICATION_DEFINED</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>アプリケーションで定義</strong>
+</dt>
+<dd>宛先上のメッセージのパーシスタンスは、
+そのメッセージをキューに入れたアプリケーションで定義されます。
+</dd>
+
+<dt>
+<strong>Queue defined</strong>
+</dt>
+<dd>[WebSphere MQ 宛先のみ] 宛先上のメッセージのパーシスタンスは、
+WebSphere MQ キュー定義プロパティーで定義されます。</dd>
+
+<dt>
+<strong>パーシスタント</strong>
+</dt>
+<dd>宛先上のメッセージは永続的です。
+</dd>
+
+<dt>
+<strong>非パーシスタント</strong>
+</dt>
+<dd>宛先上のメッセージは永続的ではありません。
+</dd>
+
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQQueue_priority"></a>優先順位</strong>
+</dt>
+<dd>この宛先のメッセージ優先順位をアプリケーションで
+定義するか、「<strong>指定された優先順位</strong>」プロパティーで定義するかを指定します。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">列挙型</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">単位</td>
+<td align="left" valign="top" class="base">該当なし</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">APPLICATION_DEFINED</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>アプリケーションで定義</strong>
+</dt>
+<dd>この宛先のメッセージの優先順位は、
+そのメッセージを宛先に入れたアプリケーションで定義されます。
+</dd>
+
+<dt>
+<strong>Queue defined</strong>
+</dt>
+<dd>[WebSphere MQ 宛先のみ] 宛先上のメッセージのパーシスタンスは、
+WebSphere MQ キュー定義プロパティーで定義されます。</dd>
+
+<dt>
+<strong>指定</strong>
+</dt>
+<dd>この宛先のメッセージの優先順位は、「<strong>指定された優先順位</strong>」プロパティーによって定義されます。
+<em>このオプションを選択した場合には、
+「<strong>指定された優先順位</strong>」プロパティーで優先順位を定義する必要があります。</em>
+</dd>
+
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQQueue_specifiedPriority"></a>指定された優先順位</strong>
+</dt>
+<dd>「<strong>優先順位</strong>」プロパティーが「<samp>指定</samp>」に設定されている
+場合、このキューのメッセージ優先順位を 0 (最低) から 9 (最高) の範囲で
+ここに入力します。
+<p>「<strong>優先順位</strong>」プロパティーが「<samp>指定</samp>」に設定されている場合、
+このキューに送信されるメッセージの優先順位は、このプロパティーで指定した値になります。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">整数</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">単位</td>
+<td align="left" valign="top" class="base">メッセージ優先順位のレベル</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">0 (最低優先順位) から 9 (最高優先順位)</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQQueue_expiry"></a>有効期限</strong>
+</dt>
+<dd>このキューの有効期限切れタイムアウトを、
+アプリケーションまたは「<strong>Specified expiry</strong>」プロパティーによって定義するか、
+あるいはキューのメッセージの有効期限が切れないようにする (有効期限切れタイムアウトを無限にする) かどうか
+を指定します。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">列挙型</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">単位</td>
+<td align="left" valign="top" class="base">該当なし</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">APPLICATION_DEFINED</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>アプリケーションで定義</strong>
+</dt>
+<dd>このキューのメッセージの有効期限切れタイムアウトは、
+そのメッセージをキューに入れたアプリケーションで定義されます。
+</dd>
+
+<dt>
+<strong>指定</strong>
+</dt>
+<dd>このキューのメッセージの有効期限切れタイムアウトは、
+「<strong>指定された有効期限</strong>」プロパティーによって定義されます。
+<em>このオプションを選択した場合は、
+「<strong>指定された有効期限</strong>」プロパティーでタイムアウトを定義する必要があります。</em>
+</dd>
+
+<dt>
+<strong>Unlimited</strong>
+</dt>
+<dd>このキューのメッセージには、有効期限切れタイムアウトはありません。
+したがって、これらのメッセージの有効期限が切れることはありません。
+</dd>
+
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQQueue_specifiedExpiry"></a>指定された有効期限</strong>
+</dt>
+<dd>「<strong>有効期限切れタイムアウト</strong>」プロパティーが「<samp>指定</samp>」に
+設定されている場合、このキューのメッセージの有効期限が切れるまでの
+ミリ秒数 (0 より大) をここに入力します。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">整数</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">単位</td>
+<td align="left" valign="top" class="base">ミリ秒</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">0 以上
+<ul>
+
+<li>0 は、メッセージがタイムアウトにならないことを示します。</li> 
+
+<li>それ以外の値は、ミリ秒を表す整数です。</li>
+
+</ul>
+
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQQueue_baseQueueName"></a>基本キュー名</strong>
+</dt>
+<dd>「<strong>基本キュー・マネージャー名</strong>」プロパティーで指定した
+キュー・マネージャー上のメッセージ送信先のキューの名前。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">1 から 48 文字の ASCII 文字</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQQueue_baseQueueManagerName"></a>基本キュー・マネージャー名</strong>
+</dt>
+<dd>メッセージの送信先となる WebSphere MQ キュー・マネージャーの名前。
+
+<p>このキュー・マネージャーは、「<strong>基本キュー名</strong>」プロパティーで指定されたキューを提供します。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">単位</td>
+<td align="left" valign="top" class="base">En_US ASCII 文字</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">1 から 48 文字の ASCII 文字で表される、有効な WebSphere MQ キュー・マネージャー名。
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQQueue_CCSID"></a>CCSID</strong>
+</dt>
+<dd>WebSphere MQ キュー・マネージャーで
+使用する Coded Character Set Identifier (CCSID)。
+<p>この Coded Character Set Identifier (CCSID) は、WebSphere MQ で
+サポートされている CCSID である必要があります。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">単位</td>
+<td align="left" valign="top" class="base">整数</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">1 から 65535</td>
+
+</tr>
+
+</table>
+
+<p>サポートされている CCSID、およびあるコード化文字セットから別のコ
+ード化文字セットへのメッセージ・データの変換について詳しくは、「
+<cite>MQSeries システム管理の手引き</cite>」および「
+<cite>WebSphere MQ Application Programming Reference</cite>」を参照し
+てください。
+これらの資料は、WebSphere MQ メッセージングのマルチプラットフォームおよびプラットフォーム固有の資料に関する Web ページ
+<img border="0" alt="ターゲットは、このトピックが WWW にリンクされている場合にのみアクセス可能です" src="web.gif">&nbsp;&nbsp;               
+   <a target="_blank" href="http://www-3.ibm.com/software/ts/mqseries/library/manualsa/manuals/crosslatest.html.html"><strong>http://www-3.ibm.com/software/ts/mqseries/library/manualsa/manuals/platspecific.html</strong></a>
+、<img border="0" alt="ターゲットは、このトピックが WWW にリンクされている場合にのみアクセス可能です" src="web.gif">&nbsp;&nbsp;               
+   <a target="_blank" href="http://www.elink.ibmlink.ibm.com/public/applications/publications/cgibin/pbi.cgi"><strong>IBM Publications Center</strong></a>
+、または「WebSphere MQ collection kit」(SK2T-0730) から入手可能です。</p>
+</dd>
+<dt>
+<strong><a name="MQQueue_useNativeEncoding"></a>ネイティブ・エンコードの使用</strong>
+</dt>
+<dd>このチェック・ボックスを選択して、キュー宛先がネイティブ・
+エンコード (Java プラットフォームに適合するエンコード値) を使用することを指定します。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">列挙型</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">単位</td>
+<td align="left" valign="top" class="base">該当なし</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">クリア</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>クリア</strong>
+</dt>
+<dd>ネイティブ・エンコードは使用されないため、整数、10 進数、および浮動小数点のエンコードについて以下のプロパティーを指定してください。</dd>
+
+<dt>
+<strong>選択</strong>
+</dt>
+<dd>(Java プラットフォームに適したエンコード値を提供するために) ネイティブ・エンコードが使用されます。</dd>
+
+</dl>
+<p>エンコード・プロパティーについての詳細は、資料「<cite>WebSphere MQ Java の使用</cite> 」を参照してください。
+</p>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQQueue_integerEncoding"></a>整数エンコード</strong>
+</dt>
+<dd>ネイティブ・エンコードが使用可能になっていない場合、整数エンコードが NORMAL か REVERSED かを選択してください。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">列挙型</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">単位</td>
+<td align="left" valign="top" class="base">該当なし</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">NORMAL</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>NORMAL</strong>
+</dt>
+<dd>標準の整数エンコードが使用されます。</dd>
+
+<dt>
+<strong>REVERSED</strong>
+</dt>
+<dd>逆の整数エンコードが使用されます。</dd>
+
+</dl>
+<p>エンコード・プロパティーについての詳細は、資料「<cite>WebSphere MQ Java の使用</cite> 」を参照してください。
+</p>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQQueue_decimalEncoding"></a>10 進数エンコード</strong>
+</dt>
+<dd>ネイティブ・エンコードが使用可能になっていない場合、10 進数エンコードが NORMAL か REVERSED かを選択してください。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">列挙型</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">単位</td>
+<td align="left" valign="top" class="base">該当なし</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">NORMAL</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>NORMAL</strong>
+</dt>
+<dd>標準の 10 進数エンコードが使用されます。</dd>
+
+<dt>
+<strong>REVERSED</strong>
+</dt>
+<dd>逆の 10 進数エンコードが使用されます。</dd>
+
+</dl>
+<p>エンコード・プロパティーについての詳細は、資料「<cite>WebSphere MQ Java の使用</cite> 」を参照してください。
+</p>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQQueue_floatingPointEncoding"></a>浮動小数点エンコード</strong>
+</dt>
+<dd>ネイティブ・エンコードが使用可能になっていない場合、浮動小数点エンコードのタイプを選択してください。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">列挙型</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">単位</td>
+<td align="left" valign="top" class="base">該当なし</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">IEEENORMAL</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>IEEENORMAL</strong>
+</dt>
+<dd>IEEE 標準浮動小数点エンコードが使用されます。</dd>
+
+<dt>
+<strong>IEEEREVERSED</strong>
+</dt>
+<dd>IEEE 逆浮動小数点エンコードが使用されます。</dd>
+
+<dt>
+<strong>S390</strong>
+</dt>
+<dd>S390 浮動小数点エンコードが使用されます。</dd>
+
+</dl>
+<p>エンコード・プロパティーについての詳細は、資料「<cite>WebSphere MQ Java の使用</cite> 」を参照してください。
+</p>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQQueue_targetClient"></a>ターゲット・クライアント</strong>
+</dt>
+<dd>受信側のアプリケーションが JMS に準拠しているか、
+あるいは従来の WebSphere MQ アプリケーションであるかを指定します。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">列挙型</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">単位</td>
+<td align="left" valign="top" class="base">該当なし</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">MQSeries</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>MQSeries</strong>
+</dt>
+<dd>ターゲットは、JMS に準拠しない従来型の WebSphere MQ アプリケーションです。
+</dd>
+
+<dt>
+<strong>JMS</strong>
+</dt>
+<dd>ターゲットは、JMS 準拠のアプリケーションです。
+</dd>
+
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQQueue_queueManagerHost"></a>キュー・マネージャーのホスト</strong>
+</dt>
+<dd>キュー宛先が作成されるキュー・マネージャーのホストの名前。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">有効な TCP/IP ホスト名</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQQueue_queueManagerPort"></a>キュー・マネージャーのポート</strong>
+</dt>
+<dd>このキューが定義されているキュー・マネージャーが使用するポートの番号。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">単位</td>
+<td align="left" valign="top" class="base">有効な TCP/IP ポート番号。</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">有効な TCP/IP ポート番号。このポートは、WebSphere MQ キュー・マネージャー上で構成される必要があります。</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQQueue_serverConnectionChannelName"></a>サーバー接続チャネル名</strong>
+</dt>
+<dd>WebSphere MQ キュー・マネージャーへの接続に使用されるチャネルの名前。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">1 から 20 文字の ASCII 文字</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQQueue_userName"></a>ユーザー名</strong>
+</dt>
+<dd>キュー宛先を定義するためにキュー・マネージャーに接続する際の認証のための、「
+<strong>パスワード</strong>」プロパティーとともに使用するユーザー ID。
+
+<p>「<strong>ユーザー名</strong>」プロパティーの値を指定する場合は、「
+<strong>パスワード</strong>」プロパティーにも値を指定する必要があります。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQQueue_password"></a>パスワード</strong>
+</dt>
+<dd>キュー宛先を定義するためにキュー・マネージャーに接続する際の認証のための、「
+<strong>ユーザー名</strong>」プロパティーとともに使用するパスワード。
+
+<p>「<strong>ユーザー名</strong>」プロパティーの値を指定する場合は、「
+<strong>パスワード</strong>」プロパティーにも値を指定する必要があります。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>関連情報</strong>
+</p>
+<a href="umj_pqdsxm.html">WebSphere MQ キュー設定 (MQ 構成)</a>
+<br>
+
+</div>
+</body>
+</html>

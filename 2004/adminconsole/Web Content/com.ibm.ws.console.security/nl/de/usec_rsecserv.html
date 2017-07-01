@@ -1,0 +1,245 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Sicherheitseinstellungen der Serverstufe</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecrsecserv"></a>
+<h2>Sicherheitseinstellungen der Serverstufe</h2>
+
+<p>Auf dieser Seite k&ouml;nnen Sie die Serverstufensicherheit aktivieren und andere Konfigurationen f&uuml;r
+die Serverstufensicherheit angeben. </p>
+
+<p>Klicken Sie zum Anzeigen dieser Seite der Administrationskonsole auf
+<strong>Server</strong> &gt; <strong>Anwendungsserver</strong> &gt; <em>Servername</em> &gt; <strong>Serversicherheit</strong> &gt; <strong>Sicherheit
+auf Serverebene</strong>.</p>
+
+<div>
+<p>
+<strong>Register "Konfiguration"</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="SecurityS_enabled_description"></a>Aktiviert </strong>
+</dt>
+<dd>Bei aktivierter globaler Sicherheit k&ouml;nnen Sie mit diesem Flag die Sicherheit f&uuml;r diesen
+Anwendungsserver zu inaktivieren bzw. erneut zu aktivieren. Die Serversicherheit wird bei Aktivierung der globalen Sicherheitseinrichtung
+standardm&auml;&szlig;ig aktiviert. Sie k&ouml;nnen die Sicherheit
+f&uuml;r einen Anwendungsserver nicht aktivieren, wenn die globale Sicherheit inaktiviert ist. Der
+Administrationsschutz (Administrationskonsole und wsadmin) und der Namensschutz bleiben bei aktivierter
+globaler Sicherheit aktiviert, unabh&auml;ngig vom Status dieser Markierung. 
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert </td>
+<td align="left" valign="top" class="base">Inaktiviert</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecurityS_enforceJava2Security_description"></a>Java-2-Sicherheit erzwingen</strong>
+</dt>
+<dd> Gibt an, ob der Server die &Uuml;berpr&uuml;fung der Berechtigungen f&uuml;r die
+Java-2-Sicherheit auf Serverebene erzwingt. Bei Inaktivierung des Markierungsfelds
+wird der Manager f&uuml;r die Sicherheit auf Serverebene von Java 2 nicht installiert, und die gesamte
+&Uuml;berpr&uuml;fung der Java-2-Sicherheitsberechtigungen auf Serverebene wird inaktiviert. 
+<p>Wenn die Policy-Datei Ihrer Anwendung nicht ordnungsgem&auml;&szlig; konfiguriert ist,
+finden Sie im Abschnitt <a href="tsec_waspolicyfile.html">was.policy konfigurieren</a> Informationen zur Konfiguration einer Policy-Datei f&uuml;r eine Anwendung.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert </td>
+<td align="left" valign="top" class="base">Inaktiviert</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">Aktiviert oder inaktiviert</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecurityS_useDomainQualifiedUserNames_description"></a>&Uuml;ber Dom&auml;ne qualifizierte Benutzer-IDs verwenden</strong>
+</dt>
+<dd>Gibt an, ob von getUserPrincipal() zur&uuml;ckgegebene Benutzer-IDs, wie z. B. Aufrufe, mit der
+Dom&auml;ne f&uuml;r Sicherheit auf Serverebene, in der sie sich befinden, berechtigt werden. 
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert </td>
+<td align="left" valign="top" class="base">Inaktiviert</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">Aktiviert oder inaktiviert</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecurityS_cacheTimeout_description"></a>Cache-Zeitlimit
+</strong>
+</dt>
+<dd>Gibt den Zeitlimitwert f&uuml;r den Sicherheits-Cache auf Serverebene an (in Sekunden). 
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Einheiten</td>
+<td align="left" valign="top" class="base">Sekunden</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert </td>
+<td align="left" valign="top" class="base">600</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">Mehr als 30 Sekunden. Es empfiehlt sich, das Cache-Zeitlimit auf 30 Sekunden oder weniger
+einzustellen. </td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecurityS_issuePermissionWarning_description"></a>Warnung zu Berechtigung ausgeben</strong>
+</dt>
+<dd>Ist diese Option aktiviert, wird w&auml;hrend der Anwendungsinstallation eine Warnung ausgegeben, falls
+f&uuml;r eine Anwendung eine Java-2-Berechtigung erforderlich ist, die
+normalerweise keiner Anwendung zugeordnet werden darf.  
+<p>Der WebSphere Application Server bietet Unterst&uuml;tzung f&uuml;r die Verwaltung von Policy-Dateien. WebSphere Application Server stellt eine Reihe von Policy-Dateien bereit.
+Einige dieser Policy-Dateien sind statisch, einige dynamisch. Eine dynamische Policy ist eine Schablone mit Berechtigungen f&uuml;r
+einen bestimmten Ressourcentyp. In dynamischen Policy-Dateien wird die Codebasis zur Laufzeit anhand der Konfigurationsdaten ausgewertet.
+Sie k&ouml;nnen bei Bedarf f&uuml;r jede Codebasis Berechtigungen hinzuf&uuml;gen oder entfernen. Es ist jedoch nicht m&ouml;glich, eine Codebasis hinzuzuf&uuml;gen, zu entfernen
+oder die vorhandene Codebasis zu &auml;ndern.
+Die reale Codebasis wird aus den Konfigurations- und Laufzeitdaten dynamisch erstellt.  Die
+Datei <samp>filter.policy</samp> enth&auml;lt eine Liste der Berechtigungen, die Anwendungen gem&auml;&szlig; der
+J2EE-1.3-Spezifikation nicht haben d&uuml;rfen. Weitere Informationen zu Berechtigungen enth&auml;lt der Abschnitt
+"Verwaltung mit Java-2-Sicherheits-Policy".</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert </td>
+<td align="left" valign="top" class="base">Aktiviert </td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">Aktiviert oder inaktiviert</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecurityS_activeProtocol_description"></a>Aktives Protokoll
+</strong>
+</dt>
+<dd>Gibt das aktive Authentifizierungsprotokoll f&uuml;r Sicherheit auf Serverebene an, wenn die
+Sicherheit auf Serverebene aktiviert wurde. 
+<p>Sie k&ouml;nnen das OMG-Protokoll (Object Management Group) Common Secure Interoperability
+Version 2 (CSIv2) verwenden, das eine verst&auml;rkte Interoperabilit&auml;t mit Lieferanten und weitere Features
+bietet.
+Wenn alle Server in der gesamten
+Sicherheitsdom&auml;ne Server von Version 5.0 sind, empfiehlt es sich <strong>CSI</strong> als Protokoll anzugeben. Wenn
+einige Server zu Version 3.x bzw. Version 4.x geh&ouml;ren, empfiehlt es sich, <strong>CSI und SAS</strong> anzugeben.
+Wenn Sie <strong>CSI und SAS</strong> angeben, sind beim Aufruf jeder Anforderung jedoch zwei Interceptor beteiligt. Wenn Sie <strong>CSI und zSAS</strong> angeben,
+sind beim Aufruf jeder Anforderung jedoch zwei Interceptor beteiligt. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert </td>
+<td align="left" valign="top" class="base">CSI und SAS</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">CSI, CSI und SAS  </td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+</body>
+</html>

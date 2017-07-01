@@ -1,0 +1,85 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>ログイン・マッピング・コレクション</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_logmap"></a>
+<h2>
+<img alt="[修正パッケージ 5.0.2 以降]" src="v502.gif" border="0">ログイン・マッピング・コレクション</h2>
+
+<p>このページを使用して、着信メッセージ内のセキュリティー・トークンを
+検証するための構成のリストを表示します。
+ログイン・マッピングは、認証メソッドを Java Authentication and Authorization Service (JAAS) ログイン構成にマップし、セキュリティー・トークンを検証します。WebSphere Application Server では、BasicAuth、Signature、IDAssertion、および LTPA という 4 つの認証メソッドが事前定義されています。</p>
+
+<p>この管理コンソール・ページを表示するには、以下のステップを実行します。<ol>
+
+<li>「<strong>サーバー</strong>」&gt;「<strong>アプリケーション・サーバー</strong>」&gt;「<em>server_name</em> 」をクリックします。</li>
+
+<li>「追加プロパティー」の下の「<strong>Web Services: Default bindings for Web Services Security</strong>」&gt;「<strong>Login Mappings</strong>」をクリックします。</li>
+
+</ol>
+</p>
+
+<p>ログイン・マッピングを作成する場合は、「<strong>新規</strong>」をクリックします。</p>
+
+<p>ログイン・マッピングを削除する場合は、「<strong>削除</strong>」をクリックします。</p>
+
+<p>「<strong>Update runtime</strong>」をクリックすると、保管済みの <samp>ws-security.xml</samp> ファイルに含まれているデフォルトのバインディング情報で Web サービス・セキュリティー・ランタイムが更新されます。このパネルで、認証方式、Java Authentication and Authorization Service (JAAS) 構成名、および Callback Handler Factory クラス名を指定したら、次のステップを行う必要があります。</p>
+
+<p>管理コンソール上部の「<strong>保管</strong>」をクリックします。「<strong>保管</strong>」をクリックすると、管理コンソールのホーム・パネルに戻ります。</p>
+
+<p>「Login Mappings collection」パネルに戻り、「<strong>Update runtime</strong>」をクリックします。</p>
+
+<p>
+<b>注: </b>「<strong>Update runtime</strong>」をクリックすると、他の Web サービスで変更された構成も、Web サービス・セキュリティー・ランタイムで更新されます。
+</p>
+
+<dl>
+<dt>
+<strong><a name="sec_authmeth"></a>認証メソッド</strong>
+</dt>
+<dd>セキュリティー・トークンの検証に使用される認証メソッドを指定します。
+<p>以下の認証メソッドが使用可能です。<dl>
+<dt>
+<strong>BasicAuth</strong>
+</dt>
+<dd>基本認証は、セキュリティー・トークンにユーザー名とパスワードを組み込みます。トークン内の情報は、受信側サーバーによって認証され、信任状の作成に使用されます。</dd>
+<dt>
+<strong>Signature</strong>
+</dt>
+<dd>認証メソッドがシグニチャーである場合、X.509 証明書がセキュリティー・トークンとして送信されます。Lightweight Directory Access Protocol (LDAP) レジストリーの場合は、識別名 (DN) は、LDAP 証明書フィルターの設定に基づく信任状にマップされます。ローカルの OS レジストリーの場合は、証明書の最初の属性 (通常は共通名 (CN)) は、レジストリー内のユーザー ID に直接マップされます。</dd>
+<dt>
+<strong>IDAssertion</strong>
+</dt>
+<dd>識別表明は、トラステッド識別 (ID) を WebSphere の信任状にマップします。この認証メソッドは、セキュリティー・トークンにユーザー名のみを組み込みます。追加トークンは、信頼のためにメッセージに組み込まれます。追加トークンが信頼されると、IDAssertion トークンのユーザー名は信任状にマップされます。</dd>
+<dt>
+<strong>LTPA</strong>
+</dt>
+<dd>Lightweight Third Party Authentication (LTPA) は、LTPA トークンを検証します。</dd>
+</dl>
+</p>
+
+</dd>
+<dt>
+<strong><a name="sec_jaasconfg"></a>JAAS Configuration Name</strong>
+</dt>
+<dd>Java Authentication and Authorization Service (JAAS) の構成の名前を指定します。</dd>
+<dt>
+<strong><a name="sec_classname"></a>Callback Handler Factory Class Name</strong>
+</dt>
+<dd> CallbackHandler クラスのファクトリー名を指定します。</dd>
+</dl>
+<div>
+<p>
+<strong>関連情報</strong>
+</p>
+<a href="uwbs_logmapn.html">ログイン・マッピング構成の設定</a>
+<br>
+
+</div>
+</body>
+</html>

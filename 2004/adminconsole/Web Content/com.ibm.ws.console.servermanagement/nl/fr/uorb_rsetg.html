@@ -1,0 +1,443 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Param&egrave;tres du
+service ORB (Object Request Broker) dans la console d'administration</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uorbsetg"></a>
+<h2>Param&egrave;tres du
+service ORB (Object Request Broker) dans la console d'administration</h2>
+
+<p>Utilisez cette page pour configurer le service ORB (Object Request Broker) Java. </p>
+
+<p>Pour afficher cette page de la console d'administration, cliquez
+sur <strong>Serveurs</strong> <strong>&gt;</strong> <strong>Serveurs d'applications</strong>
+<strong>&gt;</strong> <em>nomServeur</em> <strong>&gt;</strong> <strong>Service ORB</strong>.</p>
+
+<p>Plusieurs param&egrave;tres sont disponibles pour contr&ocirc;ler le traitement
+interne des ORB (Object Request Broker). Vous pouvez les utiliser pour am&eacute;liorer les
+performances de vos applications lorsque celles-ci contiennent des beans enterprise. Vous pouvez modifier ces param&egrave;tres pour le serveur par d&eacute;faut ou pour tout autre serveur
+d'applications configur&eacute; dans le domaine d'administration.</p>
+
+<div>
+<p>
+<strong>Onglet Configuration</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="ObjectRequestBroker_requestTimeout_description"></a>D&eacute;lai d'expiration de la requ&ecirc;te</strong>
+            &nbsp;
+            </dt>
+<dd>Indique le nombre de secondes &agrave; l'issue desquelles un
+message de demande arrive &agrave; expiration.
+<p>Dans un script de ligne de commande, le nom complet de cette
+propri&eacute;t&eacute; syst&egrave;me est com.ibm.CORBA.RequestTimeout.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Entier</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&eacute;</td>
+<td align="left" valign="top" class="base">Seconde</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">180</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Plage</td>
+<td align="left" valign="top" class="base">0 &agrave; 300</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ObjectRequestBroker_requestRetriesCount_description"></a>Nombre de nouvelles tentatives de demande</strong>
+            &nbsp;
+            </dt>
+<dd>Indique le nombre de fois que l'ORB tente d'envoyer une
+demande en cas d'&eacute;chec d'un serveur. Les tentatives permettent parfois de restaurer le syst&egrave;me en cas d'&eacute;chec temporaire du r&eacute;seau.
+<p>Dans un script de ligne de commande, le nom complet de cette
+propri&eacute;t&eacute; syst&egrave;me est com.ibm.CORBA.requestRetriesCount.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Entier</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">1</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Plage</td>
+<td align="left" valign="top" class="base">1 &agrave; 10</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ObjectRequestBroker_requestRetriesDelay_description"></a>Intervalle entre les tentatives de demande</strong>
+            &nbsp;
+            </dt>
+<dd>Indique le nombre de millisecondes s&eacute;parant deux tentatives.
+<p>Dans un script de ligne de commande, le nom complet de cette
+propri&eacute;t&eacute; syst&egrave;me est com.ibm.CORBA.requestRetriesDelay.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Entier</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&eacute;</td>
+<td align="left" valign="top" class="base">Millisecondes</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">0</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Plage</td>
+<td align="left" valign="top" class="base">0 &agrave; 60</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ObjectRequestBroker_connectionCacheMaximum_description"></a>Taille maximale de la cache des connexions</strong>
+            &nbsp;
+            </dt>
+<dd>Indique le nombre maximal de connexions autoris&eacute;es dans la
+m&eacute;moire cache de la connexion du service. Si plusieurs clients
+sont connect&eacute;s simultan&eacute;ment &agrave; l'ORB c&ocirc;t&eacute; serveur, la valeur de ce param&egrave;tre peut &ecirc;tre
+augment&eacute;e afin de pouvoir accepter une charge &eacute;lev&eacute;e (jusqu'&agrave; 1000 clients).
+<p>Dans un script de ligne de commande, le nom complet de cette propri&eacute;t&eacute; syst&egrave;me est
+com.ibm.CORBA.MaxOpenConnections.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Entier</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&eacute;</td>
+<td align="left" valign="top" class="base">Connexions</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">240</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ObjectRequestBroker_connectionCacheMinimum_description"></a>Taille minimale de la cache des connexions</strong>
+            &nbsp;
+            </dt>
+<dd>Indique le nombre minimal de connexions autoris&eacute;es dans la
+m&eacute;moire cache de la connexion du service.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Entier</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&eacute;</td>
+<td align="left" valign="top" class="base">Connexions</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">100</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ObjectRequestBroker_commTraceEnabled_description"></a>Trace de l'ORB</strong>
+            &nbsp;
+            </dt>
+<dd>Active le tra&ccedil;age des messages GIOP de l'ORB.
+<p>Ce param&egrave;tre concerne deux propri&eacute;t&eacute;s syst&egrave;me :
+com.ibm.CORBA.Debug et com.ibm.CORBA.CommTrace.
+Si vous d&eacute;finissez ces propri&eacute;t&eacute;s par le biais d'un script de ligne
+de commande, vous devez affecter la valeur <samp>true</samp> &agrave; ces deux
+propri&eacute;t&eacute;s pour activer le tra&ccedil;age des messages GIOP.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Bool&eacute;en</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">Non activ&eacute; (<samp>false</samp>)</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ObjectRequestBroker_locateRequestTimeout_description"></a>D&eacute;lai d'expiration de la requ&ecirc;te de recherche</strong>
+            &nbsp;
+            </dt>
+<dd>Indique le nombre de secondes &agrave; l'issue desquelles un
+message de demande de localisation arrive &agrave; expiration.
+<p>Dans un script de ligne de commande, le nom complet de cette
+propri&eacute;t&eacute; syst&egrave;me est com.ibm.CORBA.LocateRequestTimeout.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Entier</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&eacute;</td>
+<td align="left" valign="top" class="base">Seconde</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">180</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Plage</td>
+<td align="left" valign="top" class="base">0 &agrave; 300</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ObjectRequestBroker_forceTunnel_description"></a>Forcer le tunnel</strong>
+            &nbsp;
+            </dt>
+<dd>Contr&ocirc;le la mani&egrave;re dont l'ORB du client tente d'utiliser les tunnels HTTP.
+<p>Pour un acc&egrave;s direct, le nom complet de cette propri&eacute;t&eacute; est com.ibm.CORBA.ForceTunnel.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base"><samp>NEVER</samp></td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Plage</td>
+<td align="left" valign="top" class="base">Les valeurs valides sont <samp>ALWAYS</samp>, <samp>NEVER</samp> et <samp>WHENREQUIRED</samp>.</td>
+
+</tr>
+
+</table>
+
+<p>Voici des informations compl&eacute;mentaires sur les valeurs correctes :<dl>
+
+<dt>
+<strong>ALWAYS</strong>
+</dt>
+<dd>Utilise imm&eacute;diatement la fonction de tunnels HTTP, sans tenter de se connecter en premier via TCP.</dd>
+
+<dt>
+<strong>NEVER</strong>
+</dt>
+<dd>D&eacute;sactive les tunnels HTTP. En cas d'&eacute;chec d'une connexion TCP, une exception syst&egrave;me CORBA (COMM_FAILURE) est renvoy&eacute;e.</dd>
+
+<dt>
+<strong>WHENREQUIRED</strong>
+</dt>
+<dd>Utilise les tunnels HTTP en cas d'&eacute;chec des connexions TCP.</dd>
+
+</dl>
+</p>
+
+</dd>
+<dt>
+<strong><a name="ObjectRequestBroker_tunnelAgentURL_description"></a>URL de l'agent tunnel</strong>
+            &nbsp;
+            </dt>
+<dd>Indique l'URL du servlet permettant de prendre en charge
+les tunnels HTTP.
+<p>Il doit s'agir d'une URL correctement form&eacute;e. Par exemple :
+<samp>http://w3.mycorp.com:81/servlet/com.ibm.CORBA.services.IIOPTunnelServlet</samp> ou, pour les applets : <samp>http://applethost:port/servlet/com.ibm.CORBA.services.IIOPTunnelServlet</samp>.
+Cette zone est obligatoire si l'option de <strong>tunnels HTTP</strong> a &eacute;t&eacute; d&eacute;finie.</p>
+
+<p>Dans un script de ligne de commande, le nom complet de cette
+propri&eacute;t&eacute; syst&egrave;me est com.ibm.CORBA.TunnelAgentURL.</p>
+
+</dd>
+<dt>
+<strong><a name="ObjectRequestBroker_noLocalCopies_description"></a>Transmission par r&eacute;f&eacute;rence</strong>
+            &nbsp;
+            </dt>
+<dd>Sp&eacute;cifie
+comment l'ORB transmet les param&egrave;tres. Si
+ce param&egrave;tre est activ&eacute;, l'ORB transmet les param&egrave;tres par r&eacute;f&eacute;rence et non par
+valeur, ce qui permet d'&eacute;viter la copie d'objet. Si vous n'activez pas la transmission
+par r&eacute;f&eacute;rence, les param&egrave;tres sont copi&eacute;s dans la pile avant tout appel de m&eacute;thode
+&eacute;loign&eacute;e, ce qui peut revenir assez cher. 
+<p>Si le client d'EJB et le serveur d'EJB sont install&eacute;s sur la
+m&ecirc;me instance de WebSphere Application Server, et qu'ils utilisent des interfaces
+&eacute;loign&eacute;es, l'activation de la transmission par r&eacute;f&eacute;rence peut am&eacute;liorer les
+performances de 50%. La transmission par r&eacute;f&eacute;rence ne permet d'am&eacute;liorer les performances que si des types
+d'objet non primitif sont transmis comme param&egrave;tres.
+Par cons&eacute;quent, les variables flottantes (float) et les valeurs int
+sont toujours copi&eacute;es quel que soit le mod&egrave;le d'appel.</p>
+
+<p>Activez cette propri&eacute;t&eacute; avec attention car elle peut entra&icirc;ner un comportement
+inattendu.
+si un objet est modifi&eacute; par la m&eacute;thode &eacute;loign&eacute;e, l'appelant peut changer.</p>
+
+<p>Dans un script de ligne de commande, le nom complet de cette propri&eacute;t&eacute; syst&egrave;me est
+com.ibm.CORBA.iiop.noLocalCopies.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Bool&eacute;en</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">Non activ&eacute; (false)</td>
+
+</tr>
+
+</table>
+
+<p>L'utilisation de cette option pour les beans enterprise avec les
+interfaces &eacute;loign&eacute;es n'est pas conforme &agrave; la sp&eacute;cification EJB,
+Version 2.0 (voir la section 5.4). Les r&eacute;f&eacute;rences d'objets transmises aux m&eacute;thodes EJB ou
+aux m&eacute;thodes Home EJB ne sont pas copi&eacute;es et peuvent &ecirc;tre alt&eacute;r&eacute;es.</p>
+
+<p>Prenons l'exemple suivant :<pre>Iterator iterator = collection.iterator();
+MyPrimaryKey pk = new MyPrimaryKey();
+while (iterator.hasNext()) {
+   pk.id = (String) iterator.next();
+   MyEJB myEJB = myEJBHome.findByPrimaryKey(pk);
+}</pre>
+</p>
+
+<p>Dans cet exemple, une r&eacute;f&eacute;rence au m&ecirc;me objet MyPrimaryKey est transmise &agrave;
+WebSphere Application Server, chaque fois avec une valeur d'ID diff&eacute;rente. Lorsque ce
+code est ex&eacute;cut&eacute; avec la transmission par r&eacute;f&eacute;rence <samp>activ&eacute;e</samp>, un incident se
+produit dans le serveur d'applications car plusieurs beans enterprise font r&eacute;f&eacute;rence au
+m&ecirc;me objet MyPrimaryKey. Pour &eacute;liminer cet incident, attribuez la valeur <samp>true</samp> &agrave;
+la propri&eacute;t&eacute; syst&egrave;me com.ibm.websphere.ejbcontainer.allowPrimaryKeyMutation lorsque
+la transmission par r&eacute;f&eacute;rence est activ&eacute;e. Le conteneur d'EJB effectue alors une copie
+locale de l'objet PrimaryKey. Cela provoque la perte partielle des performances obtenues
+en d&eacute;finissant la transmission par r&eacute;f&eacute;rence.</p>
+
+<p>En r&egrave;gle g&eacute;n&eacute;rale, tout code d'application qui transmet une r&eacute;f&eacute;rence d'objet &agrave; une
+m&eacute;thode de bean enterprise ou une m&eacute;thode Home EJB sous la forme d'un param&egrave;tre doit &ecirc;tre
+examin&eacute; afin de d&eacute;terminer si la transmission de cette r&eacute;f&eacute;rence d'objet provoque
+un manque d'int&eacute;grit&eacute; des donn&eacute;es ou d'autres incidents.</p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informations connexes</strong>
+</p>
+<a href="rcon_buttons.html">Boutons de la console administrative</a>
+<br>
+
+<a href="uejb_rthrd.html">Param&egrave;tres du pool d'unit&eacute;s d'ex&eacute;cution</a>
+<br>
+
+</div>
+</body>
+</html>

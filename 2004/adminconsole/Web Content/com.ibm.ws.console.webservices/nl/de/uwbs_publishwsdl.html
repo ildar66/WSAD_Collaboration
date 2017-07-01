@@ -1,0 +1,98 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Einstellungen der WSDL-Dateien ver&ouml;ffentlichen</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_publishwsdl"></a>
+<h2>
+<img alt="[Fixpack 5.0.2 und h&ouml;her]" src="v502.gif" border="0">Einstellungen der WSDL-Dateien ver&ouml;ffentlichen</h2>
+
+<p>Verwenden Sie diese Seite, um WSDL-Dateien (Web Services Description Language) zu ver&ouml;ffentlichen.
+     </p>
+
+<p>Klicken Sie zum Anzeigen dieser Seite auf <strong>Anwendungen</strong> &gt;<strong>Enterprise-Anwendungen</strong> &gt; <em>Anwendungsinstanz</em> &gt; <strong>WSDL ver&ouml;ffentlichen</strong>. </p>
+
+<p>Wenn Sie auf <strong>OK</strong> klicken, wird eine Zip-DAtei mit allen f&uuml;r Web Services aktivierten Modulen in der Anwendung erzeugt.
+Der Name der ver&ouml;ffentlichten Zip-Datei ist <samp>Anwendungsname_WSDLFiles.zip</samp>. In der ver&ouml;ffentlichten
+Zip-Datei ist die Verzeichnisstruktur wie folgt:
+<em>Anwendungsname/Modulname/[META-INF|WEB-INF]/wsdl/Name_der_WSDL-Datei</em>.
+ </p>
+
+<p>In einer ver&ouml;ffentlichten WSDL-Datei enth&auml;lt das Verzeichnisattribut
+einer Servicezeilengruppe <samp>soap:address</samp> den URL, &uuml;ber den auf den Webservice zugegriffen wird. Sie k&ouml;nnen
+den Teil des URL angeben, der f&uuml;r die Webservices in den Modulen verwendet werden soll. M&ouml;gliche Arten f&uuml;r den
+Zugriff auf die Webservices in einem Modul sind HTTP-Transport und/oder JMS-Transport. Sie k&ouml;nnen
+URL-Informationen f&uuml;r beide Transporttypen angeben.</p>
+
+<div>
+<p>
+<strong>Register "Konfiguration"</strong>
+</p>
+<dl>
+<dt>
+<strong>URL-Pr&auml;fixe f&uuml;r Web Services</strong>
+</dt>
+<dd>Gibt das <em>Protokoll</em> (http oder https), den <em>Hostnamen</em>
+und die <em>Port-Nummer</em> an, die im URL verwendet werden sollen. 
+<p>Das Format des URL-Pr&auml;fix ist Protokoll://<em>Hostname:Port-Nummer</em>, z. B.
+http://<em>meinHost</em>:9045. Der echte URL, der in einer ver&ouml;ffentlichten WSDL-Datei angezeigt wird,
+enth&auml;lt das Pr&auml;fix, das dem Stammkontext des Moduls und dem URL-Muster des Webservice vorangestellt ist, z. B.
+http://<em>meinHost</em>:9045/services/<em>meinService</em>.</p>
+
+</dd>
+<dt>
+<strong>URL-Pr&auml;fix f&uuml;r HTTP ausw&auml;hlen
+</strong>
+</dt>
+<dd>Die Dropdown-Liste, die einer Standardliste von URL-Pr&auml;fixen zugeordnet ist. Diese Liste ist
+der Schnittpunkt zwischen den Ports f&uuml;r den virtuellen Host des Moduls und den Ports f&uuml;r den Anwendungsserver
+des Moduls.
+Verwenden Sie die Eintr&auml;ge in der Liste, wenn
+Sie direkt auf die Web-Services-Anwendung zugreifen. 
+<p>W&auml;hlen Sie zum Festlegen eines HTTP-Pr&auml;fix <strong>HTTP-URL-Pr&auml;fix</strong> oder <strong>Benutzerdefiniertes
+HTTP-URL-Pr&auml;fix</strong> aus, geben Sie den Wert ein, w&auml;hlen Sie die Markierungsfelder der Module aus, von denen dieses Pr&auml;fix zu verwenden ist, und klicken
+Sie anschlie&szlig;end auf <strong>Anwenden</strong>. Wenn Sie auf <strong>Anwenden</strong> klicken,
+wird der Eintrag aus dem Feld <strong>HTTP-URL-Pr&auml;fix</strong> bzw. <strong>Benutzerdefiniertes HTTP-URL-Pr&auml;fix</strong> in das Feld
+<strong>HTTP-URL-Pr&auml;fix</strong> der Module kopiert, deren Markierungsfeld (in der Spalte ganz links) ausgew&auml;hlt wurde.
+Das HTTP-Pr&auml;fix wird nicht auf die Felder in der Spalte "JMS-URL-Pr&auml;fix" angewendet.
+</p>
+
+</dd>
+<dt>
+<strong>Benutzerdefiniertes HTTP-URL-Pr&auml;fix
+</strong>
+</dt>
+<dd>Gibt das <em>Protokoll</em>, den <em>Host</em> und die <em>Port-Nummer</em> des tempor&auml;ren Service an,
+wenn die Webservices in einem Modul &uuml;ber einen tempor&auml;ren Knoten aufgerufen werden, z. B. &uuml;ber den Web Services Gateway
+oder einen IHS-Server. 
+<p>W&auml;hlen Sie zum Festlegen eines HTTP-Pr&auml;fix <strong>HTTP-URL-Pr&auml;fix</strong> oder <strong>Benutzerdefiniertes
+HTTP-URL-Pr&auml;fix</strong> aus, geben Sie den Wert ein, w&auml;hlen Sie die Markierungsfelder der Module aus, von denen dieses Pr&auml;fix zu verwenden ist, und klicken
+Sie anschlie&szlig;end auf <strong>Anwenden</strong>. Wenn Sie auf <strong>Anwenden</strong> klicken,
+wird der Eintrag aus dem Feld <strong>HTTP-URL-Pr&auml;fix</strong> bzw. <strong>Benutzerdefiniertes HTTP-URL-Pr&auml;fix</strong> in das Feld
+<strong>HTTP-URL-Pr&auml;fix</strong> der Module kopiert, deren Markierungsfeld (in der Spalte ganz links) ausgew&auml;hlt wurde.
+Das HTTP-Pr&auml;fix wird nicht auf die Felder in der Spalte "JMS-URL-Pr&auml;fix" angewendet.
+</p>
+
+</dd>
+<dt>
+<strong>JMS-URL-Pr&auml;fix
+</strong>
+</dt>
+<dd>Der f&uuml;r jedes Modul zu verwendende JMS-URL-Pr&auml;fix. 
+<p>Das angegebene URL-Pr&auml;fix muss die Merkmale Zieladresse und Verbindungs-Factory enthalten.
+Es kann auch weitere Merkmal/Wert-Paare enthalten. Das Merkmal
+targetService darf jedoch nicht im Pr&auml;fix enthalten sein. Dieses Merkmal wird vom System
+hinzuf&uuml;gt, wenn die ver&ouml;ffentlichten WSDL-Dateien erstellt sind.
+Das Format des Pr&auml;fix f&uuml;r JMS-URLs ist jms:/[<em>queue&amp;topic</em>]?destination=<em>JNDI-Name_der_Zielwarteschlange_bzw_Topics</em>&amp;connectionFactory=<em>JNDI-Name_der_Factory</em>, z. B. jms:/queue?destination=jms/Q1&amp;connectionFactory=jms/QCF.
+Der echte URL, der in einer ver&ouml;ffentlichten WSDL-Datei erscheint, setzt sich aus
+dem Zielservice des Webservice (targetService) und dem vorangestellten Pr&auml;fix zusammen, z. B. "jms:/queue?destination=jms/Q1&amp;connectionFactory=jms/QCF&amp;targetService=StockQuote".</p>
+
+</dd>
+</dl>
+</div>
+</body>
+</html>

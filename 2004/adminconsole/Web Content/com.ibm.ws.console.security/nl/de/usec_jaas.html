@@ -1,0 +1,143 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Konfigurationseinstellungen des Java Authentication and Authorization Service (JAAS)</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecjaas"></a>
+<h2>
+<img alt="[Fixpack 5.0.1 und h&ouml;her]" src="v501.gif" border="0">Konfigurationseinstellungen des Java Authentication and Authorization Service (JAAS)</h2>
+
+<p>Auf dieser Seite k&ouml;nnen Sie eine Liste von JAAS-Anmeldekonfigurationen (Java Authentication and
+Authorization Service) f&uuml;r den zu verwendenden Anwendungscode, einschlie&szlig;lich
+Enterprise-Beans, JSP-Dateien (Java Server Pages), Servlets und Ressourcenadaptern, angeben.</p>
+
+<p>Klicken Sie, um diese Seite der Administrationskonsole anzuzeigen, auf <strong>Sicherheit</strong> &gt;
+<strong>JAAS-Konfiguration</strong> &gt; <strong>Konfiguration der Anwendungsanmeldung</strong>.</p>
+
+<p>Lesen Sie unbedingt die JAAS-Dokumentation im InfoCenter, bevor Sie beginnen, zus&auml;tzliche Anmeldemodule zu
+definieren, die f&uuml;r die Authentifizierung an der Laufzeit der Sicherheitseinrichtung des WebSphere
+Application Server verwendet werden. Sie k&ouml;nnen zus&auml;tzliche Anmeldekonfigurationen f&uuml;r Ihre Anwendungen
+definieren. Wenn das LoginModule des WebSphere
+Application Server (<samp>com.ibm.ws.security.common.auth.module.WSLoginModuleImpl</samp>) jedoch nicht verwendet
+wird oder keine Berechtigung erstellt, die vom WebSphere Application Server erkannt wird,
+kann die Sicherheitseinrichtung des WebSphere Application Server das authentifizierte Subjekt aus
+diesen Anmeldekonfigurationen nicht verwenden, um die Berechtigungspr&uuml;fung f&uuml;r den Ressourcenzugriff
+durchzuf&uuml;hren. </p>
+
+<p>
+<p>
+<img alt="[Fixpack 5.0.1 und h&ouml;her]" src="v501.gif" border="0"><b>Anmerkung: </b>Sie m&uuml;ssen Java-Clientprogramme, die JAAS (Java Authentication and Authorization Service) f&uuml;r die
+Authentifizierung verwenden, mit einer angegebenen JAAS-Konfigurationsdatei aufrufen. Das WebSphere-Produkt
+stellt die JAAS-Standardkonfigurationsdatei wsjaas_client.conf im Verzeichnis &lt;Installationsstammverzeichnis&gt;/properties
+bereit. Diese Konfigurationsdatei wird in der Datei <em>/&lt;Installationsstammverzeichnis&gt;/bin/launchClient.bat</em>
+wie folgt definiert: <strong>set JAAS_LOGIN_CONFIG=-Djava.security.auth.login.config=%WAS_HOME%\properties\wsjaas_client.conf</strong>
+<p>Wenn
+die Java-Clientprogramme nicht mit der Datei launchClient.bat aufgerufen werden, stellen Sie sicher, dass die richtige
+JAAS-Konfigurationsdatei mit dem Flag
+<em>-Djava.security.auth.login.config</em> an die JVM &uuml;bergeben wird. </p>
+</p>
+</p>
+
+<dl>
+<dt>
+<strong>ClientContainer</strong>
+</dt>
+<dd>Gibt die Anmeldekonfigurationen an, die von der ClientContainer-Anwendung verwendet wird.
+Diese Anwendung verwendet die CallbackHandler-API, die im Deployment-Deskriptor des Clientcontainers
+definiert ist. 
+<p>ClientContainer ist die Standardanmeldekonfiguration f&uuml;r den WebSphere Application Server. Dieser
+Standardwert darf nicht gel&ouml;scht werden, da er m&ouml;glicherweise auch
+von anderen Anwendungen verwendet wird. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">ClientContainer</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong>DefaultPrincipalMapping</strong>
+</dt>
+<dd>Gibt die Anmeldekonfiguration an, die Java-2-Connector verwenden, um Benutzer Principals
+zuzuordnen, die unter <strong>Dateneintr&auml;ge f&uuml;r J2C-Authentifizierung</strong> definiert sind. 
+<p>DefaultPrincipalMapping ist die Standardanmeldekonfiguration f&uuml;r den WebSphere Application Server. Dieser
+Standardwert darf nicht gel&ouml;scht werden, da er m&ouml;glicherweise auch
+von anderen Anwendungen verwendet wird. Mit der
+Anmeldekonfiguration DefaultPrincipalMapping werden Benutzer f&uuml;r die Laufzeit der Sicherheitseinrichtung
+des WebSphere Application Server authentifiziert. Verwenden Sie Berechtigungen vom authentifizierten Subjekt,
+das von dieser Anmeldekonfiguration als Berechtigungspr&uuml;fung f&uuml;r den Zugriff auf Ressourcen des WebSphere
+Application Server zur&uuml;ckgegeben wird.  </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">ClientContainer</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong>WSLogin</strong>
+</dt>
+<dd>Gibt an, ob alle Anwendungen die WSLogin-Konfiguration verwenden sollen, um die Authentifizierung f&uuml;r die Laufzeit
+der Sicherheitseinrichtung des WebSphere Application Server durchzuf&uuml;hren. 
+<p>Die Anmeldekonfiguration ber&uuml;cksichtigt nicht den CallbackHandler, der im Deployment-Deskriptor des
+Clientcontainers definiert ist. Wenn Sie diese Funktionen verwenden m&ouml;chten, m&uuml;ssen Sie die
+ClientContainer-Anmeldekonfiguration verwenden. </p>
+
+<p>WSLogin ist die Standardanmeldekonfiguration f&uuml;r den WebSphere Application Server. Dieser
+Standardwert darf nicht gel&ouml;scht werden, da er m&ouml;glicherweise auch
+von anderen Anwendungen verwendet wird. Mit dieser
+Anmeldekonfiguration werden Benutzer f&uuml;r die Laufzeit der Sicherheitseinrichtung
+des WebSphere Application Server authentifiziert. Verwenden Sie die Berechtigungen des
+authentifizierten Subjekts, die von dieser Anmeldekonfiguration zur&uuml;ckgegeben wurden, um
+eine Berechtigungspr&uuml;fung f&uuml;r den Zugriff auf Ressourcen des WebSphere Application Server durchzuf&uuml;hren.</p> 
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">ClientContainer</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>Zugeh&ouml;rige Informationen</strong>
+</p>
+<a href="rcon_buttons.html">Kn&ouml;pfe in der Adminstrationskonsole</a>
+<br>
+
+<a href="rcon_pageusage.html">Funktionen auf den Seiten der Administrationskonsole</a>
+<br>
+
+<a href="rcon_scope.html">Geltungsbereichseinstellungen f&uuml;r die Administrationskonsole</a>
+<br>
+
+<a href="rcon_filter.html">Filtereinstellungen f&uuml;r die Administrationskonsole</a>
+<br>
+
+<a href="rcon_preferences.html">Vorgaben f&uuml;r die Administrationskonsole</a>
+<br>
+
+</div>
+</body>
+</html>

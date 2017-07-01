@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<core:DataSource xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:core="core.xmi" xmlns:RDBSchema="RDBSchema.xmi" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmi:id="DataSource_1" name="Items" version="1" description="Displays the NewDataSet">
+  <DataDomainMapping xmi:type="core:RDBDomainMapping" xmi:id="RDBDomainMapping_1">
+    <DataSourceMappings xmi:type="core:RDBDataSourceMapping" xmi:id="RDBDataSourceMapping_1">
+      <FieldMappings xmi:type="core:RDBFieldMapping" xmi:id="RDBFieldMapping_1" PersistentField="PersistentField_1">
+        <RDBColumn href="models\SAMPLEDB_APP_BOOKLIST.tblxmi#RDBColumn_1"/>
+      </FieldMappings>
+      <FieldMappings xmi:type="core:RDBFieldMapping" xmi:id="RDBFieldMapping_2" PersistentField="PersistentField_2">
+        <RDBColumn href="models\SAMPLEDB_APP_BOOKLIST.tblxmi#RDBColumn_2"/>
+      </FieldMappings>
+      <RDBTable href="models\SAMPLEDB_APP_BOOKLIST.tblxmi#RDBTable_1"/>
+    </DataSourceMappings>
+    <RDBDatabase href="models\SAMPLEDB.dbxmi#RDBDatabase_1"/>
+  </DataDomainMapping>
+  <Fields xmi:type="core:PersistentField" xmi:id="PersistentField_1"  version="1" name="item_id" FieldMapping="RDBFieldMapping_1">
+    <FieldDescriptor xmi:type="core:AlphanumFieldDescriptor" xmi:id="AlphanumFieldDescriptor_1" length="10">
+      <initialValue xsi:nil="true"/>
+      <CoreTypeDescriptor href="Books Template.prjxmi#CoreTypeDescriptor_8"/>
+    </FieldDescriptor>
+    <CoreTypeDescriptor href="Books Template.prjxmi#CoreTypeDescriptor_8"/>
+  </Fields>
+  <Fields xmi:type="core:PersistentField" xmi:id="PersistentField_2"  version="1" name="creator" FieldMapping="RDBFieldMapping_2">
+    <FieldDescriptor xmi:type="core:AlphanumFieldDescriptor" xmi:id="AlphanumFieldDescriptor_2" length="50">
+      <CoreTypeDescriptor href="Books Template.prjxmi#CoreTypeDescriptor_8"/>
+      <initialValue xsi:nil="true"/>
+    </FieldDescriptor>
+    <CoreTypeDescriptor href="Books Template.prjxmi#CoreTypeDescriptor_8"/>
+  </Fields>
+  <DomainActionDescriptors xmi:id="DomainActionDescriptor_1" name="Create" version="1" description="Performs a Create">
+    <ActionMapping xmi:type="core:SQLStatementMapping" xmi:id="SQLStatementMapping_1" SQLStatement="INSERT INTO APP.BOOKLIST (BOOK_ID,AUTHOR,BOOK_TITLE,PUBLISHER) VALUES (:item_id,:creator,:item_title,:publisher)"/>
+  </DomainActionDescriptors>
+  <DomainActionDescriptors xmi:id="DomainActionDescriptor_2" name="Read" version="1" description="Performs a Read">
+    <ActionMapping xmi:type="core:SQLStatementMapping" xmi:id="SQLStatementMapping_2" SQLStatement="SELECT * FROM APP.BOOKLIST WHERE APP.BOOKLIST.BOOK_ID = :item_id"/>
+  </DomainActionDescriptors>
+  <DomainActionDescriptors xmi:id="DomainActionDescriptor_3" name="Update" version="1" description="Performs a Update">
+    <ActionMapping xmi:type="core:SQLStatementMapping" xmi:id="SQLStatementMapping_3" SQLStatement="UPDATE APP.BOOKLIST SET(AUTHOR,BOOK_TITLE,PUBLISHER) = (:creator,:item_title,:publisher) WHERE APP.BOOKLIST.BOOK_ID = :item_id"/>
+  </DomainActionDescriptors>
+  <DomainActionDescriptors xmi:id="DomainActionDescriptor_4" name="Delete" version="1" description="Performs a Delete">
+    <ActionMapping xmi:type="core:SQLStatementMapping" xmi:id="SQLStatementMapping_4" SQLStatement="DELETE FROM APP.BOOKLIST WHERE APP.BOOKLIST.BOOK_ID = :item_id"/>
+  </DomainActionDescriptors>
+  <DomainActionDescriptors xmi:id="DomainActionDescriptor_5" name="Select All" version="1" description="Performs a Select">
+    <ActionMapping xmi:type="core:SQLStatementMapping" xmi:id="SQLStatementMapping_5" SQLStatement="SELECT * FROM APP.BOOKLIST"/>
+  </DomainActionDescriptors>
+  <KeyFields xmi:id="item_id" PersistentField="PersistentField_1"/>
+  <DataSourceTypeDescriptor xmi:id="DataSourceTypeDescriptor_1"/>
+</core:DataSource>

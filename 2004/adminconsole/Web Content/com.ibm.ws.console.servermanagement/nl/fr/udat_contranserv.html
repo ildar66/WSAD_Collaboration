@@ -1,0 +1,412 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Param&egrave;tres du service de transaction</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="Transaction_service"></a>
+<h2>Param&egrave;tres du service de transaction</h2>
+
+<p>Cette page permet de modifier les param&egrave;tres du service de transaction.</p>
+
+<p>Pour afficher cette page de la console d'administration, cliquez sur <strong>Serveurs</strong> &gt;
+<strong>Serveurs d'applications</strong> &gt; <em>serveur</em> &gt; <strong>Service de transaction</strong>.</p>
+
+<div>
+<p>
+<strong>Onglet Configuration</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="TransactionService_transactionLogDirectory_displayName"></a>R&eacute;pertoire du journal des transactions</strong>
+</dt>
+<dd>Indique, pour
+le serveur consid&eacute;r&eacute;, le nom d'un r&eacute;pertoire dans lequel le service
+de transaction stockera les fichiers journaux destin&eacute;s aux actions de
+reprise.
+<p>Si aucune valeur n'est indiqu&eacute;e pour ce param&egrave;tre
+dans la configuration du serveur, le service de transaction choisit, au d&eacute;marrage, un
+r&eacute;pertoire dont le nom est de la forme
+(<em>racine_installation</em>)/tranlog/(<em>nom_serveur</em>).</p>
+
+<p>Lorsque l'application
+ex&eacute;cut&eacute;e sur le produit WebSphere acc&egrave;de &agrave; plusieurs ressources,
+WebSphere stocke les informations sur la transaction afin de
+coordonner et g&eacute;rer correctement la transaction distribu&eacute;e. Pour une
+charge de travail plus &eacute;lev&eacute;e, cette persistance diminue les
+performances du serveur d'applications car ce dernier d&eacute;pend du
+syst&egrave;me d'exploitation et des syst&egrave;mes de stockage sous-jacents.</p>
+
+<p>Pour obtenir de
+meilleures performances, d&eacute;placez les fichiers journaux de
+transactions vers un p&eacute;riph&eacute;rique de stockage disposant d'un plus
+grand nombre de disques et, de pr&eacute;f&eacute;rences, des unit&eacute;s de disque RAID. Lorsque
+les fichiers journaux sont d&eacute;plac&eacute;s vers les syst&egrave;mes de fichiers
+des disques RAID, la t&acirc;che d'enregistrement des donn&eacute;es sur le
+support physique est partag&eacute;e entre les diff&eacute;rentes unit&eacute;s de disque. Cela permet &agrave; un plus grand nombre d'acc&egrave;s simultan&eacute;s de
+conserver les informations sur les transactions et offre un acc&egrave;s plus
+rapide aux donn&eacute;es des journaux. Suivant la mani&egrave;re dont a &eacute;t&eacute; &eacute;labor&eacute;e l'application et le
+sous-syst&egrave;me de stockage, les performances peuvent &ecirc;tre augment&eacute;es de
+10 &agrave; 100 %, voire plus dans certains cas. </p>
+
+<p>Cette modification n'est
+applicable qu'&agrave; la configuration dans laquelle l'application
+utilise des ressources distribu&eacute;es ou des transactions XA (par
+exemple, acc&egrave;s &agrave; plusieurs bases de donn&eacute;es et ressources au cours
+d'une m&ecirc;me transaction). Il est conseill&eacute; de d&eacute;finir cette
+propri&eacute;t&eacute; lorsque le serveur d'applications affiche un ou plusieurs
+des signes suivants :  <ul>
+
+<li>Le taux d'utilisation de l'unit&eacute; centrale reste faible
+malgr&eacute; un nombre de transactions plus important</li>
+
+<li>Les transactions &eacute;chouent apr&egrave;s plusieurs d&eacute;passements du d&eacute;lai d'expiration</li>
+
+<li>Des transactions sont annul&eacute;es en raison de l'exception <em>&eacute;chec de l'inscription de la transaction</em>
+</li>
+
+<li>Le serveur d'applications est suspendu en plein milieu d'une
+ex&eacute;cution et requiert le red&eacute;marrage du serveur</li>
+
+<li>Le disque sur lequel un serveur d'applications est en cours
+d'utilisation affiche un taux d'utilisation plus &eacute;lev&eacute;</li>
+
+</ul>
+</p>
+
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">String (cha&icirc;ne)</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">La valeur initiale correspond au r&eacute;pertoire
+<em>%WAS_HOME%</em>/tranlog/(<em>nom_serveur</em>) et &agrave; une taille par d&eacute;faut de 1 Mo. </td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Recommandation</td>
+<td align="left" valign="top" class="base">Cr&eacute;ez un syst&egrave;me de fichiers comportant au moins 3 ou 4
+unit&eacute;s de disque reli&eacute;es entre elles par une configuration RAID-0. Cr&eacute;ez
+ensuite le journal de transactions sur ce syst&egrave;me de fichiers en lui
+affectant la taille par d&eacute;faut. Lorsque le serveur traite une
+charge de travail, v&eacute;rifiez les entr&eacute;es et sorties des disques. Si la
+dur&eacute;e des entr&eacute;es et sorties des disques est sup&eacute;rieure &agrave; 5 %, il
+est conseill&eacute; d'ajouter davantage de disques pour r&eacute;duire
+ce pourcentage. Si ce pourcentage est faible, mais que la charge du
+serveur reste &eacute;lev&eacute;e, il est conseill&eacute; d'augmenter la taille des
+fichiers journaux. </td>
+
+</tr>
+
+</table>
+
+
+
+
+</dd>
+<dt>
+<strong><a name="TransactionService_totalTranLifetimeTimeout_displayName"></a>D&eacute;passement du d&eacute;lai autoris&eacute; pour la dur&eacute;e de vie des transactions </strong>
+</dt>
+<dd>Sp&eacute;cifie la
+dur&eacute;e maximale, en secondes, des transactions trait&eacute;es sur ce
+serveur d'applications.  
+
+<p>Toute transaction dont l'ach&egrave;vement n'est pas exig&eacute; avant
+l'&eacute;coulement de ce d&eacute;lai est annul&eacute;e. Si la valeur de ce param&egrave;tre est
+0, aucun d&eacute;lai ne s'applique.</p>
+
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Integer (entier)</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&eacute;s</td>
+<td align="left" valign="top" class="base">Secondes</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">120</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Plage de valeurs</td>
+<td align="left" valign="top" class="base">0 &agrave; 2 147 483 647</td>
+
+</tr>
+
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="TransactionService_clientInactivityTimeout_displayName"></a>D&eacute;passement du d&eacute;lai d'inactivit&eacute; du client  </strong>
+</dt>
+<dd>Sp&eacute;cifie la dur&eacute;e maximale, en secondes, qui peut s'&eacute;couler entre deux demandes transactionnelles
+&eacute;manant successivement d'un m&ecirc;me client distant. 
+<p>Toute p&eacute;riode d'inactivit&eacute; du client qui d&eacute;passe ce d&eacute;lai entra&icirc;ne l'annulation de la
+transaction sur ce serveur d'applications. Si ce param&egrave;tre est r&eacute;gl&eacute; sur 0, aucun d&eacute;lai ne s'applique.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Integer (entier)</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&eacute;s</td>
+<td align="left" valign="top" class="base">Secondes</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">60</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Plage de valeurs</td>
+<td align="left" valign="top" class="base">0 &agrave; 2 147 483 647</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Onglet Contexte d'ex&eacute;cution</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="TransactionService_transactionLogDirectory_displayName"></a>R&eacute;pertoire du journal des transactions</strong>
+</dt>
+<dd>Indique, pour
+le serveur consid&eacute;r&eacute;, le nom d'un r&eacute;pertoire dans lequel le service
+de transaction stockera les fichiers journaux destin&eacute;s aux actions de
+reprise.
+<p>Si aucune valeur n'est indiqu&eacute;e pour ce param&egrave;tre
+dans la configuration du serveur, le service de transaction choisit, au d&eacute;marrage, un
+r&eacute;pertoire dont le nom est de la forme
+(<em>racine_installation</em>)/tranlog/(<em>nom_serveur</em>).</p>
+
+<p>Lorsque l'application
+ex&eacute;cut&eacute;e sur le produit WebSphere acc&egrave;de &agrave; plusieurs ressources,
+WebSphere stocke les informations sur la transaction afin de
+coordonner et g&eacute;rer correctement la transaction distribu&eacute;e. Pour une
+charge de travail plus &eacute;lev&eacute;e, cette persistance diminue les
+performances du serveur d'applications car ce dernier d&eacute;pend du
+syst&egrave;me d'exploitation et des syst&egrave;mes de stockage sous-jacents.</p>
+
+<p>Pour obtenir de
+meilleures performances, d&eacute;placez les fichiers journaux de
+transactions vers un p&eacute;riph&eacute;rique de stockage disposant d'un plus
+grand nombre de disques et, de pr&eacute;f&eacute;rences, des unit&eacute;s de disque RAID. Lorsque
+les fichiers journaux sont d&eacute;plac&eacute;s vers les syst&egrave;mes de fichiers
+des disques RAID, la t&acirc;che d'enregistrement des donn&eacute;es sur le
+support physique est partag&eacute;e entre les diff&eacute;rentes unit&eacute;s de disque. Cela permet &agrave; un plus grand nombre d'acc&egrave;s simultan&eacute;s de
+conserver les informations sur les transactions et offre un acc&egrave;s plus
+rapide aux donn&eacute;es des journaux. Suivant la mani&egrave;re dont a &eacute;t&eacute; &eacute;labor&eacute;e l'application et le
+sous-syst&egrave;me de stockage, les performances peuvent &ecirc;tre augment&eacute;es de
+10 &agrave; 100 %, voire plus dans certains cas. </p>
+
+<p>Cette modification n'est
+applicable qu'&agrave; la configuration dans laquelle l'application
+utilise des ressources distribu&eacute;es ou des transactions XA (par
+exemple, acc&egrave;s &agrave; plusieurs bases de donn&eacute;es et ressources au cours
+d'une m&ecirc;me transaction). Il est conseill&eacute; de d&eacute;finir cette
+propri&eacute;t&eacute; lorsque le serveur d'applications affiche un ou plusieurs
+des signes suivants :  <ul>
+
+<li>Le taux d'utilisation de l'unit&eacute; centrale reste faible
+malgr&eacute; un nombre de transactions plus important</li>
+
+<li>Les transactions &eacute;chouent apr&egrave;s plusieurs d&eacute;passements du d&eacute;lai d'expiration</li>
+
+<li>Des transactions sont annul&eacute;es en raison de l'exception <em>&eacute;chec de l'inscription de la transaction</em>
+</li>
+
+<li>Le serveur d'applications est suspendu en plein milieu d'une
+ex&eacute;cution et requiert le red&eacute;marrage du serveur</li>
+
+<li>Le disque sur lequel un serveur d'applications est en cours
+d'utilisation affiche un taux d'utilisation plus &eacute;lev&eacute;</li>
+
+</ul>
+</p>
+
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">String (cha&icirc;ne)</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">La valeur initiale correspond au r&eacute;pertoire
+<em>%WAS_HOME%</em>/tranlog/(<em>nom_serveur</em>) et &agrave; une taille par d&eacute;faut de 1 Mo. </td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Recommandation</td>
+<td align="left" valign="top" class="base">Cr&eacute;ez un syst&egrave;me de fichiers comportant au moins 3 ou 4
+unit&eacute;s de disque reli&eacute;es entre elles par une configuration RAID-0. Cr&eacute;ez
+ensuite le journal de transactions sur ce syst&egrave;me de fichiers en lui
+affectant la taille par d&eacute;faut. Lorsque le serveur traite une
+charge de travail, v&eacute;rifiez les entr&eacute;es et sorties des disques. Si la
+dur&eacute;e des entr&eacute;es et sorties des disques est sup&eacute;rieure &agrave; 5 %, il
+est conseill&eacute; d'ajouter davantage de disques pour r&eacute;duire
+ce pourcentage. Si ce pourcentage est faible, mais que la charge du
+serveur reste &eacute;lev&eacute;e, il est conseill&eacute; d'augmenter la taille des
+fichiers journaux. </td>
+
+</tr>
+
+</table>
+
+
+
+
+</dd>
+<dt>
+<strong><a name="TransactionService_totalTranLifetimeTimeout_displayName"></a>D&eacute;passement du d&eacute;lai autoris&eacute; pour la dur&eacute;e de vie des transactions </strong>
+</dt>
+<dd>Sp&eacute;cifie la
+dur&eacute;e maximale, en secondes, des transactions trait&eacute;es sur ce
+serveur d'applications.  
+
+<p>Toute transaction dont l'ach&egrave;vement n'est pas exig&eacute; avant
+l'&eacute;coulement de ce d&eacute;lai est annul&eacute;e. Si la valeur de ce param&egrave;tre est
+0, aucun d&eacute;lai ne s'applique.</p>
+
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Integer (entier)</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&eacute;s</td>
+<td align="left" valign="top" class="base">Secondes</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">120</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Plage de valeurs</td>
+<td align="left" valign="top" class="base">0 &agrave; 2 147 483 647</td>
+
+</tr>
+
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="TransactionService_clientInactivityTimeout_displayName"></a>D&eacute;passement du d&eacute;lai d'inactivit&eacute; du client  </strong>
+</dt>
+<dd>Sp&eacute;cifie la dur&eacute;e maximale, en secondes, qui peut s'&eacute;couler entre deux demandes transactionnelles
+&eacute;manant successivement d'un m&ecirc;me client distant. 
+<p>Toute p&eacute;riode d'inactivit&eacute; du client qui d&eacute;passe ce d&eacute;lai entra&icirc;ne l'annulation de la
+transaction sur ce serveur d'applications. Si ce param&egrave;tre est r&eacute;gl&eacute; sur 0, aucun d&eacute;lai ne s'applique.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Integer (entier)</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&eacute;s</td>
+<td align="left" valign="top" class="base">Secondes</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">60</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Plage de valeurs</td>
+<td align="left" valign="top" class="base">0 &agrave; 2 147 483 647</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informations connexes</strong>
+</p>
+<a href="rcon_buttons.html">Boutons de la console administrative</a>
+<br>
+
+<a href="rcon_pageusage.html">Caract&eacute;ristiques de la page de la console d'administration</a>
+<br>
+
+</div>
+</body>
+</html>

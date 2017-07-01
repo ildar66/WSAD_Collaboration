@@ -1,0 +1,71 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Web module settings</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uweb_rwebmc"></a>
+<h2>Web module settings</h2>
+
+<p> Use this page to configure Web module settings. </p>
+
+<p>Access this page by traversing the following path in the administrative
+console:</p>
+
+<pre>
+<strong>Applications</strong> &gt; <strong>Enterprise Application</strong> &gt; <em>application_instance</em> &gt; <strong>Web Module</strong>
+</pre>
+
+<dl>
+<dt>
+<strong><a name="rwebm_uri"></a>URI</strong>
+</dt>
+<dd>Specifies a URI that, when resolved relative to the application
+URL, specifies the  location of the module archive contents on a file system.
+The URI must match the ModuleRef URI in the deployment descriptor of an application
+if the module was packaged as part of a deployed application  or enterprise
+archive (EAR) file.  </dd>
+<dt>
+<strong><a name="rwebm_name"></a>Name</strong>
+</dt>
+<dd>Specifies the unique display name for the module.</dd>
+<dt>
+<strong><a name="rweb_altdd"></a>Alternate DD</strong>
+</dt>
+<dd>Specifies the file name for an alternative deployment descriptor
+ file to use instead of the original deployment descriptor file in the  module
+JAR file.
+<p> This file is the <em>post-assembly</em> version of the  deployment descriptor
+file. You can edit the original deployment descriptor file to resolve dependencies
+and security information.  Specifying  the use of the alternative deployment
+descriptor  keeps  the original deployment descriptor file intact.</p>
+
+<p>The value of the <em>Alternate DD</em> property must be the full path name
+of  the deployment descriptor file,  relative to the module root directory.
+ By convention, the file is in the <samp>ALT-INF</samp> directory. If this property
+ is not specified, the deployment descriptor file is read  from  the module
+JAR file.</p>
+
+</dd>
+<dt>
+<strong><a name="rwebm_wt"></a>Starting weight</strong>
+</dt>
+<dd>Specifies the  order in which modules are started.  Lower weighted
+modules are started before higher  weighted modules.</dd>
+<dt>
+<strong><a name="rwebm_webinf"></a>Prefer WEB-INF Classes</strong>
+</dt>
+<dd>Specifies classes to load in WEB-INF  before any other
+classes. Implementing  the application class loader is recommended so that
+classes and resources packaged within the WAR file  load before classes and
+resources residing in container-wide library JAR files.</dd>
+<dt>
+<strong><a name="rwebm_init"></a>Initial State</strong>
+</dt>
+<dd>Specifies  the default state of this application at server startup. </dd>
+</dl>
+</body>
+</html>

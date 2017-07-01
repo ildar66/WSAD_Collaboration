@@ -1,0 +1,484 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Impostazioni del servizio di traccia diagnostica</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="TraceService_description"></a>
+<h2>Impostazioni del servizio di traccia diagnostica</h2>
+
+<p>Utilizzare questa pagina per visualizzare di nuovo e modificare le propriet&agrave;
+del servizio di traccia diagnostica.</p>
+
+<p>Per visualizzare questa pagina, fare clic su <strong>Risoluzione dei problemi &gt; Log e Traccia &gt;
+<em>server</em> &gt; Traccia diagnostica</strong>.</p>
+
+<div>
+<p>
+<strong>Scheda Configurazione</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="enable_trace_service_description"></a>Abilita traccia</strong>
+</dt>
+<dd>Abilita il servizio di traccia.
+<p>Se questa opzione non &egrave; selezionata, le seguenti propriet&agrave; di configurazione non vengono
+inviate al servizio di traccia del server delle applicazioni all'avvio del server.</p>
+
+</dd>
+<dt>
+<strong><a name="trace_spec_description"></a>Specifica di traccia</strong>
+</dt>
+<dd>Specifica i dettagli di traccia.
+<p>Immettere una stringa di traccia che specifica i componenti, i pacchetti o i gruppi
+da tracciare. Tale stringa deve essere conforme alla grammatica descritta di
+seguito. &Egrave; possibile immettere direttamente la stringa, oppure generarla utilizzando
+un'interfaccia di traccia grafica. Fare clic su <strong>Modifica</strong> per avviare l'interfaccia
+di traccia grafica.</p>
+
+<p>Se si avvia questa interfaccia dalla scheda di configurazione, viene visualizzato un
+elenco di componenti, pacchetti e gruppi ben noto. Tale elenco potrebbe non essere
+esaustivo.</p>
+
+<p>Se si avvia questa interfaccia di traccia grafica dalla scheda runtime, l'elenco di
+componenti, pacchetti e gruppi visualizza tutti i componenti registrati sul server in
+esecuzione.</p>
+
+<p>Il formato della specifica della traccia &egrave;:<pre>&lt;<em>componente</em>&gt; =
+&lt;<em>tipo_traccia</em>&gt;= enabled | disabled</pre> dove: &lt;<em>componente</em>&gt; &egrave; il componente per
+cui abilitare o disabilitare la traccia e &lt;<em>tipo_traccia</em>&gt; &egrave; il tipo di traccia da
+abilitare o disabilitare. Separare pi&ugrave; specifiche di traccia diverse con due punti (:).</p>
+
+<p>I componenti corrispondono ai pacchetti Java e alle classi o alle raccolte di
+pacchetti Java. Utilizzare * come
+carattere jolly per indicare i componenti che includono tutte le classi in tutti i
+pacchetti contenuti dal componente specificato. Ad esempio:<dl>
+<dt>
+<strong><samp>*</samp></strong>
+</dt>
+<dd>Specifica tutti i codici tracciabili in esecuzione sul server
+delle applicazioni, compresi il codice di sistema di WebSphere Application Server e
+il codice del cliente.</dd>
+<dt>
+<strong><samp>com.ibm.ws.*</samp></strong>
+</dt>
+<dd>specifica tutte le classi il cui nome del pacchetto
+inizia per <samp>com.ibm.ws</samp>.</dd>
+<dt>
+<strong><samp>com.ibm.ws.classloader.JarClassLoader</samp></strong>
+</dt>
+<dd>Specifica solo la classe
+JarClassLoader.</dd>
+</dl>
+</p>
+
+<p>Per ulteriori informazioni sulla grammatica della stringa di traccia, consultare la
+sezione <cite>Abilitazione della traccia</cite> nell'InfoCenter di WebSphere
+Application Server.</p>
+
+<p>
+<b>Nota: </b>Pu&ograve; verificarsi un errore durante l'impostazione di una specifica di traccia dalla
+console di gestione se le selezioni vengono effettuate dagli elenchi Gruppi e Componenti. In alcuni casi, la selezione effettuata da un elenco non va perduta durante l'aggiunta di una
+selezione dall'altro elenco. Per risolvere questo problema, immettere la specifica di traccia desiderata direttamente nel campo della voce Specifica di traccia.</p>
+
+</dd>
+<dt>
+<strong><a name="trace_output_description"></a>Output di traccia</strong>
+            &nbsp;
+            </dt>
+<dd>Indica dove andrebbe l'output di traccia.
+<p>&Egrave; possibile scrivere l'output di traccia direttamente in un file di output, oppure
+memorizzarlo e scriverlo in un file su richiesta utilizzando il pulsante
+Dump, che si trova sulla pagina runtime.</p>
+
+<p>
+<dl>
+<dt>
+<strong>Buffer di memoria</strong>
+</dt>
+<dd>Specifica che l'output di traccia deve essere scritto su un
+buffer circolare in memoria. Se si seleziona questa opzione, &egrave; necessario specificare i seguenti parametri:<dl>
+<dt>
+<strong>Dimensione massima buffer</strong>
+</dt>
+<dd>Specifica il numero di voci, in migliaia, che pu&ograve;
+essere memorizzato nel buffer. Una volta superato questo numero, le vecchie voci vengono
+sovrascritte dalle nuove.</dd>
+<dt>
+<strong>Nome file dump</strong>
+</dt>
+<dd>Il nome del file su cui verr&agrave; scritta la memoria buffer una
+volta eseguito il dump. Questa opzione non &egrave; disponibile dalla scheda Runtime.</dd>
+</dl>
+</dd>
+</dl>
+</p>
+
+<p>
+<dl>
+<dt>
+<strong>File</strong>
+</dt>
+<dd>Specifica la scrittura dell'output di traccia su un file di
+log gestito automaticamente.<p>Questo file scrive i messaggi nel
+file finch&eacute; non viene raggiunta la dimensione massima. Quando il file raggiunge la dimensione
+specificata, il collegamento &egrave; temporaneamente sospeso e il file di log viene chiuso e
+ridenominato. Il nuovo nome si basa su quello originale del file, pi&ugrave; un qualificativo
+data/ora che indica, appunto, quando si &egrave; verificata la ridenominazione. Una volta
+completata l'operazione, viene riaperto un nuovo file di log vuoto con il nome
+originale e il collegamento viene ripristinato. Come risultato del rollover, non &egrave; stato
+perso alcun messaggio, sebbene un singolo messaggio pu&ograve; essere diviso tra i due file.</p>
+</dd>
+</dl>
+</p>
+
+<p>Se si seleziona questa opzione, &egrave; necessario specificare i seguenti parametri:<dl>
+<dt>
+<strong>Dimensione massima file</strong>
+</dt>
+<dd>Specifica la dimensione massima, in megabyte, che
+un file di output pu&ograve; raggiungere. <p>Questo attributo &egrave; valido solo se viene selezionato
+l'attributo Dimensione file. Quando un file raggiunge questa dimensione, viene eseguito
+il rollover, come descritto in precedenza.</p>
+</dd>
+<dt>
+<strong>Numero massimo di file di cronologia</strong>
+</dt>
+<dd>Specifica il numero massimo di file,
+sottoposto a rollover, da conservare.</dd>
+<dt>
+<strong>Nome file</strong>
+</dt>
+<dd>Specifica il nome del file sul quale &egrave; scritto l'output di traccia.</dd>
+</dl>
+</p>
+
+</dd>
+<dt>
+<strong><a name="trace_format_description"></a>Formato output di traccia</strong>
+            &nbsp;
+            </dt>
+<dd>Specifica il formato dell'output di traccia.
+<p>&Egrave; possibile specificare uno dei tre livelli per l'output di traccia:<dl>
+
+<dt>
+<strong>Base (Compatibile)</strong>
+</dt>
+<dd>Conserva solo le informazioni di traccia di base. Selezionare quest'opzione per ridurre
+lo spazio occupato dell'output di traccia.</dd>
+<dt>
+<strong>Advanced</strong>
+</dt>
+<dd>Conserva le informazioni di traccia pi&ugrave; specifiche. Selezionare quest'opzione per visualizzare
+ulteriori informazioni sulla traccia da utilizzare per l'individuazione e la risoluzione dei problemi.</dd>
+<dt>
+<strong>Log Analyzer</strong>
+</dt>
+<dd>Conserva le informazioni di traccia in un formato compatibile con lo
+strumento Log Analyzer. Selezionare quest'opzione se si desidera utilizzare l'output di traccia come input allo strumento Log
+Analyzer.</dd>
+</dl>
+</p>
+
+</dd>
+<dt>
+<strong><a name="trace_runtime_tab"></a>Scheda Runtime </strong>
+            &nbsp;
+            </dt>
+<dd>Specifica il formato dell'output di traccia.
+<dl>
+<dt>
+<strong>Salva traccia</strong>
+</dt>
+<dd>Salvare le modifiche apportate all'interno della scheda runtime sulla configurazione di traccia.
+ <p>Selezionare questa casella per copiare le modifiche della traccia di runtime sulle
+impostazioni della configurazione di traccia. Salvando le modifiche apportate alla configurazione di traccia, &egrave; possibile conservarle anche in seguito al
+riavvio dell'applicazione. </p>
+</dd>
+<dt>
+<strong>Specifica di traccia</strong>
+</dt>
+<dd>Specifica i dettagli di traccia.<p>Immettere una stringa di traccia che specifica i componenti, i pacchetti o i gruppi
+da tracciare. Tale stringa deve essere conforme alla grammatica descritta di
+seguito. &Egrave; possibile immettere direttamente la stringa, oppure generarla utilizzando
+un'interfaccia di traccia grafica. Fare clic su <strong>Modifica</strong> per avviare l'interfaccia
+di traccia grafica. </p>
+<p>Se si avvia questa interfaccia dalla scheda di configurazione, viene visualizzato un
+elenco di componenti, pacchetti e gruppi ben noto. Tale elenco potrebbe non essere
+esaustivo.</p>
+<p>Il formato della specifica della traccia &egrave;:<pre>&lt;componente&gt; =
+&lt;tipo_traccia&gt; = enabled | disabled</pre>
+</p>
+<p>dove &lt;componente&gt; &egrave; il componente per cui
+abilitare o disabilitare la traccia e &lt;tipo_traccia&gt; &egrave; il tipo di traccia da abilitare o
+disabilitare. Separare pi&ugrave; specifiche di traccia diverse con due punti (:).</p>
+<p>I componenti corrispondono ai pacchetti Java e alle classi o alle raccolte di
+pacchetti Java. Utilizzare * come
+carattere jolly per indicare i componenti che includono tutte le classi in tutti i
+pacchetti contenuti dal componente specificato. Ad esempio: <dl>
+<dt>
+<strong>*</strong>
+</dt>
+<dd>Specifica tutti i codici tracciabili in esecuzione sul server
+delle applicazioni, compresi il codice di sistema di WebSphere Application Server e
+il codice del cliente. </dd>
+<dt>
+<strong>com.ibm.ws.*</strong>
+</dt>
+<dd>specifica tutte le classi il cui nome del pacchetto
+inizia per com.ibm.ws. </dd>
+<dt>
+<strong>com.ibm.ws.classloader.JarClassLoader</strong>
+</dt>
+<dd>Specifica solo la classe
+JarClassLoader. </dd>
+</dl>
+</p>
+<p>Per ulteriori informazioni sulla grammatica della stringa di traccia,
+consultare la sezione Abilitazione della traccia nell'InfoCenter di WebSphere Application Server. <p>
+<b>Nota: </b>Pu&ograve; verificarsi un errore durante l'impostazione di una specifica di traccia dalla
+console di gestione se le selezioni vengono effettuate dagli elenchi Gruppi e Componenti.
+In alcuni casi, la selezione effettuata da un elenco non va perduta durante l'aggiunta di una
+selezione dall'altro elenco. Per risolvere questo problema, immettere la specifica di traccia desiderata direttamente nel campo della voce Specifica di traccia.</p>
+</p> 
+</dd>
+</dl>
+
+</dd>
+<dt>
+<strong><a name="trace_output"></a>Output di traccia   </strong>
+            &nbsp;
+            </dt>
+<dd>Indica dove andrebbe l'output di traccia.
+<p>Indica dove andrebbe l'output di traccia.  </p>
+
+<p>&Egrave; possibile scrivere l'output di traccia direttamente in un file di output, oppure
+memorizzarlo e scriverlo in un file su richiesta utilizzando il pulsante
+Dump, che si trova sulla pagina runtime. <dl>
+<dt>
+<strong>Buffer di memoria</strong>
+</dt>
+<dd>Specifica che l'output di traccia deve essere scritto su un
+buffer circolare in memoria. Se si seleziona questa opzione, &egrave; necessario specificare i seguenti parametri:<dl>
+
+<dt>
+<strong>Dimensione massima buffer</strong>
+</dt>
+<dd>Specifica il numero di voci, in migliaia, che pu&ograve;
+essere memorizzato nel buffer. Una volta superato questo numero, le vecchie voci vengono
+sovrascritte dalle nuove.</dd>
+<dt>
+<strong>Nome file dump</strong>
+</dt>
+<dd>Il nome del file su cui verr&agrave; scritta la memoria buffer una
+volta eseguito il dump. Questa opzione non &egrave; disponibile dalla scheda runtime.</dd>
+</dl>
+</dd>
+<dt>
+<strong>File</strong>
+</dt>
+<dd>Specifica la scrittura dell'output di traccia su un file di
+log gestito automaticamente. <p>Questo file scrive i messaggi nel
+file finch&eacute; non viene raggiunta la dimensione massima. Quando il file raggiunge la dimensione
+specificata, il collegamento &egrave; temporaneamente sospeso e il file di log viene chiuso e
+ridenominato. Il nuovo nome si basa su quello originale del file, pi&ugrave; un qualificativo
+data/ora che indica, appunto, quando si &egrave; verificata la ridenominazione. Una volta
+completata l'operazione, viene riaperto un nuovo file di log vuoto con il nome
+originale e il collegamento viene ripristinato. Come risultato del rollover, non &egrave; stato
+perso alcun messaggio, sebbene un singolo messaggio pu&ograve; essere diviso tra i due file. </p> 
+<p>Se si seleziona questa opzione, &egrave; necessario specificare i seguenti parametri:</p>
+<dl>
+<dt>
+<strong>Dimensione massima file</strong>
+</dt>
+<dd>Specifica la dimensione massima, in megabyte, che
+un file di output pu&ograve; raggiungere.  <p>Questo attributo &egrave; valido solo se viene selezionato
+l'attributo Dimensione file. Quando un file raggiunge questa dimensione, viene eseguito
+il rollover, come descritto in precedenza. </p>
+</dd>
+<dt>
+<strong>Numero massimo di file di cronologia</strong>
+</dt>
+<dd>Specifica il numero massimo di file,
+sottoposto a rollover, da conservare. </dd>
+<dt>
+<strong>Nome file</strong>
+</dt>
+<dd>Specifica il nome del file sul quale &egrave; scritto l'output di traccia.</dd>
+</dl>
+</dd>
+</dl>
+</p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Scheda Runtime</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="save_trace_to_config"></a>Salva traccia</strong>
+</dt>
+<dd>Salvare le modifiche apportate all'interno della scheda runtime sulla configurazione di traccia.
+<p>Selezionare questa casella per copiare le modifiche della traccia di runtime sulle impostazioni della configurazione
+di traccia. Salvando le modifiche apportate alla configurazione di traccia, &egrave; possibile conservarle anche in seguito al
+riavvio dell'applicazione.</p>
+
+</dd>
+<dt>
+<strong><a name="trace_spec_description"></a>Specifica di traccia</strong>
+</dt>
+<dd>Specifica i dettagli di traccia.
+<p>Immettere una stringa di traccia che specifica i componenti, i pacchetti o i gruppi
+da tracciare. Tale stringa deve essere conforme alla grammatica descritta di
+seguito. &Egrave; possibile immettere direttamente la stringa, oppure generarla utilizzando
+un'interfaccia di traccia grafica. Fare clic su <strong>Modifica</strong> per avviare l'interfaccia
+di traccia grafica.</p>
+
+<p>Se si avvia questa interfaccia dalla scheda di configurazione, viene visualizzato un
+elenco di componenti, pacchetti e gruppi ben noto. Tale elenco potrebbe non essere
+esaustivo.</p>
+
+<p>Se si avvia questa interfaccia di traccia grafica dalla scheda runtime, l'elenco di
+componenti, pacchetti e gruppi visualizza tutti i componenti registrati sul server in
+esecuzione.</p>
+
+<p>Il formato della specifica della traccia &egrave;:<pre>&lt;<em>componente</em>&gt; =
+&lt;<em>tipo_traccia</em>&gt;= enabled | disabled</pre> dove: &lt;<em>componente</em>&gt; &egrave; il componente per
+cui abilitare o disabilitare la traccia e &lt;<em>tipo_traccia</em>&gt; &egrave; il tipo di traccia da
+abilitare o disabilitare. Separare pi&ugrave; specifiche di traccia diverse con due punti (:).</p>
+
+<p>I componenti corrispondono ai pacchetti Java e alle classi o alle raccolte di
+pacchetti Java. Utilizzare * come
+carattere jolly per indicare i componenti che includono tutte le classi in tutti i
+pacchetti contenuti dal componente specificato. Ad esempio:<dl>
+<dt>
+<strong><samp>*</samp></strong>
+</dt>
+<dd>Specifica tutti i codici tracciabili in esecuzione sul server
+delle applicazioni, compresi il codice di sistema di WebSphere Application Server e
+il codice del cliente.</dd>
+<dt>
+<strong><samp>com.ibm.ws.*</samp></strong>
+</dt>
+<dd>specifica tutte le classi il cui nome del pacchetto
+inizia per <samp>com.ibm.ws</samp>.</dd>
+<dt>
+<strong><samp>com.ibm.ws.classloader.JarClassLoader</samp></strong>
+</dt>
+<dd>Specifica solo la classe
+JarClassLoader.</dd>
+</dl>
+</p>
+
+<p>Per ulteriori informazioni sulla grammatica della stringa di traccia, consultare la
+sezione <cite>Abilitazione della traccia</cite> nell'InfoCenter di WebSphere
+Application Server.</p>
+
+<p>
+<b>Nota: </b>Pu&ograve; verificarsi un errore durante l'impostazione di una specifica di traccia dalla
+console di gestione se le selezioni vengono effettuate dagli elenchi Gruppi e Componenti. In alcuni casi, la selezione effettuata da un elenco non va perduta durante l'aggiunta di una
+selezione dall'altro elenco. Per risolvere questo problema, immettere la specifica di traccia desiderata direttamente nel campo della voce Specifica di traccia.</p>
+
+</dd>
+<dt>
+<strong><a name="trace_output_description"></a>Output di traccia</strong>
+            &nbsp;
+            </dt>
+<dd>Indica dove andrebbe l'output di traccia.
+<p>&Egrave; possibile scrivere l'output di traccia direttamente in un file di output, oppure
+memorizzarlo e scriverlo in un file su richiesta utilizzando il pulsante
+Dump, che si trova sulla pagina runtime.</p>
+
+<p>
+<dl>
+<dt>
+<strong>Buffer di memoria</strong>
+</dt>
+<dd>Specifica che l'output di traccia deve essere scritto su un
+buffer circolare in memoria. Se si seleziona questa opzione, &egrave; necessario specificare i seguenti parametri:<dl>
+<dt>
+<strong>Dimensione massima buffer</strong>
+</dt>
+<dd>Specifica il numero di voci, in migliaia, che pu&ograve;
+essere memorizzato nel buffer. Una volta superato questo numero, le vecchie voci vengono
+sovrascritte dalle nuove.</dd>
+<dt>
+<strong>Nome file dump</strong>
+</dt>
+<dd>Il nome del file su cui verr&agrave; scritta la memoria buffer una
+volta eseguito il dump. Questa opzione non &egrave; disponibile dalla scheda Runtime.</dd>
+</dl>
+</dd>
+</dl>
+</p>
+
+<p>
+<dl>
+<dt>
+<strong>File</strong>
+</dt>
+<dd>Specifica la scrittura dell'output di traccia su un file di
+log gestito automaticamente.<p>Questo file scrive i messaggi nel
+file finch&eacute; non viene raggiunta la dimensione massima. Quando il file raggiunge la dimensione
+specificata, il collegamento &egrave; temporaneamente sospeso e il file di log viene chiuso e
+ridenominato. Il nuovo nome si basa su quello originale del file, pi&ugrave; un qualificativo
+data/ora che indica, appunto, quando si &egrave; verificata la ridenominazione. Una volta
+completata l'operazione, viene riaperto un nuovo file di log vuoto con il nome
+originale e il collegamento viene ripristinato. Come risultato del rollover, non &egrave; stato
+perso alcun messaggio, sebbene un singolo messaggio pu&ograve; essere diviso tra i due file.</p>
+</dd>
+</dl>
+</p>
+
+<p>Se si seleziona questa opzione, &egrave; necessario specificare i seguenti parametri:<dl>
+<dt>
+<strong>Dimensione massima file</strong>
+</dt>
+<dd>Specifica la dimensione massima, in megabyte, che
+un file di output pu&ograve; raggiungere. <p>Questo attributo &egrave; valido solo se viene selezionato
+l'attributo Dimensione file. Quando un file raggiunge questa dimensione, viene eseguito
+il rollover, come descritto in precedenza.</p>
+</dd>
+<dt>
+<strong>Numero massimo di file di cronologia</strong>
+</dt>
+<dd>Specifica il numero massimo di file,
+sottoposto a rollover, da conservare.</dd>
+<dt>
+<strong>Nome file</strong>
+</dt>
+<dd>Specifica il nome del file sul quale &egrave; scritto l'output di traccia.</dd>
+</dl>
+</p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informazioni correlate</strong>
+</p>
+<a href="rcon_buttons.html">Pulsanti della console di gestione</a>
+<br>
+
+<a href="rcon_scope.html">Impostazioni ambito della console di gestione</a>
+<br>
+
+<a href="rcon_filter.html">Impostazioni di filtro della console di gestione</a>
+<br>
+
+<a href="rcon_preferences.html">Impostazioni delle preferenze della console di gestione</a>
+<br>
+
+<a href="rcon_pageusage.html">Funzioni della pagina della console di gestione</a>
+<br>
+
+</div>
+</body>
+</html>

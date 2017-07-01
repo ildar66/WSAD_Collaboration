@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+   "http://dtdserver/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.hps.april.auth.object" >
+
+    <class name="Operator" table="operators" lazy="true">
+        <!-- TODO generator ?? -->
+        <id name="id" column="operator" type="int"/>
+        
+        <property name="login" column="loiginid" type="string"/>
+        <property name="enabled" column="isenabled" type="boolean"/>
+
+		<many-to-one name="person" class="Person" 
+			cascade="none" column="man" update ="false"/>
+
+		<set name="roleList" table="operators2roles">
+        	<key column="operator"/>
+	        <many-to-many column="role" class="JulyRole"/>
+	    </set>
+
+    </class>
+
+</hibernate-mapping>

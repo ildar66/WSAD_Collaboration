@@ -1,0 +1,190 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Valores de la gesti&oacute;n de sesiones</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uprs_rsession_manager"></a>
+<h2>Valores de la gesti&oacute;n de sesiones</h2>
+
+<p>Utilice esta p&aacute;gina para gestionar el soporte de sesiones HTTP. Este soporte incluye
+especificar un mecanismo de rastreo de sesiones, establecer un contador de n&uacute;mero m&aacute;ximo de
+sesiones en memoria, controlar el desbordamiento y configurar el tiempo de espera de sesi&oacute;n.</p>
+
+<p>Para ver esta p&aacute;gina de la consola administrativa, pulse
+<strong>Servidores</strong> &gt; <strong>Servidores de aplicaciones</strong> &gt;
+<em>nombre_servidor</em> &gt; <strong>Contenedor Web</strong> &gt; <strong>Gesti&oacute;n de
+sesiones</strong>.</p>
+
+<div>
+<p>
+<strong>Pesta&ntilde;a Configuraci&oacute;n</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="SessionManager_enable_description"></a>Sobrescribir la gesti&oacute;n de sesiones (s&oacute;lo a nivel de aplicaci&oacute;n y m&oacute;dulo Web)</strong>
+</dt>
+<dd>Especifica si estos valores de la gesti&oacute;n de sesiones tienen preferencia sobre aquellos heredados normalmente de un nivel superior para la aplicaci&oacute;n o m&oacute;dulo Web actual.
+<p>Por omisi&oacute;n, los m&oacute;dulos Web heredan los valores de la gesti&oacute;n de sesiones del nivel de aplicaci&oacute;n por encima de ellos y las aplicaciones heredan los valores de la gesti&oacute;n de sesiones del nivel de contenedor Web por encima de ellas.</p>
+
+</dd>
+<dt>
+<strong><a name="SessionManager_sessionTracking_description"></a>Mecanismo de rastreo de sesiones </strong>
+</dt>
+<dd>Especifica un mecanismo para la gesti&oacute;n de sesiones HTTP.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Mecanismo</td>
+<td align="left" valign="top" class="base">Funci&oacute;n</td>
+<td align="left" valign="top" class="base">Valor por omisi&oacute;n</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Habilitar rastreo de ID de SSL</td>
+<td align="left" valign="top" class="base">Especifica que el rastreo de sesiones utiliza la informaci&oacute;n de SSL (Secure Sockets Layer) como ID de sesi&oacute;n. La habilitaci&oacute;n del rastreo de SSL tiene preferencia sobre el rastreo de sesiones basado en cookies y la reescritura de URL. <p>Hay dos par&aacute;metros disponibles cuando habilita el rastreo de ID
+SSL: SSLV3Timeout y Secure Association Server
+(SAS). SSLV3Timeout especifica el intervalo de tiempo transcurrido tras
+el cual vuelven a negociarse las sesiones SSL. Se trata de un valor alto y, probablemente, no tendr&aacute; un impacto
+significativo en el rendimiento si se modifica. El par&aacute;metro SAS establece una conexi&oacute;n SSL s&oacute;lo si sale de la JVM (Java
+Virtual Machine) a otra JVM. Si todos los beans se han colocado dentro de la misma JVM, la SSL que
+SAS utiliza no deber&iacute;a interferir en el rendimiento.</p>
+<p>Se establecen editando los archivos
+<samp>sas.server.properties</samp> y <samp>sas.client.props</samp> que se
+encuentran en el directorio <em>ra&iacute;z_instalaci&oacute;n_producto</em>\properties,
+donde <em>ra&iacute;z_instalaci&oacute;n_producto</em> es el directorio en el que est&aacute;
+instalado WebSphere Application Server. </p>
+</td>
+<td align="left" valign="top" class="base">9600 segundos</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Habilitar cookies</td>
+<td align="left" valign="top" class="base">Especifica si el rastreo de sesiones utilizar&aacute; cookies para transportar los ID de sesi&oacute;n.
+Si las cookies est&aacute;n habilitadas, el rastreo de sesiones reconoce los ID de sesi&oacute;n que
+llegan como cookies e intenta utilizar cookies para el env&iacute;o de ID de sesi&oacute;n. Si las cookies
+no est&aacute;n habilitadas, el rastreo de sesiones utiliza la reescritura de URL en lugar de cookies
+(si est&aacute; habilitada la reescritura de URL).<p>La habilitaci&oacute;n de cookies tiene preferencia sobre la reescritura de URL.
+No inhabilite cookies en el recurso de gesti&oacute;n de sesiones del servidor de
+aplicaciones que est&aacute; ejecutando la aplicaci&oacute;n de administraci&oacute;n, ya que esta acci&oacute;n impide el funcionamiento de la aplicaci&oacute;n de administraci&oacute;n despu&eacute;s de reiniciar el servidor. Otra opci&oacute;n ser&iacute;a ejecutar la aplicaci&oacute;n de administraci&oacute;n en un proceso independiente de las aplicaciones. </p>
+<p>Pulse <strong>Modificar</strong> para cambiar estos valores.</p>
+</td>
+<td align="left" valign="top" class="base"></td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Habilitar reescritura de URL</td>
+<td align="left" valign="top" class="base">Especifica que el recurso de gesti&oacute;n de sesiones utilice URL reescritos para
+transportar los ID de sesi&oacute;n. Si se ha habilitado la reescritura de URL, el recurso de gesti&oacute;n
+de sesiones reconoce los ID de sesi&oacute;n que llegan al URL si se llama al m&eacute;todo encodeURL en el
+servlet.</td>
+<td align="left" valign="top" class="base"></td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Habilitar reescritura de conmutador de protocolo</td>
+<td align="left" valign="top" class="base">Especifica si el ID de sesi&oacute;n se a&ntilde;ade a un URL cuando el URL necesita un conmutador de
+HTTP a HTTPS o de HTTPS a HTTP. Si la reescritura est&aacute; habilitada, el ID de sesi&oacute;n es necesario
+para conmutar de HTTP a HTTPS.</td>
+<td align="left" valign="top" class="base"></td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SessionManager_overflow_description"></a>Desbordamiento  </strong>
+</dt>
+<dd>Especifica si el n&uacute;mero de sesiones en la memoria puede superar el valor que
+especifica la propiedad N&uacute;mero m&aacute;ximo de sesiones en memoria. Esta opci&oacute;n s&oacute;lo es v&aacute;lida en la
+modalidad de sesiones no distribuidas.</dd>
+<dt>
+<strong><a name="TuningParams_maxInMemorySessionCount_description"></a>N&uacute;mero m&aacute;ximo de sesiones en memoria  </strong>
+</dt>
+<dd>Especifica el n&uacute;mero m&aacute;ximo de sesiones que se deben mantener en memoria.
+<p>El significado difiere dependiendo de si est&aacute; utilizando sesiones en memoria o distribuidas. Para las sesiones en memoria, este valor especifica el n&uacute;mero de
+sesiones en la tabla de sesi&oacute;n base. Utilice la propiedad Permitir desbordamiento para
+especificar si desea limitar las sesiones a este n&uacute;mero para el recurso de gesti&oacute;n de sesiones
+completo, o si desea almacenar sesiones adicionales en las tablas secundarias.  Para las sesiones distribuidas, este valor especifica el tama&ntilde;o de la antememoria en memoria para sesiones.
+Cuando la antememoria de la sesi&oacute;n ha alcanzado su tama&ntilde;o m&aacute;ximo y se solicita una
+nueva sesi&oacute;n, el recurso de gesti&oacute;n de sesiones elimina la sesi&oacute;n menos reciente que se ha
+utilizado de la antememoria para crear espacio para la nueva sesi&oacute;n. <p>
+<img alt="[Fix Pack 5.0.2 y posterior]" src="v502.gif" border="0"><b>Nota: </b>No establezca este valor en un n&uacute;mero inferior al tama&ntilde;o m&aacute;ximo de
+agrupaci&oacute;n de hebras del servidor.</p>
+</p>
+
+</dd>
+<dt>
+<strong><a name="SessionManager_sessionTimeout_description"></a>Tiempo de espera de sesi&oacute;n  </strong>
+</dt>
+<dd>Especifica durante cu&aacute;nto tiempo puede permanecer una sesi&oacute;n sin utilizarse antes de que deje de ser v&aacute;lida.   Especifica <samp>Establecer tiempo de espera</samp> o <samp>Sin tiempo de espera</samp>. 
+Especifique el valor en minutos mayor o igual a dos. 
+<p> Este valor se utiliza como valor por omisi&oacute;n cuando no se especifica el tiempo de espera de sesi&oacute;n en el descriptor de despliegue del m&oacute;dulo Web.  Tenga en cuenta que, para mantener el
+rendimiento, el temporizador de invalidaci&oacute;n no posee una precisi&oacute;n de segundos. Cuando la
+frecuencia de escritura se basa en el tiempo, aseg&uacute;rese de que este valor sea como m&iacute;nimo el doble del intervalo de escritura. </p>
+
+</dd>
+<dt>
+<strong><a name="SessionManager_securityIntegration_description"></a>Integraci&oacute;n de seguridad</strong>
+</dt>
+<dd>Especifica que, al habilitar la integraci&oacute;n de seguridad, el recurso de gesti&oacute;n de
+sesiones asocie la identidad de usuarios con sus sesiones HTTP.</dd>
+<dt>
+<strong><a name="SessionManager_serialAccess_description"></a>Acceso a sesiones serializado</strong>
+</dt>
+<dd>Especifica que el acceso simult&aacute;neo a sesiones en un servidor determinado no est&aacute; permitido.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tiempo m&aacute;ximo de espera</td>
+<td align="left" valign="top" class="base">Especifica el per&iacute;odo de tiempo m&aacute;ximo de espera que una petici&oacute;n del servlet espera
+para acceder a una sesi&oacute;n HTTP antes de continuar su ejecuci&oacute;n. Este par&aacute;metro es opcional y se expresa en segundos. El valor por omisi&oacute;n es
+120 o 2 minutos. En condiciones normales, la petici&oacute;n de servlet que est&aacute; esperando el acceso a una sesi&oacute;n HTTP es notificada por la petici&oacute;n que actualmente posee la sesi&oacute;n HTTP espec&iacute;fica cuando esta petici&oacute;n termina.</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Permitir acceso en tiempo de espera</td>
+<td align="left" valign="top" class="base">Especifica si el servlet se ejecutar&aacute; normalmente o terminar&aacute; anormalmente
+en caso de que se exceda el tiempo de espera. Si est&aacute; seleccionado ese recuadro, el servlet se ejecuta normalmente.
+ Si no est&aacute; seleccionado, la ejecuci&oacute;n del servlet terminar&aacute; anormalmente y se generar&aacute;n anotaciones cronol&oacute;gicas
+de errores.</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informaci&oacute;n relacionada</strong>
+</p>
+<a href="rcon_buttons.html">Botones de la consola de administraci&oacute;n</a>
+<br>
+
+<a href="rcon_pageusage.html">Caracter&iacute;sticas de la p&aacute;gina de la consola administrativa</a>
+<br>
+
+<a href="rcon_preferences.html">Valores de preferencias de la consola administrativa</a>
+<br>
+
+</div>
+</body>
+</html>

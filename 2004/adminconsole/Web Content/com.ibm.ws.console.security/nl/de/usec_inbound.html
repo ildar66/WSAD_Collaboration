@@ -1,0 +1,252 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Einstellungen f&uuml;r Authentifizierung eingehender CSI-Anforderungen</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecinbound"></a>
+<h2>Einstellungen f&uuml;r Authentifizierung eingehender CSI-Anforderungen</h2>
+
+<p>Auf dieser Seite k&ouml;nnen Sie die Funktionen angeben, die ein Server f&uuml;r einen Client, der auf die
+Serverressourcen zugreifen muss, unterst&uuml;tzen soll.</p>
+
+<p>Klicken Sie zum Anzeigen dieser Seite der Administrationskonsole auf <strong>Sicherheit</strong> &gt; <strong>Authentifizierungsprotokoll</strong> &gt; <strong>Eingehende CSI-Authentifizierung</strong>.</p>
+
+<p>Die Einstellungen f&uuml;r die Authentifizierung eingehender CSI-Anforderungen
+sind f&uuml;r die Konfiguration der Informationen zum Authentifizierungstyp bestimmt, die in einer
+eingehenden Anforderungen oder in einem eingehenden Transport enthalten sind.</p>
+
+<p>Die Authentifizierungsfunktionen umfassen drei Authentifizierungsschichten, die parallel verwendet
+werden k&ouml;nnen:
+<ul>
+
+<li>
+<strong>Transportschicht</strong>. Die Transportschicht, die die niedrigste Schicht ist, kann ein
+SSL-Clientzertifikat (Secure Sockets Layer) als Identit&auml;t enthalten. </li>
+
+<li>
+<strong>Nachrichtenschicht</strong>. Die Nachrichtenschicht kann eine Benutzer-ID und ein Kennwort oder ein
+authentifiziertes Token mit definierter G&uuml;ltigkeitsdauer enthalten. </li>
+
+<li>
+<strong>Attributschicht</strong>. Die Attributschicht kann ein Identit&auml;ts-Token enthalten, das eine Identit&auml;t von
+einem Upstream-Server darstellt und bereits authentifiziert ist.
+Die Identit&auml;tsschicht hat die h&ouml;chste Priorit&auml;t, gefolgt von der Nachrichtschicht und schlie&szlig;lich der
+Transportschicht. Wenn ein Client Daten &uuml;ber alle drei Schichten sendet, wird nur die Identit&auml;tsschicht
+verwendet. Das SSL-Clientzertifikat kann nur als Identit&auml;t verwendet werden, wenn es die einzige Information
+ist, die w&auml;hrend der Anforderung bereitgestellt wird. Der Client ruft die IOR aus dem Namespace ab und
+liest die Werte der markierten Komponente, um festzustellen, welche Sicherheitsma&szlig;nahmen der Server
+ben&ouml;tigt. </li>
+
+</ul>  
+</p>
+
+<div>
+<p>
+<strong>Register "Konfiguration"</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="BasicAuthentication_i_description"></a>Basisauthentifizierung </strong>
+</dt>
+<dd>Gibt an, dass die Basisauthentifizierung &uuml;ber die Nachrichtenschicht erfolgt. 
+<p>In der Nachrichtenschicht wird die Basisauthentifizierung (Benutzer-ID/Kennwort) durchgef&uuml;hrt.
+Bei diesem Authentifizierungsverfahren werden eine Benutzer-ID und ein Kennwort vom
+Client zur Authentifizierung an den Server gesendet. Dabei wird auch ein Berechtigungs-Token von einer
+bereits authentifizierten Berechtigung delegiert, vorausgesetzt, der Berechtigungstyp kann weitergeleitet
+werden (z. B. LTPA, Lightweight Third Party Authentication). Wenn f&uuml;r den Server
+<strong>Basisauthentifizierung</strong> ausgew&auml;hlt wird, geben Sie sowohl die Authentifizierung &uuml;ber
+Benutzer-ID und Kennwort als auch die Token-gest&uuml;tzte Authentifizierung an. </p>
+
+<p>Wenn Sie <strong>Basisauthentifizierung</strong> ausw&auml;hlen, m&uuml;ssen Sie angeben, ob die
+Authentifizierung <strong>Erforderlich</strong> oder <strong>Unterst&uuml;tzt</strong> sein soll.  Bei Auswahl von <strong>Erforderlich</strong>
+k&ouml;nnen nur Clients, die konfiguriert sind, sich &uuml;ber die Nachrichtenschicht an diesem Server
+zu authentifizieren, Anforderungen auf dem Server durchf&uuml;hren. Bei Auswahl von "Unterst&uuml;tzt" akzeptiert
+dieser Server die <strong>Basisauthentifizierung</strong>. Es sind jedoch auch andere Authentifizierungsverfahren
+m&ouml;glich (falls konfiguriert), und anonyme Anforderungen werden akzeptiert. Bei Auswahl von <strong>Nie</strong> wird
+dieser Server nicht konfiguriert, von einem Client die Authentifizierung &uuml;ber die Nachrichtenschicht
+zu akzeptieren.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ClientCertificateAuthentication_i_description"></a>Authentifizierung &uuml;ber Clientzertifikat</strong>
+</dt>
+<dd>Gibt an, dass die Authentifizierung durchgef&uuml;hrt wird, wenn die urspr&uuml;ngliche Verbindung
+zwischen dem Client und dem Server w&auml;hrend einer Methodenanforderung hergestellt wird.
+<p>In der Transportschicht wird die SSL-Clientauthentifizierung (Secure Sockets Layer)
+durchgef&uuml;hrt. In der Nachrichtenschicht wird die Basisauthentifizierung (Benutzer-ID/Kennwort) durchgef&uuml;hrt.
+Die Authentifizierung &uuml;ber Clientzertifikat l&auml;sst sich normalerweise besser durchf&uuml;hren als die
+Authentifizierung &uuml;ber die Nachrichtenschicht, erfordert jedoch einige
+zus&auml;tzliche Konfigurationsschritte. Beispielsweise muss sichergestellt werden, dass
+der Server das Ausstellerzertifikat jedes Clients besitzt, der eine Verbindung
+zum Server herstellt. Wenn der Client eine Zertifizierungsinstanz (Certificate
+Authority, CA) verwendet, um sein pers&ouml;nliches Zertifikat zu erstellen,
+ben&ouml;tigen Sie nur das Basiszertifikat der Zertifizierungsinstanz, das sich im
+Ausstellerabschnitt der SSL-Trust-Datei des Servers befindet. Wenn das Zertifikat f&uuml;r eine
+LDAP-Benutzer-Registry authentifiziert wird, wird der definierte Name (DN) auf der Grundlage des bei der
+LDAP-Konfiguration angegebenen Filters zugeordnet. Wenn das Zertifikat f&uuml;r eine LocalOS-Benutzer-Registry
+authentifiziert wird, wird das erste Attribut des DN im Zertifikat (normalerweise der allgemeine Name (oder CN, Common Name) der Benutzer-ID in
+der Registry zugeordnet. Die Identifizierung &uuml;ber Clientzertifikate wird nur durchgef&uuml;hrt, wenn
+keine Informationen einer anderen Authentifizierungsschicht an den Server &uuml;bergeben werden. </p>
+
+<p>Wenn Sie <strong>Authentifizierung &uuml;ber Clientzertifikat</strong> ausw&auml;hlen, m&uuml;ssen Sie
+angeben, ob die Authentifizierung <strong>Erforderlich</strong> oder <strong>Unterst&uuml;tzt</strong> sein soll. Bei Auswahl von
+<strong>Erforderlich</strong> k&ouml;nnen nur Clients, die konfiguriert sind, sich &uuml;ber SSL-Clientzertifikate an diesem
+Server
+zu authentifizieren, Anforderungen auf dem Server durchf&uuml;hren. Bei Auswahl von <strong>Unterst&uuml;tzt</strong> akzeptiert
+dieser Server die Authentifizierung &uuml;ber SSL-Clientzertifikate, es sind jedoch auch
+andere Authentifizierungsverfahren (falls konfiguriert) m&ouml;glich, und anonyme
+Anforderungen werden akzeptiert. Bei Auswahl von <strong>Nie</strong> wird dieser Server nicht
+konfiguriert, die Authentifizierung &uuml;ber Clientzertifikat von einem Client zu
+akzeptieren. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="IdentityAssertion_i_description"></a>Zusicherung der Identit&auml;t</strong>
+</dt>
+<dd>Die Zusicherung der Identit&auml;t (oder ID Assertion) ist ein Verfahren, bei dem Identit&auml;ten w&auml;hrend eines
+Downstream-EJB-Aufrufs zwischen zwei Servern ausgetauscht und best&auml;tigt werden.
+<p>Die Zusicherung der Identit&auml;t wird in der Attributschicht ausgef&uuml;hrt und kann nur auf Servern
+durchgef&uuml;hrt werden. Der
+Principal, der auf dem Server ermittelt wird, ist von Priorit&auml;tsregeln abh&auml;ngig. Wenn die Zusicherung der Identit&auml;t durchgef&uuml;hrt
+wird, wird die Identit&auml;t immer aus dem Attribut abgeleitet. Wenn die
+Basisauthentifizierung ohne die Identit&auml;tszusicherung durchgef&uuml;hrt wird, wird die Identit&auml;t immer von
+der Nachrichtenschicht abgeleitet. Wenn schlie&szlig;lich die
+Authentifizierung &uuml;ber SSL-Clientzertifikate ohne Basisauthentifizierung oder Identit&auml;tszusicherung
+durchgef&uuml;hrt wird, wird die Identit&auml;t von der Transportschicht abgeleitet.</p>
+
+<p>Die zugesicherte Identit&auml;t stellt die Aufrufberechtigung dar, die durch den RunAs-Modus f&uuml;r die
+Enterprise-Bean
+festgelegt wird. Ist der RunAs-Modus <strong>Client</strong>, stimmt die Identit&auml;t mit der Clientidentit&auml;t &uuml;berein. 
+Ist der RunAs-Modus <strong>System</strong>, stimmt die Identit&auml;t mit der Serveridentit&auml;t &uuml;berein. Ist der RunAs-Modus
+<strong>Angegeben</strong>, entspricht die Identit&auml;t der angegebenen Identit&auml;t. Der empfangende Server empf&auml;ngt die
+Identit&auml;t in einem Identit&auml;ts-Token und empf&auml;ngt auch die Identit&auml;t des sendenden Servers in einem
+Clientauthentifizierungs-Token. Der empfangende Server pr&uuml;ft im Eintragsfeld <strong>Trusted-Server-IDs</strong>, ob
+die Identit&auml;t des sendenden Servers
+vertrauensw&uuml;rdig ist. Geben Sie eine Liste mit Namen von Principals ein, die durch Kommata
+voneinander getrennt sind, z. B. <samp>serverid1,
+serverid2, serverid3</samp>. </p>
+
+<p>Wenn eine Authentifizierung f&uuml;r eine LocalOS-Benutzer-Registry durchgef&uuml;hrt wird, werden
+alle Identit&auml;ts-Token-Typen dem Feld f&uuml;r die Benutzer-ID der aktiven Benutzer-Registry
+zugeordnet. Das
+Identit&auml;ts-Token <samp>ITTPrincipal</samp> wird den Feldern f&uuml;r die
+Benutzer-IDs eins zu eins zugeordnet. Beim
+Identit&auml;ts-Token <samp>ITTDistinguishedName</samp> wird der Wert des ersten
+Gleichheitszeichens dem Feld f&uuml;r die Benutzer-ID zugeordnet. Beim Identit&auml;ts-Token <samp>ITTCertChain</samp> wird
+der Wert des ersten Gleichheitszeichens des definierten Namens dem Feld f&uuml;r die Benutzer-ID zugeordnet. </p>
+
+<p>Wird eine Authentifizierung f&uuml;r eine LDAP-Benutzer-Registry durchgef&uuml;hrt, legen die LDAP-Filter fest, wie
+Identit&auml;ten der Typen <samp>ITTCertChain</samp> und <samp>ITTDistinguishedName</samp> der Registry zugeordnet
+werden. Wenn der Token-Typ <samp>ITTPrincipal</samp> ist, wird der Principal dem Feld "UID" in der LDAP-Registry
+zugeordnet. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="IdentityAssertionLayer_trustedServers_description"></a>Benutzer-IDs von Trusted Servern</strong>
+</dt>
+<dd>Eine Liste von Benutzer-IDs von Servern, die berechtigt sind, die Identit&auml;tszusicherung f&uuml;r diesen Server durchzuf&uuml;hren. 
+<p>Verwenden Sie diese Liste, um schnell zu entscheiden, ob ein Server als vertrauensw&uuml;rdig einzustufen ist. Auch wenn der Server in der Liste aufgef&uuml;hrt ist, muss der sendende Server sich noch am empfangenden
+Server authentifizieren, damit das Identit&auml;ts-Token des sendenden Servers akzeptiert werden.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="StatefulSession_description"></a>Stateful-Sitzungen</strong>
+</dt>
+<dd>Gibt Stateful-Sitzungen an, die meistens f&uuml;r Leistungsverbesserungen verwendet werden. 
+<p>Beim ersten Kontakt zwischen einem Client und einem Server muss eine
+vollst&auml;ndige Authentifizierung durchgef&uuml;hrt werden.
+Alle nachfolgenden Kontakte mit g&uuml;ltigen Sitzungen verwenden jedoch die Sicherheitsinformationen erneut.
+Der Client &uuml;bergibt eine Kontext-ID an den Server, und die ID wird zum
+Lokalisieren der Sitzung verwendet. Die Kontext-ID wird der Verbindung
+zugeordnet, wodurch die Verbindung eine eindeutige Kennung erh&auml;lt. Wenn die Sicherheitssitzung ung&uuml;ltig
+und die Option f&uuml;r die Wiederholung der Authentifizierung aktiviert ist
+(Standardwert), invalidiert der clientseitige Sicherheits-Interceptor die clientseitige Sitzung und &uuml;bergibt die Anforderung erneut,
+ohne dass der Benutzer dar&uuml;ber unterrichtet wird. Dieser Fall tritt m&ouml;glicherweise dann ein, wenn die Sitzung
+auf dem Server nicht vorhanden ist (Server konnte die Aktion nicht ausf&uuml;hren und hat den Betrieb
+wieder aufgenommen). Ist dieser Wert inaktiviert, m&uuml;ssen alle Methodenaufrufe erneut authentifiziert
+werden.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Zugeh&ouml;rige Informationen</strong>
+</p>
+<a href="rcon_buttons.html">Kn&ouml;pfe in der Adminstrationskonsole</a>
+<br>
+
+<a href="rcon_pageusage.html">Funktionen auf den Seiten der Administrationskonsole</a>
+<br>
+
+<a href="rcon_scope.html">Geltungsbereichseinstellungen f&uuml;r die Administrationskonsole</a>
+<br>
+
+<a href="rcon_filter.html">Filtereinstellungen f&uuml;r die Administrationskonsole</a>
+<br>
+
+<a href="rcon_preferences.html">Vorgaben f&uuml;r die Administrationskonsole</a>
+<br>
+
+</div>
+</body>
+</html>

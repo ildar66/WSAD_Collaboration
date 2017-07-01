@@ -1,0 +1,257 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Param&egrave;tres des journaux de la JVM</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="JVMLogs_description"></a>
+<h2>Param&egrave;tres des journaux de la JVM</h2>
+
+<p>Cette page permet d'afficher et de modifier les param&egrave;tres
+des journaux <samp>System.out</samp> et <samp>System.err</samp> de la JVM
+(Java Virtual Machine).</p>
+
+<p>Pour afficher cette page de la console d'administration, cliquez sur <strong>R&eacute;solution des
+incidents &gt; Journaux et trace &gt;<cite>serveur</cite> &gt; Journaux de la JVM</strong>.</p>
+
+<div>
+<p>
+<strong>Onglet Configuration</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="system_out_file_description"></a>Nom de fichier</strong>
+</dt>
+<dd>Indique le nom de l'un des fichiers journaux d&eacute;crits dans cette page. 
+<p>La zone du premier nom de fichier indique le nom du journal <samp>System.out</samp>.
+La zone du deuxi&egrave;me nom de fichier indique le nom du journal <samp>System.err</samp>. </p>
+
+<p>Cliquez sur le bouton <strong>Afficher</strong> dans l'onglet Ex&eacute;cution pour visualiser le contenu du journal
+s&eacute;lectionn&eacute;.</p>
+
+<p>Le nom de fichier sp&eacute;cifi&eacute; pour le journal <samp>System.out</samp> ou <samp>System.err</samp> doit avoir l'une des valeurs suivantes :<dl>
+
+<dt>
+<strong><em>nom de fichier</em></strong>
+</dt>
+<dd>Nom d'un fichier du syst&egrave;me de fichiers. Utilisez
+de pr&eacute;f&eacute;rence un nom de fichier complet. A d&eacute;faut, le syst&egrave;me
+consid&egrave;re que le chemin d''acc&egrave;s au fichier correspond au r&eacute;pertoire
+de travail en cours du serveur.
+Chaque flux doit &ecirc;tre configur&eacute; avec un fichier d&eacute;di&eacute;. Par exemple,
+vous ne pouvez pas r&eacute;acheminer &agrave; la fois les fichiers
+<samp>System.out</samp> et <samp>System.err</samp> vers le m&ecirc;me fichier
+physique.<p>Si le r&eacute;pertoire contenant le fichier existe d&eacute;j&agrave;, l'ID
+utilisateur sous lequel est ex&eacute;cut&eacute; le serveur doit poss&eacute;der des
+droits en lecture/&eacute;criture sur ce r&eacute;pertoire. Si le r&eacute;pertoire n'existe pas, il est cr&eacute;&eacute; avec les
+droits appropri&eacute;s.
+L'ID utilisateur sous lequel le serveur est ex&eacute;cut&eacute; doit disposer des
+droits d'acc&egrave;s n&eacute;cessaires &agrave; la cr&eacute;ation du r&eacute;pertoire.</p>
+</dd>
+
+<dt>
+<strong>console</strong>
+</dt>
+<dd>Nom de fichier sp&eacute;cial permettant de r&eacute;acheminer
+le flux vers le flux de processus correspondant. Si cette valeur est
+indiqu&eacute;e pour <samp>System.out</samp>, le fichier est r&eacute;achemin&eacute; vers
+<samp>stdout</samp>. Si cette valeur est indiqu&eacute;e pour
+<samp>System.err</samp>, le fichier est r&eacute;achemin&eacute; vers <samp>stderr</samp>.</dd>
+
+<dt>
+<strong>none</strong>
+</dt>
+<dd>Annule toutes les donn&eacute;es &eacute;crites dans le flux. Le
+fait de sp&eacute;cifier <strong>none</strong> &eacute;quivaut &agrave; r&eacute;acheminer le flux vers
+dev/null sur un syst&egrave;me Unix.</dd>
+
+</dl>
+</p>
+
+</dd>
+<dt>
+<strong><a name="system_out_file_formatting_description"></a>Formatage du fichier</strong>
+</dt>
+<dd>Indique le format &agrave; utiliser pour la sauvegarde du fichier
+<samp>System.out</samp>.</dd>
+<dt>
+<strong><a name="log_file_rotation"></a>Rotation des fichiers journaux</strong>
+</dt>
+<dd>
+
+<p>Cet ensemble d'attributs de configuration permet de configurer le fichier journal <samp>System.out</samp> ou
+<samp>System.err</samp> de mani&egrave;re &agrave; activer la gestion automatique.</p>
+
+<p>Un fichier journal &agrave; gestion automatique enregistre des messages jusqu'&agrave; ce que le crit&egrave;re date/heure ou taille soit rempli. A la date indiqu&eacute;e ou lorsque la limite de taille sp&eacute;cifi&eacute;e
+est atteinte, la consignation est temporairement suspendue et le
+fichier journal est ferm&eacute; et renomm&eacute;. Le nouveau nom du fichier est bas&eacute; sur le
+nom d'origine auquel s'ajoute un qualifiant d'horodatage indiquant la
+date du changement de nom. Une fois que le fichier a &eacute;t&eacute;
+renomm&eacute;, un nouveau fichier journal portant le nom d'origine
+s'ouvre et la consignation reprend. Tous les messages sont conserv&eacute;s une fois le fichier renomm&eacute; mais il peut arriver qu'un message soit r&eacute;parti entre l'ancien fichier et le fichier en cours.</p>
+
+<p>Un journal ne peut &ecirc;tre configur&eacute; pour une gestion automatique que
+si le flux correspondant est r&eacute;achemin&eacute; vers un fichier.<dl>
+
+<dt>
+<strong>Taille du fichier</strong>
+</dt>
+<dd>S&eacute;lectionnez cet attribut pour activer
+la gestion automatique du fichier journal en fonction de sa taille. Le fichier est remplac&eacute; lorsqu'il atteint la taille que vous avez d&eacute;finie dans la zone Taille maximale.</dd>
+
+<dt>
+<strong>Taille maximale</strong>
+</dt>
+<dd>Indique la taille maximale du fichier (en Mo).
+Lorsque le fichier atteint cette taille, un autre se substitue &agrave; lui.<p>Cet attribut n'est accessible que si l'attribut Taille
+du fichier est d&eacute;fini.</p>
+</dd>
+
+<dt>
+<strong>Heure</strong>
+</dt>
+<dd>S&eacute;lectionnez cet attribut pour activer la gestion automatique du fichier journal en fonction
+de l'heure de la journ&eacute;e. Le fichier est substitu&eacute; &agrave; l'heure indiqu&eacute;e dans la zone Heure de d&eacute;but.</dd>
+
+<dt>
+<strong>Heure de d&eacute;but</strong>
+</dt>
+<dd>Indique l'heure du premier lancement de l'algorithme de substitution p&eacute;riodique (comprise entre 1 et 24) apr&egrave;s le red&eacute;marrage d'un serveur d'applications. Cet algorithme se charge au d&eacute;marrage du serveur d'applications. Une fois lanc&eacute; &agrave; l'heure indiqu&eacute;e (heure de d&eacute;but), le fichier est substitu&eacute; selon la fr&eacute;quence d&eacute;finie par la zone Fr&eacute;quence. Cette substitution continue ainsi jusqu'&agrave; l'arr&ecirc;t du serveur d'applications. </dd>
+
+<dt>
+<strong>Intervalle</strong>
+</dt>
+<dd>Indique la fr&eacute;quence de substitution d'un fichier (nombre d'heures compris entre 1 et 24).</dd>
+
+<dt>
+<strong>Intervalle</strong>
+</dt>
+<dd>Indique le nombre d'heures au-del&agrave;
+duquel un nouveau journal se substitue au journal existant. Cette valeur doit &ecirc;tre comprise entre 1 et 24. </dd>
+
+</dl>
+</p>
+
+<p>Vous pouvez configurer la substitution d'un fichier journal par un autre &agrave; la fois en fonction de l'heure, de la taille du fichier, ou de ces deux crit&egrave;res &agrave; la fois.
+Cliquez sur <strong>Taille du fichier</strong> et <strong>Heure</strong> pour substituer le fichier d&egrave;s que l'un de ces crit&egrave;res est rempli. Par exemple, si la fr&eacute;quence est de 5 heures et que la taille maximale du fichier est de 2 Mo, le fichier est substitu&eacute; toutes les 5 heures &agrave; moins qu'il n'atteigne la taille maximale entre temps. Une fois le fichier substitu&eacute; parce qu'il a atteint sa taille maximale, la substitution du fichier continue &agrave; la fr&eacute;quence d&eacute;finie.</p>
+
+</dd>
+<dt>
+<strong><a name="max_historical_files"></a>Nombre maximal des fichiers journaux historiques</strong>
+</dt>
+<dd>
+
+<p>Indique le nombre de fichiers historiques (fichiers remplac&eacute;s par
+d'autres) &agrave; conserver. Les donn&eacute;es sont consign&eacute;es dans le fichier en cours jusqu'&agrave; ce qu'il soit remplac&eacute;. A ce moment, le fichier en cours est ferm&eacute; et enregistr&eacute; sous un nouveau nom. Ce nom reprend le nom du fichier en cours et un horodatage propre &agrave; la substitution lui est ajout&eacute;.
+Un nouveau fichier est alors rouvert avec le nom du fichier d'origine et les donn&eacute;es y sont consign&eacute;es.
+Le nombre de fichiers historiques passe de z&eacute;ro &agrave; la valeur maximale d&eacute;finie pour le nombre de fichiers historiques. Lorsque le fichier est &agrave; nouveau substitu&eacute;, le fichier historique le plus ancien est supprim&eacute;.</p>
+
+</dd>
+<dt>
+<strong><a name="installed_application_output"></a>Sortie des applications install&eacute;es</strong>
+</dt>
+<dd>
+
+<p>Indique si les instructions d'impression <samp>System.out</samp> ou <samp>System.err</samp>
+provenant du code de l'application sont consign&eacute;es et format&eacute;es.<dl>
+
+<dt>
+<strong>Affichage des instructions d'impression des applications</strong>
+</dt>
+<dd>Cliquez sur cette zone pour afficher les
+messages que les applications consignent dans le flux &agrave; l'aide des m&eacute;thodes de flux <strong>print</strong> et
+<strong>println</strong>. Les messages syst&egrave;me WebSphere Application Server sont toujours visibles.</dd>
+
+<dt>
+<strong>Formatage des instructions d'impression</strong>
+</dt>
+<dd>Cliquez sur cette zone pour formater les instructions d'impression telles que les messages syst&egrave;me de WebSphere Application Server.</dd>
+
+</dl>
+</p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Onglet Contexte d'ex&eacute;cution</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="system_out_file_description"></a>Nom de fichier</strong>
+</dt>
+<dd>Indique le nom de l'un des fichiers journaux d&eacute;crits dans cette page. 
+<p>La zone du premier nom de fichier indique le nom du journal <samp>System.out</samp>.
+La zone du deuxi&egrave;me nom de fichier indique le nom du journal <samp>System.err</samp>. </p>
+
+<p>Cliquez sur le bouton <strong>Afficher</strong> dans l'onglet Ex&eacute;cution pour visualiser le contenu du journal
+s&eacute;lectionn&eacute;.</p>
+
+<p>Le nom de fichier sp&eacute;cifi&eacute; pour le journal <samp>System.out</samp> ou <samp>System.err</samp> doit avoir l'une des valeurs suivantes :<dl>
+
+<dt>
+<strong><em>nom de fichier</em></strong>
+</dt>
+<dd>Nom d'un fichier du syst&egrave;me de fichiers. Utilisez
+de pr&eacute;f&eacute;rence un nom de fichier complet. A d&eacute;faut, le syst&egrave;me
+consid&egrave;re que le chemin d''acc&egrave;s au fichier correspond au r&eacute;pertoire
+de travail en cours du serveur.
+Chaque flux doit &ecirc;tre configur&eacute; avec un fichier d&eacute;di&eacute;. Par exemple,
+vous ne pouvez pas r&eacute;acheminer &agrave; la fois les fichiers
+<samp>System.out</samp> et <samp>System.err</samp> vers le m&ecirc;me fichier
+physique.<p>Si le r&eacute;pertoire contenant le fichier existe d&eacute;j&agrave;, l'ID
+utilisateur sous lequel est ex&eacute;cut&eacute; le serveur doit poss&eacute;der des
+droits en lecture/&eacute;criture sur ce r&eacute;pertoire. Si le r&eacute;pertoire n'existe pas, il est cr&eacute;&eacute; avec les
+droits appropri&eacute;s.
+L'ID utilisateur sous lequel le serveur est ex&eacute;cut&eacute; doit disposer des
+droits d'acc&egrave;s n&eacute;cessaires &agrave; la cr&eacute;ation du r&eacute;pertoire.</p>
+</dd>
+
+<dt>
+<strong>console</strong>
+</dt>
+<dd>Nom de fichier sp&eacute;cial permettant de r&eacute;acheminer
+le flux vers le flux de processus correspondant. Si cette valeur est
+indiqu&eacute;e pour <samp>System.out</samp>, le fichier est r&eacute;achemin&eacute; vers
+<samp>stdout</samp>. Si cette valeur est indiqu&eacute;e pour
+<samp>System.err</samp>, le fichier est r&eacute;achemin&eacute; vers <samp>stderr</samp>.</dd>
+
+<dt>
+<strong>none</strong>
+</dt>
+<dd>Annule toutes les donn&eacute;es &eacute;crites dans le flux. Le
+fait de sp&eacute;cifier <strong>none</strong> &eacute;quivaut &agrave; r&eacute;acheminer le flux vers
+dev/null sur un syst&egrave;me Unix.</dd>
+
+</dl>
+</p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informations connexes</strong>
+</p>
+<a href="rcon_buttons.html">Boutons de la console administrative</a>
+<br>
+
+<a href="rcon_scope.html">Param&egrave;tres de la port&eacute;e de la console administrative</a>
+<br>
+
+<a href="rcon_filter.html">Param&egrave;tres de filtrage de la console administrative</a>
+<br>
+
+<a href="rcon_preferences.html">Param&egrave;tres des pr&eacute;f&eacute;rences de la console administrative</a>
+<br>
+
+<a href="rcon_pageusage.html">Caract&eacute;ristiques de la page de la console d'administration</a>
+<br>
+
+</div>
+</body>
+</html>

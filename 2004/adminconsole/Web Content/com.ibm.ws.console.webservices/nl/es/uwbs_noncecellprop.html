@@ -1,0 +1,159 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Propiedades en el nivel de c&eacute;lula de Nonce</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_noncecellprop"></a>
+<h2>
+<img alt="[Release 5.1 y posterior]" src="v51.gif" border="0">Propiedades en el nivel de c&eacute;lula de Nonce</h2>
+
+<p>Utilice esta p&aacute;gina para especificar la configuraci&oacute;n de Nonce en el
+nivel de c&eacute;lula en un entorno de WebSphere Application Server Network
+Deployment.</p>
+
+<p>Para ver esta p&aacute;gina de la consola administrativa, pulse <strong>Seguridad &gt;
+Servicios Web &gt; Propiedades</strong>.</p>
+
+<p>Para definir la configuraci&oacute;n de Nonce en el extremo del servidor , pulse
+<strong>Servidores &gt; Servidores de aplicaciones &gt; </strong><em>nombre_servidor</em>. En Propiedades
+adicionales, pulse <strong>Servicios Web: Enlaces por omisi&oacute;n para Web
+Services Security</strong>.</p>
+
+<p>
+<img alt="[Release 5.1 y posterior]" src="v51.gif" border="0"><em>Nonce</em> es un n&uacute;mero criptogr&aacute;fico exclusivo
+incorporado en un mensaje para facilitar la detenci&oacute;n de repetidos ataques no
+autorizados de s&iacute;mbolos de nombre de usuario. En un entorno de
+WebSphere Application Server Network Deployment, debe especificar valores para
+los campos <strong>Tiempo de espera de antememoria de Nonce</strong>, <strong>Antig&uuml;edad
+m&aacute;xima de Nonce</strong> y <strong>Desfase horario de Nonce</strong> para el nivel de
+servidor. </p>
+
+<dl>
+<dt>
+<strong><a name="sec_cellnoncecachetimeout"></a>Tiempo de espera de antememoria de Nonce</strong>
+</dt>
+<dd>Especifica el valor de tiempo de espera en segundos para la
+antememoria de Nonce en el servidor. Nonce es un valor generado aleatoriamente. 
+<p>Debe especificar un m&iacute;nimo de 300 segundos para el campo <strong>Tiempo de espera
+de antememoria de Nonce</strong>. Sin embargo, si no especifica un valor, el valor
+por omisi&oacute;n es 600 segundos. </p>
+
+<p>El campo <strong>Tiempo de espera de antememoria de Nonce</strong> para el nivel de
+c&eacute;lula es necesario en el entorno de WebSphere Application Server Network
+Deployment.</p>
+
+<p>
+<b>Nota: </b>Si realiza cambios en el valor de tiempo de espera de
+antememoria de Nonce, debe reiniciar WebSphere Application Server para que los
+cambios entren en vigor.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">600 segundos</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">M&iacute;nimo</td>
+<td align="left" valign="top" class="base">300 segundos</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="sec_cellnoncemaxage"></a>Antig&uuml;edad m&aacute;xima de Nonce</strong>
+</dt>
+<dd>Especifica la cantidad de tiempo en segundos antes de que
+caduque la indicaci&oacute;n de la hora de Nonce. Nonce es un valor generado
+aleatoriamente. 
+<p>Debe especificar un m&iacute;nimo de 300 segundos para el campo <strong>Antig&uuml;edad
+m&aacute;xima de Nonce</strong>. Sin embargo, el valor m&aacute;ximo no puede exceder el n&uacute;mero
+de segundos especificado en el campo <strong>Tiempo de espera de antememoria de
+Nonce</strong> para el nivel de c&eacute;lula. Si no especifica un valor, el valor por
+omisi&oacute;n es 300 segundos. El valor especificado en este campo del nivel de
+c&eacute;lula es el valor m&aacute;ximo que puede especificar para el campo <strong>Antig&uuml;edad
+m&aacute;xima de Nonce</strong> para el nivel de servidor. Para especificar el valor
+<strong>Antig&uuml;edad m&aacute;xima de Nonce</strong> para el nivel de servidor, pulse
+<strong>Servidores &gt; Servidores de aplicaciones  &gt; </strong><em>nombre_servidor</em>. En Propiedades
+adicionales, pulse <strong>Servicios Web: Enlaces por omisi&oacute;n para Web
+Services Security</strong>.</p>
+
+<p>El campo <strong>Antig&uuml;edad m&aacute;xima de Nonce</strong> para el nivel de c&eacute;lula es
+necesario en el entorno de WebSphere Application Server Network Deployment.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">300 segundos</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">300 segundos a <strong>Tiempo de espera de antememoria de Nonce</strong></td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="sec_nonceclockskew"></a>Desfase horario de Nonce</strong>
+</dt>
+<dd>Especifica el valor de desfase horario en segundos a tener en cuenta
+cuando WebSphere Application Server comprueba lo reciente que es el mensaje. 
+Nonce es un valor generado aleatoriamente. 
+<p>Debe especificar un m&iacute;nimo de 0 segundos para el campo <strong>Desfase horario de
+Nonce</strong>. Sin embargo, el valor m&aacute;ximo no puede exceder el n&uacute;mero de segundos
+especificado en el campo <strong>Antig&uuml;edad m&aacute;xima de Nonce</strong> del nivel de
+c&eacute;lula. Si no especifica un valor, el valor por omisi&oacute;n es 0 segundos. </p>
+
+<p>El campo <strong>Desfase horario de Nonce</strong> para el nivel de c&eacute;lula es
+necesario en el entorno de WebSphere Application Server Network Deployment.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">0 segundos</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">0 segundos a <strong>Antig&uuml;edad m&aacute;xima de Nonce</strong></td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>Informaci&oacute;n relacionada</strong>
+</p>
+<a href="uwbs_websvcb.html">Servicios Web: grupo de enlaces por omisi&oacute;n para Web Services Security</a>
+<br>
+
+<a href="uwbs_logmapn.html">Valores de configuraci&oacute;n de enlaces de correlaciones de inicio de sesi&oacute;n</a>
+<br>
+
+</div>
+</body>
+</html>

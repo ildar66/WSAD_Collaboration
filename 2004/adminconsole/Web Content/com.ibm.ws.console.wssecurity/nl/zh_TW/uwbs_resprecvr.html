@@ -1,0 +1,69 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>回應接收端連結集合</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_resprecvr"></a>
+<h2>
+<img alt="[修正套件 5.0.2 和更新版本]" src="v502.gif" border="0">回應接收端連結集合</h2>
+
+<p>請利用這個頁面來指定 Web 服務安全接收端回應訊息的連結配置。</p>
+
+<p>如果要檢視這個管理主控台頁面，請完成下列步驟：<ol>
+
+<li>按一下<strong>應用程式 &gt; 企業應用程式 &gt; </strong><em>application_name</em>。</li>
+
+<li>在「相關項目」之下，按一下 <strong>Web 模組</strong> &gt; <em>URI_file_name</em> &gt; <strong>Web 服務：伺服器安全連結</strong>。</li>
+
+<li>在「回應傳送端連結」之下，按一下<strong>編輯</strong>。</li>
+
+</ol>
+</p>
+
+<dl>
+<dt>
+<strong><a name="sec_signing"></a>簽章資訊</strong>
+</dt>
+<dd>指定簽章參數的配置。簽章資訊用來簽署和驗證訊息組件，其中包括主體和時間戳記。
+<p>當伺服器層次配置的<em>鑑別方法</em>是 <samp>IDAssertion</samp> 且 <em>ID 類型</em>是 <samp>X509Certificate</samp> 時，您也可以在 X.509 驗證上使用這些參數。在這些情況下，您只需要填入<em>憑證路徑</em>欄位。
+</p>
+
+</dd>
+<dt>
+<strong><a name="sec_encrypt"></a>加密資訊</strong>
+</dt>
+<dd>指定加密和解密參數的配置。加密資訊用來加密和解密訊息的各組件，其中包括主體和使用者名稱記號。
+</dd>
+<dt>
+<strong><a name="sec_trustancdescr"></a>信任錨點</strong>
+</dt>
+<dd>指定含有自行簽章的最高授信使用者憑證或憑證管理中心發出的最高授信使用者憑證之金鑰儲存庫物件清單。
+
+<p>憑證管理中心會鑑別使用者和發出憑證。
+在發出憑證之後，這些憑證所在的金鑰儲存庫物件會使用憑證路徑的憑證或送入 X.509 格式安全記號的憑證鏈驗證。
+</p>
+
+</dd>
+<dt>
+<strong><a name="sec_collcert"></a>集合憑證儲存庫</strong>
+</dt>
+<dd>指定非授信的中間憑證檔清單。
+<p>集合憑證儲存庫含有中間非授信憑證鏈。CertPath 會試圖驗證以信任錨點為基礎的這些憑證。
+</p>
+
+</dd>
+<dt>
+<strong><a name="sec_keyldesc"></a>金鑰定位器
+</strong>
+</dt>
+<dd>指定從金鑰儲存庫檔或儲存庫擷取數位簽章和加密金鑰的金鑰定位器物件清單。
+金鑰定位器會將名稱或邏輯名稱對映至別名，或將鑑別過的身分對映至金鑰。
+這個邏輯名稱用來尋找金鑰定位器實作中的金鑰。
+</dd>
+</dl>
+</body>
+</html>

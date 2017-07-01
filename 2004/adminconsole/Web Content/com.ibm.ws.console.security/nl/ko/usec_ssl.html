@@ -1,0 +1,419 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>SSL(Secure Sockets Layer) 설정</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecssl"></a>
+<h2>SSL(Secure Sockets Layer) 설정</h2>
+
+<p>이 페이지를 참조하여 서버에 대한 SSL(Secure Sockets Layer)를 구성하십시오.</p>
+
+<p>이 관리 콘솔 페이지를 보려면 <strong>보안 &gt; SSL &gt; </strong><em>alias_name</em>을 클릭하십시오.</p>
+
+
+
+
+<div>
+<p>
+<strong>구성 탭</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="Security_defaultSSLSettings_description"></a>별명</strong>
+</dt>
+<dd>특정 SSL 설정의 이름을 지정합니다.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형:</td>
+<td align="left" valign="top" class="base">문자열</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecureSocketLayer_keyFileName_description"></a>키 파일 이름</strong>
+</dt>
+<dd>공용 키와 개인용 키를 포함하는
+SSL 키 파일에 대한 완전한 경로를 지정합니다. 
+
+
+<p>SSL 키 파일은 키 관리 유틸리티를 사용하여 작성하거나,
+이 파일이 사용 가능한 경우 하드웨어 장치에 해당할 수 있습니다. 이느 경우이든 이 옵션은 신뢰 파일이
+지정되어 있지 않으면 개인 인증서 및 서명자 인증서에 대한 소스를 표시합니다. 기본 SSL 키 파일(<samp>DummyClientKeyFile.jks</samp> 및
+<samp>DummyServerKeyFile.jks</samp>)은 2005년 3월 17일에 만료되는 자체 서명 개인 테스트 인증서를 포함합니다.
+테스트 인증서는 테스트 환경에서만
+사용되어야 합니다. 개인용 키는 모든 WebSphere
+Application Server 설치에서 같으므로 기본 SSL 키 파일을 생산 환경에서 사용되면 안됩니다.
+사용자 WebSphere Application Server 도메인에 대한 디지털 인증서 작성 및 관리에 대한 정보는
+InfoCenter의 인증서 관리 조항을 참조하십시오.
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형:</td>
+<td align="left" valign="top" class="base">문자열</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecureSocketLayer_keyFilePassword_description"></a>키 파일 암호</strong>
+</dt>
+<dd>SSL 키 파일에 액세스하기 위한 암호를 지정합니다. 
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형:</td>
+<td align="left" valign="top" class="base">문자열</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecureSocketLayer_keyFileFormat_description"></a>키 파일 형식</strong>
+</dt>
+<dd>SSL 키 파일의 형식을 지정합니다.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형:</td>
+<td align="left" valign="top" class="base">문자열</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">기본값:</td>
+<td align="left" valign="top" class="base">JKS</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">범위:</td>
+<td align="left" valign="top" class="base">JKS, JCEK, PKCS12</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecureSocketLayer_trustFileName_description"></a>신뢰 파일 이름</strong>
+</dt>
+<dd>공용 키가 들어 있는 신뢰 파일에 대한 완전한 경로를 지정합니다. 
+
+<p>WebSphere <em>bin</em> 디렉토리에 포함된 키 관리 유틸리티를 사용하여
+신뢰 파일을 작성할 수 있습니다.
+GSKit(Global Security Kit) (다른 SSL(Secure Socket Layer) 구현)에서 키 관리
+유틸리티를 사용하면 JSSE(Java Secure Socket Extension) 구현과 함께 작동하지
+않습니다. </p>
+
+<p>SSL 키 파일과 달리, 어떤 개인 인증서도 참조되지 않으며 서명자 인증서만이 검색됩니다.
+기본 SSL 신뢰 파일(<samp>DummyClientTrustFile.jks</samp> 및 <samp>DummyServerTrustFile.jks</samp>)은
+만료할 수 있는 서명자 인증서로서 여러 테스트 공용 키가 포함됩니다.
+WebSphere Application Server 버전 4.0 테스트 인증서의 공용 키는 2004년 1월 15일에 만료되고
+WebSphere Application Server 버전 5 테스트 인증의 공용 키 및
+WebSphere Application Server CORBA C++ 클라이언트는 2005년 3월 17일에 만료됩니다. 테스트 인증서는 테스트 환경에서만
+사용되어야 합니다. </p>
+
+<p>신뢰 파일이 지정되지 않지만 SSL 키 파일이 지정된 경우
+SSL 키 파일이 서명자 인증서 및 개인 인증서의 검색에 사용됩니다.
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형:</td>
+<td align="left" valign="top" class="base">문자열</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecureSocketLayer_trustFilePassword_description"></a>신뢰 파일 암호</strong>
+</dt>
+<dd>SSL 신뢰 파일에 액세스하기 위한 암호를 지정합니다. 
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형:</td>
+<td align="left" valign="top" class="base">문자열</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecureSocketLayer_trustFileFormat_description"></a>신뢰 파일 형식</strong>
+</dt>
+<dd>SSL 신뢰 파일의 형식을 지정합니다.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형:</td>
+<td align="left" valign="top" class="base">문자열</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">기본값:</td>
+<td align="left" valign="top" class="base">JKS</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">범위:</td>
+<td align="left" valign="top" class="base">JKS, JCEK, PKCS12</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecureSocketLayer_clientAuthentication_description"></a>클라이언트 인증</strong>
+</dt>
+<dd>연결을 작성할 때 인증 목적을 위해 클라이언트의 인증서를
+요청할지 여부를 지정합니다. 
+<p>이 속성은 웹 컨테이너 HTTP 전송에서
+사용하는 경우에만 유효합니다. IIOP(Internet InterORB Protocol) 프로토콜(EJB 요청용)을 사용하여
+클라이언트 인증을 수행할 때 관리 콘솔의 왼쪽 경로 선택 분할창에서
+<strong>보안</strong> &gt; <strong>인증 프로토콜</strong> &gt; <strong>CSIv2 인바운드</strong> 또는 <strong>아웃바운드 인증</strong>을
+클릭해야 합니다.<strong>SSL 클라이언트 인증서 인증</strong>을 클릭하여 이 요청에 대해 사용 가능하게 하십시오.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형:</td>
+<td align="left" valign="top" class="base">부울</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">기본값:</td>
+<td align="left" valign="top" class="base">사용 불가능</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">범위:</td>
+<td align="left" valign="top" class="base">사용 가능 또는 사용 불가능</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecureSocketLayer_securityLevel_description"></a>보안 레벨</strong>
+</dt>
+<dd>서버가 보안 레벨의 사전 구성된 세트에서 선택할지 지정합니다.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형:</td>
+<td align="left" valign="top" class="base">유효한 값은 <strong>저</strong>, <strong>중</strong> 또는 <strong>고</strong>입니다. <ul>
+
+<li>저(LOW)는 디지털 서명 암호만 지정합니다(암호화 없음).</li>
+
+<li>중(MEDIUM)은 40비트 암호만 지정합니다(디지털 서명 포함).</li>
+
+<li>고(HIGH)는 128비트 암호만 지정합니다(디지털 서명 포함).</li>
+
+</ul>
+<p>모든 암호 또는 특정 범위를 지정하려면, <strong>com.ibm.ssl.enabledCipherSuites</strong>
+등록 정보를 설정할 수 있습니다. </p>
+<p>InfoCenter에서 SSL 문서를 참조하십시오. </p>
+</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">기본값:</td>
+<td align="left" valign="top" class="base">고
+</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">범위:</td>
+<td align="left" valign="top" class="base">저, 중 또는 고</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SSLConfig_cipherSuites_description"></a>Cipher Suite</strong>
+</dt>
+<dd>SSL 데이터 교환 시 사용하기 위해 선택할 수 있는 지원 암호 모음의 목록을
+지정합니다. 여기서 개별적으로 cipher suite를 선택하는 경우, 보안 레벨 필드에 설정되어 있는
+해당 cipher suite를 대체합니다.
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형:</td>
+<td align="left" valign="top" class="base"> </td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">기본값:</td>
+<td align="left" valign="top" class="base"></td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">범위:</td>
+<td align="left" valign="top" class="base"></td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecureSocketLayer_enableCryptoHardwareSupport_description"></a>암호화 토큰</strong>
+</dt>
+<dd>서버가 암호 하드웨어 및 소프트웨어 지원을 사용 가능하게 할지 사용 불가능하게 할지 지정합니다.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형:</td>
+<td align="left" valign="top" class="base">부울</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">기본값:</td>
+<td align="left" valign="top" class="base">사용 불가능</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">범위:</td>
+<td align="left" valign="top" class="base">사용 가능 또는 사용 불가능</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SystemSecureSocketLayer_provider"></a>프로바이더</strong>
+            &nbsp;
+            <img alt="[픽스팩 5.0.2 이상]" src="v502.gif" border="0"></dt>
+<dd>Java 보안 API의 암호 측면 서브세트에 대한 구체적인 구현을 제공하는 패키지를
+말합니다. 
+<p> 첫 번째 단추를 선택할 경우, 메뉴에서
+프로바이더를 선택하십시오. WebSphere Application Server에는 사전 정의된
+프로바이더인 <strong>IBMJSSE</strong> 및 <strong>IBMJSSEFIPS</strong>가 있습니다. <strong>IBMJSSEFIPS</strong>는
+FIPS(Federal Information Processing Standard)에서 승인한
+IBMJSSE 프로바이더 버전입니다. 두 번째 단추를 선택할 경우, 사용자 정의 프로바이더를 입력하십시오.
+사용자 정의 프로바이더인 경우, 먼저 추가 등록 정보에서 <strong>사용자 정의
+등록 정보</strong>를 통해 Cipher Suite를 입력해야 합니다. Cipher Suite 및 프로토콜 값은
+프로바이더에 따라 다릅니다.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">정수</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">기본값</td>
+<td align="left" valign="top" class="base">100</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">범위</td>
+<td align="left" valign="top" class="base">1 - 86400</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SystemSecureSocketLayer_protocol"></a>프로토콜</strong>
+            &nbsp;
+            <img alt="[픽스팩 5.0.2 이상]" src="v502.gif" border="0"></dt>
+<dd>사용하는 SSL 프로토콜을 지정합니다. 
+<p>FIPS에서 승인한 JSSE(예:
+IBMJSSEFIPS)를 사용 중일 경우, TLS 프로토콜을 선택해야 합니다. FIPS에서 승인한
+JSSE는 역호환이 가능하지 않으므로, TLS 프로토콜을 사용하는 서버는
+SSL 프로토콜을 사용하는 클라이언트와 통신할 수 없습니다.</p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>관련 정보</strong>
+</p>
+<a href="rcon_buttons.html">관리 콘솔 단추</a>
+<br>
+
+<a href="rcon_pageusage.html">관리 콘솔 페이지 기능</a>
+<br>
+
+<a href="rcon_scope.html">관리 콘솔 범위 설정</a>
+<br>
+
+<a href="rcon_filter.html">관리 콘솔 필터 설정</a>
+<br>
+
+<a href="rcon_preferences.html">관리 콘솔 환경 설정</a>
+<br>
+
+<a href="usec_rassl.html">사용자 정의 등록 정보의 SSL(Secure Sockets Layer) 설정</a>
+<br>
+
+</div>
+</body>
+</html>

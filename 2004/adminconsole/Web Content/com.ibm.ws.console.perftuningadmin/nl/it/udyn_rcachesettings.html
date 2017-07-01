@@ -1,0 +1,70 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Impostazione dei servizi di cache dinamica</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="udyn_rcachesettings"></a>
+<h2>Impostazione dei servizi di cache dinamica</h2>
+
+<p>Utilizzare questa pagina per configurare e gestire le impostazioni del
+servizio cache dinamica. </p>
+
+<p>Per visualizzare questa pagina della console di gestione, fare clic su <strong>Server</strong>
+&gt; <strong>Server delle applicazioni</strong> &gt; <em>server</em> &gt; <strong>Servizio cache
+dinamica</strong>.</p>
+
+<div>
+<p>
+<strong>Scheda Configurazione</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="DynamicCache__startup_description"></a>Stato di avvio</strong>
+</dt>
+<dd>Specifica se la cache dinamica &egrave; abilitata.</dd>
+<dt>
+<strong><a name="DynamicCache_cacheSize_description"></a>Dimensione cache</strong>
+</dt>
+<dd>Specifica un numero intero positivo come valore per il numero massimo di voci
+contenute nella cache. 
+<p>Immettere il valore della dimensione della cache in questo campo, in un intervallo compreso tra 100 e 200.000.</p>
+
+</dd>
+<dt>
+<strong><a name="DynamicCache_defaultPriority_description"></a>Priorit&agrave; predefinita</strong>
+</dt>
+<dd>Specifica la priorit&agrave; predefinita per le voci cache, che determina la durata
+della permanenza di una voce in una cache piena. 
+<table border="1" cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base">Predefinito</td>
+<td align="left" valign="top" class="base">1</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="DynamicCache_enableDiskOffload_description"></a>Scaricamento su disco</strong>
+</dt>
+<dd>Specifica se &egrave; stato abilitato lo scaricamento su disco.
+<p>Per impostazione predefinita, la cache dinamica conserva il numero
+di voci configurate in memoria.  Se vengono create nuove voci mentre la cache &egrave; piena, le
+priorit&agrave; configurate per ciascuna voce cache, insieme all'ultimo algoritmo utilizzato,
+vengono usate per rimuovere le voci dalla cache.  In alternativa, &egrave; possibile
+configurare lo scaricamento su disco e, invece di rimuovere le voci dalla memoria,
+copiarle nel file system (&egrave; possibile configurare l'ubicazione) a cui accedere
+successivamente.</p>
+
+</dd>
+</dl>
+</div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+    <!-- Mapping services -->
+
+	<!-- RTS Auth Service -->
+    <bean id="july.rts.auth.RTSAuthService" parent="july.txProxyTemplate">
+        <property name="proxyInterfaces"
+            value="com.hps.july.rts.auth.service.RTSAuthService"/>
+        <property name="target">
+            <bean class="com.hps.july.rts.auth.service.impl.RTSAuthServiceImpl" parent="april.auth.authService_target">
+            	<property name="personDAO" ref="july.rts.auth.dao.personDAO"/>
+            	<property name="rtsRoleDAO" ref="july.rts.auth.dao.rtsRoleDAO"/>
+            	<property name="rtsGroupDAO" ref="july.rts.auth.dao.rtsGroupDAO"/>
+                <property name="roleAliases" ref="july.rts.auth.dao.rtsRoleAlias"/>
+            </bean>
+        </property>
+    </bean> 
+
+    <bean id="april.auth.authPlugInList" class="org.springframework.beans.factory.config.ListFactoryBean">
+        <property name="sourceList">
+            <list>
+                <bean id="july.rts.auth.dao.rtsAuthPlugin"
+                      class="com.hps.july.rts.auth.service.plugin.RTSAuthPlugIn">
+                    <property name="personDAO" ref="july.rts.auth.dao.personDAO"/>
+                    <property name="rtsRoleDAO" ref="july.rts.auth.dao.rtsRoleDAO"/>
+                    <property name="rtsGroupDAO" ref="july.rts.auth.dao.rtsGroupDAO"/>
+                    <property name="roleAliases" ref="july.rts.auth.dao.rtsRoleAlias"/>
+                </bean>
+            </list>
+        </property>
+    </bean>
+
+</beans>

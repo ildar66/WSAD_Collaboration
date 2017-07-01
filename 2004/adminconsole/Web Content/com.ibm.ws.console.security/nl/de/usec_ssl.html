@@ -1,0 +1,433 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>SSL-Einstellungen</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecssl"></a>
+<h2>SSL-Einstellungen</h2>
+
+<p>Verwenden Sie diese Seite, um die SSL-Einstellungen (Secure Sockets Layer) f&uuml;r den Server zu konfigurieren. </p>
+
+<p>Klicken Sie zum Anzeigen dieser Seite der Administrationskonsole auf
+<strong>Sicherheit &gt; SSL &gt; </strong><em>Aliasname</em>.</p>
+
+
+
+
+<div>
+<p>
+<strong>Register "Konfiguration"</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="Security_defaultSSLSettings_description"></a>Aliasname</strong>
+</dt>
+<dd>Gibt den Namen der spezifischen SSL-Einstellung an. 
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecureSocketLayer_keyFileName_description"></a>Name der Schl&uuml;sseldatei</strong>
+</dt>
+<dd>Gibt den vollst&auml;ndig qualifizierten Pfad
+der SSL-Schl&uuml;sseldatei an, die die &ouml;ffentlichen und privaten Schl&uuml;ssel enth&auml;lt.
+
+
+<p>Eine SSL-Schl&uuml;sseldatei kann mit dem Dienstprogramm f&uuml;r Schl&uuml;sselverwaltung
+erstellt werden. Falls
+eine Hardwareeinheit verf&uuml;gbar ist, kann die Schl&uuml;sseldatei sich auch auf diese Hardware beziehen. In beiden
+F&auml;llen ist diese Option die Quelle f&uuml;r pers&ouml;nliche Zertifikate sowie Ausstellerzertifikate,
+vorausgesetzt, es ist keine Trust-Datei angegeben. Die SSL-Standardschl&uuml;sseldateien,
+<samp>DummyClientKeyFile.jks</samp> und <samp>DummyServerKeyFile.jks</samp>,
+enth&auml;lt ein selbstunterzeichnetes pers&ouml;nliches Testzertifikat, das am 17. M&auml;rz 2005 verf&auml;llt.
+Das Testzertifikat ist nur f&uuml;r die Verwendung in einer
+Testumgebung vorgesehen. Die SSL-Standardschl&uuml;sseldateien d&uuml;rfen nicht in einer
+Produktionsumgebung verwendet werden, da die privaten Schl&uuml;ssel in allen Installationen des WebSphere
+Application Server identisch
+sind. Der Abschnitt "Zertifikate verwalten" im InfoCenter
+enth&auml;lt Informationen zur Erstellung und Verwaltung digitaler Zertifikate f&uuml;r die Dom&auml;ne des
+WebSphere Application Server.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecureSocketLayer_keyFilePassword_description"></a>Kennwort der Schl&uuml;sseldatei</strong>
+</dt>
+<dd>Gibt das Kennwort f&uuml;r den Zugriff auf den SSL-Schl&uuml;sselring an.
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecureSocketLayer_keyFileFormat_description"></a>Format der Schl&uuml;sseldatei </strong>
+</dt>
+<dd>Gibt das Format des SSL-Schl&uuml;sselrings an. 
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">JKS</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">JKS, JCEK, PKCS12</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecureSocketLayer_trustFileName_description"></a>Name der Trust-Datei  </strong>
+</dt>
+<dd>Gibt den vollst&auml;ndig qualifizierten Pfad der Trust-Datei an, die die &ouml;ffentlichen Schl&uuml;ssel enth&auml;lt.  
+
+<p>Sie k&ouml;nnen eine Trust-Datei mit dem Dienstprogramm f&uuml;r Schl&uuml;sselverwaltung
+erstellt werden, das sich im
+WebSphere-Verzeichnis <em>bin</em> befindet. Das Dienstprogramm f&uuml;r Schl&uuml;sselverwaltung
+von Global Security Kit (GSKit) (eine andere SSL-Implementierung)
+kann f&uuml;r die JSSE-Implementierung (Java Secure Socket Extension) nicht verwendet werden. </p>
+
+<p>Im
+Gegensatz zur SSL-Schl&uuml;sseldatei k&ouml;nnen aber
+keine pers&ouml;nlichen Zertifikate referenziert werden.
+Es werden nur Ausstellerzertifikate abgerufen. Die SSL-Standard-Trust-Dateien,
+<samp>DummyClientTrustFile.jks</samp> und <samp>DummyServerTrustFile.jks</samp>,
+enthalten mehrere &ouml;ffentliche Testschl&uuml;ssel als Ausstellerzertifikate, die verfallen k&ouml;nnen.
+Der &ouml;ffentliche Schl&uuml;ssel f&uuml;r die Testzertifikate des WebSphere
+Application Server Version 4.0 ist bis zum 15. January 2004 g&uuml;ltig. Der &ouml;ffentliche Schl&uuml;ssel f&uuml;r die
+Testzertifikate des WebSphere Application Server Version 5 und des WebSphere Application Server CORBA
+C++-Client ist bis zum 17. M&auml;rz 2005 g&uuml;ltig. Das Testzertifikat ist nur f&uuml;r die Verwendung in einer
+Testumgebung vorgesehen. </p>
+
+<p>Wenn keine Trust-Datei, sondern eine
+SSL-Schl&uuml;sseldatei angegeben ist, wird die SSL-Schl&uuml;sseldatei f&uuml;r den Abruf der
+Ausstellerzertifikate und der pers&ouml;nlichen Zertifikate verwendet.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecureSocketLayer_trustFilePassword_description"></a>Kennwort f&uuml;r Trust-Datei </strong>
+</dt>
+<dd>Gibt das Kennwort f&uuml;r den Zugriff auf die SSL-Trust-Datei an.
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecureSocketLayer_trustFileFormat_description"></a>Format der Trust-Datei </strong>
+</dt>
+<dd>Gibt das Format der SSL-Trust-Datei an. 
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">JKS</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">JKS, JCEK, PKCS12</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecureSocketLayer_clientAuthentication_description"></a>Clientauthentifizierung</strong>
+</dt>
+<dd>Gibt an, ob zur Authentifizierung ein Zertifikat vom Client abgerufen werden
+soll, wenn eine Verbindung hergestellt wird.
+<p>Dieses Attribut ist nur g&uuml;ltig, wenn es vom HTTP-Transport des Webcontainers
+verwendet wird. Beim Durchf&uuml;hren der
+Clientauthentifizierung mit dem IIOP-Protokoll (Internet InterORB Protocol) f&uuml;r EJB-Anforderungen m&uuml;ssen Sie im linken
+Navigationsfenster der Administrationskonsole auf
+<strong>Sicherheit</strong> &gt; <strong>Authentifizierungsprotokoll</strong> &gt;  <strong>Eingehende Authentifizierung gem&auml;&szlig; CSIv2</strong> oder
+<strong>Abgehende Authentifizierung gem&auml;&szlig; CSIv2</strong> klicken. Klicken Sie auf <strong>Authentifizierung &uuml;ber
+SSL-Clientzertifikat</strong>, um diese Authentifizierung f&uuml;r diese Anforderungen zu aktivieren. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">Inaktiviert</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">Aktiviert oder inaktiviert</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecureSocketLayer_securityLevel_description"></a>Sicherheitsstufe</strong>
+</dt>
+<dd>Gibt an, ob der Server Optionen aus einer vordefinierten Gruppe von Sicherheitsstufen
+ausw&auml;hlt. 
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Die g&uuml;ltigen Werte lauten <strong>Niedrig</strong>, <strong>Mittel</strong>, <strong>Hoch</strong>. <ul>
+
+<li>NIEDRIG gibt an, das nur digitale Signatur-Schl&uuml;ssel verwendet werden (keine Verschl&uuml;sselung). </li>
+
+<li>MITTEL gibt an, dass nur 40-Bit-Schl&uuml;ssel (einschlie&szlig;lich digitaler Signatur) verwendet werden.</li>
+
+<li>HOCH gibt an, dass nur 128-Bit-Schl&uuml;ssel (einschlie&szlig;lich digitaler Signatur) verwendet werden.</li>
+
+</ul>
+<p>Wenn Sie alle Schl&uuml;ssel oder einen bestimmten Schl&uuml;sselbereich angeben m&ouml;chten, k&ouml;nnen Sie das
+Merkmal <strong>com.ibm.ssl.enabledCipherSuites</strong> definieren. </p>
+<p>N&auml;here Informationen hierzu finden
+Sie in der SSL-Dokumentation im InfoCenter.</p>
+</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">Hoch</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">Niedrig, Mittel oder Hoch</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SSLConfig_cipherSuites_description"></a>Cipher Suites</strong>
+</dt>
+<dd>Gibt eine Liste der unterst&uuml;tzten Cipher Suites an, die w&auml;hrend des SSL-Handshake
+verwendet werden k&ouml;nnen. Wenn Sie Cipher Suites einzeln ausw&auml;hlen, &uuml;berschreiben Sie die Cipher Suites, die
+im Feld f&uuml;r die Sicherheitsstufe angegeben sind. 
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base"> </td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base"></td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base"></td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecureSocketLayer_enableCryptoHardwareSupport_description"></a>Verschl&uuml;sselungs-Token</strong>
+</dt>
+<dd>Gibt an, ob der Server die Unterst&uuml;tzung der Verschl&uuml;sselungshard- und -software aktiviert
+oder inaktiviert. 
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">Inaktiviert</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">Aktiviert oder inaktiviert</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SystemSecureSocketLayer_provider"></a>Provider</strong>
+            &nbsp;
+            <img alt="[Fixpack 5.0.2 und h&ouml;her]" src="v502.gif" border="0"></dt>
+<dd>Bezeichnet ein Paket, das eine konkrete
+Implementierung eines Teil der Verschl&uuml;sselungsfunktionen der Java-Sicherheits-API bereitstellt. 
+<p> Wenn Sie den ersten Knopf
+ausw&auml;hlen, w&auml;hlen Sie im Men&uuml; einen Provider aus. WebSphere Application Server
+hat die folgenden vordefinierten Provider: <strong>IBMJSSE</strong> und <strong>IBMJSSEFIPS</strong>. <strong>IBMJSSEFIPS</strong> ist
+die FIPS-Version (Federal Information Processing Standard) des IBMJSSE-Providers. Wenn Sie den zweiten Knopf ausw&auml;hlen, geben
+Sie einen eigenen Provider ein.
+Wenn Sie einen eigenen Provider angeben, m&uuml;ssen Sie zuerst unter "Weitere Merkmale" in der Anzeige
+<strong>Benutzerdefinierte Merkmale</strong> die Cipher Suites angeben. Cipher Suites und Protokollwerte h&auml;ngen vom Provider ab. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert </td>
+<td align="left" valign="top" class="base">100</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">1 bis 86400</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SystemSecureSocketLayer_protocol"></a>Protokoll</strong>
+            &nbsp;
+            <img alt="[Fixpack 5.0.2 und h&ouml;her]" src="v502.gif" border="0"></dt>
+<dd>Gibt das verwendete SSL-Protokoll an. 
+<p>Wenn Sie einen FIPS-JSSE-Provider wie
+IBMJSSEFIPS verwenden, m&uuml;ssen Sie ein TLS-Protokoll ausw&auml;hlen. Weil die FIPS-konformen JSSE-Provider
+nicht abw&auml;rtskompatibel sind, k&ouml;nnen Server, die das Protokoll TLS verwenden, nicht mit Clients kommunizieren, die ein SSL-Protokoll verwenden.
+</p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Zugeh&ouml;rige Informationen</strong>
+</p>
+<a href="rcon_buttons.html">Kn&ouml;pfe in der Adminstrationskonsole</a>
+<br>
+
+<a href="rcon_pageusage.html">Funktionen auf den Seiten der Administrationskonsole</a>
+<br>
+
+<a href="rcon_scope.html">Geltungsbereichseinstellungen f&uuml;r die Administrationskonsole</a>
+<br>
+
+<a href="rcon_filter.html">Filtereinstellungen f&uuml;r die Administrationskonsole</a>
+<br>
+
+<a href="rcon_preferences.html">Vorgaben f&uuml;r die Administrationskonsole</a>
+<br>
+
+<a href="usec_rassl.html">SSL-Einstellungen f&uuml;r benutzerdefinierte Merkmale</a>
+<br>
+
+</div>
+</body>
+</html>

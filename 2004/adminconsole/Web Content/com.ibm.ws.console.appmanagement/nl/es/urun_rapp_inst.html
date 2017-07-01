@@ -1,0 +1,306 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Valores de aplicaci&oacute;n de empresa</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="urun_rapp_inst"></a>
+<h2>Valores de aplicaci&oacute;n de empresa</h2>
+
+<p>Utilice esta p&aacute;gina para configurar una aplicaci&oacute;n de empresa.</p>
+
+<p>Para ver esta p&aacute;gina de la consola administrativa, pulse <strong>Aplicaciones &gt; Aplicaciones de empresa&gt; </strong><em>nombre_aplicaci&oacute;n</em>.</p>
+
+<div>
+<p>
+<strong>Pesta&ntilde;a Configuraci&oacute;n</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="ApplicationDeployment_name_description"></a>Nombre</strong>
+</dt>
+<dd>Especifica un nombre l&oacute;gico para la aplicaci&oacute;n. Los nombres de aplicaci&oacute;n deben ser exclusivos en una c&eacute;lula y no deben contener caracteres no permitidos en los nombres de objeto.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationDeployment_startingWeight_description"></a>Peso inicial</strong>
+</dt>
+<dd>Especifica el orden en que se inician las aplicaciones cuando se inicia el servidor. 
+La aplicaci&oacute;n con el peso inicial menor se inicia primero.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">1</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">0 a 100</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationDeployment_binariesURL_description"></a>Binarios de aplicaci&oacute;n</strong>
+</dt>
+<dd>Especifica el directorio donde se va a instalar el archivo EAR de la aplicaci&oacute;n.  El
+valor por omisi&oacute;n es el valor de APP_INSTALL_ROOT/<em>nombre_c&eacute;lula</em>, donde la variable
+APP_INSTALL_ROOT es <em>ra&iacute;z_instalaci&oacute;n</em>/installedApps; por ejemplo,
+C:\WebSphere\AppServer\installedApps\<em>nombre_c&eacute;lula</em>.
+<p>Puede especificar una v&iacute;a de acceso absoluta o utilizar una variable Pathmap, como por ejemplo ${MY_APPS}.
+  Puede utilizar una variable Pathmap en cualquier
+instalaci&oacute;n,. Una variable ${CELL} de WebSphere Application Server que
+denote el nombre de c&eacute;lula actual tambi&eacute;n puede estar en la variable
+Pathmap, como por ejemplo ${MY_APP}/${CELL}.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unidades</td>
+<td align="left" valign="top" class="base">Nombre completo de la v&iacute;a de acceso</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationDeployment_useMetadataFromBinaries_description"></a>Usar metadatos de los binarios</strong>
+</dt>
+<dd>Especifica si el servidor de aplicaciones va a utilizar el enlace, las extensiones y los descriptores de despliegue situados en el documento de despliegue de la aplicaci&oacute;n, el archivo (por omisi&oacute;n) deployment.xml, o los archivos situados en el archivo EAR (Enterprise Application Resource).
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">true</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationDeployment_enableDistribution_description"></a>Habilitar la distribuci&oacute;n</strong>
+</dt>
+<dd>Especifica si
+WebSphere Application Server expande o suprime los binarios de
+aplicaci&oacute;n del destino de instalaci&oacute;n. El valor por omisi&oacute;n es habilitar la distribuci&oacute;n de aplicaciones.
+ Los binarios de
+aplicaci&oacute;n de las aplicaciones instaladas se expanden en el directorio especificado. Los binarios tambi&eacute;n se suprimen cuando se desinstala y
+se guardan los cambios de la configuraci&oacute;n. Si
+inhabilita esta opci&oacute;n, debe asegurarse de que los binarios de aplicaci&oacute;n se expandan
+correctamente en los directorios de destino de todos los nodos donde se ejecute la aplicaci&oacute;n.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">true</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationDeployment_classloaderMode_description"></a>Modalidad de cargador de clases</strong>
+</dt>
+<dd>Especifica si el cargador de clases debe buscar en el cargador de clases padre o en el cargador de clases de la aplicaci&oacute;n antes de cargar una clase. El est&aacute;ndar para los cargadores de clases JDK y los
+cargadores de clases de WebSphere Application Server es PADRE_&Uacute;LTIMO. Al
+especificar PADRE_&Uacute;LTIMO, la aplicaci&oacute;n puede alterar temporalmente las
+clases incluidas en el cargador de clases padre, pero esta acci&oacute;n
+potencialmente puede dar lugar a ClassCastException o LinkageErrors si
+ha mezclado clases alteradas temporalmente con no alteradas
+temporalmente.
+<p>Las opciones son PADRE_PRIMERO y PADRE_&Uacute;LTIMO. El valor por omisi&oacute;n es buscar en el cargador de clases padre antes de buscar en el cargador de clases de la aplicaci&oacute;n para cargar la aplicaci&oacute;n.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">PADRE_PRIMERO</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationDeployment_warClassloaderPolicy_description"></a>Pol&iacute;tica del cargador de clases WAR</strong>
+</dt>
+<dd>Especifica si se debe utilizar un s&oacute;lo cargador de clases para cargar todos los archivos WAR de esta aplicaci&oacute;n o un cargador de clases diferente para cada archivo WAR.
+<p>Las opciones son APLICACI&Oacute;N y M&Oacute;DULO. El valor por omisi&oacute;n es utilizar un cargador de clases diferente para cargar cada archivo WAR.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">M&Oacute;DULO</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationDeployment_createMBeansForResource"></a>Crear MBeans para los recursos</strong>
+</dt>
+<dd>Especifica si se deben crear archivos MBean para varios recursos (por ejemplo, servlets o archivos JSP) de una aplicaci&oacute;n.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">true</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationDeployment_enableClassReloading"></a>Recarga habilitada</strong>
+</dt>
+<dd>Especifica si de debe habilitar la recarga de clases cuando se actualicen los archivos de aplicaci&oacute;n.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">true</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationDeployment_reloadInterval"></a>Intervalo de recarga</strong>
+</dt>
+<dd>Especifica el n&uacute;mero de segundos para explorar el sistema de archivos de la aplicaci&oacute;n en el caso de los archivos actualizados. El valor por omisi&oacute;n es el del atributo de
+intervalo de recarga del archivo (META-INF/ibm-application-ext.xmi) de extensi&oacute;n de IBM del
+archivo EAR. Este valor entra en vigor s&oacute;lo si la recarga de clases est&aacute; habilitada.
+<p>El intervalo de recarga especificado aqu&iacute; altera temporalmente el valor especificado en las extensiones de IBM de cada M&oacute;dulo Web del archivo EAR (que, a su vez, altera temporalmente el intervalo de recarga especificado en las extensiones de IBM de la aplicaci&oacute;n del archivo EAR).</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unidades</td>
+<td align="left" valign="top" class="base">Segundos</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informaci&oacute;n relacionada</strong>
+</p>
+<a href="rcon_buttons.html">Botones de la consola de administraci&oacute;n</a>
+<br>
+
+<a href="rcon_pageusage.html">Caracter&iacute;sticas de la p&aacute;gina de la consola administrativa</a>
+<br>
+
+<a href="udat_nestjcaconfac.html">Colecci&oacute;n de m&oacute;dulos de conector</a>
+<br>
+
+<a href="ucws_rlibref.html">Colecci&oacute;n de referencias de biblioteca</a>
+<br>
+
+<a href="uweb_rwebmc.html">Valores de m&oacute;dulo Web</a>
+<br>
+
+</div>
+</body>
+</html>

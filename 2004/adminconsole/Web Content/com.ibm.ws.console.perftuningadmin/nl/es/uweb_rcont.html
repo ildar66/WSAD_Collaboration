@@ -1,0 +1,86 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Valores del contenedor Web</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uweb_rcont"></a>
+<h2>Valores del contenedor Web</h2>
+
+<p>Utilice esta p&aacute;gina para configurar los valores del contenedor.
+<p>Para acceder a esta p&aacute;gina, recorra la siguiente v&iacute;a de acceso en la consola administrativa:</p>
+
+<pre>
+<strong>Servidores</strong> &gt; <strong>Servidores de aplicaciones</strong> &gt; <em>instancia_servidor</em>
+&gt; <strong>Contenedor Web</strong>
+</pre>
+ 
+</p>
+
+<p> 
+<strong>Configuraci&oacute;n - Propiedades generales</strong> 
+</p>
+
+<dl>
+<dt>
+<strong><a name="rcont_default"></a>Sistema principal virtual por omisi&oacute;n</strong>
+</dt>
+<dd>Especifica un sistema principal virtual es una configuraci&oacute;n que permite que una
+&uacute;nica m&aacute;quina de sistema principal parezca varias m&aacute;quinas de sistema
+principal.  Los recursos asociados con un sistema principal virtual no
+pueden compartir datos con recursos asociados con otro sistema
+principal virtual, incluso si los sistemas principales virtuales
+comparten la misma m&aacute;quina f&iacute;sica.
+
+<p>Seleccione una opci&oacute;n de sistema principal virtual:</p>
+
+<dl>
+
+<dt>
+<strong><strong>Sistema principal virtual por omisi&oacute;n</strong></strong>
+</dt>
+<dd>El producto proporciona un sistema principal virtual por omisi&oacute;n con algunos alias comunes, tales como la direcci&oacute;n IP de la m&aacute;quina, el nombre corto del
+sistema principal y el nombre del sistema principal plenamente cualificado.  El alias
+incluye la primera parte de la v&iacute;a de acceso para acceder a un recurso tal como un
+servlet.  Por ejemplo, es <samp>sistppallocal:9080</samp>
+en la petici&oacute;n <samp>http://sistppallocal:9080/myServlet</samp>.</dd>
+
+<dt>
+<strong><strong>Admin Host</strong></strong>
+</dt>
+<dd>Este es un nombre distinto para el
+servidor de aplicaciones; tambi&eacute;n conocido como <em>servidor1</em> en la instalaci&oacute;n b&aacute;sica.  
+Este
+proceso da soporte a la utilizaci&oacute;n de la consola administrativa.
+</dd>
+
+</dl>
+</dd>
+<dt>
+<strong><a name="rcont_cache"></a>Colocaci&oacute;n en antememoria de servlets</strong>
+</dt>
+<dd>Especifica que, si se invoca un servlet y &eacute;ste genera una salida que se colocar&aacute;
+en antememoria, se crea una entrada de antememoria que contiene no s&oacute;lo la salida, sino
+tambi&eacute;n los efectos colaterales de la invocaci&oacute;n. 
+Estos efectos colaterales pueden incluir las
+llamadas a otros servlets o archivos JSP (Java Server Pages), adem&aacute;s de los metadatos asociados
+a la entrada, incluida la informaci&oacute;n de tiempo de espera y prioridad de entrada. 
+ 
+<p></p>
+
+<dl>
+
+<dt>
+<strong>Habilitar colocaci&oacute;n en antememoria de servlets</strong>
+</dt>
+<dd> Seleccione este recuadro de selecci&oacute;n para habilitar la colocaci&oacute;n en antememoria de servlets.</dd>
+
+</dl>
+
+</dd>
+</dl>
+</body>
+</html>

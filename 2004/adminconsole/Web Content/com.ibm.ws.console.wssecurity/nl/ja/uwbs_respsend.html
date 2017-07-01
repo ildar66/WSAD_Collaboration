@@ -1,0 +1,52 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>応答送信側のバインディング・コレクション</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_respsend"></a>
+<h2>
+<img alt="[修正パッケージ 5.0.2 以降]" src="v502.gif" border="0">応答送信側のバインディング・コレクション</h2>
+
+<p>このページを使用して、Web サービス・セキュリティー応答メッセージを送信するための
+バインディング構成を指定します。</p>
+
+<p>この管理コンソール・ページを表示するには、以下のステップを実行します。<ol>
+
+<li>「<strong>アプリケーション</strong>」&gt;「<strong>エンタープライズ・アプリケーション</strong>」&gt;「<em>application_name</em> 」をクリックします。</li>
+
+<li>「Related Items」の下の「<strong>Web モジュール</strong>」&gt;「<em>URI_file_name</em>」&gt;「<strong>Web Services: Server Security Bindings</strong>」をクリックします。
+</li>
+
+<li>「Response Sender Binding」の下の「<strong>編集</strong>」をクリックします。</li>
+
+</ol>
+</p>
+
+<dl>
+<dt>
+<strong><a name="sec_signing"></a>Signing Information</strong>
+</dt>
+<dd>署名パラメーターの構成を指定します。
+<p>サーバー・レベルの構成において、「認証メソッド」が IDAssertion、「ID タイプ」が X509Certificate になっている場合には、
+これらのパラメーターを X.509 証明書検証にも使用できます。そのような場合には、「<strong>Certificate
+Path</strong>」フィールドにのみ入力する必要があります。</p>
+
+</dd>
+<dt>
+<strong><a name="sec_encrypt"></a>Encryption Information</strong>
+</dt>
+<dd>暗号化パラメーターおよび暗号化解除パラメーターの構成を指定します。
+</dd>
+<dt>
+<strong><a name="sec_keyldesc"></a>Key Locators</strong>
+</dt>
+<dd>ディジタル署名および暗号化のための鍵を、鍵ストア・ファイルまたはリポジトリーから取り出す鍵ロケーター・オブジェクトのリストを指定します。
+鍵ロケーターは、名前または論理名をエイリアスにマップするか、認証済みの識別を鍵にマップします。この論理名は、
+鍵ロケーターのインプリメンテーションに鍵を配置するために使用されます。</dd>
+</dl>
+</body>
+</html>

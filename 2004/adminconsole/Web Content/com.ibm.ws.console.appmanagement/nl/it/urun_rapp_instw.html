@@ -1,0 +1,295 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Preparazione delle impostazioni di
+installazione dell'applicazione</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="urun_rapp_instw"></a>
+<h2>Preparazione delle impostazioni di
+installazione dell'applicazione</h2>
+
+<p>Utilizzare questa pagina per installare un'applicazione (file EAR) o un modulo (file JAR o WAR).</p>
+
+<p>Per visualizzare questa pagina della console di gestione, fare clic su <strong>Applicazioni &gt; Installa nuova applicazione</strong>.</p>
+
+<p>Seguire le istruzioni presenti su questa pagina per installare un'applicazione o un modulo. E' necessario completare almeno la prima fase;
+per quanto riguarda le fasi successive, &egrave; possibile completarle solo in parte a seconda
+se si sta installando un'applicazione, un modulo EJB o un modulo Web.</p>
+
+<dl>
+<dt>
+<strong><a name="app_deploy_path"></a>Percorso</strong>
+</dt>
+<dd>Specifica il percorso completo per il file .ear, .jar o .war di un'applicazione enterprise.
+<p>Utilizzare <strong>Percorso locale</strong> se il browser e i file dell'applicazione si trovano
+sulla stessa macchina (a prescindere dalla posizione del server).</p>
+
+<p>Utilizzare <strong>Percorso server</strong> se il file dell'applicazione risiede su un qualsiasi
+nodo nel contesto cella corrente. E' possibile eseguire le ricerche sull'intero file
+system di un nodo, se l'agente nodo o il gestore distribuzione &egrave; in esecuzione sul nodo
+prescelto. 
+ Durante la ricerca, vengono
+visualizzati soltanto i file .ear, .jar o .war. </p>
+
+<p>Durante l'installazione dell'applicazione, i file corrispondenti sono di solito
+caricati da una macchina client, contenente il browser, alla macchina server, contenente
+la console di gestione, dove vengono distribuiti. In questi casi, viene utilizzato il browser Web, che esegue la
+console di gestione, per selezionare i moduli EAR, WAR o JAR ed eseguire il caricamento
+sulla macchina server.</p>
+
+<p>In alcuni casi, tuttavia, i file dell'applicazione risiederanno sul file system di un qualsiasi nodo in una cella. Per consentire al server delle applicazioni di installare
+questi file, utilizzare l'opzione <strong>Percorso server</strong>.</p>
+
+<p>Questa opzione pu&ograve; essere utilizzata anche per specificare un file dell'applicazione
+che gi&agrave; risiede sulla macchina su cui &egrave; in esecuzione il server delle applicazioni. Ad
+esempio, il valore di questo campo su Windows NT deve essere
+<samp>C:\WebSphere\AppServer\installableApps\test.ear</samp>.
+ Se si sta installando un modulo WAR autonomo, &egrave; necessario specificare la root
+contesto.</p>
+
+</dd>
+<dt>
+<strong><a name="app_deploy_contextRoot"></a>Root contesto</strong>
+</dt>
+<dd>Specifica la root contesto dell'applicazione Web (WAR).
+<p>Questo campo viene utilizzato solo per installare un file WAR autonomo.
+ La root
+contesto &egrave; associata alla mappa servlet definita (dal file WAR) per creare l'URL
+completo, utilizzato dagli utenti per accedere al servlet. Ad esempio, se la root
+contesto &egrave; /gettingstarted e la mappatura servlet &egrave; MySession, l'URL sar&agrave;
+<samp>http://host:port/gettingstarted/MySession</samp>.</p>
+
+</dd>
+<dt>
+<strong><a name="app_deploy_genDefBindings"></a>Creazione di collegamenti predefiniti</strong>
+</dt>
+<dd>Specifica se creare o meno collegamenti predefiniti. Se questa casella di controllo viene contrassegnata, qualsiasi collegamento incompleto nell'applicazione verr&agrave; compilato con i valori predefiniti. I collegamenti esistenti non verranno alterati.
+<p>Selezionando questa opzione &egrave; possibile passare direttamente alla procedura di
+riepilogo e installare l'applicazione, se non ci sono procedure contrassegnate da un
+asterisco rosso (*). Un asterisco rosso denota che la procedura non
+&egrave; stata completata e che richiede un valore valido. Sul pannello Riepilogo, verificare la
+cella, il nodo e il server su cui &egrave; installata l'applicazione.</p>
+
+<p>I collegamenti vengono creati nel modo seguente:</p>
+
+<ul>
+
+<li>I nomi JNDI EJB vengono creati sul modulo <em>prefisso</em>/<em>ejb-name</em>.
+ Il valore
+predefinito del prefisso &egrave; <samp>ejb</samp> ma pu&ograve; essere sovrascritto. <em>ejb-name</em> &egrave;
+identico a quello specificato nella tag <samp>&lt;ejb-name&gt;</samp> dei descrittori di
+distribuzione.</li>
+
+<li>I riferimenti EJB possono essere collegati nel modo seguente: se viene individuato &lt;ejb-link&gt;, sar&agrave; quello con il valore pi&ugrave; alto. In caso contrario, se viene individuato un bean enterprise univoco con un'interfaccia home (o una home locale) corrispondente al bean di riferimento, il riferimento verr&agrave; risolto automaticamente.</li>
+
+<li>I collegamenti ai riferimenti risorsa sono derivati dalla tag &lt;res-ref-name&gt;.
+ Notare che questa azione presume che il nome di java:comp/env sia identico al nome JNDI globale delle risorse.</li>
+
+<li>I collegamenti della produzione connessioni (per i file JAR EJB 2.0) vengono generati in base alle informazioni fornite sull'autorizzazione e sul nome JNDI. Questa azione provoca l'impostazione della produzione connessioni predefinita di ogni file JAR EJB 2.0 nell'applicazione da installare. Non sono stati generati collegamenti della produzione connessioni a livello di bean.</li>
+
+<li>I collegamenti origine dati (per i file JAR EJB 1.1) sono generati in base alle opzioni nome utente/password origine dati e al nome JNDI. Ci&ograve; provoca l'impostazione dell'origine dati predefinita per ogni file JAR EJB. Non sono stati generati
+collegamenti origine dati a livello di bean.</li>
+
+<li>Le porte listener del bean basato sui messaggi (Message Driven Bean, MDB) derivano dalla tag &lt;ejb-name&gt; MDB con la stringa <samp>Port</samp> accodata.</li>
+
+<li>Per i file .war, l'host virtuale &egrave; impostato su <samp>default_host</samp>, se non diversamente specificato.</li>
+
+</ul>
+
+<p>La strategia predefinita funziona correttamente per la maggior parte delle applicazioni o almeno per la maggior parte dei collegamenti in un gran numero di applicazioni. Tuttavia, non pu&ograve; funzionare nei seguenti casi:</p>
+
+<ul>
+
+<li>quando si desidera controllare esplicitamente i nomi JNDI globali di uno o pi&ugrave; file EJB.</li>
+
+<li>quando &egrave; necessario un controllo pi&ugrave; approfondito dei collegamenti origine dati dei CMP. in altre parole, quando l'utente ha a disposizione pi&ugrave; origini dati ed ha bisogno di pi&ugrave;
+di un'origine dati globale.</li>
+
+<li>quando &egrave; necessario mappare i riferimenti risorsa con nomi JNDI risorsa diversi dal
+nome java:comp/env.</li>
+
+</ul>
+
+<p>In questi casi, &egrave; possibile modificare la funzionalit&agrave; di un documento XML (una strategia di personalizzazione). Utilizzare il campo <strong>File di collegamenti
+specifici</strong> per specificare una strategia di personalizzazione e consultare la guida
+relativa al campo per gli esempi.</p>
+
+</dd>
+<dt>
+<strong><a name="app_deploy_prefixes"></a>Prefissi</strong>
+</dt>
+<dd>Specifica il prefisso da utilizzare per i nomi JNDI generati.
+
+</dd>
+<dt>
+<strong><a name="app_deploy_override"></a>Sovrascrittura</strong>
+</dt>
+<dd>Specifica se sovrascrivere o meno i collegamenti esistenti.
+<p>Se questa casella di controllo &egrave; selezionata, i collegamenti esistenti verranno sovrascritti da quelli generati.</p>
+
+</dd>
+<dt>
+<strong><a name="app_deploy_ejbCmpBindings"></a>Collegamenti CMP 1.1 di EJB</strong>
+</dt>
+<dd>Specifica il nome JNDI dell'origine dati predefinita.
+<p>Se il pulsante di opzione <strong>Collegamenti predefiniti per CMP 1.1 di EJB</strong> &egrave;
+selezionato, specificare il nome JNDI dell'origine dati predefinita da utilizzare con i
+bean CMP 1.1. Inoltre, &egrave; necessario specificare l'ID utente e la password dell'origine dati predefinita
+specificata.</p>
+
+</dd>
+<dt>
+<strong><a name="app_deploy_connFacBindings"></a>Collegamenti produzione connessioni</strong>
+</dt>
+<dd>Specifica il nome JNDI dell'origine dati predefinita.
+<p>Se il pulsante di opzione <strong>Collegamenti predefiniti delle produzioni
+connessioni</strong> &egrave; selezionato, specificare il nome JNDI dell'origine dati predefinita da
+utilizzare con i collegamenti.
+ Inoltre, specificare un'autorizzazione di risorsa.</p>
+
+</dd>
+<dt>
+<strong><a name="app_deploy_virtualHost"></a>Host virtuale</strong>
+</dt>
+<dd>Specifica l'host virtuale dei moduli WAR.
+
+</dd>
+<dt>
+<strong><a name="app_deploy_specificBindingsFile"></a>File di collegamenti specifici</strong>
+</dt>
+<dd>Specifica il file dei collegamenti che sovrascrive il collegamento predefinito.
+<p>Modificare la funzionalit&agrave; del collegamento predefinito con un documento XML
+(strategia di personalizzazione <em>aka</em>). Le strategie di personalizzazione estendono
+la strategia predefinita per rendere possibile la personalizzazione solo di quelle aree
+dove la strategia predefinita &egrave; insufficiente.
+ Cio&egrave;, &egrave; necessario soltanto descrivere il modo in cui si desidera modificare i
+collegamenti generati dalla strategia predefinita; non &egrave; indispensabile definire i
+collegamenti dell'intera applicazione. </p>
+
+<p>Seguono alcuni brevi esempi sul modo di sovrascrivere i vari aspetti del generatore
+dei collegamenti:</p>
+
+<p>
+<strong>Controllo di un nome JNDI EJB</strong> 
+</p>
+
+<pre>&lt;?xml version="1.0" ?&gt;
+&lt;!DOCTYPE dfltbndngs SYSTEM "dfltbndngs.dtd"&gt;
+&lt;dfltbndngs&gt;
+  &lt;module-bindings&gt;
+    &lt;ejb-jar-binding&gt;
+      &lt;jar-name&gt;helloEjb.jar&lt;/jar-name&gt;
+&lt;!-- il nome deve corrispondere al nome del modulo nel file .ear --&gt;
+      &lt;ejb-bindings&gt;
+        &lt;ejb-binding&gt;
+         &lt;ejb-name&gt;HelloEjb&lt;/ejb-name&gt;
+&lt;!-- ci&ograve; deve corrispondere alla voce &lt;ejb-name&gt; nel DD del file jar EJB --&gt;
+         &lt;jndi-name&gt;com/acme/ejb/HelloHome&lt;/jndi-name&gt;
+        &lt;/ejb-binding&gt;
+      &lt;/ejb-bindings&gt;
+    &lt;/ejb-jar-binding&gt;
+  &lt;/module-bindings&gt;
+&lt;/dfltbndngs&gt;</pre>
+
+<p> 
+<strong>Impostazione del collegamento della produzione connessioni per un file JAR EJB</strong> 
+</p>
+
+<pre>&lt;!DOCTYPE dfltbndngs SYSTEM "dfltbndngs.dtd"&gt;
+&lt;dfltbndngs&gt;
+  &lt;module-bindings&gt;
+    &lt;ejb-jar-binding&gt;
+      &lt;jar-name&gt;yourEjb20.jar&lt;/jar-name&gt;
+      &lt;connection-factory&gt;
+        &lt;jndi-name&gt;eis/jdbc/YourData_CMP&lt;/jndi-name&gt;
+        &lt;res-auth&gt;Container&lt;/res-auth&gt;
+      &lt;/connection-factory&gt;
+    &lt;/ejb-jar-binding&gt;
+  &lt;/module-bindings&gt;
+&lt;/dfltbndngs&gt;</pre>
+
+<p> 
+<strong>Impostazione del collegamento della produzione connessioni per un file EJB</strong> 
+</p>
+
+<pre>&lt;?xml version="1.0"&gt;
+&lt;!DOCTYPE dfltbndngs SYSTEM "dfltbndngs.dtd"&gt;
+&lt;dfltbndngs&gt;
+  &lt;module-bindings&gt;
+    &lt;ejb-jar-binding&gt;
+      &lt;jar-name&gt;yourEjb20.jar&lt;/jar-name&gt;
+      &lt;ejb-bindings&gt;
+        &lt;ejb-binding&gt;
+          &lt;ejb-name&gt;YourCmp20&lt;/ejb-name&gt;
+&lt;!-- ci&ograve; corrisponde alla tag ejb-name nel DD --&gt;
+          &lt;connection-factory&gt;
+           &lt;jndi-name&gt;eis/jdbc/YourData_CMP&lt;/jndi-name&gt;
+           &lt;res-auth&gt;PerConnFact&lt;/res-auth&gt;
+          &lt;/connection-factory&gt;
+        &lt;/ejb-binding&gt;
+      &lt;/ejb-bindings&gt;
+    &lt;/ejb-jar-binding&gt;
+ &lt;/module-bindings&gt;
+&lt;/dfltbndngs&gt;</pre>
+
+<p> 
+<strong>Sovrascrittura di un collegamento riferimento risorse da un file JAR EJB, WAR o JAR del client J2EE</strong> 
+</p>
+
+<p>Di seguito, viene illustrato un codice di esempio per sovrascrivere un collegamento
+riferimento risorse da un file WAR.
+ Utilizzare un codice simile per sovrascrivere un collegamento riferimento risorse da un file JAR EJB o da un file JAR del client J2EE.</p>
+
+<pre>&lt;?xml version="1.0" ?&gt;
+&lt;!DOCTYPE dfltbndngs SYSTEM "dfltbndngs.dtd"&gt;
+&lt;dfltbndngs&gt;
+  &lt;module-bindings&gt;
+    &lt;war-binding&gt;
+      &lt;jar-name&gt;hello.war&lt;/jar-name&gt;
+      &lt;resource-ref-bindings&gt;
+        &lt;resource-ref-binding&gt;
+          &lt;!-- quello che segue deve corrispondere a resource-ref nel DD --&gt;
+          &lt;resource-ref-name&gt;jdbc/MyDataSrc&lt;/resource-ref-name&gt;
+          &lt;jndi-name&gt;war/override/dataSource&lt;/jndi-name&gt;
+        &lt;/resource-ref-binding&gt;
+      &lt;/resource-ref-bindings&gt;
+    &lt;/war-binding&gt;
+  &lt;/module-bindings&gt;
+&lt;/dfltbndngs&gt;</pre>
+
+<p> 
+<strong>Sovrascrivere le porte listener JMS MDB</strong> 
+</p>
+
+<pre>&lt;?xml version="1.0" ?&gt;
+&lt;!DOCTYPE dfltbndngs SYSTEM "dfltbndngs.dtd"&gt;
+&lt;dfltbndngs&gt;
+  &lt;module-bindings&gt;
+    &lt;ejb-jar-binding&gt;
+      &lt;jar-name&gt;YourEjbJar.jar&lt;/jar-name&gt;
+      &lt;ejb-bindings&gt;
+        &lt;ejb-binding&gt;
+          &lt;ejb-name&gt;YourMDB&lt;/ejb-name&gt;
+          &lt;listener-port&gt;yourMdbListPort&lt;/listener-port&gt;
+        &lt;/ejb-binding&gt;
+      &lt;/ejb-bindings&gt;
+    &lt;/ejb-jar-binding&gt;
+  &lt;/module-bindings&gt;
+&lt;/dfltbndngs&gt;</pre>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>Informazioni correlate</strong>
+</p>
+<a href="rcon_buttons.html">Pulsanti della console di gestione</a>
+<br>
+
+</div>
+</body>
+</html>

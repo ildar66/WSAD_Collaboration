@@ -1,0 +1,247 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>WebSphere 內部 JMS 伺服器設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="JMSServer"></a>
+<h2>WebSphere 內部 JMS 伺服器設定</h2>
+
+<p>WebSphere Application Server 管理領域內的節點，其 JMS 功能是由節點中的 JMS 伺服器來提供的。
+請使用這個畫面來檢視或變更選取的 JMS 伺服器的配置內容。
+</p>
+
+<p>您可以利用這個畫面來配置一組通用的 JMS 伺服器內容，以將它們新增到自動配置給內嵌 WebSphere JMS Provider 之內容的預設值。
+</p>
+
+
+<p>
+<b>附註: </b>一般而言，WebSphere MQ 內容的預設值已足夠供 WebSphere 內部 JMS 伺服器使用。
+不過，如果您正在執行高傳訊負荷，您可能需要變更部分 WebSphere MQ 內容；比方說，日誌檔位置、檔案頁面和緩衝區頁面。
+如果需要配置 WebSphere MQ 內容的詳細資訊，請參閱 <cite>WebSphere System Administration</cite> 一書 (SC33-1873)，您可以從 <img border="0" alt="僅當這個主題鏈結到全球資訊網時，才可存取此目標" src="web.gif">&nbsp;&nbsp;               
+   <a target="_blank" href="http://www.elink.ibmlink.ibm.com/public/applications/publications/cgibin/pbi.cgi"><strong>IBM Publications Center</strong></a>
+ 或 WebSphere MQ collection kit (SK2T-0730) 中找到它。
+</p>
+
+<dl>
+<dt>
+<strong><a name="JMSServer_name"></a>名稱
+</strong>
+</dt>
+<dd>用來識別 JMS 伺服器，供 IBM WebSphere Application Server 內管理使用的名稱。
+<p>這個名稱不應變更。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">單位</td>
+<td align="left" valign="top" class="base">不適用</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">WebSphere 內部 JMS 伺服器</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">不適用</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JMSServer_description"></a>說明
+</strong>
+</dt>
+<dd>JMS 伺服器的說明，供 IBM WebSphere Application Server 內的管理使用。
+
+<p>這個字串不應變更。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+
+
+
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">WebSphere 內部 JMS 伺服器</td>
+
+</tr>
+
+
+
+
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JMSServer_numThreads"></a>執行緒數目</strong>
+            &nbsp;
+            </dt>
+<dd>發佈/訂閱相符引擎要用的並行執行緒的數目
+<p>並行執行緒的數目只應設為小數目。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">整數</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">單位</td>
+<td align="left" valign="top" class="base">執行緒</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">1
+</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">大於或等於 1。</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JMSServer_queueNames"></a>佇列名稱</strong>
+</dt>
+<dd>在這個 JMS 伺服器中的佇列名稱。
+每個佇列名稱都必須新增在個別的行中。
+
+<p>每一個列示在這個欄位的佇列都必須具有一個相同管理名稱的個別佇列管理物件。
+如果要使佇列可供應用程式使用，請定義一個 WebSphere 佇列，再將它的名稱新增到「JMS 伺服器」畫面上的這個欄位，供要您在其中控管佇列的主機使用。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">ASCII</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">單位</td>
+<td align="left" valign="top" class="base">佇列名稱</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">不適用</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">這個欄位中的每一個項目都是最多 45 個字元的佇列名稱，它們必須完全符合（包括所使用的大小寫字元）定義給佇列的 WebSphere 佇列管理物件。</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JMSServer_executionState"></a>起始狀態</strong>
+</dt>
+<dd>下次重新啟動 JMS 伺服器時，您要 JMS 伺服器要呈現的狀態。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">列舉</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">單位</td>
+<td align="left" valign="top" class="base">不適用</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">已啟動</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>已啟動</strong>
+</dt>
+<dd>自動啟動 JMS 伺服器。</dd>
+
+<dt>
+<strong>已停止</strong>
+</dt>
+<dd>不自動啟動 JMS 伺服器。
+如果有任何部署的企業應用程式要使用 JMS 伺服器所提供的 JMS 伺服器功能，系統管理者必須以手動方式來啟動 JMS 伺服器，或選取這個內容的啟動值，再重新啟動 JMS 伺服器。
+</dd>
+
+</dl>
+<p>如果要重新啟動應用程式伺服器的 JMS 伺服器，請停止再重新啟動這個應用程式伺服器。
+</p>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</body>
+</html>

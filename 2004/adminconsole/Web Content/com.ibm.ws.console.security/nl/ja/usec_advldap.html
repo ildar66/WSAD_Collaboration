@@ -1,0 +1,266 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Lightweight Directory Access Protocol 拡張設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecadvldap"></a>
+<h2>Lightweight Directory Access Protocol 拡張設定</h2>
+
+<p>ユーザーおよびグループが外部 Lightweight Directory Access Protocol (LDAP) ディレクトリー置かれている場合に、
+このページを使用して拡張 LDAP ユーザー・レジストリー設定を構成します。</p>
+
+<p>この管理ページを表示するには、「<strong>セキュリティー</strong>」&gt;「<strong>ユーザー・レジストリー</strong>」&gt;「<strong>LDAP</strong>」&gt;「
+<strong>拡張 LDAP 設定</strong>」をクリックします。</p>
+
+<p>すべてのユーザーおよびグループ関連フィルターのデフォルト値は、
+該当するフィールドですでに指定されています。
+ユーザーの要件によっては、これらの値を変更できます。
+これらのデフォルト値は、「<strong>LDAP 設定</strong>」パネルで選択された LDAP サーバーのタイプに基づいています。
+このタイプが変更された場合 (例えば、NETSCAPE から SECUREWAY に)、
+デフォルトのフィルターは自動的に変更されます。デフォルトのフィルター値が変更されると、
+LDAP サーバー・タイプは、カスタム・フィルターを使用することを示すために、「
+<strong>カスタム</strong>」に変更になります。セキュリティーが使用可能になっており、これらのプロパティーの
+いずれかが変更されている場合、「<strong>グローバル・セキュリティー</strong>」パネルに
+進み、「<strong>適用</strong>」または「<strong>OK</strong>」をクリックして変更内容を確認してください。</p>
+
+<div>
+<p>
+<strong>「構成」タブ</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="LDAPSearchFilter_userFilter_description"></a>ユーザー・フィルター</strong>
+</dt>
+<dd>ユーザーのレジストリーを検索する LDAP ユーザー・フィルターを指定します。
+<p>このオプションは一般に、ユーザーへのセキュリティー役割の割り当てに使用します。ディレクトリー・サービスでのユーザーの検索に使用するプロパティーを指定します。
+例えば、ユーザー ID を基にしてユーザーをルックアップするには、<samp>(ampersand(uid=%v)(objectclass=inetOrgPerson)</samp> を指定します。<samp>ampersand</samp> は、アンパーサンド記号 (&amp;) です。この構文の詳細については、LDAP ディレクトリー・サービスの資料を参照してください。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型:</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LDAPSearchFilter_groupFilter_description"></a>グループ・フィルター</strong>
+</dt>
+<dd>グループのレジストリーを検索する LDAP グループ・フィルターを指定します。
+<p>このオプションは一般に、グループへのセキュリティー役割の割り当てに使用します。ディレクトリー・サービスでのグループの検索に使用するプロパティーを指定します。
+この構文の詳細については、LDAP ディレクトリー・サービスの資料を参照してください。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型:</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LDAPSearchFilter_userIdMap_description"></a>ユーザー ID マップ</strong>
+</dt>
+<dd>LDAP エントリーにユーザーの短縮名をマップする LDAP フィルターを指定します。
+<p>ユーザーが表示されるときにユーザーを表す情報を指定します。
+例えば、タイプ・<samp>オブジェクト・クラス = inetOrgPerson</samp> のエントリーを ID 別に表示する場合は、<samp>inetOrgPerson:uid</samp> を指定します。 
+このフィールドには、セミコロン (;) で区切られた「オブジェクト・クラス: プロパティー」の複数のペアが入ります。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型:</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LDAPSearchFilter_groupIdMap_description"></a>グループ ID マップ</strong>
+</dt>
+<dd>LDAP エントリーにグループの短縮名をマップする LDAP フィルターを指定します。
+<p>グループが表示されるときにグループを表す情報を指定します。
+例えば、グループを名前別に表示するには、<samp>*:cn</samp> を指定します。
+アスタリスク (<samp>*</samp>) はワイルドカード文字であり、
+この場合、あらゆるオブジェクト・クラスを検索します。このフィールドには、セミコロン (;) で
+区切られた「<samp>オブジェクト・クラス: プロパティー</samp>」の複数のペアが入ります。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型:</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LDAPSearchFilter_groupMemberIdMap_description"></a>グループ・メンバー ID マップ</strong>
+</dt>
+<dd>ユーザーとグループの関係を識別する LDAP フィルターを指定します。
+<p>ディレクトリー・タイプ SecureWay、NetScape、および Domino の場合、このフィールドには、
+セミコロン (;) で区切られた「オブジェクト・クラス: プロパティー」の複数のペアが入ります。「オブジェクト・クラス: プロパティー」ペアでは、
+オブジェクト・クラス値はグループ・フィルターで定義されるオブジェクト・クラスと同じオブジェクト・クラスであり、プロパティーはメンバー属性です。
+オブジェクト・クラス値がグループ・フィルターのオブジェクト・クラスに一致しない場合、
+グループがセキュリティー役割にマップされると許可が失敗することがあります。この構文の詳細については、LDAP ディレクトリー・サービスの資料を参照してください。
+</p>
+
+<p>IBM Directory Server、iPlanet Directory Server、および Active Directory の場合、このフィールドには、
+セミコロン (;) で区切られた「<samp>グループ属性: メンバー
+属性</samp>」の複数のペアが入ります。 これは、所定ユーザーが所有するすべてのグループ属性を列挙して、ユーザーのグループ・メンバーシップを検索する際に使用します。例えば、属性ペア <samp>(memberof:member)</samp> は Active Directory が使用し、
+(ibm-allGroup:member) は IBM Directory Server が使用します。また、このフィールドは、オブジェクト・クラスのどのプロパティーが
+そのオブジェクト・クラスで表されるグループに属するメンバーのリストを保管するかを指定します。サポートされる
+LDAP ディレクトリー・サーバーについては、インフォセンターの記事『サポートされるディレクトリー・サービス』を参照してください。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型:</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LDAPSearchFilter_certificateMapMode_description"></a>証明書マップ・モード</strong>
+</dt>
+<dd>X.509 証明書を LDAP ディレクトリー
+にマップする際、EXACT_DN と CERTIFICATE_FILTER のどちらを使用するかを指定します。指定された証明書フィルターをマッピングに使用する場合は、CERTIFICATE_FILTER を指定します。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型:</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LDAPSearchFilter_certificateFilter_description"></a>証明書フィルター</strong>
+</dt>
+<dd>LDAP フィルターを指定する場合に、証明書マッピングのフィルターという
+プロパティーを使用するかどうかを指定します。LDAP フィルターは、クライアントの
+証明書の属性を LDAP レジストリー・エントリーにマップするときに使用します。
+<p> このフィールドを使用可能にするには、証明書マッピングに対して <strong>CERTIFICATE_FILTER</strong> をクリックして選択します。
+実行時に複数の LDAP エントリーがフィルターの指定に一致すると、あいまい一致となるので認証は失敗します。
+このフィルターの構文または構造は、<samp>LDAP attribute=${Client certificate attribute}</samp> (例えば <samp>uid=${SubjectCN}</samp>) です。
+フィルター仕様の左辺は LDAP 属性で、これは LDAP サーバーが構成時に使用するスキーマにより異なります。
+フィルター仕様の右辺は、クライアント証明書にあるパブリック属性の 1 つです。
+右辺は、ドル記号 ($) と左大括弧 ({) で始まり、右大括弧 (}) で終わる必要があります。フィルター仕様の右辺には、以下の証明書属性値を使用できます。ストリングでは、大文字小文字の区別が重要になります。<ul>
+
+<li>
+<samp>${UniqueKey} </samp>
+</li>
+
+<li>
+<samp>${PublicKey}</samp>
+</li>
+
+<li>
+<samp>${PublicKey}</samp>
+</li>
+
+<li>
+<samp>${Issuer}</samp>
+</li>
+
+<li>
+<samp>${NotAfter}</samp>
+</li>
+
+<li>
+<samp>${NotBefore}</samp>
+</li>
+
+<li>
+<samp>${SerialNumber}</samp>
+</li>
+
+<li>
+<samp>${SigAlgName}</samp>
+</li>
+
+<li>
+<samp>${SigAlgOID}</samp>
+</li>
+
+<li>
+<samp>${SigAlgParams}</samp>
+</li>
+
+<li>
+<samp>${SubjectCN}</samp>
+</li>
+
+<li>
+<samp>${Version}</samp>
+</li>
+
+</ul>
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型:</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>関連情報</strong>
+</p>
+<a href="rcon_buttons.html">管理コンソールのボタン</a>
+<br>
+
+<a href="rcon_pageusage.html">管理コンソール・ページのフィーチャー</a>
+<br>
+
+<a href="rcon_scope.html">管理コンソールの有効範囲設定</a>
+<br>
+
+<a href="rcon_filter.html">管理コンソールのフィルター設定</a>
+<br>
+
+<a href="rcon_preferences.html">管理コンソールの設定の変更</a>
+<br>
+
+<a href="usec_rprdap.html">Lightweight Directory Access Protocol (LDAP) 設定</a>
+<br>
+
+</div>
+</body>
+</html>

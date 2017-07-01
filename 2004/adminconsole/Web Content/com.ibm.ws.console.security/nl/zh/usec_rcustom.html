@@ -1,0 +1,136 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>定制用户注册表设置</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecrcustom"></a>
+<h2>定制用户注册表设置</h2>
+
+<p>使用此页面配置定制用户注册表。</p>
+
+<p>要查看此管理控制台页面，单击<strong>安全性</strong> &gt; <strong>用户注册表</strong> &gt; <strong>定制</strong>。</p>
+
+<p>一旦在此面板中设置了属性，单击<strong>应用</strong>。事宜定制注册表所需其它属性的<strong>属性</strong>面板。当启用了安全性并且更改任何这些属性时，请转至<strong>全局安全性</strong>面板并单击<strong>应用</strong>来确认更改。</p>
+
+<div>
+<p>
+<strong>&ldquo;配置&rdquo;选项卡</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="UserRegistry_serverId_description"></a>服务器用户标识</strong>
+</dt>
+<dd>指定为安全起见用于运行服务器的用户标识。
+<p>此服务器标识表示定制注册表中有效用户。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型：</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="UserRegistry_serverPassword_description"></a>服务器用户密码</strong>
+</dt>
+<dd>指定与安全性服务器标识相应的密码。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型：</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="CustomUserRegistry_customRegistryClassName_description"></a>定制注册表类名</strong>
+</dt>
+<dd>指定一个实现 <samp>com.ibm.websphere.security.UserRegistry 接口</samp>的以点分隔的类名。
+<p>将定制注册表类名放入类路径。建议的位置是 <samp>%install_root%/lib/ext</samp> 目录。尽管定制注册表实现了<samp>com.ibm.websphere.security.UserRegistry</samp> 接口，对于反向兼容性，用户注册表可以交替地实现 <samp>com.ibm.websphere.security.CustomRegistry</samp> 接口。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型：</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省：</td>
+<td align="left" valign="top" class="base">com.ibm.websphere.security.FileRegistrySample</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="CustomUserRegistry_ignoreCase_description"></a>忽略大小写</strong>
+</dt>
+<dd>指定执行不区分大小写的授权检查。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省：</td>
+<td align="left" valign="top" class="base">启用的</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">范围：</td>
+<td align="left" valign="top" class="base">启用的或禁用的</td>
+
+</tr>
+
+</table>
+
+<div>使用<strong>定制属性</strong>链接添加初始化定制注册表必需的任何其它属性。以下属性由产品预定义；仅当必需时才设置此属性：<ul>
+
+<li>WAS_UseDisplayName － 当设置为 <samp>true</samp> 时，方法 getCallerPrincipal()、getUserPrincipal()、getRemoteUser() 返回显示名称。缺省情况下，返回用户的 <samp>securityName</samp>。引进它的主要目的是为了支持与 V4.0 定制注册表的反向兼容性。</li>
+
+</ul>
+</div>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>相关信息</strong>
+</p>
+<a href="rcon_buttons.html">管理控制台按钮</a>
+<br>
+
+<a href="rcon_pageusage.html">管理控制台页面功能</a>
+<br>
+
+<a href="rcon_scope.html">管理控制台作用域设置</a>
+<br>
+
+<a href="rcon_filter.html">管理控制台过滤器设置</a>
+<br>
+
+<a href="rcon_preferences.html">管理控制台首选项设置</a>
+<br>
+
+</div>
+</body>
+</html>

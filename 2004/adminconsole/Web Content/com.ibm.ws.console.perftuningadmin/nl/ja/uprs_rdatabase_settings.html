@@ -1,0 +1,99 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>データベース設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="database_settings"></a>
+<h2>データベース設定</h2>
+
+<p>このページを使用して、データベース・セッション・サポートの設定を指定します。</p>
+
+<p>この管理コンソール・ページを表示するには、「<strong>サーバー</strong>」&gt;「<strong>アプリケーション・サーバー</strong>」&gt;「<em>server_name</em>」&gt;「<strong>Web コンテナー</strong>」&gt;「<strong>セッション管理</strong>」&gt;「<strong>Distributed Environment Settings</strong>」&gt;「<strong>データベース</strong>」をクリックします。</p>
+
+<div>
+<p>
+<strong>「構成」タブ</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="SessionDatabasePersistence_datasourceJNDIName_description"></a>データ・ソース JNDI 名</strong>
+</dt>
+<dd>データ・ソースの記述を指定します。
+<p>セッション管理によるデータベース接続の取得先である XA 非対応データ・ソースの JNDI 名。
+例えば、データ・ソースの JNDI 名が "jdbc/sessions" である場合、"jdbc/sessions" を指定します。
+データ・ソースは、データベース接続のプールとそのプールの構成 (プール・サイズなど) を表します。
+データ・ソースは、環境内に構成されたリソースとしてすでに存在している必要があります。
+</p>
+
+</dd>
+<dt>
+<strong><a name="SessionDatabasePersistence_userId_description"></a>ユーザー ID</strong>
+            &nbsp;
+            </dt>
+<dd>データベース・アクセスのためのユーザー ID を指定します。</dd>
+<dt>
+<strong><a name="SessionDatabasePersistence_password_description"></a>パスワード</strong>
+            &nbsp;
+            </dt>
+<dd>データベース・アクセスのためのパスワードを指定します。</dd>
+<dt>
+<strong><a name="SessionDatabasePersistence_password2_description"></a>確認パスワード</strong>
+            &nbsp;
+            </dt>
+<dd>正しく記録されたことを確認するためにパスワードをもう一度指定します。</dd>
+<dt>
+<strong><a name="SessionDatabasePersistence_db2RowSize_description"></a>DB2 行サイズ</strong>
+            &nbsp;
+            </dt>
+<dd>セッション表用に構成されている表スペースのページ・サイズを指定します (DB2 データベースを使用する場合)。
+指定可能な値は、4、8、16、および 32 K バイト (K) です。
+デフォルトの行サイズは 4K です。
+
+<p>デフォルトの行サイズは 4K です。
+DB2 では、これよりも大きな値に更新できます。
+これにより、環境によってはデータベースのパフォーマンスを改善できます。
+この値が 4 以外の場合は、使用する「表スペース名」を指定する必要があります。
+4K ページの場合、「表スペース名」はオプションです。</p>
+
+</dd>
+<dt>
+<strong><a name="SessionDatabasePersistence_tableSpaceName_description"></a>表スペース名</strong>
+            &nbsp;
+            </dt>
+<dd>セッション表に使用する表スペースを指定します。
+
+<p>「DB2 ページ・サイズ」が 4K 以外の場合はこの値が必要になります。</p>
+
+</dd>
+<dt>
+<strong><a name="TuningParams_usingRowSchema_description"></a>複数行セッションの使用</strong>
+</dt>
+<dd>アプリケーション・データの各インスタンスをデータベース内の別々の行に置くように指定します。
+これにより、各セッション当たりの保管データ量を増やすことができます。
+特定の使用シナリオでは、このアクションにより、パフォーマンスを向上させることができます。
+複数行スキーマの使用が使用可能になっていない場合は、アプリケーション・データのインスタンスを同一行に入れることができます。</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>関連情報</strong>
+</p>
+<a href="rcon_buttons.html">管理コンソールのボタン</a>
+<br>
+
+<a href="rcon_pageusage.html">管理コンソール・ページのフィーチャー</a>
+<br>
+
+<a href="rcon_filter.html">管理コンソールのフィルター設定</a>
+<br>
+
+<a href="rcon_preferences.html">管理コンソールの設定の変更</a>
+<br>
+
+</div>
+</body>
+</html>

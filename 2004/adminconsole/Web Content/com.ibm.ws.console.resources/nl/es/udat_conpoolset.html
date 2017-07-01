@@ -1,0 +1,460 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Valores de agrupaci&oacute;n de conexiones</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="Connection_pool_settings"></a>
+<h2>Valores de agrupaci&oacute;n de conexiones</h2>
+
+<p>Utilice esta p&aacute;gina para configurar valores de
+agrupaci&oacute;n de sesiones.</p>
+
+<p>Esta p&aacute;gina de la consola administrativa es com&uacute;n para una
+variedad de tipos de recursos, como por ejemplo, los or&iacute;genes de datos JDBC y
+las f&aacute;brica de conexiones de cola JMS. Para ver esta p&aacute;gina, la v&iacute;a de acceso
+depende del tipo de recurso, aunque generalmente debe seleccionar una instancia
+del proveedor de recursos, a continuaci&oacute;n, una instancia del tipo de recurso y,
+por &uacute;ltimo, debe pulsar <strong>Agrupaci&oacute;n de conexiones</strong>. Por ejemplo: pulse
+<strong>Proveedores de JDBC</strong> &gt; <strong>proveedor_JDBC</strong> &gt; <strong>Or&iacute;genes de
+datos</strong> &gt; <strong>origen_datos</strong> &gt; <strong>Agrupaci&oacute;n de conexiones</strong>.</p>
+
+<div>
+<p>
+<strong>Pesta&ntilde;a Configuraci&oacute;n</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="Connectionpool_detail_contextID"></a>&Aacute;mbito</strong>
+</dt>
+<dd>Especifica el nivel hasta el cual puede visualizarse esta definici&oacute;n de recurso --
+nivel de c&eacute;lula, nodo o servidor.
+<p>Los recursos tales como los proveedores JDBC, enlaces de espacio de nombres o
+bibliotecas compartidas se pueden definir en varios &aacute;mbitos, de tal modo que los recursos
+definidos en &aacute;mbitos m&aacute;s espec&iacute;ficos alteren temporalmente los duplicados definidos en
+&aacute;mbitos m&aacute;s generales.</p>
+
+<p>Tenga en cuenta que, independientemente del &aacute;mbito de un recurso definido, las propiedades
+de dicho recurso s&oacute;lo se aplican a nivel de servidor individual. Por ejemplo, si define el
+&aacute;mbito de un origen de datos a nivel de c&eacute;lula, todos los usuarios de la c&eacute;lula pueden buscar
+y utilizar dicho origen de datos, que es exclusivo en esa c&eacute;lula. Sin
+embargo, los valores de propiedades de recursos son locales para cada
+servidor de la c&eacute;lula. 
+Por ejemplo, si define <em>n&uacute;mero m&aacute;ximo de conexiones</em> en 10, cada servidor de la c&eacute;lula
+puede tener 10 conexiones.<dl>
+<dt>
+<strong>C&eacute;lula</strong>
+</dt>
+<dd>El &aacute;mbito m&aacute;s general.  Los recursos definidos en el &aacute;mbito de c&eacute;lula son visibles desde todos los nodos y servidores, a menos que se alteren temporalmente. Para ver los recursos definidos en el &aacute;mbito de c&eacute;lula, no especifique ning&uacute;n servidor o nombre nodo en el formulario de selecci&oacute;n de &aacute;mbito.</dd>
+<dt>
+<strong>Nodo</strong>
+</dt>
+<dd>En &aacute;mbito por omisi&oacute;n de la mayor&iacute;a de tipos de recurso.  Los recursos
+definidos en el &aacute;mbito de nodo alteran temporalmente cualquier duplicado definido en el
+&aacute;mbito de c&eacute;lula y son visibles en todos los servidores del mismo nodo, a menos que se
+alteren temporalmente en un &aacute;mbito de servidor de ese nodo. Para ver los recursos definidos en un &aacute;mbito de nodo, no especifique ning&uacute;n servidor, sino que seleccione un nombre de nodo en el formulario de selecci&oacute;n de &aacute;mbito.</dd>
+<dt>
+<strong>Servidor</strong>
+</dt>
+<dd>El &aacute;mbito m&aacute;s espec&iacute;fico para definir recursos.  Los recursos definidos en
+el &aacute;mbito de servidor alteran temporalmente cualquier definici&oacute;n de recurso duplicado definida
+en el &aacute;mbito de c&eacute;lula o &aacute;mbito de nodo padre y s&oacute;lo son visibles en un servidor determinado.
+Para ver los recursos definidos en un &aacute;mbito de servidor, especifique un nombre de servidor, adem&aacute;s de un nombre de nodo en el formulario de selecci&oacute;n de &aacute;mbito.</dd>
+</dl>
+</p>
+
+<p>Al crear recursos, estos siempre se crean en el &aacute;mbito actual seleccionado en el panel.   Para ver recursos de otros &aacute;mbitos, especifique un nodo o servidor distinto en el formulario de selecci&oacute;n de &aacute;mbito.  </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ConnectionPool_connectionTimeout_displayName"></a>Tiempo de espera de conexi&oacute;n </strong>
+</dt>
+<dd>Especifica el intervalo de tiempo en segundos despu&eacute;s del cual una petici&oacute;n de
+conexi&oacute;n excede su tiempo de espera y se genera una ConnectionWaitTimeoutException.
+<p> El tiempo de espera es necesario si se alcanza el valor m&aacute;ximo de conexiones
+(<em>N&uacute;mero m&aacute;ximo de conexiones</em>) con una agrupaci&oacute;n de conexiones determinada.  Por ejemplo, si se establece <em>Tiempo de espera de conexi&oacute;n</em> en 300 y se
+alcanza el n&uacute;mero m&aacute;ximo de conexiones, el gestor de agrupaciones
+espera durante 300 segundos a que una conexi&oacute;n f&iacute;sica est&eacute; disponible.
+Si una conexi&oacute;n f&iacute;sica <em>no</em> est&aacute; disponible durante ese intervalo de tiempo, el gestos de agrupaciones genera una ConnectionWaitTimeoutException.  Normalmente, no tiene sentido reintentar el m&eacute;todo
+<em>getConnection()</em>, porque si es necesario esperar m&aacute;s tiempo, debe establecer
+<em>Tiempo de espera de conexi&oacute;n</em> en un valor m&aacute;s alto. Por lo tanto, si la aplicaci&oacute;n capta esta excepci&oacute;n, el administrador
+debe revisar el uso esperado de la aplicaci&oacute;n y ajustar la agrupaci&oacute;n de
+conexiones y la base de datos en consecuencia.</p>
+
+<p>Si Tiempo de espera de conexi&oacute;n establece en 0, el gestor de agrupaciones espera el tiempo necesario hasta que se asigne una conexi&oacute;n (lo que sucede cuando el n&uacute;mero de conexiones cae por debajo del valor de <em>N&uacute;mero m&aacute;ximo de conexiones</em>). </p>
+
+<p>Si N&uacute;mero m&aacute;ximo de conexiones se establece en 0, lo que habilita un n&uacute;mero infinito de conexiones f&iacute;sicas, se ignorar&aacute; el valor de Tiempo de espera de conexi&oacute;n.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unidades</td>
+<td align="left" valign="top" class="base">Segundos</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">180</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">0 al entero m&aacute;ximo</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ConnectionPool_maxConnections_displayName"></a>N&uacute;mero m&aacute;ximo de conexiones </strong>
+</dt>
+<dd>Especifica el n&uacute;mero m&aacute;ximo de conexiones f&iacute;sicas que puede crear en esta
+agrupaci&oacute;n. 
+<p>&Eacute;stas son las conexiones f&iacute;sicas con el recurso de programa de fondo. Cuando se ha
+alcanzado este n&uacute;mero, no se crean nuevas conexiones f&iacute;sicas y el solicitante espera a que
+se devuelva a la agrupaci&oacute;n una conexi&oacute;n f&iacute;sica que se est&eacute; utilizando actualmente o a que se
+genere una ConnectionWaitTimeoutException. </p>
+
+<p>Por ejemplo, si el N&uacute;mero m&aacute;ximo de conexiones se establece en 5 y se
+est&aacute;n utilizando cinco conexiones f&iacute;sicas, el gestor de agrupaciones
+espera durante el intervalo de tiempo especificado en Tiempo de espera
+de conexi&oacute;n a que una conexi&oacute;n f&iacute;sica quede libre. </p>
+
+<p>Si el n&uacute;mero m&aacute;ximo de conexiones se establece en 0, se ignorar&aacute; el valor de Tiempo de espera de conexi&oacute;n.
+ </p>
+
+<p>Para obtener un mejor rendimiento, establezca la agrupaci&oacute;n de
+conexiones en un valor por debajo del valor de conexiones m&aacute;ximas del
+contenedor Web. Cuanto m&aacute;s bajos sean los valores, como
+10 a 30 conexiones, funcionar&aacute; mejor que con valores mayores, como 100. </p>
+
+<p>Si se utilizan clones, existe una agrupaci&oacute;n de datos para cada clon. Saber cu&aacute;l es el n&uacute;mero de agrupaciones de datos es importante cuando se configura el n&uacute;mero m&aacute;ximo de conexiones de base de datos.</p>
+
+<p>Puede utilizar Tivoli Performance
+Viewer para encontrar el n&uacute;mero &oacute;ptimo de conexiones de una agrupaci&oacute;n. Si el n&uacute;mero de conexiones en espera a la vez es mayor que
+0, pero la carga de CPU no se aproxima al 100%, considere aumentar el tama&ntilde;o de la
+agrupaci&oacute;n de conexiones. Si el valor de porcentaje utilizado suele ser
+bajo cuando la carga de trabajo es la normal, puede optar por disminuir
+el n&uacute;mero de conexiones de la agrupaci&oacute;n.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">10</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">0 al entero m&aacute;ximo</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ConnectionPool_minConnections_displayName"></a>N&uacute;mero m&iacute;nimo de conexiones </strong>
+</dt>
+<dd>Especifica el n&uacute;mero m&iacute;nimo de conexiones f&iacute;sicas que se deben mantener.
+<p>Hasta que se alcance este n&uacute;mero, la hebra de
+mantenimiento de la agrupaci&oacute;n no descarta ninguna conexi&oacute;n f&iacute;sica. No obstante, no se intenta que el n&uacute;mero de
+conexiones alcance este n&uacute;mero.  Si establece un valor para Tiempo de
+espera superado, no se mantiene el valor m&iacute;nimo. Todas las conexiones que presenten un valor de tiempo de espera
+caducado se descartan.</p>
+
+<p>Por ejemplo, si se establece el N&uacute;mero m&iacute;nimo de conexiones en 3 y se
+crea una conexi&oacute;n f&iacute;sica, la hebra de Tiempo de espera no utilizado no
+descarta dicha conexi&oacute;n.
+Del mismo
+modo, la hebra no crea autom&aacute;ticamente dos conexiones f&iacute;sicas adicionales para alcanzar el
+valor de N&uacute;mero m&iacute;nimo de conexiones.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">1</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">0 al entero m&aacute;ximo</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ConnectionPool_reapTime_displayName"></a>Tiempo de recopilaci&oacute;n </strong>
+</dt>
+<dd>Especifica el intervalo en segundos entre cada una de las operaciones de la hebra de
+mantenimiento de la agrupaci&oacute;n.
+<p> Por ejemplo, si se establece Tiempo de recopilaci&oacute;n en 60, la hebra de mantenimiento de la
+agrupaci&oacute;n se ejecuta cada 60 segundos. El intervalo de <em>Tiempo de recopilaci&oacute;n</em> afectar&aacute; a la precisi&oacute;n de los valores de <em>Tiempo de espera no utilizado</em> y <em>Tiempo de espera superado</em>.  Cuanto m&aacute;s peque&ntilde;o sea el valor del intervalo, mayor ser&aacute; su precisi&oacute;n. Si la hebra de mantenimiento de la agrupaci&oacute;n est&aacute; habilitada, establezca el valor de Tiempo de
+recopilaci&oacute;n para que sea inferior a los valores de Tiempo de espera no utilizado y Tiempo de
+espera superado. Cuando la hebra de mantenimiento de la agrupaci&oacute;n  se ejecuta, &eacute;sta descarta
+todas las conexiones que no se han utilizado durante un intervalo de tiempo superior al valor
+especificado en Tiempo de espera no utilizado hasta que alcanza el n&uacute;mero de conexiones
+especificado en <em>N&uacute;mero m&iacute;nimo de conexiones</em>. La hebra de mantenimiento de la agrupaci&oacute;n
+tambi&eacute;n descarta todas las conexiones que han permanecido activas durante un intervalo de
+tiempo superior al valor especificado en Tiempo de espera superado.</p>
+
+<p> El intervalo de Tiempo de recopilaci&oacute;n tambi&eacute;n afectar&aacute; al rendimiento.  Los intervalos m&aacute;s
+peque&ntilde;os significan que la hebra de mantenimiento de la agrupaci&oacute;n se ejecuta con m&aacute;s
+frecuencia y disminuye el rendimiento.</p>
+
+<p>Para inhabilitar la hebra de mantenimiento de la agrupaci&oacute;n, establezca Tiempo de
+recopilaci&oacute;n en 0, o bien establezca tanto Tiempo de espera no utilizado como Tiempo de espera
+superado en O. El m&eacute;todo recomendado para inhabilitar la hebra de mantenimiento de la
+agrupaci&oacute;n es establecer Tiempo de recopilaci&oacute;n en 0, en cuyo caso se ignoran Tiempo de
+espera no utilizado y Tiempo de espera superado. No obstante, si se establecen Tiempo de espera
+no utilizado y Tiempo de espera superado en 0, la hebra de mantenimiento de la agrupaci&oacute;n se
+ejecuta pero solamente se descartan las conexiones f&iacute;sicas que tienen valores de tiempo de
+espera excedido que no sean cero.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unidades</td>
+<td align="left" valign="top" class="base">Segundos</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">180</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">0 al entero m&aacute;ximo</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ConnectionPool_unusedTimeout_displayName"></a>Tiempo de espera no utilizado </strong>
+</dt>
+<dd>Especifica el intervalo de tiempo en segundos despu&eacute;s del cual se descartan todas
+las conexiones desocupadas o no utilizadas.
+<p> Para obtener un rendimiento &oacute;ptimo, establezca el valor de Tiempo de espera no utilizado de modo que sea superior al valor de Tiempo de espera de recopilaci&oacute;n.  Solamente se descartan las
+conexiones f&iacute;sicas no utilizadas si el n&uacute;mero actual de las conexiones que no est&eacute;n
+utiliz&aacute;ndose supera el valor de N&uacute;mero m&iacute;nimo de conexiones.  Por ejemplo, si se establece el
+valor de Tiempo de espera no utilizado en 120 y se habilita la hebra de mantenimiento de la
+agrupaci&oacute;n (el valor de Tiempo de recopilaci&oacute;n no es 0), cualquier conexi&oacute;n f&iacute;sica que no se
+haya utilizado durante dos minutos se descarta.  Tenga en cuenta que la precisi&oacute;n de este valor de tiempo de espera y
+tambi&eacute;n el rendimiento se ven afectados por el valor de Tiempo de recopilaci&oacute;n.  Consulte la secci&oacute;n sobre Tiempo de recopilaci&oacute;n para obtener m&aacute;s informaci&oacute;n.  </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unidades</td>
+<td align="left" valign="top" class="base">Segundos</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">1800</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">0 al entero m&aacute;ximo</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ConnectionPool_agedTimeout_displayName"></a>Tiempo de espera superado </strong>
+</dt>
+<dd>Especifica el intervalo de tiempo en segundos antes de que se descarte una conexi&oacute;n f&iacute;sica.
+<p> Si se establece el <em>Tiempo de espera superado</em> como 0, se da soporte a las
+conexiones f&iacute;sicas activas que permanecen en la agrupaci&oacute;n indefinidamente. Para obtener un rendimiento &oacute;ptimo, establezca el
+valor de Tiempo de espera superado de modo que sea superior al valor de Tiempo de espera de
+recopilaci&oacute;n.  Por ejemplo, si se establece el valor de Tiempo de espera superado en 1200 y el valor de Tiempo de recopilaci&oacute;n no es 0, se descarta de la agrupaci&oacute;n
+cualquier conexi&oacute;n f&iacute;sica que permanezca durante 1200 segundos (20 minutos).   Tenga en cuenta
+que la precisi&oacute;n de este valor de tiempo de espera y tambi&eacute;n el rendimiento se ven afectados
+por el valor de Tiempo de recopilaci&oacute;n.  Consulte la secci&oacute;n sobre Tiempo de recopilaci&oacute;n para obtener m&aacute;s informaci&oacute;n.
+ </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unidades</td>
+<td align="left" valign="top" class="base">Segundos</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">0</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">0 al entero m&aacute;ximo</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ConnectionPool_purgePolicy_displayName"></a>Pol&iacute;ticas de depuraci&oacute;n </strong>
+</dt>
+<dd>  Especifica c&oacute;mo se han de depurar las conexiones cuando
+se detecta una <em>conexi&oacute;n en punto muerto</em> o un <em>error fatal de conexi&oacute;n</em>. 
+<p>Los valores v&aacute;lidos son <strong>EntirePool</strong> y <strong>FailingConnectionOnly</strong>. 
+Los or&iacute;genes de datos de JCA pueden tener cualquiera de las dos opciones. Los
+or&iacute;genes de datos de WebSphere Versi&oacute;n 4.0 siempre tiene la pol&iacute;tica de
+depuraci&oacute;n de <strong>EntirePool</strong>.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">EntirePool</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">
+<dl>
+<dt>
+<strong>EntirePool</strong>
+</dt>
+<dd>Todas las conexiones de la agrupaci&oacute;n libre se marcan como en punto muerto. Las conexiones que no se est&eacute;n utilizando se cerrar&aacute;n inmediatamente. Las conexiones que se est&eacute;n
+utilizando, se cerrar&aacute;n en la pr&oacute;xima operaci&oacute;n que se realice en ellas y se generar&aacute; una
+excepci&oacute;n <em>StaleConnectionException</em>. Las posteriores peticiones <em>getConnection</em> de la aplicaci&oacute;n dan lugar a que se abran nuevas conexiones con la base de datos. Cuando se utiliza esta pol&iacute;tica de depuraci&oacute;n, existe la peque&ntilde;a posibilidad de que algunas
+conexiones de la agrupaci&oacute;n se cierren sin necesidad cuando no est&eacute;n en punto muerto. No obstante, esto es dif&iacute;cil que ocurra. En la mayor&iacute;a de los casos, la pol&iacute;tica de depuraci&oacute;n
+de EntirePool es la mejor opci&oacute;n.</dd>
+<dt>
+<strong>FailingConnectionOnly</strong>
+</dt>
+<dd>S&oacute;lo se cierra la conexi&oacute;n que ha provocado la excepci&oacute;n
+<em>StaleConnectionException</em>. Aunque este valor elimina la posibilidad de
+que se cierren conexiones v&aacute;lidas sin necesidad, la recuperaci&oacute;n desde el punto
+de vista de la aplicaci&oacute;n es m&aacute;s complicada. Como s&oacute;lo se cierra la conexi&oacute;n que ha fallado actualmente, es muy probable
+que la pr&oacute;xima petici&oacute;n <em>getConnection</em> de la aplicaci&oacute;n devuelva una conexi&oacute;n de la
+agrupaci&oacute;n que tambi&eacute;n est&eacute; en punto muerto, lo que generar&aacute; m&aacute;s excepciones de conexi&oacute;n en
+punto muerto.</dd>
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informaci&oacute;n relacionada</strong>
+</p>
+<a href="rcon_buttons.html">Botones de la consola de administraci&oacute;n</a>
+<br>
+
+<a href="rcon_pageusage.html">Caracter&iacute;sticas de la p&aacute;gina de la consola administrativa</a>
+<br>
+
+</div>
+</body>
+</html>

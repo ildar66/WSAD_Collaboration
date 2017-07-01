@@ -1,0 +1,152 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Nonce-Merkmale auf Zellenebene</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_noncecellprop"></a>
+<h2>
+<img alt="[Release 5.1 und h&ouml;her]" src="v51.gif" border="0">Nonce-Merkmale auf Zellenebene</h2>
+
+<p>Verwenden Sie diese Seite, um in einer WAS-ND-Umgebung die Nonce-Konfiguration auf Zellenebene zu konfigurieren.
+</p>
+
+<p>Klicken Sie zum Anzeigen dieser Seite der Administrationskonsole auf
+<strong>Sicherheit &gt; Web Services &gt; Merkmale</strong>.</p>
+
+<p>Definieren Sie die serverseitige Nonce-Konfiguration. Klicken Sie dazu auf
+<strong>Server &gt; Anwendungsserver &gt; </strong><em>Servername</em>. Klicken Sie unter
+"Weitere Merkmale" auf <strong>Web Services: Standardbindungen f&uuml;r Sicherheit von Web Services</strong>.</p>
+
+<p>
+<img alt="[Release 5.1 und h&ouml;her]" src="v51.gif" border="0"><em>Nonce</em> ist eine eindeutige verschl&uuml;sselte Nummer, die in eine Nachricht eingebettet wird,
+um wiederholte, unbefugte Hackerattackeen auf Benutzernamen-Token zu verhindern.
+In einer WAS-ND-Umgebung m&uuml;ssen Sie die Felder
+<strong>Cache-Zeitlimit f&uuml;r Nonce</strong>, <strong>Maximale Nonce-Dauer</strong> und
+<strong>Zeitliche Abweichung f&uuml;r Nonce</strong> f&uuml;r die Zellenebene ausf&uuml;llen.</p>
+
+<dl>
+<dt>
+<strong><a name="sec_cellnoncecachetimeout"></a>Cache-Zeitlimit f&uuml;r Nonce</strong>
+</dt>
+<dd>Das Zeitlimit f&uuml;r den auf dem Server zwischengespeicherten Nonce. Nonce ist ein generierter Zufallswert.
+
+<p>Sie m&uuml;ssen im Feld <strong>Cache-Zeitlimit f&uuml;r Nonce</strong> einen Mindestwert von 300 Sekunden angeben.
+Wenn Sie keinen Wert angeben, wird der Standardwert 600 verwendet.
+</p>
+
+<p>In einer Umgebung mit WebSphere Application Server Network Deployment muss das Feld
+<strong>Cache-Zeitlimit f&uuml;r Nonce</strong> auf Zellenebene definiert werden.
+</p>
+
+<p>
+<b>Anmerkung: </b>Wenn Sie das Cache-Zeitlimit f&uuml;r Nonce ver&auml;ndern, m&uuml;ssen Sie WebSphere Application Server erneut starten,
+damit die &Auml;nderung wirksam wird.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert </td>
+<td align="left" valign="top" class="base">600 Sekunden</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Mindestwert</td>
+<td align="left" valign="top" class="base">300 Sekunden</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="sec_cellnoncemaxage"></a>Maximale Nonce-Dauer</strong>
+</dt>
+<dd>Verfallsdatum f&uuml;r Nonce-Zeitmarke. Nonce ist ein generierter Zufallswert.
+
+<p>Sie m&uuml;ssen im Feld <strong>Maximale Nonce-Dauer</strong> einen Mindestwert von 300 Sekunden angeben.
+F&uuml;r die Zellenebene darf der Maximalwert jedoch nicht das angegebene <strong>Cache-Zeitlimit f&uuml;r Nonce</strong> &uuml;berschreiten. Wenn Sie keinen
+Wert angeben, wird der Standardwert von 300 Sekunden verwendet.
+Der in diesem Feld auf Zellenebene angegebene Wert ist der Maximalwert, den Sie im Feld
+<strong>Maximale Nonce-Dauer</strong> auf Serverebene festlegen k&ouml;nnen.
+Zum Festlegen des Wertes f&uuml;r die <strong>maximale Nonce-Dauer</strong> auf Serverebene
+klicken Sie auf <strong>Server &gt; Anwendungsserver &gt; </strong><em>Servername</em>.
+Klicken Sie unter
+"Weitere Merkmale" auf <strong>Web Services: Standardbindungen f&uuml;r Web-Services-Sicherheit</strong>.</p>
+
+<p>In einer Umgebung mit WebSphere Application Server Network Deployment muss das Feld
+<strong>Maximale Nonce-Dauer</strong> auf Zellenebene definiert werden.
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert </td>
+<td align="left" valign="top" class="base">300 Sekunden</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">300 Sekunden bis Sekunden des <strong>Cache-Zeitlimits f&uuml;r Nonce</strong> </td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="sec_nonceclockskew"></a>Zeitliche Abweichung f&uuml;r Nonce
+</strong>
+</dt>
+<dd>Gibt die zeitliche Abweichung an, die WebSphere Application Server ber&uuml;cksichtigen muss, wenn die Aktualit&auml;t der Nachricht gepr&uuml;ft wird. Nonce ist ein generierter Zufallswert.
+
+<p>Sie m&uuml;ssen im Feld <strong>Zeitliche Abweichung f&uuml;r Nonce</strong> einen Mindestwert von 0 Sekunden angeben.
+Der Maximalwert darf jedoch nicht die Anzahl der im Feld <strong>Maximale Nonce-Dauer</strong> auf Zellenebene angegebenen Sekunden &uuml;berschreiten. Wenn Sie keinen Wert angeben, wird der Standardwert 0 verwendet.
+</p>
+
+<p>In einer Umgebung mit WebSphere Application Server Network Deployment muss das Feld
+<strong>Zeitliche Abweichung f&uuml;r Nonce</strong> auf Zellenebene definiert werden.
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert </td>
+<td align="left" valign="top" class="base">0 Sekunden</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">0 Sekunden bis <strong>Maximale Nonce-Dauer</strong> </td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>Zugeh&ouml;rige Informationen</strong>
+</p>
+<a href="uwbs_websvcb.html">Web Services: Standardbindungen f&uuml;r die Web-Services-Sicherheit</a>
+<br>
+
+<a href="uwbs_logmapn.html">Konfigurationseinstellungen f&uuml;r die Anmeldezuordnung</a>
+<br>
+
+</div>
+</body>
+</html>

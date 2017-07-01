@@ -1,0 +1,470 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Impostazioni del lotto connessioni</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="Connection_pool_settings"></a>
+<h2>Impostazioni del lotto connessioni</h2>
+
+<p>Utilizzare questa pagina per configurare le impostazioni del lotto connessioni.</p>
+
+<p>Questa pagina della console di gestione &egrave; comune in diversi tipi di risorse; ad esempio, le origini dati JDBC e le produzioni connessioni code JMS.
+Per visualizzare questa pagina, il percorso dipende
+dal tipo di risorsa ma generalmente si seleziona prima l'istanza del provider di risorse, quindi
+un'istanza del tipo di risorsa e, successivamente, si fa clic su <strong>Lotto connessioni</strong>.
+Ad esempio: fare clic su <strong>Risorse</strong> &gt; <strong>Provider JDBC</strong> &gt; <strong>provider_JDBC</strong> &gt; <strong>Origini dati</strong> &gt; <strong>origine_dati</strong> &gt; <strong>Lotto connessioni</strong>.</p>
+
+<div>
+<p>
+<strong>Scheda Configurazione</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="Connectionpool_detail_contextID"></a>Ambito</strong>
+</dt>
+<dd>Specifica il livello in cui &egrave; visibile questa definizione di risorsa -- il
+livello cella, nodo o server.
+<p>&Egrave; possibile definire in pi&ugrave; ambiti, risorse quali provider di JDBC, collegamenti
+spazio nome o librerie condivise, insieme a risorse definite in ambiti pi&ugrave; specifici che
+sovrascrivono i duplicati definiti in ambiti pi&ugrave; generali.</p>
+
+<p>Notare che non &egrave; importante l'ambito di una risorsa definita, le propriet&agrave; della
+risorsa si applicano solo ad un singolo livello del server. Ad esempio, se si definisce
+l'ambito di un'origine dati al livello Cella, tutti gli utenti possono ricercare e
+utilizzare quella origine dati che risulta univoca all'interno di quella cella. Tuttavia,
+le impostazioni delle propriet&agrave; di risorsa sono locali per ogni server
+all'interno della Cella. Ad esempio, se si imposta <em>numero massimo connessioni</em> su
+10, ogni server in quella cella pu&ograve; disporre di 10 connessioni.<dl>
+<dt>
+<strong>Cella</strong>
+</dt>
+<dd>L'ambito pi&ugrave; generale.  Le risorse definite nell'ambito cella sono
+visibili da tutti i nodi e i server, a meno che non siano state sovrascritte. Per visualizzare le risorse definite nell'ambito cella, non specificare il nome di un
+server o di un nodo nel modulo di selezione dell'ambito.</dd>
+<dt>
+<strong>Nodo</strong>
+</dt>
+<dd>L'ambito predefinito per la maggior parte dei tipi
+di risorse.  Le risorse definite nell'ambito nodo sovrascrivono
+gli eventuali duplicati definiti nell'ambito cella e sono
+visibili a tutti i server sullo stesso nodo, a meno che non siano
+state sovrascritte in un ambito server sul quel nodo. Per
+visualizzare le risorse definite in un ambito nodo, non specificare
+un server ma selezionare il nome di un nodo nel modulo di selezione
+dell'ambito.</dd>
+<dt>
+<strong>Server</strong>
+</dt>
+<dd>L'ambito pi&ugrave; specifico per la definizione delle
+risorse.  Le risorse definite nell'ambito server sovrascrivono eventuali
+definizioni di risorse duplicate specificate nell'ambito cella o
+nell'ambito nodo parent e sono visibili solo in un determinato server.
+Per
+visualizzare le risorse definite in un ambito server, specificare il
+nome di un server e il nome di un nodo nel modulo di selezione
+dell'ambito.</dd>
+</dl>
+</p>
+
+<p>Quando le risorse vengono generate, vengono sempre create nell'ambito corrente
+selezionato nel pannello.   Per visualizzare le
+risorse in altri ambiti, specificare un nodo o un server diverso nel
+modulo di selezione dell'ambito.  </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ConnectionPool_connectionTimeout_displayName"></a>Timeout connessione </strong>
+</dt>
+<dd>Specifica l'intervallo, in secondi, dopo il quale scade una richiesta di
+connessione e viene generata un'eccezione ConnectionWaitTimeoutException.
+<p> L'attesa &egrave; necessaria se &egrave; stato raggiunto il valore massimo di connessioni
+(<em>Numero massimo connessioni</em>) in un lotto connessioni particolare.  Ad esempio, se
+<em>Timeout connessione</em> &egrave; impostato su 300 e il numero massimo di connessioni &egrave; stato
+raggiunto, il gestore lotti attende 300 secondi per una connessione fisica disponibile.
+Se la connessione fisica <em>non</em> &egrave; disponibile entro quel periodo di tempo, il gestore
+lotti genera un'eccezione ConnectionWaitTimeoutException.  Solitamente, &egrave; inutile
+ritentare il metodo <em>getConnection()</em>, poich&eacute; se &egrave; necessaria un'attesa pi&ugrave; lunga, &egrave;
+necessario impostare su un valore pi&ugrave; alto il <em>Timeout connessione</em>. Pertanto se questa eccezione
+viene rilevata dall'applicazione, l'amministratore deve
+riesaminare l'uso previsto dell'applicazione e regolare il lotto
+connessioni e il database in base all'utilizzo.</p>
+
+<p>Se Timeout connessione &egrave; impostato su 0, il gestore lotti attende tutto il tempo
+necessario per allocare una connessione (operazione che viene eseguita quando il numero
+di connessioni &egrave; al di sotto del valore <em>Numero massimo connessioni</em>). </p>
+
+<p>Se Numero massimo connessioni &egrave; impostato su 0, che consente un numero infinito di
+connessioni fisiche, il valore Timeout connessione viene ignorato.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Numero intero</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&agrave;</td>
+<td align="left" valign="top" class="base">Secondi</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">180</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo</td>
+<td align="left" valign="top" class="base">int da 0 al valore massimo</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ConnectionPool_maxConnections_displayName"></a>Numero massimo connessioni </strong>
+</dt>
+<dd>Specifica il numero massimo di connessioni fisiche che &egrave; possibile creare in
+questo lotto. 
+<p>Sono connessioni fisiche alla risorsa di backend. Una volta
+raggiunto questo numero, non vengono create nuove connessioni fisiche
+e l'utente resta in attesa fino a quando una connessione fisica,
+attualmente in uso, viene restituita al lotto o viene generata
+un'eccezione ConnectionWaitTimeoutException. </p>
+
+<p>Ad esempio, se il valore Numero massimo connessioni &egrave; impostato su 5 ed esistono cinque
+connessioni fisiche in uso, il gestore lotti attende, per il tempo specificato in Timeout
+connessione, che una connessione si liberi. </p>
+
+<p>Se Numero massimo connessioni &egrave; impostato su 0, il valore del
+timeout connessione viene ignorato.
+ </p>
+
+<p>Per ottenere migliori prestazioni, impostare il valore del lotto connessioni su un valore
+pi&ugrave; basso rispetto all'opzione Numero massimo connessioni nel contenitore Web. Le impostazioni
+su un valore basso, come ad esempio 10-30 connessioni, hanno un funzionamento migliore delle
+impostazioni su un valore alto, ad esempio 100. </p>
+
+<p>Se si utilizzano i cloni, esiste per ciascun clone un lotto dati. &Egrave; importante conoscere il
+numero dei lotti dati quando si configurano le connessioni massime del database.</p>
+
+<p>&Egrave; possibile utilizzare il Visualizzatore prestazioni Tivoli per
+individuare il numero ottimale di connessioni in un lotto. Se il numero di elementi in attesa simultanei &egrave; maggiore di 0,
+ma il carico CPU non si avvicina al 100%, aumentare la dimensione del lotto connessioni. Se il
+valore Percentuale utilizzata &egrave; coerentemente basso con carico di lavoro normale, ridurre il
+numero di connessioni nel lotto.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Numero intero</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">10</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo</td>
+<td align="left" valign="top" class="base">int da 0 al valore massimo</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ConnectionPool_minConnections_displayName"></a>Numero minimo di connessioni </strong>
+</dt>
+<dd>Specifica il numero minimo di connessioni fisiche da mantenere.
+<p>Fino a quando non viene raggiunto questo numero, il thread di gestione lotti
+non elimina le connessioni fisiche. Tuttavia non vengono effettuati tentativi per aumentare
+il numero di connessioni fino a questo numero.  Se viene impostato un valore per Timeout
+scaduto, il valore minimo non viene mantenuto. Tutte le connessioni con
+un timeout scaduto vengono eliminate.</p>
+
+<p>Ad esempio, se il valore Numero minimo di connessioni &egrave; impostato su 3 e viene creata una
+connessione fisica, il thread Timeout di non utilizzo non elimina tale connessione.
+Dallo stesso token il thread non crea automaticamente due
+connessioni fisiche aggiuntive per raggiungere l'impostazione Numero
+minimo connessioni.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Numero intero</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">1</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo</td>
+<td align="left" valign="top" class="base">int da 0 al valore massimo</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ConnectionPool_reapTime_displayName"></a>Tempo di raccolta </strong>
+</dt>
+<dd>Specifica l'intervallo, in secondi, tra le esecuzioni del thread di gestione
+lotti.
+<p> Ad esempio, se Tempo di raccolta &egrave; impostato su 60, il thread di gestione lotti
+viene eseguito ogni 60 secondi. L'intervallo
+<em>Tempo di raccolta</em> influisce sulla precisione delle
+impostazioni <em>Timeout di non utilizzo</em> e <em>Timeout scaduto</em>.  Ad un intervallo minore corrisponde una maggiore precisione. Se il thread di gestione lotti &egrave; abilitato, impostare il valore Tempo di raccolta su un
+valore inferiore a Timeout di non utilizzo e Timeout scaduto. Quando il thread di
+gestione lotti &egrave; in esecuzione, elimina le connessioni che risultano non utilizzate per
+un periodo pi&ugrave; lungo rispetto al valore di tempo specificato in Timeout di non utilizzo,
+fino a che non viene raggiunto il numero di connessioni specificate in
+<em>Numero minimo connessioni</em>. Il thread di gestione lotti elimina inoltre le connessioni che sono state attive pi&ugrave; a
+lungo del valore specificato in Timeout scaduto.</p>
+
+<p> L'intervallo Tempo di raccolta influisce inoltre sulle
+prestazioni.  Un intervallo minore indica che il thread di gestione lotti verr&agrave; eseguito
+pi&ugrave; spesso, degradando le prestazioni.</p>
+
+<p>Per disabilitare il thread di gestione lotti, impostare Tempo di raccolta su 0 o
+impostare Timeout di non utilizzo e Timeout scaduto su 0. La modalit&agrave; che si consiglia di
+seguire per disabilitare il thread di gestione lotti &egrave; impostare Tempo di raccolta su 0
+in modo da ignorare Timeout di non utilizzo e Timeout scaduto. Tuttavia, se Timeout di non utilizzo e Timeout non scaduto sono impostati su 0, il thread di gestione lotti viene
+eseguito ma verranno ignorate solo le connessioni fisiche il cui timeout scade su valori
+non zero.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Numero intero</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&agrave;</td>
+<td align="left" valign="top" class="base">Secondi</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">180</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo</td>
+<td align="left" valign="top" class="base">int da 0 al valore massimo</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ConnectionPool_unusedTimeout_displayName"></a>Timeout di non utilizzo </strong>
+</dt>
+<dd>Specifica l'intervallo in secondi dopo il quale una connessione non
+utilizzata o inattiva viene eliminata.
+<p> Per ottimizzare le prestazioni, impostare Timeout di non utilizzo su un valore
+superiore a Tempo di raccolta.  Le connessioni fisiche non utilizzate vengono eliminate
+solo se il numero corrente di connessioni in uso non supera l'impostazione Numero minimo
+connessioni.  Ad esempio, se il timeout di non utilizzo viene impostato su 120 e il
+thread di gestione lotti &egrave; abilitato (il tempo di raccolta non &egrave; 0), l'eventuale
+connessione fisica che non viene utilizzata per due minuti viene eliminata.  Osservare che la precisione di questo
+timeout nonch&eacute; le prestazioni sono influenzate dal valore Tempo di
+raccolta.  Per ulteriori informazioni consultare Tempo di raccolta.  </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Numero intero</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&agrave;</td>
+<td align="left" valign="top" class="base">Secondi</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">1800</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo</td>
+<td align="left" valign="top" class="base">int da 0 al valore massimo</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ConnectionPool_agedTimeout_displayName"></a>Timeout scaduto </strong>
+</dt>
+<dd>Specifica l'intervallo in secondi prima che una connessione fisica venga
+eliminata.
+<p> L'impostazione di <em>Timeout scaduto</em> su 0 consente alle
+connessioni fisiche attive di restare nel lotto per un tempo
+indeterminato. Per ottimizzare le prestazioni, impostare Timeout scaduto su un valore
+superiore a Tempo di raccolta.  Ad esempio, se Timeout scaduto &egrave; impostato su 1200 e
+Tempo di raccolta su 0, le eventuali connessioni fisiche che sono state attive per 1200
+secondi (20 minuti) vengono eliminate dal lotto.   Si noti che la precisione di questo
+timeout, cos&igrave; come le prestazioni, sono influenzate dal valore del tempo di raccolta.  Per ulteriori informazioni consultare Tempo di raccolta.
+ </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Numero intero</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&agrave;</td>
+<td align="left" valign="top" class="base">Secondi</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">0</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo</td>
+<td align="left" valign="top" class="base">int da 0 al valore massimo</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ConnectionPool_purgePolicy_displayName"></a>Politica di eliminazione </strong>
+</dt>
+<dd>  Specifica come eliminare le connessioni quando viene
+rilevata una <em>connessione obsoleta</em> o <em>un errore di
+connessione irreversibile</em>. 
+<p>I valori validi sono <strong>EntirePool</strong> e <strong>FailingConnectionOnly</strong>. Le origini dati JCA
+possono disporre di una delle due opzioni. Le origini dati WebSphere Version 4.0 hanno sempre una
+politica di eliminazione <strong>EntirePool</strong>.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">EntirePool</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo</td>
+<td align="left" valign="top" class="base">
+<dl>
+<dt>
+<strong>EntirePool</strong>
+</dt>
+<dd>Tutte le connessioni presenti nel lotto vengono contrassegnate come obsolete. Qualsiasi connessione non in uso viene chiusa immediatamente. Una connessione in uso viene chiusa e, alla successiva operazione su di essa, viene generata una <em>StaleConnectionException</em>. Richieste <em>getConnection</em> successive dall'applicazione
+determinano nuove connessioni all'apertura del database. Quando si utilizza questa politica di eliminazione, esiste una minima possibilit&agrave; che alcune connessioni, presenti nel lotto, vengano chiuse inutilmente anche se non sono obsolete. Tuttavia, ci&ograve; si verifica raramente. Nella maggior parte dei casi, la scelta migliore &egrave; una politica di
+eliminazione EntirePool.</dd>
+<dt>
+<strong>FailingConnectionOnly</strong>
+</dt>
+<dd>Viene chiusa solo la connessione che ha causato la <em>StaleConnectionException</em>. Sebbene
+questa impostazione elimini la possibilit&agrave; che connessioni valide vengano chiuse inutilmente, da
+una prospettiva dell'applicazione, rende pi&ugrave; complicato il ripristino. Poich&eacute; viene chiusa solo la connessione che attualmente presenta degli errori, esiste
+un'ampia possibilit&agrave; che la richiesta <em>getConnection</em> successiva dall'applicazione
+restituisca una connessione obsoleta dal lotto, generando ulteriori eccezioni di
+connessioni obsolete.</dd>
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informazioni correlate</strong>
+</p>
+<a href="rcon_buttons.html">Pulsanti della console di gestione</a>
+<br>
+
+<a href="rcon_pageusage.html">Funzioni della pagina della console di gestione</a>
+<br>
+
+</div>
+</body>
+</html>

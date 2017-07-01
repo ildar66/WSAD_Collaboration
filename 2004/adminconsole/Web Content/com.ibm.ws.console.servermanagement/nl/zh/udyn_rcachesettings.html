@@ -1,0 +1,59 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>动态高速缓存服务设置</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="udyn_rcachesettings"></a>
+<h2>动态高速缓存服务设置</h2>
+
+<p>使用此页面配置和管理动态高速缓存服务设置。</p>
+
+<p>要查看此管理控制台页面，单击<strong>服务器</strong> &gt; <strong>应用程序服务器</strong> &gt; <em>server</em> &gt; <strong>动态高速缓存服务</strong>。</p>
+
+<div>
+<p>
+<strong>&ldquo;配置&rdquo;选项卡</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="DynamicCache__startup_description"></a>启动状态</strong>
+</dt>
+<dd>指定是否启用动态高速缓存。</dd>
+<dt>
+<strong><a name="DynamicCache_cacheSize_description"></a>高速缓存大小</strong>
+</dt>
+<dd>指定作为高速缓存保存的最大条目数的正整数。
+<p>在此字段中输入高速缓存大小值，范围在 100 到 200,000 之间。</p>
+
+</dd>
+<dt>
+<strong><a name="DynamicCache_defaultPriority_description"></a>缺省优先级</strong>
+</dt>
+<dd>指定高速缓存条目的缺省优先级，确定高速缓存满时一个条目能保留多久。
+<table border="1" cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base">缺省</td>
+<td align="left" valign="top" class="base">1</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="DynamicCache_enableDiskOffload_description"></a>磁盘卸载</strong>
+</dt>
+<dd>指定是否启用磁盘卸载。
+<p>缺省情况下，动态高速缓存维护内存中配置的条目数。如果在高速缓存满时创建新条目，则使用为每个高速缓存条目配置的优先级以及最近使用最少的算法，从高速缓存除去条目。另一个办法是，您可以配置磁盘卸载，而不是从内存中除去条目，稍后将它们复制到文件系统（可配置的位置）。</p>
+
+</dd>
+</dl>
+</div>
+</body>
+</html>

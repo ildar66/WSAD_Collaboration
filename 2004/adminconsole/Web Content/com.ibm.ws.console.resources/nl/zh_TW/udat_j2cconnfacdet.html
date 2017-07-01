@@ -1,0 +1,306 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>J2C Connection Factories 設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="J2C_connection_factory"></a>
+<h2>J2C Connection Factories 設定</h2>
+
+<p>請利用這個頁面來指定 Connection Factory 的設定。</p>
+
+<p>如果要檢視這個管理主控台頁面，請按一下<strong>資源</strong> &gt; <strong>資源配接器</strong> &gt; <em>resource_adapter</em> &gt; <strong>J2C Connection Factory</strong> &gt; <em>connection_factory</em>。
+</p>
+
+<div>
+<p>
+<strong>「配置」標籤</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="J2CConnectionfactory_detail_contextID"></a>範圍</strong>
+</dt>
+<dd>指定這個資源定義的層次是可見的 -- Cell、節點或伺服器層次。
+
+<p>JDBC 提供者、名稱空間連結或共用程式庫之類的資源可以定義在多個範圍，定義在較明確範圍的資源會改寫定義在較一般範圍的複本。
+</p>
+
+<p>請注意，不管所定義的資源範圍是什麼，資源的內容只適用於個別的伺服器層次。
+比方說，如果您在 Cell 層次定義資料來源的範圍，則 Cell 中所有的使用者，都可以查閱以及使用這個資料來源，而這個資料來源在該 Cell 中是唯一的。
+但是，資源內容設定對於 Cell 中的每一個伺服器來說，是本端設定。
+比方說，如果您將<em>連線數上限</em>定義為 10，則該 Cell 中的每一個伺服器都可以有多達 10 個連線。
+<dl>
+
+<dt>
+<strong>Cell</strong>
+</dt>
+<dd>最一般的範圍。除非遭到置換，否則，所有節點和伺服器都能看到 Cell 範圍所定義的資源。
+如果要檢視 Cell 範圍中所定義的資源，請不要在範圍選擇表單中指定伺服器或節點名稱。</dd>
+
+<dt>
+<strong>節點</strong>
+</dt>
+<dd>大部分資源類型的預設範圍。定義在節點範圍的資源會置換任何定義在 Cell 範圍的複本，且相同節點中的所有伺服器都能看到它們，除非它們在這個節點的伺服器範圍中遭到置換。
+如果要檢視節點範圍中所定義的資源，請不要指定伺服器，但在範圍選擇表單中選取一個節點名稱。</dd>
+
+<dt>
+<strong>伺服器</strong>
+</dt>
+<dd>定義資源的最特定範圍。
+定義在「伺服器」範圍的資源會置換任何定義在 Cell 範圍或「母節點」範圍的重複資源定義，而且僅特定伺服器能夠看到它們。如果要檢視定義在伺服器範圍中的資源，請在範圍選擇表單中指定伺服器名稱和節點名稱。</dd>
+
+</dl>
+</p>
+
+<p>當建立資源時，始終都會將它們建立畫面中所選取的現行範圍內。
+如果要檢視其他範圍中的資源，請在範圍選擇表單中指定不同的節點或伺服器。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2CConnectionFactory_displayName"></a>名稱
+</strong>
+</dt>
+<dd>指定 Connection Factory 顯示名稱的清單。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2CConnectionFactory_jndiName_displayName"></a>JNDI 名稱</strong>
+</dt>
+<dd>指定這個 Connection Factory 的 JNDI 名稱。
+<p>比方說，名稱可能是 <em>eis/myECIConnection</em>。</p>
+
+<p>設定這個值之後，請儲存它，再重新啟動伺服器。
+當您執行 <em>dumpNameSpace</em> 時，您可以看到這個字串。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">eis/<em>display name</em></td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2CConnectionFactory_description_displayName"></a>說明
+</strong>
+</dt>
+<dd>指定這個 Connection Factory 的文字說明。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2CConnectionFactory_category_displayName"></a>種類</strong>
+</dt>
+<dd>指定可用來將這個 Connection Factory 分類或分組的字串。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2CConnectionFactory_authMechanismPreference_displayName"></a>鑑別喜好設定</strong>
+</dt>
+<dd>指定定義給這個 Connection Factory 的鑑別機制。
+
+<p>這個設定指定在定義給對應資源配接器的鑑別機制中，哪一個適用於這個 Connection Factory。
+隨著資源配接器功能而不同，共用的值有 <em>KERBEROS</em>、<em>BASIC_PASSWORD</em> 和<em>無</em>。</p>
+
+<p>如果選取「無」，就應該由應用程式元件來管理鑑別 (&lt;res-auth&gt;Application&lt;/res-auth&gt;)。
+在這個情況下，使用者 ID 和密碼的來源如下：
+<ul>
+
+<li>元件管理的鑑別別名</li>
+
+<li>使用者名稱、密碼自訂內容</li>
+
+<li>getConnection 方法所傳遞的字串</li>
+
+</ul>
+</p>
+
+<p>比方說，如果在 <em>ra.xml</em> 文件中，已將兩個鑑別機制項目定義給資源配接器：
+<ul>
+
+<li>&lt;authentication-mechanism-type&gt;BasicPassword&lt;/authentication-mechanism-type&gt;</li>
+
+<li>&lt;authentication-mechanism-type&gt;Kerbv5&lt;/authentication-mechanism-type&gt;</li>
+
+</ul>鑑別喜好設定指定儲存區管理的鑑別所用的機制。
+如果選取資源配接器所不支援的機制，在伺服器啟動期間，會擲出異常狀況。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">挑選清單</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">BASIC_PASSWORD </td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2CConnectionFactory_authDataAlias_displayName"></a>內容管理鑑別別名</strong>
+</dt>
+<dd>指定資源的元件管理登入之鑑別資料。
+
+請從定義在<strong>安全</strong> &gt; <strong>JAAS 配置</strong> &gt; <strong>J2C 鑑別資料</strong>之下的別名中選取。
+<p>如果要定義挑選清單中所沒有的別名：
+<ul>
+
+<li>按一下<strong>套用</strong>來顯現相關項目。</li>
+
+<li>按一下 <strong>J2C 鑑別資料項目</strong>。</li>
+
+<li>定義別名。</li>
+
+<li>按一下 <em>J2C 鑑別資料項目</em>頁面頂端的 Connection Factory 名稱來返回 Connection Factory 頁面。</li>
+
+<li>選取別名。</li>
+
+</ul> 
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">挑選清單</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2CConnectionFactory_mappingModule_authDataAlias_displayName"></a>儲存區管理鑑別別名</strong>
+</dt>
+<dd>指定資源的儲存區管理登入之鑑別資料（轉換成使用者 ID 和密碼的字串）。
+請從定義在<strong>安全</strong> &gt; <strong>JAAS 配置</strong> &gt; <strong>J2C 鑑別資料</strong>之下的別名中選取。
+<p>如果要定義挑選清單中所沒有的別名：
+<ul>
+
+<li>按一下<strong>套用</strong>來顯現相關項目。</li>
+
+<li>按一下 <strong>J2C 鑑別資料項目</strong>。</li>
+
+<li>定義別名。</li>
+
+<li>按一下 <em>J2C 鑑別資料項目</em>頁面頂端的 Connection Factory 名稱來返回 Connection Factory 頁面。</li>
+
+<li>選取別名。</li>
+
+</ul> 
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">挑選清單</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2C_mappingConfigAlias"></a>對映配置別名</strong>
+</dt>
+<dd>可讓使用者從<strong>安全</strong> &gt; <strong>JAAS 配置</strong> &gt; <strong>應用程式登入配置</strong>清單中選取。
+
+<p>
+<strong>DefaultPrincipalMapping</strong> JAAS 配置會將鑑別別名對映至使用者 ID 和密碼。您可以定義和使用其他對映配置。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">挑選清單</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>相關資訊</strong>
+</p>
+<a href="rcon_buttons.html">管理主控台按鈕</a>
+<br>
+
+<a href="rcon_pageusage.html">管理主控台頁面特性</a>
+<br>
+
+</div>
+</body>
+</html>

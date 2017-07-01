@@ -1,0 +1,88 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>登录绑定配置设置</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_loginbnd"></a>
+<h2>
+<img alt="[Fix Pack 5.0.2 and later]" src="v502.gif" border="0">登录绑定配置设置</h2>
+
+<p>使用此页面配置加密和解密参数。</p>
+
+<p>可插入令牌使用 Java 认证和授权服务（JAAS）CallBackHandler（javax.security.auth.callback.CallBackHandler）接口生成可插入消息的令牌。以下列表描述 CallBack 支持实现：<dl>
+<dt>
+<strong>com.ibm.wsspi.wssecurity.auth.callback.BinaryTokenCallback</strong>
+</dt>
+<dd>此实现用于生成作为 <samp>&lt;wsse:BinarySecurityToken/@ValueType&gt;</samp> 插入消息的二进制令牌。</dd>
+<dt>
+<strong>javax.security.auth.callback.NameCallback and javax.security.auth.callback.NameCallback</strong>
+</dt>
+<dd>此实现用于生成作为 <samp>&lt;wsse:UsernameToken&gt;</samp> 插入消息的用户名令牌。</dd>
+<dt>
+<strong>com.ibm.wsspi.wssecurity.auth.callback.XMLTokenSenderCallback</strong>
+</dt>
+<dd>此实现用于生成可扩展标记语言（XML）标记，并作为 <samp>&lt;SAML: Assertion&gt;</samp> 元素插入消息。</dd>
+<dt>
+<strong>com.ibm.wsspi.wssecurity.auth.callback.PropertyCallback</strong>
+</dt>
+<dd>此实现用于获取绑定文件中指定的属性。</dd>
+</dl>
+</p>
+
+<p>要查看此管理控制台页面，完成以下步骤：<ol>
+
+<li>单击<strong>应用程序 &gt; 企业应用程序 &gt; </strong><em>application_name</em>。</li>
+
+<li>在&ldquo;相关项&rdquo;下，单击 <strong>Web 模块 &gt; </strong><em>URI_file_name</em> &gt; <strong>Web 服务：客户机安全性绑定</strong>。</li>
+
+<li>在&ldquo;请求发送程序绑定&rdquo;下，单击<strong>编辑 &gt; 登录绑定</strong>。</li>
+
+</ol>
+</p>
+
+<p>如果加密信息不可用，选择<strong>无</strong>。</p>
+
+<p>如果加密信息可用，选择<strong>专用登录绑定</strong>，并在下列字段中指定配置：</p>
+
+<dl>
+<dt>
+<strong><a name="sec_authmeth"></a>认证方法</strong>
+</dt>
+<dd>指定认证方法的唯一名称。</dd>
+<dt>
+<strong><a name="sec_cbhand"></a>回调处理程序</strong>
+</dt>
+<dd>指定回调处理程序的名称。回调处理程序必须实现 javax.security.auth.callback.CallbackHandler 接口。</dd>
+<dt>
+<strong><a name="sec_userid"></a>Basic Auth 用户标识</strong>
+</dt>
+<dd>指定用于基本认证的用户名。Basic Auth 认证方法提供在绑定文件中定义用户标识和密码的能力。</dd>
+<dt>
+<strong><a name="sec_authpass"></a>Basic Auth 密码</strong>
+</dt>
+<dd>指定用于基本认证的密码。</dd>
+<dt>
+<strong><a name="sec_uri"></a>令牌类型 URI</strong>
+</dt>
+<dd>指定标记类型的统一资源标识（URI）。此信息作为 XML 令牌 <samp>&lt;SAML:
+Assertion&gt;</samp> 的 <samp>&lt;wsse:BinarySecurityToken&gt;/ValueType</samp> 插入。</dd>
+<dt>
+<strong><a name="sec_lname"></a>令牌类型本地名</strong>
+</dt>
+<dd>指定令牌类型的本地名。此信息作为 XML 令牌 <samp>&lt;SAML:
+Assertion&gt;</samp> 的 <samp>&lt;wsse:BinarySecurityToken&gt;/ValueType</samp> 插入。</dd>
+</dl>
+<div>
+<p>
+<strong>相关信息</strong>
+</p>
+<a href="uwbs_wsclientbind.html">Web 服务：客户机安全性绑定集合</a>
+<br>
+
+</div>
+</body>
+</html>

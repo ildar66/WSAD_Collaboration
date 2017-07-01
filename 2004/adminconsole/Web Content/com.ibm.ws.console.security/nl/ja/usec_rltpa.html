@@ -1,0 +1,201 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>LTPA (Lightweight Third Party Authentication) 設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecrltpa"></a>
+<h2>LTPA (Lightweight Third Party Authentication) 設定</h2>
+
+<p>このページを使用して Lightweight Third Party Authentication
+(LTPA) の設定値を構成します。</p>
+
+<p>この管理コンソール・ページを表示するには、「<strong>セキュリティー</strong>」&gt;「<strong>認証メカニズム</strong>」&gt;「<strong>LTPA</strong>」をクリックします。</p>
+
+<p>初めてセキュリティーの構成を行うときには、パスワードのみが必要です。
+パスワードを入力した後で「<strong>適用</strong>」をクリックしてください。
+「<strong>シングル・サインオン</strong>」(SSO) をクリックし、ドメイン・ネームを入力してください。
+SSO が使用可能になっていることを確認してください。
+「<strong>適用</strong>」をクリックします。 
+セキュリティーのセットアップを完了するためには、該当するレジストリーがセットアップされていることを確認して、「グローバル・セキュリティー」パネルから「<strong>適用</strong>」をクリックしてください。セキュリティーが使用可能になっていて、これらのプロパティーのいずれかが変更
+されている場合は、「<strong>グローバル・セキュリティー</strong>」パネルに移動し、「
+<strong>適用</strong>」をクリックして、変更を確認します。
+</p>
+
+<div>
+<p>
+<strong>「構成」タブ</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="button"></a>キーの生成</strong>
+</dt>
+<dd>サーバーが新規 LTPA キーを生成するかどうかを指定します。
+<p>LTPA を認証メカニズムとして使用してセキュリティーを初めてオンにする際に、
+パネルに入力されたパスワードを使用して LTPA キーが自動的に生成されます。
+すでに設定されたパスワードを使用して新しいキーのセットを生成する必要がある場合、「
+<strong>キーの生成</strong>」をクリックしてください。
+新規パスワードを使用する場合には、このボタンをクリックしないでください。
+新規パスワードを入力して「<strong>OK</strong>」または「<strong>適用</strong>」をクリックすると、
+新しいキーのセットが生成されます。
+<em>新しいキーのセットが生成された場合、それらのキーは、ユーザーが保管するまでは使用されません。</em>
+
+</p>
+
+</dd>
+<dt>
+<strong><a name="LTPA_password_description"></a>キーのインポート</strong>
+</dt>
+<dd>サーバーが新規 LTPA キーをインポートするかどうかを指定します。
+<p>WebSphere 製品で複数の WebSphere ドメイン (セル) におけるシングル・サインオン (SSO) をサポートするためには、
+それらのドメイン間で LTPA キーとパスワードを共用してください。
+「<strong>キーのインポート</strong>」ボタンを使用して、他のドメインから LTPA 鍵をインポートすることができます。
+LTPA キーは、既にいずれかのセルからファイルにエクスポートされているはずです。
+新しい LTPA キーのセットをインポートするためには、該当のパスワードと、LTPA が置かれている
+ファイルの名前を入力してください。
+「<strong>キーのインポート</strong>」のみをクリックし、「
+<strong>OK</strong>」または「<strong>適用</strong>」は<strong><em>クリックしないでください</em></strong>。
+</p>
+
+</dd>
+<dt>
+<strong><a name="LTPA_password_description"></a>キーのエクスポート</strong>
+</dt>
+<dd>サーバーが新規 LTPA キーをエクスポートするかどうかを指定します。
+<p>WebSphere 製品で複数の WebSphere ドメイン (セル) におけるシングル・サインオン (SSO) をサポートするためには、
+それらのドメイン間で LTPA キーとパスワードを共用してください。
+「<strong>キーのエクスポート</strong>」ボタンを使用して、LTPA キーを他のドメインにエクスポートすることができます。</p>
+
+<p>LTPA キーをエクスポートするためには、システムが、セキュリティーが使用可能な状態で、LTPA を使用して
+実行されていることを確認してください。
+「<strong>鍵ファイル名</strong>」フィールドにファイル名を入力し、「<strong>キーのエクスポート</strong>」をクリックしてください。
+指定されたファイルに暗号化されたキーが保管されます。
+</p>
+
+</dd>
+<dt>
+<strong><a name="LTPA_password_description"></a>パスワード</strong>
+</dt>
+<dd>LTPA キーを暗号化および暗号化解除するためのパスワードを指定します。
+このパスワードは、他の WebSphere Application Server 管理可能ドメイン構成が存在する場合に
+その構成にこれらのキーをインポートしたり、Domino サーバーのための SSO を構成したりするために使用してください。
+
+<p>これらのキーを生成またはインポートすると、LTPA トークンの暗号化および暗号化解除に使用されるようになります。
+パスワードが変更された場合、「<strong>OK</strong>」または「<strong>適用</strong>」をクリックすると、
+新しい LTPA キーのセットが自動的に生成されます。
+これらの新しいキーのセットは、保管した場合にのみ使用されます。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LTPA_confirmPassword_description"></a>確認パスワード</strong>
+</dt>
+<dd>LTPA キーを暗号化および暗号化解除するために使用する、確認済みパスワードを指定します。
+
+<p>このパスワードは、他の WebSphere Application Server 管理可能ドメイン構成が存在する場合に
+その構成にこれらのキーをインポートしたり、Domino サーバーのための SSO を構成したりするために使用してください。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LTPA_timeout_description"></a>タイムアウト</strong>
+</dt>
+<dd>LTPA トークンの有効期限が切れる期間を分単位で指定します。
+この期間は、「グローバル・セキュリティー」パネルで構成されたキャッシュ・タイムアウト値
+よりも長くしてください。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">整数</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">単位</td>
+<td align="left" valign="top" class="base">分</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">120</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LTPA_keyFilename_description"></a>鍵ファイル名</strong>
+</dt>
+<dd>キーをインポートまたはエクスポートするときに使用されるファイルの名前を指定します。
+
+<p>完全修飾された鍵ファイル名を入力し、「<strong>キーのインポート</strong>」
+または「<strong>キーのエクスポート</strong>」をクリックしてください。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>関連情報</strong>
+</p>
+<a href="rcon_buttons.html">管理コンソールのボタン</a>
+<br>
+
+<a href="rcon_pageusage.html">管理コンソール・ページのフィーチャー</a>
+<br>
+
+<a href="rcon_scope.html">管理コンソールの有効範囲設定</a>
+<br>
+
+<a href="rcon_filter.html">管理コンソールのフィルター設定</a>
+<br>
+
+<a href="rcon_preferences.html">管理コンソールの設定の変更</a>
+<br>
+
+</div>
+</body>
+</html>

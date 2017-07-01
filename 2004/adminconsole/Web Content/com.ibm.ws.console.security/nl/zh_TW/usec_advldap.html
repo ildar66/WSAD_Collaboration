@@ -1,0 +1,262 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>輕裝備目錄存取通訊協定進階設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecadvldap"></a>
+<h2>輕裝備目錄存取通訊協定進階設定</h2>
+
+<p>當使用者和群組是在外部 LDAP 目錄時，請利用這個頁面來配置進階輕裝備目錄存取通訊協定 (LDAP) 使用者登錄設定。</p>
+
+<p>如果要檢視這個管理頁面，請按一下<strong>安全</strong> &gt; <strong>使用者登錄</strong> &gt; <strong>LDAP </strong> <strong>進階 LDAP 設定</strong>。</p>
+
+<p>所有使用者和群組相關過濾器的預設值都已填妥適當的欄位。
+您可以根據需求來變更這些值。
+這些預設值是以 <strong>LDAP 設定</strong>畫面所選取的 LDAP 伺服器類型為基礎。
+如果改變了這個類型（比方說，從 NETSCAPE 改成 SECUREWAY），預設過濾器也會自動改變。
+當預設過濾值有了變更，LDAP 伺服器類型會改成<strong>自訂</strong>，以表示使用自訂過濾器。
+當啟用安全且任何這些內容有了改變時，請進入<strong>廣域安全</strong>畫面，按一下<strong>套用</strong>或<strong>確定</strong>來驗證變更。
+</p>
+
+<div>
+<p>
+<strong>「配置」標籤</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="LDAPSearchFilter_userFilter_description"></a>使用者過濾器</strong>
+</dt>
+<dd>指定搜尋使用者登錄的 LDAP 使用者過濾器。
+
+<p>這個選項通常用在「安全角色至使用者」的指派上。它指定要在目錄服務中查閱使用者時所採用的內容。比方說，如果要根據其使用者 ID 來查閱使用者，請指定 <samp>(ampersand(uid=%v)(objectclass=inetOrgPerson)</samp>，其中 <samp>ampersand</samp> 是 &amp; 符號。
+如果需要這個語法的詳細資訊，請參閱 LDAP 目錄服務文件。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型：</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LDAPSearchFilter_groupFilter_description"></a>群組過濾器</strong>
+</dt>
+<dd>指定搜尋群組登錄的 LDAP 群組過濾器。
+
+<p>這個選項通常用在「安全角色至群組」的指定上。它指定要在目錄服務中查閱群組時所採用的內容。如果需要這個語法的詳細資訊，請參閱 LDAP 目錄服務文件。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型：</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LDAPSearchFilter_userIdMap_description"></a>使用者 ID 對映</strong>
+</dt>
+<dd>指定將使用者的短名稱對映至 LDAP 項目的 LDAP 過濾器。
+
+<p>指定在使用者出現時，用來代表使用者的資訊。
+比方說，如果要依其 ID 來顯示 <samp>object class = inetOrgPerson</samp> 類型的項目，請指定 <samp>inetOrgPerson:uid</samp>。
+這個欄位可以有好幾組 objectclass:property，各組之間以分號 (;) 分開。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型：</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LDAPSearchFilter_groupIdMap_description"></a>群組 ID 對映</strong>
+</dt>
+<dd>指定將群組的短名稱對映至 LDAP 項目的 LDAP 過濾器。
+
+<p>指定在群組出現時，用來代表群組的資訊。
+比方說，如果要以其名稱來顯示群組，請指定 <samp>*:cn</samp>。
+這裡的星號 (<samp>*</samp>) 是指在任何物件類別上進行搜尋的萬用字元。
+這個欄位可以有好幾組 <samp>objectclass:property</samp>，各組之間以分號 (;) 分開。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型：</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LDAPSearchFilter_groupMemberIdMap_description"></a>群組成員 ID 對映
+</strong>
+</dt>
+<dd>指定識別使用者與群組關係的 LDAP 過濾器。
+<p>如果是 SecureWay、NetScape 和 Domino 等目錄類型，這個欄位可以有好幾組 objectclass:property，各組之間以分號 (;) 分開。
+在 objectclass:property 這個組中，objectclass 值是群組過濾器中所定義的相同 objectclass，內容是成員屬性。
+如果 objectclass 值不符合群組過濾器中的 objectclass，且群組對映至安全角色，授權就會失敗。
+如果需要這個語法的詳細資訊，請參閱 LDAP 目錄服務文件。
+</p>
+
+<p>如果是 IBM Directory Server、iPlanet 和 Active Directory，這個欄位可以有好幾組 (<samp>group attribute:member attribute</samp>)，各組之間以分號 (;) 分開。
+它們用來列舉給定使用者所具備的所有群組屬性，以尋找使用者的群組成員資格。比方說，Active Directory 會使用 <samp>(memberof:member)</samp> 這組屬性，IBM Directory Server 會使用 (ibm-allGroup:member) 這組屬性。
+這個欄位也指定物件類別的哪個內容要儲存這個物件類別所代表之群組的成員清單。如果是支援的 LDAP 目錄伺服器，請參閱 InfoCenter 的「支援的目錄服務」一文。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型：</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LDAPSearchFilter_certificateMapMode_description"></a>憑證對映模式</strong>
+</dt>
+<dd>指定要由 EXACT_DN 或 CERTIFICATE_FILTER 將 X.509 憑證對映至 LDAP 目錄。指定 CERTIFICATE_FILTER，以使用指定的憑證過濾器來進行對映。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型：</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LDAPSearchFilter_certificateFilter_description"></a>憑證過濾器
+</strong>
+</dt>
+<dd>指定要不要利用過濾器憑證對映內容來指定 LDAP 過濾器，以利用它將用戶端憑證中的屬性對映至 LDAP 登錄中的項目。
+
+<p> 如果要啟用這個欄位，請按一下 <strong>CERTIFICATE_FILTER</strong> 來進行憑證對映。
+如果在執行時期有不只一個 LDAP 項目符合過濾器規格，就無法順利完成鑑別，因為它會找到不明確的相符項目。
+這個過濾器的語法或結構如下：<samp>LDAP attribute=${Client
+certificate attribute}</samp>（例如，<samp>uid=${SubjectCN}</samp>）。過濾器規格左側取決於 LDAP 伺服器配置要用的綱目的 LDAP 屬性。
+過濾器規格右側是用戶端憑證中的公開屬性之一。
+右側的開頭必須是錢幣符號 ($) 和前大括弧 ({)，結尾是後大括弧 ({)。
+您可以使用過濾器規格右側的下列憑證屬性值。字串的大小寫非常重要：<ul>
+
+<li>
+<samp>${UniqueKey} </samp>
+</li>
+
+<li>
+<samp>${PublicKey}</samp>
+</li>
+
+<li>
+<samp>${PublicKey}</samp>
+</li>
+
+<li>
+<samp>${Issuer}</samp>
+</li>
+
+<li>
+<samp>${NotAfter}</samp>
+</li>
+
+<li>
+<samp>${NotBefore}</samp>
+</li>
+
+<li>
+<samp>${SerialNumber}</samp>
+</li>
+
+<li>
+<samp>${SigAlgName}</samp>
+</li>
+
+<li>
+<samp>${SigAlgOID}</samp>
+</li>
+
+<li>
+<samp>${SigAlgParams}</samp>
+</li>
+
+<li>
+<samp>${SubjectCN}</samp>
+</li>
+
+<li>
+<samp>${Version}</samp>
+</li>
+
+</ul>
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型：</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>相關資訊</strong>
+</p>
+<a href="rcon_buttons.html">管理主控台按鈕</a>
+<br>
+
+<a href="rcon_pageusage.html">管理主控台頁面特性</a>
+<br>
+
+<a href="rcon_scope.html">管理主控台範圍設定</a>
+<br>
+
+<a href="rcon_filter.html">管理主控台過濾器設定</a>
+<br>
+
+<a href="rcon_preferences.html">管理主控台喜好設定</a>
+<br>
+
+<a href="usec_rprdap.html">輕裝備目錄存取通訊協定設定</a>
+<br>
+
+</div>
+</body>
+</html>

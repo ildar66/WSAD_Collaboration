@@ -1,0 +1,76 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>HTTP SSL 構成コレクション</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_transssl"></a>
+<h2>
+<img alt="[修正パッケージ 5.0.2 以降]" src="v502.gif" border="0">HTTP SSL 構成コレクション</h2>
+
+<p>このページを使用して、トランスポート・レベルの Secure Sockets Layer (SSL) のセキュリティーを構成します。Web サービスが別の Web サービスのクライアントになっている場合に、この構成を使用できます。</p>
+
+<p>トランスポート・レベルのセキュリティーを使用して、HTTP SSL (または HTTPS) を使用可能にできます。トランスポート・レベルのセキュリティーは、
+メッセージ・レベルのセキュリティーから個別に使用可能とすることも使用不可とすることもできます。トランスポート・レベルの提供するセキュリティーは
+最低限のセキュリティーであるため、セキュリティーが Web サービス・アプリケーションに対して必要不可欠である場合は、
+メッセージ・レベルのセキュリティーを使用します。</p>
+
+<p>この管理コンソール・ページを表示するには、以下のステップを実行します。<ol>
+
+<li>「<strong>アプリケーション</strong>」&gt;「<strong>エンタープライズ・アプリケーション</strong>」&gt;「<em>application_name</em> 」をクリックします。</li>
+
+<li>「Related Items」の下の「<strong>Web モジュール</strong>」&gt;「<em>URI_file_name</em>」&gt;「<strong>Web Services: Client Security Bindings</strong>」をクリックします。
+</li>
+
+<li>「HTTP SSL Configuration」の下の「<strong>編集</strong>」をクリックします。</li>
+
+</ol>
+</p>
+
+<p>以下のステップを完了して、HTTP SSL 基本認証を指定することもできます。 <ol>
+
+<li>「<strong>アプリケーション</strong>」&gt;「<strong>エンタープライズ・アプリケーション</strong>」&gt;「<em>application_name</em> 」をクリックします。</li>
+
+<li>「Related Items」の下の「<strong>Web モジュール</strong>」&gt;「<em>URI_file_name</em>」&gt;「<strong>Web Services: Client Security Bindings</strong>」をクリックします。
+</li>
+
+<li>「<strong>HTTP Basic Configuration</strong>」の下の「<strong>編集</strong>」をクリックします。</li>
+
+</ol>
+</p>
+
+<dl>
+<dt>
+<strong><a name="sec_transsslconfigen"></a>HTTP SSL Enabled </strong>
+</dt>
+<dd>このオプションを選択して、このポートに対する HTTP トランスポート用のセキュア・ソケット通信を
+使用可能にします。使用可能にした場合、WebSphere Application Server は HTTP SSL 構成設定を使用します。</dd>
+<dt>
+<strong><a name="sec_transsslconfigalias"></a>HTTP SSL Configuration </strong>
+</dt>
+<dd>このポートに対する HTTP トランスポートに使用する SSL 構成のエイリアスを指定します。
+<p>このオプションは、「<strong>HTTP SSL Enabled</strong>」を選択した場合に使用されます。SSL エイリアスは、
+「Secure Sockets Layer configuration repertoire」で定義されます。
+これは「<strong>Security</strong>」&gt;「<strong>SSL</strong>」をクリックすると構成できます。</p>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>関連情報</strong>
+</p>
+<a href="uwbs_websvcb.html">Web サービス: Web サービス・セキュリティーのデフォルト・バインディング・コレクション</a>
+<br>
+
+<a href="uwbs_wsclientbind.html">Web サービス: クライアント・セキュリティーのバインディング・コレクション</a>
+<br>
+
+<a href="uwbs_wsservrbind.html">Web サービス: サーバー・セキュリティーのバインディング・コレクション</a>
+<br>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>콘솔 그룹 및 CORBA 네임 서비스 그룹</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="useccongroup"></a>
+<h2>콘솔 그룹 및 CORBA 네임 서비스 그룹</h2>
+
+<p>관리 콘솔 또는 wsadmin 스크립팅과 같은 도구를 사용하여 WebSphere Application Server를 관리할 수 있는 특정 권한을 그룹에게 부여하려면 콘솔 그룹 페이지를 사용하십시오. 권한 요구사항은 글로벌 보안이 사용 가능할 때만
+적용됩니다. CORBA 네임 서비스 그룹 설정을 관리하려면 CORBA 네임 서비스 그룹 페이지를 사용하십시오. </p>
+
+<p>콘솔 그룹 관리 콘솔 페이지를 보려면 <strong>시스템 관리</strong> &gt; <strong>콘솔 그룹</strong>을 클릭하십시오. </p>
+
+<p>CORBA 네임 서비스 그룹 관리 콘솔 페이지를 보려면 <strong>환경</strong> &gt; <strong>이름 지정</strong> &gt; <strong>CORBA 네임 서비스 그룹</strong>을 클릭하십시오. </p>
+
+<dl>
+<dt>
+<strong><a name="desc_groups_title"></a>그룹(콘솔 그룹)</strong>
+</dt>
+<dd>그룹을 지정합니다.
+<p>ALL_AUTHENTICATED 및 EVERYONE 그룹은 관리자, 구성자, 조작자 및 모니터의
+역할 특권을 가질 수 있습니다.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형:</td>
+<td align="left" valign="top" class="base">문자열</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">범위:</td>
+<td align="left" valign="top" class="base">ALL_AUTHENTICATED, EVERYONE</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="CORBA_desc_groups_title"></a>그룹(CORBA 네임 서비스 그룹)</strong>
+</dt>
+<dd>CORBA 네임 서비스 그룹을 식별합니다. 
+<p>ALL_AUTHENTICATED 그룹은 CosNamingRead,
+CosNamingWrite, CosNamingCreate 및 CosNamingDelete와 같은 역할 특권을 가지고 있습니다. EVERYONE 그룹은 이 그룹의 사용자가 CosNamingRead 권한만을 가지고 있음을 표시합니다.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형:</td>
+<td align="left" valign="top" class="base">문자열</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">범위:</td>
+<td align="left" valign="top" class="base">ALL_AUTHENTICATED, EVERYONE</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="label_role_desc"></a>역할(콘솔 그룹)</strong>
+</dt>
+<dd>사용자 역할을 지정합니다.
+<p>다음의 관리 역할은 특정 WebSphere Application Server 관리 기능 수행에
+필요한 권한에 대한 다양한 등급을 제공합니다. <dl>
+<dt>
+<strong>관리자</strong>
+</dt>
+<dd>관리자 역할에는 조작자 사용 권한, 구성자 사용 권한 및
+서버 암호, LTPA 암호 및 키 등의 민감한 데이터를 액세스하는데 필요한 사용
+권한이 포함됩니다. </dd>
+<dt>
+<strong>구성자</strong>
+</dt>
+<dd>구성자 역할에는 모니터 사용 권한 및 WebSphere Application
+Server 구성을 변경할 수 있는 능력이 포함됩니다. </dd>
+<dt>
+<strong>조작자</strong>
+</dt>
+<dd>조작자 역할에는 모니터 권한 및 런타임 상태를 변경할 수
+있는 능력이 포함됩니다. 예를 들어, 조작자는 서비스를 시작하거나 중지할 수
+있습니다. </dd>
+<dt>
+<strong>모니터</strong>
+</dt>
+<dd>모니터 역할은 최소한의 사용 권한을 가집니다. 이 역할은
+주로 사용자가 WebSphere Application Server 구성 및 현재 상태를 보는 것으로
+제한합니다. </dd>
+</dl>
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형:</td>
+<td align="left" valign="top" class="base">문자열</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">범위:</td>
+<td align="left" valign="top" class="base">관리자, 구성자, 조작자 및 모니터</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="CORBA_label_role_desc"></a>역할(CORBA 네임 서비스 그룹)</strong>
+</dt>
+<dd>네임 서비스 그룹 역할을 식별합니다.
+<p>특정 WebSphere 네임 서비스 기능을 수행하기 위해 필요한 권한의 정도를 제공하기 위해
+많은 이름 역할이 정의됩니다. 권한 정책은 글로벌 보안이 사용 가능할 때만
+강제 실행됩니다.</p>
+
+<p> 네 가지 네임 스페이스 보안 역할(CosNamingRead, CosNamingWrite, CosNamingCreate 및 CosNamingDelete)이 사용 가능합니다. 네 가지 역할의 이름은 WebSphere Advanced Edition, Version 4.0.2와
+동일합니다. 그러나 현재 역할에는 다음과 같이 낮은 단계에서 높은 단계까지의 권한 레벨이 있습니다.<dl>
+<dt>
+<strong>CosNamingRead</strong>
+</dt>
+<dd>사용자가 예를 들면 JNDI(Java Naming and
+Directory Interface) 찾아보기 메소드를 사용하여 WebSphere 네임 스페이스를 조회할 수 있습니다.
+특정 주제인 <strong>EVERYONE</strong>이 이 역할에 대한 기본 정책입니다.</dd>
+<dt>
+<strong>CosNamingWrite</strong>
+</dt>
+<dd>사용자가 JNDI 바인드, 리바인드 또는 언바인드등의 쓰기 조작과
+CosNamingRead 조작을 수행할 수 있습니다. 특정 주제 <strong>ALL_AUTHENTICATED</strong>는 이 역할에 대한 기본 정책입니다.</dd>
+<dt>
+<strong>CosNamingCreate</strong>
+</dt>
+<dd>사용자가 JNDI createSubcontext와 CosNamingWrite
+등의 조작을 통해 네임 스페이스에서 새 오브젝트를 작성할 수 있습니다.
+특정 주제 <strong>ALL_AUTHENTICATED</strong>는 이 역할에 대한 기본 정책입니다.</dd>
+<dt>
+<strong>CosNamingDelete</strong>
+</dt>
+<dd>사용자가 예를 들면 JNDI destroySubcontext 메소드와
+CosNamingCreate 조작을 사용하여 네임 스페이스에 있는 오브젝트를 삭제할 수 있습니다.
+특정 주제 <strong>ALL_AUTHENTICATED</strong>는 이 역할에 대한 기본 정책입니다.</dd>
+</dl>
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형:</td>
+<td align="left" valign="top" class="base">문자열</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">범위:</td>
+<td align="left" valign="top" class="base">CosNamingRead, CosNamingWrite, CosNamingCreate 및 CosNamingDelete</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>관련 정보</strong>
+</p>
+<a href="rcon_buttons.html">관리 콘솔 단추</a>
+<br>
+
+<a href="rcon_pageusage.html">관리 콘솔 페이지 기능</a>
+<br>
+
+<a href="rcon_scope.html">관리 콘솔 범위 설정</a>
+<br>
+
+<a href="rcon_filter.html">관리 콘솔 필터 설정</a>
+<br>
+
+<a href="rcon_preferences.html">관리 콘솔 환경 설정</a>
+<br>
+
+</div>
+</body>
+</html>

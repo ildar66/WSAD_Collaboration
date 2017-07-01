@@ -1,0 +1,254 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Impostazioni della produzione connessioni JMS generiche</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="GenericJMSConnectionFactory"></a>
+<h2>Impostazioni della produzione connessioni JMS generiche</h2>
+
+<p>Utilizzare questo pannello per visualizzare o modificare le propriet&agrave; di
+configurazione della produzione connessioni JMS, per utilizzarle con il provider JMS associato.
+Tali propriet&agrave; di configurazione controllano la modalit&agrave; di creazione delle connessioni alla destinazione JMS associata.</p>
+
+<p>Una produzione connessioni JMS viene utilizzata per creare connessioni alle
+destinazioni JMS.
+La produzione connessioni JMS viene creata dal provider JMS associato. Una produzione connessioni
+JMS per un provider JMS generico (diverso dal provider JMS interno di WebSphere o dal provider JMS
+di WebSphere MQ) ha le seguenti propriet&agrave;:</p>
+
+<p>Per visualizzare questa pagina della console di gestione, fare clic su <strong>Risorse-&gt;
+Provider JMS generici-&gt; <em>nome_provider</em>-&gt; Produzioni di connessioni JMS-&gt;
+<em>produzioni_connessioni</em></strong>
+</p>
+
+<dl>
+<dt>
+<strong><a name="GenericJMSConnectionFactory_Name"></a>Nome</strong>
+</dt>
+<dd>Il nome attribuito a questa produzione connessioni JMS per scopi di gestione all'interno di IBM
+WebSphere Application Server. Il nome deve essere univoco all'interno del provider JMS associato.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="GenericJMSConnectionFactory_type"></a>Tipo</strong>
+</dt>
+<dd>Se questa produzione connessioni &egrave; per la creazione di destinazioni code JMS o di destinazioni argomenti JMS.
+<p>Selezionare una delle seguenti opzioni:<dl>
+
+<dt>
+<strong>Coda</strong>
+</dt>
+<dd>Una produzione connessioni code JMS per la messaggistica punto-punto.</dd>
+
+<dt>
+<strong>Argomento</strong>
+</dt>
+<dd>Una produzione connessioni argomenti JMS per la messaggistica
+pubblicazione/sottoscrizione</dd>
+
+</dl>
+</p>
+
+</dd>
+<dt>
+<strong><a name="GenericJMSConnectionFactory_externaljndiName"></a>Nome JNDI</strong>
+</dt>
+<dd>Il nome JNDI utilizzato per collegare la produzione connessioni allo spazio nome del server delle
+applicazioni.<p>Per convenzione, utilizzare il nome completo JNDI; ad esempio,
+nel formato jms/<em>Nome</em>, dove <em>Nome</em>
+&egrave; il nome logico della risorsa.</p>
+<p>Tale nome viene utilizzato per il collegamento alle informazioni specifiche della
+piattaforma. Il collegamento associa le risorse definite dal descrittore di distribuzione del modulo alle risorse effettive (fisiche) collegate a JNDI dalla piattaforma.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+</table>
+</dd>
+<dt>
+<strong><a name="GenericJMSConnectionFactory_description"></a>Descrizione</strong>
+</dt>
+<dd>Una descrizione di questa produzione connessioni per scopi di gestione all'interno di IBM WebSphere
+Application Server.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">Nullo</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="category"></a>Categoria</strong>
+</dt>
+<dd>Una categoria utilizzata per classificare o raggruppare questa produzione connessioni per i record
+di gestione IBM WebSphere Application Server.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="AuthDataAlias"></a>Alias dell'autenticazione gestita dal componente</strong>
+</dt>
+<dd>Questo alias specifica l'ID utente e la password da utilizzare per autenticare
+la connessione a un provider JMS per l'autenticazione gestita dall'applicazione.
+<p>Questa propriet&agrave; fornisce un elenco degli alias delle voci dati di autenticazione J2C
+definite su WebSphere Application Server. Si pu&ograve; selezionare un alias delle voci dati da
+utilizzare per autenticare la creazione di una nuova connessione sul provider JMS.</p>
+
+<p>Se &egrave; stata abilitata la sicurezza globale per WebSphere Application Server,
+selezionare l'alias che specifica l'ID utente e la password utilizzati per autenticare la
+creazione di una nuova connessione al provider JMS. L'uso di questo alias dipende
+dall'impostazione (res-auth) dell'autenticazione risorsa, come descritto nel riferimento di
+risorsa della produzione connessioni dei descrittori di distribuzione di un componente
+dell'applicazione.</p>
+
+<p>
+<b>Nota: </b>Gli ID utente pi&ugrave; lunghi di 12 caratteri non possono essere utilizzati per
+l'autenticazione con il provider WebSphere JMS incorporato. Ad esempio, l'ID utente
+predefinito di Windows NT, <strong>Amministratore</strong>, non &egrave; valido per essere utilizzato con
+la messaggistica di WebSphere incorporato, in quanto contiene 13 caratteri. Per questo motivo, un alias di
+autenticazione, di una produzione connessioni del provider JMS di WebSphere deve
+specificare un ID utente non superiore a 12 caratteri.</p>
+
+</dd>
+<dt>
+<strong><a name="mappingAuthDataAlias"></a>Alias dell'autenticazione gestita dal contenitore</strong>
+</dt>
+<dd>Questo alias specifica l'ID utente e la password da utilizzare per autenticare la
+connessione a un provider JMS per un'autenticazione gestita dal contenitore.
+<p>Questa propriet&agrave; fornisce un elenco degli alias delle voci dati di autenticazione J2C
+definite su WebSphere Application Server. Si pu&ograve; selezionare un alias delle voci dati da
+utilizzare per autenticare la creazione di una nuova connessione sul provider JMS.</p>
+
+<p>Se &egrave; stata abilitata la sicurezza globale per WebSphere Application Server,
+selezionare l'alias che specifica l'ID utente e la password utilizzati per autenticare la
+creazione di una nuova connessione al provider JMS. L'uso di questo alias dipende
+dall'impostazione (res-auth) dell'autenticazione risorsa, come descritto nel riferimento di
+risorsa della produzione connessioni dei descrittori di distribuzione di un componente
+dell'applicazione.</p>
+
+<p>
+<b>Nota: </b>Gli ID utente pi&ugrave; lunghi di 12 caratteri non possono essere utilizzati per
+l'autenticazione con il provider WebSphere JMS incorporato. Ad esempio, l'ID utente
+predefinito di Windows NT, <strong>Amministratore</strong>, non &egrave; valido per essere utilizzato con
+la messaggistica di WebSphere incorporato, in quanto contiene 13 caratteri. Per questo motivo, un alias di
+autenticazione, di una produzione connessioni del provider JMS di WebSphere deve
+specificare un ID utente non superiore a 12 caratteri.</p>
+
+</dd>
+<dt>
+<strong><a name="GenericJMSConnectionFactory_type"></a>Abilitato XA</strong>
+</dt>
+<dd>Specifica se la produzione connessioni &egrave; per un
+coordinamento messaggi e controlli XA o non-XA se il server delle applicazioni utilizza XA QCF/TCF. Abilitare XA se non si utilizzano risorse multiple nella stessa transazione.<p>Se si imposta questa propriet&agrave; su <samp>NON_XA</samp>, la sessione JMS &egrave; ancora elencata in una
+transazione, ma utilizza le chiamate di transazione locale del gestore risorse (session.commit e
+session.rollback) piuttosto che le chiamate XA. Questo porta ad un miglioramento delle
+prestazioni. Tuttavia, ci&ograve; vuol dire che &egrave; possibile elencare solo una singola risorsa
+in una transazione di WebSphere Application Server.
+In WebSphere Application Server Enterprise il supporto ultimo partecipante consente di elencare una
+risorsa non-XA insieme ad altre risorse XA.</p>
+<p>Per la produzione connessioni argomenti
+WebSphere con la propriet&agrave; <strong>Porta</strong> impostata su <samp>DIRECT</samp> questa propriet&agrave; non viene
+applicata e assume sempre il valore <samp>NON_XA</samp>. </p>
+<table cellpadding="1">
+<tr>
+<th align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</th><td align="left" valign="top" class="base">Enum</td>
+</tr>
+<tr>
+<th align="left" valign="top" class="base" style="background-color:#dedede">Unit&agrave;</th><td align="left" valign="top" class="base">Non applicabile</td>
+</tr>
+<tr>
+<th align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</th><td align="left" valign="top" class="base">Abilitato XA</td>
+</tr>
+<tr>
+<th align="left" valign="top" class="base" style="background-color:#dedede">Intervallo</th><td align="left" valign="top" class="base">
+<dl>
+<dt>
+<strong>XA</strong>
+</dt>
+<dd>La produzione connessioni &egrave; per un coordinamento messaggi XA</dd>
+<dt>
+<strong>NON_XA</strong>
+</dt>
+<dd>La produzione connessioni &egrave; per un coordinamento messaggi non-XA</dd>
+</dl>
+</td>
+<tr>
+<th align="left" valign="top" class="base" style="background-color:#dedede">Consigliato</th><td align="left" valign="top" class="base">Non abilitare XA quando la coda messaggi o l'argomento ricevuto &egrave; l'unica risorsa presente nella transazione.
+Abilitare XA quando sono presenti altre risorse, incluse altre code o argomenti.</td>
+</tr>
+</tr>
+</table>
+</dd>
+<dt>
+<strong><a name="ConnectionFactory_connectionPool"></a>Lotto connessioni</strong>
+</dt>
+<dd>Specifica un insieme facoltativo di impostazioni lotto connessioni. <p>Le propriet&agrave; del lotto connessioni sono comuni a tutti i connettori J2C. </p>
+<p>Il server delle applicazioni raggruppa in lotti le connessioni e le sessioni insieme
+al provider JMS, per migliorare le prestazioni. Questo non dipende da nessun lotto
+connessioni di WebSphere MQ. &Egrave; necessario configurare, per le applicazioni, le propriet&agrave;
+del lotto sessioni e connessioni in modo appropriato, altrimenti potrebbe essere
+difficile richiamare la funzione di connessione e sessione desiderata.</p>
+<p>Modificare le
+dimensioni del lotto connessioni se l'accesso simultaneo lato server alla risorsa JMS supera
+il valore predefinito. Le dimensioni del lotto connessioni sono impostate su base
+dell'argomento o della coda. Per i dettagli, consultare la seguente tabella.</p>
+
+</dd>
+<dt>
+<strong><a name="ConnectionFactory_sessionPool"></a>Lotto sessioni</strong>
+</dt>
+<dd>Un insieme facoltativo di impostazioni dei lotti di sessioni.
+<p>Questo collegamento fornisce un pannello di propriet&agrave; lotto connessioni facoltative,
+comuni a tutti i connettori.</p>
+
+<p>Il server delle applicazioni raggruppa in lotti le connessioni e le sessioni insieme
+al provider JMS, per migliorare le prestazioni. Questo non dipende da nessun lotto
+connessioni di WebSphere MQ. &Egrave; necessario configurare, per le applicazioni, le propriet&agrave;
+del lotto sessioni e connessioni in modo appropriato, altrimenti potrebbe essere
+difficile richiamare la funzione di connessione e sessione desiderata.</p>
+
+</dd>
+</dl>
+</body>
+</html>

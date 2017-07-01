@@ -1,0 +1,486 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>WebSphere トピック設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="WASTopic"></a>
+<h2>WebSphere トピック設定</h2>
+
+<p>このパネルを使用して、組み込み WebSphere JMS プロバイダーで使用する選択済みトピック宛先の構成プロパティーを表示または変更します。</p>
+
+<p>トピック宛先は、関連する JMS プロバイダーの JMS トピックのプロパティーを構成するために使用します。
+トピックへの接続は、関連するトピック接続ファクトリーによって作成されます。
+組み込み WebSphere JMS プロバイダーで使用するトピックには、以下のプロパティーがあります。
+</p>
+
+<p>この管理コンソール・ページを表示するには、「<strong>リソース</strong>」-&gt;「<strong>WebSphere JMS プロバイダー</strong>」-&gt; (コンテンツ・ペイン内、「追加プロパティー」の下にある)「<strong>WebSphere トピック宛先</strong>」-&gt;「<strong><em>destination_name</em></strong>」をクリックします。</p>
+
+<div>
+<p>
+<strong>「構成」タブ</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="WASTopic_contextId"></a>有効範囲</strong>
+</dt>
+<dd>このリソース定義を可視にするレベル (セル、ノード、またはサーバーの
+各レベル) を指定します。
+
+<p>JMS プロバイダー、ネーム・スペース・バインディング、共用ライブラリーなどのリソースを複数の有効範囲で定義することが可能です。より限定的な有効範囲で定義されたリソースは、それより広い有効範囲で定義された重複するリソースをオーバーライドします。
+</p>
+
+<p>定義済みリソースの有効範囲が何であれ、そのリソースのプロパティーは
+個々のサーバー・レベルでのみ適用されることに注意して下さい。
+例えば、あるデータ・ソースの有効範囲を「セル」レベルで定義する場合、
+そのセルのすべてのユーザーが、そのデータ・ソースをルックアップおよび使用できます。
+このとき、そのデータ・ソースはそのセル内で固有です。ただし、リソース・プロパティーの設定値は、そのセル内の各サーバーに対してローカルです。例えば、<strong>最大接続数</strong> を 10 に設定する場合、そのセル内の各サーバーは 10 個の接続を使用できます。<dl>
+<dt>
+<strong>セル</strong>
+</dt>
+<dd>最も一般的な有効範囲です。「セル」有効範囲で定義されている
+リソースは、オーバーライドされない限り、すべてのノードおよびサーバーから可視です。
+「セル」有効範囲で定義されたリソースを表示する場合は、
+有効範囲選択フォームでサーバーまたはノードの名前を指定しないでください。
+</dd>
+<dt>
+<strong>ノード</strong>
+</dt>
+<dd>大部分のリソース・タイプのデフォルト有効範囲。
+「ノード」有効範囲で定義されたリソースは、「
+セル」有効範囲で定義されたすべての重複するリソースをオーバーライドします。
+同じノード上の「サーバー」有効範囲でオーバーライドされない限り、
+そのノード上のすべてのサーバーから可視です。
+「ノード」有効範囲で定義されたリソースを表示する場合は、
+有効範囲選択フォームで、サーバーを指定せず、ノード名を選択します。
+</dd>
+<dt>
+<strong>サーバー</strong>
+</dt>
+<dd>リソース定義で最も限定的な有効範囲です。「サーバー」
+有効範囲で定義されたリソースは、「セル」有効範囲または親の「ノード」有効範囲で
+定義されたすべての重複するリソース定義をオーバーライドし、
+特定のサーバーからのみ可視です。
+「サーバー」有効範囲で定義されたリソースを表示するには、
+有効範囲選択フォームで、ノード名だけでなくサーバー名も指定します。
+</dd>
+</dl>
+</p>
+
+<p>リソースが作成されるときは常に、パネルで選択されている現行の有効範囲内に
+作成されます。
+他の有効範囲でリソースを表示する場合は、有効範囲選択フォームで、
+別のノードまたはサーバーを指定します。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASTopic_name"></a>名前</strong>
+</dt>
+<dd>IBM WebSphere Application Server 内で、このトピックを管理目的で使用する際の名前。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASTopic_jndiName"></a>JNDI 名</strong>
+</dt>
+<dd>トピックをアプリケーション・サーバーのネーム・スペースにバインドする際に使用される JNDI 名。
+<p>規則として、完全修飾の JNDI 名を使用します。
+例えば、jms/<em>Name</em> の形式です。
+ここで、<em>Name</em> は、リソースの論理名です。</p>
+
+<p>この名前は、プラットフォームのバインディング情報をリンクするために使用します。
+バインディングにより、モジュールのデプロイメント記述子で定義されているリソースと、
+プラットフォーム別に JNDI にバインドされている実際の (物理的な) リソースとの関連付けが行われます。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASTopic_description"></a>説明</strong>
+</dt>
+<dd>IBM WebSphere Application Server 内で管理目的で使用する、このトピックの説明。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASTopic_category"></a>カテゴリー</strong>
+</dt>
+<dd>IBM WebSphere Application Server 管理レコード用に、このトピックを分類またはグループ化する際に使用されるカテゴリー。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASTopic_topicName"></a>トピック</strong>
+</dt>
+<dd>JMS プロバイダーに対して定義されているトピックの名前。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">トピックの値は、ドット表記が可能で、ワイルドカード文字を含むことができます。</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASTopic_persistence"></a>パーシスタンス</strong>
+</dt>
+<dd>宛先に送信されるすべてのメッセージが永続的か非永続的か、
+あるいはメッセージのパーシスタンスをアプリケーションで定義するかを指定します。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">列挙型</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">アプリケーション定義</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">
+<dl>
+<dt>
+<strong>アプリケーション定義</strong>
+</dt>
+<dd>宛先上のメッセージのパーシスタンスは、
+そのメッセージをキューに入れたアプリケーションで定義されます。
+</dd>
+<dt>
+<strong>非永続</strong>
+</dt>
+<dd>宛先上のメッセージは永続的ではありません。
+</dd>
+<dt>
+<strong>PERSISTENT</strong>
+</dt>
+<dd>宛先上のメッセージは永続的です。
+</dd>
+<dt>
+<strong>キュー定義</strong>
+</dt>
+<dd>[WebSphere MQ 宛先のみ] 宛先上のメッセージのパーシスタンスは、
+WebSphere MQ キュー定義プロパティーで定義されます。</dd>
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASTopic_priority"></a>優先順位</strong>
+</dt>
+<dd>この宛先のメッセージ優先順位をアプリケーションで
+定義するか、「<strong>指定された優先順位</strong>」プロパティーで定義するかを指定します。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">列挙型</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">単位</td>
+<td align="left" valign="top" class="base">該当なし</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">アプリケーション定義</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">
+<dl>
+<dt>
+<strong>アプリケーション定義</strong>
+</dt>
+<dd>この宛先のメッセージの優先順位は、
+そのメッセージを宛先に入れたアプリケーションで定義されます。
+</dd>
+<dt>
+<strong>キュー定義</strong>
+</dt>
+<dd>[WebSphere MQ 宛先のみ] 宛先上のメッセージのパーシスタンスは、
+WebSphere MQ キュー定義プロパティーで定義されます。</dd>
+<dt>
+<strong>指定</strong>
+</dt>
+<dd>この宛先のメッセージの優先順位は、「<strong>指定された優先順位</strong>」プロパティーによって定義されます。
+<em>このオプションを選択した場合には、
+「<strong>指定された優先順位</strong>」プロパティーで優先順位を定義する必要があります。</em>
+</dd>
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASTopic_specifiedPriority"></a>指定された優先順位</strong>
+</dt>
+<dd>「<strong>優先順位</strong>」プロパティーが「<samp>指定</samp>」に設定されている
+場合、このキューのメッセージ優先順位を 0 (最低) から 9 (最高) の範囲で
+ここに入力します。
+<p>「<strong>優先順位</strong>」プロパティーが「<samp>指定</samp>」に設定されている場合、
+このキューに送信されるメッセージの優先順位は、このプロパティーで指定した値になります。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">整数</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">単位</td>
+<td align="left" valign="top" class="base">メッセージ優先順位のレベル</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">0</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">0 (最低優先順位) から 9 (最高優先順位)</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASTopic_expiry"></a>有効期限</strong>
+</dt>
+<dd>このキューの有効期限切れタイムアウトを、
+アプリケーションまたは「<strong>Specified expiry</strong>」プロパティーによって定義するか、
+あるいはキューのメッセージの有効期限が切れないようにする (有効期限切れタイムアウトを無限にする) かどうか
+を指定します。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">列挙型</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">単位</td>
+<td align="left" valign="top" class="base">該当なし</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">アプリケーション定義</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">
+<dl>
+<dt>
+<strong>アプリケーション定義</strong>
+</dt>
+<dd>このキューのメッセージの有効期限切れタイムアウトは、
+そのメッセージをキューに入れたアプリケーションで定義されます。
+</dd>
+<dt>
+<strong>UNLIMITED</strong>
+</dt>
+<dd>このキューのメッセージには、有効期限切れタイムアウトはありません。
+したがって、これらのメッセージの有効期限が切れることはありません。
+</dd>
+<dt>
+<strong>指定</strong>
+</dt>
+<dd>このキューのメッセージの有効期限切れタイムアウトは、
+「<strong>指定された有効期限</strong>」プロパティーによって定義されます。
+<em>このオプションを選択した場合は、
+「<strong>指定された有効期限</strong>」プロパティーでタイムアウトを定義する必要があります。</em>
+</dd>
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASTopic_specifiedExpiry"></a>指定された有効期限</strong>
+</dt>
+<dd>「<strong>有効期限切れタイムアウト</strong>」プロパティーが「<samp>指定</samp>」に
+設定されている場合、このキューのメッセージの有効期限が切れるまでの
+ミリ秒数 (0 より大) をここに入力します。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">整数</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">単位</td>
+<td align="left" valign="top" class="base">ミリ秒</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">0</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">0 以上
+<ul>
+
+<li>0 は、メッセージがタイムアウトにならないことを示します。</li>
+
+<li>それ以外の値は、ミリ秒を表す整数です。</li>
+
+</ul> 
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>関連情報</strong>
+</p>
+<a href="rcon_buttons.html">管理コンソールのボタン</a>
+<br>
+
+<a href="rcon_scope.html">管理コンソールの有効範囲設定</a>
+<br>
+
+</div>
+</body>
+</html>

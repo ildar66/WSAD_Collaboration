@@ -1,0 +1,167 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Message listener service</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="MessageListenerService"></a>
+<h2>Message listener service</h2>
+
+<p>The message listener service is an extension to the JMS functions
+of the JMS provider. It provides a listener manager that controls and monitors
+one or more JMS listeners, which each monitor a JMS destination on behalf
+of a deployed message-driven bean. </p>
+
+<p>This panel displays links to the Additional Properties pages for Listener
+Ports, Thread Pool, and Custom Properties
+for the message listener service.</p>
+
+<p>To view this administrative console page, click <strong>Servers-&gt; <em>application_server</em>-&gt;
+Message Listener Service</strong>
+</p>
+
+<dl>
+<dt>
+<strong><a name="MessageListenerService_name"></a>Name</strong>
+</dt>
+<dd>The name by which the message listener service is known for administrative
+purposes.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">MsgLService</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MessageListenerService_description"></a>Description</strong>
+</dt>
+<dd>A description of the message listener service, for administrative
+purposes
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MessageListenerService_threadPool"></a>Thread pool</strong>
+</dt>
+<dd>Controls the maximum number of threads the Message Listener Service
+is allowed to run. Select this link to display the service thread pool properties.
+<p>Adjust this parameter when multiple message-driven beans are deployed in
+the same application server and the sum of their maximum session values exceeds
+the default value of 10.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Units</td>
+<td align="left" valign="top" class="base">Not applicable</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">Minimum: 10, maximum 50</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range</td>
+<td align="left" valign="top" class="base">Not applicable</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Recommended</td>
+<td align="left" valign="top" class="base">Set the minimum to the sum of all message-driven beans maximum session
+values. Set the maximum to anything equal or greater than the minimum.</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MessageListenerService_custom"></a>Custom Properties</strong>
+</dt>
+<dd>An optional set of name and value pairs for custom properties of
+the message listener service.
+<p>You can use the Custom properties page to define the following properties
+for use by the message listener service.<ul>
+
+<li>
+<a href="umb_prolscp.html#nonasfreceivetimeout">NON.ASF.RECEIVE.TIMEOUT</a>
+</li>
+
+<li>
+<a href="umb_prolscp.html#mqpooltimeout">MQJMS.POOLING.TIMEOUT</a>
+</li>
+
+<li>
+<a href="umb_prolscp.html#mqpoolthreshold">MQJMS.POOLING.THRESHOLD</a>
+</li>
+
+<li>
+<a href="umb_prolscp.html#maxRecoveryRetries">MAX.RECOVERY.RETRIES</a>
+</li>
+
+<li>
+<a href="umb_prolscp.html#recoveryRetryInterval">RECOVERY.RETRY.INTERVAL</a>
+</li>
+
+</ul>
+</p>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>Related information</strong>
+</p>
+<a href="umb_smlp.html">Message listener port collection</a>
+<br>
+
+</div>
+</body>
+</html>

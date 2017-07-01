@@ -1,0 +1,220 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>共通セキュア・インターオペラビリティー・インバウンド認証設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecinbound"></a>
+<h2>共通セキュア・インターオペラビリティー・インバウンド認証設定</h2>
+
+<p>このページを使用して、リソースへアクセスしているクライアントに対してサーバーがサポートするフィーチャーを指定します。</p>
+
+<p>この管理コンソール・ページを表示するには、「<strong>セキュリティー</strong>」&gt;「<strong>認証プロトコル</strong>」&gt;「<strong>CSI インバウンド認証</strong>」をクリックします。</p>
+
+<p>CSI インバウンド認証設定は、着信要求またはトランスポートに含まれる認証情報のタイプを構成するためのものです。</p>
+
+<p>認証フィーチャーには、以下のような、3 つの認証の層が含まれていますが、これらは同時に使用することができます。<ul>
+
+<li>
+<strong>トランスポート層</strong>。トランスポート層 (一番下の層) には、識別情報として Secure Sockets Layer (SSL) クライアント
+証明書を含む場合があります。</li>
+
+<li>
+<strong>メッセージ層</strong>。メッセージ層には、ユーザー ID とパスワード、または有効期限を持つ認証済みトークンが含まれている場合があります。</li>
+
+<li>
+<strong>属性層</strong>。属性層には、アップストリーム・サーバーからの識別情報で、すでに認証済みの識別トークンが含まれている
+場合があります。識別層の優先順位は最も高く、次にメッセージ層、トランスポート層の順で低くなります。
+クライアントが 3 つの層をすべて送信する場合は、識別層だけが使用されます。
+SSL クライアント証明書は、それが要求中に提示された唯一の情報である場合にのみ、識別情報として使用されます。クライアントは、
+ネーム・スペースから IOR を取り出し、タグ付きコンポーネントから値を読み取って、
+セキュリティーに関してサーバーが何を必要とするのかを判別します。</li>
+
+</ul>  
+</p>
+
+<div>
+<p>
+<strong>「構成」タブ</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="BasicAuthentication_i_description"></a>基本認証</strong>
+</dt>
+<dd>基本認証がメッセージ層で発生することを指定します。
+<p>メッセージ層では、基本認証 (ユーザー ID とパスワード) が行われます。通常、このタイプの認証では、認証のためにユーザー ID とパスワードがクライアントから
+サーバーへ送信されます。
+この中には、信任状タイプが転送可能である場合 (例えば、Lightweight Third Party Authentication (LTPA)) に、
+すでに認証された信任状からの信任状トークンの代行も含まれます。サーバーに対して「<strong>基本認証</strong>」を選択する場合は、ユーザー ID とパスワードの両方の認証およびトークン・ベースの認証を指定します。</p>
+
+<p>「<strong>基本認証</strong>」を指定する場合は、
+それが「<strong>必須</strong>」であるか「<strong>サポート</strong>」であるかを決定する必要があります。
+「<strong>必須</strong>」を選択した場合は、メッセージ層を介してこのサーバーへの認証が実行されるように構成されているクライアント
+のみが、そのサーバー上で要求を呼び出すことを許可されます。「サポート」を選択した場合は、
+このサーバーは「<strong>基本認証</strong>」を受け入れます。
+ただし、
+他の認証方法を使用する場合があり (構成されている場合)、匿名の要求が受け入れられます。「
+<strong>常になし</strong>」を選択すると、このサーバーはクライアントからの
+メッセージ層認証を受け入れるようには構成されません。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型:</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ClientCertificateAuthentication_i_description"></a>クライアント証明書認証</strong>
+</dt>
+<dd>メソッド要求時のクライアント/サーバー間の最初の接続時に、認証が行われることを指定します。
+<p>トランスポート層では、Secure Sockets Layer  (SSL) クライアント証明書認証が行なわれます。メッセージ層では、
+基本認証 (ユーザー ID とパスワード) が行われます。クライアント証明書認証は通常、メッセージ層認証よりも優れていますが、
+追加のセットアップのステップがいくつか必要になります。
+これらの追加ステップでは、サーバーが接続先の各クライアントの署名者証明書を持っていることについての確認が行われます。クライアントが認証局 (CA) を使用して個人証明書を作成した場合、
+必要なのは、SSL トラスト・ファイルのサーバーの署名者セクション内の CA のルート証明書のみです。
+証明書を Lightweight Directory Access Protocol (LDAP) ユーザー・レジストリーに対して認証する
+場合、distinguished name (DN) は LDAP の構成時に指定したフィルターに基づいてマップされます。証明書を Local OS のユーザー・レジストリーに対して
+認証する場合、証明書内の DN の最初の属性 (通常は common name) がレジストリー内のユーザー ID にマップされます。サーバーに他の認証層が提示されない場合にだけ、クライアント証明書の識別情報が使用されます。</p>
+
+<p>「<strong>クライアント証明書認証</strong>」を選択する場合は、
+それが「<strong>必須</strong>」であるか「<strong>サポート</strong>」であるかを決定する必要があります。
+「<strong>必須</strong>」を選択すると、SSL クライアント証明書を用いてこのサーバーに対して認証するように構成されたクライアント
+だけが、サーバーで要求を呼び出すことができます。「<strong>サポート</strong>」を選択すると、
+サーバーは SSL クライアント証明書認証を受け入れますが、
+他の認証方法を使用する場合があり (構成されている場合)、匿名の要求が受け入れられます。「<strong>常になし</strong>」を選択すると、このサーバーはクライアントからクライアント証明書認証を受け入れるように構成されません。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="IdentityAssertion_i_description"></a>識別表明</strong>
+</dt>
+<dd>識別の表明が、ダウンストリーム EJB 呼び出しの間に、
+あるサーバーから別のサーバーへ識別を表明する方法であることを指定します。
+<p>識別表明は、属性層で実行され、サーバーでのみ適用されます。
+サーバーで決定されるプリンシパルは、優先順位のルールに基づきます。
+識別表明が実行されると、識別は常にこの属性から派生します。 基本認証が識別の表明を伴わずに行われると、
+識別は常にメッセージ層から派生します。最後に、SSL クライアント証明書認証を基本認証や識別表明なしで実行する場合、
+識別はトランスポート層から派生します。</p>
+
+<p>表明される識別は、Enterprise Bean の RunAs モードで決定される呼び出し信任状です。 RunAs モードが「<strong>クライアント</strong>」の場合、この識別はクライアント識別です。
+RunAs モードが「<strong>System</strong>」の場合、この識別はサーバー識別です。
+RunAs モードが「<strong>指定</strong>」である場合、この識別は指定された識別です。
+受信サーバーは、識別トークン内の識別を受信するとともに、
+クライアント認証トークン内の送信サーバー識別も受信します。
+受信サーバーは、「<strong>Trusted Server ID</strong>」エントリーのボックスを使用して、送信サーバー識別が信用できる識別であることを検証します。コンマで区切ったプリンシパル名のリスト (<samp>serverid1, serverid2, serverid3</samp> など) を入力します。</p>
+
+<p>LocalOS ユーザー・レジストリーに対して認証する場合、
+すべての識別トークンのタイプがアクティブなユーザー・レジストリーのユーザー ID フィールドにマップされます。
+<samp>ITTPrincipal</samp> 識別トークンの場合、
+このトークンがユーザー ID フィールドと 1 対 1 でマップされます。
+<samp>ITTDistinguishedName</samp> 識別トークンの場合、
+最初の等号の値が、ユーザー ID フィールドにマップされます。
+<samp>ITTCertChain</samp> 識別トークンの場合、識別名における
+最初の等号の値が、ユーザー ID フィールドにマップされます。
+</p>
+
+<p>LDAP ユーザー・レジストリーに対して認証する場合、LDAP フィルターは <samp>ITTCertChain</samp> と <samp>ITTDistinguishedName</samp> の識別タイプのレジストリーへのマップ方法を決定します。トークン・タイプが <samp>ITTPrincipal</samp> の場合、
+プリンシパルは LDAP レジストリーの UID フィールドにマップされます。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型:</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="IdentityAssertionLayer_trustedServers_description"></a>トラステッド・サーバー・ユーザー ID</strong>
+</dt>
+<dd>コンマで区切られたサーバー・ユーザー ID のリストを指定します。
+この ID は、このサーバーに対して識別表明を実行するために信頼されています。
+<p>このリストを使用して、サーバーが信頼されるか否かを迅速に定めます。
+受信サーバーが送信サーバーの識別トークンを受け入れるには、送信サーバーがリストに載っている場合でも、受信サーバーで送信サーバーを認証する必要があります。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="StatefulSession_description"></a>ステートフル・セッション</strong>
+</dt>
+<dd>ステートフル・セッションを指定します。これはたいていの場合、パフォーマンスの向上に使用されます。
+<p>クライアントとサーバーが最初に接続するときには、認証を完全に実行する必要があります。
+しかし、それ以後のすべての接続では、セッションが引き続き有効である間は、セキュリティー情報を再利用します。
+クライアントはコンテキスト ID をサーバーに渡し、その ID を使用してセッションが検索されます。
+コンテキスト ID の有効範囲は各接続であり、これにより一意性が保証されます。
+認証の再試行が使用可能になっている場合 (デフォルトで) は、セキュリティー・セッションが無効になるごとに
+クライアント側のセキュリティー・インターセプターは、ユーザーにそれを認識させずにクライアント側のセッションを無効にし、
+要求を再度実行依頼します。これは、セッションがサーバー上に存在しない (サーバーが失敗し、オペレーションを再開した) 場合に起こることがあります。
+この値が使用不可の場合、すべてのメソッド起動を再認証する必要があります。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>関連情報</strong>
+</p>
+<a href="rcon_buttons.html">管理コンソールのボタン</a>
+<br>
+
+<a href="rcon_pageusage.html">管理コンソール・ページのフィーチャー</a>
+<br>
+
+<a href="rcon_scope.html">管理コンソールの有効範囲設定</a>
+<br>
+
+<a href="rcon_filter.html">管理コンソールのフィルター設定</a>
+<br>
+
+<a href="rcon_preferences.html">管理コンソールの設定の変更</a>
+<br>
+
+</div>
+</body>
+</html>

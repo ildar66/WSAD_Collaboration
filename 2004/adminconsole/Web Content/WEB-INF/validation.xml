@@ -1,0 +1,3001 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form-validation>
+    <global>
+        <constant name="phone" value="^\(?(\d{3})\)?[-| ]?(\d{3})[-| ]?(\d{4})$"/>
+        <constant name="zip" value="^\d{5}\d*$"/>
+        <constant name="was_name" value="^[^\.\\\/\,\:\;\&quot;\*\?\>\&lt;\|\=\+\&amp;\%\'\`][^\\\/\,\:\;\&quot;\*\?\>\&lt;\|\=\+\&amp;\%\'\`]*$"/>
+        <constant name="file_name" value="^[^\&quot;\`\:\*\?\>\&lt;\|][^\&quot;\`\:\*\?\>\&lt;\|]*$"/>
+        <constant name="path" value="^[^\*\?\>\&lt;\|][^\*\?\>\&lt;\|]*$"/>
+        <constant name="class_name" value="^[^\*\?\>\&lt;\|\\\/][^\*\?\>\&lt;\|\\\/]*$"/>
+        <constant name="protocol" value="^[^\,\;\&quot;\*\?\>\&lt;\|\=\+\&amp;\%\'\`][^\,\;\&quot;\*\?\>\&lt;\|\=\+\&amp;\%\'\`]*$"/>
+        <constant name="URL" value="^[^\>\&lt;\|\^\!\&quot;\,][^\>\&lt;\|\^\!\&quot;\,]*$"/>
+        <constant name="db2_name" value="^[^\%\!\~\^\&amp;\*\+\#\@\&lt;\>\=\?][^\%\!\~\^\&amp;\*\+\#\@\&lt;\>\=\?]*$"/>
+        <constant name="host" value="^[^\%\!\~\^\&amp;\+\#\@\&quot;\'\&lt;\>\=\,\?][^\%\!\~\^\&amp;\+\#\@\&quot;\'\&lt;\>\=\,\?]*$"/>
+        <constant name="umask" value="^[^\%\!\@\~\`\&amp;\#\+\&quot;\&lt;\>\=\,\^\?][^\%\!\@\~\`\&amp;\#\+\&quot;\&lt;\>\=\,\^\?]*$"/>
+        <validator
+            classname="org.apache.struts.validation.StrutsValidator"
+            method="validateRequired" msg="errors.required" name="required">
+            <javascript><![CDATA[
+            function validateRequired(form) {                                                                       
+                var bValid = true;
+                var focusField = null;
+                var i = 0;                                                                                          
+                var fields = new Array();                                                                           
+                oRequired = new required();                                                                         
+                                                                                                                    
+                for (x in oRequired) {                                                                              
+                    if ((form[oRequired[x][0]].type == 'text' || form[oRequired[x][0]].type == 'textarea' || form[oRequired[x][0]].type == 'select' || form[oRequired[x][0]].type == 'radio' || form[oRequired[x][0]].type == 'password') && form[oRequired[x][0]].value == '') {
+                       if (i == 0)
+                          focusField = form[oRequired[x][0]]; 
+                          
+                       fields[i++] = oRequired[x][1];
+                        
+                       bValid = false;                                                                             
+                    }                                                                                               
+                }                                                                                                   
+                                                                                                                   
+                if (fields.length > 0) {
+                   focusField.focus();
+                   alert(fields.join('\n'));                                                                      
+                }                                                                                                   
+                                                                                                                   
+                return bValid;                                                                                      
+            }]]></javascript>
+        </validator>
+        <validator
+            classname="org.apache.struts.validation.StrutsValidator"
+            depends="required" method="validateMask"
+            msg="errors.invalid" name="mask">
+            <javascript><![CDATA[
+            function validateMask(form) {                                                                                                    
+                var bValid = true;
+                var focusField = null;
+                var i = 0;                                                                                                                    
+                var fields = new Array();                                                                                                     
+                oMasked = new mask();                                                                                                        
+                                                                                                                                              
+                for (x in oMasked) {                                                                                                          
+                    if ((form[oMasked[x][0]].type == 'text' || form[oMasked[x][0]].type == 'textarea' || form[oMasked[x][0]].type == 'password') && form[oMasked[x][0]].value.length > 0) {   
+                       if (!matchPattern(form[oMasked[x][0]].value, oMasked[x][2]("mask"))) {
+                          if (i == 0)
+                             focusField = form[oMasked[x][0]]; 
+            
+                          fields[i++] = oMasked[x][1];
+                          bValid = false;                                                                                                     
+                       }                                                                                                                      
+                    }                                                                                                                         
+                }                                                                                                                             
+                                                                                                                                              
+                if (fields.length > 0) {
+                   focusField.focus();
+                   alert(fields.join('\n'));                                                                                                  
+                }                                                                                                                             
+                                                                                                                                              
+                return bValid;                                                                                                                
+            }                                                                                                                                 
+                                                                                                                                              
+            function matchPattern(value, mask) {
+               var bMatched = mask.exec(value);
+                                                                                                                                              
+               if(!bMatched) {                                                                                                                
+                  return false;                                                                                                               
+               }                                                                                                                              
+                                                                                                                                              
+               return true;                                                                                                                   
+            }]]></javascript>
+        </validator>
+        <validator
+            classname="org.apache.struts.validation.StrutsValidator"
+            depends="required" method="validateByte" msg="errors.byte" name="byte">
+            <javascript><![CDATA[
+            function validateByte(form) {
+                var bValid = true;
+                var focusField = null;
+                var i = 0;                                                                                          
+                var fields = new Array();                                                                           
+                oByte = new byte();                                                                         
+            
+                for (x in oByte) {                                                                              
+                    if ((form[oByte[x][0]].type == 'text' || form[oByte[x][0]].type == 'textarea' || form[oByte[x][0]].type == 'select' || form[oByte[x][0]].type == 'radio') && form[oByte[x][0]].value.length > 0) {   
+                       var iValue = parseInt(form[oByte[x][0]].value);
+            
+                       if (!iValue || !(iValue >= -128 && iValue <= 127)) {
+                          if (i == 0)
+                             focusField = form[oByte[x][0]]; 
+                             
+                          fields[i++] = oByte[x][1];
+                           
+                          bValid = false;
+                       }
+                    }                                                                                               
+                }                                                                                                   
+            
+                if (fields.length > 0) {
+                   focusField.focus();
+                   alert(fields.join('\n'));                                                                      
+                }                                                                                                   
+                                                                                                                   
+                return bValid;                                                                                      
+            }]]></javascript>
+        </validator>
+        <validator
+            classname="org.apache.struts.validation.StrutsValidator"
+            depends="required" method="validateShort" msg="errors.short" name="short">
+            <javascript><![CDATA[
+            function validateShort(form) {
+                var bValid = true;
+                var focusField = null;
+                var i = 0;                                                                                          
+                var fields = new Array();                                                                           
+                oShort = new short();                                                                         
+            
+                for (x in oShort) {                                                                              
+                    if ((form[oShort[x][0]].type == 'text' || form[oShort[x][0]].type == 'textarea' || form[oShort[x][0]].type == 'select' || form[oShort[x][0]].type == 'radio') && form[oShort[x][0]].value.length > 0) {   
+                       var iValue = parseInt(form[oShort[x][0]].value);
+            
+                       if (!iValue || !(iValue >= -32768 && iValue <= 32767)) {
+                          if (i == 0)
+                             focusField = form[oShort[x][0]]; 
+                             
+                          fields[i++] = oShort[x][1];
+                           
+                          bValid = false;
+                       }
+                    }                                                                                               
+                }                                                                                                   
+            
+                if (fields.length > 0) {
+                   focusField.focus();
+                   alert(fields.join('\n'));                                                                      
+                }                                                                                                   
+                                                                                                                   
+                return bValid;                                                                                      
+            }]]></javascript>
+        </validator>
+        <validator
+            classname="org.apache.struts.validation.StrutsValidator"
+            depends="required" method="validateInteger"
+            msg="errors.integer" name="integer">
+            <javascript><![CDATA[
+            function validateInteger(form) {
+                var bValid = true;
+                var focusField = null;
+                var i = 0;                                                                                          
+                var fields = new Array();                                                                           
+                oInteger = new integer();                                                                         
+            
+                for (x in oInteger) {                                                                              
+                    if ((form[oInteger[x][0]].type == 'text' || form[oInteger[x][0]].type == 'textarea' || form[oInteger[x][0]].type == 'select' || form[oInteger[x][0]].type == 'radio') && form[oInteger[x][0]].value.length > 0) {   
+                       var iValue = parseInt(form[oInteger[x][0]].value);
+            
+                       if (!iValue || !(iValue >= -2147483648 && iValue <= 2147483647)) {
+                          if (i == 0)
+                             focusField = form[oInteger[x][0]]; 
+                             
+                          fields[i++] = oInteger[x][1];
+                           
+                          bValid = false;
+                       }
+                    }                                                                                               
+                }                                                                                                   
+            
+                if (fields.length > 0) {
+                   focusField.focus();
+                   alert(fields.join('\n'));                                                                      
+                }                                                                                                   
+                                                                                                                   
+                return bValid;                                                                                      
+            }]]></javascript>
+        </validator>
+        <validator
+            classname="org.apache.struts.validation.StrutsValidator"
+            depends="required" method="validateLong" msg="errors.long" name="long">
+            <javascript><![CDATA[
+            function validateLong(form) {
+                var bValid = true;
+                var focusField = null;
+                var i = 0;                                                                                          
+                var fields = new Array();                                                                           
+                oLong = new long();                                                                         
+            
+                for (x in oLong) {                                                                              
+                    if ((form[oLong[x][0]].type == 'text' || form[oLong[x][0]].type == 'textarea' || form[oLong[x][0]].type == 'select' || form[oLong[x][0]].type == 'radio') && form[oLong[x][0]].value.length > 0) {   
+                       var iValue = parseInt(form[oLong[x][0]].value);
+            
+                       if (!iValue || !(iValue >= -4611686014132420610 && iValue <= 4611686014132420609)) {
+                          if (i == 0)
+                             focusField = form[oLong[x][0]]; 
+                             
+                          fields[i++] = oLong[x][1];
+                           
+                          bValid = false;
+                       }
+                    }                                                                                               
+                }                                                                                                   
+            
+                if (fields.length > 0) {
+                   focusField.focus();
+                   alert(fields.join('\n'));                                                                      
+                }                                                                                                   
+                                                                                                                   
+                return bValid;                                                                                      
+            }]]></javascript>
+        </validator>
+        <validator
+            classname="org.apache.struts.validation.StrutsValidator"
+            depends="required" method="validateFloat" msg="errors.float" name="float">
+            <javascript><![CDATA[
+            function validateFloat(form) {
+                var bValid = true;
+                var focusField = null;
+                var i = 0;                                                                                          
+                var fields = new Array();                                                                           
+                oFloat = new float();                                                                         
+            
+                for (x in oFloat) {                                                                              
+                    if ((form[oFloat[x][0]].type == 'text' || form[oFloat[x][0]].type == 'textarea' || form[oFloat[x][0]].type == 'select' || form[oFloat[x][0]].type == 'radio') && form[oFloat[x][0]].value.length > 0) {   
+                       var iValue = parseFloat(form[oFloat[x][0]].value);
+            
+                       if (!iValue) {
+                          if (i == 0)
+                             focusField = form[oFloat[x][0]]; 
+                             
+                          fields[i++] = oFloat[x][1];
+                           
+                          bValid = false;
+                       }
+                    }                                                                                               
+                }                                                                                                   
+            
+                if (fields.length > 0) {
+                   focusField.focus();
+                   alert(fields.join('\n'));                                                                      
+                }                                                                                                   
+                                                                                                                   
+                return bValid;                                                                                      
+            }]]></javascript>
+        </validator>
+        <validator
+            classname="org.apache.struts.validation.StrutsValidator"
+            depends="required" method="validateDouble"
+            msg="errors.double" name="double"/>
+        <validator
+            classname="org.apache.struts.validation.StrutsValidator"
+            depends="required" method="validateDate" msg="errors.date" name="date">
+            <javascript><![CDATA[
+            function validateDate(form) {                                                                                                                             
+               var bValid = true;   
+               var focusField = null;                                                                                                                                  
+               var i = 0;                                                                                                                                             
+               var fields = new Array();                                                                                                                              
+               oDate = new date();                                                                                                                                                                                                                                                                                        
+               
+               for (x in oDate) { 
+                  var value = form[oDate[x][0]].value;
+                  var datePattern = oDate[x][2]("datePatternStrict");
+            
+                  if ((form[oDate[x][0]].type == 'text' || form[oDate[x][0]].type == 'textarea') && value.length > 0 && datePattern.length > 0) {
+                     var MONTH = "MM";
+                     var DAY = "dd";
+                     var YEAR = "yyyy";
+                     
+                     var orderMonth = datePattern.indexOf(MONTH);
+                     var orderDay = datePattern.indexOf(DAY);
+                     var orderYear = datePattern.indexOf(YEAR);
+            
+                     if ((orderDay < orderYear && orderDay > orderMonth)) {
+                        var iDelim1 = orderMonth + MONTH.length;
+                        var iDelim2 = orderDay + DAY.length;
+                        var delim1 = datePattern.substring(iDelim1, iDelim1 + 1);
+                        var delim2 = datePattern.substring(iDelim2, iDelim2 + 1);
+            
+                        if (iDelim1 == orderDay && iDelim2 == orderYear) {
+                           dateRegexp = new RegExp("^(\\d{2})(\\d{2})(\\d{4})$");
+                        } else if (iDelim1 == orderDay) {
+                           dateRegexp = new RegExp("^(\\d{2})(\\d{2})[" + delim2 + "](\\d{4})$");
+                        } else if (iDelim2 == orderYear) {   
+                           dateRegexp = new RegExp("^(\\d{2})[" + delim1 + "](\\d{2})(\\d{4})$");
+                        } else {
+                           dateRegexp = new RegExp("^(\\d{2})[" + delim1 + "](\\d{2})[" + delim2 + "](\\d{4})$");
+                        }
+            
+                        var matched = dateRegexp.exec(value);
+            
+                        if(matched != null) { 
+                           if (!isValidDate(matched[2], matched[1], matched[3])) {
+                              if (i == 0)
+                                 focusField = form[oDate[x][0]]; 
+                                 
+                              fields[i++] = oDate[x][1];
+                              bValid =  false;
+                           }
+                        } else {
+                           if (i == 0)
+                              focusField = form[oDate[x][0]]; 
+            
+                           fields[i++] = oDate[x][1];
+                           bValid =  false;
+                        }
+                     } else if ((orderMonth < orderYear && orderMonth > orderDay)) {
+                        var iDelim1 = orderDay + DAY.length;
+                        var iDelim2 = orderMonth + MONTH.length;
+                        var delim1 = datePattern.substring(iDelim1, iDelim1 + 1);
+                        var delim2 = datePattern.substring(iDelim2, iDelim2 + 1);
+            
+                        if (iDelim1 == orderMonth && iDelim2 == orderYear) {
+                           dateRegexp = new RegExp("^(\\d{2})(\\d{2})(\\d{4})$");
+                        } else if (iDelim1 == orderMonth) {
+                           dateRegexp = new RegExp("^(\\d{2})(\\d{2})[" + delim2 + "](\\d{4})$");
+                        } else if (iDelim2 == orderYear) {   
+                           dateRegexp = new RegExp("^(\\d{2})[" + delim1 + "](\\d{2})(\\d{4})$");
+                        } else {
+                           dateRegexp = new RegExp("^(\\d{2})[" + delim1 + "](\\d{2})[" + delim2 + "](\\d{4})$");
+                        }
+            
+                        var matched = dateRegexp.exec(value);
+            
+                        if(matched != null) { 
+                           if (!isValidDate(matched[1], matched[2], matched[3])) {
+                              if (i == 0)
+                                 focusField = form[oDate[x][0]]; 
+            
+                              fields[i++] = oDate[x][1];
+                              bValid =  false;
+                           }
+                        } else {
+                           if (i == 0)
+                              focusField = form[oDate[x][0]]; 
+            
+                           fields[i++] = oDate[x][1];
+                           bValid =  false;
+                        }
+                     } else if ((orderMonth > orderYear && orderMonth < orderDay)) {
+                        var iDelim1 = orderYear + YEAR.length;
+                        var iDelim2 = orderMonth + MONTH.length;
+                        var delim1 = datePattern.substring(iDelim1, iDelim1 + 1);
+                        var delim2 = datePattern.substring(iDelim2, iDelim2 + 1);
+            
+                        if (iDelim1 == orderMonth && iDelim2 == orderDay) {
+                           dateRegexp = new RegExp("^(\\d{4})(\\d{2})(\\d{2})$");
+                        } else if (iDelim1 == orderMonth) {
+                           dateRegexp = new RegExp("^(\\d{4})(\\d{2})[" + delim2 + "](\\d{2})$");
+                        } else if (iDelim2 == orderDay) {   
+                           dateRegexp = new RegExp("^(\\d{4})[" + delim1 + "](\\d{2})(\\d{2})$");
+                        } else {
+                           dateRegexp = new RegExp("^(\\d{4})[" + delim1 + "](\\d{2})[" + delim2 + "](\\d{2})$");
+                        }
+            
+                        var matched = dateRegexp.exec(value);
+            
+                        if(matched != null) { 
+            
+                           if (!isValidDate(matched[3], matched[2], matched[1])) {
+                              if (i == 0)
+                                 focusField = form[oDate[x][0]]; 
+            
+                              fields[i++] = oDate[x][1];
+                              bValid =  false;
+                           }
+                        } else {
+                           if (i == 0)
+                              focusField = form[oDate[x][0]]; 
+            
+                           fields[i++] = oDate[x][1];
+                           bValid =  false;
+                        }
+                     } else {
+                        if (i == 0)
+                           focusField = form[oDate[x][0]]; 
+            
+                        fields[i++] = oDate[x][1];
+                        bValid =  false;
+                     }
+            
+                  }                                                                                                                                                  
+               }                                                                                                                                                                                                                                                                                                             
+               
+               if (fields.length > 0) { 
+                  focusField.focus();                                                                                                                                 
+                  alert(fields.join('\n'));                                                                                                                           
+               }                                                                                                                                                                                                                                                                                                             
+               
+               return bValid;                                                                                                                                     
+            }                            
+            
+	    function isValidDate(day, month, year) {
+	       if (month < 1 || month > 12)
+	          return false;
+            
+	       if (day < 1 || day > 31)
+	          return false;
+            
+	       if ((month == 4 || month == 6 || month == 9 || month == 11) && day == 31)
+	          return false;
+            
+	       if (month == 2) {
+	          var leap = (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0));
+	          if (day>29 || (day == 29 && !leap))
+	             return false;
+	       }
+            
+	       return true;
+            }]]></javascript>
+        </validator>
+        <validator
+            classname="org.apache.struts.validation.StrutsValidator"
+            depends="required,integer" method="validateRange"
+            msg="errors.range" name="range">
+            <javascript><![CDATA[
+            function validateRange(form) {                                                                                                    
+                var bValid = true;
+                var focusField = null;
+                var i = 0;                                                                                                                    
+                var fields = new Array();                                                                                                     
+                oRange = new range();                                                                                                        
+                                                                                                                                              
+                for (x in oRange) {                                                                                                          
+                    if ((form[oRange[x][0]].type == 'text' || form[oRange[x][0]].type == 'textarea') && form[oRange[x][0]].value.length > 0) {   
+                       var iMin = parseInt(oRange[x][2]("min"));
+                       var iMax = parseInt(oRange[x][2]("max"));
+                       var iValue = parseInt(form[oRange[x][0]].value);
+            
+                       if (!(iValue >= iMin && iValue <= iMax)) {
+                          if (i == 0)
+                             focusField = form[oRange[x][0]]; 
+            
+                          fields[i++] = oRange[x][1];
+            
+                          bValid = false;                                                                                                     
+                       }                                                                                                                      
+                    }                                                                                                                         
+                }                                                                                                                             
+                                                                                                                                              
+                if (fields.length > 0) {
+                   focusField.focus();
+                   alert(fields.join('\n'));                                                                                                  
+                }                                                                                                                             
+                                                                                                                                              
+                return bValid;                                                                                                                
+            }]]></javascript>
+        </validator>
+        <validator
+            classname="org.apache.struts.validation.StrutsValidator"
+            depends="required" method="validateCreditCard"
+            msg="errors.creditcard" name="creditCard">
+            <javascript><![CDATA[
+            function validateCreditCard(form) {                                                                                                    
+                var bValid = true;
+                var focusField = null;
+                var i = 0;                                                                                                                    
+                var fields = new Array();                                                                                                     
+                oCreditCard = new creditCard();                                                                                                        
+                                                                                                                                              
+                for (x in oCreditCard) {                                                                                                          
+                    if ((form[oCreditCard[x][0]].type == 'text' || form[oCreditCard[x][0]].type == 'textarea') && form[oCreditCard[x][0]].value.length > 0) {   
+                       if (!luhnCheck(form[oCreditCard[x][0]].value)) {
+                          if (i == 0)
+                             focusField = form[oCreditCard[x][0]]; 
+            
+                          fields[i++] = oCreditCard[x][1];
+            
+                          bValid = false;                                                                                                     
+                       }                                                                                                                      
+                    }                                                                                                                         
+                }                                                                                                                             
+                                                                                                                                              
+                if (fields.length > 0) {
+                   focusField.focus();
+                   alert(fields.join('\n'));                                                                                                  
+                }                                                                                                                             
+                                                                                                                                              
+                return bValid;                                                                                                                
+            }      
+            
+            /**
+             * Reference: http://www.ling.nwu.edu/~sburke/pub/luhn_lib.pl
+            */
+            function luhnCheck(cardNumber) {
+                if (isLuhnNum(cardNumber)) {    
+                    var no_digit = cardNumber.length;
+                    var oddoeven = no_digit & 1;
+                    var sum = 0;
+                    for (var count = 0; count < no_digit; count++) {
+                        var digit = parseInt(cardNumber.charAt(count));
+                        if (!((count & 1) ^ oddoeven)) {
+                            digit *= 2;
+                            if (digit > 9) digit -= 9;
+                        };
+                        sum += digit;
+                    };
+                    if (sum == 0) return false;        
+                    if (sum % 10 == 0) return true;
+                };
+                return false;
+            }
+            
+            function isLuhnNum(argvalue) {
+                argvalue = argvalue.toString();
+                if (argvalue.length == 0) 
+                   return false;
+                for (var n = 0; n < argvalue.length; n++)
+                   if (argvalue.substring(n, n+1) < "0" || argvalue.substring(n,n+1) > "9") 
+                      return false;
+                
+                return true;
+            }]]></javascript>
+        </validator>
+        <validator
+            classname="org.apache.struts.validation.StrutsValidator"
+            depends="required" method="validateEmail" msg="errors.email" name="email">
+            <javascript><![CDATA[
+            function validateEmail(form) {                                                                                                    
+                var bValid = true;
+                var focusField = null;
+                var i = 0;                                                                                                                    
+                var fields = new Array();                                                                                                     
+                oEmail = new email();                                                                                                        
+                                                                                                                                              
+                for (x in oEmail) {                                                                                                          
+                    if ((form[oEmail[x][0]].type == 'text' || form[oEmail[x][0]].type == 'textarea') && form[oEmail[x][0]].value.length > 0) {   
+                       if (!checkEmail(form[oEmail[x][0]].value)) {
+                          if (i == 0)
+                             focusField = form[oEmail[x][0]]; 
+            
+                          fields[i++] = oEmail[x][1];
+            
+                          bValid = false;                                                                                                     
+                       }                                                                                                                      
+                    }                                                                                                                         
+                }                                                                                                                             
+                                                                                                                                              
+                if (fields.length > 0) {
+                   focusField.focus();
+                   alert(fields.join('\n'));                                                                                                  
+                }                                                                                                                             
+                                                                                                                                              
+                return bValid;                                                                                                                
+            }      
+            
+            /**
+             * Reference: Sandeep V. Tamhankar (stamhankar@hotmail.com), 
+             * http://javascript.internet.com 
+            */
+            function checkEmail(emailStr) {
+               if (emailStr.length == 0) 
+                  return true;
+               var emailPat=/^(.+)@(.+)$/;
+               var specialChars="\\(\\)<>@,;:\\\\\\\"\\.\\[\\]";
+               var validChars="\[^\\s" + specialChars + "\]";
+               var quotedUser="(\"[^\"]*\")";
+               var ipDomainPat=/^(\d{1,3})[.](\d{1,3})[.](\d{1,3})[.](\d{1,3})$/;
+               var atom=validChars + '+';
+               var word="(" + atom + "|" + quotedUser + ")";
+               var userPat=new RegExp("^" + word + "(\\." + word + ")*$");
+               var domainPat=new RegExp("^" + atom + "(\\." + atom + ")*$");
+               var matchArray=emailStr.match(emailPat);
+               
+               if (matchArray == null)
+                  return false;
+               
+               var user=matchArray[1];
+               var domain=matchArray[2];
+               
+               if (user.match(userPat) == null)
+                   return false;
+               
+               var IPArray = domain.match(ipDomainPat);
+               if (IPArray != null) {
+                   for (var i = 1; i <= 4; i++) {
+                      if (IPArray[i] > 255)
+                         return false;
+                   }
+                   
+                   return true;
+               }
+               
+               var domainArray=domain.match(domainPat);
+               if (domainArray == null)
+                   return false;
+               
+               var atomPat=new RegExp(atom,"g");
+               var domArr=domain.match(atomPat);
+               var len=domArr.length;
+            
+               if (domArr[domArr.length-1].length < 2 || domArr[domArr.length-1].length > 3)
+                  return false;
+               
+               if (len < 2)
+                  return false;
+               
+               return true;
+            }]]></javascript>
+        </validator>
+    </global>
+    <formset>
+        <constant name="zip" value="^\d{5}(-\d{4})?$"/>
+        <form name="registrationForm">
+            <field depends="required,mask" property="firstName">
+                <arg0 key="registrationForm.firstname.displayname"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>^\w+$</var-value>
+                </var>
+            </field>
+            <field depends="required,mask" property="lastName">
+                <msg key="registrationForm.lastname.maskmsg" name="mask"/>
+                <arg0 key="registrationForm.lastname.displayname"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>^[a-zA-Z]*$</var-value>
+                </var>
+            </field>
+            <field depends="required" property="addr">
+                <arg0 key="registrationForm.addr.displayname"/>
+            </field>
+            <field depends="required,mask" property="cityStateZip.city">
+                <arg0 key="registrationForm.city.displayname"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>^[a-zA-Z]*$</var-value>
+                </var>
+            </field>
+            <field depends="required,mask" property="cityStateZip.stateProv">
+                <arg0 key="registrationForm.stateprov.displayname"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>^[a-zA-Z]*$</var-value>
+                </var>
+            </field>
+            <field depends="required,mask" property="cityStateZip.zipPostal[1]">
+                <arg0 key="registrationForm.zippostal.displayname"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${zip}</var-value>
+                </var>
+            </field>
+            <field depends="mask" property="phone">
+                <arg0 key="registrationForm.phone.displayname"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${phone}</var-value>
+                </var>
+            </field>
+            <field depends="required,email" property="email">
+                <arg0 key="registrationForm.email.displayname"/>
+            </field>
+        </form>
+        <form name="multiRegistrationForm">
+            <field depends="required,mask" page="1" property="firstName">
+                <arg0 key="registrationForm.firstname.displayname"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>^\w+$</var-value>
+                </var>
+            </field>
+            <field depends="required,mask" page="1" property="lastName">
+                <msg key="registrationForm.lastname.maskmsg" name="mask"/>
+                <arg0 key="registrationForm.lastname.displayname"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>^[a-zA-Z]*$</var-value>
+                </var>
+            </field>
+            <field depends="required" page="1" property="addr">
+                <arg0 key="registrationForm.addr.displayname"/>
+            </field>
+            <field depends="required,mask" page="1" property="cityStateZip.city">
+                <arg0 key="registrationForm.city.displayname"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>^[a-zA-Z]*$</var-value>
+                </var>
+            </field>
+            <field depends="required,mask" page="2" property="cityStateZip.stateProv">
+                <arg0 key="registrationForm.stateprov.displayname"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>^[a-zA-Z]*$</var-value>
+                </var>
+            </field>
+            <field depends="required,mask" page="2" property="cityStateZip.zipPostal[1]">
+                <arg0 key="registrationForm.zippostal.displayname"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${zip}</var-value>
+                </var>
+            </field>
+            <field depends="mask" page="2" property="phone">
+                <arg0 key="registrationForm.phone.displayname"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${phone}</var-value>
+                </var>
+            </field>
+            <field depends="required,email" page="2" property="email">
+                <arg0 key="registrationForm.email.displayname"/>
+            </field>
+        </form>
+        <form name="typeForm">
+            <field depends="required,byte" property="byte">
+                <arg0 key="typeForm.byte.displayname"/>
+            </field>
+            <field depends="required,short" property="short">
+                <arg0 key="typeForm.short.displayname"/>
+            </field>
+            <field depends="required,integer,range" property="integer">
+                <arg0 key="typeForm.integer.displayname"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>10</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>20</var-value>
+                </var>
+            </field>
+            <field depends="required,long" property="long">
+                <arg0 key="typeForm.long.displayname"/>
+            </field>
+            <field depends="required,float" property="float">
+                <arg0 key="typeForm.float.displayname"/>
+            </field>
+            <field depends="required,double" property="double">
+                <arg0 key="typeForm.double.displayname"/>
+            </field>
+            <field depends="required,date" property="date">
+                <arg0 key="typeForm.date.displayname"/>
+                <var>
+                    <var-name>datePatternStrict</var-name>
+                    <var-value>MM/dd/yyyy</var-value>
+                </var>
+            </field>
+            <field depends="required,creditCard" property="creditCard">
+                <arg0 key="typeForm.creditCard.displayname"/>
+            </field>
+        </form>
+        <form name="jsTypeForm">
+            <field depends="required,byte" property="byte">
+                <arg0 key="typeForm.byte.displayname"/>
+            </field>
+            <field depends="required,short" property="short">
+                <arg0 key="typeForm.short.displayname"/>
+            </field>
+            <field depends="required,integer,range" property="integer">
+                <arg0 key="typeForm.integer.displayname"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>10</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>20</var-value>
+                </var>
+            </field>
+            <field depends="required,float" property="float">
+                <arg0 key="typeForm.float.displayname"/>
+            </field>
+            <field depends="required,date" property="date">
+                <arg0 key="typeForm.date.displayname"/>
+                <var>
+                    <var-name>datePatternStrict</var-name>
+                    <var-value>MM/dd/yyyy</var-value>
+                </var>
+            </field>
+            <field depends="required,creditCard" property="creditCard">
+                <arg0 key="typeForm.creditCard.displayname"/>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.environment.VirtualHostDetailForm">
+            <field depends="required,mask" property="name">
+                <arg0 key="VirtualHost.name.displayName"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${was_name}</var-value>
+                </var>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.environment.MimeEntryDetailForm">
+            <field depends="required" property="type">
+                <arg0 key="MimeEntry.displayName"/>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.environment.HostAliasDetailForm">
+            <field depends="required" property="hostname">
+                <arg0 key="HostAlias.displayName"/>
+            </field>
+            <field depends="required" property="port">
+                <arg0 key="HostAlias.port.displayName"/>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.environment.VariableSubstitutionEntryDetailForm">
+            <field depends="required" property="symbolicName">
+                <arg0 key="VariableSubstitutionEntry.symbolicName.displayName"/>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.environment.CORBAObjectNameSpaceBindingDetailForm">
+            <field depends="required,mask" property="name">
+                <arg0 key="NameSpaceBinding.name.displayName"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${was_name}</var-value>
+                </var>
+            </field>
+            <field depends="required" property="nameInNameSpace">
+                <arg0 key="NameSpaceBinding.nameInNameSpace.displayName"/>
+            </field>
+            <field depends="required" property="corbanameUrl">
+                <arg0 key="CORBAObjectNameSpaceBinding.corbanameUrl.displayName"/>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.environment.EjbNameSpaceBindingDetailForm">
+            <field depends="required,mask" property="name">
+                <arg0 key="NameSpaceBinding.name.displayName"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${was_name}</var-value>
+                </var>
+            </field>
+            <field depends="required" property="nameInNameSpace">
+                <arg0 key="NameSpaceBinding.nameInNameSpace.displayName"/>
+            </field>
+            <field depends="required" property="ejbJndiName">
+                <arg0 key="EjbNameSpaceBinding.ejbJndiName.displayName"/>
+            </field>
+            <field depends="required" property="applicationServerName">
+                <arg0 key="EjbNameSpaceBinding.applicationServerName.displayName"/>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.environment.IndirectLookupNameSpaceBindingDetailForm">
+            <field depends="required,mask" property="name">
+                <arg0 key="NameSpaceBinding.name.displayName"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${was_name}</var-value>
+                </var>
+            </field>
+            <field depends="required" property="nameInNameSpace">
+                <arg0 key="NameSpaceBinding.nameInNameSpace.displayName"/>
+            </field>
+            <field depends="required" property="providerURL">
+                <arg0 key="IndirectLookupNameSpaceBinding.providerURL.displayName"/>
+            </field>
+            <field depends="required" property="jndiName">
+                <arg0 key="IndirectLookupNameSpaceBinding.jndiName.displayName"/>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.environment.StringNameSpaceBindingDetailForm">
+            <field depends="required,mask" property="name">
+                <arg0 key="NameSpaceBinding.name.displayName"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${was_name}</var-value>
+                </var>
+            </field>
+            <field depends="required" property="nameInNameSpace">
+                <arg0 key="NameSpaceBinding.nameInNameSpace.displayName"/>
+            </field>
+            <field depends="required" property="stringToBind">
+                <arg0 key="StringNameSpaceBinding.stringToBind.displayName"/>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.environment.LibraryDetailForm">
+            <field depends="required,mask" property="name">
+                <arg0 key="Library.name.displayName"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${was_name}</var-value>
+                </var>
+            </field>
+            <field depends="required" property="classpath">
+                <arg0 key="Library.classpath.displayName"/>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.distmanagement.CellManagerDetailForm">
+            <field depends="required,mask" property="name">
+                <arg0 key="CellManager.name.displayName"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${was_name}</var-value>
+                </var>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.servermanagement.EJBContainerDetailForm">
+            <field depends="required,mask" property="passivationDirectory">
+                <arg0 key="EJBContainer.passivationDirectory.displayName"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${path}</var-value>
+                </var>
+            </field>
+            <field depends="integer,range" property="inactivePoolCleanupInterval">
+                <arg0 key="EJBContainer.inactivePoolCleanupInterval.displayName"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>0</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>2147483647</var-value>
+                </var>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.servermanagement.EJBCacheDetailForm">
+            <field depends="integer,range" property="cleanupInterval">
+                <arg0 key="EJBCache.cleanupInterval.displayName"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>0</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>2147483647</var-value>
+                </var>
+            </field>
+            <field depends="integer,range" property="cacheSize">
+                <arg0 key="EJBCache.cacheSize.displayName"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>0</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>2147483647</var-value>
+                </var>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.servermanagement.TransactionServiceDetailForm">
+            <field depends="required,integer,range" property="totalTranLifetimeTimeout">
+                <arg0 key="TransactionService.totalTranLifetimeTimeout.displayName"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>0</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>2147483647</var-value>
+                </var>
+            </field>
+            <field depends="required,integer,range" property="clientInactivityTimeout">
+                <arg0 key="TransactionService.clientInactivityTimeout.displayName"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>0</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>2147483647</var-value>
+                </var>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.servermanagement.CustomServiceDetailForm">
+            <field depends="mask" property="externalConfigURL">
+                <arg0 key="CustomService.externalConfigURL.displayName"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${URL}</var-value>
+                </var>
+            </field>
+            <field depends="required,mask" property="classname">
+                <arg0 key="CustomService.classname.displayName"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${class_name}</var-value>
+                </var>
+            </field>
+            <field depends="required,mask" property="displayName">
+                <arg0 key="CustomService.displayName.displayName"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${was_name}</var-value>
+                </var>
+            </field>
+            <field depends="required,mask" property="classpath">
+                <arg0 key="CustomService.classpath.displayName"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${path}</var-value>
+                </var>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.servermanagement.DebugServiceDetailForm">
+            <field depends="required,integer,range" property="jvmDebugPort">
+                <arg0 key="DebugService.jvmDebugPort.displayName"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>1</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>65536</var-value>
+                </var>
+            </field>
+            <field depends="required" property="jvmDebugArgs">
+                <arg0 key="DebugService.jvmDebugArgs.displayName"/>
+            </field>
+            <field depends="required,integer,range" property="BSFDebugPort">
+                <arg0 key="DebugService.BSFDebugPort.displayName"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>1</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>65536</var-value>
+                </var>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.servermanagement.RepositoryServiceDetailForm"/>
+        <form name="com.ibm.ws.console.servermanagement.JavaVirtualMachineDetailForm">
+            <field depends="mask" property="classpath">
+                <arg0 key="JavaVirtualMachine.classpath.displayName"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${path}</var-value>
+                </var>
+            </field>
+            <field depends="mask" property="bootClasspath">
+                <arg0 key="JavaVirtualMachine.bootClasspath.displayName"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${path}</var-value>
+                </var>
+            </field>
+            <field depends="mask" property="executableJarFileName">
+                <arg0 key="JavaVirtualMachine.executableJarFileName.displayName"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${path}</var-value>
+                </var>
+            </field>
+            <field depends="integer,range" property="initialHeapSize">
+                <arg0 key="JavaVirtualMachine.initialHeapSize.displayName"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>0</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>2147483647</var-value>
+                </var>
+            </field>
+            <field depends="integer,range" property="maximumHeapSize">
+                <arg0 key="JavaVirtualMachine.maximumHeapSize.displayName"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>0</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>2147483647</var-value>
+                </var>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.servermanagement.webcontainer.ThreadPoolDetailForm">
+            <field depends="required,integer,range" property="minimumSize">
+                <arg0 key="ThreadPool.minimumSize.displayName"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>0</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>2147483647</var-value>
+                </var>
+            </field>
+            <field depends="required,integer,range" property="maximumSize">
+                <arg0 key="ThreadPool.maximumSize.displayName"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>0</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>2147483647</var-value>
+                </var>
+            </field>
+            <field depends="required,integer,range" property="inactivityTimeout">
+                <arg0 key="ThreadPool.inactivityTimeout.displayName"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>0</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>2147483647</var-value>
+                </var>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.servermanagement.webcontainer.HTTPTransportDetailForm">
+            <field depends="required,mask" property="host">
+                <arg0 key="Transport.host.displayName"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${host}</var-value>
+                </var>
+            </field>
+            <field depends="required,integer,range" property="port">
+                <arg0 key="Transport.port.displayName"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>1</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>65535</var-value>
+                </var>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.servermanagement.webcontainer.CookieDetailForm">
+            <field depends="integer,range" property="ageValue">
+                <arg0 key="Cookie.maximumAge.displayName"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>0</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>2147483647</var-value>
+                </var>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.servermanagement.webcontainer.SessionManagerDetailForm">
+            <field depends="integer, range" property="maxInMemorySessionCount">
+                <arg0 key="SessionManager.sessionCount.displayName"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>0</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>2147483647</var-value>
+                </var>
+            </field>
+            <field depends="integer, range" property="maxWaitTime">
+                <arg0 key="SessionManager.maxWaitTime.displayName"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>0</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>2147483647</var-value>
+                </var>
+            </field>
+            <field depends="integer, range" property="invalidationTimeout">
+                <arg0 key="SessionManager.sessionTimeout.displayName"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>2</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>2147483647</var-value>
+                </var>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.servermanagement.webcontainer.SessionDatabasePersistenceDetailForm">
+            <field depends="required" property="datasourceJNDIName">
+                <arg0 key="SessionDatabasePersistence.datasourceJNDIName.displayName"/>
+            </field>
+            <field depends="mask" property="tableSpaceName">
+                <arg0 key="SessionDatabasePersistence.tableSpaceName.displayName"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${db2_name}</var-value>
+                </var>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.servermanagement.webcontainer.TuningParamsDetailForm">
+            <field depends="integer,range" property="writeInterval">
+                <arg0 key="TuningParams.writeFrequency.displayName"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>0</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>2147483647</var-value>
+                </var>
+            </field>
+            <field depends="integer,range" property="firstHour">
+                <arg0 key="TuningParams.database.first"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>0</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>23</var-value>
+                </var>
+            </field>
+            <field depends="integer,range" property="secondHour">
+                <arg0 key="TuningParams.database.second"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>0</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>23</var-value>
+                </var>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.servermanagement.webcontainer.DRSSettingsDetailForm">
+            <field depends="mask" property="connectionPointPort">
+                <arg0 key="DRSSettings.replication.port"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>^[0-9,]*$</var-value>
+                </var>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.servermanagement.dynamiccache.DynamicCacheDetailForm">
+            <field depends="required,integer,range" property="cacheSize">
+                <arg0 key="DynamicCache.cacheSize.displayName"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>100</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>200000</var-value>
+                </var>
+            </field>
+            <field depends="required,integer,range" property="defaultPriority">
+                <arg0 key="DynamicCache.defaultPriority.displayName"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>1</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>255</var-value>
+                </var>
+            </field>
+            <field depends="integer,range" property="hashSize">
+                <arg0 key="DynamicCache.diskoffload.hashSize"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>0</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>2147483647</var-value>
+                </var>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.servermanagement.dynamiccache.DRSSettingsDetailForm">
+            <field depends="mask" property="connectionPointPort">
+                <arg0 key="DRSSettings.replication.port"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>^[0-9,]*$</var-value>
+                </var>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.servermanagement.MonitoringPolicyDetailForm">
+            <field depends="required,integer,range" property="maximumStartupAttempts">
+                <arg0 key="MonitoringPolicy.maximumStartupAttempts.displayName"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>0</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>2147483647</var-value>
+                </var>
+            </field>
+            <field depends="integer,range" property="pingInterval">
+                <arg0 key="MonitoringPolicy.pingInterval.displayName"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>0</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>2147483647</var-value>
+                </var>
+            </field>
+            <field depends="required,integer,range" property="pingTimeout">
+                <arg0 key="MonitoringPolicy.pingTimeout.displayName"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>0</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>2147483647</var-value>
+                </var>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.servermanagement.PropertyDetailForm">
+            <field depends="required,mask" property="name">
+                <arg0 key="Property.name.displayName"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${was_name}</var-value>
+                </var>
+            </field>
+            <field depends="required" property="value">
+                <arg0 key="Property.value.displayName"/>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.servermanagement.ListenerPortDetailForm">
+            <field depends="required,mask" property="name">
+                <arg0 key="Server.name.displayName"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${was_name}</var-value>
+                </var>
+            </field>
+            <field depends="required" property="connectionFactoryJNDIName">
+                <arg0 key="ListenerPort.connectionFactoryJNDIName.displayName"/>
+            </field>
+            <field depends="required" property="destinationJNDIName">
+                <arg0 key="ListenerPort.destinationJNDIName.displayName"/>
+            </field>
+            <field depends="integer,range" property="maxSessions">
+                <arg0 key="ListenerPort.maxSessions.displayName"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>1</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>2147483647</var-value>
+                </var>
+            </field>
+            <field depends="integer,range" property="maxRetries">
+                <arg0 key="ListenerPort.maxRetries.displayName"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>0</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>2147483647</var-value>
+                </var>
+            </field>
+            <field depends="integer,range" property="maxMessages">
+                <arg0 key="ListenerPort.maxMessages.displayName"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>1</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>2147483647</var-value>
+                </var>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.servermanagement.ObjectRequestBrokerDetailForm">
+            <field depends="required,integer,range" property="requestTimeout">
+                <arg0 key="ObjectRequestBroker.requestTimeout.displayName"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>0</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>300</var-value>
+                </var>
+            </field>
+            <field depends="required,integer,range" property="requestRetriesCount">
+                <arg0 key="ObjectRequestBroker.requestRetriesCount.displayName"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>1</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>10</var-value>
+                </var>
+            </field>
+            <field depends="required,integer,range" property="requestRetriesDelay">
+                <arg0 key="ObjectRequestBroker.requestRetriesDelay.displayName"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>0</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>60000</var-value>
+                </var>
+            </field>
+            <field depends="required,integer,range" property="connectionCacheMaximum">
+                <arg0 key="ObjectRequestBroker.connectionCacheMaximum.displayName"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>10</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>2147483647</var-value>
+                </var>
+            </field>
+            <field depends="required,integer,range" property="connectionCacheMinimum">
+                <arg0 key="ObjectRequestBroker.connectionCacheMinimum.displayName"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>0</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>2147483647</var-value>
+                </var>
+            </field>
+            <field depends="required,integer,range" property="locateRequestTimeout">
+                <arg0 key="ObjectRequestBroker.locateRequestTimeout.displayName"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>0</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>300</var-value>
+                </var>
+            </field>
+            <field depends="mask" property="tunnelAgentURL">
+                <arg0 key="ObjectRequestBroker.tunnelAgentURL.displayName"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${URL}</var-value>
+                </var>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.servermanagement.ExtensionMBeanProviderDetailForm">
+            <field depends="mask" property="classpath">
+                <arg0 key="ExtensionMBeanProvider.classpath.displayName"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${path}</var-value>
+                </var>
+            </field>
+            <field depends="required,mask" property="name">
+                <arg0 key="ExtensionMBeanProvider.name.displayName"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${was_name}</var-value>
+                </var>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.servermanagement.ProcessDefDetailForm">
+            <field depends="mask" property="executableName">
+                <arg0 key="ProcessDef.executableName.displayName"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${path}</var-value>
+                </var>
+            </field>
+            <field depends="required,mask" property="workingDirectory">
+                <arg0 key="ProcessDef.workingDirectory.displayName"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${path}</var-value>
+                </var>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.servermanagement.ProcessExecutionDetailForm">
+            <field depends="integer,range" property="processPriority">
+                <arg0 key="ProcessExecution.processPriority.displayName"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>0</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>2147483647</var-value>
+                </var>
+            </field>
+            <field depends="integer,range" property="runInProcessGroup">
+                <arg0 key="ProcessExecution.runInProcessGroup.displayName"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>0</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>2147483647</var-value>
+                </var>
+            </field>
+            <field depends="mask" property="umask">
+                <arg0 key="ProcessExecution.umask.displayName"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${umask}</var-value>
+                </var>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.servermanagement.EndPointDetailForm">
+            <field depends="required" property="host">
+                <arg0 key="EndPoint.host.displayName"/>
+            </field>
+            <field depends="required,integer,range" property="port">
+                <arg0 key="EndPoint.port.displayName"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>1</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>65536</var-value>
+                </var>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.servermanagement.NamedEndPointDetailForm">
+            <field depends="required" property="host">
+                <arg0 key="EndPoint.host.displayName"/>
+            </field>
+            <field depends="required,integer,range" property="port">
+                <arg0 key="EndPoint.port.displayName"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>1</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>65536</var-value>
+                </var>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.appdeployment.EJBModuleDeploymentDetailForm">
+            <field depends="required" property="deploymentId">
+                <arg0 key="EJBModuleDeployment.deploymentId.displayName"/>
+            </field>
+            <field depends="required,integer,range" property="startingWeight">
+                <arg0 key="ModuleDeployment.startingWeight.displayName"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>0</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>2147483647</var-value>
+                </var>
+            </field>
+            <field depends="required" property="uri">
+                <arg0 key="ModuleDeployment.uri.displayName"/>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.appdeployment.WebModuleDeploymentDetailForm">
+            <field depends="required" property="deploymentId">
+                <arg0 key="WebModuleDeployment.deploymentId.displayName"/>
+            </field>
+            <field depends="required,integer,range" property="startingWeight">
+                <arg0 key="ModuleDeployment.startingWeight.displayName"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>0</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>2147483647</var-value>
+                </var>
+            </field>
+            <field depends="required" property="uri">
+                <arg0 key="ModuleDeployment.uri.displayName"/>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.appdeployment.ApplicationDeploymentDetailForm">
+            <field depends="required" property="deploymentId">
+                <arg0 key="ApplicationDeployment.deploymentId.displayName"/>
+            </field>
+            <field depends="required,integer,range" property="startingWeight">
+                <arg0 key="ApplicationDeployment.startingWeight.displayName"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>0</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>2147483647</var-value>
+                </var>
+            </field>
+            <field depends="required" property="binariesURL">
+                <arg0 key="ApplicationDeployment.binariesURL.displayName"/>
+            </field>
+            <field depends="required" property="warClassLoaderPolicy">
+                <arg0 key="ApplicationDeployment.warClassLoaderPolicy.displayName"/>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.resources.WAS40DataSourceDetailForm">
+            <field depends="required,mask" property="name">
+                <arg0 key="J2EEResourceFactory.name.displayName"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${was_name}</var-value>
+                </var>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.resources.DataSourceDetailForm">
+            <field depends="required,mask" property="name">
+                <arg0 key="J2EEResourceFactory.name.displayName"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${was_name}</var-value>
+                </var>
+            </field>
+            <field depends="integer,range" property="statementCacheSize">
+                <arg0 key="DataSource.statementCacheSize.displayName"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>0</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>2147483647</var-value>
+                </var>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.resources.J2EEResourcePropertyDetailForm">
+            <field depends="required,mask" property="name">
+                <arg0 key="J2EEResourceProperty.name.displayName"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${was_name}</var-value>
+                </var>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.resources.J2CConnectionFactoryDetailForm">
+            <field depends="required,mask" property="name">
+                <arg0 key="J2EEResourceFactory.name.displayName"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${was_name}</var-value>
+                </var>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.resources.JDBCProviderDetailForm">
+            <field depends="required,mask" property="name">
+                <arg0 key="J2EEResourceProvider.name.displayName"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${was_name}</var-value>
+                </var>
+            </field>
+            <field depends="mask" property="classpath">
+                <arg0 key="J2EEResourceProvider.classpath.displayName"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${path}</var-value>
+                </var>
+            </field>
+            <field depends="mask" property="nativepath">
+                <arg0 key="J2EEResourceProvider.nativepath.displayName"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${path}</var-value>
+                </var>
+            </field>
+            <field depends="required" property="implementationClassName">
+                <arg0 key="JDBCProvider.implementationClassName.displayName"/>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.resources.ReferenceableDetailForm">
+            <field depends="required" property="factoryClassname">
+                <arg0 key="Referenceable.factoryClassname.displayName"/>
+            </field>
+            <field depends="required" property="classname">
+                <arg0 key="Referenceable.classname.displayName"/>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.resources.ResourceEnvEntryDetailForm">
+            <field depends="required,mask" property="name">
+                <arg0 key="J2EEResourceFactory.name.displayName"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${was_name}</var-value>
+                </var>
+            </field>
+            <field depends="required" property="jndiName">
+                <arg0 key="J2EEResourceFactory.jndiName.displayName"/>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.resources.ResourceEnvironmentProviderDetailForm">
+            <field depends="required,mask" property="name">
+                <arg0 key="J2EEResourceProvider.name.displayName"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${was_name}</var-value>
+                </var>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.resources.URLProviderDetailForm">
+            <field depends="required,mask" property="name">
+                <arg0 key="J2EEResourceProvider.name.displayName"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${was_name}</var-value>
+                </var>
+            </field>
+            <field depends="mask" property="classpath">
+                <arg0 key="J2EEResourceProvider.classpath.displayName"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${path}</var-value>
+                </var>
+            </field>
+            <field depends="required,mask" property="streamHandlerClassName">
+                <arg0 key="URLProvider.streamHandlerClassName.displayName"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${class_name}</var-value>
+                </var>
+            </field>
+            <field depends="required,mask" property="protocol">
+                <arg0 key="URLProvider.protocol.displayName"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${protocol}</var-value>
+                </var>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.resources.URLDetailForm">
+            <field depends="required,mask" property="name">
+                <arg0 key="J2EEResourceFactory.name.displayName"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${was_name}</var-value>
+                </var>
+            </field>
+            <field depends="required" property="jndiName">
+                <arg0 key="J2EEResourceFactory.jndiName.displayName"/>
+            </field>
+            <field depends="required" property="spec">
+                <arg0 key="URL.spec.displayName"/>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.resources.J2CResourceAdapterDetailForm">
+            <field depends="mask" property="classpath">
+                <arg0 key="J2EEResourceProvider.classpath.displayName"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${path}</var-value>
+                </var>
+            </field>
+            <field depends="mask" property="nativepath">
+                <arg0 key="J2EEResourceProvider.nativepath.displayName"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${path}</var-value>
+                </var>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.resources.WAS40ConnectionPoolDetailForm">
+            <field depends="required,integer,range" property="minimumPoolSize">
+                <arg0 key="WAS40ConnectionPool.minimumPoolSize.displayName"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>0</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>2147483647</var-value>
+                </var>
+            </field>
+            <field depends="required,integer,range" property="maximumPoolSize">
+                <arg0 key="WAS40ConnectionPool.maximumPoolSize.displayName"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>0</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>2147483647</var-value>
+                </var>
+            </field>
+            <field depends="required,integer,range" property="connectionTimeout">
+                <arg0 key="WAS40ConnectionPool.connectionTimeout.displayName"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>0</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>2147483647</var-value>
+                </var>
+            </field>
+            <field depends="required,integer,range" property="idleTimeout">
+                <arg0 key="WAS40ConnectionPool.idleTimeout.displayName"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>0</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>2147483647</var-value>
+                </var>
+            </field>
+            <field depends="required,integer,range" property="orphanTimeout">
+                <arg0 key="WAS40ConnectionPool.orphanTimeout.displayName"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>0</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>2147483647</var-value>
+                </var>
+            </field>
+            <field depends="required,integer,range" property="statementCacheSize">
+                <arg0 key="WAS40ConnectionPool.statementCacheSize.displayName"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>0</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>2147483647</var-value>
+                </var>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.resources.ConnectionPoolDetailForm">
+            <field depends="integer,range" property="connectionTimeout">
+                <arg0 key="ConnectionPool.connectionTimeout.displayName"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>0</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>2147483647</var-value>
+                </var>
+            </field>
+            <field depends="integer,range" property="maxConnections">
+                <arg0 key="ConnectionPool.maxConnections.displayName"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>0</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>2147483647</var-value>
+                </var>
+            </field>
+            <field depends="integer,range" property="minConnections">
+                <arg0 key="ConnectionPool.minConnections.displayName"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>0</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>2147483647</var-value>
+                </var>
+            </field>
+            <field depends="integer,range" property="reapTime">
+                <arg0 key="ConnectionPool.reapTime.displayName"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>0</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>2147483647</var-value>
+                </var>
+            </field>
+            <field depends="integer,range" property="unusedTimeout">
+                <arg0 key="ConnectionPool.unusedTimeout.displayName"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>0</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>2147483647</var-value>
+                </var>
+            </field>
+            <field depends="integer,range" property="agedTimeout">
+                <arg0 key="ConnectionPool.agedTimeout.displayName"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>0</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>2147483647</var-value>
+                </var>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.resources.GenericJMSConnectionFactoryDetailForm">
+            <field depends="required,mask" property="name">
+                <arg0 key="J2EEResourceFactory.name.displayName"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${was_name}</var-value>
+                </var>
+            </field>
+            <field depends="required" property="jndiName">
+                <arg0 key="J2EEResourceFactory.jndiName.displayName"/>
+            </field>
+            <field depends="required" property="externalJNDIName">
+                <arg0 key="GenericJMSConnectionFactory.externalJNDIName.displayName"/>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.resources.GenericJMSDestinationDetailForm">
+            <field depends="required,mask" property="name">
+                <arg0 key="J2EEResourceFactory.name.displayName"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${was_name}</var-value>
+                </var>
+            </field>
+            <field depends="required" property="jndiName">
+                <arg0 key="J2EEResourceFactory.jndiName.displayName"/>
+            </field>
+            <field depends="required" property="externalJNDIName">
+                <arg0 key="GenericJMSDestination.externalJNDIName.displayName"/>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.resources.JMSProviderDetailForm">
+            <field depends="required,mask" property="name">
+                <arg0 key="J2EEResourceProvider.name.displayName"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${was_name}</var-value>
+                </var>
+            </field>
+            <field depends="mask" property="classpath">
+                <arg0 key="J2EEResourceProvider.classpath.displayName"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${path}</var-value>
+                </var>
+            </field>
+            <field depends="mask" property="nativepath">
+                <arg0 key="J2EEResourceProvider.nativepath.displayName"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${path}</var-value>
+                </var>
+            </field>
+            <field depends="required,mask" property="externalInitialContextFactory">
+                <arg0 key="JMSProvider.externalInitialContextFactory.displayName"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${class_name}</var-value>
+                </var>
+            </field>
+            <field depends="required,mask" property="externalProviderURL">
+                <arg0 key="JMSProvider.externalProviderURL.displayName"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${URL}</var-value>
+                </var>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.resources.MailProviderDetailForm">
+            <field depends="required,mask" property="name">
+                <arg0 key="J2EEResourceProvider.name.displayName"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${was_name}</var-value>
+                </var>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.resources.MailSessionDetailForm">
+            <field depends="required,mask" property="name">
+                <arg0 key="J2EEResourceFactory.name.displayName"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${was_name}</var-value>
+                </var>
+            </field>
+            <field depends="required" property="jndiName">
+                <arg0 key="J2EEResourceFactory.jndiName.displayName"/>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.resources.ProtocolProviderDetailForm">
+            <field depends="required" property="protocol">
+                <arg0 key="ProtocolProvider.protocol.displayName"/>
+            </field>
+            <field depends="required" property="classname">
+                <arg0 key="ProtocolProvider.classname.displayName"/>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.resources.MQQueueConnectionFactoryDetailForm">
+            <field depends="required,mask" property="name">
+                <arg0 key="J2EEResourceFactory.name.displayName"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${was_name}</var-value>
+                </var>
+            </field>
+            <field depends="required" property="jndiName">
+                <arg0 key="J2EEResourceFactory.jndiName.displayName"/>
+            </field>
+            <field depends="integer,range" property="port">
+                <arg0 key="MQQueueConnectionFactory.port.displayName"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>0</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>65535</var-value>
+                </var>
+            </field>
+            <field depends="integer,range" property="CCSID">
+                <arg0 key="MQQueueConnectionFactory.CCSID.displayName"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>0</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>65536</var-value>
+                </var>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.resources.MQTopicConnectionFactoryDetailForm">
+            <field depends="required,mask" property="name">
+                <arg0 key="J2EEResourceFactory.name.displayName"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${was_name}</var-value>
+                </var>
+            </field>
+            <field depends="required" property="jndiName">
+                <arg0 key="J2EEResourceFactory.jndiName.displayName"/>
+            </field>
+            <field depends="integer,range" property="port">
+                <arg0 key="MQTopicConnectionFactory.port.displayName"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>0</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>65535</var-value>
+                </var>
+            </field>
+            <field depends="integer,range" property="CCSID">
+                <arg0 key="MQTopicConnectionFactory.CCSID.displayName"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>0</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>65536</var-value>
+                </var>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.resources.MQQueueDetailForm">
+            <field depends="required,mask" property="name">
+                <arg0 key="J2EEResourceFactory.name.displayName"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${was_name}</var-value>
+                </var>
+            </field>
+            <field depends="required" property="jndiName">
+                <arg0 key="J2EEResourceFactory.jndiName.displayName"/>
+            </field>
+            <field depends="integer,range" property="specifiedPriority">
+                <arg0 key="MQQueue.specifiedPriority.displayName"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>0</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>9</var-value>
+                </var>
+            </field>
+            <field depends="long,range" property="specifiedExpiry">
+                <arg0 key="MQQueue.specifiedExpiry.displayName"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>0</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>2147483647</var-value>
+                </var>
+            </field>
+            <field depends="required" property="baseQueueName">
+                <arg0 key="MQQueue.baseQueueName.displayName"/>
+            </field>
+            <field depends="integer,range" property="CCSID">
+                <arg0 key="MQQueue.CCSID.displayName"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>0</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>65536</var-value>
+                </var>
+            </field>
+            <field depends="integer,range" property="queueManagerPort">
+                <arg0 key="MQQueue.queueManagerPort.displayName"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>0</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>65535</var-value>
+                </var>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.resources.MQTopicDetailForm">
+            <field depends="required,mask" property="name">
+                <arg0 key="J2EEResourceFactory.name.displayName"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${was_name}</var-value>
+                </var>
+            </field>
+            <field depends="required" property="jndiName">
+                <arg0 key="J2EEResourceFactory.jndiName.displayName"/>
+            </field>
+            <field depends="integer,range" property="specifiedPriority">
+                <arg0 key="MQTopic.specifiedPriority.displayName"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>0</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>9</var-value>
+                </var>
+            </field>
+            <field depends="long,range" property="specifiedExpiry">
+                <arg0 key="MQTopic.specifiedExpiry.displayName"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>0</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>2147483647</var-value>
+                </var>
+            </field>
+            <field depends="required" property="baseTopicName">
+                <arg0 key="MQTopic.baseTopicName.displayName"/>
+            </field>
+            <field depends="integer,range" property="CCSID">
+                <arg0 key="MQTopic.CCSID.displayName"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>0</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>65536</var-value>
+                </var>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.resources.WASQueueConnectionFactoryDetailForm">
+            <field depends="required,mask" property="name">
+                <arg0 key="J2EEResourceFactory.name.displayName"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${was_name}</var-value>
+                </var>
+            </field>
+            <field depends="required" property="jndiName">
+                <arg0 key="J2EEResourceFactory.jndiName.displayName"/>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.resources.WASTopicConnectionFactoryDetailForm">
+            <field depends="required,mask" property="name">
+                <arg0 key="J2EEResourceFactory.name.displayName"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${was_name}</var-value>
+                </var>
+            </field>
+            <field depends="required" property="jndiName">
+                <arg0 key="J2EEResourceFactory.jndiName.displayName"/>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.resources.WASTopicDetailForm">
+            <field depends="required,mask" property="name">
+                <arg0 key="J2EEResourceFactory.name.displayName"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${was_name}</var-value>
+                </var>
+            </field>
+            <field depends="required" property="jndiName">
+                <arg0 key="J2EEResourceFactory.jndiName.displayName"/>
+            </field>
+            <field depends="required" property="topic">
+                <arg0 key="WASTopic.topic.displayName"/>
+            </field>
+            <field depends="integer,range" property="specifiedPriority">
+                <arg0 key="WASTopic.specifiedPriority.displayName"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>0</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>9</var-value>
+                </var>
+            </field>
+            <field depends="long,range" property="specifiedExpiry">
+                <arg0 key="WASTopic.specifiedExpiry.displayName"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>0</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>2147483647</var-value>
+                </var>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.resources.WASQueueDetailForm">
+            <field depends="required,mask" property="name">
+                <arg0 key="J2EEResourceFactory.name.displayName"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${was_name}</var-value>
+                </var>
+            </field>
+            <field depends="required" property="jndiName">
+                <arg0 key="J2EEResourceFactory.jndiName.displayName"/>
+            </field>
+            <field depends="integer,range" property="specifiedPriority">
+                <arg0 key="WASQueue.specifiedPriority.displayName"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>0</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>9</var-value>
+                </var>
+            </field>
+            <field depends="long,range" property="specifiedExpiry">
+                <arg0 key="WASQueue.specifiedExpiry.displayName"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>0</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>2147483647</var-value>
+                </var>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.resources.ResourceEnvEntryDetailForm">
+            <field depends="required" property="referenceable">
+                <arg0 key="ResourceEnvEntry.referenceable.displayName"/>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.resources.MQSeriesQueueDetailForm">
+            <field depends="integer,range" property="defaultPriority">
+                <arg0 key="MQSeriesQueue.defaultPriority.displayName"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>0</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>9</var-value>
+                </var>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.probdetermination.form.StreamRedirectDetailForm">
+            <field depends="required" property="outFileName">
+                <arg0 key="file.name.label"/>
+            </field>
+            <field depends="integer,range" property="outMaximumFileSize">
+                <arg0 key="max.file.size.label"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>1</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>20000</var-value>
+                </var>
+            </field>
+            <field depends="required" property="errFileName">
+                <arg0 key="file.name.label"/>
+            </field>
+            <field depends="integer,range" property="errMaximumFileSize">
+                <arg0 key="max.file.size.label"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>1</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>20000</var-value>
+                </var>
+            </field>
+            <field depends="integer,range" property="outStartTime">
+                <arg0 key="JVMLogs.time.startTimeOut"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>1</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>24</var-value>
+                </var>
+            </field>
+            <field depends="integer,range" property="errStartTime">
+                <arg0 key="JVMLogs.time.startTimeErr"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>1</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>24</var-value>
+                </var>
+            </field>
+            <field depends="integer,range" property="outRepeatTime">
+                <arg0 key="JVMLogs.time.repeatTimeOut"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>1</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>24</var-value>
+                </var>
+            </field>
+            <field depends="integer,range" property="errRepeatTime">
+                <arg0 key="JVMLogs.time.repeatTimeErr"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>1</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>24</var-value>
+                </var>
+            </field>
+            <field depends="mask" property="outMaxHistoricalFiles">
+                <arg0 key="JVMLogs.historicalFilesOut"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>^[0-9][0-9]*$</var-value>
+                </var>
+            </field>
+            <field depends="mask" property="errMaxHistoricalFiles">
+                <arg0 key="JVMLogs.historicalFilesErr"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>^[0-9][0-9]*$</var-value>
+                </var>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.probdetermination.form.TraceServiceDetailForm">
+            <field depends="required,mask" property="traceFileName">
+                <arg0 key="trace.file.name"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${file_name}</var-value>
+                </var>
+            </field>
+            <field depends="required,integer,range" property="memoryBufferSize">
+                <arg0 key="trace.max.buffer.size"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>1</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>4096</var-value>
+                </var>
+            </field>
+            <field depends="integer,range" property="memoryBufferSizeRuntime">
+                <arg0 key="trace.max.buffer.size"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>1</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>4096</var-value>
+                </var>
+            </field>
+            <field depends="mask" property="dumpFileName">
+                <arg0 key="trace.dump.file.name"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>^[A-z0-9._/]+$</var-value>
+                </var>
+            </field>
+            <field depends="required,integer,range" property="rolloverSize">
+                <arg0 key="trace.max.file.size"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>1</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>20000</var-value>
+                </var>
+            </field>
+            <field depends="required,integer,range" property="maxNumberOfBackupFiles">
+                <arg0 key="trace.max.historical.files"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>1</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>20</var-value>
+                </var>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.probdetermination.form.RASLoggingServiceDetailForm">
+            <field depends="required,mask" property="name">
+                <arg0 key="file.name.label"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${file_name}</var-value>
+                </var>
+            </field>
+            <field depends="required,integer,range" property="maxFileSize">
+                <arg0 key="max.file.size.label"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>1</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>20000</var-value>
+                </var>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.probdetermination.form.OutputRedirectDetailForm">
+            <field depends="required,mask" property="stdoutFilename">
+                <arg0 key="stdout.file.name.label"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${path}</var-value>
+                </var>
+            </field>
+            <field depends="required,mask" property="stderrFilename">
+                <arg0 key="stderr.file.name.label"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${path}</var-value>
+                </var>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.probdetermination.PMIRMFilterValueDetailForm">
+            <field depends="required" property="value">
+                <arg0 key="PMIRMFilterValue.value.displayName"/>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.security.CryptoHardwareTokenDetailForm"/>
+        <form name="com.ibm.ws.console.security.JAASAuthDataDetailForm">
+            <field depends="required" property="alias">
+                <arg0 key="JAASAuthData.alias.displayName"/>
+            </field>
+            <field depends="required" property="userId">
+                <arg0 key="JAASAuthData.userId.displayName"/>
+            </field>
+            <field depends="required" property="password">
+                <arg0 key="JAASAuthData.password.displayName"/>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.security.JAASConfigurationEntryDetailForm">
+            <field depends="required" property="alias">
+                <arg0 key="JAASConfigurationEntry.alias.displayName"/>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.security.JAASLoginModuleDetailForm">
+            <field depends="required" property="moduleClassName">
+                <arg0 key="JAASLoginModule.moduleClassName.displayName"/>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.security.SSLConfigDetailForm">
+            <field depends="required" property="alias">
+                <arg0 key="SSLConfig.alias.displayName"/>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.security.SecurityDetailForm">
+            <field depends="required,integer,range" property="cacheTimeout">
+                <arg0 key="Security.cacheTimeout.displayName"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>1</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>2147483647</var-value>
+                </var>
+            </field>
+            <field depends="required" property="activeProtocol">
+                <arg0 key="Security.activeProtocol.displayName"/>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.security.SingleSignonDetailForm"/>
+        <form name="com.ibm.ws.console.security.TAInterceptorDetailForm">
+            <field depends="required" property="interceptorClassName">
+                <arg0 key="TAInterceptor.interceptorClassName.displayName"/>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.security.TrustAssociationDetailForm"/>
+        <form name="com.ibm.ws.console.security.PropertyDetailForm">
+            <field depends="required,mask" property="name">
+                <arg0 key="Security.property.name.displayName"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${was_name}</var-value>
+                </var>
+            </field>
+            <field depends="required" property="value">
+                <arg0 key="Security.property.value.displayName"/>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.security.LTPADetailForm">
+            <field depends="required" property="password">
+                <arg0 key="LTPA.password.displayName"/>
+            </field>
+            <field depends="required" property="confirmPassword">
+                <arg0 key="LTPA.confirmPassword.displayName"/>
+            </field>
+            <field depends="required,integer,range" property="timeout">
+                <arg0 key="LTPA.timeout.displayName"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>1</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>2147483647</var-value>
+                </var>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.security.LDAPUserRegistryDetailForm">
+            <field depends="integer,range" property="port">
+                <arg0 key="LDAPUserRegistry.port.displayName"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>1</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>2147483647</var-value>
+                </var>
+            </field>
+            <field depends="integer,range" property="searchTimeout">
+                <arg0 key="LDAPUserRegistry.searchTimeout.displayName"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>1</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>2147483647</var-value>
+                </var>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.security.LocalOSUserRegistryDetailForm"/>
+        <form name="com.ibm.ws.console.wssecurity.CollectionCertStoreDetailForm">
+            <field depends="required" property="name">
+                <arg0 key="CollectionCertStore.name.displayName"/>
+            </field>
+            <field depends="required" property="provider">
+                <arg0 key="CollectionCertStore.provider.displayName"/>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.wssecurity.EncryptionInfoDetailForm">
+            <field depends="required" property="name">
+                <arg0 key="EncryptionInfo.name.displayName"/>
+            </field>
+            <field depends="required" property="keyLocatorRef">
+                <arg0 key="EncryptionInfo.keyReference.displayName"/>
+            </field>
+            <field depends="required" property="dataEncryption">
+                <arg0 key="EncryptionInfo.dataAlgorithm.displayName"/>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.wssecurity.KeyDetailForm">
+            <field depends="required" property="name">
+                <arg0 key="WSKey.name.displayName"/>
+            </field>
+            <field depends="required" property="alias">
+                <arg0 key="WSKey.alias.displayName"/>
+            </field>
+            <field depends="required" property="keypass">
+                <arg0 key="WSKey.keypass.displayName"/>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.wssecurity.KeyLocatorDetailForm">
+            <field depends="required" property="name">
+                <arg0 key="KeyLocator.name.displayName"/>
+            </field>
+            <field depends="required" property="classname">
+                <arg0 key="KeyLocator.className.displayName"/>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.wssecurity.LDAPCertStoreDetailForm"/>
+        <form name="com.ibm.ws.console.wssecurity.LoginMappingDetailForm">
+            <field depends="required" property="authMethod">
+                <arg0 key="LoginMapping.authMethod.displayName"/>
+            </field>
+            <field depends="required" property="configName">
+                <arg0 key="LoginMapping.configName.displayName"/>
+            </field>
+            <field depends="required" property="classname">
+                <arg0 key="LoginMapping.callbackClassName.displayName"/>
+            </field>
+            <field depends="integer" property="nonceMaxAge">
+                <arg0 key="LoginMapping.nonceMaxAge.displayName"/>
+            </field>
+            <field depends="integer" property="nonceClockSkew">
+                <arg0 key="LoginMapping.nonceClockSkew.displayName"/>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.wssecurity.WSPropertyDetailForm">
+            <field depends="required" property="name">
+                <arg0 key="WSSecurity.property.name.displayName"/>
+            </field>
+            <field depends="required" property="value">
+                <arg0 key="WSSecurity.property.value.displayName"/>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.wssecurity.RequestReceiverDetailForm"/>
+        <form name="com.ibm.ws.console.wssecurity.ResponseSenderDetailForm"/>
+        <form name="com.ibm.ws.console.wssecurity.SigningInfoDetailForm"/>
+        <form name="com.ibm.ws.console.wssecurity.TrustAnchorDetailForm">
+            <field depends="required" property="name">
+                <arg0 key="TrustAnchor.name.displayName"/>
+            </field>
+            <field depends="required" property="keyStorepass">
+                <arg0 key="TrustAnchor.keystorePwd.displayName"/>
+            </field>
+            <field depends="required" property="keyPath">
+                <arg0 key="TrustAnchor.keystorePath.displayName"/>
+            </field>
+            <field depends="required" property="keyType">
+                <arg0 key="TrustAnchor.keystoreType.displayName"/>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.wssecurity.TrustedIDEvaluatorDetailForm">
+            <field depends="required" property="name">
+                <arg0 key="TrustedIDEvaluator.name.displayName"/>
+            </field>
+            <field depends="required" property="classname">
+                <arg0 key="TrustedIDEvaluator.className.displayName"/>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.wssecurity.WSSecurityDetailForm">
+            <field depends="required,integer" property="nonceCacheTimeout">
+                <arg0 key="WSSecurity.nonceCacheTimeout.displayname"/>
+            </field>
+            <field depends="required,integer" property="nonceMaxAge">
+                <arg0 key="LoginMapping.nonceMaxAge.displayName"/>
+            </field>
+            <field depends="required,integer" property="nonceClockSkew">
+                <arg0 key="LoginMapping.nonceClockSkew.displayName"/>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.wssecurity.WSServerSecurityDetailForm">
+            <field depends="integer" property="nonceCacheTimeout">
+                <arg0 key="WSSecurity.nonceCacheTimeout.displayname"/>
+            </field>
+            <field depends="integer" property="nonceMaxAge">
+                <arg0 key="LoginMapping.nonceMaxAge.displayName"/>
+            </field>
+            <field depends="integer" property="nonceClockSkew">
+                <arg0 key="LoginMapping.nonceClockSkew.displayName"/>
+            </field>
+        </form>
+        <form name="com.ibm.ws.console.wssecurity.X509CertificateDetailForm">
+            <field depends="required" property="href">
+                <arg0 key="X509Certificate.reference.displayName"/>
+            </field>
+        </form>
+    </formset>
+    <formset language="fr">
+        <form name="registrationForm">
+            <field depends="required,mask" property="lastName">
+                <msg key="registrationForm.lastname.maskmsg" name="mask"/>
+                <arg0 key="registrationForm.lastname.displayname"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>^\w+$</var-value>
+                </var>
+            </field>
+            <field property="cityStateZip.stateProv">
+                <arg0 key="registrationForm.stateprov.displayname"/>
+            </field>
+            <field property="phone">
+                <arg0 key="registrationForm.phone.displayname"/>
+            </field>
+        </form>
+        <form name="multiRegistrationForm">
+            <field depends="required,mask" page="1" property="firstName">
+                <arg0 key="registrationForm.firstname.displayname"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>^\w+$</var-value>
+                </var>
+            </field>
+            <field depends="required,mask" page="1" property="lastName">
+                <msg key="registrationForm.lastname.maskmsg" name="mask"/>
+                <arg0 key="registrationForm.lastname.displayname"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>^\w+$</var-value>
+                </var>
+            </field>
+            <field depends="required" page="1" property="addr">
+                <arg0 key="registrationForm.addr.displayname"/>
+            </field>
+            <field depends="required,mask" page="1" property="cityStateZip.city">
+                <arg0 key="registrationForm.city.displayname"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>^[a-zA-Z]*$</var-value>
+                </var>
+            </field>
+            <field page="2" property="cityStateZip.stateProv">
+                <arg0 key="registrationForm.stateprov.displayname"/>
+            </field>
+            <field depends="required,mask" page="2" property="cityStateZip.zipPostal[1]">
+                <arg0 key="registrationForm.zippostal.displayname"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${zip}</var-value>
+                </var>
+            </field>
+            <field page="2" property="phone">
+                <arg0 key="registrationForm.phone.displayname"/>
+            </field>
+            <field depends="required,email" page="2" property="email">
+                <arg0 key="registrationForm.email.displayname"/>
+            </field>
+        </form>
+        <form name="typeForm">
+            <field depends="required,integer,range" property="integer">
+                <arg0 key="typeForm.integer.displayname"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>50</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>60</var-value>
+                </var>
+            </field>
+            <field depends="required,date" property="date">
+                <arg0 key="typeForm.date.displayname"/>
+                <var>
+                    <var-name>datePatternStrict</var-name>
+                    <var-value>dd.MM.yyyy</var-value>
+                </var>
+            </field>
+        </form>
+        <form name="jsTypeForm">
+            <field depends="required,integer,range" property="integer">
+                <arg0 key="typeForm.integer.displayname"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>50</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>60</var-value>
+                </var>
+            </field>
+            <field depends="required,date" property="date">
+                <arg0 key="typeForm.date.displayname"/>
+                <var>
+                    <var-name>datePatternStrict</var-name>
+                    <var-value>dd.MM.yyyy</var-value>
+                </var>
+            </field>
+        </form>
+    </formset>
+    <formset country="CA" language="fr">
+        <form name="jsTypeForm">
+            <field depends="required,integer,range" property="integer">
+                <arg0 key="typeForm.integer.displayname"/>
+                <arg1 key="${var:min}" name="range" resource="false"/>
+                <arg2 key="${var:max}" name="range" resource="false"/>
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>100</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>200</var-value>
+                </var>
+            </field>
+            <field depends="required,date" property="date">
+                <arg0 key="typeForm.date.displayname"/>
+                <var>
+                    <var-name>datePatternStrict</var-name>
+                    <var-value>dd-MM-yyyy</var-value>
+                </var>
+            </field>
+        </form>
+    </formset>
+</form-validation>

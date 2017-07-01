@@ -1,0 +1,154 @@
+------Start of DE processing------ = [04.11.04 17:27:06:375 MSK] , key = java.rmi.RemoteException com.ibm.ejs.container.RemoteExceptionMappingStrategy.setUncheckedException 180
+Exception = java.rmi.RemoteException
+Source = com.ibm.ejs.container.RemoteExceptionMappingStrategy.setUncheckedException
+probeid = 180
+Stack Dump = java.rmi.RemoteException: ; nested exception is: 
+	java.lang.NullPointerException
+java.lang.NullPointerException
+	at com.hps.july.sync.model.dao.InformixDbsPositionDAO.executeSelect(InformixDbsPositionDAO.java:45)
+	at com.hps.july.sync.model.dao.InformixDbsPositionDAO.findDbsPositions(InformixDbsPositionDAO.java:86)
+	at com.hps.july.sync.session.dao.ReferencesFinderPersistence.findDbsPositions(ReferencesFinderPersistence.java:83)
+	at com.hps.july.sync.session.ReferencesFinderBean.findDbsPositions(ReferencesFinderBean.java:62)
+	at com.hps.july.sync.session.EJSRemoteStatelessReferencesFinder_f88fc14e.findDbsPositions(EJSRemoteStatelessReferencesFinder_f88fc14e.java:72)
+	at java.lang.reflect.Method.invoke(Native Method)
+	at com.ibm.rmi.corba.ServantObjectImpl$3.run(ServantObjectImpl.java:223)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.ibm.rmi.corba.ServantObjectImpl.invoke(ServantObjectImpl.java:221)
+	at $Proxy1.findDbsPositions(Unknown Source)
+	at com.hps.july.sync.session._ReferencesFinder_Stub.findDbsPositions(_ReferencesFinder_Stub.java:338)
+	at java.lang.reflect.Method.invoke(Native Method)
+	at com.ibm.etools.utc.model.ReflectionMethodModel.invoke(ReflectionMethodModel.java:68)
+	at com.ibm.etools.utc.servlet.InvokeServlet.invoke(InvokeServlet.java:110)
+	at com.ibm.etools.utc.servlet.InvokeServlet.doPost(InvokeServlet.java:323)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:760)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:853)
+	at com.ibm.ws.webcontainer.servlet.StrictServletInstance.doService(StrictServletInstance.java:110)
+	at com.ibm.ws.webcontainer.servlet.StrictLifecycleServlet._service(StrictLifecycleServlet.java:174)
+	at com.ibm.ws.webcontainer.servlet.IdleServletState.service(StrictLifecycleServlet.java:313)
+	at com.ibm.ws.webcontainer.servlet.StrictLifecycleServlet.service(StrictLifecycleServlet.java:116)
+	at com.ibm.ws.webcontainer.servlet.ServletInstance.service(ServletInstance.java:258)
+	at com.ibm.ws.webcontainer.servlet.ValidServletReferenceState.dispatch(ValidServletReferenceState.java:42)
+	at com.ibm.ws.webcontainer.servlet.ServletInstanceReference.dispatch(ServletInstanceReference.java:40)
+	at com.ibm.ws.webcontainer.webapp.WebAppRequestDispatcher.handleWebAppDispatch(WebAppRequestDispatcher.java:872)
+	at com.ibm.ws.webcontainer.webapp.WebAppRequestDispatcher.dispatch(WebAppRequestDispatcher.java:491)
+	at com.ibm.ws.webcontainer.webapp.WebAppRequestDispatcher.forward(WebAppRequestDispatcher.java:173)
+	at com.ibm.ws.webcontainer.srt.WebAppInvoker.doForward(WebAppInvoker.java:79)
+	at com.ibm.ws.webcontainer.srt.WebAppInvoker.handleInvocationHook(WebAppInvoker.java:199)
+	at com.ibm.ws.webcontainer.cache.invocation.CachedInvocation.handleInvocation(CachedInvocation.java:71)
+	at com.ibm.ws.webcontainer.cache.invocation.CacheableInvocationContext.invoke(CacheableInvocationContext.java:114)
+	at com.ibm.ws.webcontainer.srp.ServletRequestProcessor.dispatchByURI(ServletRequestProcessor.java:187)
+	at com.ibm.ws.webcontainer.oselistener.OSEListenerDispatcher.service(OSEListener.java:331)
+	at com.ibm.ws.webcontainer.http.HttpConnection.handleRequest(HttpConnection.java:56)
+	at com.ibm.ws.http.HttpConnection.readAndHandleRequest(HttpConnection.java:432)
+	at com.ibm.ws.http.HttpConnection.run(HttpConnection.java:343)
+	at com.ibm.ws.util.ThreadPool$Worker.run(ThreadPool.java:592)
+
+Dump of callerThis = 
+Object type = com.ibm.ejs.container.RemoteExceptionMappingStrategy
+com.ibm.ejs.container.RemoteExceptionMappingStrategy@176b45be
+
+==> Performing default dump from com.ibm.ejs.container.EJBContainerDiagnosticModule  = Thu Nov 04 17:27:06 MSK 2004
+Dump of EJBContainer Internals = 
+Object type = com.ibm.ejs.container.EJSContainer
+  class$com$ibm$ejs$container$util$LocalInterfaceHomeObjectFactory = null
+  class$com$ibm$ejs$container$EJSContainer = java.lang.Class@23f885b9
+  orb = com.ibm.CORBA.iiop.ORB@56ce45bd
+  ivAIService = com.ibm.ws.appprofile.EJBAccessIntentImpl@33f785ba
+  containerExtFactory = com.ibm.ejs.csi.ContainerExtensionFactoryBaseImpl@3a2105b8
+  handleCollaborator = com.ibm.ejs.j2c.HandleCollaborator@3f2145a7
+  mdbListenerManager = com.ibm.ejs.jms.listener.MDBListenerManagerImpl@1a54c5bc
+  poolManager = com.ibm.ejs.csi.PoolManagerImpl@78ff05b8
+  name = Default EJB Container
+  dumped = false
+  wlmEnabled = false
+  orbUtils = com.ibm.ejs.csi.OrbUtilsImpl@20fcc5a7
+  j2eeNameFactory = com.ibm.ejs.csi.J2EENameFactoryImpl@614405a7
+  pmiFactory = null
+  maxRetries = 10
+  componentInitializationCollaborators = [Lcom.ibm.websphere.csi.EJBComponentInitializationCollaborator;@610285a7
+  removeCollaborators = null
+  ejbCallbackCollaborators = [Lcom.ibm.websphere.csi.EJBCallbackCollaborator;@610fc5a7
+  beforeActivationAfterCompletionCollaborators = null
+  beforeActivationCollaborators = [Lcom.ibm.websphere.csi.BeforeActivationCollaborator;@615b45a7
+  afterActivationCollaborators = [Lcom.ibm.websphere.csi.AfterActivationCollaborator;@187245b8
+  securityCollaborator = com.ibm.ejs.csi.NullSecurityCollaborator@1b8945b8
+  userTransactionImpl = com.ibm.ejs.jts.jta.UserTransactionImpl@59f645b9
+  uowCtrl = com.ibm.ejs.csi.TransactionControlImpl@394c5b8
+  objectAdapter = com.ibm.ejs.oa.EJSOAImpl@36a005b8
+  pmmcMap = java.util.Hashtable@36af45b8
+  homeMap = java.util.Hashtable@36aac5b8
+  homesByName = java.util.Hashtable@365645b8
+  methodContext = com.ibm.ws.threadContext.ThreadContextImpl@347085b8
+  remoteByteServer = null
+  containerASMap = com.ibm.ejs.util.FastHashtable@338f85b8
+  containerTxMap = com.ibm.ejs.util.FastHashtable@20ec85b8
+  wrapperCache = com.ibm.ejs.util.cache.Cache@2eb945b8
+  ejbCache = com.ibm.ejs.util.cache.Cache@526145b8
+  restoreClassLoader_threadLocal = com.ibm.ejs.container.EJSContainer$4@20edc5b8
+  ejsDeployedSupportStack_threadLocal = com.ibm.ejs.container.EJSContainer$3@20ef05b8
+  setContextClassLoaderPrivileged_threadLocal = com.ibm.ejs.container.EJSContainer$2@20e845b8
+  ejbMethodInfoStack_threadLocal = com.ibm.ejs.container.EJSContainer$1@20e985b8
+  classLoader = com.ibm.ws.bootstrap.ExtClassLoader@672285b3
+  internalBeanMetaDataStore = java.util.Hashtable@3651c5b8
+  beanMetaDataStore = com.ibm.ws.runtime.component.EJBContainerImpl@3d2445bc
+  persisterFactory = com.ibm.ws.cpi.JDBCPersisterFactoryImpl@24ad05a7
+  indirectJndiLookupFactory = com.ibm.ws.naming.util.IndirectJndiLookupFactoryImpl@2e2c85a7
+  sessionHandleFactory = com.ibm.ejs.csi.SessionHandleFactoryImpl@2e2fc5a7
+  sessionKeyFactory = com.ibm.ejs.csi.SessionKeyFactoryImpl@586585a7
+  passivator = com.ibm.ejs.container.passivator.StatefulPassivator@3e0585a7
+  sessionBeanStore = com.ibm.ejs.csi.FileBeanStore@1e4785b8
+  lockManager = com.ibm.ejs.container.lock.LockManager@365a45b8
+  activator = com.ibm.ejs.container.activator.Activator@40445a7
+  persistenceManagers = [Lcom.ibm.websphere.cpmi.PersistenceManager;@6226c5a7
+  wrapperManager = com.ibm.ejs.container.WrapperManager@3507c5a7
+  homeOfHomes = com.ibm.ejs.container.HomeOfHomes@7f5285a7
+  defaultContainer = this
+  initialized = true
+  MID_REMOTE_HOME_INDEX = -3
+  MID_LOCAL_HOME_INDEX = -2
+  MID_getLink = -1
+  CLASS_NAME = com.ibm.ejs.container.EJSContainer
+  tc = com.ibm.ejs.ras.TraceComponent@20eb45b8
+
++Data for directive [default] obtained. = 
+Dump of ComponentMetaData = 
+                                 *** START ComponentMetaData fields ***
+                                 J2EEName       = CollaborationEAR#CollaborationEJB.jar#ReferencesFinder
+                                 EJB Type       = STATELESS_SESSION
+                                 Module Version = EJB 2.0
+                                     ******* ResRefList ******* 
+                                 ResRefList size=1
+                                     ******* Resource-Ref ******* 
+                                 Description=
+                                 Name=jdbc/informix
+                                 JNDIName=jdbc/informix
+                                 Type=javax.sql.DataSource
+                                 ResAuth=CONTAINER
+                                 ResSharingScope=SHAREABLE
+                                 IsolationLevel=TRANSACTION_NONE
+                                       ****** LOCAL-TRANSACTION *******
+                                 Boundary=BEAN_METHOD
+                                 Resolver=APPLICATION
+                                 UnResolvedAction=ROLLBACK
+                                 *** END ComponentMetaData fields  ***
++Data for directive [defaultcomponentmetadata] obtained. = 
+Dump of ContainerTx = 
+
+*** Start ContainerTx Dump    ---> com.ibm.ejs.container.ContainerTx@2efc85bc
+
+  Tx Key                  = com.ibm.ejs.jts.jts.CoordinatorImpl@2033927614#tid=1
+  State                   = Active
+  Entered beforCompletion = false
+  Marked Rollback Only    = false
+  Method Began            = true
+  Isolation Level         = TRANSACTION_NONE
+
+  --- Dump of Enlisted Beans : 0 ---------------------- 
+
+
+  --- Dump of Access Intents : 0 ---------------------- 
+
+*** ContainerTx Dump Complete ---> com.ibm.ejs.container.ContainerTx@2efc85bc
+
++Data for directive [defaultcontainertx] obtained. = 
+==> Dump complete for com.ibm.ejs.container.EJBContainerDiagnosticModule  = Thu Nov 04 17:27:06 MSK 2004

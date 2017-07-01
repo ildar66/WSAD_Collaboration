@@ -1,0 +1,103 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>信任錨點配置設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_trstancn"></a>
+<h2>
+<img alt="[修正套件 5.0.2 和更新版本]" src="v502.gif" border="0">信任錨點配置設定</h2>
+
+<p>請利用這項資訊來配置信任錨點。信任錨點指向含有最高授信使用者或自行簽章憑證的金鑰儲存庫。
+您可以利用這項資訊來指定信任錨點的名稱和存取金鑰儲存庫所需要的資訊。
+應用程式連結會利用這個名稱來參照連結檔中預先定義的信任錨點定義（或預設值）。
+</p>
+
+<p>如果要檢視這個管理主控台頁面，請完成下列步驟：
+<ol>
+
+<li>按一下<strong>伺服器 &gt; 應用程式伺服器 &gt; </strong><em>server_name</em>。</li>
+
+<li>在「其他內容」之下，按一下 <strong>Web 服務：Web 服務安全的預設連結 &gt; 信任錨點 &gt; 新建</strong>。
+</li>
+
+</ol>
+</p>
+
+<dl>
+<dt>
+<strong><a name="sec_trstancname"></a>信任錨點名稱</strong>
+</dt>
+<dd>指定應用程式連結用來參照預設連結中預先定義的信任錨點定義的唯一名稱。</dd>
+<dt>
+<strong><a name="sec_keystpass"></a>金鑰儲存庫密碼</strong>
+</dt>
+<dd>指定存取金鑰儲存庫檔所需要的密碼。
+</dd>
+<dt>
+<strong><a name="sec_keystpath"></a>金鑰儲存庫路徑</strong>
+</dt>
+<dd>指定金鑰儲存庫檔案的位置。
+
+<p>請利用 ${USER_INSTALL_ROOT}，因為這個路徑會展開至您機器中的 WebSphere Application Server 路徑。</p>
+
+</dd>
+<dt>
+<strong><a name="sec_keysttype"></a>金鑰儲存庫類型</strong>
+</dt>
+<dd>指定金鑰儲存庫檔的類型。
+<p>這個欄位的值是 <strong>JKS</strong> 或 <strong>JCEKS</strong>。
+<dl>
+
+<dt>
+<strong>JKS</strong>
+</dt>
+<dd>如果您沒有使用 Java Cryptography Extensions (JCE)，請指定這個選項。</dd>
+<dt>
+<strong>JCEKS</strong>
+</dt>
+<dd>如果您在使用 Java Cryptography Extensions，請指定這個選項。
+雖然 JCEKS 金鑰儲存庫格式比較安全，但它會降低效能。</dd>
+</dl>
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">JKS</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">JKS, JCEKS</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>相關資訊</strong>
+</p>
+<a href="uwbs_trstanc.html">信任錨點集合</a>
+<br>
+
+</div>
+</body>
+</html>

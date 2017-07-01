@@ -1,0 +1,305 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>数据源设置</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="Data_source_detail"></a>
+<h2>数据源设置</h2>
+
+<p>使用此页面创建提供特定 JDBC 驱动程序实现类的 JDBC 提供程序下的数据源。</p>
+
+<p>确保您要使用 V5.0 数据源。如果您正在使用 Enterprise JavaBean 组件模型 V1.0 和 Servlet 2.2，则需要使用 V4.0 数据源。</p>
+
+<p>要查看此管理控制台页面，单击<strong>资源</strong> &gt; <strong>JDBC 提供程序</strong> &gt; <em>JDBC_provider</em> &gt; <strong>数据源</strong> &gt; <em>data_source</em>。</p>
+
+<div>
+<p>
+<strong>&ldquo;配置&rdquo;选项卡</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="DataSource_detail_contextID"></a>作用域</strong>
+</dt>
+<dd>指定可看到此资源定义的级别 － 单元、节点或服务器级别。
+<p>资源（如 JDBC 提供程序、名称空间绑定或共享库）可以在多个作用域上定义，在较特定的作用域上定义的资源覆盖较一般作用域上定义的重复项。</p>
+
+<p>注意，无论定义的资源的作用域是什么，资源的属性仅在单个服务器级别上应用。例如，如果您在单元级别上定义数据源的作用域（它在该单元内是唯一的），则该单元中的所有用户都可以查找和使用该数据源。然而，资源属性设置对于单元中的每台服务器是本地的。例如，如果您定义<em>最大连接数</em>为 10，那么该单元中的每台服务器都可以有 10 个连接。<dl>
+
+<dt>
+<strong>单元</strong>
+</dt>
+<dd>最常规的作用域。在&ldquo;单元&rdquo;作用域上定义的资源对于所有节点和服务器都是可见的，除非它们被覆盖了。
+要查看单元作用域中定义的资源，不要在作用域选择表单中指定服务器或节点名。</dd>
+
+<dt>
+<strong>节点</strong>
+</dt>
+<dd>多数资源类型的缺省作用域。在&ldquo;节点&rdquo;作用域上定义的资源覆盖任何在&ldquo;单元&rdquo;作用域上定义的重复项，并且对于相同节点上的所有服务器都是可见的，除非它们在该节点上的服务器作用域中被覆盖了。要查看节点作用域中定义的资源，不要指定服务器，但是要在作用域选择表单中选择节点名。</dd>
+
+<dt>
+<strong>服务器</strong>
+</dt>
+<dd>定义资源的最特定作用域。在&ldquo;服务器&rdquo;作用域上定义的资源覆盖任何在&ldquo;单元&rdquo;作用域或父&ldquo;节点&rdquo;作用域上定义的重复资源定义，并且它们仅对于特定服务器是可见的。要查看服务器作用域中定义的资源，在作用域选择表单中指定服务器名和节点名。
+</dd>
+
+</dl>
+</p>
+
+<p>当创建资源时，它们总是创建到面板中所选的当前作用域中。要在其它作用域中查看作用域，在作用域选择表单中指定不同的节点或服务器。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2EEResourceFactory_name_displayName"></a>名称</strong>
+</dt>
+<dd>指定数据源的显示名称。
+<p>例如，您可将该字段设置为<em>测试数据源</em>。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2EEResourceFactory_jndiName_displayName"></a>JNDI 名称</strong>
+</dt>
+<dd>指定 Java 命名与目录接口（JNDI）名称。
+<p>分布式计算环境经常使用命名和目录服务来获取共享组件和资源。命名和目录服务将名称与位置、服务、信息和资源关联起来。</p>
+
+<p>命名服务提供名称到对象映射。目录服务提供对象的信息和定位那些对象必需的搜索工具。</p>
+
+<p>有很多命名和目录服务实现，它们的接口也各不相同。JNDI 提供用于访问各种命名和目录服务的公共接口。
+</p>
+
+<p>例如，您可使用名称 <em>jdbc/markSection</em>。</p>
+
+<p>如果您将此字段保留为空白，则将从数据源的名称生成一个 JNDI 名称。例如，markSection 的数据源名称生成 <em>jdbc/markSection</em> 的 JNDI 名称。</p>
+
+<p>设置此值后，保存它并重新启动服务器，当您运行 <em>dumpnamespace</em> 时，您可以看到此字符串。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="DataSource_isUsedByCmp_displayName"></a>容器管理的持久性</strong>
+</dt>
+<dd>指定此数据源是否用于企业 bean 的容器管理的持久性。
+<p>如果选择此复选框，则为关系资源适配器创建与此数据源相应的 CMP 连接器工厂。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">复选框</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">不选取</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2EEResourceFactory_description_displayName"></a>描述</strong>
+</dt>
+<dd>指定资源的文本描述。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2EEResourceFactory_category_displayName"></a>类别</strong>
+</dt>
+<dd>指定可用于分类或分组资源的类别字符串。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="DataSource_statementCacheSize_displayName"></a>语句高速缓存大小</strong>
+</dt>
+<dd>指定每个连接高速缓存的空闲语句数。
+<p>WebSphere Application Server 数据源最优化已准备语句的处理。已准备的语句是预先编译的 SQL 语句，该语句存储在已准备的语句对象中。此对象用于多次有效执行给定的 SQL 语句。</p>
+
+<p>如果高速缓存不够大，则有用的条目被废弃，为新条目腾出空间。要确定高速缓存大小的最大值以避免高速缓存废弃，对在特殊服务器上使用此数据源的每个应用程序，添加几个唯一已准备的语句、可调用的语句（如由 <em>sql</em> 字符串、并发和滚动类型确定的语句）。此值是可能准备的语句的最大数值，这些语句被高速缓存在服务器活动期间给定的连接上。将高速缓存大小设置为该值意味着您不会再有高速缓存废弃的情况发生。通常，您的应用程序具有的语句越多，高速缓存应该越大。例如，如果应用程序具有 5 条 SQL 语句，将语句高速缓存大小设置为 5，以便每个连接具有 5 条语句。</p>
+
+<p>您也可以使用 Tivoli 性能查看器最小化高速缓存丢弃。使用代表进入客户机请求的典型个数的标准工作负载，使用固定的迭代数并使用配置设置的标准设置。<strong>注：</strong>语句高速缓存越高，延迟的系统资源越多。因此，如果您将此数设置得过高，您会缺乏资源，因为系统无法打开那么多已准备语句。</p>
+
+<p>在测试应用程序中，调整语句高速缓存可使吞吐量提高 10-20%。但是，由于潜在的资源限制，这种情况不会总是可行的。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">整型</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">取决于数据库。大多数情况是 10。不带最新修订的 Informix V7.3、9.2 或 9.3 也必须为 0。为 0 的缺省值意味着没有高速缓存语句。</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="DataSource_datasourceHelperClassname_displayName"></a>数据源帮助器类名</strong>
+</dt>
+<dd>指定用于执行数据库特定功能的数据存储帮助器。
+<p>这是由关系资源适配器在运行时使用的。基于 JDBC 驱动程序实现类，使用结构 <em>com.ibm.websphere.rsadapter.&lt;database&gt;DataStoreHelper</em> 设置缺省 DataStoreHelper 实现类。
+例如，如果 JDBC 提供程序是 DB2，则缺省 DataStoreHelper 类是 <em>com.ibm.websphere.rsadapter.DB2DataStoreHelper</em>。若有必要，您可以更改到这个 DataStoreHelper 的您的子类。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">取决于 JDBC 驱动程序实现类</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="DataSource_authDataAlias_displayName"></a>组件管理的认证别名</strong>
+</dt>
+<dd>此别名用于运行时的数据库认证。
+<p>如果您的资源认证（res-auth）设置为<em>应用程序</em>，则在&ldquo;组件管理的认证别名&rdquo;中设置别名。</p>
+
+<p>如果您未设置此字段，而您的数据库要求用于获取连接的用户标识和密码，则您在运行时期间接收到异常。
+</p>
+
+<p>如果您的数据库（例如 Cloudscape）不支持<em>用户标识</em>和<em>密码</em>，则不要在&ldquo;组件管理的认证别名&rdquo;或&ldquo;容器管理的认证别名&rdquo;字段中设置别名。否则，您在系统日志中会看到警告消息，表明用户和密码不是有效属性。此消息只是一个警告消息，因此数据源的创建成功。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">挑选列表</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="DataSource_mappingModule_authDataAlias_displayName"></a>容器管理的认证别名</strong>
+</dt>
+<dd>此别名用于运行时的数据库认证。
+<p>如果 res-auth 设置为<em>容器</em>，则设置&ldquo;容器管理的认证别名&rdquo;。</p>
+
+<p>如果您未设置此字段，而您的数据库要求用于获取连接的用户标识和密码，则您在运行时期间接收到异常。
+</p>
+
+<p>如果您的数据库（例如 Cloudscape）不支持<em>用户标识</em>和<em>密码</em>，则不要在&ldquo;组件管理的认证别名&rdquo;或&ldquo;容器管理的认证别名&rdquo;字段中设置别名。否则，您在系统日志中会看到警告消息，表明用户和密码不是有效属性。此消息只是一个警告消息，因此数据源的创建成功。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">挑选列表</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="DataSource_mappingConfigAlias"></a>映射配置别名</strong>
+</dt>
+<dd>允许用户从<strong>安全性</strong> &gt; <strong>JAAS 配置</strong> &gt; <strong>应用程序登录配置</strong>列表中进行选择。
+
+<p>
+<strong>DefaultPrincipalMapping</strong> JAAS 配置映射认证别名到用户标识和密码。
+您可定义和使用其它映射配置。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">挑选列表</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>相关信息</strong>
+</p>
+<a href="rcon_buttons.html">管理控制台按钮</a>
+<br>
+
+</div>
+</body>
+</html>

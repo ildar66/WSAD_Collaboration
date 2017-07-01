@@ -1,0 +1,135 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>进程执行设置</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="urun_rprocexec"></a>
+<h2>进程执行设置</h2>
+
+<p>使用此页面查看或更改启动或初始化 UNIX 进程的命令行信息。</p>
+
+<p>要查看此管理控制台页面，单击<strong>服务器 &gt; 应用程序服务器 &gt; </strong><em>server_name</em><strong> &gt; 流程定义 &gt; 进程执行</strong>。</p>
+
+<div>
+<p>
+<strong>&ldquo;配置&rdquo;选项卡</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="ProcessExecution_processPriority_description"></a>进程优先级</strong>
+</dt>
+<dd>指定进程的操作系统优先级。仅 root 用户可更改此值。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">整型</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">1000 适用于大多数操作系统中的 WebSphere Application Server。在 OS/400 上，缺省为 25。</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ProcessExecution_umask_description"></a>掩码</strong>
+</dt>
+<dd>指定进程运行所用的用户掩码（文件方式许可权掩码）。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">整型</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ProcessExecution_runAsUser_description"></a>运行用户</strong>
+</dt>
+<dd>指定运行进程的用户。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ProcessExecution_runAsGroup_description"></a>组运行</strong>
+</dt>
+<dd>指定作为成员之一运行进程的组。
+<p>在 OS/400 上，忽略&ldquo;组运行&rdquo;设置。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ProcessExecution_runInProcessGroup_description"></a>在进程组中运行</strong>
+</dt>
+<dd>指定进程的特定进程组。此进程组对类似于处理程序分区等有用。系统管理员可以指定运行的进程组，如 12 个处理程序中的 6 个。缺省值（0）不为任何特定组指定进程。
+<p>在 OS/400 上，忽略&ldquo;进程组运行&rdquo;设置。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">整型</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">0</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>相关信息</strong>
+</p>
+<a href="rcon_buttons.html">管理控制台按钮</a>
+<br>
+
+<a href="rcon_pageusage.html">管理控制台页面功能</a>
+<br>
+
+</div>
+</body>
+</html>

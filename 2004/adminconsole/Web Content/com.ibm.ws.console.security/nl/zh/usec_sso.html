@@ -1,0 +1,127 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>单次注册设置</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecsso"></a>
+<h2>单次注册设置</h2>
+
+<p>使用此页面配置单次注册（SSO）的配置值。</p>
+
+<p>要查看此管理控制台页面，单击<strong>安全性</strong> &gt; <strong>认证机制</strong> &gt; <strong>LTPA</strong> &gt; <strong>单次注册（SSO）</strong>。</p>
+
+<div>
+<p>
+<strong>&ldquo;配置&rdquo;选项卡</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="SingleSignon_requiresSSL_description"></a>需要 SSL</strong>
+</dt>
+<dd>指定仅当请求是在 HTTPS 安全套接字层（SSL）连接上完成时才启用单次注册功能。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型：</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省：</td>
+<td align="left" valign="top" class="base">禁用</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">范围：</td>
+<td align="left" valign="top" class="base">启用或禁用</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SingleSignon_domainName_description"></a>域名</strong>
+</dt>
+<dd>指定所有单次注册主机的域名（例如，.ibm.com）。
+<p>如果未指定值，用户的 Web 浏览器把运行 Web 应用程序的主机名作为缺省值。这限制了 HTTP cookie（为 SSO 目的而生成的）仅针对产生它的主机。如果有多个主机参与 SSO 域，则对 HTTP cookie 的限制可能是不需要的。仅当在相同物理主机上正在运行拥有不同域名的多个虚拟主机时，才期待保留域名属性为空。保留此字段为空允许您的 Web 浏览器将域名缺省设置为每个不同的虚拟主机。如果此字段中已明确指定域名，则该值将用于所有的虚拟主机，从而把它们限制到单个域，在某些情况下可能不需要如此。</p>
+
+<p>如果明确地指定域名，则所有用于访问受保护的 Web 资源的 URL 都包含服务器域名系统（DNS）主机名。例如，一旦为 LTPA 配置全局安全性，并指定显式 SSO 域名后，使用以下 URL 访问管理控制台：<strong>http://yourhost.austin.ibm.com:9090/admin</strong>，其中 <em>yourhost.austin.ibm.com</em> 用您的服务器 DNS 主机名替换。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型：</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SingleSignon_enabled_description"></a>启用的</strong>
+</dt>
+<dd>指定启用单次注册功能。
+<p>使用 J2EE 表单登录样式登录页面的 Web 应用程序（如 WebSphere Application Server 管理控制台）需要启用单次注册（SSO）。仅在不需要 LTPA SSO 类型 cookie 的地方禁用某些高级配置的 SSO。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型：</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省：</td>
+<td align="left" valign="top" class="base">启用的</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">范围：</td>
+<td align="left" valign="top" class="base">启用的或禁用的</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>相关信息</strong>
+</p>
+<a href="rcon_buttons.html">管理控制台按钮</a>
+<br>
+
+<a href="rcon_pageusage.html">管理控制台页面功能</a>
+<br>
+
+<a href="rcon_scope.html">管理控制台作用域设置</a>
+<br>
+
+<a href="rcon_filter.html">管理控制台过滤器设置</a>
+<br>
+
+<a href="rcon_preferences.html">管理控制台首选项设置</a>
+<br>
+
+</div>
+</body>
+</html>

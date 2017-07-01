@@ -1,0 +1,240 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Param&egrave;tres de configuration des mappages de connexions</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_logmapn"></a>
+<h2>
+<img alt="[Release 5.1 and later]" src="v51.gif" border="0">Param&egrave;tres de configuration des mappages de connexions</h2>
+
+<p>Cette page permet d'indiquer les param&egrave;tres de configuration de
+connexion JAAS (Java Authentication and Authorization Service) utilis&eacute;s
+pour valider les jetons de s&eacute;curit&eacute; dans les messages entrants.</p>
+
+<p>Pour afficher cette page de la console d'administration, suivez la proc&eacute;dure ci-apr&egrave;s. <ol>
+
+<li>Cliquez sur <strong>Serveurs &gt; Serveurs d'applications &gt; </strong><em>nom_serveur</em>.</li>
+
+<li>Dans la section Propri&eacute;t&eacute;s suppl&eacute;mentaires, cliquez sur <strong>Services Web : Liaisons par d&eacute;faut pour la s&eacute;curit&eacute;
+des services Web &gt; Mappages de connexion &gt; Nouveau</strong>.</li>
+
+</ol>
+</p>
+
+<dl>
+<dt>
+<strong><a name="sec_logmapauth"></a>M&eacute;thode d'authentification </strong>
+</dt>
+<dd>Indique la m&eacute;thode d'authentification.
+<p>Vous pouvez utiliser n'importe quelle cha&icirc;ne mais cette derni&egrave;re doit
+correspondre &agrave; l'&eacute;l&eacute;ment de la configuration de niveau service. Les mots suivants sont
+r&eacute;serv&eacute;s et ont une signification sp&eacute;ciale : <dl>
+
+<dt>
+<strong>BasicAuth (authentification de base)</strong>
+</dt>
+<dd>Utilise un nom d'utilisateur et un mot de passe</dd>
+<dt>
+<strong>IDAssertion (v&eacute;rification d'identit&eacute;)</strong>
+</dt>
+<dd>Utilise uniquement un nom d'utilisateur mais requiert qu'une relation de confiance
+suppl&eacute;mentaire soit &eacute;tablie sur le serveur de r&eacute;ception &agrave; l'aide d'un &eacute;l&eacute;ment TrustedIDEvaluator</dd>
+<dt>
+<strong>Signature</strong>
+</dt>
+<dd>Utilise le nom distinctif du signataire.</dd>
+<dt>
+<strong>LTPA</strong>
+</dt>
+<dd>Valide un jeton</dd>
+</dl>
+</p>
+
+</dd>
+<dt>
+<strong><a name="sec_jaas"></a>Nom de configuration JAAS</strong>
+</dt>
+<dd>Indique le nom de la configuration JAAS (Java Authentication
+and Authorization Service).
+<p>Indiquez vos configurations JAAS &agrave; l'aide de la console
+d'administration en cliquant sur <strong>S&eacute;curit&eacute; &gt; Configuration JAAS &gt; Application</strong>.</p>
+
+</dd>
+<dt>
+<strong><a name="sec_class"></a>Nom de classe de la fabrique du gestionnaire de rappel</strong>
+</dt>
+<dd>D&eacute;finit le nom de la fabrique pour la classe CallbackHandler.
+<p>Vous devez impl&eacute;menter la classe <samp>com.ibm.wsspi.wssecurity.auth.callback.CallbackHandlerFactory</samp> dans cette
+zone.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut : </td>
+<td align="left" valign="top" class="base">com.ibm.wsspi.wssecurity.auth.callback.CallbackHandlerFactory</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="sec_tokenuri"></a>URI de type de jeton </strong>
+</dt>
+<dd>D&eacute;finir l'URI (Uniform Resource Identifier) de l'espace de nom qui indique
+le type de jeton de s&eacute;curit&eacute; accept&eacute;. 
+<p>Si les jetons de s&eacute;curit&eacute; binaires sont accept&eacute;s, la valeur indique l'attribut ValueType
+dans l'&eacute;l&eacute;ment. L'&eacute;l&eacute;ment ValueType
+identifie le type de jeton de s&eacute;curit&eacute; et son espace de nom. Si les jetons
+XML (eXtensible Markup Language) sont accept&eacute;s, la valeur indique le nom de l'&eacute;l&eacute;ment
+de niveau sup&eacute;rieur du jeton XML. </p>
+
+<p>Si les mots r&eacute;serv&eacute;s ont &eacute;t&eacute; indiqu&eacute;s pr&eacute;c&eacute;demment dans la zone
+<strong>M&eacute;thode d'authentification</strong>, cette zone est ignor&eacute;e. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es </td>
+<td align="left" valign="top" class="base">Caract&egrave;res Unicode (&agrave; l'exclusion des caract&egrave;res non-ASCII), les
+caract&egrave;res di&egrave;se (#), pourcentage (%) et crochets ([ ]) &eacute;tant inclus.</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="sec_tokenlname"></a>Nom local du type de jeton </strong>
+</dt>
+<dd>Indique le nom local du type de jeton de s&eacute;curit&eacute;, par exemple X509v3.
+<p>Si les jetons de s&eacute;curit&eacute; binaires sont accept&eacute;s, la valeur indique l'attribut ValueType
+dans l'&eacute;l&eacute;ment. L'attribut ValueType
+identifie le type de jeton de s&eacute;curit&eacute; et son espace de nom. Si les jetons
+XML (eXtensible Markup Language) sont accept&eacute;s, la valeur indique le nom de l'&eacute;l&eacute;ment
+de niveau sup&eacute;rieur du jeton XML. </p>
+
+<p>Si les mots r&eacute;serv&eacute;s ont &eacute;t&eacute; indiqu&eacute;s pr&eacute;c&eacute;demment dans la zone
+<strong>M&eacute;thode d'authentification</strong>, cette zone est ignor&eacute;e. </p>
+
+</dd>
+<dt>
+<strong><a name="sec_lognoncemaxage"></a>D&eacute;lai
+maximal Nonce</strong>
+            &nbsp;
+            <img alt="[Release 5.1 and later]" src="v51.gif" border="0"></dt>
+<dd>Indique le temps en secondes avant expiration de l'horodatage nonce.
+Nonce est une valeur g&eacute;n&eacute;r&eacute;e de mani&egrave;re al&eacute;atoire.
+<p>Vous devez entrer un minimum de 300 secondes dans la zone
+<strong>D&eacute;lai maximal Nonce</strong>.
+Toutefois, la valeur maximale ne peut d&eacute;passer le nombre de secondes
+figurant dans la zone <strong>D&eacute;lai maximal Nonce</strong>, tant au niveau du
+serveur que de la cellule. Vous pouvez entrer la valeur <strong>D&eacute;lai maximal Nonce</strong> pour le
+serveur en cliquant sur <strong>Serveurs &gt; Serveurs d'applications &gt;
+</strong><em>nom_serveur</em>.
+Dans Propri&eacute;t&eacute;s suppl&eacute;mentaires, cliquez sur <strong>Services Web :
+Liaisons par d&eacute;faut pour la s&eacute;curit&eacute; des services Web</strong>. Vous
+pouvez entrer la valeur <strong>D&eacute;lai maximal Nonce</strong> pour la cellule en
+cliquant sur <strong>S&eacute;curit&eacute; &gt; Services Web &gt; Propri&eacute;t&eacute;s</strong>. </p>
+
+<p>
+<strong>Important :</strong> la zone <strong>D&eacute;lai maximal Nonce</strong> de ce
+panneau est facultative et uniquement valide si la m&eacute;thode
+d'authentification BasicAuth est pr&eacute;cis&eacute;e. Si vous mentionnez une
+autre m&eacute;thode d'authentification et tentez de renseigner cette zone,
+le message d'erreur suivant s'affiche et vous devez effacer la valeur
+: <samp>Nonce is not supported for authentication methods other than
+BasicAuth.</samp> Si
+vous indiquez BasicAuth mais laissez la zone <strong>D&eacute;lai
+maximal Nonce</strong> vide, l'ex&eacute;cution de la s&eacute;curit&eacute; des services Web
+rechercher une valeur <strong>D&eacute;lai maximal Nonce</strong> au niveau du
+serveur. Si cette valeur est introuvable, elle la recherche
+alors au niveau de la cellule. Si l&agrave; encore elle est introuvable, la valeur
+par d&eacute;faut est de 300 secondes.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">300 secondes</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Plage</td>
+<td align="left" valign="top" class="base">300 &agrave; <strong>D&eacute;lai maximal Nonce</strong> secondes</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="sec_lognonceclockskew"></a>D&eacute;calage
+d'horloge</strong>
+            &nbsp;
+            <img alt="[Release 5.1 and later]" src="v51.gif" border="0"></dt>
+<dd>Indique en secondes la valeur de d&eacute;calage d'horloge &agrave; prendre en
+compte lorsque WebSphere Application Server v&eacute;rifie l'anciennet&eacute; du
+message. Nonce est une valeur g&eacute;n&eacute;r&eacute;e de mani&egrave;re al&eacute;atoire.
+<p>Vous devez entrer un minimum de 0 secondes dans la zone
+<strong>D&eacute;calage d'horloge</strong>.
+Toutefois, la valeur maximale ne peut d&eacute;passer le nombre de secondes
+figurant dans la zone <strong>D&eacute;lai maximal Nonce</strong> du panneau Mappages
+de connexion. </p>
+
+<p>
+<strong>Important :</strong> la zone <strong>D&eacute;calage d'horloge</strong> de ce
+panneau est facultative et uniquement valide si la m&eacute;thode
+d'authentification BasicAuth est pr&eacute;cis&eacute;e. Si vous mentionnez une
+autre m&eacute;thode d'authentification et tentez de renseigner cette zone,
+le message d'erreur suivant s'affiche et vous devez effacer la valeur
+: <samp>Nonce is not supported for authentication methods other than
+BasicAuth.</samp> Si vous indiquez BasicAuth mais laissez
+la zone <strong>D&eacute;calage d'horloge</strong> vide, l'ex&eacute;cution de la s&eacute;curit&eacute;
+des services Web rechercher une valeur <strong>D&eacute;calage d'horloge</strong> au
+niveau du serveur. Si cette valeur est introuvable, elle la recherche
+alors au niveau de la cellule. Si l&agrave; encore elle est introuvable, la
+valeur par d&eacute;faut est de 0 secondes.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">0 secondes</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Plage</td>
+<td align="left" valign="top" class="base">0 &agrave; <strong>D&eacute;lai maximal Nonce</strong> secondes</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>Informations connexes</strong>
+</p>
+<a href="uwbs_logmap.html">Collection de mappages de connexion</a>
+<br>
+
+<a href="uwbs_noncecellprop.html">Propri&eacute;t&eacute;s de nonce au niveau de la cellule</a>
+<br>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>共通セキュア・インターオペラビリティー・トランスポート・アウトバウンド設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecoutboundconn"></a>
+<h2>共通セキュア・インターオペラビリティー・トランスポート・アウトバウンド設定</h2>
+
+<p>このページを使用して、このサーバーがアウトバウンド要求でダウンストリーム・サーバーと通信するときに使用する
+トランスポートと Secure Sockets Layer (SSL) の設定を指定します。</p>
+
+<p>この管理コンソール・ページを表示するには、「<strong>セキュリティー</strong>」&gt;「<strong>認証プロトコル</strong>」&gt;「<strong>CSI Outbound Transport</strong>」をクリックします。</p>
+
+<div>
+<p>
+<strong>「構成」タブ</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="Transport_o_description"></a>トランスポート</strong>
+</dt>
+<dd>クライアント・プロセスが、サーバーの接続済みトランスポートの 1 つを使用して
+サーバーに接続するかどうかを指定します。
+<p>サーバーがサポートするアウトバウンド・トランスポートとして、「<strong>SSL</strong>」、「<strong>TCP/IP</strong>」、
+または「<strong>Both</strong>」のいずれかを選択し、使用できます。
+「<strong>TCP/IP</strong>」を指定すると、
+サーバーは TCP/IP のみをサポートし、ダウンストリーム・サーバーとの SSL 接続は開始できません。
+「<strong>SSL サポート</strong>」を指定すると、このサーバーは TCP/IP 接続または SSL 接続を開始できます。
+「<strong>SSL 必須</strong>」を指定すると、
+このサーバーは SSL を使用して、ダウンストリーム・サーバーへの接続を開始する必要があります。
+「SSL」を指定する場合、SSL 構成設定のどのセットをアウトバウンド構成に使用するかを決定する必要があります。
+この決定により、
+ダウンストリーム・サーバーへのアウトバウンド接続で使用する鍵ファイルとトラスト・ファイルが決まります。
+例えば、次の例について考えてみます。<dl>
+
+<dt>
+<strong>TCP/IP</strong>
+</dt>
+<dd>このサーバーはダウンストリーム・サーバーとの接続について、TCP/IP 接続だけをオープンします。</dd>
+
+<dt>
+<strong>SSL サポート</strong>
+</dt>
+<dd>このサーバーは、SSL をサポートしているダウンストリーム・サーバーについて
+は SSL 接続を、SSL をサポートしていないダウンストリーム・サーバーについては TCP/IP 接続をオープンします。</dd>
+
+<dt>
+<strong>SSL 必須</strong>
+</dt>
+<dd>このサーバーはダウンストリーム・サーバーとの接続について、常に SSL 接続をオープンします。</dd>
+
+</dl>
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト:</td>
+<td align="left" valign="top" class="base">SSL サポート</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲:</td>
+<td align="left" valign="top" class="base">TCP/IP、SSL 必須、SSL サポート</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SSLSettings_ibm_o_description"></a>SSL 設定</strong>
+</dt>
+<dd>アウトバウンド接続用に事前定義された SSL 設定のリストを指定します。
+これらの設定は、「SSL 構成レパートリー」パネルで構成します。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型:</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト:</td>
+<td align="left" valign="top" class="base">DefaultSSLSettings</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲:</td>
+<td align="left" valign="top" class="base">「SSL 構成レパートリー」パネルで構成される任意の SSL 設定
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>関連情報</strong>
+</p>
+<a href="rcon_buttons.html">管理コンソールのボタン</a>
+<br>
+
+<a href="rcon_pageusage.html">管理コンソール・ページのフィーチャー</a>
+<br>
+
+<a href="rcon_scope.html">管理コンソールの有効範囲設定</a>
+<br>
+
+<a href="rcon_filter.html">管理コンソールのフィルター設定</a>
+<br>
+
+<a href="rcon_preferences.html">管理コンソールの設定の変更</a>
+<br>
+
+</div>
+</body>
+</html>

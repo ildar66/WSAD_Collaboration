@@ -1,0 +1,100 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Impostazioni database</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="database_settings"></a>
+<h2>Impostazioni database</h2>
+
+<p>Utilizzare questa pagina per specificare le impostazioni per il supporto
+della sessione del database.</p>
+
+<p>Per visualizzare questa pagina della console di gestione, fare clic su <strong>Server</strong> &gt;
+<strong>Server delle applicazioni</strong> &gt; <em>nome_server</em> &gt; <strong>Contenitore Web</strong> &gt;
+<strong>Gestione sessioni</strong> &gt; <strong>Impostazioni ambiente distribuito</strong> &gt; <strong>Database</strong>.</p>
+
+<div>
+<p>
+<strong>Scheda Configurazione</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="SessionDatabasePersistence_datasourceJNDIName_description"></a>Nome JNDI origine dati</strong>
+</dt>
+<dd>Specifica la descrizione dell'origine dati
+<p>Il nome JNDI dell'origine dati abilitata non XA da cui Gestione sessioni ottiene i
+collegamenti database.   Ad esempio, se il nome JNDI dell'origine dati &egrave;
+"jdbc/sessions", specificare "jdbc/sessions."  L'origine dati rappresenta un lotto di
+connessioni database e una configurazione per tale lotto (come la dimensione lotto). L'origine dati deve gi&agrave; essere stata configurata come risorsa nell'ambiente. </p>
+
+</dd>
+<dt>
+<strong><a name="SessionDatabasePersistence_userId_description"></a>ID utente</strong>
+            &nbsp;
+            </dt>
+<dd>Specifica l'ID utente per l'accesso al database</dd>
+<dt>
+<strong><a name="SessionDatabasePersistence_password_description"></a>Password</strong>
+            &nbsp;
+            </dt>
+<dd>Specifica la password per l'accesso al database</dd>
+<dt>
+<strong><a name="SessionDatabasePersistence_password2_description"></a>Conferma password</strong>
+            &nbsp;
+            </dt>
+<dd>Specifica di nuovo la password per verificare che venga registrata
+correttamente.</dd>
+<dt>
+<strong><a name="SessionDatabasePersistence_db2RowSize_description"></a>Dimensione riga DB2</strong>
+            &nbsp;
+            </dt>
+<dd>Specifica la dimensione di pagina dello spazio tabella configurata per la
+tabella sessioni, se si utilizza un database DB2. I valori possibili sono 4, 8, 16 e 32 kilobyte (K).   La dimensione di riga predefinita &egrave; 4K.
+<p>La
+dimensione riga predefinita &egrave; 4K. In DB2, &egrave; possibile aggiornarla a un valore
+maggiore.
+Ci&ograve; pu&ograve; supportare le prestazioni del database in alcuni ambienti.  Se il
+valore &egrave; diverso da 4, &egrave; necessario specificare il Nome spazio tabella da utilizzare. Per pagine da 4K, il Nome spazio tabella &egrave; facoltativo. </p>
+
+</dd>
+<dt>
+<strong><a name="SessionDatabasePersistence_tableSpaceName_description"></a>Nome tablespace</strong>
+            &nbsp;
+            </dt>
+<dd>Specifica lo spazio tabella da utilizzare per la tabella sessioni. 
+<p>Questo valore &egrave; richiesto quando la Dimensione pagina DB2 &egrave; diversa da 4K.</p>
+
+</dd>
+<dt>
+<strong><a name="TuningParams_usingRowSchema_description"></a>Usa sessioni a pi&ugrave; righe  </strong>
+</dt>
+<dd>Specifica che ciascuna istanza dei dati dell'applicazione deve essere
+posta in una riga separata nel database, consentendo di memorizzare una quantit&agrave;
+elevate di dati per ogni sessione. Quest'operazione pu&ograve; offrire prestazioni migliori in
+alcuni scenari d'uso. Se l'uso dello schema a pi&ugrave; righe non &egrave; abilitato, le istanze dei
+dati dell'applicazione possono essere collocate sulla stessa riga.</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informazioni correlate</strong>
+</p>
+<a href="rcon_buttons.html">Pulsanti della console di gestione</a>
+<br>
+
+<a href="rcon_pageusage.html">Funzioni della pagina della console di gestione</a>
+<br>
+
+<a href="rcon_filter.html">Impostazioni di filtro della console di gestione</a>
+<br>
+
+<a href="rcon_preferences.html">Impostazioni delle preferenze della console di gestione</a>
+<br>
+
+</div>
+</body>
+</html>

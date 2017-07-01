@@ -1,0 +1,257 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>データ・ソース (バージョン 4) 設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="WAS40_Data_source_detail"></a>
+<h2>データ・ソース (バージョン 4) 設定</h2>
+
+<p>このページを使用して、バージョン 4.0 スタイルのデータ・ソースを作成します。
+このデータ・ソースは、WebSphere Application Server バージョン 4.0 接続マネージャーのアーキテクチャーを使用します。
+すべての EJB1.x モジュールは、このデータ・ソースを使用する必要があります。</p>
+
+<p>この管理コンソール・ページを表示するには、「
+<strong>リソース</strong>」&gt;「<strong>JDBC プロバイダー</strong>」&gt;「<em>JDBC_provider</em>」&gt;「<strong>データ・ソース (バージョン 4)</strong>」&gt;「<em>data_source</em>」をクリックします。</p>
+
+<div>
+<p>
+<strong>「構成」タブ</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="WAS40DataSource_detail_contextID"></a>有効範囲</strong>
+</dt>
+<dd>このリソース定義を可視にするレベル (セル、ノード、またはサーバーの
+各レベル) を指定します。
+
+<p>JDBC プロバイダー、ネーム・スペース・バインディング、
+共用ライブラリーなどのリソースを複数の有効範囲で定義することが可能です。
+より限定的な有効範囲で定義されたリソースは、
+それより広い有効範囲で定義された重複するリソースをオーバーライドします。
+</p>
+
+<p>定義済みリソースの有効範囲が何であれ、そのリソースのプロパティーは
+個々のサーバー・レベルでのみ適用されることに注意して下さい。
+例えば、あるデータ・ソースの有効範囲を「セル」レベルで定義する場合、
+そのセルのすべてのユーザーが、そのデータ・ソースをルックアップおよび使用できます。
+このとき、そのデータ・ソースはそのセル内で固有です。ただし、リソース・プロパティーの設定値は、そのセル内の各サーバーに対してローカルです。例えば、<em>最大接続数</em> を 10 に設定する場合、そのセル内の
+各サーバーは 10 個の接続を使用できます。<dl>
+
+<dt>
+<strong>セル</strong>
+</dt>
+<dd>最も一般的な有効範囲です。「セル」有効範囲で定義されている
+リソースは、オーバーライドされない限り、すべてのノードおよびサーバーから可視です。
+「セル」有効範囲で定義されたリソースを表示する場合は、
+有効範囲選択フォームでサーバーまたはノードの名前を指定しないでください。
+</dd>
+
+<dt>
+<strong>ノード</strong>
+</dt>
+<dd>大部分のリソース・タイプのデフォルト有効範囲。
+「ノード」有効範囲で定義されたリソースは、「
+セル」有効範囲で定義されたすべての重複するリソースをオーバーライドします。
+同じノード上の「サーバー」有効範囲でオーバーライドされない限り、
+そのノード上のすべてのサーバーから可視です。
+「ノード」有効範囲で定義されたリソースを表示する場合は、
+有効範囲選択フォームで、サーバーを指定せず、ノード名を選択します。
+</dd>
+
+<dt>
+<strong>サーバー</strong>
+</dt>
+<dd>リソース定義で最も限定的な有効範囲です。「サーバー」
+有効範囲で定義されたリソースは、「セル」有効範囲または親の「ノード」有効範囲で
+定義されたすべての重複するリソース定義をオーバーライドし、
+特定のサーバーからのみ可視です。
+「サーバー」有効範囲で定義されたリソースを表示するには、
+有効範囲選択フォームで、ノード名だけでなくサーバー名も指定します。
+</dd>
+
+</dl>
+</p>
+
+<p>リソースが作成されるときは常に、パネルで選択されている現行の有効範囲内に
+作成されます。
+他の有効範囲でリソースを表示する場合は、有効範囲選択フォームで、
+別のノードまたはサーバーを指定します。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WAS40DataSource_databasename_description"></a>名前</strong>
+</dt>
+<dd>リソースの表示名を指定します。
+<p>例えば、このフィールドを <em>Test Data Source</em> に設定することができます。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WAS40DataSource_jndiName_description"></a>JNDI 名</strong>
+</dt>
+<dd>Java Naming and Directory Interface (JNDI) 名を指定します。
+<p>分散コンピューティング環境では、共用コンポーネントおよびリソースを
+取得するために、ネーミングおよびディレクトリー・サービスを頻繁に使用
+します。ネーミング・サービスおよびディレクトリー・サービスは、名前を
+ロケーション、サービス、情報、およびリソースと関連付けます。</p>
+
+<p>ネーミング・サービスは、名前からオブジェクトへのマッピングを行います。
+ディレクトリー・サービスは、
+オブジェクトに関する情報と、それらのオブジェクトを探し出すのに必要な検索ツールを提供します。 </p>
+
+<p>ネーミングおよびディレクトリー・サービスのインプリメンテーションの数は多く、
+そのインターフェースもさまざまです。JNDI は、
+各種のネーミング・サービスおよびディレクトリー・サービスへのアクセスに使用する
+共通インターフェースを提供します。
+</p>
+
+<p>例えば、<em>jdbc/markSection</em> という名前を使用することができます。</p>
+
+<p>このフィールドをブランクにしておくと、データ・ソースの名前から JNDI 名が生成されます。
+例えば、データ・ソース名 markSection からは、JNDI 名 <em>jdbc/markSection</em> が生成されます。</p>
+
+<p>この値を設定し、保管し、サーバーを再始動した後に <em>dumpnamespace</em> を実行すると、
+このストリングを表示することができます。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WAS40DataSource_Description_Description"></a>説明</strong>
+</dt>
+<dd>リソースを説明するテキストを指定します。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WAS40DataSource_Category_Description"></a>カテゴリー</strong>
+</dt>
+<dd>リソースを分類またはグループ化するために使用できるカテゴリー・ストリングを指定します。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WAS40DataSource_databaseName_displayName"></a>データベース名</strong>
+</dt>
+<dd>このデータ・ソースがアクセスするデータベースの名前を指定します。
+<p>例えば、<em>SAMPLE</em> という名前をデータベースに使用することができます。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WAS40DataSource_defaultUser_displayName"></a>デフォルト・ユーザー ID</strong>
+</dt>
+<dd>データベースへの接続に使用するユーザー名を指定します。
+<p>例えば、ID <em>db2admin</em> を使用できます。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WAS40DataSource_defaultPassword_displayName"></a>デフォルト・パスワード
+</strong>
+</dt>
+<dd>データベースに接続するために使用するパスワードを指定します。
+
+<p>例えば、パスワード <em>db2admin</em> を使用できます。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>関連情報</strong>
+</p>
+<a href="rcon_buttons.html">管理コンソールのボタン</a>
+<br>
+
+<a href="rcon_pageusage.html">管理コンソール・ページのフィーチャー</a>
+<br>
+
+</div>
+</body>
+</html>

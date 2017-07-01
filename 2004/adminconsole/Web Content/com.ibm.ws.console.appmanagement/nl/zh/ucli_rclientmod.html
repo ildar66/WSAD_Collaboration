@@ -1,0 +1,81 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>应用程序客户机组装设置</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="ucli_rclientmod"></a>
+<h2>应用程序客户机组装设置</h2>
+
+<p>使用此页面指定 J2EE 应用程序客户机的组装属性。</p>
+<dl>
+<dt>
+<strong><a name="file_name"></a>文件名（必需，字符串）</strong>
+</dt>
+<dd>指定应用程序客户机模块的文件名，相对于企业归档（EAR）文件的顶层。
+<p>如果这是独立模块，那么文件名是归档的全路径名。</p>
+
+</dd>
+<dt>
+<strong><a name="alternative_DD"></a>备用 DD</strong>
+</dt>
+<dd>指定要使用的备用部署描述符文件的文件名，而不是模块的 JAR 归档（JAR）文件中的原始部署描述符文件。
+<p>此文件是部署描述符文件的组装后版本。（您可编辑原始部署描述符文件以解析相关性和安全性信息。通过指导使用备用部署描述符，可允许您保持原始部署描述符文件的完整。）备用 DD 属性的值必须是部署描述符文件相对于模块根目录的全路径名。按照约定，此文件位于 <samp>ALT-INF</samp> 目录中。如果未指定此属性，则从模块 JAR 文件中直接读部署描述符文件。</p>
+
+</dd>
+<dt>
+<strong><a name="classpath"></a>类路径</strong>
+</dt>
+<dd>指定包含从属代码的完整类路径，这些从属代码不包含在应用程序客户机 JAR 文件中。
+<p>指定相对于 EAR 文件根的值，并以空格分隔这些值。引用硬盘上文件或目录的绝对值被忽略。要指定不在 JAR 文件中但在 EAR 文件根中的类，可使用句点和正斜杠（./）。考虑以下示例目录结构，其中文件 myapp.ear 包含名为 <samp>client.jar</samp> 的应用程序客户机 JAR 文件。附加类驻留在 <samp>class1.jar</samp> 和 <samp>class2.zip</samp> 文件中。名为 xyz.class 的类不封装在 JAR 文件中，但是在 EAR 文件 <samp>myapp.ear/client.jar
+myapp.ear/class1.jar myapp.ear/class2.zip myapp.ear/xyz.class</samp> 的根中。指定 class1.jar class2.zip ./ 为类路径属性的值。
+（仅命名 <samp>.class</samp> 文件的目录。）</p>
+
+</dd>
+<dt>
+<strong><a name="display_name"></a>显示名称（必需，字符串）
+</strong>
+</dt>
+<dd>指定用于显示在 GUI 中的缩写名。
+
+<p></p>
+
+</dd>
+<dt>
+<strong><a name="small_icon"></a>小图标</strong>
+</dt>
+<dd>指定一个包含小图像（16x16 像素）的 JPEG 或 GIF 文件。
+<p>该图像在 GUI 中用作代表应用程序客户机的图标。
+</p>
+
+</dd>
+<dt>
+<strong><a name="large_icon"></a>大图标</strong>
+</dt>
+<dd>指定包含一个大图像（32x32 像素）的 JPEG 或 GIF 文件。
+<p>该图像在 GUI 中用作代表应用程序客户机的图标
+</p>
+
+</dd>
+<dt>
+<strong><a name="description"></a>描述</strong>
+</dt>
+<dd>包含描述应用程序客户机的文本。
+
+<p></p>
+
+</dd>
+<dt>
+<strong><a name="main_class"></a>主类（必需，字符串）
+</strong>
+</dt>
+<dd>为该应用程序客户机指定主类的全路径名。
+<p></p>
+
+</dd>
+</dl>
+</body>
+</html>

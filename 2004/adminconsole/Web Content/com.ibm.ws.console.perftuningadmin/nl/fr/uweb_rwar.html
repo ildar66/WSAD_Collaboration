@@ -1,0 +1,86 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Param&egrave;tres de d&eacute;ploiement du module Web</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uweb_rwar"></a>
+<h2>Param&egrave;tres de d&eacute;ploiement du module Web</h2>
+
+<p> Cette page permet de configurer une instance de d&eacute;ploiement du module Web. </p>
+
+<p>Pour afficher cette page de la console d'administration, cliquez sur <strong>Applications</strong> &gt; <strong>Applications
+d'entreprise</strong> &gt; <em>instance_application</em> &gt; <strong>Web Modules</strong> &gt; <em>instance_module_Web</em>.</p>
+
+<dl>
+<dt>
+<strong><a name="rwar_uri"></a>URI</strong>
+</dt>
+<dd>Sp&eacute;cifie un URI qui, une fois r&eacute;solu par rapport &agrave; l'URL de l'application,
+indique l'emplacement du contenu de l'archive du module dans un
+syst&egrave;me de fichiers.
+Si ce module constitue l'un des composants int&eacute;gr&eacute;s dans l'archive d'une application
+d&eacute;ploy&eacute;e (fichier EAR), l'URI indiqu&eacute; ici doit correspondre &agrave; une r&eacute;f&eacute;rence de module (ModuleRef) sp&eacute;cifi&eacute;e dans le
+descripteur de d&eacute;ploiement de cette application.  </dd>
+<dt>
+<strong><a name="rwar_altdd"></a>Descripteur de d&eacute;ploiement secondaire</strong>
+</dt>
+<dd>Sp&eacute;cifie le nom de fichier d'un autre descripteur de d&eacute;ploiement &agrave; utiliser &agrave; la place
+du descripteur original se trouvant dans le fichier JAR du module.
+<p> Ce fichier est la version <em>post-assemblage</em> du fichier de descripteur de d&eacute;ploiement. Vous pouvez &eacute;diter le fichier descripteur de d&eacute;ploiement original pour r&eacute;soudre les
+interd&eacute;pendance et les informations de s&eacute;curit&eacute;.  L'utilisation d'un autre descripteur vous permet de
+conserver intact le descripteur d'origine.</p>
+
+<p>La valeur de la propri&eacute;t&eacute; <em>Autre DD</em> doit &ecirc;tre le nom complet du fichier descripteur de d&eacute;ploiement,
+sp&eacute;cifi&eacute; par rapport au r&eacute;pertoire racine du module.
+ Par convention, ce fichier se trouve dans le r&eacute;pertoire <samp>ALT-INF</samp>. Si cette propri&eacute;t&eacute; n'est pas sp&eacute;cifi&eacute;e, le fichier descripteur de
+d&eacute;ploiement est lu directement dans le fichier JAR du module.</p>
+
+</dd>
+<dt>
+<strong><a name="rwar_wt"></a>Pond&eacute;ration de d&eacute;marrage</strong>
+</dt>
+<dd>D&eacute;termine l'ordre de d&eacute;marrage des diff&eacute;rents modules de l'application.  Les modules sont d&eacute;marr&eacute;s par ordre croissant de poids.</dd>
+<dt>
+<strong><a name="rwar_classloaderMode_description"></a>Mode
+chargeur de classe</strong>
+</dt>
+<dd>Indique si le chargeur de classe doit d'abord chercher
+dans le chargeur de classe parent ou dans le chargeur de classe de
+l'application pour charger une classe. La norme pour les chargeurs de classe JDK et les chargeurs de classe WebSphere est PARENT_FIRST.
+Si vous
+indiquez PARENT_LAST, votre application peut remplacer des classes
+contenues dans le chargeur de classe parent, mais cette action peut
+&eacute;ventuellement aboutir &agrave; l'exception ClassCastException ou &agrave; des
+erreurs LinkageErrors si vous avez utilis&eacute; aussi bien des classes
+remplac&eacute;es que des classes non remplac&eacute;es.
+<p>Les options possibles sont PARENT_FIRST et PARENT_LAST. Par
+d&eacute;faut, la recherche s'effectue d'abord dans le chargeur de classe
+parent, puis dans le chargeur de classe d'application pour charger
+une classe.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">PARENT_FIRST</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</body>
+</html>

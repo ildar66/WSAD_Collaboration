@@ -1,0 +1,213 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>メッセージ・リスナー・サービス</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="MessageListenerService"></a>
+<h2>メッセージ・リスナー・サービス</h2>
+
+<p>メッセージ・リスナー・サービスは、JMS プロバイダーの JMS 機能を拡張したものです。
+このサービスにより、1 つ以上の JMS リスナーの制御とモニターを行うリスナー・マネージャーが提供されます。
+JMS リスナーはそれぞれ、デプロイされるメッセージ・ドリブン Bean に代わって、JMS 宛先をモニターします。
+</p>
+
+<p>このパネルは、「リスナー・ポート」の「追加プロパティー」ページ、「スレッド・プール」、
+およびメッセージ・リスナー・サービスの「カスタム・プロパティー」へのリンクを表示します。</p>
+
+<p>この管理コンソール・ページを表示するには、「
+<strong>サーバー</strong>」-&gt;「<strong><em>application_server</em></strong>」-&gt;「<strong>メッセージ・リスナー・サービス</strong>」をクリックします。
+</p>
+
+<dl>
+<dt>
+<strong><a name="MessageListenerService_name"></a>名前</strong>
+</dt>
+<dd>管理目的でメッセージ・リスナー・サービスを使用する際の名前。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+
+
+
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">MsgLService</td>
+
+</tr>
+
+
+
+
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MessageListenerService_description"></a>説明</strong>
+</dt>
+<dd>管理目的で使用する、メッセージ・リスナー・サービスの説明
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+
+
+
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+
+
+
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MessageListenerService_threadPool"></a>スレッド・プール</strong>
+            &nbsp;
+            </dt>
+<dd>メッセージ・リスナー・サービスが実行を許可されているスレッドの最大数を制御します。サービス・スレッド・プール・プロパティーを表示するには、このリンクを選択します。
+
+<p>複数のメッセージ・ドリブン Bean が、同じアプリケーション・サーバーにデプロイされており、
+それらの最大セッション値の合計がデフォルト値の 10 を超える場合は、このパラメーターを調整してください。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">整数</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">単位</td>
+<td align="left" valign="top" class="base">該当なし</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">最小: 10、最大 50</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">該当なし</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">推奨</td>
+<td align="left" valign="top" class="base">最小値は、すべてのメッセージ・ドリブン Bean の最大セッション値の合計に設定してください。最大値は、この最小値以上に設定してください。</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MessageListenerService_custom"></a>カスタム・プロパティー</strong>
+</dt>
+<dd>メッセージ・リスナー・サービスのカスタム・プロパティー。JMS サーバーは、
+アプリケーション・サーバー・ファシリティー (ASF) および
+非アプリケーション・サーバー・ファシリティーという 2 つの操作モードを備えています。ASF は、
+アプリケーションに並行性およびトランザクションのサポートを提供することを意図したものです。非 ASF は、
+そのサポートをバイパスして、パス長さを簡素化します。
+<p>次の場合は、非 ASF を使用してください。<ul>
+
+<li>メッセージ順序が厳密な要件である</li>
+
+<li>並行 PTP メッセージが望ましい</li>
+
+<li>プロパティー <samp>non.asf.receive.timeout</samp> が存在しており、その値が 0 より大きい</li>
+
+</ul>ASF の方がスループットに優れているため、並行する公開メッセージおよび加入メッセージが望ましい場合は、
+非 ASF を使用しないでください。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">整数</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">単位</td>
+<td align="left" valign="top" class="base">ミリ秒</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">ASF モード (カスタム・プロパティーは作成されません)</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base"></td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">推奨</td>
+<td align="left" valign="top" class="base">この値は、メッセージの配信に要するミリ秒単位の時間数です。タイムアウトになると、
+メッセージをリサイクルする必要があり、余分な作業が発生します。これは、
+トランザクションのタイムアウトよりも小さく設定する必要がありますが、
+予備の時間を数秒 (10 秒以上) 持たせて、トランザクションのタイムアウト値に近づけてください。
+CPU サイクルを取得するために長時間にわたってスレッドが待機しているような極端な負荷の下では、
+予備の秒数を増やしてください。</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>関連情報</strong>
+</p>
+<a href="umb_smlp.html">メッセージ・リスナー・ポート・コレクション</a>
+<br>
+
+</div>
+</body>
+</html>

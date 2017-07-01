@@ -1,0 +1,310 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Ver el descriptor de despliegue del cliente de servicios Web</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_vwcdd"></a>
+<h2>
+<img alt="[Fix Pack 5.0.2 y posterior]" src="v502.gif" border="0">Ver el descriptor de despliegue del cliente de servicios Web</h2>
+
+<p>Utilice esta p&aacute;gina para ver el descriptor de despliegue del cliente.</p>
+
+<p>Para ver esta p&aacute;gina de la consola administrativa, realice los pasos siguientes:<ol>
+
+<li>Pulse <strong>Aplicaciones &gt; Aplicaciones de empresa &gt;
+</strong><em>nombre_aplicaci&oacute;n</em>.</li>
+
+<li>En Elementos Relacionados, pulse <strong>M&oacute;dulos Web</strong> &gt; <em>nombre_archivo_URI</em> <strong>Ver el descriptor de despliegue del cliente de servicios Web</strong>.</li>
+
+</ol>
+</p>
+
+<p>Los enlaces de nivel de aplicaci&oacute;n y de nivel de
+servidor son los dos niveles de enlace que ofrece WebSphere Application
+Server. El nivel de aplicaci&oacute;n, el nivel de servidor y el nivel de c&eacute;lula son los tres niveles de enlaces que ofrece WebSphere Application Server Network Deployment. La informaci&oacute;n de las descripciones de implementaci&oacute;n siguientes indican c&oacute;mo se configuran los enlaces a nivel de aplicaci&oacute;n. Para configurar los enlaces a nivel de servidor, que es el valor por omisi&oacute;n, realice los pasos siguientes:<ol>
+
+<li>Pulse <strong>Servidores &gt; Servidores de aplicaciones &gt; </strong><em>nombre_servidor</em>.
+</li>
+
+<li>En Elementos relacionados, pulse <strong>Servicios Web: Enlaces por omisi&oacute;n para Web Services Security</strong>.</li>
+
+<li>Para configurar los enlaces a nivel de c&eacute;lula, pulse
+<strong>Seguridad &gt; Servicios Web</strong>.</li>
+
+</ol> 
+<p>
+<b>Nota: </b>Si el servidor Web act&uacute;a como un cliente, se utilizan los enlaces por omisi&oacute;n.</p>Si va a utilizar cualquiera de las configuraciones siguientes, compruebe que se haya configurado correctamente el descriptor de despliegue:<ul>
+
+<li>
+<a href="#reqsign">Firma a petici&oacute;n</a>
+</li>
+
+<li>
+<a href="#reqencrypt">Cifrado a petici&oacute;n</a>
+</li>
+
+<li>
+<a href="#basicauth">Autenticaci&oacute;n BasicAuth</a>
+</li>
+
+<li>
+<a href="#idassert">Autenticaci&oacute;n basada en la confirmaci&oacute;n de identidad (IDAssertion)</a>
+</li>
+
+<li>
+<a href="#idasserttrust">Autenticaci&oacute;n basada en la confirmaci&oacute;n de identidad (IDAssertion) con TrustMode como signatura</a>
+</li>
+
+<li>
+<a href="#respdsig">Verificaci&oacute;n de la signatura digital de respuesta</a>
+</li>
+
+<li>
+<a href="#respdecr">Descifrado de la respuesta</a>
+</li>
+
+</ul>
+</p>
+
+<div>
+<a name="reqsign"></a>
+<p class="sectiontitle">
+<b>Firma a petici&oacute;n</b>
+</p>
+<p>Si se han
+especificado limitaciones de integridad (signatura digital), compruebe
+si se ha configurado la informaci&oacute;n de firma en los archivos de enlace.</p>
+<p>Para configurar los par&aacute;metros de firma, realice los pasos siguientes:<ol>
+
+<li>Pulse <strong>Aplicaciones &gt; Aplicaciones de empresa &gt;
+</strong><em>nombre_aplicaci&oacute;n</em>.</li>
+
+<li>En Elementos Relacionados, pulse <strong>M&oacute;dulos Web &gt;
+</strong> <em>nombre_archivo_URI</em> <strong>Servicios Web: Enlaces de seguridad del cliente</strong>. </li>
+
+<li>En la columna Enlace del receptor de respuestas,
+pulse <strong>Editar &gt; Informaci&oacute;n de firmas &gt; Nueva</strong>. </li>
+
+</ol>
+</p>
+<p>Para configurar los localizadores de claves, realice los pasos siguientes:<ol>
+
+<li>Pulse <strong>Servidores &gt; Servidores de aplicaciones &gt; </strong><em>nombre_servidor</em>.
+</li>
+
+<li>En Propiedades adicionales, pulse <strong>Servicios Web: Enlaces por omisi&oacute;n
+para Web Services Security &gt; Localizadores de claves</strong>.</li>
+
+</ol>
+</p>
+</div>
+
+<div>
+<a name="reqencrypt"></a>
+<p class="sectiontitle">
+<b>Cifrado a petici&oacute;n</b>
+</p>
+<p>Si se han
+especificado limitaciones de confidencialidad (cifrado), compruebe que ha
+configurado la informaci&oacute;n de cifrado en los archivos de enlace.</p>
+<p>Para configurar los par&aacute;metros de cifrado, realice los pasos siguientes:<ol>
+
+<li>Pulse <strong>Aplicaciones &gt; Aplicaciones de empresa &gt;
+</strong><em>nombre_aplicaci&oacute;n</em>.</li>
+
+<li>En Elementos relacionados, pulse <strong>M&oacute;dulos Web &gt; </strong><em>nombre_archivo_URI</em> <strong>&gt; Servicios Web: Enlaces de seguridad del cliente</strong>.</li>
+
+<li>En la columna Enlace del receptor de respuestas,
+pulse <strong>Editar &gt; Informaci&oacute;n de cifrado &gt; Nuevo</strong>. </li>
+
+</ol>
+</p>
+<p>Para configurar los localizadores de claves, realice los pasos siguientes:</p>
+<p>Pulse <strong>Servidores &gt; Servidores de aplicaciones &gt; </strong><em>nombre_servidor</em>.
+</p>
+<p>En Propiedades adicionales, pulse <strong>Servicios Web: Enlaces por omisi&oacute;n
+para Web Services Security &gt; Localizadores de claves</strong>.</p>
+</div>
+
+<div>
+<a name="basicauth"></a>
+<p class="sectiontitle">
+<b>Autenticaci&oacute;n BasicAuth</b>
+</p>
+<p>Si se ha configurado BasicAuth como el s&iacute;mbolo de seguridad obligatorio, especifique CallbackHandler en el archivo de enlace para recoger los datos de autenticaci&oacute;n b&aacute;sicos. La siguiente lista contiene las implementaciones del soporte de CallBack:<dl>
+<dt>
+<strong>com.ibm.wsspi.wssecurity.auth.callback.GuiPromptCallbackHandler</strong>
+</dt>
+<dd>La implementaci&oacute;n solicita la informaci&oacute;n BasicAuth (el nombre de usuario
+y la contrase&ntilde;a) en una interfaz.</dd>
+<dt>
+<strong>com.ibm.wsspi.wssecurity.auth.callback.NonPromptCallbackHandler</strong>
+</dt>
+<dd>Esta implementaci&oacute;n lee la informaci&oacute;n de BasicAuth del archivo de enlace.</dd>
+<dt>
+<strong>com.ibm.wsspi.wssecurity.auth.callback.StdPromptCallbackHandler</strong>
+</dt>
+<dd>Esta implementaci&oacute;n solicita el nombre de usuario y la contrase&ntilde;a
+utilizando stdin.</dd>
+</dl>
+</p>
+<p>Para configurar la informaci&oacute;n de enlace de inicio de sesi&oacute;n, realice los pasos siguientes:<ol>
+
+<li>Pulse <strong>Aplicaciones &gt; Aplicaciones de empresa &gt;
+</strong><em>nombre_aplicaci&oacute;n</em>.</li>
+
+<li>En Elementos relacionados, pulse
+<strong>M&oacute;dulo Web &gt; </strong><em>nombre_archivo_URI</em> <strong>&gt; Servicios Web: Enlaces de
+seguridad del cliente</strong>. </li>
+
+<li>En Enlaces del remitente de peticiones, pulse <strong>Editar &gt; Enlace del inicio de sesi&oacute;n</strong>.</li>
+
+</ol>
+</p>
+</div>
+
+<div>
+<a name="idassert"></a>
+<p class="sectiontitle">
+<b>Autenticaci&oacute;n basada en la comprobaci&oacute;n de
+identidad (ID) con  BasicAuth TrustMode</b>
+</p>
+<p>Configure un archivo de
+enlace con una implementaci&oacute;n
+com.ibm.wsspi.wssecurity.auth.callback.NonPromptCallbackHandler. Especifique un ID de usuario y una contrase&ntilde;a de BasicAuth en los que pueda
+confiar un TrustedIDEvaluator de un servidor situado en sentido descendente.</p>
+<p>Para configurar la informaci&oacute;n de enlace de inicio de sesi&oacute;n, realice los pasos siguientes:<ol>
+
+<li>Pulse <strong>Aplicaciones &gt; Aplicaciones de empresa &gt;
+</strong><em>nombre_aplicaci&oacute;n</em>.</li>
+
+<li>En Elementos relacionados, pulse
+<strong>M&oacute;dulo Web &gt; </strong><em>nombre_archivo_URI</em><strong>&gt; Servicios Web: Enlaces de
+seguridad del cliente</strong>.</li>
+
+<li>En <strong>Enlaces del remitente de peticiones</strong>, pulse <strong>Editar &gt; Enlace del inicio de sesi&oacute;n</strong>.</li>
+
+</ol>
+</p>
+</div>
+
+<div>
+<a name="idasserttrust"></a>
+<p class="sectiontitle">
+<b>Autenticaci&oacute;n basada en la
+confirmaci&oacute;n de identidad (ID) con TrustMode como signatura</b>
+</p>
+<p>Configure la informaci&oacute;n de firma en el archivo de enlace con una clave de firma que apunte a un localizador de claves. El localizador de claves contiene el certificado X.509 en el que conf&iacute;a el servidor situado en sentido descendente.</p>
+<p>Para configurar la confirmaci&oacute;n de ID, lleve a cabo los siguientes pasos:<ol>
+
+<li>Pulse <strong>Servidores &gt; Servidores de aplicaciones &gt; </strong><em>nombre_servidor</em>.
+</li>
+
+<li>En Propiedades adicionales, pulse <strong>Servicios Web: Enlaces por omisi&oacute;n
+para Web Services Security &gt; Correlaciones de inicio de sesi&oacute;n &gt; IDAssertion</strong>.</li>
+
+</ol>
+</p>
+<p>Para configurar la informaci&oacute;n de enlace de inicio de sesi&oacute;n, realice los pasos siguientes:<ol>
+
+<li>Pulse <strong>Aplicaciones &gt; Aplicaciones de empresa &gt;
+</strong><em>nombre_aplicaci&oacute;n</em>.</li>
+
+<li>En Elementos relacionados, pulse
+<strong>M&oacute;dulo Web &gt; </strong><em>nombre_archivo_URI</em> <strong>&gt; Servicios Web: Enlaces de
+seguridad del cliente</strong>. </li>
+
+<li>En Enlaces del remitente de peticiones, pulse <strong>Editar &gt; Enlace del inicio de sesi&oacute;n</strong>.</li>
+
+</ol>
+</p>
+</div>
+
+<div>
+<a name="respdsig"></a>
+<p class="sectiontitle">
+<b>Verificaci&oacute;n de la signatura digital de la respuesta</b>
+</p>
+<p>Si se han definido limitaciones de integridad (la signatura es
+obligatoria), compruebe si ha configurado la informaci&oacute;n de firma en
+los archivos de enlace.</p>
+<p>Para configurar los par&aacute;metros de firma, realice los pasos siguientes:<ol>
+
+<li>Pulse <strong>Aplicaciones &gt; Aplicaciones de empresa &gt;
+</strong><em>nombre_aplicaci&oacute;n</em>.</li>
+
+<li>En Elementos relacionados, pulse <strong>M&oacute;dulos Web &gt; </strong><em>nombre_archivo_URI</em> <strong>&gt; Servicios Web: Enlaces de seguridad del cliente</strong>.</li>
+
+<li>En la columna Enlace del receptor de respuestas,
+pulse <strong>Editar &gt; Informaci&oacute;n de firmas &gt; Nueva</strong>. </li>
+
+</ol>
+</p>
+<p>Para configurar los anclas de confianza, realice los pasos siguientes:<ol>
+
+<li>Pulse <strong>Servidores &gt; Servidores de aplicaciones &gt; </strong><em>nombre_servidor</em>.
+</li>
+
+<li>En Propiedades adicionales, pulse <strong>Servicios Web: Enlaces por omisi&oacute;n
+para Web Services Security &gt; Anclas de confianza &gt; Nueva</strong>.</li>
+
+</ol>
+</p>
+<p>Para configurar el almac&eacute;n de certificados de colecciones, realice los pasos siguientes:<ol>
+
+<li>Pulse <strong>Servidores &gt; Servidores de aplicaciones &gt; </strong><em>nombre_servidor</em>.
+</li>
+
+<li>En Propiedades adicionales, pulse <strong>Servicios Web: Enlaces por omisi&oacute;n
+para Web Services Security &gt; Almac&eacute;n de certificados de colecciones &gt; Nuevo</strong>.</li>
+
+</ol>
+</p>
+</div>
+
+<div>
+<a name="respdecr"></a>
+<p class="sectiontitle">
+<b>Descifrado de la respuesta</b>
+</p>
+<p>Si se
+han especificado limitaciones de confidencialidad (cifrado), compruebe si
+ha definido la informaci&oacute;n de cifrado.</p>
+<p>Para configurar la informaci&oacute;n de cifrado, realice los pasos siguientes:<ol>
+
+<li>Pulse <strong>Aplicaciones &gt; Aplicaciones de empresa &gt;
+</strong><em>nombre_aplicaci&oacute;n</em>.</li>
+
+<li>En Elementos relacionados, pulse <strong>M&oacute;dulos Web &gt; </strong>&lt;<em>nombre_archivo_URI</em> <strong>&gt; Servicios Web: Enlaces de seguridad del cliente</strong>.</li>
+
+<li>En la columna Enlace del receptor de respuestas,
+pulse <strong>Editar &gt; Informaci&oacute;n de cifrado &gt; Nuevo</strong>. </li>
+
+</ol>
+</p>
+<p>Para configurar los localizadores de claves, realice los pasos siguientes:<ol>
+
+<li>Pulse <strong>Servidores &gt; Servidores de aplicaciones &gt; </strong><em>nombre_servidor</em>.
+</li>
+
+<li>En Propiedades adicionales, pulse <strong>Servicios Web: Enlaces por omisi&oacute;n
+para Web Services Security &gt; Localizadores de claves</strong>.</li>
+
+</ol>
+</p>
+</div>
+
+<div>
+<p>
+<strong>Informaci&oacute;n relacionada</strong>
+</p>
+<a href="uwbs_websvcb.html">Servicios Web: grupo de enlaces por omisi&oacute;n para Web Services Security</a>
+<br>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>调整参数定制设置</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="tune_para_custom"></a>
+<h2>调整参数定制设置</h2>
+
+<p>使用此页面定制分布式会话的调整参数。</p>
+
+<p>要查看此管理控制台页面，单击<strong>服务器</strong> &gt; <strong>应用程序服务器</strong> &gt; <em>server_name</em> &gt; <strong>Web 容器</strong> &gt; <strong>会话管理</strong> &gt; <strong>分布式环境设置</strong> &gt; <strong>定制调整参数</strong> &gt; <strong>定制设置</strong>。</p>
+
+<div>
+<p>
+<strong>&ldquo;配置&rdquo;选项卡</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="TuningParams_writeFrequency_description"></a>写频率</strong>
+</dt>
+<dd>指定写会话到持久性存储的时间。
+<p></p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">结束 servlet 服务</td>
+<td align="left" valign="top" class="base">在 servlet 执行完成后，会话写入数据库或另一个 WebSphere Application Server 实例。</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">手工更新</td>
+<td align="left" valign="top" class="base">为了将会话数据写入数据库或另一个 WebSphere Application Server 实例，IBMSession 对象上有计划的同步是必需的。</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">基于时间的</td>
+<td align="left" valign="top" class="base">会话数据根据指定的&ldquo;写间隔&rdquo;值写入数据库或另一个 WebSphere ApplicationServer 实例。缺省：10 秒</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="TuningParams_writeContents_description"></a>写内容</strong>
+</dt>
+<dd>指定仅更新的属性写入外部位置还是所有会话属性（无论它们是否更改）都写入外部位置。外部位置可以是数据库也可以是另一个应用程序服务器实例。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">仅更新的属性</td>
+<td align="left" valign="top" class="base">仅将更新的属性写到持久性存储。</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">所有会话属性</td>
+<td align="left" valign="top" class="base">将所有属性写到持久性存储。</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="TuningParams_scheduleInvalidation_description"></a>调度会话清除</strong>
+</dt>
+<dd> 指定何时从数据库或另一个应用程序服务器实例清除失效会话。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">指定分布式会话清除调度</td>
+<td align="left" valign="top" class="base">允许调度失效进程从外部位置清除失效 HTTP 会话。启用此选项减少为了保持 HTTP 会话存活而必需对数据库或另一个应用程序服务器实例进行更新的数目。当禁用此选项时，失效者进程每几分钟运行一次以除去失效的 HTTP 会话。<p>当启用此选项时，为进程指定一天中的两个小时来清除外部位置中的失效会话。指定应用程序服务器中活动最少的时间。外部位置可以是数据库也可以是另一个应用程序服务器实例。</p>
+</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">一天的第一时间（0 － 23）</td>
+<td align="left" valign="top" class="base">表明从外部位置清除失效会话期间的第一个小时，以格林威治标准时间（GMT）表示。指定此值为 0 到 23 之间的正整数。此值仅当启用调度失效时才有效。</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">一天的第二时间（0 － 23）</td>
+<td align="left" valign="top" class="base">表明从外部位置清除失效会话期间的第二个小时，以格林威治标准时间（GMT）表示。指定此值为 0 到 23 之间的正整数。此值仅当启用调度失效时才有效。</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>相关信息</strong>
+</p>
+<a href="rcon_buttons.html">管理控制台按钮</a>
+<br>
+
+<a href="rcon_pageusage.html">管理控制台页面功能</a>
+<br>
+
+<a href="rcon_preferences.html">管理控制台首选项设置</a>
+<br>
+
+<a href="uprs_rtuning_parameters.html">调整参数设置</a>
+<br>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Param&egrave;tres des communications sortantes pour le transport CSI</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecoutboundconn"></a>
+<h2>Param&egrave;tres des communications sortantes pour le transport CSI</h2>
+
+<p>Cette page permet d'indiquer les transports et les param&egrave;tres
+SSL (Secure Sockets Layer) que ce serveur utilise lors de la communication
+avec des serveurs en aval pour les demandes sortantes.</p>
+
+<p>Pour afficher cette page de la console d'administration, cliquez sur
+<strong>S&eacute;curit&eacute; &gt; Protocole d'authentification &gt; Transport des communications sortantes CSI</strong>.</p>
+
+<div>
+<p>
+<strong>Onglet Configuration</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="Transport_o_description"></a>Transport</strong>
+</dt>
+<dd>Indique si les processus client se connectent au serveur &agrave;
+l'aide de l'un des transports connect&eacute;s au serveur. 
+<p>Vous pouvez choisir d'utiliser <strong>SSL</strong>, <strong>TCP/IP</strong> ou
+<strong>Les deux</strong> en tant que protocole de transport sortant pris en
+charge par un serveur. Si vous indiquez <strong>TCP/IP</strong>, le serveur
+prend en charge uniquement TCP/IP et ne peut pas initialiser les
+connexions SSL avec les serveurs en aval. Si vous indiquez que <strong>SSL est pris en
+charge</strong>, ce serveur peut initialiser des connexions TCP/IP ou SSL. Si vous
+indiquez que <strong>SSL est requis</strong>, ce serveur doit utiliser SSL
+pour initialiser les connexions vers les serveurs en aval. Si vous
+sp&eacute;cifiez SSL, choisissez l'ensemble de param&egrave;tres de
+configuration SSL &agrave; utiliser pour la
+configuration des communications sortantes. Ce choix d&eacute;termine le
+fichier de cl&eacute;s et le fichier des tiers dignes de confiance &agrave;
+utiliser pour les connexions sortantes sur les serveurs en aval. Prenez en compte, par exemple, les &eacute;l&eacute;ments suivants :<dl>
+
+<dt>
+<strong>TCP/IP</strong>
+</dt>
+<dd>Ce serveur ouvre uniquement les connexions TCP/IP avec
+les serveurs situ&eacute;s en aval.</dd>
+
+<dt>
+<strong>SSL pris en charge</strong>
+</dt>
+<dd>Ce serveur ouvre les connexions SSL avec
+les serveurs situ&eacute;s en aval qui prennent en charge ces connexions et les
+connexions TCP/IP connections avec les serveurs situ&eacute;s en aval ne prenant
+pas en charge ce type de connexion.</dd>
+
+<dt>
+<strong>SSL requis</strong>
+</dt>
+<dd>Ce serveur ouvre toujours des connexions SSL
+avec des serveurs situ&eacute;s en aval.</dd>
+
+</dl>
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut :</td>
+<td align="left" valign="top" class="base">SSL pris en charge</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Port&eacute;e :</td>
+<td align="left" valign="top" class="base">TCP/IP, requis par SSL, pris en charge par SSL</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SSLSettings_ibm_o_description"></a>Param&egrave;tres SSL</strong>
+</dt>
+<dd>Indique une liste de param&egrave;tres SSL pr&eacute;d&eacute;finis pour les
+connexions sortantes.
+ Ces param&egrave;tres sont d&eacute;finis dans la sous-fen&ecirc;tre R&eacute;pertoires de
+configuration SSL.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es :</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut :</td>
+<td align="left" valign="top" class="base">Param&egrave;tres SSL par d&eacute;faut</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Port&eacute;e :</td>
+<td align="left" valign="top" class="base">Tous les param&egrave;tres SSL configur&eacute;s dans le panneau des
+r&eacute;pertoires de configuration SSL</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informations connexes</strong>
+</p>
+<a href="rcon_buttons.html">Boutons de la console administrative</a>
+<br>
+
+<a href="rcon_pageusage.html">Caract&eacute;ristiques de la page de la console d'administration</a>
+<br>
+
+<a href="rcon_scope.html">Param&egrave;tres de la port&eacute;e de la console administrative</a>
+<br>
+
+<a href="rcon_filter.html">Param&egrave;tres de filtrage de la console administrative</a>
+<br>
+
+<a href="rcon_preferences.html">Param&egrave;tres des pr&eacute;f&eacute;rences de la console administrative</a>
+<br>
+
+</div>
+</body>
+</html>

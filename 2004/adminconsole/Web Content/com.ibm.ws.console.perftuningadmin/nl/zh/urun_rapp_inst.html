@@ -1,0 +1,283 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>企业应用程序设置</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="urun_rapp_inst"></a>
+<h2>企业应用程序设置</h2>
+
+<p>使用本页面配置企业应用程序。</p>
+
+<p>要查看此管理控制台页面，单击<strong>应用程序 &gt; 企业应用程序&gt; </strong><em>application_name</em>。</p>
+
+<div>
+<p>
+<strong>&ldquo;配置&rdquo;选项卡</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="ApplicationDeployment_name_description"></a>名称</strong>
+</dt>
+<dd>指定应用程序的逻辑名。应用程序名称在单元内必须是唯一的，并且不能包含对象名中不允许的字符。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationDeployment_startingWeight_description"></a>启动权值</strong>
+</dt>
+<dd>指定服务器启动时启动应用程序的顺序。具有最低启动权值的应用程序第一个启动。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">整型</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">1</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">范围</td>
+<td align="left" valign="top" class="base">0 到 100</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationDeployment_binariesURL_description"></a>应用程序二进制文件</strong>
+</dt>
+<dd>指定将安装应用程序 EAR 文件的目录。缺省值是 APP_INSTALL_ROOT/<em>cell_name</em> 的值，其中 APP_INSTALL_ROOT 变量是 <em>install_root</em>/installedApps；例如，C:\WebSphere\AppServer\installedApps\<em>cell_name</em>。
+<p>您可指定绝对路径，或使用 pathmap 变量，如 ${MY_APPS}。您可在任何安装中使用 pathmap 变量。表示当前单元名的 WebSphere Application Server 变量 ${CELL} 也在 pathmap 变量中；例如 ${MY_APP}/${CELL}。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">单位</td>
+<td align="left" valign="top" class="base">完整路径名</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationDeployment_useMetadataFromBinaries_description"></a>使用二进制的元数据</strong>
+</dt>
+<dd>指定应用程序服务器是否使用位于应用程序部署文档、deployment.xml 文件（缺省）或那些位于企业应用程序资源文件（EAR）文件中的绑定、扩展和部署描述符。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">true</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationDeployment_enableDistribution_description"></a>启用分布</strong>
+</dt>
+<dd>指定 WebSphere Application Server 在安装目标中是展开还是删除应用程序二进制文件。缺省为启用应用程序分布。已安装应用程序的应用程序二进制文件展开到指定的目录。当您卸载并保存更改到配置时，二进制文件也删除。如果您禁用此选项，那么必须确保在应用程序运行的所有节点的目标目录中正确地展开了应用程序二进制文件。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">true</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationDeployment_classloaderMode_description"></a>类装入程序方式</strong>
+</dt>
+<dd>指定类装入程序是否首先在父类装入程序或应用程序类装入程序中搜索来装入类。JDK 类装入程序和 WebSphere Application Server 类装入程序的标准为 PARENT_FIRST。通过指定 PARENT_LAST，应用程序可以覆盖包含在父类装入程序中的类，但如果您混合使用覆盖或非覆盖类，此操作可以潜在结果为 ClassCastException 或 LinkageErrors。
+<p>选项是 PARENT_FIRST 和 PARENT_LAST。缺省是在应用程序类装入程序装入一个类中搜索之前，在父类装入程序中搜索。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">PARENT_FIRST</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationDeployment_warClassloaderPolicy_description"></a>WAR 类装入程序策略</strong>
+</dt>
+<dd>指定是否使用单个类装入程序装入此应用程序的所有 WAR 文件，还是为每个 WAR 文件使用不同的类装入程序。
+<p>选项是 APPLICATION 和 MODULE。缺省是分别使用类装入程序装入每个 WAR 文件。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">MODULE</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationDeployment_createMBeansForResource"></a>为资源创建 MBean</strong>
+</dt>
+<dd>指定是否在应用程序内创建各种资源（如 servlet 或 JSP 文件）的 MBean 文件。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">true</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationDeployment_enableClassReloading"></a>启用重新装入</strong>
+</dt>
+<dd>指定在更新应用程序文件时是否启用类重新装入。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">true</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationDeployment_reloadInterval"></a>重新装入间隔</strong>
+</dt>
+<dd>指定用于扫描应用程序文件系统的已更新文件的秒数。缺省为 EAR 文件的 IBM 扩展（META-INF/ibm-application-ext.xmi）文件中重新装入时间间隔属性的值。仅当启用了类重新装入时此设置才生效。
+<p>此处指定的重新装入时间间隔覆盖 EAR 文件中每个 Web 模块的 IBM 扩展中指定的值（其反过来覆盖 EAR 文件中应用程序的 IBM 扩展中指定的重新装入时间间隔）。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">整型</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">单位</td>
+<td align="left" valign="top" class="base">秒</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>相关信息</strong>
+</p>
+<a href="rcon_buttons.html">管理控制台按钮</a>
+<br>
+
+<a href="rcon_pageusage.html">管理控制台页面功能</a>
+<br>
+
+<a href="udat_nestjcaconfac.html">连接器模块集合</a>
+<br>
+
+<a href="ucws_rlibref.html">库引用集合</a>
+<br>
+
+<a href="uweb_rwebmc.html">Web 模块设置</a>
+<br>
+
+</div>
+</body>
+</html>

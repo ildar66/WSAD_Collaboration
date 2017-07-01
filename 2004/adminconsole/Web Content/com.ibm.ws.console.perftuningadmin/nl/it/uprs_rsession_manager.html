@@ -1,0 +1,199 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Impostazioni Gestione sessioni</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uprs_rsession_manager"></a>
+<h2>Impostazioni Gestione sessioni</h2>
+
+<p>Utilizzare questa pagina per gestire il supporto delle sessioni HTTP. Questo
+supporto comprende la specifica di un meccanismo di traccia delle sessioni,
+l'impostazione del numero massimo di sessioni in memoria, il controllo dell'overflow, la
+configurazione del timeout di sessione.</p>
+
+<p>Per visualizzare questa pagina della console di gestione, fare clic su<strong>Server</strong> &gt;
+<strong>Server delle applicazioni</strong> &gt; <em>nome_server</em> &gt; <strong>Contenitore Web</strong> &gt;
+<strong>Gestione sessioni</strong>.</p>
+
+<div>
+<p>
+<strong>Scheda Configurazione</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="SessionManager_enable_description"></a>Sovrascrivi gestione sessioni (solo livello modulo Web e applicazione)</strong>
+</dt>
+<dd>Specifica se tali impostazioni di Gestione sessioni hanno la precedenza su
+quelle ereditate da un livello superiore dell'applicazione corrente o del modulo Web.
+<p>Per impostazione predefinita, i moduli Web ereditano le impostazioni di Gestione
+sessioni dal livello dell'applicazione superiore e le applicazioni ereditano le
+impostazioni della Gestione sessioni dal livello del contenitore Web superiore.</p>
+
+</dd>
+<dt>
+<strong><a name="SessionManager_sessionTracking_description"></a>Meccanismo di traccia della sessione </strong>
+</dt>
+<dd>Specifica un meccanismo per la gestione delle sessioni HTTP.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Meccanismo</td>
+<td align="left" valign="top" class="base">Funzione</td>
+<td align="left" valign="top" class="base">Predefinito</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Abilita la traccia dell'ID SSL</td>
+<td align="left" valign="top" class="base">Specifica che la traccia della sessione deve utilizzare le informazioni SSL
+(Secure Sockets Layer) come ID di sessione. L'abilitazione
+della traccia SSL ha la precedenza sulla traccia delle sessioni basate sui cookie e sulla
+riscrittura dell'URL. <p>Se si abilita la traccia dell'ID SSL, sono disponibili due
+parametri: SSLV3Timeout e SAS (Secure Association Server). SSLV3Timeout specifica l'intervallo di tempo dopo il quale le sessioni SSL vengono rinegoziate. Questa &egrave;
+un'impostazione con valori elevati e la modifica probabilmente non fornisce un impatto
+significativo sulle prestazioni. Il parametro SAS stabilisce una connessione SSL solo se passa da JVM (Java Virtual Machine) a un'altra JVM. Se tutti i bean vengono collocati nella stessa JVM, l'SSL utilizzato da SAS non dovrebbe ridurre le prestazioni.</p>
+<p>Questi vengono impostati modificando i file <samp>sas.server.properties</samp> e
+<samp>sas.client.props</samp> situati nella directory
+<em>root_installazione_prodotto</em>\properties, dove <em>root_installazione_prodotto</em> &egrave; la
+directory in cui &egrave; installata WebSphere Application Server. </p>
+</td>
+<td align="left" valign="top" class="base">9600 secondi</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Attiva cookie</td>
+<td align="left" valign="top" class="base">Specifica che la traccia delle sessioni deve utilizzare i cookie per
+trasportare gli ID di sessione.
+Se i cookie sono abilitati, la traccia delle sessioni riconosce gli ID di sessione
+ricevuti come cookie e tenta di utilizzare i cookie per l'invio degli ID di sessione. In
+caso contrario, l'operazione utilizza la riscrittura URL al posto dei cookie (se la
+riscrittura URL &egrave; abilitata).<p>L'abilitazione dei cookie ha la precedenza sulla riscrittura URL.
+Non disabilitare i cookie nella funzione Gestione sessioni del server delle applicazioni
+su cui &egrave; in esecuzione l'applicazione di gestione, poich&eacute;, in questo modo, l'applicazione
+di gestione non funzioner&agrave; dopo un riavvio del server. In alternativa, eseguire
+l'applicazione di gestione in un processo separato dalle applicazioni. </p>
+<p>Per
+modificare queste impostazioni, fare clic su <strong>Modifica</strong>.</p>
+</td>
+<td align="left" valign="top" class="base"></td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Abilitazione riscrittura URL</td>
+<td align="left" valign="top" class="base">Specifica se la funzione Gestione sessioni utilizza gli URL riscritti per il
+trasferimento degli ID di sessione. Se &egrave; abilitata la riscrittura dell'URL, la funzione Gestione sessioni riconosce gli ID
+di sessione ricevuti nell'URL se nel servlet viene richiamato il metodo encodeURL.</td>
+<td align="left" valign="top" class="base"></td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Abilita riscrittura di attivazione del protocollo</td>
+<td align="left" valign="top" class="base">Specifica se l'ID sessione viene aggiunto all'URL, quando quest'ultimo richiede
+il passaggio da HTTP a HTTPS o da HTTPS a HTTP. Se la riscrittura &egrave; abilitata, &egrave;
+richiesto l'ID di sessione per passare da HTTP e HTTPS.</td>
+<td align="left" valign="top" class="base"></td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SessionManager_overflow_description"></a>Overflow  </strong>
+</dt>
+<dd>Specifica che il numero di sessioni in memoria pu&ograve; superare il valore
+specificato nella propriet&agrave; Numero massimo di sessioni in memoria. Questa opzione &egrave;
+valida solo in modalit&agrave; sessioni non distribuite.</dd>
+<dt>
+<strong><a name="TuningParams_maxInMemorySessionCount_description"></a>Numero massimo di sessioni in memoria  </strong>
+</dt>
+<dd>Specifica il numero massimo di sessioni da conservare in memoria.
+<p>Il significato differisce a seconda se si utilizzano sessioni in memoria o
+distribuite. Per
+le sessioni in-memoria, questo valore specifica il numero di sessioni presenti nella tabella delle sessioni di base. Utilizzare la propriet&agrave; Consenti overflow per specificare se limitare le sessioni a
+questo numero, durante la funzione Gestione sessioni, oppure per consentire la
+memorizzazione di sessioni aggiuntive in tabelle secondarie.  Per le sessioni
+distribuite, questo valore specifica la dimensione della cache in memoria per le
+sessioni.
+Una volta che la cache di sessione ha raggiunto la dimensione massima e viene
+richiesta una nuova sessione, la funzione Gestione sessioni rimuove l'ultima sessione
+utilizzata dalla cache per fare spazio alla nuova. <p>
+<img alt="[Fix Pack 5.0.2 e successive]" src="v502.gif" border="0"><b>Nota: </b>Non
+impostare questo valore su un numero inferiore alla dimensione massima del lotto thread del server.</p>
+</p>
+
+</dd>
+<dt>
+<strong><a name="SessionManager_sessionTimeout_description"></a>Timeout sessione  </strong>
+</dt>
+<dd>Specifica l'intervallo di tempo durante il quale una sessione pu&ograve; rimanere
+inutilizzata prima di non essere pi&ugrave; considerata valida.   Specificare <samp>Imposta
+timeout</samp> o <samp>Nessun timeout</samp>. Specificare il valore in minuti maggiore o pari a due. 
+<p> Se il timeout sessione non &egrave; specificato nel descrittore di distribuzione del modulo
+Web, il valore di questa impostazione viene utilizzato come valore predefinito.  Per garantire le prestazioni, il timer di scadenza validit&agrave; non &egrave; accurato al secondo. Quando la frequenza di scrittura &egrave; basata su un'orario specificato, verificare che questo
+valore sia almeno il doppio dell'intervallo di scrittura. </p>
+
+</dd>
+<dt>
+<strong><a name="SessionManager_securityIntegration_description"></a>Integrazione di sicurezza</strong>
+</dt>
+<dd>Specifica che quando l'integrazione di sicurezza &egrave; abilitata, la funzione
+Gestione sessioni associa l'identit&agrave; degli utenti alle relative sessioni HTTP</dd>
+<dt>
+<strong><a name="SessionManager_serialAccess_description"></a>Accesso seriale alle sessioni</strong>
+</dt>
+<dd>Specifica che non &egrave; consentito l'accesso a sessioni simultanee in un
+server specificato.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tempo massimo di attesa</td>
+<td align="left" valign="top" class="base">Specifica per quanto tempo una richiesta servlet rimane in attesa su una
+sessione HTTP prima di continuare l'esecuzione. Questo parametro &egrave; facoltativo ed &egrave; espresso in secondi. Il valore predefinito &egrave; 120 o 2 minuti. In condizioni normali, una richiesta servlet in attesa di accedere a una sessione HTTP
+riceve una notifica dalla richiesta che al momento occupa la sessione HTTP in questione
+al termine della richiesta.</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Consenti accesso su timeout</td>
+<td align="left" valign="top" class="base">Specifica se il servlet viene eseguito normalmente o interrotto nel caso di un timeout. Se questa casella viene selezionata, il servlet effettua l'esecuzione normalmente.
+ Se la casella non viene selezionata, l'esecuzione del servlet viene interrotta e vengono generati file di log degli errori.</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informazioni correlate</strong>
+</p>
+<a href="rcon_buttons.html">Pulsanti della console di gestione</a>
+<br>
+
+<a href="rcon_pageusage.html">Funzioni della pagina della console di gestione</a>
+<br>
+
+<a href="rcon_preferences.html">Impostazioni delle preferenze della console di gestione</a>
+<br>
+
+</div>
+</body>
+</html>

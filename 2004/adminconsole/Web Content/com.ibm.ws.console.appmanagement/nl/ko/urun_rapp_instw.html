@@ -1,0 +1,299 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>응용프로그램 설치 설정 준비</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="urun_rapp_instw"></a>
+<h2>응용프로그램 설치 설정 준비</h2>
+
+<p>응용프로그램(EAR 파일) 또는 모듈(JAR 또는 WAR 파일)을 설치하려면 이 페이지를 참조하십시오. </p>
+
+<p>이 관리 콘솔 페이지를 보려면 <strong>응용프로그램 &gt; 새 응용프로그램 설치</strong>를 클릭하십시오.
+</p>
+
+<p>응용프로그램 또는 모듈을 설치하려면 이 페이지의 단계를 완료하십시오. 최소한 첫 번째 단계를 완료해야 하고 응용프로그램,
+EJB 모듈 또는 웹 모듈을 설치 중인지 여부에 따라서 나머지 단계의 일부 또는
+전부를 완료해야 합니다. </p>
+
+<dl>
+<dt>
+<strong><a name="app_deploy_path"></a>경로</strong>
+</dt>
+<dd>엔터프라이즈 응용프로그램에 대한 .ear, .jar 또는 .war 파일의
+완전한 경로를 지정하십시오. 
+<p>브라우저 및 응용프로그램 파일이 동일한 시스템에 있는 경우(서버도
+ 해당 시스템에 있는지 여부와 관계없이) <strong>로컬 경로</strong>를 사용하십시오. </p>
+
+<p>응용프로그램 파일이 현재 셀 컨텍스트의 임의의 노드에 상주하는 경우
+ <strong>서버 경로</strong>를 사용하십시오. Node Agent 또는 Deployment Manager가 선택된 노드에서 실행 중인
+ 경우 노드의 전체 파일 시스템을 찾아볼 수 있습니다. .ear, .jar 또는 .war
+ 파일만이 찾아보기 중에 표시됩니다. </p>
+
+<p>응용프로그램을 설치하는 동안, 응용프로그램 파일은 일반적으로 브라우저를 실행 중인 클라이언트 시스템에서
+파일이 전개되는 관리 콘솔을 실행 중인 서버 시스템으로 업로드됩니다. 그런 경우 관리 콘솔을
+ 실행하는 웹 브라우저가 서버 시스템에 업로드할 EAR, WAR 또는
+ JAR 모듈을 선택하는 데 사용됩니다. </p>
+
+<p>그러나 일부 경우에는 응용프로그램 파일이 셀에 있는 임의의 노드의
+ 파일 시스템에 상주합니다. Application Server가 이들 파일을
+ 설치하게 하려면 <strong>서버 경로</strong> 옵션을 사용하십시오. </p>
+
+<p>또한 이 옵션을 사용하여 Application Server를 실행 중인 시스템에
+ 이미 상주하는 응용프로그램 파일을 지정할 수도 있습니다. 예를 들어 Windows NT에 대한
+ 필드 값은 <samp>C:\WebSphere\AppServer\installableApps\test.ear</samp>일 수 있습니다.
+ 독립형 WAR 모듈을 설치하는 경우, 컨텍스트 루트 또한 지정해야 합니다.</p>
+
+</dd>
+<dt>
+<strong><a name="app_deploy_contextRoot"></a>컨텍스트 루트</strong>
+</dt>
+<dd>웹 응용프로그램(WAR)의 컨텍스트 루트를 지정합니다.
+<p>이 필드는 독립형 WAR 파일을 설치하는 데만 사용됩니다. 컨텍스트 루트는 정의된 Servlet 맵핑(WAR 파일에서)과 결합되어, 사용자가 Servlet에 액세스하기 위해 입력하는 전체 URI를 구성합니다.
+예를 들어 컨텍스트 루트가 /gettingstarted이고 Servlet 맵핑이 MySession인
+ 경우 URL은 <samp>http://host:port/gettingstarted/MySession</samp>입니다. </p>
+
+</dd>
+<dt>
+<strong><a name="app_deploy_genDefBindings"></a>기본 바인딩 생성</strong>
+</dt>
+<dd>기본 바인딩을 생성할지 여부를 지정합니다. 선택란에 체크 표시를 하는
+경우 응용프로그램의 모든 불완전한 바인딩이 기본값으로 채워집니다.
+기존 바인딩은 변경되지 않습니다. 
+<p>이 옵션을 선택하여 단계 옆에 빨간색 별표(*)가 없는 경우 요약 단계로 직접 점프하여 응용프로그램을
+설치하십시오. 빨간색 별표는 단계에 완료되지 않은 데이터가 있고 올바른 값이
+필요함을 말합니다. 요약 패널에서 응용프로그램이 설치될 셀, 노드 및 서버를 검증하십시오. </p>
+
+<p>바인딩은 다음과 같이 생성됩니다. </p>
+
+<ul>
+
+<li>EJB JNDI 이름이 <em>prefix</em>/<em>ejb-name</em> 양식으로 생성됩니다. 기본 접두부는
+ <samp>ejb</samp>이지만 대체할 수 있습니다. <em>ejb-name</em>은 전개 설명자
+ <samp>&lt;ejb-name&gt;</samp> 태그에 지정되는 것과 같습니다. </li>
+
+<li>EJB 참조는 다음과 같이 바인드됩니다. &lt;ejb-link&gt;가 있으면
+ 해당 링크가 사용됩니다. 그렇지 않으면 참조된 Enterprise Bean으로 홈(또는 로컬 홈)
+ 인터페이스를 갖는 고유한 Bean이 있는 경우 참조가 자동으로 분석됩니다. </li>
+
+<li>자원 참조 바인딩은 &lt;res-ref-name&gt; 태그에서 파생됩니다.
+ 이 조치가 java:comp/env 이름이 자원 글로벌 JNDI 이름과 동일하다고 가정함에
+ 주의하십시오. </li>
+
+<li>연결 팩토리 바인딩(EJB 2.0 Jar 파일의 경우)은 제공되는 JNDI 이름과
+ 권한 정보를 기초로 생성됩니다. 이 조치는 기본 연결 팩토리가
+ 설치될 응용프로그램의 각 EJB 2.0 JAR 파일에 대해 설정하게
+ 합니다. Bean 레벨 연결 팩토리 바인딩은 생성되지 않습니다. </li>
+
+<li>데이터소스 바인딩(EJB 1.1 Jar 파일의 경우)은 JNDI 이름, 데이터소스
+ 사용자 이름 및 암호 옵션을 기초로 생성됩니다. 그러면 각 EJB JAR 파일에 대한 기본 데이터소스 설정이
+작성됩니다. Bean 레벨 데이터소스 바인딩은 생성되지 않습니다. </li>
+
+<li>메시지 구동 Bean(MDB) 리스너 포트는 문자열 <samp>Port</samp>를 갖는
+ MDB &lt;ejb-name&gt; 태그로부터 파생됩니다. </li>
+
+<li>.war 파일의 경우 별도로 지정되지 않는 한 가상 호스트가
+ <samp>default_host</samp>로 설정됩니다. </li>
+
+</ul>
+
+<p>기본 계획이 대부분의 응용프로그램에 대해 또는 최소한 대부분 응용프로그램의
+ 대부분 바인딩에 대해 충분합니다. 그러나 다음 경우에는 작동하지 않습니다. </p>
+
+<ul>
+
+<li>사용자가 하나 이상의 EJB 파일의 글로벌 JNDI 이름을 명시적으로 제어하기 원합니다. </li>
+
+<li>CMP에 대한 데이터소스 바인딩을 보다 단단히 제어해야 합니다. 즉, 복수의
+ 데이터소스가 있고 둘 이상의 글로벌 데이터소스가 필요합니다. </li>
+
+<li>자원 참조를 java:comp/env 이름과는 다른 글로벌 자원 JNDI 이름에
+ 맵핑해야 합니다. </li>
+
+</ul>
+
+<p>그런 경우 XML 문서(사용자 정의 계획)로 작동을 변경할 수 있습니다. 사용자 정의 계획을 지정하고 예에 대한
+ 필드의 도움말을 보려면 <strong>특정 바인딩 파일</strong> 필드를 사용하십시오. </p>
+
+</dd>
+<dt>
+<strong><a name="app_deploy_prefixes"></a>접두부</strong>
+</dt>
+<dd>생성되는 JNDI 이름에 사용할 접두부를 지정합니다. 
+
+</dd>
+<dt>
+<strong><a name="app_deploy_override"></a>대체</strong>
+</dt>
+<dd>기존 바인딩의 대체 여부를 지정합니다. 
+<p>이 선택란이 체크되면 기존 바인딩이 생성되는 바인딩으로 대체됩니다. </p>
+
+</dd>
+<dt>
+<strong><a name="app_deploy_ejbCmpBindings"></a>EJB 1.1 CMP 바인딩</strong>
+</dt>
+<dd>기본 데이터소스 JNDI 이름을 지정합니다. 
+<p>
+<strong>EJB 1.1 CMP에 대한 기본 바인딩</strong> 단일 선택 단추가 선택되는 경우
+ CMP 1.1 Bean과 함께 사용할 기본 데이터소스에 대한 JNDI 이름을 지정하십시오. 또한
+ 이 기본 데이터소스에 대한 사용자 ID 및 암호를 지정하십시오. </p>
+
+</dd>
+<dt>
+<strong><a name="app_deploy_connFacBindings"></a>연결 팩토리 바인딩</strong>
+</dt>
+<dd>기본 데이터소스 JNDI 이름을 지정합니다. 
+<p>
+<strong>기본 연결 팩토리 바인딩</strong> 단일 선택 단추가 선택되는 경우
+ 이 바인딩과 함께 사용할 기본 데이터소스의 JNDI 이름을 지정하십시오. 또한
+ 자원 권한을 지정하십시오. </p>
+
+</dd>
+<dt>
+<strong><a name="app_deploy_virtualHost"></a>가상 호스트</strong>
+</dt>
+<dd>WAR 모듈의 가상 호스트를 지정합니다.
+
+</dd>
+<dt>
+<strong><a name="app_deploy_specificBindingsFile"></a>특정 바인딩 파일</strong>
+</dt>
+<dd>기본 바인딩을 대체하는 바인딩 파일을 지정합니다. 
+<p>XML 문서(<em>aka</em> 사용자 정의 계획)로 기본 바인딩의 작동을
+ 변경하십시오. 사용자 정의 계획은 기본 계획을 확장하므로
+ 기본 계획이 충분하지 않은 영역만을 사용자 정의하면 됩니다.
+ 즉, 기본 계획에 의해 생성되는 바인딩을 변경하려는 방법을
+ 설명하면 됩니다. 전체 응용프로그램에 대한 바인딩을
+ 정의할 필요는 없습니다. </p>
+
+<p>다음은 기본 바인딩 생성 프로그램의 다양한 측면을 대체하는 방법의
+ 간략한 설명입니다. </p>
+
+<p>
+<strong>EJB JNDI 이름 제어</strong>
+
+</p>
+
+<pre>&lt;?xml version="1.0"?&gt;
+&lt;!DOCTYPE dfltbndngs SYSTEM "dfltbndngs.dtd"&gt;
+&lt;dfltbndngs&gt;
+  &lt;module-bindings&gt;
+    &lt;ejb-jar-binding&gt;
+      &lt;jar-name&gt;helloEjb.jar&lt;/jar-name&gt;
+&lt;!-- this name must match the module name in the .ear file --&gt;
+      &lt;ejb-bindings&gt;
+        &lt;ejb-binding&gt;
+         &lt;ejb-name&gt;HelloEjb&lt;/ejb-name&gt;
+&lt;!-- this must match the &lt;ejb-name&gt; entry in the EJB jar DD --&gt;
+         &lt;jndi-name&gt;com/acme/ejb/HelloHome&lt;/jndi-name&gt;
+        &lt;/ejb-binding&gt;
+      &lt;/ejb-bindings&gt;
+    &lt;/ejb-jar-binding&gt;
+  &lt;/module-bindings&gt;
+&lt;/dfltbndngs&gt;</pre>
+
+<p> 
+<strong>EJB JAR 파일에 대한 연결 팩토리 바인딩 설정</strong>
+
+</p>
+
+<pre>&lt;!DOCTYPE dfltbndngs SYSTEM "dfltbndngs.dtd"&gt;
+&lt;dfltbndngs&gt;
+  &lt;module-bindings&gt;
+    &lt;ejb-jar-binding&gt;
+      &lt;jar-name&gt;yourEjb20.jar&lt;/jar-name&gt;
+      &lt;connection-factory&gt;
+        &lt;jndi-name&gt;eis/jdbc/YourData_CMP&lt;/jndi-name&gt;
+        &lt;res-auth&gt;Container&lt;/res-auth&gt;
+      &lt;/connection-factory&gt;
+    &lt;/ejb-jar-binding&gt;
+  &lt;/module-bindings&gt;
+&lt;/dfltbndngs&gt;</pre>
+
+<p> 
+<strong>EJB 파일에 대한 연결 팩토리 바인딩 설정</strong>
+
+</p>
+
+<pre>&lt;?xml version="1.0"&gt;
+&lt;!DOCTYPE dfltbndngs SYSTEM "dfltbndngs.dtd"&gt;
+&lt;dfltbndngs&gt;
+  &lt;module-bindings&gt;
+    &lt;ejb-jar-binding&gt;
+      &lt;jar-name&gt;yourEjb20.jar&lt;/jar-name&gt;
+      &lt;ejb-bindings&gt;
+        &lt;ejb-binding&gt;
+          &lt;ejb-name&gt;YourCmp20&lt;/ejb-name&gt;
+&lt;!-- this matches the ejb-name tag in the DD --&gt;
+          &lt;connection-factory&gt;
+           &lt;jndi-name&gt;eis/jdbc/YourData_CMP&lt;/jndi-name&gt;
+           &lt;res-auth&gt;PerConnFact&lt;/res-auth&gt;
+          &lt;/connection-factory&gt;
+        &lt;/ejb-binding&gt;
+      &lt;/ejb-bindings&gt;
+    &lt;/ejb-jar-binding&gt;
+ &lt;/module-bindings&gt;
+&lt;/dfltbndngs&gt;</pre>
+
+<p> 
+<strong>WAR, EJB JAR 파일 또는 J2EE 클라이언트 JAR 파일에서 자원 참조 바인딩 대체</strong>
+
+</p>
+
+<p>다음은 WAR 파일에서 자원 참조 바인딩을 대체하는 예 코드입니다. EJB JAR 파일 또는
+ J2EE 클라이언트 Jar 파일에서 자원 참조를 대체하려면 유사한 코드를
+ 사용하십시오. </p>
+
+<pre>&lt;?xml version="1.0"?&gt;
+&lt;!DOCTYPE dfltbndngs SYSTEM "dfltbndngs.dtd"&gt;
+&lt;dfltbndngs&gt;
+  &lt;module-bindings&gt;
+    &lt;war-binding&gt;
+      &lt;jar-name&gt;hello.war&lt;/jar-name&gt;
+      &lt;resource-ref-bindings&gt;
+        &lt;resource-ref-binding&gt;
+          &lt;!-- the following must match the resource-ref in the DD --&gt;
+          &lt;resource-ref-name&gt;jdbc/MyDataSrc&lt;/resource-ref-name&gt;
+          &lt;jndi-name&gt;war/override/dataSource&lt;/jndi-name&gt;
+        &lt;/resource-ref-binding&gt;
+      &lt;/resource-ref-bindings&gt;
+    &lt;/war-binding&gt;
+  &lt;/module-bindings&gt;
+&lt;/dfltbndngs&gt;</pre>
+
+<p> 
+<strong>MDB JMS 리스너 포트 대체</strong>
+
+</p>
+
+<pre>&lt;?xml version="1.0"?&gt;
+&lt;!DOCTYPE dfltbndngs SYSTEM "dfltbndngs.dtd"&gt;
+&lt;dfltbndngs&gt;
+  &lt;module-bindings&gt;
+    &lt;ejb-jar-binding&gt;
+      &lt;jar-name&gt;YourEjbJar.jar&lt;/jar-name&gt;
+      &lt;ejb-bindings&gt;
+        &lt;ejb-binding&gt;
+          &lt;ejb-name&gt;YourMDB&lt;/ejb-name&gt;
+          &lt;listener-port&gt;yourMdbListPort&lt;/listener-port&gt;
+        &lt;/ejb-binding&gt;
+      &lt;/ejb-bindings&gt;
+    &lt;/ejb-jar-binding&gt;
+  &lt;/module-bindings&gt;
+&lt;/dfltbndngs&gt;</pre>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>관련 정보</strong>
+</p>
+<a href="rcon_buttons.html">관리 콘솔 단추</a>
+<br>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,322 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Einstellungen der Enterprise-Anwendung</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="urun_rapp_inst"></a>
+<h2>Einstellungen der Enterprise-Anwendung</h2>
+
+<p>Auf dieser Seite k&ouml;nnen Sie eine Enterprise-Anwendung konfigurieren. </p>
+
+<p>Klicken Sie, um diese Seite der Administrationskonsole anzuzeigen, auf <strong>Anwendungen &gt;
+Enterprise-Anwendungen &gt; </strong><em>Anwendungsname</em>.</p>
+
+<div>
+<p>
+<strong>Register "Konfiguration"</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="ApplicationDeployment_name_description"></a>Name</strong>
+</dt>
+<dd>Gibt einen logischen Namen f&uuml;r die Anwendung an. Anwendungsnamen m&uuml;ssen
+in einer Zelle eindeutig sein und d&uuml;rfen keine Zeichen enthalten, die in Objektnamen nicht zul&auml;ssig sind.
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationDeployment_startingWeight_description"></a>Anfangswertigkeit</strong>
+</dt>
+<dd>Gibt die Reihenfolge an, in der Anwendungen beim Start des Servers gestartet werden. Die
+Anwendung, die beim Start die niedrigste Wertigkeit hat, wird zuerst gestartet. 
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">1</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">0 bis 100</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationDeployment_binariesURL_description"></a>Bin&auml;rdateien der Anwendung</strong>
+</dt>
+<dd>Gibt das Verzeichnis an, in dem die EAR-Datei der Anwendung installiert wird.
+Der Standardwert ist der Wert von APP_INSTALL_ROOT/<em>Zellenname</em>, wobei die Variable
+APP_INSTALL_ROOT f&uuml;r <em>Installationsstammverzeichnis</em>/installedApps steht, z. B.
+C:\WebSphere\AppServer\installedApps\<em>Zellenname</em>.
+<p>Sie k&ouml;nnen einen absoluten Pfad angeben oder eine Variable pathmap wie ${MY_APPS} verwenden.
+Die Variable pathmap kann in jeder Installation verwendet werden, . In der Variablen pathmap kann auch eine WAS-Variable
+${CELL} verwendet werden, die den Namen der aktuellen Zelle angibt, z. B.
+${MY_APP}/${CELL}.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Einheiten</td>
+<td align="left" valign="top" class="base">Vollst&auml;ndiger Pfadname</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationDeployment_useMetadataFromBinaries_description"></a>Metadaten aus Bin&auml;rdateien verwenden</strong>
+</dt>
+<dd>Gibt an, ob der Anwendungsserver die Bindung, die Erweiterungen und Deployment-Deskriptoren aus dem
+Deployment-Dokument, der Datei deployment.xml (Standardwert) oder der EAR-Datei (Enterprise Application
+Ressource) verwenden soll.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Boolescher Wert</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">true</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationDeployment_enableDistribution_description"></a>Verteilung aktivieren</strong>
+</dt>
+<dd>Gibt an, ob WebSphere Application Server
+die Bin&auml;rdateien einer Anwendung im Installationsverzeichnis entpackt
+oder l&ouml;scht.
+Standardm&auml;&szlig;ig ist die Anwendungsverteilung
+aktiviert. Die Bin&auml;rdateien f&uuml;r installierte Anwendungen werden im angegebenen Verzeichnis entpackt.
+Die Bin&auml;rdateien werden gel&ouml;scht, wenn Sie die Anwendung deinstallieren und die ge&auml;nderte
+Konfiguration speichern. Sollten Sie diese Option inaktivieren, m&uuml;ssen Sie sicherstellen, dass die Bin&auml;rdateien der Anwendung auf
+allen Knoten, auf denen die Anwendung ausgef&uuml;hrt wird, in den Zielverzeichnissen entpackt werden.
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Boolescher Wert</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">true</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationDeployment_classloaderMode_description"></a>Klassenladermodus</strong>
+</dt>
+<dd>Gibt an, ob der Klassenlader zuerst im &uuml;bergeordneten Klassenlader oder im Klassenlader der
+Anwendung suchen soll, um eine Klasse zu laden. Der Standardwert f&uuml;r JDK-Klassenlader
+und WAS-Klassenlader ist PARENT_FIRST. Durch Angabe von PARENT_LAST kann die Anwendung Klassen, die im &uuml;bergeordneten Klassenlader enthalten
+sind, &uuml;berschreiben. Wenn &uuml;berschriebene und nicht &uuml;berschriebene Klassen gemischt verwendet werden, besteht
+jedoch die M&ouml;glichkeit, dass eine ClassCastException ausgel&ouml;st wird bzw. Verkn&uuml;pfungsfehler (LinkageErrors)
+auftreten.  
+<p>Die Optionen lauten PARENT_FIRST und PARENT_LAST. Der Standardwert sieht
+vor, dass zuerst im &uuml;bergeordneten Klassenlader und dann im Klassenlader der
+Anwendung gesucht werden soll, um eine Klasse zu laden.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">PARENT_FIRST</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationDeployment_warClassloaderPolicy_description"></a>Policy f&uuml;r WAR-Klassenlader</strong>
+</dt>
+<dd>Gibt an, ob ein einziger Klassenlader zum Laden aller WAR-Dateien dieser Anwendung verwendet
+oder ob jeder WAR-Datei ein anderer Klassenlader zugeordnet werden soll.
+<p>Die Optionen sind APPLICATION und MODULE. Der Standardwert sieht vor, dass f&uuml;r jede WAR-Datei ein
+eigenst&auml;ndiger Klassenlader verwendet wird. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">MODULE</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationDeployment_createMBeansForResource"></a>MBeans f&uuml;r Ressourcen erstellen
+</strong>
+</dt>
+<dd>Gibt an, ob MBean-Dateien f&uuml;r verschiedene Ressourcen (wie z. B. Servlets oder JSP-Dateien)
+in einer Anwendung erstellt werden sollen. 
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Boolescher Wert</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">true</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationDeployment_enableClassReloading"></a>Erneutes Laden aktiviert </strong>
+</dt>
+<dd>Gibt an, ob das erneute Laden von Klassen beim Aktualisieren von Anwendungsdateien aktiviert
+werden soll.  
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Boolescher Wert</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">true</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationDeployment_reloadInterval"></a>Intervall f&uuml;r erneutes Laden
+</strong>
+</dt>
+<dd>Gibt den Zeitraum an (in Sekunden), in dem das Dateisystem der Anwendung nach aktualisierten
+Dateien durchsucht wird. Der Standardwert ist der Wert des Attributs f&uuml;r erneutes Laden in der Datei der
+IBM Erweiterung (META-INF/ibm-application-ext.xmi) f&uuml;r die EAR-Datei. Diese Einstellung wird nur wirksam,
+wenn das erneute Laden von Klassen aktiviert ist.
+<p>Das hier angegebene Intervall f&uuml;r erneutes Laden setzt den Wert au&szlig;er Kraft, der in den
+IBM Erweiterungen der Webmodule in der EAR-Datei definiert ist (der wiederum das Intervall f&uuml;r erneutes
+Laden au&szlig;er Kraft setzen, das in den IBM Erweiterungen f&uuml;r die Anwendung in der EAR-Datei festgelegt ist).
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Einheiten</td>
+<td align="left" valign="top" class="base">Sekunden</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Zugeh&ouml;rige Informationen</strong>
+</p>
+<a href="rcon_buttons.html">Kn&ouml;pfe in der Adminstrationskonsole</a>
+<br>
+
+<a href="rcon_pageusage.html">Funktionen auf den Seiten der Administrationskonsole</a>
+<br>
+
+<a href="udat_nestjcaconfac.html">Connector-Module</a>
+<br>
+
+<a href="ucws_rlibref.html">Bibliotheksreferenzen </a>
+<br>
+
+<a href="uweb_rwebmc.html">Einstellungen f&uuml;r Webmodule </a>
+<br>
+
+</div>
+</body>
+</html>

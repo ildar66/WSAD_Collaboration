@@ -1,0 +1,425 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>관리 콘솔에서 오브젝트 요청 브로커 서비스 설정</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uorbsetg"></a>
+<h2>관리 콘솔에서 오브젝트 요청 브로커 서비스 설정</h2>
+
+<p>이 페이지를 참조하여 Java ORB(Object Request Broker) 서비스를
+구성하십시오.</p>
+
+<p>이 관리 콘솔 페이지를 보려면 <strong>서버</strong> <strong>&gt;</strong> <strong>Application Server</strong>
+<strong>&gt;</strong> <em>서버 이름</em> <strong>&gt;</strong> <strong>ORB 서비스</strong>를 클릭하십시오.</p>
+
+<p>내부 오브젝트 요청 브로커(ORB) 처리를 제어하기 위한 몇 가지 설정값을 사용할 수 있습니다. 응용프로그램에
+Enterprise Bean이 포함되어 있는 경우 이 설정을 사용하여 응용프로그램의 성능을 개선할 수 있습니다.
+관리 도메인에 구성된 Application Server 또는 기본 서버에 대한 설정값을 변경할 수 있습니다.</p>
+
+<div>
+<p>
+<strong>구성 탭</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="ObjectRequestBroker_requestTimeout_description"></a>요청 제한시간</strong>
+            &nbsp;
+            </dt>
+<dd>요청 메시지에 대해 시간을 제한하기 전에 기다리는 시간(초)을 지정합니다.
+<p>명령행 스크립트에서 사용하는 경우 이 시스템 등록 정보의 전체 이름은
+com.ibm.CORBA.RequestTimeout입니다.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">int</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">
+단위</td>
+<td align="left" valign="top" class="base">초</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">기본값</td>
+<td align="left" valign="top" class="base">180</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">범위</td>
+<td align="left" valign="top" class="base">0 - 300</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ObjectRequestBroker_requestRetriesCount_description"></a>요청 재시도 수</strong>
+            &nbsp;
+            </dt>
+<dd>서버가 실패한 경우 ORB가 요청을 전송하려고 시도하는 횟수를 지정합니다.
+재시도는 때때로 일시적인 네트워크 장애로부터의 복구를 가능하게 합니다.
+<p>명령행 스크립트에서 사용하는 경우 이 시스템 등록 정보의 전체 이름은
+com.ibm.CORBA.requestRetriesCount입니다.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">int</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">기본값</td>
+<td align="left" valign="top" class="base">1</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">범위</td>
+<td align="left" valign="top" class="base">1 - 10</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ObjectRequestBroker_requestRetriesDelay_description"></a>요청 재시도 지연</strong>
+            &nbsp;
+            </dt>
+<dd>요청 재시도 사이의 시간(밀리초)을 지정합니다. 
+<p>명령행 스크립트에서 사용하는 경우 이 시스템 등록 정보의 전체 이름은
+com.ibm.CORBA.requestRetriesDelay입니다.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">int</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">
+단위</td>
+<td align="left" valign="top" class="base">밀리초</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">기본값</td>
+<td align="left" valign="top" class="base">0</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">범위</td>
+<td align="left" valign="top" class="base">0 - 60</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ObjectRequestBroker_connectionCacheMaximum_description"></a>연결 캐시 최대</strong>
+            &nbsp;
+            </dt>
+<dd>서비스의 연결 캐시를 확보할 수 있는
+최대 연결 수를 지정합니다.서버측 ORB로 동시에 많은 클라이언트가
+연결 중이라면, 최대 1000개의 클라이언트까지 과부하를 지원하기 위해 이 매개변수를 증가시킬 수 있습니다.
+
+<p>명령행 스크립트에서 사용하는 경우 이 시스템 등록 정보의 전체 이름은 com.ibm.CORBA.MaxOpenConnections입니다.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">정수</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">
+단위</td>
+<td align="left" valign="top" class="base">연결 수</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">기본값</td>
+<td align="left" valign="top" class="base">240</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ObjectRequestBroker_connectionCacheMinimum_description"></a>연결 캐시 최소</strong>
+            &nbsp;
+            </dt>
+<dd>서비스의 연결 캐시를 확보할 수 있는 최소 연결 수를 지정합니다.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">정수</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">
+단위</td>
+<td align="left" valign="top" class="base">연결 수</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">기본값</td>
+<td align="left" valign="top" class="base">100</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ObjectRequestBroker_commTraceEnabled_description"></a>ORB 추적</strong>
+            &nbsp;
+            </dt>
+<dd>ORB GIOP 메시지 추적을 사용 가능하게 합니다.
+<p>이 설정은 두 시스템 등록 정보 com.ibm.CORBA.Debug 및 com.ibm.CORBA.CommTrace에 영향을 미칩니다.
+명령행 스크립트를 통하여 이러한 등록 정보를 설정하는 경우, GIOP 메시지의
+추적을 사용 가능하게 하기 위해 둘 다 <samp>true</samp>로 설정해야 합니다.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">부울</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">기본값</td>
+<td align="left" valign="top" class="base">사용 불가능(<samp>false</samp>)</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ObjectRequestBroker_locateRequestTimeout_description"></a>요청 찾기 제한시간</strong>
+            &nbsp;
+            </dt>
+<dd>LocateRequest 메시지에 대해 시간을 제한하기 전에 기다리는 시간(초)을 지정합니다.
+<p>명령행 스크립트에서 사용하는 경우 이 시스템 등록 정보의 전체 이름은
+com.ibm.CORBA.LocateRequestTimeout입니다.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">int</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">
+단위</td>
+<td align="left" valign="top" class="base">초</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">기본값</td>
+<td align="left" valign="top" class="base">180</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">범위</td>
+<td align="left" valign="top" class="base">0 - 300</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ObjectRequestBroker_forceTunnel_description"></a>터널링 강제 실행</strong>
+            &nbsp;
+            </dt>
+<dd>클라이언트 ORB가 HTTP 터널링을 사용하려고 시도하는 방법을 제어합니다. 
+<p>직접 액세스의 경우 이 등록 정보의 전체 이름은 com.ibm.CORBA.ForceTunnel입니다.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">문자열</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">기본값</td>
+<td align="left" valign="top" class="base"><samp>NEVER</samp></td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">범위</td>
+<td align="left" valign="top" class="base">유효한 값은 <samp>ALWAYS</samp>, <samp>NEVER</samp> 또는 <samp>WHENREQUIRED</samp>입니다.</td>
+
+</tr>
+
+</table>
+
+<p>다음은 유효한 값에 대한 추가 정보입니다.<dl>
+
+<dt>
+<strong>ALWAYS</strong>
+</dt>
+<dd>먼저 TCP 연결을 시도하지 않고
+즉시 HTTP 터널링을 사용합니다. </dd>
+
+<dt>
+<strong>NEVER</strong>
+</dt>
+<dd>HTTP 터널링은 사용 불가능합니다. TCP 연결이 실패할 경우 CORBA 시스템 예외
+(COMM_FAILURE)가 발생합니다. </dd>
+
+<dt>
+<strong>WHENREQUIRED</strong>
+</dt>
+<dd>TCP 연결이 실패할 경우 HTTP 터널링을 사용합니다. </dd>
+
+</dl>
+</p>
+
+</dd>
+<dt>
+<strong><a name="ObjectRequestBroker_tunnelAgentURL_description"></a>터널 에이전트 URL</strong>
+            &nbsp;
+            </dt>
+<dd>HTTP 터널링을 지원하기 위해 사용되는 Servlet의 URL을 지정합니다. 
+<p>이는 적절하게 형성된
+URL이어야 합니다(예: <samp>http://w3.mycorp.com:81/servlet/com.ibm.CORBA.services.IIOPTunnelServlet</samp>,
+애플릿의 경우 <samp>http://applethost:port/servlet/com.ibm.CORBA.services.IIOPTunnelServlet</samp>). <strong>HTTP 터널링</strong>이 설정되어 있을 경우 이 필드는 필수입니다.</p>
+
+<p>명령행 스크립트에서 사용하는 경우 이 시스템 등록 정보의 전체 이름은
+com.ibm.CORBA.TunnelAgentURL입니다.</p>
+
+</dd>
+<dt>
+<strong><a name="ObjectRequestBroker_noLocalCopies_description"></a>참조에 의한 전달 </strong>
+            &nbsp;
+            </dt>
+<dd>ORB가 매개변수를 전달하는 방식을 지정합니다. 사용 가능 상태에서 ORB는 매개변수를 값 대신 참조로 전달합니다. 이 방법에서는 오브젝트를 복사하지 않아도 됩니다. 참조로 전달을 사용하지 않으면 원격 메소드 호출에 앞서 항상 매개변수를 스택에 복사해 두어야 하는데, 비용이크다고 할 수 있습니다. 
+<p>EJB 클라이언트와 EJB 서버를 같은 WebSphere Application Server 인스턴스에 설치되어 있고,
+클라이언트와 서버가 원격 인터페이스를 쓰는 상황에서 참조로 전달하면 성능을 최대 50%까지
+개선할 수 있습니다. 참조로 전달은 비기본형인 오브젝트 유형을 매개변수로서 전달할 때에만 성능에이바지합니다.
+따라서 정수와 소수는 호출 모델에 관계 없이 항상 복사됩니다.
+</p>
+
+<p>이 등록 정보를 사용할 때는 예상치 못한 방식으로 작동할 수 있으므로 주의해야 합니다.
+오브젝트 참조가 원격 메소드에 의해 수정되면, 호출자가 변경 내용을 볼 수 있습니다.</p>
+
+<p>명령행 스크립트에서 쓸 경우, 이 시스템 등록 정보의 전체 이름은 com.ibm.CORBA.iiop.noLocalCopies입니다.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">부울</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">기본값</td>
+<td align="left" valign="top" class="base">사용 불가능(false)</td>
+
+</tr>
+
+</table>
+
+<p>원격 인터페이스와 함께 Enterprise Bean에 대해 이 옵션을 사용하면 EJB 스펙, 버전
+2.0이 위반됩니다(5.4 절 참조). EJB 메소드나 EJB 홈 메소드로 전달한 오브젝트 참조 내용을 복사하지 않기 때문에 손상될 수도 있습니다. </p>
+
+<p>다음 예를 고려하십시오.<pre>Iterator iterator = collection.iterator();
+MyPrimaryKey pk = new MyPrimaryKey();
+while (iterator.hasNext()) {
+   pk.id = (String) iterator.next();
+   MyEJB myEJB = myEJBHome.findByPrimaryKey(pk);
+}</pre>
+</p>
+
+<p>이 예제에서는, 동일한 MyPrimaryKey 오브젝트 클래스에 대한 참조가 매번 다른 ID로
+ WebSphere Application Server로 전달됩니다. 이 코드를 참조에 의한 전달을 <samp>사용 가능</samp>
+하게 하여 실행하면 여러 개의 enterprise bean이 동일한 MyPrimaryKey 오브젝트를 참조하기 때문에
+Application Server에서 문제를 일으킵니다. 이러한 문제를 피하려면, 참조에 의한 전달을 사용할 때
+시스템 등록 정보인 com.ibm.websphere.ejbcontainer.allowPrimaryKeyMutation을 <samp>true</samp>로
+설정하십시오. 참조로 전달을 <samp>true</samp>로 설정하면 EJB 컨테이너는 PrimaryKey 오브젝트를 근방에 복사해 둡니다. 물론 이로 인해 참조로 전달 설정에서 얻을 수 있는 성능상 이점은 약간 적어집니다. </p>
+
+<p>일반적으로 매개변수로서 오브젝트 참조를 Enterprise Bean 메소드나 EJB 홈 메소드로
+전달하는 응용프로그램 코드를 정밀히 검토하여 해당 오브젝트 참조를 전달하는 것이 데이터
+무결성의 소실이나 기타 문제점을 발생시키는지 판별해야 합니다.</p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>관련 정보</strong>
+</p>
+<a href="rcon_buttons.html">관리 콘솔 단추</a>
+<br>
+
+<a href="uejb_rthrd.html">스레드 풀 설정</a>
+<br>
+
+</div>
+</body>
+</html>

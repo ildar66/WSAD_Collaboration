@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<title>изменение фактической даты исполнения в заявке ${сRequest.number}. Превышает требуемую дату инициатора</title>
+	<meta http-equiv="content-type" content="text/html; charset=windows-1251">
+	<meta http-equiv="PRAGMA" content="NO-CACHE">
+	<meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+	<style>
+		tr.main {
+			height : 30px;
+            font-family : Tahoma, Verdana, Arial;
+			font-size : 13px;
+		}
+		td.attention {
+			height : 30px;
+			width : 300px;
+            font-family : Tahoma, Verdana, Arial;
+			font-size : 13px;
+			color : white;
+			background-color : #A0241A;
+		}
+		
+		td.first {
+			width : 300px;
+			height : 30px;
+			padding-left : 5px;
+			background-color : #CBD5E3;
+		}
+		td.second {
+			width : 600px;
+			height : 30px;
+			padding-left : 5px;
+		}
+		a.ref,
+		a:link.ref,
+		a:visited.ref,
+		a:active.ref {
+		    font-family : Tahoma, Verdana, Arial;
+		    font-size : 15px;
+		    color : #627fa0;
+		    text-decoration : none;
+		}
+	</style>
+</head>
+<body>
+<table cellspacing="0" cellpadding="0" width="900px">
+<tr class="main">
+<td class="attention">&nbsp;&nbsp;<b>внимание</b>:</td>
+<td class="second">&nbsp;&nbsp;<b>изменение фактической даты исполнения в заявке ${request.number}</b></td>
+</tr>
+<tr class="main">
+<td class="first">&nbsp;&nbsp;номер:</td>
+<td class="second">&nbsp;&nbsp;${request.number}</td>
+</tr>
+<tr class="main">
+<td class="first">&nbsp;&nbsp;статус:</td>
+<td class="second">&nbsp;&nbsp;${request.rtsStatus.name}</td>
+</tr>
+<tr class="main">
+<td class="first">&nbsp;&nbsp;дата создания:</td>
+<td class="second">&nbsp;&nbsp;${created}</td>
+</tr>
+<tr class="main">
+<td class="first">&nbsp;&nbsp;региональный менеджер:</td>
+<td class="second">&nbsp;&nbsp;${request.regMan.name}</td>
+</tr>
+<tr class="main">
+<td class="attention">&nbsp;&nbsp;новая планируемая дата:</td>
+<td class="second">&nbsp;&nbsp;${panningDate}</td>
+</tr>
+<tr class="main">
+<td class="attention">&nbsp;&nbsp;требуемая дата инициатора:</td>
+<td class="second">&nbsp;&nbsp;${requiredDate}</td>
+</tr>
+<tr class="main">
+<td class="attention">&nbsp;&nbsp;инициатор:</td>
+<td class="second">&nbsp;&nbsp;${initiator}</td>
+</tr>
+<tr class="main">
+<td class="attention">&nbsp;&nbsp;представитель инициатора:</td>
+<td class="second">&nbsp;&nbsp;${initiatorPerson}</td>
+</tr>
+</table>
+</body>
+</html>

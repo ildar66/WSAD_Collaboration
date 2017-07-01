@@ -1,0 +1,79 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>쿠키 설정</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="cook_set"></a>
+<h2>쿠키 설정</h2>
+
+<p>이 페이지를 참조하여 세션 관리를 위한 쿠키 설정을 구성하십시오.
+</p>
+
+<p>이 관리 콘솔 페이지를 보려면 <strong>서버</strong> &gt; <strong>Application Server</strong> &gt; <em>server_name</em>
+&gt; <strong>웹 컨테이너</strong> &gt; <strong>세션 관리</strong> &gt; <strong>쿠키 사용 가능</strong>을 클릭하십시오.</p>
+
+<div>
+<p>
+<strong>구성 탭</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="Cookie_name_description"></a>쿠키 이름</strong>
+</dt>
+<dd>세션 관리 쿠키의 고유한 이름을 지정합니다. Servlet 스펙에서는
+이름 JSESSIONID가 필요합니다. 그러나 유연성을 위해 이 값은 구성될 수 있습니다. </dd>
+<dt>
+<strong><a name="Cookie_secure_description"></a>쿠키 보안</strong>
+</dt>
+<dd>세션 쿠키가 보안 필드를 포함함을 지정합니다. 
+이 기능을 사용하면 쿠키의 교환을 HTTPS 세션으로만 제한합니다. </dd>
+<dt>
+<strong><a name="Cookie_domain_description"></a>쿠키 도메인</strong>
+</dt>
+<dd>세션 추적 쿠키의 도메인 필드를 지정합니다. 이 값은
+브라우저가 특정 서버에 쿠키를 전송하는지 여부를 제어합니다. 예를 들어,
+특정 도메인을 지정하면 세션 쿠키가 해당 도메인의 호스트에 전송됩니다. 기본 도메인은 서버입니다.</dd>
+<dt>
+<strong><a name="Cookie_path_description"></a>쿠키 경로</strong>
+</dt>
+<dd>쿠키가 경로에 지정된 URL에 전송됨을 지정합니다.
+서버에서 경로를 나타내는 문자열을 지정하십시오.
+"/"는 루트 디렉토리를 나타냅니다.
+쿠키가 전송될 경로를 제한하려면 값을 지정하십시오.
+경로를 제한하여 쿠키가 서버의 특정 URL로 이동하지 못하도록 방지할 수
+있습니다. 루트 디렉토리를 지정하면 해당 서버에서 액세스하는 경로에 관계없이
+항상 쿠키가 전송됩니다.</dd>
+<dt>
+<strong><a name="Cookie_maximum_age"></a>쿠키 최대 유효 기간</strong>
+</dt>
+<dd>쿠키가 클라이언트 브라우저에 상주하는 시간을 지정합니다. 현재
+브라우저 세션 중에만 또는 최대 유효 기간 까지만 쿠키가 상주하도록 지정하십시오. 최대
+유효 기간 옵션을 선택한 경우, 초 단위로 유효 기간을 지정하십시오.
+이 값은 쿠키 스펙에 설명된 TTL(Time to Live) 값에
+해당합니다.
+
+<p>기본값은 현재 브라우저 세션이며, 이는 -1 값과 동일합니다. </p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>관련 정보</strong>
+</p>
+<a href="rcon_buttons.html">관리 콘솔 단추</a>
+<br>
+
+<a href="rcon_pageusage.html">관리 콘솔 페이지 기능</a>
+<br>
+
+<a href="rcon_preferences.html">관리 콘솔 환경 설정</a>
+<br>
+
+</div>
+</body>
+</html>

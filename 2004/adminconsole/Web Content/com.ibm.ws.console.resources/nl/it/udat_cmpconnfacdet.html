@@ -1,0 +1,231 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Impostazioni di produzioni di connessioni CMP </title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="CMP_connection_factories_detail"></a>
+<h2>Impostazioni di produzioni di connessioni CMP </h2>
+
+<p>Utilizzare questa pagina per visualizzare le impostazioni di una produzione
+connessioni utilizzata da un bean CMP per accedere a un archivio dati di backend.  Questa
+produzione connessioni &egrave; in sola modalit&agrave; "lettura". Non pu&ograve; essere modificato o eliminato.</p>
+
+<p>Per visualizzare questa pagina della console di gestione, fare clic su <strong>Risorse</strong>
+&gt;<strong>Adattatori risorse</strong> &gt; <em>Adattatore risorse relazionali WebSphere</em>&gt;
+<strong>Produzioni connessioni CMP</strong> &gt; <em>produzione_connessioni</em> 
+</p>
+
+<div>
+<p>
+<strong>Scheda Configurazione</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="j2eeresourcefactory_detail_contextID"></a>Ambito</strong>
+</dt>
+<dd>Specifica il livello in cui &egrave; visibile questa definizione di risorsa -- il
+livello cella, nodo o server.
+<p>&Egrave; possibile definire in pi&ugrave; ambiti, risorse quali provider di JDBC, collegamenti
+spazio nome o librerie condivise, insieme a risorse definite in ambiti pi&ugrave; specifici che
+sovrascrivono i duplicati definiti in ambiti pi&ugrave; generali.</p>
+
+<p>Notare che non &egrave; importante l'ambito di una risorsa definita, le propriet&agrave; della
+risorsa si applicano solo ad un singolo livello del server. Ad esempio, se si definisce
+l'ambito di un'origine dati al livello Cella, tutti gli utenti possono ricercare e
+utilizzare quella origine dati che risulta univoca all'interno di quella cella. Tuttavia,
+le impostazioni delle propriet&agrave; di risorsa sono locali per ogni server
+all'interno della Cella. Ad esempio, se si imposta <em>numero massimo connessioni</em> su
+10, ogni server in quella cella pu&ograve; disporre di 10 connessioni.<dl>
+
+<dt>
+<strong>Cella</strong>
+</dt>
+<dd>L'ambito pi&ugrave; generale.  Le risorse definite nell'ambito cella sono
+visibili da tutti i nodi e i server, a meno che non siano state sovrascritte. Per visualizzare le risorse definite nell'ambito cella, non specificare il nome di un
+server o di un nodo nel modulo di selezione dell'ambito.</dd>
+
+<dt>
+<strong>Nodo</strong>
+</dt>
+<dd>L'ambito predefinito per la maggior parte dei tipi
+di risorse.  Le risorse definite nell'ambito nodo sovrascrivono
+gli eventuali duplicati definiti nell'ambito cella e sono
+visibili a tutti i server sullo stesso nodo, a meno che non siano
+state sovrascritte in un ambito server sul quel nodo. Per
+visualizzare le risorse definite in un ambito nodo, non specificare
+un server ma selezionare il nome di un nodo nel modulo di selezione
+dell'ambito.</dd>
+
+<dt>
+<strong>Server</strong>
+</dt>
+<dd>L'ambito pi&ugrave; specifico per la definizione delle
+risorse.  Le risorse definite nell'ambito server sovrascrivono eventuali
+definizioni di risorse duplicate specificate nell'ambito cella o
+nell'ambito nodo parent e sono visibili solo in un determinato server. Per
+visualizzare le risorse definite in un ambito server, specificare il
+nome di un server e il nome di un nodo nel modulo di selezione
+dell'ambito.</dd>
+
+</dl>
+</p>
+
+<p>Quando le risorse vengono generate, vengono sempre create nell'ambito corrente
+selezionato nel pannello.   Per visualizzare le
+risorse in altri ambiti, specificare un nodo o un server diverso nel
+modulo di selezione dell'ambito.  </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2EEResourceFactory_name_displayName"></a>Nome</strong>
+</dt>
+<dd>Specifica il nome visualizzato della risorsa. 
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2EEResourceFactory_jndiName_displayName"></a>Nome JNDI</strong>
+</dt>
+<dd>Specifica il nome JNDI della risorsa.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2EEResourceFactory_description_displayName"></a>Descrizione</strong>
+</dt>
+<dd>Specifica una descrizione della risorsa. 
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2EEResourceFactory_category_displayName"></a>Categoria</strong>
+</dt>
+<dd>Specifica una stringa di categoria che pu&ograve; essere utilizzata per classificare
+o raggruppare la risorsa.  
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2CConnectionFactory_authMechanismPreference_displayName"></a>Preferenze di autenticazione</strong>
+</dt>
+<dd>Specifica il meccanismo di autenticazione definito per l'adattatore risorse
+corrispondente che si applica a questa produzione connessioni. 
+<p>Se, ad esempio, vengono definite due voci del meccanismo di autenticazione per un
+adattatore risorse (<em>KerbV5</em> e <em>Basic Password</em>), viene specificato uno dei due
+tipi. La preferenza del
+meccanismo di autenticazione specificata viene ignorata se non &egrave; un
+meccanismo di autenticazione disponibile sull'adattatore risorse
+corrispondente. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2CConnectionFactory_authDataAlias_displayName"></a>Alias dell'autenticazione gestita dal componente</strong>
+</dt>
+<dd>Dati di autenticazione di riferimenti per
+il collegamento gestito dal componente alla risorsa.  
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Elenco a discesa</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2CConnectionFactory_authDataAlias_displayName"></a>Alias di autenticazione gestito dal contenitore</strong>
+</dt>
+<dd>Dati di autenticazione di
+riferimenti per il collegamento alla risorsa gestito dal contenitore.  
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Elenco a discesa</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informazioni correlate</strong>
+</p>
+<a href="rcon_buttons.html">Pulsanti della console di gestione</a>
+<br>
+
+<a href="rcon_pageusage.html">Funzioni della pagina della console di gestione</a>
+<br>
+
+</div>
+</body>
+</html>

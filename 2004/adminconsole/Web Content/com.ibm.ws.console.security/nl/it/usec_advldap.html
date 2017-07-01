@@ -1,0 +1,273 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Impostazioni avanzate LDAP (Lightweight Directory Access Protocol)</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecadvldap"></a>
+<h2>Impostazioni avanzate LDAP (Lightweight Directory Access Protocol)</h2>
+
+<p>Utilizzare questa pagina per configurare le impostazioni avanzate del registro  utenti LDAP (Lightweight
+Directory Access Protocol) quando gli utenti e i gruppi si trovano in una directory LDAP
+esterna.</p>
+
+<p>Per visualizzare questa pagina di gestione, fare clic su <strong>Sicurezza</strong> &gt; <strong>Registri utenti</strong> &gt; <strong>LDAP </strong> <strong>Impostazioni LDAP avanzate</strong>.</p>
+
+<p>I valori predefiniti per tutti i filtri correlati agli utenti e ai gruppi sono gi&agrave;
+stati completati nei campi appropriati. &Egrave; possibile modificare tali valori in base ai
+requisiti.
+Questi valori predefiniti si basano sul tipo di server LDAP, selezionato nel pannello
+<strong>Impostazioni LDAP</strong>. Se questo tipo viene modificato (ad esempio da NETSCAPE a
+SECUREWAY), i filtri predefiniti verranno modificati automaticamente. Quando i valori
+predefiniti dei filtri vengono modificati, il tipo di server LDAP viene modificato in
+<strong>Personalizzato</strong> per indicare l'uso dei filtri personalizzati. Quando la sicurezza viene
+abilitata e nessuna di queste propriet&agrave; viene modificata, andare al pannello
+<strong>Sicurezza globale</strong> e fare clic su <strong>Applica</strong> o <strong>OK</strong> per convalidare le modifiche.</p>
+
+<div>
+<p>
+<strong>Scheda Configurazione</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="LDAPSearchFilter_userFilter_description"></a>Filtro utente </strong>
+</dt>
+<dd>Specifica il filtro utenti LDAP che consente di ricercare gli utenti nel
+registro.
+<p>Questa opzione viene utilizzata per assegnare i ruoli di sicurezza agli utenti. Specifica la propriet&agrave; per cui ricercare gli utenti nel servizio directory.
+Ad esempio, per ricercare gli utenti in base all'ID, specificare <samp>(ampersand(uid=%v)(objectclass=inetOrgPerson)</samp> dove <samp>ampersand</samp> &egrave; il simbolo della "e commerciale" (&amp;).  Per ulteriori informazioni relative alla sintassi,
+consultare la documentazione del servizio di directory LDAP.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati:</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LDAPSearchFilter_groupFilter_description"></a>Filtro gruppo</strong>
+</dt>
+<dd>Specifica il filtro gruppi LDAP che consente di ricercare i gruppi nel
+registro. 
+<p>Questa opzione viene utilizzata per le assegnazioni del ruolo di sicurezza
+ai gruppi. Specifica la propriet&agrave; mediante la quale &egrave; possibile ricercare i gruppi nel servizio directory.
+Per ulteriori informazioni relative alla sintassi,
+consultare la documentazione del servizio di directory LDAP.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati:</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LDAPSearchFilter_userIdMap_description"></a>Mappa ID utente</strong>
+</dt>
+<dd>Specifica il filtro LDAP che definisce il nome abbreviato di un utente su una
+voce LDAP.
+<p>Specifica la parte di informazioni che rappresenta gli utenti al momento
+della loro visualizzazione.
+Ad esempio, per visualizzare le voci della <samp>classe oggetto = inetOrgPerson</samp> tramite gli ID, specificare <samp>inetOrgPerson:uid</samp>. Questo campo comprende pi&ugrave; coppie objectclass:property delimitate da un punto e virgola (;).</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati:</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LDAPSearchFilter_groupIdMap_description"></a>Mappa ID gruppo</strong>
+</dt>
+<dd>Specifica il filtro LDAP che definisce il nome abbreviato di un gruppo su una
+voce LDAP.
+<p>Specifica la parte di informazioni che rappresenta i gruppi al momento della
+loro visualizzazione.
+Ad esempio, per visualizzare i gruppi mediante i loro nomi, specificare
+<samp>*:cn</samp>. L'asterisco (<samp>*</samp>) &egrave; un carattere jolly che ricerca tutte le classi di oggetti. Questo campo comprende pi&ugrave; coppie <samp>objectclass:property</samp> delimitate da un punto e virgola (;). </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati:</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LDAPSearchFilter_groupMemberIdMap_description"></a>Mappa ID membri del gruppo </strong>
+</dt>
+<dd>Specifica il filtro LDAP che identifica le relazioni tra utente e gruppo.
+<p>Per i tipi di directory SecureWay, NetScape e Domino, questo campo comprende pi&ugrave; coppie objectclass: property delimitate da un punto e virgola (;). Nella coppia objectclass:property, il valore objectclass &egrave; lo stesso definito nel
+Filtro gruppo e la propriet&agrave; &egrave; l'attributo del membro. Se il valore objectclass non corrisponde all'objectclass in Filtro gruppo, l'autorizzazione potrebbe non essere valida se i gruppi sono mappati su ruoli di sicurezza. Per ulteriori informazioni circa questa sintassi, consultare la documentazione del
+servizio di directory LDAP.</p>
+
+<p>Per IBM Directory Server, iPlanet Directory Server e Active
+Directory, questo campo comprende pi&ugrave; coppie (<samp>attributo gruppo:attributo membro</samp>) delimitate da un punto e virgola (;). Queste
+vengono utilizzate per trovare i membri gruppo di un utente, numerando tutti i gruppi
+in possesso di un dato utente.
+Ad esempio, la coppia attributi <samp>(memberof:member)</samp> viene utilizzata da Active Directory e (ibm-allGroup:member) da IBM Directory Server . Inoltre, questo campo specifica la
+propriet&agrave; di una classe oggetti che memorizza l'elenco dei membri appartenenti al gruppo
+mediante la classe oggetti. Per i server di directory LDAP supportati, consultare la sezione Servizi di directory supportati di InfoCenter.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati:</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LDAPSearchFilter_certificateMapMode_description"></a>Modalit&agrave; mappa certificato</strong>
+</dt>
+<dd>Indica se definire i certificati X.509 in una directory LDAP con EXACT_DN o
+CERTIFICATE_FILTER. Specificare l'utilizzo da parte di CERTIFICATE_FILTER del filtro
+certificati indicato per la definizione.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati:</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LDAPSearchFilter_certificateFilter_description"></a>Filtro certificati</strong>
+</dt>
+<dd>Specifica se utilizzare la propriet&agrave; del filtro Mappatura certificati per
+indicare il filtro LDAP, utilizzato per mappare gli attributi nel certificato client per
+accedere al registro LDAP.
+<p> Per abilitare questo campo, fare clic su <strong>CERTIFICATE_FILTER</strong> della mappatura
+certificati. Se pi&ugrave; di una voce LDAP corrisponde alla specifica filtro durante il runtime, l'autenticazione non riesce poich&eacute; la corrispondenza risulta ambigua.
+La sintassi o la
+struttura di questo filtro &egrave;: <samp>LDAP
+attribute=${Client certificate
+attribute}</samp> (ad esempio, <samp>uid=${SubjectCN}</samp>). Il lato sinistro della specifica del filtro &egrave; un
+attributo LDAP che dipende dallo schema che utilizza il server LDAP. Il lato destro della specifica del filtro &egrave; uno degli attributi pubblici del certificato client. Il lato destro deve cominciare con un segno di dollaro ($), una parentesi graffa aperta({) e deve terminare con una parentesi graffa chiusa (}). 
+&Egrave; possibile utilizzare i seguenti valori degli attributi del certificato sul lato destro
+della specifica del filtro. Il formato delle stringhe &egrave; importante:
+  <ul>
+
+<li>
+<samp>${UniqueKey} </samp>
+</li>
+
+<li>
+<samp>${PublicKey}</samp>
+</li>
+
+<li>
+<samp>${PublicKey}</samp>
+</li>
+
+<li>
+<samp>${Issuer}</samp>
+</li>
+
+<li>
+<samp>${NotAfter}</samp>
+</li>
+
+<li>
+<samp>${NotBefore}</samp>
+</li>
+
+<li>
+<samp>${SerialNumber}</samp>
+</li>
+
+<li>
+<samp>${SigAlgName}</samp>
+</li>
+
+<li>
+<samp>${SigAlgOID}</samp>
+</li>
+
+<li>
+<samp>${SigAlgParams}</samp>
+</li>
+
+<li>
+<samp>${SubjectCN}</samp>
+</li>
+
+<li>
+<samp>${Version}</samp>
+</li>
+
+</ul>
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati:</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informazioni correlate</strong>
+</p>
+<a href="rcon_buttons.html">Pulsanti della console di gestione</a>
+<br>
+
+<a href="rcon_pageusage.html">Funzioni della pagina della console di gestione</a>
+<br>
+
+<a href="rcon_scope.html">Impostazioni ambito della console di gestione</a>
+<br>
+
+<a href="rcon_filter.html">Impostazioni di filtro della console di gestione</a>
+<br>
+
+<a href="rcon_preferences.html">Impostazioni delle preferenze della console di gestione</a>
+<br>
+
+<a href="usec_rprdap.html">Impostazioni LDAP (Lightweight Directory Access Protocol)</a>
+<br>
+
+</div>
+</body>
+</html>

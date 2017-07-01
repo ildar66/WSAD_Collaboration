@@ -1,0 +1,79 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Web コンテナー設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uweb_rcont"></a>
+<h2>Web コンテナー設定</h2>
+
+<p>このページを使用して、コンテナー設定を構成します。
+<p>このページにアクセスするには、管理コンソールを用いて以下のパスを全探索します。</p>
+
+<pre>
+<strong>サーバー</strong> &gt; <strong>アプリケーション・サーバー</strong> &gt; <em>server_instance</em> &gt; <strong>Web コンテナー</strong>
+</pre>
+ 
+</p>
+
+<p> 
+<strong>構成 - 一般プロパティー</strong> 
+</p>
+
+<dl>
+<dt>
+<strong><a name="rcont_default"></a>デフォルトの仮想ホスト</strong>
+</dt>
+<dd>仮想ホストとは、単一のホスト・マシンを複数のホスト・マシンのように見せることのできる構成です。
+ある仮想ホストに関連付けられたリソースと、他の仮想ホストに関連付けられたリソースとは、それらの仮想ホストが物理的に同じマシンを共用している場合でも、データを共用することはできません。
+<p>次のように、仮想ホストを選択します。
+</p>
+
+<dl>
+
+<dt>
+<strong><strong>デフォルトのホスト</strong></strong>
+</dt>
+<dd>この製品は、デフォルトで、
+いくつかの一般的なエイリアス (マシンの IP アドレス、短縮ホスト名、
+完全修飾ホスト名など) をもつ仮想ホストを用意しています。
+エイリアスは、サーブレットなどのリソースにアクセスするためのパスの最初の部分です。
+例えば、要求 <samp>http://localhost:9080/myServlet</samp> では <samp>localhost:9080</samp> です。
+</dd>
+
+<dt>
+<strong><strong>管理ホスト</strong></strong>
+</dt>
+<dd>これは、アプリケーション・サーバーの別名です。
+基本インストールでは <em>server1</em> とも呼ばれます。
+このプロセスでは、管理コンソールの使用がサポートされます。</dd>
+
+</dl>
+</dd>
+<dt>
+<strong><a name="rcont_cache"></a>サーブレットのキャッシュ</strong>
+</dt>
+<dd>サーブレットを一度呼び出して、キャッシュする出力を生成した場合に、
+出力だけでなく、呼び出しの副次効果を含むキャッシュ項目を作成するかどうかを指定します。
+これらの副次効果には、
+他のサーブレットまたは Java Server Pages (JSP) ファイルへの呼び出しが含まれる場合があります。
+
+<p></p>
+
+<dl>
+
+<dt>
+<strong><strong>サーブレットのキャッシュを使用可能にする</strong>
+</strong>
+</dt>
+<dd> このボックスを選択すると、サーブレットのキャッシュが使用可能となります。</dd>
+
+</dl>
+
+</dd>
+</dl>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<title>Заявка ТС № ${request.number} оправлена на доработку</title>
+	<meta http-equiv="content-type" content="text/html; charset=windows-1251">
+	<meta http-equiv="PRAGMA" content="NO-CACHE">
+	<meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+	<style>
+		tr.main {
+			height : 30px;
+            font-family : Tahoma, Verdana, Arial;
+			font-size : 13px;
+		}
+		td.first {
+			width : 300px;
+			height : 30px;
+			padding-left : 5px;
+			background-color : #CBD5E3;
+		}
+		td.second {
+			width : 400px;
+			height : 30px;
+			padding-left : 5px;
+		}
+		a.ref,
+		a:link.ref,
+		a:visited.ref,
+		a:active.ref {
+		    font-family : Tahoma, Verdana, Arial;
+		    font-size : 15px;
+		    color : #627fa0;
+		    text-decoration : none;
+		}
+	</style>
+</head>
+<body>
+<table cellspacing="0" cellpadding="0" width="700px">
+<tr class="main">
+<td class="first">&nbsp;&nbsp;номер:</td>
+<td class="second">&nbsp;&nbsp;${request.number}</td>
+</tr>
+<tr class="main">
+<td class="first">&nbsp;&nbsp;статус:</td>
+<td class="second">&nbsp;&nbsp;оправлена на доработку</td>
+</tr>
+<tr class="main">
+<td class="first">&nbsp;&nbsp;дата создания:</td>
+<td class="second">&nbsp;&nbsp;${created}</td>
+</tr>
+<tr class="main">
+<td class="first">&nbsp;&nbsp;региональный менеджер:</td>
+<td class="second">&nbsp;&nbsp;${request.regMan.name}</td>
+</tr>
+<tr class="main">
+<td class="first">&nbsp;&nbsp;тестирующий:</td>
+<td class="second">&nbsp;&nbsp;${request.testedBy.name}</td>
+</tr>
+<tr class="main">
+<td colspan="2"><a href="${reference}" class="ref">&lt;переход к заявке&gt;</a></td>
+</tr>
+</table>
+</body>
+</html>

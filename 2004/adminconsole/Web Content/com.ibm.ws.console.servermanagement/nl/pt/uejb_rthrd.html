@@ -1,0 +1,171 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Thread pool settings</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uejb_rthrd"></a>
+<h2>Thread pool settings</h2>
+
+<p>Use this page to configure a group of threads that an application
+server uses. Requests are sent to the server through any of the HTTP transports.
+A thread pool enables components of the server to reuse threads to eliminate
+ the need to create new threads at run time. Creating new threads expends
+time and  resources.</p>
+
+<p>To view this administrative console page, click <strong>Servers &gt; Manage Application
+ Servers &gt; </strong><em>server_name</em><strong> &gt; ORB Service &gt; Thread Pool</strong>. (You
+can reach this page through more than one navigational route.)</p>
+
+<div>
+<p>
+<strong>Configuration tab</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="ThreadPool_minimumSize_description"></a>Minimum size</strong>
+</dt>
+<dd>Specifies the minimum number of threads to allow in the pool.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">10</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ThreadPool_maximumSize_description"></a>Maximum size</strong>
+</dt>
+<dd>Specifies the maximum number of threads to allow in the pool. 
+<p>If your Tivoli Performance Viewer shows the Percent Maxed metric to remain
+consistently in the double digits, consider increasing the Maximum size. The
+Percent Maxed metric indicates the amount of time that the configured threads
+are used. If there are several simultaneous clients connecting to the server-side
+ORB, increase the size to support up to 1000 clients.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">50</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Recommended	</td>
+<td align="left" valign="top" class="base"><a href="rprf_troubleshoot.html">50  (25 on Linux
+systems)</a></td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ThreadPool_inactivityTimeout_description"></a>Thread inactivity timeout</strong>
+</dt>
+<dd>Specifies the number of milliseconds of inactivity that should
+ elapse before a thread is reclaimed. A value of 0 indicates not to wait and
+ a negative value (less than 0) means to wait forever.
+<p>
+<b>Note: </b>The administrative console does not allow you to set the inactivity
+timeout to a negative number. To do this you must modify the value directly
+in the <em>config.xml</em> file.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Units</td>
+<td align="left" valign="top" class="base">Milliseconds</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">3500</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ThreadPool_isGrowable_description"></a>Is Growable</strong>
+</dt>
+<dd>Specifies whether the number of threads can increase  beyond the
+maximum size configured for the thread pool.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">Not enabled (false)</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range</td>
+<td align="left" valign="top" class="base">Valid values are Allow thread allocation beyond maximum thread size
+or Not enabled.</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Related information</strong>
+</p>
+<a href="rcon_buttons.html">Administrative console buttons</a>
+<br>
+
+<a href="rcon_pageusage.html">Administrative console page features</a>
+<br>
+
+</div>
+</body>
+</html>

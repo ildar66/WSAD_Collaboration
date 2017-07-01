@@ -1,0 +1,75 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>WSDL ファイル設定のパブリッシュ</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_publishwsdl"></a>
+<h2>
+<img alt="[修正パッケージ 5.0.2 以降]" src="v502.gif" border="0">WSDL ファイル設定のパブリッシュ</h2>
+
+<p>このページを使用して、Web サービス記述言語 (WSDL) ファイルをパブリッシュします。     </p>
+
+<p>このページを表示するには、「<strong>アプリケーション</strong>」&gt;「<strong>エンタープライズ・アプリケーション</strong>」&gt;「<em>application_instance</em>」&gt;「<strong>Publish WSDL</strong>」をクリックします。</p>
+
+<p>「<strong>OK</strong>」をクリックすると、アプリケーション内のすべての Web サービス対応モジュールの zip ファイルが作成されます。パブリッシュする zip ファイルの名前は、<samp>application_name_WSDLFiles.zip</samp> です。パブリッシュする zip ファイル内のディレクトリー構造は、<em>application_name/module_name/[META-INF|WEB-INF]/wsdl/wsdl_file_name</em> です。</p>
+
+<p>パブリッシュする WSDL ファイル内の、サービス <samp>soap:address</samp> スタンザの location 属性には、Web サービスがアクセスする際の URL が含まれています。各モジュール内の Web サービスに使用される URL の一部を指定できます。モジュール内の Web サービスには、HTTP トランスポートまたは JMS トランスポート、あるいはその両方を介してアクセスできます。どちらのタイプのトランスポートにも URL 情報を指定できます。</p>
+
+<div>
+<p>
+<strong>「構成」タブ</strong>
+</p>
+<dl>
+<dt>
+<strong>Web サービスの URL 接頭部の指定</strong>
+</dt>
+<dd>URL で使用される<em>プロトコル</em> (http または https のいずれか)、<em>host_name</em>、および <em>port_number</em> を指定します。
+<p>URL の接頭部の形式は、プロトコル://<em>host_name:port_number</em> (例えば、http://<em>myHost</em>:9045) です。パブリッシュする
+WSDL ファイルに使用される実際の URL には、そのモジュールのコンテキスト・ルートおよび Web サービスの URL パターンの前に接頭部が付加されます
+(例えば、http://<em>myHost</em>:9045/services/<em>myService</em>)。</p>
+
+</dd>
+<dt>
+<strong>HTTP URL 接頭部の選択</strong>
+</dt>
+<dd>デフォルトの URL 接頭部リストに関連付けるドロップダウン・リストを指定します。このリストは、モジュールの仮想ホストの一連のポートと、
+モジュールのアプリケーション・サーバーの一連のポートとの交点です。Web サービス・アプリケーション・サーバーに直接アクセスする場合は、このリストの項目を使用してください。
+<p>HTTP 接頭部を設定するには、「<strong>HTTP URL prefix</strong>」または「<strong>Custom
+HTTP URL prefix</strong>」を選択して、値を入力し、接頭部を使用するモジュールのチェック・ボックスを選択して
+「<strong>適用</strong>」をクリックします。「<strong>適用</strong>」をクリックすると、選択した「<strong>Select HTTP URL prefix</strong>」または
+「<strong>Custom HTTP URL prefix</strong>」フィールドの入力は、チェック・ボックス
+(左端の列にあります) が選択されているすべてのモジュールの「<strong>HTTP URL prefix</strong>」フィールドにコピーされます。HTTP 接頭部は「JMS URL prefix」列のフィールドには適用されません。</p>
+
+</dd>
+<dt>
+<strong>カスタム HTTP URL 接頭部</strong>
+</dt>
+<dd>モジュール内の Web サービスが中間ノード (例えば Web サービス・ゲートウェイや IHS サーバー) を経由してアクセスされる場合は、
+中間サービスの<em>プロトコル</em>、<em>ホスト</em>、および <em>port_number</em> を指定します。
+<p>HTTP 接頭部を設定するには、「<strong>HTTP URL prefix</strong>」または「<strong>Custom
+HTTP URL prefix</strong>」を選択して、値を入力し、接頭部を使用するモジュールのチェック・ボックスを選択して
+「<strong>適用</strong>」をクリックします。「<strong>適用</strong>」をクリックすると、選択した「<strong>Select HTTP URL prefix</strong>」または
+「<strong>Custom HTTP URL prefix</strong>」フィールドの入力は、チェック・ボックス
+(左端の列にあります) が選択されているすべてのモジュールの「<strong>HTTP URL prefix</strong>」フィールドにコピーされます。HTTP
+接頭部は「JMS URL prefix」列のフィールドには適用されません。</p>
+
+</dd>
+<dt>
+<strong>JMS URL 接頭部</strong>
+</dt>
+<dd>モジュールごとに使用する JMS URL 接頭部ストリングを指定します。
+<p>指定した URL 接頭部は、宛先および connectionFactory プロパティーを含んでいる必要があります。
+他のプロパティー値のペアを含んでいる場合がありますが、targetService プロパティーは含まないようにしてください。
+このプロパティーは、パブリッシュされた WSDL ファイルの作成時にシステムが追加します。JMS URL の接頭部の形式は、jms:/[<em>queue&amp;topic</em>]?destination=<em>target_queue_or_topic_jndi_name</em>&amp;connectionFactory=<em>factory_jndi_name</em> (例えば、jms:/queue?destination=jms/Q1&amp;connectionFactory=jms/QCF) になります。
+パブリッシュする WSDL ファイルに使用される実際の URL には、Web サービスの targetService の前に接頭部が付加されます
+(例えば、jms:/queue?destination=jms/Q1&amp;connectionFactory=jms/QCF&amp;targetService=StockQuote)。</p>
+
+</dd>
+</dl>
+</div>
+</body>
+</html>

@@ -1,0 +1,246 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Valores de f&aacute;brica de conexiones de JMS gen&eacute;ricas</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="GenericJMSConnectionFactory"></a>
+<h2>Valores de f&aacute;brica de conexiones de JMS gen&eacute;ricas</h2>
+
+<p>Utilice este panel para ver o modificar las propiedades de configuraci&oacute;n de la f&aacute;brica de conexiones de JMS seleccionada que se va a utilizar con el proveedor de JMS asociado.
+Estas propiedades de configuraci&oacute;n controlan c&oacute;mo se crean las conexiones para el destino de JMS asociado.</p>
+
+<p>Una f&aacute;brica de conexiones de JMS sirve para crear conexiones con destinos de JMS.
+El proveedor de JMS asociado crea la f&aacute;brica de conexiones de JMS. Un f&aacute;brica de conexiones de
+JMS para un proveedor de JMS gen&eacute;rico (que no sea el proveedor de JMS incorporado de WebSphere ni
+el proveedor de JMS de WebSphere MQ) tiene las propiedades siguientes:</p>
+
+<p>Para ver esta p&aacute;gina de la consola administrativa, pulse <strong>Recursos-&gt; Proveedores
+gen&eacute;ricos de JMS-&gt; <em>nombre_proveedor</em>-&gt; F&aacute;bricas de conexiones de JMS-&gt; <em>f&aacute;brica_conexiones</em></strong>
+</p>
+
+<dl>
+<dt>
+<strong><a name="GenericJMSConnectionFactory_Name"></a>Nombre</strong>
+</dt>
+<dd>Nombre por el que se conoce esta
+f&aacute;brica de conexiones JMS para fines administrativos dentro de
+WebSphere Application Server. El nombre debe ser
+exclusivo dentro del proveedor de JMS asociado.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="GenericJMSConnectionFactory_type"></a>Tipo</strong>
+</dt>
+<dd>Especifica si esta f&aacute;brica de conexiones es para crear destinos de cola JMS o destinos de tema JMS.
+<p>Seleccione una de las opciones siguientes:<dl>
+
+<dt>
+<strong>Cola</strong>
+</dt>
+<dd>F&aacute;brica de conexiones de cola JMS para mensajer&iacute;a punto a punto.</dd>
+
+<dt>
+<strong>Tema</strong>
+</dt>
+<dd>F&aacute;brica de conexiones de tema JMS para mensajer&iacute;a de publicaci&oacute;n/suscripci&oacute;n.</dd>
+
+</dl>
+</p>
+
+</dd>
+<dt>
+<strong><a name="GenericJMSConnectionFactory_externaljndiName"></a>Nombre JNDI</strong>
+</dt>
+<dd>Nombre JNDI utilizado para
+enlazar la f&aacute;brica de conexiones con el espacio de nombres del servidor
+de aplicaciones.<p>Como convenci&oacute;n, utilice el nombre JNDI plenamente cualificado; por ejemplo, con el
+formato jms/<em>Nombre</em>, donde <em>Nombre</em> es el nombre
+l&oacute;gico del recurso.</p>
+<p>Este nombre se utiliza para enlazar la informaci&oacute;n de enlace de la plataforma. El enlace asocia los recursos definidos en el
+descriptor de despliegue del m&oacute;dulo con los recursos reales (f&iacute;sicos) enlazados con JNDI por la plataforma.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+</dd>
+<dt>
+<strong><a name="GenericJMSConnectionFactory_description"></a>Descripci&oacute;n</strong>
+</dt>
+<dd>Descripci&oacute;n de esta f&aacute;brica
+de conexiones, para fines administrativos dentro de IBM WebSphere
+Application Server.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="category"></a>Categor&iacute;a</strong>
+</dt>
+<dd>Categor&iacute;a utilizada para
+clasificar o agrupar esta f&aacute;brica de conexiones, para sus registros
+administrativos de IBM WebSphere Application Server.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="AuthDataAlias"></a>Alias de autenticaci&oacute;n gestionado por componentes</strong>
+</dt>
+<dd>Este alias especifica un ID de usuario y una contrase&ntilde;a que sirven para autenticar
+la conexi&oacute;n con un proveedor de JMS para la autenticaci&oacute;n gestionada por aplicaci&oacute;n.
+<p>Esta propiedad proporciona una lista de los alias de entradas de datos de autenticaci&oacute;n de J2C que se hayan definido en WebSphere Application Server. Puede seleccionar un alias de entrada de datos que sirva para autenticar la creaci&oacute;n de una nueva conexi&oacute;n con el proveedor de JMS.</p>
+
+<p>Si ha habilitado la seguridad global para WebSphere Application Server, seleccione el alias que especifica el ID de usuario y la contrase&ntilde;a que sirven para autenticar la creaci&oacute;n de una nueva conexi&oacute;n con el proveedor de JMS. La utilizaci&oacute;n del alias depende del valor de
+la autenticaci&oacute;n de recursos (res-auth) declarado en la referencia de
+recursos de la f&aacute;brica de conexiones de los descriptores de despliegue
+de un componente de aplicaci&oacute;n.</p>
+
+<p>
+<b>Nota: </b>No se pueden utilizar ID de usuario de m&aacute;s de 12 caracteres para la autenticaci&oacute;n con el proveedor de JMS
+incorporado de WebSphere. Por ejemplo, el ID de usuario por omisi&oacute;n de
+Windows NT, <strong>Administrator</strong>, no se puede utilizar en WebSphere Embedded Messaging, ya que contiene 13 caracteres. Por lo tanto, un alias de autenticaci&oacute;n para la f&aacute;brica de conexiones del proveedor de JMS de WebSphere debe especificar un ID de usuario que no contenga m&aacute;s de 12 caracteres.</p>
+
+</dd>
+<dt>
+<strong><a name="mappingAuthDataAlias"></a>Alias de autenticaci&oacute;n gestionado por contenedor</strong>
+</dt>
+<dd>Este alias especifica un ID de usuario y una contrase&ntilde;a que sirven para autenticar
+la conexi&oacute;n con un proveedor de JMS para la autenticaci&oacute;n gestionada por contenedor.
+<p>Esta propiedad proporciona una lista de los alias de entradas de datos de autenticaci&oacute;n de J2C que se hayan definido en WebSphere Application Server. Puede seleccionar un alias de entrada de datos que sirva para autenticar la creaci&oacute;n de una nueva conexi&oacute;n con el proveedor de JMS.</p>
+
+<p>Si ha habilitado la seguridad global para WebSphere Application Server, seleccione el alias que especifica el ID de usuario y la contrase&ntilde;a que sirven para autenticar la creaci&oacute;n de una nueva conexi&oacute;n con el proveedor de JMS. La utilizaci&oacute;n del alias depende del valor de
+la autenticaci&oacute;n de recursos (res-auth) declarado en la referencia de
+recursos de la f&aacute;brica de conexiones de los descriptores de despliegue
+de un componente de aplicaci&oacute;n.</p>
+
+<p>
+<b>Nota: </b>No se pueden utilizar ID de usuario de m&aacute;s de 12 caracteres para la autenticaci&oacute;n con el proveedor de JMS
+incorporado de WebSphere. Por ejemplo, el ID de usuario por omisi&oacute;n de
+Windows NT, <strong>Administrator</strong>, no se puede utilizar en WebSphere Embedded Messaging, ya que contiene 13 caracteres. Por lo tanto, un alias de autenticaci&oacute;n para la f&aacute;brica de conexiones del proveedor de JMS de WebSphere debe especificar un ID de usuario que no contenga m&aacute;s de 12 caracteres.</p>
+
+</dd>
+<dt>
+<strong><a name="GenericJMSConnectionFactory_type"></a>Habilitado para XA</strong>
+</dt>
+<dd>Especifica si la f&aacute;brica de conexiones es para coordinaci&oacute;n con y sin XA de los mensajes y controla si el servidor de aplicaciones utilizar&aacute; XA QCF/TCF. Habilite XA cuando no se utilizan en la misma transacci&oacute;n varios recursos.<p>Si establece esta propiedad en
+<samp>NON_XA</samp>, la sesi&oacute;n JMS est&aacute; todav&iacute;a incluida en una
+transacci&oacute;n, pero utiliza las llamadas de transacci&oacute;n local del gestor
+de recursos (session.commit y session.rollback) en lugar de las
+llamadas de XA. Esto puede producir una mejora en el rendimiento. Sin
+embargo, esto significa que s&oacute;lo un &uacute;nico recurso puede incluirse en
+una transacci&oacute;n en WebSphere Application Server. En WebSphere
+Application Server Enterprise, el soporte de &uacute;ltimo participante le
+permite incluir un recurso que no sea XA con otros recursos compatibles
+con XA.</p>
+<p>Esta propiedad no se aplica para una f&aacute;brica de
+conexiones de tema WebSphere con la propiedad <strong>Port</strong> establecida
+en <samp>DIRECT</samp> y siempre toma el valor <samp>NON_XA</samp>. </p>
+<table cellpadding="1">
+<tr>
+<th align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</th><td align="left" valign="top" class="base">Enum</td>
+</tr>
+<tr>
+<th align="left" valign="top" class="base" style="background-color:#dedede">Unidades</th><td align="left" valign="top" class="base">No se aplica</td>
+</tr>
+<tr>
+<th align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</th><td align="left" valign="top" class="base">Habilitado para XA</td>
+</tr>
+<tr>
+<th align="left" valign="top" class="base" style="background-color:#dedede">Rango</th><td align="left" valign="top" class="base">
+<dl>
+<dt>
+<strong>XA</strong>
+</dt>
+<dd>La f&aacute;brica de conexiones es para coordinaci&oacute;n de XA de mensajes</dd>
+<dt>
+<strong>NON_XA</strong>
+</dt>
+<dd>La f&aacute;brica de conexiones es para coordinaci&oacute;n no XA de mensajes</dd>
+</dl>
+</td>
+<tr>
+<th align="left" valign="top" class="base" style="background-color:#dedede">Recomendado</th><td align="left" valign="top" class="base">No habilite
+XA cuando la cola de mensajes o el tema recibido sea el &uacute;nico recurso de la transacci&oacute;n.
+Habilite XA cuando otros recursos, incluidas otras colas o temas, est&eacute;n implicados.</td>
+</tr>
+</tr>
+</table>
+</dd>
+<dt>
+<strong><a name="ConnectionFactory_connectionPool"></a>Agrupaci&oacute;n de conexiones</strong>
+</dt>
+<dd>Especifica un conjunto opcional
+de valores de agrupaci&oacute;n de conexiones. <p>Las propiedades de agrupaci&oacute;n de conexiones
+son comunes a todos los conectores J2C. </p>
+<p>El servidor de aplicaciones agrupa conexiones y sesiones con el proveedor de JMS para mejorar el rendimiento. Esta acci&oacute;n es independiente de cualquier
+agrupaci&oacute;n de conexiones de WebSphere MQ. Es necesario que configure
+las propiedades de agrupaci&oacute;n de sesiones y conexiones para las
+aplicaciones adecuadamente; de lo contrario, es posible que no obtenga
+el comportamiento de sesi&oacute;n o conexi&oacute;n deseado. </p>
+<p>Cambie el
+tama&ntilde;o de la agrupaci&oacute;n de conexiones si el acceso simult&aacute;neo en el servidor al
+recurso JMS supera el valor por omisi&oacute;n. El tama&ntilde;o de la agrupaci&oacute;n de conexiones se establece
+por cola o por tema. Para obtener m&aacute;s detalles, consulte la tabla siguiente.</p>
+
+</dd>
+<dt>
+<strong><a name="ConnectionFactory_sessionPool"></a>Agrupaci&oacute;n de sesiones</strong>
+</dt>
+<dd>Conjunto opcional de valores de agrupaciones de sesiones.
+<p>Este enlace proporciona un panel de propiedades de agrupaci&oacute;n de conexiones opcionales,
+comunes a todos los conectores J2C.</p>
+
+<p>El servidor de aplicaciones agrupa conexiones y sesiones con el proveedor de JMS para mejorar el rendimiento. Esta acci&oacute;n es
+independiente de cualquier agrupaci&oacute;n de conexiones de WebSphere MQ. Es
+necesario que configure las propiedades de agrupaci&oacute;n de sesiones y
+conexiones para las aplicaciones adecuadamente; de lo contrario, es
+posible que no obtenga el comportamiento de sesi&oacute;n o conexi&oacute;n deseado. </p>
+
+</dd>
+</dl>
+</body>
+</html>

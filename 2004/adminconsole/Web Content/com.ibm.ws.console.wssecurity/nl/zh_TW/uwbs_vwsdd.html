@@ -1,0 +1,336 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>檢視 Web 服務伺服器部署描述子</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_vwsdd"></a>
+<h2>
+<img alt="[修正套件 5.0.2 和更新版本]" src="v502.gif" border="0">檢視 Web 服務伺服器部署描述子</h2>
+
+<p>請利用這個頁面來檢視您的伺服器部署描述子設定。</p>
+
+<p>如果要檢視這個管理主控台頁面，請完成下列步驟：
+<ol>
+
+<li>按一下<strong>應用程式 &gt; 企業應用程式 &gt; </strong><em>application_name</em>。</li>
+
+<li>在「相關項目」之下，按一下 <strong>Web 模組</strong> &gt; <em>URI_file_name</em> &gt; <strong>檢視 Web 服務伺服器部署描述子</strong>。</li>
+
+</ol>
+</p>
+
+<p>WebSphere Application Server 有兩個層次的連結：應用程式層次和伺服器層次。
+WebSphere Application Server Network Deployment 有三個層次的連結：應用程式層次、伺服器層次和 Cell 層次。
+下列實作說明中的資訊指出如何配置應用程式層次的連結。
+如果要配置伺服器層次的連結（預設值），請完成下列步驟：<ol>
+
+<li>按一下<strong>伺服器 &gt; 應用程式伺服器 &gt; </strong><em>server_name</em>。</li>
+
+<li>在「相關項目」下，按一下 <strong>Web 服務：Web 服務安全的預設連結</strong>。
+</li>
+
+</ol>如果要配置 Cell 層次的連結，請按一下<strong>安全 &gt; Web 服務</strong>。
+<ul>
+
+<li>
+<a href="#digsign">要求數位簽章驗證</a>
+</li>
+
+<li>
+<a href="#reqdecrypt">要求解密</a>
+</li>
+
+<li>
+<a href="#basicauth">BasicAuth 鑑別</a>
+</li>
+
+<li>
+<a href="#idassert">身分 (ID) 確認鑑別</a>
+</li>
+
+<li>
+<a href="#idasserttrust">簽章 TrustMode 的身分 (ID) 確認鑑別</a>
+</li>
+
+<li>
+<a href="#respsign">回應簽章</a>
+</li>
+
+<li>
+<a href="#respencr">回應加密</a>
+</li>
+
+</ul>
+</p>
+
+<div>
+<a name="digsign"></a>
+<p class="sectiontitle">
+<b>要求數位簽章驗證
+</b>
+</p>
+<p>如果定義了整合性限制（需要簽章），請確認您已在連結檔中配置簽章資訊。
+</p>
+<p>如果要配置簽章參數，請完成下列步驟：
+<ol>
+
+<li>按一下<strong>應用程式 &gt; 企業應用程式 &gt; </strong><em>application_name</em>。</li>
+
+<li>在「相關項目」之下，按一下 <strong>Web 模組 &gt; </strong><em>URI_file_name</em>&gt; <strong>Web 服務：伺服器安全連結</strong>。
+</li>
+
+<li>在「要求接收端連結」直欄中，按一下<strong>編輯 &gt; 簽章資訊</strong>。
+</li>
+
+</ol>
+</p>
+<p>如果要配置信任錨點，請完成下列步驟：
+<ol>
+
+<li>按一下<strong>伺服器 &gt; 應用程式伺服器 &gt; </strong><em>server_name</em>。</li>
+
+<li>在「其他內容」之下，按一下 <strong>Web 服務：Web 服務安全的預設連結 &gt; 信任錨點</strong>。
+</li>
+
+</ol>
+</p>
+<p>如果要配置集合憑證儲存庫，請完成下列步驟：
+<ol>
+
+<li>按一下<strong>伺服器 &gt; 應用程式伺服器 &gt; </strong><em>server_name</em>。</li>
+
+<li>在「相關項目」之下，按一下 <strong>Web 服務：Web 服務安全的預設連結 &gt; 集合憑證儲存庫</strong>。
+</li>
+
+</ol>
+</p>
+<p>如果要配置金鑰定位器，請完成下列步驟：
+<ol>
+
+<li>按一下<strong>伺服器 &gt; 應用程式伺服器 &gt; </strong><em>server_name</em>。</li>
+
+<li>在「其他內容」之下，按一下 <strong>Web 服務：Web 服務安全的預設連結 &gt; 金鑰定位器</strong>。
+</li>
+
+</ol>
+</p>
+</div>
+
+<div>
+<a name="reqdecrypt"></a>
+<p class="sectiontitle">
+<b>要求解密
+</b>
+</p>
+<p>如果指定了機密性限制（加密），請確認已定義加密資訊。
+</p>
+<p>如果要配置加密資訊參數，請完成下列步驟：
+<ol>
+
+<li>按一下<strong>企業應用程式 &gt; </strong><em>application_name</em>。</li>
+
+<li>在「相關項目」之下，按一下 <strong>Web 模組</strong>。
+</li>
+
+<li>在「其他內容」之下，按一下 <strong>Web 服務：伺服器安全連結</strong>。
+在「要求接收端連結」之下，按一下<strong>編輯 &gt; 加密資訊</strong>。
+</li>
+
+</ol>
+</p>
+<p>如果要配置金鑰定位器，請完成下列步驟：
+<ol>
+
+<li>按一下<strong>伺服器 &gt; 應用程式伺服器 &gt; </strong><em>server_name</em>。</li>
+
+<li>在「其他內容」之下，按一下 <strong>Web 服務：Web 服務安全的預設連結 &gt; 金鑰定位器</strong>。
+</li>
+
+</ol>
+</p>
+</div>
+
+<div>
+<a name="basicauth"></a>
+<p class="sectiontitle">
+<b>BasicAuth 鑑別
+</b>
+</p>
+<p>如果將 BasicAuth 配置成必要的安全記號，請在連結檔中指定 CallbackHandler 來收集基本鑑別資料。
+以下是 CallBack 支援實作清單：
+<dl>
+<dt>
+<strong>com.ibm.wsspi.wssecurity.auth.callback.GuiPromptCallbackHandler
+</strong>
+</dt>
+<dd>這個實作會在介面畫面中提示使用者輸入 BasicAuth 資訊（使用者名稱和密碼）。
+</dd>
+<dt>
+<strong>com.ibm.wsspi.wssecurity.auth.callback.NonPromptCallbackHandler
+</strong>
+</dt>
+<dd>這個實作會從連結檔中讀取 BasicAuth 資訊。</dd>
+<dt>
+<strong>com.ibm.wsspi.wssecurity.auth.callback.StdPromptCallbackHandler
+</strong>
+</dt>
+<dd>這個實作會利用標準輸入 (stdin) 提示使用者輸入使用者名稱和密碼。
+</dd>
+</dl>
+</p>
+<p>如果要配置登入對映資訊，請完成下列步驟：
+<ol>
+
+<li>按一下<strong>伺服器 &gt; 應用程式伺服器 &gt; </strong><em>server_name</em>。</li>
+
+<li>在「其他內容」之下，按一下 <strong>Web 服務：Web 服務安全的預設連結 &gt; 登入對映</strong>。
+</li>
+
+</ol>
+</p>
+</div>
+
+<div>
+<a name="idassert"></a>
+<p class="sectiontitle">
+<b>BasicAuth TrustMode 的身分 (ID) 確認鑑別
+</b>
+</p>
+<p>請利用 com.ibm.wsspi.wssecurity.auth.callback.NonPromptCallbackHandler 實作來配置連結檔中的登入連結。
+請指定下游伺服器中的 TrustedIDEvaluator 所信任的 BasicAuth 使用者 ID 和密碼。
+</p>
+<p>如果要配置登入對映資訊，請完成下列步驟：
+<ol>
+
+<li>按一下<strong>伺服器 &gt; 應用程式伺服器 &gt; </strong><em>server_name</em>。</li>
+
+<li>在「其他內容」之下，按一下 <strong>Web 服務：Web 服務安全的預設連結 &gt; 登入對映</strong>。
+</li>
+
+</ol>
+</p>
+</div>
+
+<div>
+<a name="idasserttrust"></a>
+<p class="sectiontitle">
+<b>簽章 TrustMode 的身分 (ID) 確認鑑別
+</b>
+</p>
+<p>請利用指向金鑰定位器的簽章金鑰來配置連結檔中的簽章資訊。
+金鑰定位器含有下游伺服器所信任的 X.509 憑證。
+</p>
+<p>如果要配置登入對映資訊，請完成下列步驟：
+<ol>
+
+<li>按一下<strong>伺服器 &gt; 應用程式伺服器 &gt; </strong><em>server_name</em>。</li>
+
+<li>在「其他內容」之下，按一下 <strong>Web 服務：Web 服務安全的預設連結 &gt; 登入對映</strong>。
+</li>
+
+</ol>
+</p>
+<p>
+<samp>WSLogin</samp> 是 Java 鑑別和授權服務 (JAAS) 所用的登入配置名稱。
+如果要配置 JAAS，請按一下<strong>安全 &gt; JAAS 配置 &gt; 應用程式登入</strong>。
+</p>
+<p>連結中 <samp>&lt;TrustedIDEvaluatorRef&gt;</samp> 標籤的值必須符合 <samp>&lt;TrustedIDEvaluator&gt;</samp> 名稱的值。
+</p>
+<p>如果要配置授信 ID 求值運算元，請完成下列步驟：
+<ol>
+
+<li>按一下<strong>伺服器 &gt; 應用程式伺服器 &gt; </strong><em>server_name</em>。</li>
+
+<li>在「其他內容」之下，按一下 <strong>Web 服務：Web 服務安全的預設連結 &gt; 授信 ID 求值運算元</strong>。
+</li>
+
+</ol>
+</p>
+</div>
+
+<div>
+<a name="respsign"></a>
+<p class="sectiontitle">
+<b>回應簽章
+</b>
+</p>
+<p>如果定義了整合性限制（數位簽章），請確認連結檔中有簽章資訊。
+</p>
+<p>如果要指定簽章資訊，請完成下列步驟：
+<ol>
+
+<li>按一下<strong>應用程式 &gt; 企業應用程式 &gt; </strong><em>application_name</em>。</li>
+
+<li>在「相關項目」之下，按一下 <strong>Web 模組 &gt; </strong><em>URI_file_name</em> <strong>&gt; Web 服務：伺服器安全連結</strong>。
+</li>
+
+<li>在「要求接收端連結」直欄中，按一下<strong>編輯 &gt; 簽章資訊</strong>。
+</li>
+
+</ol>
+</p>
+<p>如果要配置金鑰定位器，請完成下列步驟：
+<ol>
+
+<li>按一下<strong>伺服器 &gt; 應用程式伺服器 &gt; </strong><em>server_name</em>。</li>
+
+<li>在「其他內容」之下，按一下 <strong>Web 服務：Web 服務安全的預設連結 &gt; 金鑰定位器</strong>。
+</li>
+
+</ol>
+</p>
+</div>
+
+<div>
+<a name="respencr"></a>
+<p class="sectiontitle">
+<b>回應加密
+</b>
+</p>
+<p>如果指定了機密性限制（加密），請確認已定義加密資訊。
+</p>
+<p>如果要指定加密資訊，請完成下列步驟：
+<ol>
+
+<li>按一下<strong>企業應用程式 &gt; </strong><em>application_name</em>。</li>
+
+<li>在「相關項目」之下，按一下 <strong>Web 模組</strong>。
+</li>
+
+<li>在「其他內容」之下，按一下 <strong>Web 服務：伺服器安全連結</strong>。
+</li>
+
+<li>在「要求接收端連結」之下，按一下<strong>編輯 &gt; 加密資訊</strong>。
+</li>
+
+</ol>
+</p>
+<p>如果要配置金鑰定位器，請完成下列步驟：
+<ol>
+
+<li>按一下<strong>伺服器 &gt; 應用程式伺服器 &gt; </strong><em>server_name</em>。</li>
+
+<li>在「其他內容」之下，按一下 <strong>Web 服務：Web 服務安全的預設連結 &gt; 金鑰定位器</strong>。
+</li>
+
+</ol>
+</p>
+</div>
+
+<div>
+<p>
+<strong>相關資訊</strong>
+</p>
+<a href="uwbs_websvcb.html">Web 服務：Web 服務安全集合的預設連結</a>
+<br>
+
+<a href="uwbs_vwcdd.html">檢視 Web 服務用戶端部署描述子</a>
+<br>
+
+</div>
+</body>
+</html>

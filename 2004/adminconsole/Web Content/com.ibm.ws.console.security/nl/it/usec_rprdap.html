@@ -1,0 +1,271 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Impostazioni LDAP (Lightweight Directory Access Protocol)</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecrprdap"></a>
+<h2>
+<img alt="[Release 5.1 e successive]" src="v51.gif" border="0">Impostazioni LDAP (Lightweight Directory Access Protocol)</h2>
+
+<p>Utilizzare questa pagina per configurare le impostazioni LTAP (Lightweight
+Directory Access Protocol) quando gli utenti e i gruppi si trovano in una directory LDAP
+esterna.</p>
+
+<p>Per visualizzare questa pagina della console di gestione, fare clic su <strong>Sicurezza</strong> &gt;
+<strong>Registri utenti</strong> &gt; <strong>LDAP</strong>.</p>
+
+<p>Quando viene abilitata la sicurezza ed una qualsiasi di queste propriet&agrave; viene
+modificata, andare al pannello <strong>Sicurezza globale</strong> e fare clic su
+<strong>Applica</strong> per convalidare le modifiche.</p>
+
+<div>
+<p>
+<strong>Scheda Configurazione</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="UserRegistry_serverId_description"></a>ID utente server</strong>
+</dt>
+<dd>Specifica l'ID utente su cui il server &egrave; in esecuzione, per scopi di
+sicurezza.
+<p>Sebbene questo non sia l'ID utente dell'amministratore LDAP, specificare una voce valida nella directory LDAP localizzata nel DN (Distinguished Name) di base.</p>
+
+</dd>
+<dt>
+<strong><a name="UserRegistry_serverPassword_description"></a>Password utente del server </strong>
+</dt>
+<dd>Specifica la password corrispondente all'ID server di sicurezza.</dd>
+<dt>
+<strong><a name="LDAPUserRegistry_type_description"></a>Tipo</strong>
+</dt>
+<dd>Specifica il tipo di server LDAP al quale collegarsi.
+<p>
+<img alt="[5.0 only]" src="v50x.gif" border="0"><img alt="[Fix Pack 5.0.1]" src="v501x.gif" border="0"><img alt="[Fix Pack 5.0.2]" src="v502x.gif" border="0">Il tipo viene utilizzato per precaricare le propriet&agrave; LDAP predefinite.
+Gli utenti
+IBM Directory Server possono scegliere tra <samp>IBM_Directory_Server</samp> e
+<samp>SecureWay</samp> come tipo di directory. Utilizzare il tipo di directory <samp>IBM_ Directory_server</samp> per prestazioni migliori. Gli utenti di iPlanet
+Directory Server possono scegliere tra iPlanet Directory Server e NetScape come tipo di directory. 
+Utilizzare il tipo di directory iPlanet Directory Server per ottenere prestazioni migliori
+dopo la configurazione di iPlanet per utilizzare il <samp>role</samp> <samp>(nsRole)</samp> come metodo di
+raggruppamento.</p>
+
+<p>
+<img alt="[Release 5.1 e successive]" src="v51.gif" border="0">
+IBM
+SecureWay Directory Server non &egrave; supportato.. </p>
+
+<p>Per un elenco dei server LDAP supportati, consultare la sezione Servizi di directory supportati nella
+documentazione.</p>
+
+</dd>
+<dt>
+<strong><a name="LDAPUserRegistry_host_description"></a>Host</strong>
+</dt>
+<dd>Specifica l'ID host (indirizzo IP o nome DNS (domain name system) del server
+LDAP.</dd>
+<dt>
+<strong><a name="LDAPUserRegistry_port_description"></a>Porta</strong>
+</dt>
+<dd>Specifica la porta host del server LDAP.
+<p>Se pi&ugrave; WebSphere Application Server vengono installati e configurati per essere
+eseguiti nello stesso dominio SSO (Single Sign-On), oppure se WebSphere Application
+Server interagisce con una versione precedente, &egrave; importante che il numero della porta
+corrisponda in tutte le configurazioni. Ad esempio, se la porta LDAP &egrave; specificata esplicitamente come <strong>389</strong>
+in una configurazione della versione 4.0.x e WebSphere Application
+Server Versione 5, interagisce con il server della versione 4.0.x,
+verificare che la porta <strong>389</strong> sia indicata esplicitamente anche per il server
+della versione 5. <table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito:</td>
+<td align="left" valign="top" class="base">389</td>
+
+</tr>
+
+</table>
+<p>
+<b>Nota: </b>Se la porta, incluso il numero di porta predefinito, viene
+specificata esplicitamente in una configurazione server, verificare che questa sia
+indicata anche in tutte le configurazioni server.</p>
+</p>
+
+</dd>
+<dt>
+<strong><a name="LDAPUserRegistry_baseDN_description"></a>BDN (Base Distinguished Name)</strong>
+</dt>
+<dd>Specifica il DN (Distinguished Name) di base del servizio directory che indica
+il punto
+di partenza per le ricerche LDAP del servizio directory. 
+<p>Ad esempio, per un utente con un DN (Distinguished Name) come n=John Doe, ou=Rochester, o=IBM, c=US, il BDN
+(Base Distinguished Name) pu&ograve; essere (utilizzando un suffisso c=us): ou=Rochester, o=IBM,
+c=us  o=IBM, c=us  c=us.  Per scopi di autenticazione, questo campo &egrave; sensibile al maiuscolo e al minuscolo. Ci&ograve; implica che se si riceve un token
+(ad esempio, da un'altra cella o Domino), il BDN (Base Distinguished Name) presente nel
+server deve corrispondere esattamente a quello dell'altra cella o di Domino. Se la
+distinzione tra maiuscolo e minuscolo non deve essere considerata per l'autorizzazione,
+abilitare il campo <strong>Ignora maiuscole/minuscole</strong>.
+ Questo campo &egrave; obbligatorio per
+tutte le directory LDAP, tranne per la directory Domino in cui &egrave; facoltativo.</p>
+
+</dd>
+<dt>
+<strong><a name="LDAPUserRegistry_bindDN_description"></a>DN (Distinguished Name) del collegamento</strong>
+</dt>
+<dd>Specifica il DN del server delle applicazioni da utilizzare per il
+collegamento al servizio directory.
+<p>Se nessun nome viene specificato, il server delle applicazioni si collega in maniera anonima. Consultare la descrizione campo DN (Distinguished Name) per gli esempi di dn.</p>
+
+</dd>
+<dt>
+<strong><a name="LDAPUserRegistry_bindPassword_description"></a>Password di collegamento</strong>
+</dt>
+<dd>Indica la password del server delle applicazioni da utilizzare per il
+collegamento al servizio directory.</dd>
+<dt>
+<strong><a name="LDAPUserRegistry_searchTimeout_description"></a>Timeout ricerca</strong>
+</dt>
+<dd>Specifica il valore di timeout in secondi per la risposta da parte di un
+server LDAP prima di annullare la richiesta.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito:</td>
+<td align="left" valign="top" class="base">120</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LDAPUserRegistry_reuseConnection_description"></a>Riutilizza connessione</strong>
+</dt>
+<dd>Specifica se il server deve riutilizzare la connessione LDAP.
+Annullare questa opzione solo nei rari casi in cui viene utilizzato un router per
+inviare richieste a pi&ugrave; server LDAP e il router non supporta l'affinit&agrave;. 
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito:</td>
+<td align="left" valign="top" class="base">Abilitato</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo:</td>
+<td align="left" valign="top" class="base">Abilitato o disabilitato</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LDAPUserRegistry_ignoreCase_description"></a>Ignora maiuscolo/minuscolo</strong>
+</dt>
+<dd>Specifica che viene eseguito un controllo autorizzazione che
+ignora la distinzione tra maiuscolo e minuscolo.
+<p>Questo &egrave; un campo obbligatorio se si seleziona IBM Directory Server come server della
+directory LDAP. </p>
+
+<p>
+<img alt="[Release 5.1 e successive]" src="v51.gif" border="0">Questo &egrave; un campo obbligatorio se si seleziona Sun ONE Directory Server come
+server della directory LDAP. Per ulteriori informazioni, consultare la sezione "Uso dei server di
+directory specifiche come server LDAP", presente nella documentazione.</p>
+
+<p>Altrimenti, questo campo &egrave; facoltativo e pu&ograve; essere abilitato nel caso in cui sia necessario
+eseguire un controllo di autorizzazione con distinzione tra maiuscole e minuscole. Ad esempio,
+utilizzare questo campo se l'uso delle maiuscole e delle minuscole dei certificati e dei relativi
+contenuti non corrisponde a quello della voce presente nel server LDAP. &Egrave; possibile abilitare il
+campo <strong>Ignora maiuscole/minuscole</strong> quando si utilizza SSO tra WebSphere Application Server e
+LotusDomino.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito:</td>
+<td align="left" valign="top" class="base">Disabilitato</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo:</td>
+<td align="left" valign="top" class="base">Abilitato o disabilitato</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LDAPUserRegistry_sslEnabled_description"></a>SSL abilitato</strong>
+</dt>
+<dd> Specifica se sono abilitate le comunicazioni SSL per il server LDAP. Quando
+abilitate, vengono utilizzate le impostazioni SSL (Secure Sockets
+Layer) LDAP, se specificate.</dd>
+<dt>
+<strong><a name="LDAPUserRegistry_sslConfig_description"></a>Configurazione SSL</strong>
+</dt>
+<dd>Specifica la configurazione SSL (Secure Sockets Layer) da utilizzare per la
+connessione LDAP. Questa configurazione viene utilizzata solo se SSL &egrave; abilitata per LDAP.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito: </td>
+<td align="left" valign="top" class="base">DefaultSSLSettings</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LDAPUserRegistry_enableTAM_description"></a>Utilizza TAM (Tivoli Access Manager) per le politiche di account</strong>
+</dt>
+<dd>Selezionare questa opzione per indicare che TAM (Tivoli Access Manager) viene utilizzato
+per poter utilizzare password e politiche di account per l'autenticazione. Affinch&eacute; questa opzione
+sia disponibile, &egrave; necessario aver installato precedentemente TAM (Tivoli Access Manager).
+<p>Non selezionare questa opzione a meno che non sia installato e configurato un server TAM (Tivoli
+Access Manager) per l'uso da parte di WebSphere Application Server.
+Il server della directory LDAP utilizzato da TAM (Tivoli Access Manager) deve essere lo stesso di
+quello utilizzato da WebSphere Application Server.</p>
+
+<p>
+<b>Nota: </b>Quando si seleziona questa opzione, IBM SecureWay Directory Server non &egrave;
+supportato come un server della directory LDAP.</p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informazioni correlate</strong>
+</p>
+<a href="rcon_buttons.html">Pulsanti della console di gestione</a>
+<br>
+
+<a href="rcon_pageusage.html">Funzioni della pagina della console di gestione</a>
+<br>
+
+<a href="rcon_scope.html">Impostazioni ambito della console di gestione</a>
+<br>
+
+<a href="rcon_filter.html">Impostazioni di filtro della console di gestione</a>
+<br>
+
+<a href="rcon_preferences.html">Impostazioni delle preferenze della console di gestione</a>
+<br>
+
+</div>
+</body>
+</html>

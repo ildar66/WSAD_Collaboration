@@ -1,0 +1,457 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Param&egrave;tres de s&eacute;curit&eacute; g&eacute;n&eacute;raux</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecrgsp"></a>
+<h2>
+<img alt="[Fix Pack 5.0.2 and later]" src="v502.gif" border="0">Param&egrave;tres de s&eacute;curit&eacute; g&eacute;n&eacute;raux</h2>
+
+<p>Cette page permet de configurer la s&eacute;curit&eacute;. Lorsque vous activez la s&eacute;curit&eacute;,
+vous activez les param&egrave;tres de s&eacute;curit&eacute; au niveau global. Lorsque la
+s&eacute;curit&eacute; est d&eacute;sactiv&eacute;e, les performances de WebSphere Application Server augmentent de 10 &agrave; 20 %. Par
+cons&eacute;quent, pensez &agrave; d&eacute;sactiver la s&eacute;curit&eacute; lorsqu'elle n'est pas
+n&eacute;cessaire.</p>
+
+<p>Pour afficher cette page de la console d'administration, cliquez sur <strong>S&eacute;curit&eacute;</strong> &gt; <strong>S&eacute;curit&eacute; globale</strong>.</p>
+
+<div>
+<p>Si vous configurez la s&eacute;curit&eacute; pour la premi&egrave;re fois, suivez
+la proc&eacute;dure de la rubrique "Configuration de la s&eacute;curit&eacute; globale" de la
+documentation pour &eacute;viter d'&eacute;ventuels incidents.
+Une fois la s&eacute;curit&eacute; configur&eacute;e, validez toutes les modifications
+apport&eacute;es aux panneaux du registre ou du m&eacute;canisme d'authentification. Cliquez
+sur <strong>Valider</strong> pour valider les param&egrave;tres du registre
+d'utilisateurs.
+L'authentification de l'ID serveur est tent&eacute;e dans le registre
+d'utilisateurs configur&eacute;.
+La validation des param&egrave;tres du registre
+d'utilisateurs une fois que vous avez activ&eacute; la s&eacute;curit&eacute; globale peut
+&eacute;viter des incidents lors du prochaine red&eacute;marrage du serveur.</p>
+</div>
+
+<div>
+<p>
+<strong>Onglet Configuration</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="Security_enabled_description"></a>Activ&eacute;e </strong>
+</dt>
+<dd>Indique au serveur d'activer les sous-syst&egrave;mes de s&eacute;curit&eacute;. 
+<p>Dans la documentation WebSphere Application Server, cet indicateur est
+commun&eacute;ment appel&eacute; <em>indicateur de s&eacute;curit&eacute; globale</em>. Lors de
+l'activation de la s&eacute;curit&eacute;, d&eacute;finissez la configuration du m&eacute;canisme
+d'authentification et indiquez un ID utilisateur et un mot de passe
+valides dans la configuration du registre d'utilisateurs s&eacute;lectionn&eacute;e.</p>
+
+
+
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es :</td>
+<td align="left" valign="top" class="base">Bool&eacute;en</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut :</td>
+<td align="left" valign="top" class="base">D&eacute;sactiv&eacute;e</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="Security_enforceJava2Security_description"></a>Application de la s&eacute;curit&eacute; Java 2</strong>
+</dt>
+<dd>Indique s'il est n&eacute;cessaire d'activer ou de d&eacute;sactiver
+le contr&ocirc;le des droits d'acc&egrave;s de la s&eacute;curit&eacute; Java 2. Par d&eacute;faut, la s&eacute;curit&eacute; Java 2 est
+d&eacute;sactiv&eacute;e. Toutefois, l'activation de la s&eacute;curit&eacute; globale active
+automatiquement la s&eacute;curit&eacute; Java 2. Vous pouvez d&eacute;sactiver
+la s&eacute;curit&eacute; Java 2 m&ecirc;me lorsque la s&eacute;curit&eacute; globale est activ&eacute;e.
+<p>Lorsque la s&eacute;curit&eacute; Java 2 est activ&eacute;e et qu'une application
+requiert un plus grand nombre de droits de s&eacute;curit&eacute; Java
+2 que ceux attribu&eacute;s dans la r&egrave;gle par d&eacute;faut, alors l'ex&eacute;cution de
+l'application peut ne pas aboutir tant que les droits requis ne dont pas
+attribu&eacute;s dans le fichier <samp>app.policy</samp> ou <samp>was.policy</samp> de
+l'application.
+Les exceptions AccessControl sont g&eacute;n&eacute;r&eacute;es par les applications
+qui disposent de tous les droits requis. Reportez-vous &agrave; l'InfoCenter
+et consultez les sections relatives &agrave; la <em>s&eacute;curit&eacute; Java 2 et aux
+r&egrave;gles dynamiques</em> si n'&ecirc;tes pas familiaris&eacute; avec la s&eacute;curit&eacute;
+Java 2.</p>
+
+<p>Si votre serveur ne red&eacute;marre pas une fois que vous avez activ&eacute; la
+s&eacute;curit&eacute; globale, vous pouvez la d&eacute;sactiver. Acc&eacute;dez au r&eacute;pertoire <samp>$&lt;racine_install&gt;\bin</samp> et ex&eacute;cutez la commande <samp>wsadmin -conntype NONE</samp>. A l'invite <samp>wsadmin&gt;</samp>, entrez <samp>securityoff</samp> puis <samp>exit</samp> pour revenir &agrave; une invite de
+commande. Red&eacute;marrez le serveur en d&eacute;sactivant la s&eacute;curit&eacute; afin de
+v&eacute;rifier les param&egrave;tres incorrects dans la console d'administration.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es :</td>
+<td align="left" valign="top" class="base">Bool&eacute;en</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut :</td>
+<td align="left" valign="top" class="base">D&eacute;sactiv&eacute;e</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Port&eacute;e :</td>
+<td align="left" valign="top" class="base">Activ&eacute;e ou D&eacute;sactiv&eacute;e</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="Security_useDomainQualifiedUserNames_description"></a>Utiliser les noms d'utilisateurs qualifi&eacute;s du domaine</strong>
+</dt>
+<dd>Indique
+les noms d'utilisateur &agrave; qualifier avec le domaine de s&eacute;curit&eacute; dans
+lequel ils r&eacute;sident.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es :</td>
+<td align="left" valign="top" class="base">Bool&eacute;en</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut :</td>
+<td align="left" valign="top" class="base">D&eacute;sactiv&eacute;e</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Port&eacute;e :</td>
+<td align="left" valign="top" class="base">Activ&eacute;e ou D&eacute;sactiv&eacute;e</td>
+
+</tr>
+
+</table>
+
+
+<p>
+<img alt="[5.0 only]" src="v50x.gif" border="0"><img alt="[Fix Pack 5.0.1]" src="v501x.gif" border="0">Si vous activez l'option <strong>Utiliser les noms d'utilisateurs
+qualifi&eacute;s du domaine </strong> dans le volet de configuration <strong>S&eacute;curit&eacute; &gt; S&eacute;curit&eacute;
+globale</strong>, l'appel d'ex&eacute;cution getCallerPrincipal() depuis un bean d'entreprise
+renvoie le nom qualifi&eacute; avec le domaine ant&eacute;pos&eacute; deux fois. Par exemple, le format
+de retour est domaine/domaine/utilisateur.
+Vous pouvez &eacute;liminer le premier domaine de la valeur renvoy&eacute;e lorsque vous effectuez
+des appels API.
+L'API de servlet getUserPrincipal() fonctionne correctement.</p>
+
+</dd>
+<dt>
+<strong><a name="Security_cacheTimeout_description"></a>D&eacute;lai d'expiration de la cache </strong>
+</dt>
+<dd>Indique le d&eacute;lai, en secondes, du cache de la
+s&eacute;curit&eacute;. Cette
+valeur est un d&eacute;lai relatif.
+<p>Si la s&eacute;curit&eacute; de WebSphere Application Server est activ&eacute;e, le d&eacute;lai d'expiration de la m&eacute;moire cache de la s&eacute;curit&eacute; peut affecter les performances. Le param&egrave;tre du d&eacute;lai d'expiration indique la p&eacute;riodicit&eacute; de la r&eacute;g&eacute;n&eacute;ration des m&eacute;moires cache associ&eacute;es &agrave; la s&eacute;curit&eacute;. Les
+informations de s&eacute;curit&eacute; relatives aux beans, aux droits d'acc&egrave;s et
+aux justificatifs sont plac&eacute;es en cache. Lorsque le d&eacute;lai d'expiration de la m&eacute;moire cache est d&eacute;pass&eacute;, toutes les informations en m&eacute;moire cache deviennent non valides. D&egrave;s
+lors, toute demande portant sur l'une de ces informations
+n&eacute;cessite une nouvelle consultation de la base de donn&eacute;es. L'obtention
+de ces informations n&eacute;cessite parfois l'appel d'un protocole
+LDAP (Lightweight Directory Access
+Protocol) ou d'un m&eacute;canisme d'authentification natif. Ces deux appels
+sont des op&eacute;rations co&ucirc;teuses en termes de performances. D&eacute;terminez le
+meilleur compromis pour l'application, en fonction des mod&egrave;les
+d'utilisation et des besoins en mati&egrave;re de s&eacute;curit&eacute; du site. </p>
+
+<p>Lors d'un test de performance de 20 minutes, il s'est av&eacute;r&eacute; qu'en choisissant un d&eacute;lai d'expiration de la m&eacute;moire cache tel que ce d&eacute;lai n'&eacute;tait jamais d&eacute;pass&eacute;, les performances &eacute;taient am&eacute;lior&eacute;es de 40 %.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es :</td>
+<td align="left" valign="top" class="base">Integer (entier)</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&eacute;s :</td>
+<td align="left" valign="top" class="base">Secondes</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut :</td>
+<td align="left" valign="top" class="base">600</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Port&eacute;e :</td>
+<td align="left" valign="top" class="base">Sup&eacute;rieur &agrave; 30 secondes</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="Security_issuePermissionWarning_description"></a>Emettre un avertissement de droit d'acc&egrave;s</strong>
+</dt>
+<dd>Indique que lorsqu'un avertissement <em>Emettre un
+avertissement de droit d'acc&egrave;s</em> est activ&eacute; lors du d&eacute;ploiement et du
+lancement d'une application, le module d'ex&eacute;cution de la s&eacute;curit&eacute;
+&eacute;met un avertissement si des
+droits d'acc&egrave;s personnalis&eacute;s sont affect&eacute;s aux applications. Les droits d'acc&egrave;s personnalis&eacute;s sont des droits
+d&eacute;finis par les applications utilisateur et non pas des droits
+d'acc&egrave;s JDK.
+Les droits d'acc&egrave;s JDK sont des droits d&eacute;finis dans <samp>package
+java.*</samp> et <samp>javax.*</samp>.
+<p>Le produit WebSphere fournit le support pour la gestion du fichier de r&egrave;gles. Il existe un certain nombre de fichiers de r&egrave;gles
+dans ce produit, certains sont statiques et d'autres dynamiques. La r&egrave;gle dynamique est un
+mod&egrave;le de droits d'acc&egrave;s destin&eacute;s &agrave; un type de ressources sp&eacute;cifique. Aucune valeur code d&eacute;finie ou relative n'est utilis&eacute;e dans le mod&egrave;le de
+r&egrave;gle dynamique. La v&eacute;ritable base de code est dynamiquement cr&eacute;&eacute;e &agrave;
+partir des donn&eacute;es de configuration et d'ex&eacute;cution.  Le fichier
+<samp>filter.policy</samp> contient une liste des droits interdits pour une application donn&eacute;e
+suivant la sp&eacute;cification J2EE 1.3. Pour obtenir plus d'informations sur les droits d'acc&egrave;s, reportez-vous &agrave;
+l'article Gestion de la r&egrave;gle Java 2 Security de l'InfoCenter.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es :</td>
+<td align="left" valign="top" class="base">Bool&eacute;en</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut :</td>
+<td align="left" valign="top" class="base">D&eacute;sactiv&eacute;e</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Port&eacute;e :</td>
+<td align="left" valign="top" class="base">Activ&eacute;e ou D&eacute;sactiv&eacute;e</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="Security_activeProtocol_description"></a>Protocole actif </strong>
+</dt>
+<dd>Indique le protocole d'authentification actif pour les
+demandes RMI IIOP Internet lorsque la s&eacute;curit&eacute; est activ&eacute;e. Dans les
+versions pr&eacute;c&eacute;dentes, le protocole
+SAS (Security
+Authentication Service)  &eacute;tait le seul protocole disponible. 
+<p>Un protocole OMG (Object Management Group) appel&eacute; CSIV2 (Common Secure Interoperability
+Version 2) prend en charge l'interop&eacute;rabilit&eacute; avec les diff&eacute;rents
+fournisseurs accrue ainsi que les fonctions suppl&eacute;mentaires. Si tous les
+serveurs de votre domaine de s&eacute;curit&eacute; sont des serveurs de la version 5,
+indiquez <strong>CSI</strong> en tant que protocole. Si certains serveurs sont des
+serveurs de la version 3.x
+ou 4.x, indiquez <strong>CSI et SAS</strong>.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es :</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut :</td>
+<td align="left" valign="top" class="base">LES DEUX</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Port&eacute;e :</td>
+<td align="left" valign="top" class="base">CSI et SAS, CSI</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="Security_activeAuthMechanism_description"></a>M&eacute;canisme d'authentification actif </strong>
+</dt>
+<dd>Indique le m&eacute;canisme d'authentification actif lorsque la
+s&eacute;curit&eacute; est activ&eacute;e.
+
+<p>WebSphere Application Server, Version 5 prend en
+charge les m&eacute;canismes d'authentification suivants : SWAM (Simple WebSphere
+Authentication Mechanism) et LTPA (Lightweight Third Party Authentication).</p>
+
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es :</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut :</td>
+<td align="left" valign="top" class="base">SWAM (WebSphere Application Server)</td>
+
+</tr>
+
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Port&eacute;e :</td>
+<td align="left" valign="top" class="base">SWAM, LTPA</td>
+
+</tr>
+
+</table>
+
+
+</dd>
+<dt>
+<strong><a name="Security_activeUserRegistry_description"></a>Registre d'utilisateurs actif</strong>
+</dt>
+<dd>Indique le registre d'utilisateurs actif lorsque la
+s&eacute;curit&eacute; est activ&eacute;e.
+<p>Les param&egrave;tres de l'un des registres d'utilisateurs suivants
+peuvent &ecirc;tre configur&eacute;s :<ul>
+
+
+<li>Syst&egrave;me d'exploitation local</li>
+
+<li>Registre d'utilisateurs LDAP. Les param&egrave;tres du registre
+d'utilisateurs LDAP sont utilis&eacute;s lorsque les utilisateurs et les groupes
+se trouvent dans un r&eacute;pertoire LDAP externe. Lorsque la s&eacute;curit&eacute; est activ&eacute;e et que certaines de ces propri&eacute;t&eacute;s
+sont modifi&eacute;es, ouvrez la fen&ecirc;tre <strong>S&eacute;curit&eacute; globale</strong> et cliquez
+sur <strong>Valider</strong> ou <strong>OK</strong> pour valider les modifications.</li>
+
+<li>Registre d'utilisateurs personnalis&eacute;</li>
+
+</ul>
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es :</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut :</td>
+<td align="left" valign="top" class="base">Syst&egrave;me d'exploitation local</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Port&eacute;e :</td>
+<td align="left" valign="top" class="base">Syst&egrave;me d'exploitation local, LDAP, Personnalis&eacute;</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="Security_fips"></a>Utiliser FIPS</strong>
+            &nbsp;
+            <img alt="[Fix Pack 5.0.2 and later]" src="v502.gif" border="0"></dt>
+<dd>Active l'utilisation des algorithmes cryptographiques agr&eacute;&eacute;s FIPS. 
+<p>Si l'option <strong>Utiliser FIPS</strong> est activ&eacute;e, l'impl&eacute;mentation
+LTPA emploie IBMJCEFIPS. IBMJCEFIPS g&egrave;re les algorithmes cryptographiques
+agr&eacute;&eacute;s FIPS (Federal Information Processing Standard) pour les normes  DES, Triple
+DES et AES. Bien que les cl&eacute;s LTPA soient r&eacute;trocompatibles avec les versions
+ant&eacute;rieures de WebSphere Application Server, le jeton LTPA n'est pas compatible avec
+les versions ant&eacute;rieures.</p>
+
+<p>WebSphere Application Server est dot&eacute; d'un fournisseur JSSE agr&eacute;&eacute; FIPS
+appel&eacute; IBMJSSEFIPS. Un fournisseur JSSE agr&eacute;&eacute; FIPS requiert le protocole
+TLS, car il n'est pas compatible avec le protocole SSL. Si vous cochez
+l'option <strong>Utiliser FIPS</strong> avant de sp&eacute;cifier un fournisseur JSSE agr&eacute;&eacute;
+FIPS et un protocole TLS, le message d'erreur suivant s'affiche en haut du volet
+<strong>S&eacute;curit&eacute; globale</strong> :<pre class="program">
+<font style="font-family: arial"><samp>La r&egrave;gle de s&eacute;curit&eacute; est configur&eacute;e pour
+n'appliquer que les algorithmes cryptographiques approuv&eacute;s. 
+Or, une configuration SSL au moins ne semble pas utiliser un fournisseur JSSE
+agr&eacute;&eacute; FIPS. 
+Il n'est pas possible d'utiliser les algorithmes cryptographiques agr&eacute;&eacute;s FIPS
+dans ces cas.
+</samp></font>
+</pre>Pour rem&eacute;dier &agrave; ce probl&egrave;me, configurez votre fournisseur JSSE et
+votre protocole de s&eacute;curit&eacute; dans le volet <strong>R&eacute;pertoires de configuration SSL</strong>
+en proc&eacute;dant de l'une des mani&egrave;res suivantes :<ul>
+
+<li>En cliquant sur <strong>S&eacute;curit&eacute; &gt; SSL</strong> et en modifiant une configuration existante</li>
+
+<li>En cliquant sur <strong>Nouveau</strong> et en cr&eacute;ant une nouvelle configuration</li>
+
+</ul>
+</p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informations connexes</strong>
+</p>
+<a href="rcon_buttons.html">Boutons de la console administrative</a>
+<br>
+
+<a href="rcon_pageusage.html">Caract&eacute;ristiques de la page de la console d'administration</a>
+<br>
+
+<a href="rcon_scope.html">Param&egrave;tres de la port&eacute;e de la console administrative</a>
+<br>
+
+<a href="rcon_filter.html">Param&egrave;tres de filtrage de la console administrative</a>
+<br>
+
+<a href="rcon_preferences.html">Param&egrave;tres des pr&eacute;f&eacute;rences de la console administrative</a>
+<br>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>公共安全互操作性入站认证设置</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecinbound"></a>
+<h2>公共安全互操作性入站认证设置</h2>
+
+<p>使用此页面指定服务器支持客户机访问其资源的功能部件。</p>
+
+<p>要查看此管理控制台页面，单击<strong>安全性</strong> &gt; <strong>认证协议</strong> &gt; <strong>CSI 入站认证</strong>。</p>
+
+<p>CSI 入站认证设置是用于配置包含在进入请求或传输中的认证信息类型。</p>
+
+<p>认证功能部件包含您可同步使用的三层认证：<ul>
+
+<li>
+<strong>传输层</strong>。最底层的传输层可以包含作为身份的安全套接字层（SSL）客户机证书。</li>
+
+<li>
+<strong>消息层</strong>。消息层可以包含用户标识和密码或可具有期限的已认证令牌。</li>
+
+<li>
+<strong>属性层</strong>。属性层可以包含身份令牌，它来自已认证的上行服务器。身份层根据消息层和随后的传输层具有最高优先级。如果客户机发送全部三层，那么仅使用身份层。使用 SSL 客户机证书作为身份的唯一方法是如果仅在请求期间显示信息。客户机从名称空间挑选 IOR 并读取已标记组件上的值，来确定服务器需要的安全性。</li>
+
+</ul>  
+</p>
+
+<div>
+<p>
+<strong>&ldquo;配置&rdquo;选项卡</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="BasicAuthentication_i_description"></a>基本认证</strong>
+</dt>
+<dd>指定发生在消息层上的基本认证。
+<p>在消息层中，发生了执行了基本认证（用户标识和密码）。此类型的认证通常涉及从客户机发送用户标识和密码到服务器以进行认证。这也涉及委托提供凭证类型的已认证凭证的凭证令牌是可转发的（例如，轻量级第三方认证（LTPA））。如果为服务器选择<strong>基本认证</strong>，那么指定用户标识和密码认证以及基于令牌的认证。</p>
+
+<p>当选择<strong>基本认证</strong>时，您需要确定这是<strong>必需的</strong>还是<strong>支持的</strong>。选择<strong>必需的</strong>，表明仅通过消息层配置给此服务器以进行认证的客户机才允许调用服务器上的请求。选择&ldquo;支持的&rdquo;，表明此服务器接受<strong>基本认证</strong>。然而，可以发生其它认证方法（如果已配置的话）并接受匿名请求。选择<strong>从不</strong>，表明服务器将配置为不接受来自任何客户机的消息层认证。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型：</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ClientCertificateAuthentication_i_description"></a>客户机证书认证</strong>
+</dt>
+<dd>指定方法请求期间的客户机和服务器之间进行初始连接时发生的认证。
+<p>在传输层中发生安全套接字层（SSL）客户机证书认证。在消息层中，执行基本认证（用户标识和密码）。客户机证书认证通常比消息层认证执行得好些，但它需要一些附加的设置步骤。这些附加的步骤涉及确保服务器具有每台与它连接的客户机的签署者证书。如果客户机使用认证中心（CA）创建它的个人证书，则您仅需要 SSL 信任文件的服务器签署者部分中的 CA 根证书。当认证证书到轻量级目录访问协议（LDAP）用户注册表时，基于配置 LDAP 时指定的过滤器映射专有名称（DN）。当认证证书到本地 OS 用户注册表时，证书中的 DN 第一个属性（通常是公共名）映射到注册表中的用户标识。
+仅当不提供其它的认证层给服务器时才使用客户机证书的身份。</p>
+
+<p>当选择<strong>客户机证书认证</strong>时，您需要确定这是<strong>必需的</strong>还是<strong>支持的</strong>。当选择<strong>必需的</strong>时，仅通过 SSL 客户机证书配置给此服务器以进行认证的客户机才可调用服务器上的请求。当选择<strong>支持的</strong>时，此服务器接受 SSL 客户机证书认证，然而，可以发生其它认证方法（如果配置了的话）并接受匿名请求。当选择<strong>从不</strong>时，此服务器将配置为不接受来自客户机的客户机证书认证。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="IdentityAssertion_i_description"></a>身份声明</strong>
+</dt>
+<dd>指定身份声明是确定从一台服务器到另一个服务器（在下行 EJB 调用期间）的身份的方法。
+<p>身份声明在属性层中执行，并且仅应用于服务器上。服务器上确定的主体基于优先权规则。如果执行了身份声明，身份总是从此属性派生出来。如果执行了不带身份声明的基本认证，则身份总是从管理层派生出来。最终，如果不使用基本认证或身份声明执行 SSL 客户机证书认证，则身份从传输层派生出来。</p>
+
+<p>声明的身份是由企业 bean 的 RunAs 方式确定的调用凭证。如果 RunAs 方式是<strong>客户机</strong>，则身份是客户机身份。如果 RunAs 方式是<strong>系统</strong>，则身份是服务器身份。如果 RunAs 方式是<strong>指定的</strong>，则身份是指定的身份。接收服务器接收身份令牌中的身份，同时也接收客户机认证令牌中发送的服务器身份。接收服务器验证发送服务器身份是通过<strong>可信的服务器标识</strong>输入框作为可信的身份。输入以逗号分隔的主体名称列表，例如，<samp>serverid1,
+serverid2, serverid3</samp>。</p>
+
+<p>当认证到 LocalOS 用户注册表时，所有身份令牌类型映射到活动用户注册表的用户标识字段。对于 <samp>ITTPrincipal</samp> 身份令牌，使用用户标识字段一对一进行映射。对于 <samp>ITTDistinguishedName</samp> 身份令牌，第一个等号的值映射到用户标识字段。对于 <samp>ITTCertChain</samp> 身份令牌，专有名称的第一个等号的值映射到用户标识字段。</p>
+
+<p>当认证到 LDAP 用户注册表时，LDAP 过滤器确定类型 <samp>ITTCertChain</samp> 和 <samp>ITTDistinguishedName</samp> 的身份如何映射到注册表。如果令牌类型为 <samp>ITTPrincipal</samp>，则主体映射到 LDAP 注册表中的 UID 字段。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型：</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="IdentityAssertionLayer_trustedServers_description"></a>可信的服务器用户标识</strong>
+</dt>
+<dd>指定以逗号分隔的服务器用户标识列表，信任这些用户标识以执行到此服务器的身份声明。
+<p>使用此列表快速确定服务器是否是可信的。即使服务器在列表中，发送服务器仍必须为接受发送服务器的身份令牌认证接收服务器。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="StatefulSession_description"></a>有状态的会话</strong>
+</dt>
+<dd>指定有状态的会话，主要用于性能改进。
+<p>客户机和服务器之间的第一次联系必须完全认证。然而，带有有效会话的所有后继联系重用安全性信息。客户机向服务器传递上下文标识，且标识用于查找会话。上下文标识作用于保证唯一性的连接。只要安全性会话是无效的，而且启用了认证重试（缺省情况下），则客户机端安全性拦截器都会使客户机端会话失效，并且在不通知您的情况下重新提交。如果在服务器上不存在会话（服务器失败并已恢复操作），那么可能会发生这种情况。当禁用此值时，每个方法调用必须重新认证。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>相关信息</strong>
+</p>
+<a href="rcon_buttons.html">管理控制台按钮</a>
+<br>
+
+<a href="rcon_pageusage.html">管理控制台页面功能</a>
+<br>
+
+<a href="rcon_scope.html">管理控制台作用域设置</a>
+<br>
+
+<a href="rcon_filter.html">管理控制台过滤器设置</a>
+<br>
+
+<a href="rcon_preferences.html">管理控制台首选项设置</a>
+<br>
+
+</div>
+</body>
+</html>

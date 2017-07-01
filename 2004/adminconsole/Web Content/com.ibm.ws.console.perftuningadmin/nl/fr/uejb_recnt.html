@@ -1,0 +1,128 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Param&egrave;tres du conteneur EJB</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uejbecnt"></a>
+<h2>Param&egrave;tres du conteneur EJB</h2>
+
+<p>Utilisez cette page pour configurer et g&eacute;rer un conteneur EJB sp&eacute;cifique.</p>
+
+<p>Pour afficher cette page de la console d'administration, cliquez
+sur <strong>Serveurs</strong> <strong>&gt;</strong> <strong>Serveurs d'applications</strong>
+<strong>&gt;</strong> <em>nomServeur</em> <strong>&gt;</strong> <strong>Conteneur d'EJB</strong>.</p>
+
+<div>
+<p>
+<strong>Onglet Configuration</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="EJBContainer_passivationDirectory_description"></a>R&eacute;pertoire de passivation</strong>
+</dt>
+<dd>Indique le r&eacute;pertoire dans lequel le conteneur enregistre
+l'&eacute;tat persistant des beans session &agrave; l'&eacute;tat passif.
+<p>Les beans sont mis &agrave; l'&eacute;tat passif lorsque le nombre d'instances de beans actifs est sup&eacute;rieur &agrave; la taille de la m&eacute;moire cache indiqu&eacute;e lors de la configuration du conteneur. Lorsqu'un bean avec &eacute;tat est mis &agrave; l'&eacute;tat passif, le conteneur s&eacute;rialise l'instance de bean dans un fichier dans le r&eacute;pertoire de passivation et supprime l'instance dans la m&eacute;moire cache du bean. Si par la suite une demande arrive pour l'instance de bean &agrave; l'&eacute;tat passif, le conteneur l'extrait du r&eacute;pertoire de passivation, la d&eacute;s&eacute;rialise, la renvoie dans la m&eacute;moire cache et r&eacute;partit la demande. Si l'une de ces &eacute;tapes ne peut &ecirc;tre effectu&eacute;e (par exemple, si l'instance de bean concern&eacute;e ne se trouve plus dans le r&eacute;pertoire de passivation), l'appel de la m&eacute;thode &eacute;choue.</p>
+
+</dd>
+<dt>
+<strong><a name="EJBContainer_inactivePoolCleanupInterval_description"></a>Intervalle de nettoyage de groupes inactifs</strong>
+</dt>
+<dd>Indique l'intervalle selon lequel le conteneur examine les
+groupes d'instances de beans disponibles afin de d&eacute;terminer les
+instances qui peuvent &ecirc;tre supprim&eacute;es pour r&eacute;duire la m&eacute;moire
+utilis&eacute;e.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Entier</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&eacute;s</td>
+<td align="left" valign="top" class="base">Millisecondes</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Plage de valeurs</td>
+<td align="left" valign="top" class="base">Sup&eacute;rieur &agrave; 0</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="EJBContainer_defaultDatasourceJNDIName_description"></a>Nom JNDI de la source de donn&eacute;es par d&eacute;faut</strong>
+</dt>
+<dd>Indique le nom JNDI d'une source de donn&eacute;es &agrave; utiliser si
+aucune source de donn&eacute;es n'est sp&eacute;cifi&eacute;e lors du d&eacute;ploiement d'une
+application. Ce param&egrave;tre ne s'applique pas aux beans CMP compatibles
+avec la sp&eacute;cification EJB 2.x.
+<p>Les servlets et les beans enterprise utilisent des <em>sources de donn&eacute;es</em> pour obtenir ces connexions.
+Lors de la configuration d'un conteneur, vous pouvez sp&eacute;cifier une source de donn&eacute;es par d&eacute;faut pour le conteneur. Cette source de donn&eacute;es devient la source de donn&eacute;es par d&eacute;faut utilis&eacute;e par les beans entity dans le conteneur qui utilise la fonction de persistance g&eacute;r&eacute;e par le conteneur (CMP).</p>
+
+<p>La source de donn&eacute;es par d&eacute;faut d'un conteneur est s&eacute;curis&eacute;e. Lorsque vous sp&eacute;cifiez la source, vous devez indiquer un ID utilisateur et un mot de passe pour acc&eacute;der &agrave; la source de donn&eacute;es.</p>
+
+<p>Il n'est pas obligatoire d'indiquer une source de donn&eacute;es par d&eacute;faut si chaque bean entity CMP du conteneur poss&egrave;de une source de donn&eacute;es sp&eacute;cifi&eacute;e dans sa configuration. Si aucune source de donn&eacute;es par d&eacute;faut n'est indiqu&eacute;e et qu'un bean
+entity CMP pour lequel aucune source de donn&eacute;es n'est indiqu&eacute;e est
+install&eacute; dans le conteneur, les applications ne peuvent pas utiliser
+ce bean.</p>
+
+</dd>
+<dt>
+<strong><a name="StateManageable_initialState_description"></a>Etat initial</strong>
+</dt>
+<dd>Indique l'&eacute;tat d'ex&eacute;cution demand&eacute; lors du premier
+d&eacute;marrage du serveur.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">D&eacute;marr&eacute;</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Plage de valeurs</td>
+<td align="left" valign="top" class="base">Les valeurs valides sont <samp>D&eacute;marr&eacute;</samp> et <samp>Arr&ecirc;t&eacute;</samp></td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informations connexes</strong>
+</p>
+<a href="rcon_buttons.html">Boutons de la console administrative</a>
+<br>
+
+<a href="uejb_rcash.html">Param&egrave;tres de la cache d'EJB</a>
+<br>
+
+</div>
+</body>
+</html>

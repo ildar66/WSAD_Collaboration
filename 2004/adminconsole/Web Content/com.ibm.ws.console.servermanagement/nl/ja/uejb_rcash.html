@@ -1,0 +1,136 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>EJB キャッシュ設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uejbcash"></a>
+<h2>EJB キャッシュ設定</h2>
+
+<p>このページを使用して、特定の EJB コンテナーのキャッシュを構成および管理します。
+キャッシュ絶対限度を決定するには、与えられたトランザクションのアクティブな Enterprise Bean の数に、予想される同時トランザクションの合計数を掛け合わせます。 
+次に、アクティブな Session Bean インスタンスの数を追加します。 
+Tivoli Performance Viewer を使用して、Bean のパフォーマンス情報を表示することができます。</p>
+
+<p>この管理コンソール・ページを表示するには、「<strong>サーバー</strong>」<strong>&gt;</strong>「<strong>アプリケーション・サーバー</strong>」<strong>&gt;</strong>「<em>serverName</em>」<strong>&gt;</strong>「<strong>EJB コンテナー</strong>」<strong>&gt;</strong>「<strong>EJB Cache Settings</strong>」をクリックします。</p>
+
+<div>
+<p>
+<strong>「構成」タブ</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="EJBCache_cleanupInterval_description"></a>クリーンアップ間隔</strong>
+</dt>
+<dd>合計アイテム数をキャッシュ・サイズの値まで減らすために、
+コンテナーがキャッシュから未使用アイテムの除去を試みる間隔を指定します。
+
+<p>キャッシュ・マネージャーは、エントリーを必要に応じてすぐに割り振ることができるように、まだ割り振られていないエントリーの一部を保守しようとします。
+バックグラウンド・スレッドは、割り振られていないエントリーを保守する一方で、
+エントリーの一部を解放しようとします。
+アプリケーション・サーバーが使用されていない間にスレッドが実行される
+と、アプリケーション・サーバーが新規のキャッシュ・エントリーを割り振
+る必要がある場合に、キャッシュからエントリーを除去するためのパフォー
+マンス・コストがかかりません。一般的には、キャッシュ・サイズが増加すると、このパラメーターも増加します。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">整数</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">単位</td>
+<td align="left" valign="top" class="base">ミリ秒</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">0 より大</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">3000</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="EJBCache_cacheSize_description"></a>キャッシュ・サイズ</strong>
+</dt>
+<dd>EJB コンテナー内のアクティブ・インスタンスのリストで、バケット数を指定します。
+
+<p>バケットには複数のアクティブな Enterprise Bean インスタンスを入れることができますが、表内の個々のバケットに割り当てられるインスタンス数が最小の場合に、最大限のパフォーマンスが得られます。
+コンテナー内のアクティブ・インスタンスの数がバケット数 (つまりキャッ
+シュ・サイズ) を超えると、コンテナーは定期的に、アクティブ・インスタン
+スの一部を非活性化して、表内のアクティブ・インスタンスの数を削減しよう
+とします。
+パフォーマンスとメモリーのバランスを最適にするためには、
+この値を、通常のワークロード中に予想されるアクティブ・インスタンスの最
+大数に設定してください。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">整数</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">単位</td>
+<td align="left" valign="top" class="base">ハッシュ・テーブル内のバケット数
+</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">0 より大。コンテナーは、指定値以上の素数のうち 2 番目に大きいものを選択します。
+</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">2053</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>関連情報</strong>
+</p>
+<a href="rcon_buttons.html">管理コンソールのボタン</a>
+<br>
+
+<a href="uejb_recnt.html">EJB コンテナー設定</a>
+<br>
+
+</div>
+</body>
+</html>

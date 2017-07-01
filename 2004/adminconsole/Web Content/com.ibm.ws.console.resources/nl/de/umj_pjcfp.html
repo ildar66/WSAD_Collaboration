@@ -1,0 +1,277 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Einstellungen f&uuml;r generische JMS-Verbindungs-Factorys</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="GenericJMSConnectionFactory"></a>
+<h2>Einstellungen f&uuml;r generische JMS-Verbindungs-Factorys</h2>
+
+<p>Verwenden Sie diese Anzeige, um die Konfigurationsmerkmale der
+ausgew&auml;hlten JMS-Verbindungs-Factory, die mit dem
+zugeordneten JMS-Provider verwendet werden soll, anzuzeigen oder zu &auml;ndern.
+Mit diesen Konfigurationsmerkmalen wird festgelegt, wie Verbindungen zur
+zugeordneten JMS-Zieladresse erstellt werden.</p>
+
+<p>Eine JMS-Verbindungs-Factory wird verwendet, um Verbindungen zu JMS-Zieladressen herzustellen.
+Die JMS-Verbindungs-Factory wird vom zugeordneten JMS-Provider erstellt. Eine JMS-Verbindungs-Factory f&uuml;r
+einen generischen JMS-Provider (mit Ausnahme des eingebetteten WebSphere-JMS-Providers oder des
+WebSphere-MQ-JMS-Providers) hat die folgenden Merkmale:</p>
+
+<p>Klicken Sie zum Anzeigen dieser Seite der Administrationskonsole auf <strong>Ressourcen -&gt; Generische
+JMS-Provider -&gt; <em>Provider-Name</em>-&gt; JMS-Verbindungs-Factorys -&gt; <em>Verbindungs-Factory</em></strong>.</p>
+
+<dl>
+<dt>
+<strong><a name="GenericJMSConnectionFactory_Name"></a>Name</strong>
+</dt>
+<dd>Der Name, unter dem die JMS-Verbindungs-Factory f&uuml;r die Administration in IBM WebSphere Application Server
+gef&uuml;hrt wird. Der Name muss innerhalb des
+zugeordneten JMS-Providers eindeutig sein.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="GenericJMSConnectionFactory_type"></a>Typ</strong>
+</dt>
+<dd>Gibt an, ob diese Verbindungs-Factory f&uuml;r das Erstellen von Zieladressen
+f&uuml;r JMS-Warteschlangen oder JMS-Topics verwendet werden kann. 
+<p>W&auml;hlen Sie eine der folgenden Optionen aus:<dl>
+
+<dt>
+<strong>Warteschlange</strong>
+</dt>
+<dd>Die Verbindungs-Factory f&uuml;r eine JMS-Warteschlange, die
+f&uuml;r das Point-to-Point-Messaging verwendet wird. </dd>
+
+<dt>
+<strong>Thema
+</strong>
+</dt>
+<dd>Die Verbindungs-Factory f&uuml;r ein JMS-Topic, die f&uuml;r das
+Pub/Sub-Messaging verwendet wird.</dd>
+
+</dl>
+</p>
+
+</dd>
+<dt>
+<strong><a name="GenericJMSConnectionFactory_externaljndiName"></a>JNDI-Name</strong>
+</dt>
+<dd>Der JNDI-Name, der zum Binden der Verbindungs-Factory an
+den Namespace des Anwendungsservers verwendet wird.<p>Verwenden Sie als Konvention den vollst&auml;ndig qualifizierten JNDI-Namen, z. B.
+im Format jms/<em>Name</em>. Dabei bezeichnet <em>Name</em>
+den logischen Namen der Ressource.</p>
+<p>Dieser Name wird verwendet, um
+die Bindungsinformationen f&uuml;r die Plattform zu verlinken. Die Bindung ordnet die im Deployment-Deskriptor des Moduls definierten
+Ressourcen den "echten" (physischen) Ressourcen zu, die &uuml;ber die Plattform
+an JNDI gebunden sind.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+</dd>
+<dt>
+<strong><a name="GenericJMSConnectionFactory_description"></a>Beschreibung</strong>
+</dt>
+<dd>Eine Beschreibung dieser
+Verbindungs-Factory f&uuml;r die Administration in IBM WebSphere Application Server. 
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">Keiner</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="category"></a>Kategorie </strong>
+</dt>
+<dd>Eine Kategorie, die verwendet wird, um
+diese Verbindungs-Factory f&uuml;r Ihre Administrationsdaten unter IBM WebSphere Application Server zu
+klassifizieren bzw. zu gruppieren.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="AuthDataAlias"></a>Aliasname f&uuml;r komponentengest&uuml;tzte Authentifizierung
+</strong>
+</dt>
+<dd>Dieser Aliasname gibt eine Kombination aus Benutzer-ID und Kennwort an, die verwendet
+wird, um eine Verbindung zu einem JMS-Provider anwendungsgesteuert zu authentifizieren. 
+<p>Dieses Merkmal stellt eine Liste mit Aliasnamen f&uuml;r Dateneintr&auml;ge f&uuml;r J2C-Authentifizierung bereit,
+die f&uuml;r den WebSphere Application Server definiert wurden. Sie k&ouml;nnen einen Aliasnamen f&uuml;r einen
+Dateneintrag ausw&auml;hlen, der verwendet werden soll, um die Erstellung einer neuen Verbindung zum JMS-Provider
+zu authentifizieren. </p>
+
+<p>Wenn Sie die globale Sicherheit f&uuml;r den WebSphere Application Server aktiviert haben, m&uuml;ssen Sie den
+Aliasnamen ausw&auml;hlen, der die Kombination aus Benutzer-ID und Kennwort angibt, mit der
+die Erstellung einer neuen Verbindung zum JMS-Provider authentifiziert wird. Die Verwendung
+dieses Aliasnamens h&auml;ngt von der Einstellung f&uuml;r die Ressourcenauthentifizierung (res-auth)
+ab, die in der Ressourcenreferenz der Verbindungs-Factory von Deployment-Deskriptoren einer
+Anwendungskomponente deklariert ist. </p>
+
+<p>
+<b>Anmerkung: </b>Mit dem eingebetteten JMS-Provider von WebSphere k&ouml;nnen f&uuml;r die
+Authentifizierung nur Benutzer-IDs mit maximal 12 Zeichen verwendet werden.
+Beispielsweise ist die Standardbenutzer-ID von Windows NT, <strong>Administrator</strong>, f&uuml;r das
+eingebettete WebSphere-Messaging nicht g&uuml;ltig, da sie 13 Zeichen enth&auml;lt.
+Daher muss der Aliasname f&uuml;r die Authentifizierung eines WebSphere-JMS-Provider
+eine Benutzer-ID angeben, die nicht l&auml;nger als 12 Zeichen ist. </p>
+
+</dd>
+<dt>
+<strong><a name="mappingAuthDataAlias"></a>Aliasname f&uuml;r containergest&uuml;tzte Authentifizierung
+</strong>
+</dt>
+<dd>Dieser Aliasname gibt eine Kombination aus Benutzer-ID und Kennwort an,
+die verwendet wird, um eine Verbindung zu einem JMS-Provider
+containergest&uuml;tzt zu authentifizieren. 
+<p>Dieses Merkmal stellt eine Liste mit Aliasnamen f&uuml;r Dateneintr&auml;ge f&uuml;r J2C-Authentifizierung bereit,
+die f&uuml;r den WebSphere Application Server definiert wurden. Sie k&ouml;nnen einen Aliasnamen f&uuml;r einen
+Dateneintrag ausw&auml;hlen, der verwendet werden soll, um die Erstellung einer neuen Verbindung zum JMS-Provider
+zu authentifizieren. </p>
+
+<p>Wenn Sie die globale Sicherheit f&uuml;r den WebSphere Application Server aktiviert haben, m&uuml;ssen Sie den
+Aliasnamen ausw&auml;hlen, der die Kombination aus Benutzer-ID und Kennwort angibt, mit der
+die Erstellung einer neuen Verbindung zum JMS-Provider authentifiziert wird. Die Verwendung
+dieses Aliasnamens h&auml;ngt von der Einstellung f&uuml;r die Ressourcenauthentifizierung (res-auth)
+ab, die in der Ressourcenreferenz der Verbindungs-Factory von Deployment-Deskriptoren einer
+Anwendungskomponente deklariert ist. </p>
+
+<p>
+<b>Anmerkung: </b>Mit dem eingebetteten JMS-Provider von WebSphere k&ouml;nnen f&uuml;r die
+Authentifizierung nur Benutzer-IDs mit maximal 12 Zeichen verwendet werden.
+Beispielsweise ist die Standardbenutzer-ID von Windows NT, <strong>Administrator</strong>, f&uuml;r das
+eingebettete WebSphere-Messaging nicht g&uuml;ltig, da sie 13 Zeichen enth&auml;lt.
+Daher muss der Aliasname f&uuml;r die Authentifizierung eines WebSphere-JMS-Provider
+eine Benutzer-ID angeben, die nicht l&auml;nger als 12 Zeichen ist. </p>
+
+</dd>
+<dt>
+<strong><a name="GenericJMSConnectionFactory_type"></a>XA aktiviert
+</strong>
+</dt>
+<dd>Gibt an, ob die Verbindungs-Factory f&uuml;r die XA- oder Nicht-XA-gest&uuml;tzte Koordination
+von Nachrichten bestimmt ist, und steuert, ob der Anwendungsserver
+XA QCF/TCF verwendet. Aktivieren Sie XA, wenn in einer Transaktion nicht mehrere Ressourcen verwendet werden.
+<p>Wenn Sie dieses Merkmal auf <samp>NON_XA</samp> setzen, bleibt die JMS-Sitzung zwar in einer Transaktion
+registriert, aber sie verwendet die lokalen Transaktionsaufrufe des Ressourcenmanagers
+(session.commit und session.rollback) anstelle der XA-Aufrufe. Dies kann zu einer Leistungsverbesserung
+f&uuml;hren.
+Es bedeutet aber auch, dass in WebSphere Application Server jeweils nur eine Ressource in einer Transaktion
+registriert sein kann. In WebSphere Application Server
+k&ouml;nnen Sie mit der Unterst&uuml;tzung f&uuml;r den letzten Teilnehmer (Last
+Participant Support) eine Nicht-XA-Ressource zusammen mit anderen XA-Ressourcen registrieren.
+</p>
+<p>Bei einer Verbindungs-Factory f&uuml;r WebSphere-Topics, bei der das Merkmal <strong>Port-Typ</strong> auf <samp>DIREKT</samp>
+eingestellt wurde, wird dieses Merkmal nicht verwendet. In diesem Fall ist der Standardwert <samp>NON_XA</samp>.
+</p>
+<table cellpadding="1">
+<tr>
+<th align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</th><td align="left" valign="top" class="base">Enum</td>
+</tr>
+<tr>
+<th align="left" valign="top" class="base" style="background-color:#dedede">Einheiten</th><td align="left" valign="top" class="base">Nicht anwendbar</td>
+</tr>
+<tr>
+<th align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</th><td align="left" valign="top" class="base">XA aktiviert</td>
+</tr>
+<tr>
+<th align="left" valign="top" class="base" style="background-color:#dedede">Bereich</th><td align="left" valign="top" class="base">
+<dl>
+<dt>
+<strong>XA</strong>
+</dt>
+<dd>Die Verbindungs-Factory
+ist f&uuml;r die XA-Koordination von Nachrichten bestimmt.</dd>
+<dt>
+<strong>NON_XA</strong>
+</dt>
+<dd>Die Verbindungs-Factory
+ist f&uuml;r die Koordination von Nachrichten ohne XA bestimmt.</dd>
+</dl>
+</td>
+<tr>
+<th align="left" valign="top" class="base" style="background-color:#dedede">
+Empfohlene Einstellung</th><td align="left" valign="top" class="base">Aktivieren Sie XA nicht,
+wenn die Nachrichtenwarteschlange oder das empfangene Topic die einzige Ressource in der Transaktion ist.
+Aktivieren Sie XA, wenn andere Ressourcen, einschlie&szlig;lich anderer Warteschlangen und Topics, an der Transaktion
+beteiligt sind.
+</td>
+</tr>
+</tr>
+</table>
+</dd>
+<dt>
+<strong><a name="ConnectionFactory_connectionPool"></a>Verbindungspool</strong>
+</dt>
+<dd>Gibt optionale Einstellungen f&uuml;r den Verbindungspool an.
+<p>Die Merkmale des Verbindungspools gelten f&uuml;r alle J2C-Connector.
+</p>
+<p>Der Anwendungsserver fasst Verbindungen und Sitzungen mit dem JMS-Provider zu Pools zusammen, um die Leistung
+zu verbessern. Dies geschieht unabh&auml;ngig von der Verwendung von WebSphere-MQ-Verbindungspools. Sie m&uuml;ssen die
+f&uuml;r Ihre Anwendungen erforderlichen Merkmale der Verbindungs- und Sitzungspools konfigurieren, damit das Verbindungs- und Sitzungsverhalten
+Ihren Vorstellungen entspricht. </p>
+<p>&Auml;ndern Sie die Gr&ouml;&szlig;e des Verbindungspools, wenn
+die Anzahl gleichzeitiger Zugriffe von Seiten des Servers auf die JMS-Ressource
+den Standardwert &uuml;berschreitet. Die Gr&ouml;&szlig;e des Verbindungspools wird pro Warteschlange oder Topic festgelegt.
+N&auml;here Informationen hierzu finden Sie in der folgenden Tabelle.</p>
+
+</dd>
+<dt>
+<strong><a name="ConnectionFactory_sessionPool"></a>Sitzungspool</strong>
+</dt>
+<dd>Eine optionale Gruppe von
+Einstellungen f&uuml;r den Sitzungspool.
+<p>Dieser Link ruft eine Anzeige mit optionalen
+Merkmalen f&uuml;r den Verbindungspool auf, die f&uuml;r alle J2C-Connector g&uuml;ltig sind.</p>
+
+<p>Der Anwendungsserver fasst Verbindungen und Sitzungen mit dem JMS-Provider zu Pools zusammen, um die Leistung
+zu verbessern. Dies geschieht unabh&auml;ngig von der Verwendung von WebSphere-MQ-Verbindungspools. Sie m&uuml;ssen die
+f&uuml;r Ihre Anwendungen erforderlichen Merkmale der Verbindungs- und Sitzungspools konfigurieren, damit das Verbindungs- und Sitzungsverhalten
+Ihren Vorstellungen entspricht. </p>
+
+</dd>
+</dl>
+</body>
+</html>

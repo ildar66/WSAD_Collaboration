@@ -1,0 +1,153 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>カスタム・ユーザー・レジストリーの設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecrcustom"></a>
+<h2>カスタム・ユーザー・レジストリーの設定</h2>
+
+<p>このページを使用して、カスタム・ユーザー・レジストリーを構成します。
+</p>
+
+<p>この管理コンソール・ページを表示するには、「<strong>セキュリティー</strong>」&gt;「<strong>ユーザー・レジストリー</strong>」&gt;「<strong>カスタム</strong>」をクリックします。</p>
+
+<p>このパネルでプロパティーを設定した後で、「<strong>適用</strong>」をクリックしてください。
+カスタム・レジストリーが必要とする追加のプロパティーに対して、「<strong>プロパティー</strong>」パネルを使用します。セキュリティーが使用可能になっていて、これらのプロパティーのいずれかが変更
+されている場合は、「<strong>グローバル・セキュリティー</strong>」パネルに移動し、「
+<strong>適用</strong>」をクリックして、変更を確認します。
+</p>
+
+<div>
+<p>
+<strong>「構成」タブ</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="UserRegistry_serverId_description"></a>サーバー・ユーザー ID</strong>
+</dt>
+<dd>サーバーの実行に使用する、セキュリティーを目的としたユーザー ID を指定します。
+
+<p>このサーバー ID は、カスタム・レジストリー内の有効なユーザーであることを表します。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型:</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="UserRegistry_serverPassword_description"></a>サーバー・ユーザー・パスワード</strong>
+</dt>
+<dd>セキュリティー・サーバー ID に対応するパスワードを指定します。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型:</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="CustomUserRegistry_customRegistryClassName_description"></a>カスタム・レジストリー・クラス名</strong>
+</dt>
+<dd>
+<samp>com.ibm.websphere.security.UserRegistry</samp> インターフェースをインプリメントする、
+ドットで区切ったクラス名を指定します。
+<p>カスタム・レジストリー・クラス名をクラス・パスに指定します。推奨されるロケーションは <samp>%install_root%/lib/ext</samp> ディレクトリーです。カスタム・レジストリーによって <samp>com.ibm.websphere.security.UserRegistry</samp> インターフェースが
+インプリメントされますが、後方互換性を維持するために、
+これに代えてユーザー・レジストリーで <samp>com.ibm.websphere.security.CustomRegistry</samp> インターフェース
+をインプリメントすることができます。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型:</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト:</td>
+<td align="left" valign="top" class="base">com.ibm.websphere.security.FileRegistrySample</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="CustomUserRegistry_ignoreCase_description"></a>大文字小文字を区別しない</strong>
+</dt>
+<dd>許可検査で大文字小文字を区別しないよう指定します。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト:</td>
+<td align="left" valign="top" class="base">使用可能</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲:</td>
+<td align="left" valign="top" class="base">使用可能または使用不可</td>
+
+</tr>
+
+</table>
+
+<div>「<strong>カスタム・プロパティー</strong> 」リンクは、カスタム・レジストリーの初期化に必要な追加プロパティーを追加する
+ために使用します。以下のプロパティーが製品によって事前定義されています。これらのプロパティーは、必要な場合にのみ設定
+してください。<ul>
+
+<li>WAS_UseDisplayName。<samp>true</samp> に設定した場合、getCallerPrincipal()、getUserPrincipal()、
+および getRemoteUser() メソッドによって表示名が戻されます。
+デフォルトでは、ユーザーの <samp>securityName</samp> が戻されます。
+これは、主として、バージョン 4.0 のカスタム・レジストリーとの後方互換性をサポートする
+ために導入されています。</li>
+
+</ul>
+</div>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>関連情報</strong>
+</p>
+<a href="rcon_buttons.html">管理コンソールのボタン</a>
+<br>
+
+<a href="rcon_pageusage.html">管理コンソール・ページのフィーチャー</a>
+<br>
+
+<a href="rcon_scope.html">管理コンソールの有効範囲設定</a>
+<br>
+
+<a href="rcon_filter.html">管理コンソールのフィルター設定</a>
+<br>
+
+<a href="rcon_preferences.html">管理コンソールの設定の変更</a>
+<br>
+
+</div>
+</body>
+</html>

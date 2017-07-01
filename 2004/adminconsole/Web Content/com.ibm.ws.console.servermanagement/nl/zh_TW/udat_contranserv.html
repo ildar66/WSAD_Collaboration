@@ -1,0 +1,360 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>交易服務設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="Transaction_service"></a>
+<h2>交易服務設定</h2>
+
+<p>請利用這個頁面來修改交易服務設定。</p>
+
+<p>如果要檢視這個管理主控台頁面，請按一下<strong>伺服器</strong> &gt; <strong>應用程式伺服器</strong> &gt; <em>server</em> &gt; <strong>交易服務</strong>。
+</p>
+
+<div>
+<p>
+<strong>「配置」標籤</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="TransactionService_transactionLogDirectory_displayName"></a>交易日誌目錄</strong>
+</dt>
+<dd>指定這個伺服器的目錄名稱，交易服務將在其中儲存用來復原的日誌檔。
+
+<p>交易日誌在啟動時會將伺服器配置中的空白值展開成目錄 (<em>install_root</em>)/tranlog/(<em>server_name</em>)。
+</p>
+
+<p>當在 WebSphere 產品中執行的應用程式存取多項資源時，WebSphere 產品會將交易資訊儲存起來，以便適當協調和管理分散式交易。
+當交易負荷量較高時，這個持續性會因為與作業系統和基礎儲存體系統的相依關係而降低了應用程式伺服器的效能。
+</p>
+
+<p>如果增進效能，請將交易日誌檔移至實體硬碟較多的儲存裝置中，最好是 RAID 硬碟。
+當日誌檔移至 RAID 硬碟的檔案系統時，將資料寫入實體媒體的作業由多個硬碟來分享。
+如此就能利用更多並行存取作業來持續保存交易資訊，且從日誌中存取這個資料的速度也會加快。
+隨著應用程式和儲存體子系統的設計而不同，效能增進的範圍可在 10% - 100% 之間，在某些情況下，甚至會更多。
+</p>
+
+<p>這個變更只適用於應用程式使用分散式資源或 XA 交易的配置，比方說，在單一交易內存取多個資料庫和資源。
+當應用程式伺服器顯示一或多個下列符號時，請考慮設定這個內容：
+<ul>
+
+<li>雖然交易增加，但 CPU 使用率仍低
+</li>
+
+<li>交易失敗，出現多次逾時</li>
+
+<li>發生交易回復，出現<em>無法加入交易</em>異常狀況</li>
+
+<li>應用程式伺服器在執行中當掉，需要重新啟動伺服器</li>
+
+<li>應用程式伺服器執行其中的磁碟顯示較高的使用率</li>
+
+</ul>
+</p>
+
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">起始值是 <em>%WAS_HOME%</em>/tranlog/(<em>server_name</em>) 目錄，預設大小是 1MB。</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">建議</td>
+<td align="left" valign="top" class="base">建立在 RAID-0 配置中至少堆疊了 3-4 個硬碟的檔案系統。
+之後，在這個檔案系統中，建立含預設大小的交易日誌。
+當伺服器在負荷狀態下執行時，請檢查磁碟的輸入和輸出。
+如果磁碟輸入和輸出時間超出 5%，請考慮增加實體磁碟來降低這個值。
+如果磁碟輸入和輸出是低的，但伺服器仍高，請考慮增加日誌檔大小。
+</td>
+
+</tr>
+
+</table>
+
+
+
+
+</dd>
+<dt>
+<strong><a name="TransactionService_totalTranLifetimeTimeout_displayName"></a>交易生命週期逾時總計</strong>
+</dt>
+<dd>指定交易在這個應用程式伺服器中的持續時間上限（秒）。
+
+
+
+<p>沒有要求在這個逾時值之前完成的任何交易都會回復。
+如果設成 0，沒有逾時限制。
+</p>
+
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">整數</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">單位</td>
+<td align="left" valign="top" class="base">秒</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">120</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">0 至 2 147 483 647</td>
+
+</tr>
+
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="TransactionService_clientInactivityTimeout_displayName"></a>用戶端不作用逾時值</strong>
+</dt>
+<dd>指定遠端用戶端發出的交易式要求之間的持續時間上限（秒）。
+<p>用戶端不作用的期間若超出這個逾時值，都會造成在這個應用程式伺服器中回復交易。
+如果設成 0，沒有逾時限制。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">整數</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">單位</td>
+<td align="left" valign="top" class="base">秒</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">60</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">0 至 2 147 483 647</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>「執行時期」標籤</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="TransactionService_transactionLogDirectory_displayName"></a>交易日誌目錄</strong>
+</dt>
+<dd>指定這個伺服器的目錄名稱，交易服務將在其中儲存用來復原的日誌檔。
+
+<p>交易日誌在啟動時會將伺服器配置中的空白值展開成目錄 (<em>install_root</em>)/tranlog/(<em>server_name</em>)。
+</p>
+
+<p>當在 WebSphere 產品中執行的應用程式存取多項資源時，WebSphere 產品會將交易資訊儲存起來，以便適當協調和管理分散式交易。
+當交易負荷量較高時，這個持續性會因為與作業系統和基礎儲存體系統的相依關係而降低了應用程式伺服器的效能。
+</p>
+
+<p>如果增進效能，請將交易日誌檔移至實體硬碟較多的儲存裝置中，最好是 RAID 硬碟。
+當日誌檔移至 RAID 硬碟的檔案系統時，將資料寫入實體媒體的作業由多個硬碟來分享。
+如此就能利用更多並行存取作業來持續保存交易資訊，且從日誌中存取這個資料的速度也會加快。
+隨著應用程式和儲存體子系統的設計而不同，效能增進的範圍可在 10% - 100% 之間，在某些情況下，甚至會更多。
+</p>
+
+<p>這個變更只適用於應用程式使用分散式資源或 XA 交易的配置，比方說，在單一交易內存取多個資料庫和資源。
+當應用程式伺服器顯示一或多個下列符號時，請考慮設定這個內容：
+<ul>
+
+<li>雖然交易增加，但 CPU 使用率仍低
+</li>
+
+<li>交易失敗，出現多次逾時</li>
+
+<li>發生交易回復，出現<em>無法加入交易</em>異常狀況</li>
+
+<li>應用程式伺服器在執行中當掉，需要重新啟動伺服器</li>
+
+<li>應用程式伺服器執行其中的磁碟顯示較高的使用率</li>
+
+</ul>
+</p>
+
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">起始值是 <em>%WAS_HOME%</em>/tranlog/(<em>server_name</em>) 目錄，預設大小是 1MB。</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">建議</td>
+<td align="left" valign="top" class="base">建立在 RAID-0 配置中至少堆疊了 3-4 個硬碟的檔案系統。
+之後，在這個檔案系統中，建立含預設大小的交易日誌。
+當伺服器在負荷狀態下執行時，請檢查磁碟的輸入和輸出。
+如果磁碟輸入和輸出時間超出 5%，請考慮增加實體磁碟來降低這個值。
+如果磁碟輸入和輸出是低的，但伺服器仍高，請考慮增加日誌檔大小。
+</td>
+
+</tr>
+
+</table>
+
+
+
+
+</dd>
+<dt>
+<strong><a name="TransactionService_totalTranLifetimeTimeout_displayName"></a>交易生命週期逾時總計</strong>
+</dt>
+<dd>指定交易在這個應用程式伺服器中的持續時間上限（秒）。
+
+
+
+<p>沒有要求在這個逾時值之前完成的任何交易都會回復。
+如果設成 0，沒有逾時限制。
+</p>
+
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">整數</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">單位</td>
+<td align="left" valign="top" class="base">秒</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">120</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">0 至 2 147 483 647</td>
+
+</tr>
+
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="TransactionService_clientInactivityTimeout_displayName"></a>用戶端不作用逾時值</strong>
+</dt>
+<dd>指定遠端用戶端發出的交易式要求之間的持續時間上限（秒）。
+<p>用戶端不作用的期間若超出這個逾時值，都會造成在這個應用程式伺服器中回復交易。
+如果設成 0，沒有逾時限制。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">整數</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">單位</td>
+<td align="left" valign="top" class="base">秒</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">60</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">0 至 2 147 483 647</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>相關資訊</strong>
+</p>
+<a href="rcon_buttons.html">管理主控台按鈕</a>
+<br>
+
+<a href="rcon_pageusage.html">管理主控台頁面特性</a>
+<br>
+
+</div>
+</body>
+</html>

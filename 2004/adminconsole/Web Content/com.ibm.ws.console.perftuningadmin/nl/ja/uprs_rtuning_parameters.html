@@ -1,0 +1,238 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>チューニング・パラメーター設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="tune_para"></a>
+<h2>チューニング・パラメーター設定</h2>
+
+<p>このページを使用して、分散セッションのチューニング・パラメーターを設定します。</p>
+
+<p>この管理コンソール・ページを表示するには、「
+<strong>サーバー</strong>」&gt;「<strong>アプリケーション・サーバー</strong>」&gt;「<em>server_name</em>」&gt;「<strong>Web コンテナー</strong>」&gt;「<strong>セッション管理</strong>」&gt;「<strong>Distributed Environment Settings</strong>」&gt;「<strong>Custom Tuning Parameters</strong>」をクリックします。</p>
+
+<div>
+<p>
+<strong>「構成」タブ</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="Tuning_level_description"></a>チューニング・レベル</strong>
+</dt>
+<dd>セッション管理機能が、パフォーマンスに影響を与える特定の定義済み設定を提供するように指定します。
+<p>これらの定義済み設定のいずれかを選択するか、または設定をカスタマイズします。設定をカスタマイズするには、必要とする設定に最も近い定義済み設定のいずれかを選択し、「<strong>カスタム設定</strong>」をクリックして、変更を行ってから「<strong>OK</strong>」をクリックします。</p>
+
+<div>
+<p class="sectiontitle">
+<b>非常に高 (パフォーマンスの最適化)</b>
+</p>
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">書き込み頻度</td>
+<td align="left" valign="top" class="base">時間基準</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">書き込み間隔</td>
+<td align="left" valign="top" class="base">300 秒</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">書き込みの内容</td>
+<td align="left" valign="top" class="base">更新された属性のみ</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">セッション・クリーンアップのスケジュール</td>
+<td align="left" valign="top" class="base">true</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">最初の時刻のデフォルト</td>
+<td align="left" valign="top" class="base">0</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">2 番目の時刻のデフォルト</td>
+<td align="left" valign="top" class="base">2</td>
+
+</tr>
+
+</table>
+</div>
+
+<div>
+<p class="sectiontitle">
+<b>高</b>
+</p>
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">書き込み頻度</td>
+<td align="left" valign="top" class="base">時間基準</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">書き込み間隔</td>
+<td align="left" valign="top" class="base">300 秒</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">書き込みの内容</td>
+<td align="left" valign="top" class="base">すべてのセッション属性
+</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">セッション・クリーンアップのスケジュール</td>
+<td align="left" valign="top" class="base">false</td>
+
+</tr>
+
+</table>
+</div>
+
+<div>
+<p class="sectiontitle">
+<b>中</b>
+</p>
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">書き込み頻度</td>
+<td align="left" valign="top" class="base">サーブレット・サービスの終了</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">書き込みの内容</td>
+<td align="left" valign="top" class="base">更新された属性のみ</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">セッション・クリーンアップのスケジュール</td>
+<td align="left" valign="top" class="base">false</td>
+
+</tr>
+
+</table>
+</div>
+
+<div>
+<p class="sectiontitle">
+<b>低 (フェイルオーバーの最適化)</b>
+</p>
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">書き込み頻度</td>
+<td align="left" valign="top" class="base">サーブレット・サービスの終了</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">書き込みの内容</td>
+<td align="left" valign="top" class="base">すべてのセッション属性
+</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">セッション・クリーンアップのスケジュール</td>
+<td align="left" valign="top" class="base">false</td>
+
+</tr>
+
+</table>
+</div>
+
+<div>
+<p class="sectiontitle">
+<b>カスタム設定</b>
+</p>
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">書き込み頻度のデフォルト</td>
+<td align="left" valign="top" class="base">時間基準</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">書き込みインターバルのデフォルト</td>
+<td align="left" valign="top" class="base">10 秒</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">書き込みの内容のデフォルト</td>
+<td align="left" valign="top" class="base">すべてのセッション属性
+</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">セッション・クリーンアップのスケジュールのデフォルト</td>
+<td align="left" valign="top" class="base">false</td>
+
+</tr>
+
+</table>
+</div>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>関連情報</strong>
+</p>
+<a href="rcon_buttons.html">管理コンソールのボタン</a>
+<br>
+
+<a href="rcon_pageusage.html">管理コンソール・ページのフィーチャー</a>
+<br>
+
+<a href="rcon_preferences.html">管理コンソールの設定の変更</a>
+<br>
+
+<a href="uprs_rtuning_custom.html">チューニング・パラメーター・カスタム設定</a>
+<br>
+
+</div>
+</body>
+</html>

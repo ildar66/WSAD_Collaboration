@@ -1,0 +1,489 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Einstellungen des Diagnostic Trace Service</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="TraceService_description"></a>
+<h2>Einstellungen des Diagnostic Trace Service</h2>
+
+<p>Auf dieser Seite k&ouml;nnen Sie die Merkmale des Diagnose-Trace-Service &uuml;berpr&uuml;fen und
+&auml;ndern.</p>
+
+<p>Klicken Sie zum Anzeigen dieser Seite auf <strong>Fehlerbehebung &gt; Protokolle und Trace &gt; <em>Server</em> &gt;
+Diagnose-Trace</strong>.</p>
+
+<div>
+<p>
+<strong>Register "Konfiguration"</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="enable_trace_service_description"></a>Trace aktivieren</strong>
+</dt>
+<dd>Aktiviert den Trace-Service. 
+<p>Wenn diese Option nicht ausgew&auml;hlt ist, werden die folgenden Konfigurationsmerkmale beim Start des
+Servers nicht an den Trace-Service des Anwendungsservers &uuml;bergeben. </p>
+
+</dd>
+<dt>
+<strong><a name="trace_spec_description"></a>Trace-Spezifikation</strong>
+</dt>
+<dd>Gibt Details zum Tracing an. 
+<p>Geben Sie eine Trace-Zeichenfolge ein, die die Komponenten, Pakete oder Gruppen angibt, f&uuml;r die ein Tracing
+durchgef&uuml;hrt
+werden soll. Die Trace-Zeichenfolge muss mit der nachfolgend beschriebenen, spezifischen
+Grammatik &uuml;bereinstimmen. Sie k&ouml;nnen die Trace-Zeichenfolge direkt eingeben oder &uuml;ber das grafische
+Trace-Interface generieren. Klicken Sie auf <strong>&Auml;ndern</strong>, um das grafische Trace-Interface zu starten. </p>
+
+<p>Wenn Sie das grafische Trace-Interface &uuml;ber das Register "Konfiguration" starten, wird eine Liste
+bekannter Komponenten, Pakete und Gruppen angezeigt. Diese Liste ist m&ouml;glicherweise nicht vollst&auml;ndig. </p>
+
+<p>Wenn Sie das grafische Trace-Interface &uuml;ber das Register "Laufzeit" starten, werden in der Liste
+der Komponenten, Pakete und Gruppen alle Komponenten angezeigt, die gegenw&auml;rtig auf dem aktiven Server
+registriert sind. </p>
+
+<p>Das Format der Tracing-Spezifikation lautet wie folgt:<pre>&lt;<em>Komponente</em>&gt; = &lt;<em>Trace-Typ</em>&gt;= enabled | disabled</pre> Dabei gilt: &lt;<em>Komponente</em>&gt; ist die
+Komponente, f&uuml;r die das Tracing aktiviert oder inaktiviert wird, und
+&lt;<em>Trace-Typ</em>&gt; ist der Typ des Tracing, der aktiviert oder inaktiviert
+werden soll.Mehrere Tracing-Spezifikationen werden mit Doppelpunkten (:)
+voneinander getrennt.</p>
+
+<p>Komponenten entsprechen Java-Paketen und -Klassen bzw. Gruppen von Java-Paketen. Verwenden Sie einen Stern (*),
+um Komponenten anzuzeigen, die alle Klassen der in der angegebenen Komponente
+enthaltenen Pakete umfassen. Beispiel:<dl>
+<dt>
+<strong><samp>*</samp></strong>
+</dt>
+<dd>Gibt den gesamten Code an, der auf dem Anwendungsserver einschlie&szlig;lich des
+Systemcodes des WebSphere Application Server und des Benutzercodes ausgef&uuml;hrt wird und f&uuml;r den ein Tracing durchgef&uuml;hrt werden soll. </dd>
+<dt>
+<strong><samp>com.ibm.ws.*</samp></strong>
+</dt>
+<dd>Gibt alle Klassen an, deren Paketname mit
+<samp>com.ibm.ws</samp> beginnt.</dd>
+<dt>
+<strong><samp>com.ibm.ws.classloader.JarClassLoader</samp></strong>
+</dt>
+<dd>Gibt nur die
+JarClassLoader-Klasse an.</dd>
+</dl>
+</p>
+
+<p>Weitere Informationen zur Grammatik von Trace-Zeichenfolgen enth&auml;lt der Abschnitt
+<cite>Trace aktivieren</cite> im InfoCenter des WebSphere Application Server.</p>
+
+<p>
+<b>Anmerkung: </b>Es kann ein Fehler auftreten, wenn Sie eine Trace-Spezifikation in der Administrationskonsole definieren
+und sowohl in der Liste "Gruppen" als auch in der Liste "Komponenten" Eintr&auml;ge ausgew&auml;hlt wurden.
+Manchmal gehen die in einer Liste ausgew&auml;hlten Eintr&auml;ge nicht verloren, wenn ein Eintrag in der anderen Liste
+ausgew&auml;hlt wird.
+Um dieses Problem zu umgehen, geben Sie die gew&uuml;nschte Trace-Spezifikation direkt
+in das Feld "Trace-Spezifikation" ein.
+</p>
+
+</dd>
+<dt>
+<strong><a name="trace_output_description"></a>Trace-Ausgabe</strong>
+            &nbsp;
+            </dt>
+<dd>Gibt an, in welche Datei die Trace-Ausgabe geschrieben werden soll. 
+<p>Die Trace-Ausgabe kann direkt in eine Ausgabedatei geschrieben oder in einen Speicher gestellt und auf
+Anforderung &uuml;ber die Option "Speicherauszug" auf der Seite "Laufzeit" in eine Datei geschrieben
+werden.</p>
+
+<p>
+<dl>
+<dt>
+<strong>Speicherpuffer </strong>
+</dt>
+<dd>Gibt an, dass die Trace-Ausgabe in einen Ringpuffer im Speicher geschrieben werden soll. Bei Auswahl dieser Option m&uuml;ssen Sie die folgenden Parameter angeben: <dl>
+<dt>
+<strong>Maximale Puffergr&ouml;&szlig;e</strong>
+</dt>
+<dd>Gibt die Anzahl der Eintr&auml;ge, die im Puffer zwischengespeichert
+werden k&ouml;nnen, an (in Tausend). Wenn dieser Wert &uuml;berschritten wird, werden alte Werte von neuen Werten
+&uuml;berschrieben. </dd>
+<dt>
+<strong>Name der Speicherauszugsdatei </strong>
+</dt>
+<dd>Der Name der Datei, in die der
+Speicherpuffer bei Erstellung eines Speicherauszugs geschrieben wird. Diese Option ist nur &uuml;ber das Register
+"Laufzeit" verf&uuml;gbar. </dd>
+</dl>
+</dd>
+</dl>
+</p>
+
+<p>
+<dl>
+<dt>
+<strong>Datei </strong>
+</dt>
+<dd>Gibt an, dass die Trace-Ausgabe in eine selbstverwaltete Protokolldatei geschrieben werden soll. <p>Es werden Nachrichten in die selbstverwaltete Protokolldatei geschrieben, bis ein
+Gr&ouml;&szlig;enkriterium erreicht ist. Wenn die Datei die angegebene Gr&ouml;&szlig;e erreicht, wird die
+Protokollierung vor&uuml;bergehend ausgesetzt, und die Protokolldatei wird geschlossen und umbenannt. Der neue
+Name basiert auf dem urspr&uuml;nglichen Namen der Datei und beinhaltet zus&auml;tzlich eine Zeitmarke, die angibt,
+wann die Umbenennung erfolgt ist. Nach der Umbenennung wird eine neue, leere
+Protokolldatei mit dem urspr&uuml;nglichen Namen erneut ge&ouml;ffnet, und die Protokollierung wird wieder aufgenommen. Die
+Fortf&uuml;hrung der Datei f&uuml;hrt nicht dazu, dass Nachrichten verloren gehen, allerdings besteht die
+M&ouml;glichkeit, dass eine einzelne Nachricht in zwei Dateien aufgeteilt wird. </p>
+</dd>
+</dl>
+</p>
+
+<p>Bei Auswahl dieser Option m&uuml;ssen Sie die folgenden Parameter angeben: <dl>
+<dt>
+<strong>Maximale Dateigr&ouml;&szlig;e</strong>
+</dt>
+<dd>Gibt die maximale Gr&ouml;&szlig;e in MB an, die die Ausgabedatei erreichen darf. <p>Dieses
+Attribut ist nur g&uuml;ltig, wenn das Attribut "Dateigr&ouml;&szlig;e" ausgew&auml;hlt wurde. Wenn die Datei diese Gr&ouml;&szlig;e
+erreicht, wird sie wie oben beschrieben fortgef&uuml;hrt.  </p>
+</dd>
+<dt>
+<strong>Maximale Anzahl der Protokolldateien </strong>
+</dt>
+<dd>Gibt die Maximalanzahl der fortgef&uuml;hrten Dateien an,
+die gespeichert werden k&ouml;nnen. </dd>
+<dt>
+<strong>Dateiname</strong>
+</dt>
+<dd>Gibt den Namen der Datei an, in die die Trace-Ausgabe geschrieben wird. </dd>
+</dl>
+</p>
+
+</dd>
+<dt>
+<strong><a name="trace_format_description"></a>Format der Trace-Ausgabe</strong>
+            &nbsp;
+            </dt>
+<dd>Gibt das Format der Trace-Ausgabe an. 
+<p>Sie k&ouml;nnen eine der folgenden drei Stufen f&uuml;r die Trace-Ausgabe
+angeben:<dl>
+
+<dt>
+<strong>Basis (kompatibel)</strong>
+</dt>
+<dd>Es werden nur grundlegende
+Trace-Informationen gespeichert. W&auml;hlen Sie diese Option aus, um den
+Speicherplatz f&uuml;r die Trace-Ausgabe zu verringern.</dd>
+<dt>
+<strong>Erweitert</strong>
+</dt>
+<dd>Es werden spezifischere Trace-Informationen gespeichert. W&auml;hlen
+Sie diese Option aus, wenn Sie detaillierte Trace-Informationen f&uuml;r die
+Fehlerbestimmung und -behebung anzeigen m&ouml;chten.</dd>
+<dt>
+<strong>Protokollanalyse</strong>
+</dt>
+<dd>Es werden Trace-Informationen in einem Format gespeichert, das
+mit dem Protokollanalyse-Tool kompatibel ist. W&auml;hlen Sie diese Option aus,
+um die Trace-Ausgabe als Eingabe f&uuml;r das Tool Protokollanalyse verwenden
+m&ouml;chten.</dd>
+</dl>
+</p>
+
+</dd>
+<dt>
+<strong><a name="trace_runtime_tab"></a>Register "Laufzeit"</strong>
+            &nbsp;
+            </dt>
+<dd>Gibt das Format der Trace-Ausgabe an. 
+<dl>
+<dt>
+<strong>Trace speichern</strong>
+</dt>
+<dd>Speichert &Auml;nderungen, die unter dem Register "Laufzeit"
+vorgenommen wurden, auch in der Trace-Konfiguration.<p>Aktivieren Sie dieses Markierungsfeld, um &Auml;nderungen des Laufzeit-Trace
+auch in die Trace-Konfiguration zu kopieren. Wenn Sie diese &Auml;nderungen in
+der Trace-Konfiguration speichern, bleiben sie auch nach einem Neustart
+der Anwendung weiterhin wirksam.</p>
+</dd>
+<dt>
+<strong>Trace-Spezifikation</strong>
+</dt>
+<dd>Gibt Details zum Tracing an. <p>Geben Sie eine Trace-Zeichenfolge ein, die die Komponenten, Pakete oder Gruppen angibt, f&uuml;r die ein Tracing
+durchgef&uuml;hrt
+werden soll. Die Trace-Zeichenfolge muss mit der nachfolgend beschriebenen, spezifischen
+Grammatik &uuml;bereinstimmen. Sie k&ouml;nnen die Trace-Zeichenfolge direkt eingeben oder &uuml;ber das grafische
+Trace-Interface generieren. Klicken Sie auf <strong>&Auml;ndern</strong>, um das grafische Trace-Interface zu starten. </p>
+<p>Wenn Sie das grafische Trace-Interface &uuml;ber das Register "Konfiguration" starten, wird eine Liste
+bekannter Komponenten, Pakete und Gruppen angezeigt. Diese Liste ist m&ouml;glicherweise nicht vollst&auml;ndig. </p>
+<p>Das Format der Tracing-Spezifikation lautet wie folgt:<pre>&lt;Komponente&gt; = &lt;Trace-Typ&gt; = enabled | disabled</pre>
+</p>
+<p>Dabei gilt: &lt;Komponente&gt; ist die
+Komponente, f&uuml;r die das Tracing aktiviert oder inaktiviert wird, und
+&lt;Trace-Typ&gt; ist der Typ des Tracing, der aktiviert oder inaktiviert
+werden soll. Mehrere Tracing-Spezifikationen werden mit Doppelpunkten (:)
+voneinander getrennt.</p>
+<p>Komponenten entsprechen Java-Paketen und -Klassen bzw. Gruppen von Java-Paketen. Verwenden Sie einen Stern (*),
+um Komponenten anzuzeigen, die alle Klassen der in der angegebenen Komponente
+enthaltenen Pakete umfassen. Beispiel:<dl>
+<dt>
+<strong>*</strong>
+</dt>
+<dd>Gibt den gesamten Code an, der auf dem Anwendungsserver einschlie&szlig;lich des
+Systemcodes des WebSphere
+Application Server und des Benutzercodes ausgef&uuml;hrt wird und f&uuml;r den ein Tracing durchgef&uuml;hrt werden soll. </dd>
+<dt>
+<strong>com.ibm.ws.*</strong>
+</dt>
+<dd>Gibt alle Klassen an, deren Paketname mit
+com.ibm.ws beginnt.</dd>
+<dt>
+<strong>com.ibm.ws.classloader.JarClassLoader</strong>
+</dt>
+<dd>Gibt nur die
+JarClassLoader-Klasse an.</dd>
+</dl>
+</p>
+<p>Weitere Informationen zur Grammatik von Trace-Zeichenfolgen enth&auml;lt der Abschnitt
+"Trace aktivieren" im InfoCenter des WebSphere Application Server.<p>
+<b>Anmerkung: </b>Es kann ein Fehler auftreten, wenn Sie eine Trace-Spezifikation in der Administrationskonsole definieren
+und sowohl in der Liste "Gruppen" als auch in der Liste "Komponenten" Eintr&auml;ge ausgew&auml;hlt wurden.
+Manchmal gehen die in einer Liste ausgew&auml;hlten Eintr&auml;ge nicht verloren, wenn ein Eintrag in der anderen Liste
+ausgew&auml;hlt wird.
+Um dieses Problem zu umgehen, geben Sie die gew&uuml;nschte Trace-Spezifikation direkt
+in das Feld "Trace-Spezifikation" ein.
+</p>
+</p> 
+</dd>
+</dl>
+
+</dd>
+<dt>
+<strong><a name="trace_output"></a>Trace-Ausgabe</strong>
+            &nbsp;
+            </dt>
+<dd>Gibt an, in welche Datei die Trace-Ausgabe geschrieben werden soll. 
+<p>Gibt an, in welche Datei die Trace-Ausgabe geschrieben werden soll. </p>
+
+<p>Die Trace-Ausgabe kann direkt in eine Ausgabedatei geschrieben oder in einen Speicher gestellt und auf
+Anforderung &uuml;ber die Option "Speicherauszug" auf der Seite "Laufzeit" in eine Datei geschrieben
+werden.<dl>
+<dt>
+<strong>Speicherpuffer </strong>
+</dt>
+<dd>Gibt an, dass die Trace-Ausgabe in einen Ringpuffer im Speicher geschrieben werden soll. Bei Auswahl dieser Option m&uuml;ssen Sie die folgenden Parameter angeben: <dl>
+
+<dt>
+<strong>Maximale Puffergr&ouml;&szlig;e</strong>
+</dt>
+<dd>Gibt die Anzahl der Eintr&auml;ge, die im Puffer zwischengespeichert
+werden k&ouml;nnen, an (in Tausend). Wenn dieser Wert &uuml;berschritten wird, werden alte Werte von neuen Werten
+&uuml;berschrieben. </dd>
+<dt>
+<strong>Name der Speicherauszugsdatei </strong>
+</dt>
+<dd>Der Name der Datei, in die der
+Speicherpuffer bei Erstellung eines Speicherauszugs geschrieben wird. Diese Option ist nur &uuml;ber das Register
+"Laufzeit" verf&uuml;gbar. </dd>
+</dl>
+</dd>
+<dt>
+<strong>Datei </strong>
+</dt>
+<dd>Gibt an, dass die Trace-Ausgabe in eine selbstverwaltete Protokolldatei geschrieben werden soll. <p>Es werden Nachrichten in die selbstverwaltete Protokolldatei geschrieben, bis ein
+Gr&ouml;&szlig;enkriterium erreicht ist. Wenn die Datei die angegebene Gr&ouml;&szlig;e erreicht, wird die
+Protokollierung vor&uuml;bergehend ausgesetzt, und die Protokolldatei wird geschlossen und umbenannt. Der neue
+Name basiert auf dem urspr&uuml;nglichen Namen der Datei und beinhaltet zus&auml;tzlich eine Zeitmarke, die angibt,
+wann die Umbenennung erfolgt ist. Nach der Umbenennung wird eine neue, leere
+Protokolldatei mit dem urspr&uuml;nglichen Namen erneut ge&ouml;ffnet, und die Protokollierung wird wieder aufgenommen. Die
+Fortf&uuml;hrung der Datei f&uuml;hrt nicht dazu, dass Nachrichten verloren gehen, allerdings besteht die
+M&ouml;glichkeit, dass eine einzelne Nachricht in zwei Dateien aufgeteilt wird. </p> 
+<p>Bei Auswahl dieser Option m&uuml;ssen Sie die folgenden Parameter angeben: </p>
+<dl>
+<dt>
+<strong>Maximale Dateigr&ouml;&szlig;e</strong>
+</dt>
+<dd>Gibt die maximale Gr&ouml;&szlig;e in MB an, die die Ausgabedatei erreichen darf. <p>Dieses
+Attribut ist nur g&uuml;ltig, wenn das Attribut "Dateigr&ouml;&szlig;e" ausgew&auml;hlt wurde. Wenn die Datei diese Gr&ouml;&szlig;e
+erreicht, wird sie wie oben beschrieben fortgef&uuml;hrt.  </p>
+</dd>
+<dt>
+<strong>Maximale Anzahl der Protokolldateien </strong>
+</dt>
+<dd>Gibt die Maximalanzahl der fortgef&uuml;hrten Dateien an,
+die gespeichert werden k&ouml;nnen. </dd>
+<dt>
+<strong>Dateiname</strong>
+</dt>
+<dd>Gibt den Namen der Datei an, in die die Trace-Ausgabe geschrieben wird. </dd>
+</dl>
+</dd>
+</dl>
+</p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Register "Laufzeit"</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="save_trace_to_config"></a>Trace speichern</strong>
+</dt>
+<dd>Speichert &Auml;nderungen, die unter dem Register "Laufzeit"
+vorgenommen wurden, auch in der Trace-Konfiguration.
+<p>Aktivieren Sie dieses Markierungsfeld, um &Auml;nderungen des Laufzeit-Trace
+auch in die Trace-Konfiguration zu kopieren. Wenn Sie diese &Auml;nderungen in
+der Trace-Konfiguration speichern, bleiben sie auch nach einem Neustart
+der Anwendung weiterhin wirksam.</p>
+
+</dd>
+<dt>
+<strong><a name="trace_spec_description"></a>Trace-Spezifikation</strong>
+</dt>
+<dd>Gibt Details zum Tracing an. 
+<p>Geben Sie eine Trace-Zeichenfolge ein, die die Komponenten, Pakete oder Gruppen angibt, f&uuml;r die ein Tracing
+durchgef&uuml;hrt
+werden soll. Die Trace-Zeichenfolge muss mit der nachfolgend beschriebenen, spezifischen
+Grammatik &uuml;bereinstimmen. Sie k&ouml;nnen die Trace-Zeichenfolge direkt eingeben oder &uuml;ber das grafische
+Trace-Interface generieren. Klicken Sie auf <strong>&Auml;ndern</strong>, um das grafische Trace-Interface zu starten. </p>
+
+<p>Wenn Sie das grafische Trace-Interface &uuml;ber das Register "Konfiguration" starten, wird eine Liste
+bekannter Komponenten, Pakete und Gruppen angezeigt. Diese Liste ist m&ouml;glicherweise nicht vollst&auml;ndig. </p>
+
+<p>Wenn Sie das grafische Trace-Interface &uuml;ber das Register "Laufzeit" starten, werden in der Liste
+der Komponenten, Pakete und Gruppen alle Komponenten angezeigt, die gegenw&auml;rtig auf dem aktiven Server
+registriert sind. </p>
+
+<p>Das Format der Tracing-Spezifikation lautet wie folgt:<pre>&lt;<em>Komponente</em>&gt; = &lt;<em>Trace-Typ</em>&gt;= enabled | disabled</pre> Dabei gilt: &lt;<em>Komponente</em>&gt; ist die
+Komponente, f&uuml;r die das Tracing aktiviert oder inaktiviert wird, und
+&lt;<em>Trace-Typ</em>&gt; ist der Typ des Tracing, der aktiviert oder inaktiviert
+werden soll.Mehrere Tracing-Spezifikationen werden mit Doppelpunkten (:)
+voneinander getrennt.</p>
+
+<p>Komponenten entsprechen Java-Paketen und -Klassen bzw. Gruppen von Java-Paketen. Verwenden Sie einen Stern (*),
+um Komponenten anzuzeigen, die alle Klassen der in der angegebenen Komponente
+enthaltenen Pakete umfassen. Beispiel:<dl>
+<dt>
+<strong><samp>*</samp></strong>
+</dt>
+<dd>Gibt den gesamten Code an, der auf dem Anwendungsserver einschlie&szlig;lich des
+Systemcodes des WebSphere Application Server und des Benutzercodes ausgef&uuml;hrt wird und f&uuml;r den ein Tracing durchgef&uuml;hrt werden soll. </dd>
+<dt>
+<strong><samp>com.ibm.ws.*</samp></strong>
+</dt>
+<dd>Gibt alle Klassen an, deren Paketname mit
+<samp>com.ibm.ws</samp> beginnt.</dd>
+<dt>
+<strong><samp>com.ibm.ws.classloader.JarClassLoader</samp></strong>
+</dt>
+<dd>Gibt nur die
+JarClassLoader-Klasse an.</dd>
+</dl>
+</p>
+
+<p>Weitere Informationen zur Grammatik von Trace-Zeichenfolgen enth&auml;lt der Abschnitt
+<cite>Trace aktivieren</cite> im InfoCenter des WebSphere Application Server.</p>
+
+<p>
+<b>Anmerkung: </b>Es kann ein Fehler auftreten, wenn Sie eine Trace-Spezifikation in der Administrationskonsole definieren
+und sowohl in der Liste "Gruppen" als auch in der Liste "Komponenten" Eintr&auml;ge ausgew&auml;hlt wurden.
+Manchmal gehen die in einer Liste ausgew&auml;hlten Eintr&auml;ge nicht verloren, wenn ein Eintrag in der anderen Liste
+ausgew&auml;hlt wird.
+Um dieses Problem zu umgehen, geben Sie die gew&uuml;nschte Trace-Spezifikation direkt
+in das Feld "Trace-Spezifikation" ein.
+</p>
+
+</dd>
+<dt>
+<strong><a name="trace_output_description"></a>Trace-Ausgabe</strong>
+            &nbsp;
+            </dt>
+<dd>Gibt an, in welche Datei die Trace-Ausgabe geschrieben werden soll. 
+<p>Die Trace-Ausgabe kann direkt in eine Ausgabedatei geschrieben oder in einen Speicher gestellt und auf
+Anforderung &uuml;ber die Option "Speicherauszug" auf der Seite "Laufzeit" in eine Datei geschrieben
+werden.</p>
+
+<p>
+<dl>
+<dt>
+<strong>Speicherpuffer </strong>
+</dt>
+<dd>Gibt an, dass die Trace-Ausgabe in einen Ringpuffer im Speicher geschrieben werden soll. Bei Auswahl dieser Option m&uuml;ssen Sie die folgenden Parameter angeben: <dl>
+<dt>
+<strong>Maximale Puffergr&ouml;&szlig;e</strong>
+</dt>
+<dd>Gibt die Anzahl der Eintr&auml;ge, die im Puffer zwischengespeichert
+werden k&ouml;nnen, an (in Tausend). Wenn dieser Wert &uuml;berschritten wird, werden alte Werte von neuen Werten
+&uuml;berschrieben. </dd>
+<dt>
+<strong>Name der Speicherauszugsdatei </strong>
+</dt>
+<dd>Der Name der Datei, in die der
+Speicherpuffer bei Erstellung eines Speicherauszugs geschrieben wird. Diese Option ist nur &uuml;ber das Register
+"Laufzeit" verf&uuml;gbar. </dd>
+</dl>
+</dd>
+</dl>
+</p>
+
+<p>
+<dl>
+<dt>
+<strong>Datei </strong>
+</dt>
+<dd>Gibt an, dass die Trace-Ausgabe in eine selbstverwaltete Protokolldatei geschrieben werden soll. <p>Es werden Nachrichten in die selbstverwaltete Protokolldatei geschrieben, bis ein
+Gr&ouml;&szlig;enkriterium erreicht ist. Wenn die Datei die angegebene Gr&ouml;&szlig;e erreicht, wird die
+Protokollierung vor&uuml;bergehend ausgesetzt, und die Protokolldatei wird geschlossen und umbenannt. Der neue
+Name basiert auf dem urspr&uuml;nglichen Namen der Datei und beinhaltet zus&auml;tzlich eine Zeitmarke, die angibt,
+wann die Umbenennung erfolgt ist. Nach der Umbenennung wird eine neue, leere
+Protokolldatei mit dem urspr&uuml;nglichen Namen erneut ge&ouml;ffnet, und die Protokollierung wird wieder aufgenommen. Die
+Fortf&uuml;hrung der Datei f&uuml;hrt nicht dazu, dass Nachrichten verloren gehen, allerdings besteht die
+M&ouml;glichkeit, dass eine einzelne Nachricht in zwei Dateien aufgeteilt wird. </p>
+</dd>
+</dl>
+</p>
+
+<p>Bei Auswahl dieser Option m&uuml;ssen Sie die folgenden Parameter angeben: <dl>
+<dt>
+<strong>Maximale Dateigr&ouml;&szlig;e</strong>
+</dt>
+<dd>Gibt die maximale Gr&ouml;&szlig;e in MB an, die die Ausgabedatei erreichen darf. <p>Dieses
+Attribut ist nur g&uuml;ltig, wenn das Attribut "Dateigr&ouml;&szlig;e" ausgew&auml;hlt wurde. Wenn die Datei diese Gr&ouml;&szlig;e
+erreicht, wird sie wie oben beschrieben fortgef&uuml;hrt.  </p>
+</dd>
+<dt>
+<strong>Maximale Anzahl der Protokolldateien </strong>
+</dt>
+<dd>Gibt die Maximalanzahl der fortgef&uuml;hrten Dateien an,
+die gespeichert werden k&ouml;nnen. </dd>
+<dt>
+<strong>Dateiname</strong>
+</dt>
+<dd>Gibt den Namen der Datei an, in die die Trace-Ausgabe geschrieben wird. </dd>
+</dl>
+</p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Zugeh&ouml;rige Informationen</strong>
+</p>
+<a href="rcon_buttons.html">Kn&ouml;pfe in der Adminstrationskonsole</a>
+<br>
+
+<a href="rcon_scope.html">Geltungsbereichseinstellungen f&uuml;r die Administrationskonsole</a>
+<br>
+
+<a href="rcon_filter.html">Filtereinstellungen f&uuml;r die Administrationskonsole</a>
+<br>
+
+<a href="rcon_preferences.html">Vorgaben f&uuml;r die Administrationskonsole</a>
+<br>
+
+<a href="rcon_pageusage.html">Funktionen auf den Seiten der Administrationskonsole</a>
+<br>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Einstellungen des Klassenladers</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="urun_rclassloader_inst"></a>
+<h2>Einstellungen des Klassenladers</h2>
+
+<p>Verwenden Sie diese Seite, um einen Klassenlader f&uuml;r Anwendungen, die auf einem
+Anwendungsserver installiert sind, zu konfigurieren. </p>
+
+<p>Klicken Sie zum Anzeigen dieser Seite der Administrationskonsole auf <strong>Server &gt; Anwendungsserver &gt;
+</strong><em>Servername</em><strong> &gt; Klassenlader &gt;</strong><em>Klassenlader-ID</em>.</p>
+
+<div>
+<p>
+<strong>Register "Konfiguration"</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="Classloader_classloaderID_description"></a>Klassenlader-ID</strong>
+</dt>
+<dd>Eine eindeutige Zeichenfolge, mit der der Server die Klassenladerinstanz identifizieren kann.
+Das Produkt ordnet die ID zu. 
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="Classloader_classloaderMode_description"></a>Klassenladermodus</strong>
+</dt>
+<dd>Gibt den Klassenladermodus an, wenn die Policy des Klassenladers der Anwendung SINGLE lautet. Bei
+Angabe von PARENT_FIRST delegiert der Klassenlader das Laden von Klassen an den &uuml;bergeordneten
+Klassenlader und versucht dann, die Klasse vom lokalen Klassenpfad zu laden. Bei Angabe von PARENT_LAST
+versucht der Klassenlader, Klassen vom lokalen Klassenpfad zu laden, bevor der Ladevorgang an den
+&uuml;bergeordneten Klassenlader delegiert wird. Auf diese Weise kann der Klassenlader einer Anwendung seine
+eigene Version einer Klasse, die im &uuml;bergeordneten Klassenlader vorhanden ist, &uuml;berschreiben und
+bereitstellen. 
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">PARENT_FIRST</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Zugeh&ouml;rige Informationen</strong>
+</p>
+<a href="rcon_buttons.html">Kn&ouml;pfe in der Adminstrationskonsole</a>
+<br>
+
+<a href="rcon_pageusage.html">Funktionen auf den Seiten der Administrationskonsole</a>
+<br>
+
+</div>
+</body>
+</html>

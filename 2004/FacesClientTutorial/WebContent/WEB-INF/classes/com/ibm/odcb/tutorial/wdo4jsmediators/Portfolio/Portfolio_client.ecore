@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:odc="http://www.ibm.com/Odyssey" name="Portfolio" nsURI="com/ibm/odcb/tutorial/wdo4jsmediators/Portfolio/Portfolio_client.ecore" nsPrefix="">
+  <eClassifiers xsi:type="ecore:EDataType" name="WDODate" instanceClassName="java.util.Date"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Stock">
+    <eAttributes name="ODCstatus" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EChar"/>
+    <eAttributes name="ODCid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eAttributes name="xmi:id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eAttributes name="symbol" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="0" upperBound="1"/>
+    <eAttributes name="currentPrice" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="0" upperBound="1"/>
+    <eAttributes name="volume" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="0" upperBound="1"/>
+    <eAttributes name="change" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="0" upperBound="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Position">
+    <eAttributes name="ODCstatus" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EChar"/>
+    <eAttributes name="ODCid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eAttributes name="xmi:id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eAttributes name="refNum" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" lowerBound="0" upperBound="1"/>
+    <eAttributes name="price" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat" lowerBound="0" upperBound="1"/>
+    <eAttributes name="quantity" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" lowerBound="0" upperBound="1"/>
+    <eReferences name="user" eType="#//User" lowerBound="1" upperBound="1" containment="false"/>
+    <eReferences name="portfolio" eType="#//Portfolio" lowerBound="1" upperBound="1" containment="false"/>
+    <eReferences name="stock" eType="#//Stock" lowerBound="1" upperBound="1" containment="false"/>
+    <eAttributes name="symbol" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="0" upperBound="1"/>
+    <eAttributes name="purchaseDate" eType="#//WDODate" lowerBound="0" upperBound="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="User">
+    <eAttributes name="ODCstatus" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EChar"/>
+    <eAttributes name="ODCid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eAttributes name="xmi:id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eAttributes name="refNum" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" lowerBound="0" upperBound="1"/>
+    <eAttributes name="lastName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="0" upperBound="1"/>
+    <eAttributes name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="0" upperBound="1"/>
+    <eReferences name="portfolios" eType="#//Portfolio" lowerBound="0" upperBound="-1" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Root">
+    <eAttributes name="ODCstatus" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EChar"/>
+    <eAttributes name="ODCid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eAttributes name="xmi:id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eAttributes name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="0" upperBound="1"/>
+    <eReferences name="users" eType="#//User" lowerBound="0" upperBound="-1" containment="true"/>
+    <eReferences name="stocks" eType="#//Stock" lowerBound="0" upperBound="-1" containment="true"/>
+    <eReferences name="placeHolderStock" eType="#//Stock" lowerBound="1" upperBound="1" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Portfolio">
+    <eAttributes name="ODCstatus" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EChar"/>
+    <eAttributes name="ODCid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eAttributes name="xmi:id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eAttributes name="portfolioName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="0" upperBound="1"/>
+    <eReferences name="positions" eType="#//Position" lowerBound="0" upperBound="-1" containment="true"/>
+    <eReferences name="user" eType="#//User" lowerBound="1" upperBound="1" containment="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Diff">
+    <eReferences name="Current" eType="#//ClientRoot" lowerBound="1" upperBound="1" containment="true"/>
+    <eReferences name="Original" eType="#//ClientRoot" lowerBound="1" upperBound="1" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ClientRoot">
+    <eReferences name="Stock" eType="#//Stock" lowerBound="0" upperBound="-1" containment="false"/>
+    <eReferences name="Position" eType="#//Position" lowerBound="0" upperBound="-1" containment="false"/>
+    <eReferences name="User" eType="#//User" lowerBound="0" upperBound="-1" containment="false"/>
+    <eReferences name="Root" eType="#//Root" lowerBound="0" upperBound="-1" containment="false"/>
+    <eReferences name="Portfolio" eType="#//Portfolio" lowerBound="0" upperBound="-1" containment="false"/>
+  </eClassifiers>
+</ecore:EPackage>

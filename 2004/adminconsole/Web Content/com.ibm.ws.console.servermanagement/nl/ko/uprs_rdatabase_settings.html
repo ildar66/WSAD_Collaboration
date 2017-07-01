@@ -1,0 +1,95 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>데이터베이스 설정</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="database_settings"></a>
+<h2>데이터베이스 설정</h2>
+
+<p>이 페이지를 참조하여 데이터베이스 세션 지원에 대해 설정을 지정하십시오.</p>
+
+<p>이 관리 콘솔 페이지를 보려면 <strong>서버</strong> &gt; <strong>Application Server</strong> &gt; <em>server_name</em>
+&gt; <strong>웹 컨테이너</strong> &gt; <strong>세션 관리</strong> &gt; <strong>분산 환경 설정</strong> &gt; <strong>데이터베이스</strong>를 클릭하십시오.</p>
+
+<div>
+<p>
+<strong>구성 탭</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="SessionDatabasePersistence_datasourceJNDIName_description"></a>데이터소스 JNDI 이름</strong>
+</dt>
+<dd>데이터소스 설명 지정
+<p>세션 관리자가 데이터베이스 연결을 확보할 비 XA 사용 데이터소스의 JNDI 이름입니다. 예를 들어,
+데이터소스의 이름이 "jdbc/sessions"이면 "jdbc/sessions"을 지정하십시오.
+데이터소스는 데이터베이스 연결 풀과 그 풀에 대한 구성을
+표시합니다(예: 풀 크기). 환경에서 데이터소스는 이미 자원으로 구성되어 있어야 합니다.</p>
+
+</dd>
+<dt>
+<strong><a name="SessionDatabasePersistence_userId_description"></a>사용자 ID</strong>
+            &nbsp;
+            </dt>
+<dd>데이터베이스 액세스에 대한 사용자 ID를 지정합니다.</dd>
+<dt>
+<strong><a name="SessionDatabasePersistence_password_description"></a>암호</strong>
+            &nbsp;
+            </dt>
+<dd>데이터베이스 액세스에 대한 암호를 지정합니다.</dd>
+<dt>
+<strong><a name="SessionDatabasePersistence_password2_description"></a>암호 확인</strong>
+            &nbsp;
+            </dt>
+<dd>올바르게 기록되었는지 확인하기 위해 암호를 다시 지정합니다.</dd>
+<dt>
+<strong><a name="SessionDatabasePersistence_db2RowSize_description"></a>DB2 행 크기</strong>
+            &nbsp;
+            </dt>
+<dd>DB2 데이터베이스를 사용하는 경우 세션 테이블에 대하여 구성된 테이블 공간 페이지 크기를 지정합니다.
+가능한 값은 4, 8, 16 및 32킬로바이트(K)입니다.   기본 행 크기는 4K입니다. 
+<p>기본 행 크기는 4K입니다. DB2에서 이 크기는 더 큰 값으로 갱신할 수
+있습니다. 일부 환경에서는 이렇게 갱신함으로써 데이터베이스 성능을 높일 수 있습니다. 이 값이 4가 아니면, 사용할 테이블 공간 이름을 지정해야
+합니다. 4K 페이지의 경우 테이블 공간 이름은 선택적입니다. </p>
+
+</dd>
+<dt>
+<strong><a name="SessionDatabasePersistence_tableSpaceName_description"></a>테이블 공간 이름</strong>
+            &nbsp;
+            </dt>
+<dd>세션 테이블에 사용될 테이블 공간 이름을 지정합니다. 
+<p>이 값은 DB2 페이지 크기가 4K가 아닐 때 필요합니다.</p>
+
+</dd>
+<dt>
+<strong><a name="TuningParams_usingRowSchema_description"></a>다중 행 세션 사용  </strong>
+</dt>
+<dd>응용프로그램 데이터의 각 인스턴스가 데이터베이스에서 별도의 행에
+위치함을 지정하며, 이를 통해 각 세션에 대해 보다 많은 양의 데이터를 저장할 수
+있습니다. 이 조치는 특정 사용법 시나리오에서 보다 우수한 성능을
+제공합니다. 다중행 스키마 사용이 불가능하면, 응용프로그램 데이터의 인스턴스를 동일 행에 놓을 수 있습니다.
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>관련 정보</strong>
+</p>
+<a href="rcon_buttons.html">관리 콘솔 단추</a>
+<br>
+
+<a href="rcon_pageusage.html">관리 콘솔 페이지 기능</a>
+<br>
+
+<a href="rcon_filter.html">관리 콘솔 필터 설정</a>
+<br>
+
+<a href="rcon_preferences.html">관리 콘솔 환경 설정</a>
+<br>
+
+</div>
+</body>
+</html>

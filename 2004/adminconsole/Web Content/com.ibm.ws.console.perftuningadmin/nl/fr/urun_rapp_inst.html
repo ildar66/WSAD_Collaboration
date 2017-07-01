@@ -1,0 +1,323 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Param&egrave;tres de l'application d'entreprise</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="urun_rapp_inst"></a>
+<h2>Param&egrave;tres de l'application d'entreprise</h2>
+
+<p>Cette page permet de configurer une application d'entreprise.</p>
+
+<p>Pour afficher cette page de la console d'administration,
+cliquez sur <strong>Applications &gt; Applications d'entreprise &gt;
+</strong><em>nom_application</em>.</p>
+
+<div>
+<p>
+<strong>Onglet Configuration</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="ApplicationDeployment_name_description"></a>Nom</strong>
+</dt>
+<dd>Indique le nom logique de l'application. Les noms
+d'application doivent &ecirc;tre uniques dans une cellule et ne contenir
+aucun caract&egrave;re non autoris&eacute; dans les noms d'objet.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationDeployment_startingWeight_description"></a>Pond&eacute;ration de d&eacute;marrage</strong>
+</dt>
+<dd>Indique l'ordre de lancement des applications lors du
+d&eacute;marrage du serveur. L'application dot&eacute;e de la valeur de lancement
+la plus faible est lanc&eacute;e la premi&egrave;re.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Entier</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">1</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Plage de valeurs</td>
+<td align="left" valign="top" class="base">0 &agrave; 100</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationDeployment_binariesURL_description"></a>Fichiers binaires d'application</strong>
+</dt>
+<dd>Indique le r&eacute;pertoire dans lequel le fichier EAR de
+l'application doit &ecirc;tre install&eacute;.  La valeur par d&eacute;faut est APP_INSTALL_ROOT/<em>nom_cellule</em>, o&ugrave; la
+variable APP_INSTALL_ROOT correspond &agrave; <em>racine_install</em>/installedApps ; par
+exemple, C:\WebSphere\AppServer\installedApps\<em>nom_cellule</em>.
+<p>Vous pouvez indiquer un chemin d'acc&egrave;s absolu ou utiliser une
+variable de mappe des chemins d'acc&egrave;s telle que ${MY_APPS}.
+  Si une variable de mappe des chemins d'acc&egrave;s peut &ecirc;tre utilis&eacute;e
+dans tout type d'installation. Une variable WebSphere Application Server ${CELL} qui indique le nom de cellule en
+cours peut &eacute;galement &ecirc;tre comprise dans la variable de mappe des chemins d'acc&egrave;s. Exemple
+: ${MY_APP}/${CELL}.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&eacute;</td>
+<td align="left" valign="top" class="base">Nom de chemin d'acc&egrave;s complet</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationDeployment_useMetadataFromBinaries_description"></a>Utiliser les m&eacute;tadonn&eacute;es des fichiers binaires</strong>
+</dt>
+<dd>Indique si le serveur d'applications utilise les liaisons,
+les extensions et les descripteurs de d&eacute;ploiement situ&eacute;s au m&ecirc;me endroit que le
+document de d&eacute;ploiement de l'application, le fichier deployment.xml
+(par d&eacute;faut), ou ceux qui se trouvent dans le fichier EAR (enterprise
+application resource) de l'application.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Bool&eacute;en</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">true</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationDeployment_enableDistribution_description"></a>Activer la distribution</strong>
+</dt>
+<dd>Indique si WebSphere Application Server d&eacute;veloppe ou supprime les fichiers binaires de l'application dans
+la destination de l'installation. Par
+d&eacute;faut, la distribution de l'application est activ&eacute;e.
+ Les fichiers
+binaires des applications install&eacute;es sont d&eacute;velopp&eacute;s dans le
+r&eacute;pertoire indiqu&eacute;. Les fichiers binaires sont &eacute;galement supprim&eacute;s
+lors de la d&eacute;sinstallation et les modifications sont sauvegard&eacute;es
+dans la configuration. Si vous d&eacute;sactivez cette option, vous devez
+vous assurer que les fichiers binaires d'application sont d&eacute;velopp&eacute;s
+de mani&egrave;re appropri&eacute;e dans les r&eacute;pertoires de destination de tous les
+noeuds sur lesquels l'application est ex&eacute;cut&eacute;e.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Bool&eacute;en</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">true</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationDeployment_classloaderMode_description"></a>Mode du chargeur de classe</strong>
+</dt>
+<dd>Indique si le chargeur de classe doit d'abord effectuer la recherche dans le chargeur de classe parent ou dans le chargeur de classe de l'application afin de charger une classe. PARENT_FIRST est la norme pour les chargeurs de classe JDK et les chargeurs de classe
+WebSphere Application Server. Si vous indiquez PARENT_LAST, votre application peut substituer des classes contenues dans le chargeur de classe parent, mais cette action peut &eacute;ventuellement aboutir &agrave; l'exception ClassCastException ou &agrave; des erreurs LinkageErrors si vous avez utilis&eacute; conjointement des classes substitu&eacute;es et des classes non substitu&eacute;es.
+<p>Les options possibles sont PARENT_FIRST et PARENT_LAST. Par d&eacute;faut, la recherche s'effectue d'abord dans le chargeur de classe parent, puis dans le chargeur de classe d'application pour charger une classe.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">PARENT_FIRST</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationDeployment_warClassloaderPolicy_description"></a>R&egrave;gle de chargeur de classe WAR</strong>
+</dt>
+<dd>Indique si un seule chargeur de classe doit &ecirc;tre utilis&eacute; pour charger tous les fichiers WAR de l'application ou si un chargeur de classe diff&eacute;rent doit &ecirc;tre utilis&eacute; pour chaque fichier WAR.
+<p>Les options possibles sont APPLICATION et MODULE. Par d&eacute;faut, chaque fichier WAR est charg&eacute; par un chargeur de classe distinct.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">MODULE</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationDeployment_createMBeansForResource"></a>Cr&eacute;er des MBeans pour les ressources</strong>
+</dt>
+<dd>Indique s'il convient de cr&eacute;er des fichiers MBean pour les
+diff&eacute;rentes ressources (telles que les servlets ou les fichiers JSP)
+dans une application.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Bool&eacute;en</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">true</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationDeployment_enableClassReloading"></a>Rechargement activ&eacute;</strong>
+</dt>
+<dd>Indique si le rechargement des classes est activ&eacute; lors de
+la mise &agrave; jour des fichiers d'application.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Bool&eacute;en</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">true</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationDeployment_reloadInterval"></a>Intervalle de rechargement</strong>
+</dt>
+<dd>Indique le nombre de secondes n&eacute;cessaire au scannage du
+syst&egrave;me de fichiers de l'application dans le but de rechercher les
+fichiers mis &agrave; jour. La valeur par d&eacute;faut correspond &agrave; celle de
+l'attribut de l'intervalle de rechargement dans le fichier
+d'extension IBM (META-INF/ibm-application-ext.xmi) du fichier EAR. Ce
+param&egrave;tre prend effet uniquement si le rechargement des classes est activ&eacute;.
+<p>L'intervalle de rechargement indiqu&eacute; remplace la valeur sp&eacute;cifi&eacute;e
+dans les extensions IBM de chaque module Web du fichier EAR (qui
+remplace lui-m&ecirc;me l'intervalle de rechargement indiqu&eacute; dans les
+extensions IBM du fichier EAR).</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Entier</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&eacute;</td>
+<td align="left" valign="top" class="base">Seconde</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informations connexes</strong>
+</p>
+<a href="rcon_buttons.html">Boutons de la console administrative</a>
+<br>
+
+<a href="rcon_pageusage.html">Caract&eacute;ristiques de la page de la console d'administration</a>
+<br>
+
+<a href="udat_nestjcaconfac.html">Collection de modules de connecteurs</a>
+<br>
+
+<a href="ucws_rlibref.html">Collection de r&eacute;f&eacute;rences de biblioth&egrave;ques</a>
+<br>
+
+<a href="uweb_rwebmc.html">Param&egrave;tres de module Web</a>
+<br>
+
+</div>
+</body>
+</html>

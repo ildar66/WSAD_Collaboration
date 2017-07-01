@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.0//EN"
+                               "http://jakarta.apache.org/struts/dtds/struts-config_1_0.dtd">
+<struts-config>
+  <form-beans>
+    <form-bean name="com.ibm.ws.console.probdetermination.form.LogsAndTraceCollectionForm" type="com.ibm.ws.console.probdetermination.form.LogsAndTraceCollectionForm"/>
+    <form-bean name="com.ibm.ws.console.probdetermination.form.TraceServiceDetailForm"   type="com.ibm.ws.console.probdetermination.form.TraceServiceDetailForm"/>
+    <form-bean name="com.ibm.ws.console.probdetermination.form.StreamRedirectDetailForm"   type="com.ibm.ws.console.probdetermination.form.StreamRedirectDetailForm"/>
+    <form-bean name="com.ibm.ws.console.probdetermination.form.OutputRedirectDetailForm"   type="com.ibm.ws.console.probdetermination.form.OutputRedirectDetailForm"/>
+    <form-bean name="com.ibm.ws.console.probdetermination.form.RASLoggingServiceDetailForm"   type="com.ibm.ws.console.probdetermination.form.RASLoggingServiceDetailForm"/>
+    <form-bean name="com.ibm.ws.console.probdetermination.form.LogViewDetailForm"   type="com.ibm.ws.console.probdetermination.form.LogViewDetailForm"/>
+    <form-bean name="com.ibm.ws.console.probdetermination.form.ConfigProbCollectionForm"   type="com.ibm.ws.console.probdetermination.form.ConfigProbCollectionForm"/>
+    <form-bean name="com.ibm.ws.console.probdetermination.form.ConfigProbDetailForm"   type="com.ibm.ws.console.probdetermination.form.ConfigProbDetailForm"/>
+        
+    <!-- BEGIN Form beans for PMI Request Metrics -->
+    <form-bean name="com.ibm.ws.console.probdetermination.PMIRequestMetricsCollectionForm"   type="com.ibm.ws.console.probdetermination.pmirm.PMIRequestMetricsCollectionForm"/>
+    <form-bean name="com.ibm.ws.console.probdetermination.PMIRequestMetricsDetailForm"   type="com.ibm.ws.console.probdetermination.pmirm.PMIRequestMetricsDetailForm"/>
+    <form-bean name="com.ibm.ws.console.probdetermination.PMIRMFilterCollectionForm"   type="com.ibm.ws.console.probdetermination.pmirm.PMIRMFilterCollectionForm"/>
+    <form-bean name="com.ibm.ws.console.probdetermination.PMIRMFilterDetailForm"   type="com.ibm.ws.console.probdetermination.pmirm.PMIRMFilterDetailForm"/>
+    <form-bean name="com.ibm.ws.console.probdetermination.PMIRMFilterValueCollectionForm"   type="com.ibm.ws.console.probdetermination.pmirm.PMIRMFilterValueCollectionForm"/>
+    <form-bean name="com.ibm.ws.console.probdetermination.PMIRMFilterValueDetailForm"   type="com.ibm.ws.console.probdetermination.pmirm.PMIRMFilterValueDetailForm"/>
+    <!-- END Form beans for PMI Request Metrics -->
+  </form-beans>
+  <global-forwards/>
+  <action-mappings>
+    <action path="/com.ibm.ws.console.probdetermination.forwardCmd" type="com.ibm.ws.console.core.action.ForwardAction">
+      <forward name="configproblems.content.main" path="configproblems.content.main"/>
+      <forward name="configproblems.content.main.list" path="configproblems.content.main.list"/>
+      <forward name="Logsandtrace.content.main" path="Logsandtrace.content.main"/>
+      <forward name="Logsandtrace.content.detail" path="Logsandtrace.content.detail"/>
+      <forward name="Logsandtrace.content.list" path="Logsandtrace.content.list"/>
+      <forward name="TraceService.config.view" path="TraceService.config.view"/>
+      <forward name="JVMLog.config.view" path="JVMLog.config.view"/>
+      <forward name="RASLoggingservice.config.view" path="RASLoggingservice.config.view"/>
+      <forward name="Outputredirect.config.view" path="Outputredirect.config.view"/>
+      <forward name="JVMLog.content.detail" path="JVMLog.content.detail"/>
+      <forward name="JVMLogs.content.main" path="JVMLogs.content.main"/>
+      <!-- BEGIN Forwards for PMI Request Metrics -->
+      <forward name="PMIRequestMetrics.content.main" path="PMIRequestMetrics.content.main"/>
+      <forward name="PMIRMFilter.content.main" path="PMIRMFilter.content.main"/>
+      <forward name="PMIRMFilterValue.content.main" path="PMIRMFilterValue.content.main"/>
+      <!-- END Forwards for PMI Request Metrics -->
+    </action>
+        
+
+    <action name="com.ibm.ws.console.probdetermination.form.TraceServiceDetailForm" input="TraceService.config.view" path="/traceServiceDetail" type="com.ibm.ws.console.probdetermination.action.TraceServiceDetailAction">
+      <forward name="success" path="Logsandtrace.content.list"/>
+      <forward name="failure" path="/error.jsp"/>
+      <forward name="samePage" path="TraceService.config.view"/>
+      <forward name="logfile" path="logfile.traceservice.view"/>
+    </action>
+        
+
+    <action name="com.ibm.ws.console.probdetermination.form.StreamRedirectDetailForm" input="JVMLog.config.view" path="/jvmLogDetail" type="com.ibm.ws.console.probdetermination.action.StreamRedirectDetailAction">
+      <forward name="success" path="Logsandtrace.content.list"/>
+      <forward name="failure" path="/error.jsp"/>
+      <forward name="samePage" path="JVMLog.config.view"/>
+      <forward name="logfile" path="logfile.streamredirect.view"/>
+    </action>
+
+    <action name="com.ibm.ws.console.probdetermination.form.RASLoggingServiceDetailForm" input="RASLoggingservice.config.view" path="/rasLoggingServiceDetail" type="com.ibm.ws.console.probdetermination.action.RASLoggingServiceDetailAction">
+      <forward name="success" path="Logsandtrace.content.list"/>
+      <forward name="failure" path="/error.jsp"/>
+      <forward name="samePage" path="RASLoggingservice.config.view"/>
+    </action>
+
+    <action name="com.ibm.ws.console.probdetermination.form.OutputRedirectDetailForm" input="Outputredirect.config.view" path="/outputRedirectDetail" type="com.ibm.ws.console.probdetermination.action.OutputRedirectDetailAction">
+      <forward name="success" path="Logsandtrace.content.list"/>
+      <forward name="failure" path="/error.jsp"/>
+      <forward name="samePage" path="Outputredirect.config.view"/>
+      <forward name="logfile" path="logfile.outputredirect.view"/>
+    </action>
+
+    <action name="com.ibm.ws.console.probdetermination.form.LogsAndTraceCollectionForm"
+            path="/logsAndTraceCollection" type="com.ibm.ws.console.probdetermination.action.LogsAndTraceCollectionAction">
+      <forward name="failure" path="/error.jsp"/>
+      <forward name="success" path="Logsandtrace.content.main"/>
+      <forward name="logsAndTraceCollection" path="Logsandtrace.content.main"/>
+    </action>
+
+    <action path="/validation"
+            type="com.ibm.ws.console.probdetermination.action.ValidatorAction">
+      <forward name="configproblems.content.main" path="configproblems.content.main"/>
+    </action>
+        
+
+    <action name="com.ibm.ws.console.probdetermination.form.ConfigProbCollectionForm"
+            path="/configProbCollection" type="com.ibm.ws.console.probdetermination.action.ConfigProbCollectionAction">
+      <forward name="failure" path="/error.jsp"/>
+      <forward name="success" path="configproblems.content.main"/>
+      <forward name="detail" path="configproblems.content.detail"/>
+      <forward name="configProbCollection" path="configproblems.content.main.list"/>
+      <forward name="eventCollection" path="configproblems.content.main.list"/>
+    </action>
+
+    <!-- BEGIN PMI Request Metrics Panels -->
+    <action
+            name="com.ibm.ws.console.probdetermination.PMIRequestMetricsCollectionForm"
+            path="/pMIRequestMetricsCollection" type="com.ibm.ws.console.probdetermination.pmirm.PMIRequestMetricsCollectionAction">
+      <forward name="failure" path="/error.jsp"/>
+      <forward name="success" path="PMIRequestMetrics.config.view"/>
+      <forward name="pMIRequestMetricsCollection" path="PMIRequestMetrics.content.main"/>
+    </action>
+        
+
+    <action
+            name="com.ibm.ws.console.probdetermination.PMIRequestMetricsDetailForm"
+            path="/pMIRequestMetricsDetail" type="com.ibm.ws.console.probdetermination.pmirm.PMIRequestMetricsDetailAction" input="PMIRequestMetrics.config.view">
+      <forward name="error" path="PMIRequestMetrics.config.view"/>
+      <forward name="success" path="/secure/content.jsp"/>
+    </action>
+        
+
+    <action
+            name="com.ibm.ws.console.probdetermination.PMIRMFilterCollectionForm"
+            path="/pMIRMFilterCollection" type="com.ibm.ws.console.probdetermination.pmirm.PMIRMFilterCollectionAction">
+      <forward name="failure" path="/error.jsp"/>
+      <forward name="success" path="PMIRMFilter.config.view"/>
+      <forward name="pMIRMFilterCollection" path="PMIRMFilter.content.main"/>
+    </action>
+        
+
+    <action
+            name="com.ibm.ws.console.probdetermination.PMIRMFilterDetailForm"
+            path="/pMIRMFilterDetail" type="com.ibm.ws.console.probdetermination.pmirm.PMIRMFilterDetailAction" input="PMIRMFilter.config.view">
+      <forward name="error" path="PMIRMFilter.config.view"/>
+      <forward name="success" path="com.ibm.ws.console.probdetermination.forwardCmd.do?forwardName=PMIRMFilter.content.main"/>
+    </action>
+        
+
+    <action
+            name="com.ibm.ws.console.probdetermination.PMIRMFilterValueCollectionForm"
+            path="/pMIRMFilterValueCollection" type="com.ibm.ws.console.probdetermination.pmirm.PMIRMFilterValueCollectionAction">
+      <forward name="failure" path="/error.jsp"/>
+      <forward name="success" path="PMIRMFilterValue.config.view"/>
+      <forward name="pMIRMFilterValueCollection" path="PMIRMFilterValue.content.main"/>
+    </action>
+        
+
+    <action
+            name="com.ibm.ws.console.probdetermination.PMIRMFilterValueDetailForm"
+            path="/pMIRMFilterValueDetail" type="com.ibm.ws.console.probdetermination.pmirm.PMIRMFilterValueDetailAction" input="PMIRMFilterValue.config.view">
+      <forward name="error" path="PMIRMFilterValue.config.view"/>
+      <forward name="success" path="com.ibm.ws.console.probdetermination.forwardCmd.do?forwardName=PMIRMFilterValue.content.main"/>
+    </action>
+        
+    <!-- END PMI Request Metrics Panels -->
+
+  </action-mappings>
+</struts-config>

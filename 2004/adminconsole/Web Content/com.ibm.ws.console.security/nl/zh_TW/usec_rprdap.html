@@ -1,0 +1,253 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>輕裝備目錄存取通訊協定設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecrprdap"></a>
+<h2>
+<img alt="[5.1 版和更新版本]" src="v51.gif" border="0">輕裝備目錄存取通訊協定設定</h2>
+
+<p>如果使用者和群組是在外部 LDAP 目錄時，請利用這個頁面來配置輕裝備目錄存取通訊協定 (LDAP) 設定。
+</p>
+
+<p>如果要檢視這個管理主控台頁面，請按一下<strong>安全</strong> &gt; <strong>使用者登錄</strong> &gt; <strong>LDAP</strong>。
+</p>
+
+<p>當啟用安全且任何這些內容有了改變時，請進入<strong>廣域安全</strong>畫面，按一下<strong>套用</strong>來驗證變更。
+</p>
+
+<div>
+<p>
+<strong>「配置」標籤</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="UserRegistry_serverId_description"></a>伺服器使用者 ID
+</strong>
+</dt>
+<dd>指定為了安全而在伺服器執行時採用的使用者 ID。
+
+<p>這個 ID 不是 LDAP 管理者使用者 ID，不過，仍請指定在基本識別名稱下的 LDAP 目錄中之有效項目。
+</p>
+
+</dd>
+<dt>
+<strong><a name="UserRegistry_serverPassword_description"></a>伺服器使用者密碼</strong>
+</dt>
+<dd>指定安全伺服器 ID 所對應的密碼。</dd>
+<dt>
+<strong><a name="LDAPUserRegistry_type_description"></a>類型</strong>
+</dt>
+<dd>指定要連接的 LDAP 伺服器類型。
+
+<p>
+<img alt="[只適用於 5.0]" src="v50x.gif" border="0"><img alt="[修正套件 5.0.1]" src="v501x.gif" border="0"><img alt="[修正套件 5.0.2]" src="v502x.gif" border="0">這個類型用來預載預設的 LDAP 內容。
+IBM Directory Server 使用者可以選擇以 <samp>IBM_Directory_Server</samp> 或 <samp>SecureWay</samp> 為目錄類型。
+請利用 <samp>IBM_ Directory_server</samp> 目錄類型，以便有較好的效能。iPlanet Directory Server 的使用者可以選擇 iPlanet Directory Server 或 NetScape 來作為目錄類型。
+將 iPlanet 配置成以 <samp>role</samp> <samp>(nsRole)</samp> 作為分組方法之後，請利用 iPlanet Directory Server 目錄類型，以便有較好的效能。
+</p>
+
+<p>
+<img alt="[5.1 版和更新版本]" src="v51.gif" border="0">不支援 IBM SecureWay Directory Server。</p>
+
+<p>如果需要支援的 LDAP 伺服器的清單，請參閱文件中「支援的目錄服務」一文。</p>
+
+</dd>
+<dt>
+<strong><a name="LDAPUserRegistry_host_description"></a>主機</strong>
+</dt>
+<dd>指定 LDAP 伺服器的主機 ID（IP 位址或領域名稱系統 (DNS) 名稱）。
+</dd>
+<dt>
+<strong><a name="LDAPUserRegistry_port_description"></a>埠
+</strong>
+</dt>
+<dd>指定 LDAP 伺服器的主機埠。
+<p>如果您要安裝和配置多個 WebSphere Application Server，讓它們在同一個單一登入領域中執行，或如果 WebSphere Application Server 與舊版的 WebSphere Application Server 交互作業，這時所有配置中的埠號都必須相符。
+比方說，如果在 4.0.x 版的配置中將 LDAP 埠明確指定為 <strong>389</strong>，且第 5 版的 WebSphere Application Server 要與 4.0.x 版的伺服器交互作業，這時務必將埠 <strong>389</strong> 明確指定給第 5 版的伺服器。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值：</td>
+<td align="left" valign="top" class="base">389</td>
+
+</tr>
+
+</table>
+<p>
+<b>附註: </b>如果埠（包括預設埠號）明確指定在某伺服器配置中，請確認所有伺服器配置也都已明確指定它。
+</p>
+</p>
+
+</dd>
+<dt>
+<strong><a name="LDAPUserRegistry_baseDN_description"></a>基本識別名稱</strong>
+</dt>
+<dd>指定目錄服務的基本識別名稱，指出目錄服務的 LDAP 搜尋起點。
+
+<p>比方說，如果使用者的識別名稱 (DN) 為 cn=John Doe、ou=Rochester、o=IBM、c=US，您可以將基本 DN 指定為下列項目（假設字尾是 c=us）：ou=Rochester、o=IBM、c=us  o=IBM、c=us  c=us。
+為了方便授權，這個欄位會區分大小寫。
+也就是說，如果收到記號（比方說，從另一個 Cell 或 Domino 收到），伺服器中的基本 DN 必須完全符合其他 Cell 或 Domino 的基本 DN。
+如果在授權時不需要考慮區分大小寫 請啟用<strong>不區分大小寫</strong>欄位。
+除了 Domino Directory 之外，所有 LDAP 目錄都需要這個欄位；在 Domino Directory 中，它是選用的。
+</p>
+
+</dd>
+<dt>
+<strong><a name="LDAPUserRegistry_bindDN_description"></a>連結識別名稱
+</strong>
+</dt>
+<dd>指定連結至目錄服務時所用的應用程式伺服器之識別名稱。
+
+<p>如果沒有指定名稱的話，會以匿名方式來連結應用程式伺服器。
+請參閱「基本識別名稱」欄位說明，找到識別名稱的範例。</p>
+
+</dd>
+<dt>
+<strong><a name="LDAPUserRegistry_bindPassword_description"></a>連結密碼</strong>
+</dt>
+<dd>指定連結至目錄服務時所用的應用程式伺服器之密碼。
+</dd>
+<dt>
+<strong><a name="LDAPUserRegistry_searchTimeout_description"></a>搜尋逾時值</strong>
+</dt>
+<dd>指定在中止要求之前，LDAP 伺服器的回應逾時值（秒）。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值：</td>
+<td align="left" valign="top" class="base">120</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LDAPUserRegistry_reuseConnection_description"></a>重複使用連線</strong>
+</dt>
+<dd>指定伺服器應不應該重複使用 LDAP 連線。
+請只在利用路由器將要求分送到多個 LDAP 伺服器及路由器不支援親緣性之類的少數情況下，才取消選取這個選項。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值：</td>
+<td align="left" valign="top" class="base">啟用</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍：</td>
+<td align="left" valign="top" class="base">啟用或停用</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LDAPUserRegistry_ignoreCase_description"></a>不區分大小寫</strong>
+</dt>
+<dd>可指定執行不區分大小寫授權檢查。
+
+<p>當選取 IBM Directory Server 作為 LDAP 目錄伺服器時，這是一個必要欄位。
+</p>
+
+<p>
+<img alt="[5.1 版和更新版本]" src="v51.gif" border="0">當選取 Sun ONE Directory Server 作為 LDAP 目錄伺服器時，這是一個必要欄位。
+如果需要詳細資訊，請參閱文件中的「使用特定目錄伺服器作為 LDAP 伺服器」。
+</p>
+
+<p>否則，這個欄位就是選用的，在需要區分大小寫授權檢查時，您可以啟用它。
+比方說，當憑證和憑證內容不符合 LDAP 伺服器項目的大小寫時，請使用這個欄位。
+當在 WebSphere Application Server 和 Lotus Domino 之間使用單一登入 (SSO) 時，您可以啟用<strong>不區分大小寫</strong>欄位。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值：</td>
+<td align="left" valign="top" class="base">停用</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍：</td>
+<td align="left" valign="top" class="base">啟用或停用</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LDAPUserRegistry_sslEnabled_description"></a>SSL 已啟用</strong>
+</dt>
+<dd> 指定要不要啟用 LDAP 伺服器的安全 Socket 通訊。
+如果啟用時，如果指定了 LDAP Secure Socket Layer 設定，就會使用這個設定。</dd>
+<dt>
+<strong><a name="LDAPUserRegistry_sslConfig_description"></a>SSL 配置</strong>
+</dt>
+<dd>可指定 LDAP 連線要使用的 Secure Socket Layer 配置。
+只有在啟用 LDAP 的 SSL 時，才會使用這個配置。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值：</td>
+<td align="left" valign="top" class="base">DefaultSSLSettings</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LDAPUserRegistry_enableTAM_description"></a>在帳戶原則上使用 Tivoli Access Manager
+</strong>
+</dt>
+<dd>請選取這個選項來指出在鑑別時利用 Tivoli Access Manager 來接受密碼和帳戶原則。
+這個選項要求先安裝好 Tivoli Access Manager。
+<p>除非您已安裝 Tivoli Access Manager 伺服器，將它配置成要給 WebSphere Application Server 使用，否則，請勿選取這個選項。Tivoli Access Manager 所用的 LDAP 目錄伺服器必須是 WebSphere Application Server 所用的相同 LDAP 目錄伺服器。
+</p>
+
+<p>
+<b>附註: </b>當您選取這個選項時，不支援以 IBM SecureWay Directory Server 為 LDAP 目錄伺服器。
+</p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>相關資訊</strong>
+</p>
+<a href="rcon_buttons.html">管理主控台按鈕</a>
+<br>
+
+<a href="rcon_pageusage.html">管理主控台頁面特性</a>
+<br>
+
+<a href="rcon_scope.html">管理主控台範圍設定</a>
+<br>
+
+<a href="rcon_filter.html">管理主控台過濾器設定</a>
+<br>
+
+<a href="rcon_preferences.html">管理主控台喜好設定</a>
+<br>
+
+</div>
+</body>
+</html>

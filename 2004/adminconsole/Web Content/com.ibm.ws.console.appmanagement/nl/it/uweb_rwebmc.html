@@ -1,0 +1,72 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Impostazioni del modulo Web</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uweb_rwebmc"></a>
+<h2>Impostazioni del modulo Web</h2>
+
+<p> Utilizzare questa pagina per configurare le impostazioni del modulo Web. </p>
+
+<p>Accedere a questa pagina tramite il seguente percorso nella console di gestione:</p>
+
+<pre>
+<strong>Applicazioni</strong> &gt; <strong>Applicazione Enterprise</strong> &gt; <em>istanza_applicazione</em>
+&gt; <strong>Modulo Web</strong>
+</pre>
+
+<dl>
+<dt>
+<strong><a name="rwebm_uri"></a>URI</strong>
+</dt>
+<dd>Specifica un URI che, quando viene determinato come relativo all'URL
+dell'applicazione,
+specifica la posizione dei contenuti dell'archivio di un modulo su un file system.
+L'URI
+deve corrispondere all'URI di ModuleRef nel descrittore di distribuzione di
+un'applicazione, se il modulo &egrave; stato incluso come parte di un'applicazione sviluppata o
+di file EAR (enterprise archive).  </dd>
+<dt>
+<strong><a name="rwebm_name"></a>Nome</strong>
+</dt>
+<dd>Specifica il nome univoco visualizzato per il modulo.</dd>
+<dt>
+<strong><a name="rweb_altdd"></a>DD alternato</strong>
+</dt>
+<dd>Specifica il nome di un file alternativo del descrittore di distribuzione
+da utilizzare al posto di quello originale nel file JAR del modulo.
+<p> Questo file &egrave; la versione <em>post-assemblaggio</em> del file del descrittore di
+distribuzione. &Egrave; possibile modificare il
+file del descrittore di distribuzione originale per risolvere le informazioni sulle dipendenze e sulla sicurezza.  La specifica dell'uso del descrittore di distribuzione alternativo mantiene
+intatto il file originale del descrittore di distribuzione.</p>
+
+<p>Il valore della propriet&agrave; del <em>DD alternativo</em> deve corrispondere al nome
+percorso completo del file del descrittore di distribuzione, relativo
+alla directory root del modulo.
+ Per convenzione, il file si trova nella directory <samp>ALT-INF</samp>. Se questa propriet&agrave; non &egrave; specificata, il file del
+descrittore di distribuzione viene letto dal file JAR del modulo.</p>
+
+</dd>
+<dt>
+<strong><a name="rwebm_wt"></a>Peso di avvio</strong>
+</dt>
+<dd>Specifica l'ordine in cui sono avviati i moduli.  I moduli con relazione minore vengono avviati prima di quelli con relazione maggiore.</dd>
+<dt>
+<strong><a name="rwebm_webinf"></a>Preferenza classi WEB-INF</strong>
+</dt>
+<dd>Specifica le classi da caricare in WEB-INF prima di qualsiasi altra classe. Si
+consiglia l'implementazione del programma di caricamento classi delle
+applicazioni; in questo modo le classi e le risorse all'interno del file WAR vengono
+caricate prima delle classi e delle risorse che si trovano nei file JAR della libreria
+dell'intero contenitore.</dd>
+<dt>
+<strong><a name="rwebm_init"></a>Stato iniziale</strong>
+</dt>
+<dd>Specifica lo stato predefinito di questa applicazione all'avvio del server. </dd>
+</dl>
+</body>
+</html>

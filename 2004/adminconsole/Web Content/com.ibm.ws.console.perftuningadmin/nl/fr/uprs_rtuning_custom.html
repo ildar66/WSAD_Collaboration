@@ -1,0 +1,164 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Options personnalis&eacute;es d'optimisation des param&egrave;tres</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="tune_para_custom"></a>
+<h2>Options personnalis&eacute;es d'optimisation des param&egrave;tres</h2>
+
+<p>Cette page permet de personnaliser des param&egrave;tres d'optimisation pour les sessions r&eacute;parties.</p>
+
+<p>Pour afficher cette page de la console d'administration, cliquez
+sur <strong>Serveurs</strong> &gt; <strong> Serveurs d'applications</strong> &gt;
+<em>nom_serveur</em> &gt; <strong>Conteneur Web</strong> &gt; <strong>Gestion de session</strong>
+&gt; <strong>Param&egrave;tres d'environnement r&eacute;partis</strong> &gt; <strong>Param&egrave;tres
+d'optimisation personnalis&eacute;s</strong> &gt; <strong>Param&egrave;tres personnalis&eacute;s</strong>.</p>
+
+<div>
+<p>
+<strong>Onglet Configuration</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="TuningParams_writeFrequency_description"></a>Fr&eacute;quence d'&eacute;criture</strong>
+</dt>
+<dd>D&eacute;termine &agrave; quel moment les donn&eacute;es d'une session sont &eacute;crites dans le syst&egrave;me de stockage permanent.
+
+<p></p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Fin du service de servlet</td>
+<td align="left" valign="top" class="base">Une session &eacute;crit dans une base de donn&eacute;es ou dans une autre
+instance de WebSphere Application Server une fois l'ex&eacute;cution du
+servlet termin&eacute;e.</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Mise &agrave; jour manuelle</td>
+<td align="left" valign="top" class="base">L'&eacute;criture des donn&eacute;es de la session dans la base de donn&eacute;es
+ou dans une autre instance de WebSphere Application Server n'a lieu
+que sur appel de la m&eacute;thode sync() de l'objet IBMSession (appel qui
+doit &ecirc;tre programm&eacute; par le concepteur du servlet).</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">P&eacute;riodique</td>
+<td align="left" valign="top" class="base">Les donn&eacute;es de session sont &eacute;crites dans la base de donn&eacute;es
+ou dans une autre instance de WebSphere Application Server en
+fonction de la valeur indiqu&eacute;e de l'intervalle d'&eacute;criture. Valeur par d&eacute;faut : 10 secondes. </td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="TuningParams_writeContents_description"></a>Ecriture s&eacute;lective  </strong>
+</dt>
+<dd>Indique si seuls les attributs mis &agrave; jour ou tous les
+attributs de la session sont &eacute;crits dans l'emplacement externe,
+qu'ils aient &eacute;t&eacute; modifi&eacute;s ou non. L'emplacement externe peut
+correspondre &agrave; une base de donn&eacute;es ou &agrave; une autre instance
+du serveur d'applications.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Seuls les attributs mis &agrave; jour</td>
+<td align="left" valign="top" class="base">Seuls les attributs mis &agrave; jour sont &eacute;crits dans le syst&egrave;me de stockage permanent.
+</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tous les attributs de session</td>
+<td align="left" valign="top" class="base">Tous les attributs sont &eacute;crits dans le syst&egrave;me de stockage permanent.
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="TuningParams_scheduleInvalidation_description"></a>Planification du nettoyage des sessions </strong>
+</dt>
+<dd> Indique quand les sessions incorrectes doivent &ecirc;tre
+supprim&eacute;es d'une base de donn&eacute;es ou d'une autre
+instance du serveur d'applications. 
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Sp&eacute;cifier la planification du nettoyage des sessions r&eacute;parties</td>
+<td align="left" valign="top" class="base">Active le processus d'invalidation planifi&eacute;e qui vise &agrave; supprimer les
+sessions HTTP invalid&eacute;es de l'emplacement externe. Activez cette
+option pour r&eacute;duire le nombre de mises &agrave; jour d'une base de donn&eacute;es
+ou d'une autre instance du serveur d'applications, qui sont
+n&eacute;cessaires au maintien en vie des sessions HTTP.   Si cette option est
+d&eacute;sactiv&eacute;e, le processus d'invalidation est p&eacute;riodique et s'ex&eacute;cute &agrave;
+intervalles de quelques minutes pour &eacute;liminer les sessions HTTP
+invalid&eacute;es.<p>Lorsque cette option est activ&eacute;e, sp&eacute;cifiez les deux heures de
+la journ&eacute;e au cours desquelles le processus d&eacute;barrasse l'emplacement
+externe des sessions persistantes. Sp&eacute;cifiez les heures d'activit&eacute;
+minimale au niveau des serveurs d'applications. Un emplacement
+externe peut correspondre &agrave; une base de donn&eacute;es ou &agrave; une autre
+instance du serveur d'applications.  </p>
+</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Premi&egrave;re heure du jour (0 - 23)  </td>
+<td align="left" valign="top" class="base">Indique la premi&egrave;re heure de la journ&eacute;e (heure GMT) au cours de laquelle les sessions invalid&eacute;es sont &eacute;limin&eacute;es de l'emplacement externe. Cette valeur doit correspondre &agrave;
+un entier positif compris entre 0 et 23. Elle n'est valable que
+lorsque l'invalidation planifi&eacute;e est activ&eacute;e.</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Seconde heure du jour (0 - 23)  </td>
+<td align="left" valign="top" class="base">Indique la seconde heure de la journ&eacute;e (heure GMT) au cours de laquelle les sessions invalid&eacute;es sont &eacute;limin&eacute;es de l'emplacement externe. Cette valeur doit correspondre &agrave;
+un entier positif compris entre 0 et 23. Elle n'est valable que
+lorsque l'invalidation planifi&eacute;e est activ&eacute;e.</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informations connexes</strong>
+</p>
+<a href="rcon_buttons.html">Boutons de la console administrative</a>
+<br>
+
+<a href="rcon_pageusage.html">Caract&eacute;ristiques de la page de la console d'administration</a>
+<br>
+
+<a href="rcon_preferences.html">Param&egrave;tres des pr&eacute;f&eacute;rences de la console administrative</a>
+<br>
+
+<a href="uprs_rtuning_parameters.html">Options d'optimisation des param&egrave;tres</a>
+<br>
+
+</div>
+</body>
+</html>

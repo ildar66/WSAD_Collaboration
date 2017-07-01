@@ -1,0 +1,138 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>單一登入設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecsso"></a>
+<h2>單一登入設定</h2>
+
+<p>請利用這個頁面來設定單一登入 (SSO) 的配置值。</p>
+
+<p>如果要檢視這個管理主控台頁面，請按一下<strong>安全</strong> &gt; <strong>鑑別機制</strong> &gt; <strong>LTPA</strong> &gt; <strong>單一登入 (SSO)</strong>。</p>
+
+<div>
+<p>
+<strong>「配置」標籤</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="SingleSignon_requiresSSL_description"></a>需要 SSL</strong>
+</dt>
+<dd>指定只有在利用 HTTPS Secure Socket Layer (SSL) 連線發出要求時，才啟用單一登入功能。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型：</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值：</td>
+<td align="left" valign="top" class="base">停用</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍：</td>
+<td align="left" valign="top" class="base">啟用或停用</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SingleSignon_domainName_description"></a>領域名稱</strong>
+</dt>
+<dd>指定所有單一登入主機的領域名稱（如 .ibm.com）。
+<p>如果沒有指定任何值，使用者的 Web 瀏覽器會以 Web 應用程式執行其中的主機名稱為預設值。
+這會將 HTTP Cookie（為了 SSO 而產生）限制在產生它的主機。
+如果有多個主機參與 SSO 領域，限制 HTTP Cookie 有可能是不恰當的。
+只有在相同實體主機中執行多個有不同領域名稱的虛擬主機時，將領域名稱屬性保留空白才是恰當的。
+將這個欄位保留空白可讓您的 Web 瀏覽器以每個不同的虛擬主機為預設領域名稱。
+如果在這個欄位中明確指定領域名稱，所有虛擬主機都會使用這個值，也因而會將它們限制在單一領域中，在某些情況下，這是不恰當的。
+</p>
+
+<p>如果明確指定領域名稱的話，用來存取受保護的 Web 資源的所有 URL 都包含伺服器領域名稱系統 (DNS) 主機名稱。
+比方說，將廣域安全配置給 LTPA 且已指定了明確的 SSO 領域名稱之後，就可以利用下列 URL 來存取管理主控台：<strong>http://yourhost.austin.ibm.com:9090/admin</strong>，其中 <em>yourhost.austin.ibm.com</em> 要改成伙的伺服器 DNS 主機名稱。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型：</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SingleSignon_enabled_description"></a>啟用</strong>
+</dt>
+<dd>指定已啟用單一登入功能。
+<p>使用 J2EE FormLogin 樣式登入頁面的 Web 應用程式（如 WebSphere Application Server 管理主控台）需要啟用單一登入 (SSO)。
+請只停用不需要 LTPA SSO 類型 Cookie 的特定進階配置的 SSO。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型：</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值：</td>
+<td align="left" valign="top" class="base">啟用</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍：</td>
+<td align="left" valign="top" class="base">啟用或停用</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>相關資訊</strong>
+</p>
+<a href="rcon_buttons.html">管理主控台按鈕</a>
+<br>
+
+<a href="rcon_pageusage.html">管理主控台頁面特性</a>
+<br>
+
+<a href="rcon_scope.html">管理主控台範圍設定</a>
+<br>
+
+<a href="rcon_filter.html">管理主控台過濾器設定</a>
+<br>
+
+<a href="rcon_preferences.html">管理主控台喜好設定</a>
+<br>
+
+</div>
+</body>
+</html>

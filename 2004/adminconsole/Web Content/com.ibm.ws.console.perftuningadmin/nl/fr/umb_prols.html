@@ -1,0 +1,204 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Service d'&eacute;coute de messages</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="MessageListenerService"></a>
+<h2>Service d'&eacute;coute de messages</h2>
+
+<p>Le service d'&eacute;coute de messages est une extension des
+fonctions JMS du fournisseur JMS. Il fournit un gestionnaire de programmes d'&eacute;coute qui contr&ocirc;le et surveille un ou plusieurs programmes d'&eacute;coute JMS, chacun de ces programmes surveillant une destination JMS pour le compte d'un bean g&eacute;r&eacute; par messages d&eacute;ploy&eacute;. </p>
+
+<p>Ce panneau affiche les liens avec les pages Propri&eacute;t&eacute;s suppl&eacute;mentaires de Ports d'&eacute;coute, Pool d'unit&eacute;s
+d'ex&eacute;cution et Propri&eacute;t&eacute;s personnalis&eacute;es pour le service d'&eacute;coute des messages.</p>
+
+<p>Pour afficher cette page de la console d'administration, cliquez
+sur <strong>Serveurs-&gt; <em>serveur_applications</em>-&gt; Service
+d'&eacute;coute des messages</strong>
+</p>
+
+<dl>
+<dt>
+<strong><a name="MessageListenerService_name"></a>Nom</strong>
+</dt>
+<dd>Le nom sous lequel le service d'&eacute;coute de messages est
+connu de l'administrateur.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+
+
+
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">MsgLService</td>
+
+</tr>
+
+
+
+
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MessageListenerService_description"></a>Description</strong>
+</dt>
+<dd>Description du service d'&eacute;coute de messages, pour utilisation administrative
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+
+
+
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+
+
+
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MessageListenerService_threadPool"></a>Groupe d'unit&eacute;s d'ex&eacute;cution</strong>
+            &nbsp;
+            </dt>
+<dd>Contr&ocirc;le le nombre maximal d'unit&eacute;s d'ex&eacute;cution autoris&eacute; pour le service d'&eacute;coute des messages. S&eacute;lectionnez ce lien pour afficher les propri&eacute;t&eacute;s du groupe d'unit&eacute;s
+d'ex&eacute;cution du service.
+<p>Ce param&egrave;tre doit &ecirc;tre ajust&eacute; lorsque plusieurs beans g&eacute;r&eacute;s par message sont d&eacute;ploy&eacute;s sur le m&ecirc;me serveur
+d'applications et que la somme des valeurs de session maximales d&eacute;passe la valeur par d&eacute;faut de 10.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Entier</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&eacute;</td>
+<td align="left" valign="top" class="base">Non applicable</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">Minimale : 10, maximale : 50</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Plage</td>
+<td align="left" valign="top" class="base">Non applicable</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Recommandation</td>
+<td align="left" valign="top" class="base">La valeur minimale doit correspondre &agrave; la somme des valeurs de session maximales de tous les beans
+g&eacute;r&eacute;s par message. La valeur maximale doit &ecirc;tre sup&eacute;rieure ou &eacute;gale &agrave; la valeur minimale.</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MessageListenerService_custom"></a>Propri&eacute;t&eacute;s personnalis&eacute;es</strong>
+</dt>
+<dd>Propri&eacute;t&eacute;s personnalis&eacute;es du service d'&eacute;coute des messages. Le serveur JMS fonctionne selon deux
+modes, ASF (Application Server Facilities) et non-ASF. ASF est destin&eacute; &agrave; offrir une prise en charge transactionnelle et un acc&egrave;s concurrent pour les applications. Le mode non-ASF ignore cette prise en charge afin de rationaliser les temps d'op&eacute;ration. 
+<p>Utilisez le mode non-ASF dans les cas suivants :<ul>
+
+<li>L'ordre des messages n'est pas une n&eacute;cessit&eacute; imp&eacute;rative </li>
+
+<li>Vous souhaitez utiliser des messages PTP concurrents</li>
+
+<li>La propri&eacute;t&eacute; <samp>non.asf.receive.timeout</samp> existe et poss&egrave;de une valeur sup&eacute;rieure &agrave; 0</li>
+
+</ul>N'utilisez pas le mode non-ASF si vous souhaitez utiliser des messages de publications et d'abonnements concurrents car AST offre un d&eacute;bit sup&eacute;rieur. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Entier</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&eacute;</td>
+<td align="left" valign="top" class="base">Millisecondes</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">Mode ASF (propri&eacute;t&eacute; personnalis&eacute;e non cr&eacute;&eacute;e)</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Plage</td>
+<td align="left" valign="top" class="base"></td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Recommandation</td>
+<td align="left" valign="top" class="base">Cette valeur doit correspondre au nombre de millisecondes n&eacute;cessaire &agrave; l'acheminement d'un message. En cas de d&eacute;passement de d&eacute;lai, il est n&eacute;cessaire d'effectuer un recyclage, ce qui entra&icirc;ne un travail suppl&eacute;mentaire. Elle doit &ecirc;tre inf&eacute;rieure d'une dizaine de secondes au d&eacute;lai imparti pour l'ex&eacute;cution de la
+transaction. Cette diff&eacute;rence de quelques secondes doit &ecirc;tre plus importante lorsque la charge de travail est &eacute;lev&eacute;e et o&ugrave; le d&eacute;lai d'obtention des cycles CPU par les unit&eacute;s d'ex&eacute;cution est long.</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>Informations connexes</strong>
+</p>
+<a href="umb_smlp.html">Collection de ports d'&eacute;coute de messages</a>
+<br>
+
+</div>
+</body>
+</html>

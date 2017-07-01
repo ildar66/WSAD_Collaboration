@@ -1,0 +1,122 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Valores de configuraci&oacute;n de la informaci&oacute;n de firmas</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_signinfon"></a>
+<h2>
+<img alt="[Fix Pack 5.0.2 y posterior]" src="v502.gif" border="0">Valores de configuraci&oacute;n de la informaci&oacute;n de firmas</h2>
+
+<p>Utilice esta p&aacute;gina para configurar los par&aacute;metros de firma nuevos.</p>
+
+<p>Las especificaciones que figuran en esta p&aacute;gina para el m&eacute;todo de
+signatura y para los m&eacute;todos de conversi&oacute;n y canonicalizaci&oacute;n se encuentran
+en el documento "XMLSignature Encryption Syntax and Specification: W3C Recommendation
+12 Feb 2002".</p>
+
+<p>Para ver esta p&aacute;gina de la consola administrativa, pulse <strong>Aplicaciones de empresa &gt; </strong><em>nombre_aplicaci&oacute;n</em>. En Elementos Relacionados, pulse <strong>M&oacute;dulos Web &gt;
+</strong> <em>nombre_archivo_URI</em> <strong>Servicios Web: Enlaces de seguridad del servidor</strong>. En la columna Enlace del receptor de peticiones,
+pulse <strong>Editar &gt; Informaci&oacute;n de firmas &gt; Nueva</strong>.</p>
+
+<p>Pulse <strong>Nuevo</strong> para crear un par&aacute;metro de firma.</p>
+
+<p>Pulse <strong>Suprimir</strong> para suprimir un par&aacute;metro de firma.</p>
+
+<dl>
+<dt>
+<strong><a name="sec_sigmeth"></a>M&eacute;todo de signatura</strong>
+</dt>
+<dd>Especifica el URI del algoritmo del m&eacute;todo de signatura. Este m&eacute;todo contiene el valor real de la signatura digital que se ha codificado con base64.
+<p>Se da soporte a los siguientes algoritmos:<ul>
+
+<li>
+<samp>http://www.w3.org/2000/09/xmldsig#rsa-sha1</samp>
+</li>
+
+<li>
+<samp>http://www.w3.org/2000/09/xmldsig#dsa-sha1</samp>
+</li>
+
+</ul>
+</p>
+
+</dd>
+<dt>
+<strong><a name="sec_digestmeth"></a>M&eacute;todo de conversi&oacute;n</strong>
+</dt>
+<dd>Especifica el URI del algoritmo del m&eacute;todo de conversi&oacute;n. 
+<p>Se da soporte al algoritmo  <samp>http://www.w3.org/2000/09/xmldsig#sha1</samp>.</p>
+
+</dd>
+<dt>
+<strong><a name="sec_cancmeth"></a>M&eacute;todo de canonicalizaci&oacute;n</strong>
+</dt>
+<dd>Especifica el URI del algoritmo del m&eacute;todo de canonicalizaci&oacute;n.
+<p>Se da soporte a los siguientes algoritmos:<ul>
+
+<li>
+<samp>http://www.w3.org/2001/10/xml-exc-c14n#</samp>
+</li>
+
+<li>
+<samp>http://www.w3.org/2001/10/xml-exc-c14n#WithComments</samp>
+</li>
+
+<li>
+<samp>http://www.w3.org/TR/2001/REC-xml-c14n-20010315</samp>
+</li>
+
+<li>
+<samp>http://www.w3.org/TR/2001/REC-xml-c14n-20010315#WithComments</samp>
+</li>
+
+</ul>
+</p>
+
+</dd>
+<dt>
+<strong><a name="sec_signk"></a>Clave de firma</strong>
+</dt>
+<dd>Especifica la informaci&oacute;n de la clave que se utiliza para la firma. Estos campos se ignoran en la configuraci&oacute;n del receptor. 
+<p>Si especifica un <strong>Nombre de clave</strong> y una <strong>Referencia del localizador de claves</strong>, seleccione <strong>Ninguno</strong> como v&iacute;a de acceso de certificados.</p>
+
+</dd>
+<dt>
+<strong><a name="sec_certpath"></a>V&iacute;a de acceso de certificados</strong>
+</dt>
+<dd> Especifica los valores para validar la v&iacute;a de acceso de certificados. Cuando selecciona <strong>Confiar en cualquiera</strong>, se ignora
+esta validaci&oacute;n y se conf&iacute;a en todos los certificados de entrada. Estos campos se ignoran en la configuraci&oacute;n del remitente. 
+<p>Si pulsa <strong>Confiar en cualquiera</strong> o selecciona un <strong>Ancla de confianza</strong> y un <strong>Almac&eacute;n de certificados</strong>, seleccione <strong>Ninguna</strong> como clave de firma en el campo anterior.</p>
+
+<p>
+<strong>Ancla de confianza</strong>
+</p>
+
+<p>Las selecciones disponibles para el ancla de confianza se especifican pulsando <strong>Servidores
+&gt; Servidores de aplicaciones &gt; </strong><em>nombre_servidor</em>. En Propiedades adicionales, pulse <strong>Servicios Web: Enlaces por omisi&oacute;n
+para Web Services Security &gt; Anclas de confianza</strong>.</p>
+
+<p>
+<strong>Almac&eacute;n de certificados</strong>
+</p>
+
+<p>Las selecciones disponibles para el almac&eacute;n de certificados de colecciones se especifican pulsando <strong>Servidores
+&gt; Servidores de aplicaciones &gt; </strong><em>nombre_servidor</em>. En Elementos relacionados, pulse <strong>Servicios Web: Enlaces por omisi&oacute;n
+para Web Services Security &gt; Almac&eacute;n de certificados de colecciones</strong>.</p>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>Informaci&oacute;n relacionada</strong>
+</p>
+<a href="uwbs_signinfo.html">Grupo de informaci&oacute;n de firmas</a>
+<br>
+
+</div>
+</body>
+</html>

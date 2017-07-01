@@ -1,0 +1,108 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Java 认证和授权服务配置条目设置</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecjaas"></a>
+<h2>
+<img alt="[Fix Pack 5.0.1 and later]" src="v501.gif" border="0">Java 认证和授权服务配置条目设置</h2>
+
+<p>使用此页面指定应用程序代码要使用的 Java 认证和授权服务（JAAS）登录配置的列表，包括企业 bean、 Java Server Pages（JSP）文件、Servlet 和资源适配器。</p>
+
+<p>要查看此管理控制台，单击<strong>安全性</strong> &gt; <strong>JAAS 配置</strong> &gt; <strong>应用程序登录配置</strong>。</p>
+
+<p>强烈建议您在开始定义用于认证到 WebSphere Application Server 安全性运行时的附加登录模块之前，阅读信息中心中的 JAAS 文档。您可以定义应用程序的附加登录配置。然而，如果不使用 WebSphere Application Server 登录模块（<samp>com.ibm.ws.security.common.auth.module.WSLoginModuleImpl</samp>）或登录模块不产生 WebSphere Application Server 可识别的凭证，则 WebSphere Application Server 安全性运行时不能使用这些登录配置的已认证主题，以进行资源访问的认证检查。</p>
+
+<p>
+<p>
+<img alt="[Fix Pack 5.0.1 and later]" src="v501.gif" border="0"><b>注: </b>您必须使用指定的 JAAS 配置文件，调用使用 Java 认证和授权服务（JAAS）以认证的 Java 客户机程序。WebSphere 产品提供缺省 JAAS 配置文件 wsjaas_client.conf，其位于 &lt;install_root&gt;/properties 目录下。此配置文件在 <em>/&lt;install_root&gt;/bin/launchClient.bat</em> 文件中配置为：<strong>set JAAS_LOGIN_CONFIG=-Djava.security.auth.login.config=%WAS_HOME%\properties\wsjaas_client.conf</strong>
+<p>如果 launchClient.bat 文件不用于调用 Java 客户机程序，则确保相应的 JAAS 配置文件传递给 Java 虚拟机，带有 <em>-Djava.security.auth.login.config</em> 标志。</p>
+</p>
+</p>
+
+<dl>
+<dt>
+<strong>ClientContainer</strong>
+</dt>
+<dd>指定客户机容器应用程序使用的登录配置，它使用客户机容器部署描述符中定义的 CallbackHandler API。
+<p>ClientContainer 是 WebSphere Application Server 的缺省登录配置。不要除去此缺省值，因为使用它的其它应用程序会失败。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省：</td>
+<td align="left" valign="top" class="base">ClientContainer</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong>DefaultPrincipalMapping</strong>
+</dt>
+<dd>指定 Java 2 连接器使用的登录配置，把用户映射到在 <strong>J2C 认
+证数据条目</strong>中定义的主体。
+<p>DefaultPrincipalMapping 是 WebSphere Application Server 的缺省登录配置。不要除去此缺省值，因为使用它的其它应用程序会失败。DefaultPrincipalMapping 登录配置认证 WebSphere Application Server 安全性运行时的用户。使用此登录配置返回的已认证主题的凭证作为访问 WebSphere Application Server 资源的授权检查。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省：</td>
+<td align="left" valign="top" class="base">ClientContainer</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong>WSLogin</strong>
+</dt>
+<dd>指定所有应用程序是否可以使用 WSLogin 配置执行 WebSphere Application Server 安全性运行时的认证。
+<p>此登录配置不执行客户机容器部署描述符中定义的 CallbackHandler。要使用此功能，使用 ClientContainer 登录配置。</p>
+
+<p>WSLogin 是 WebSphere Application Server 的缺省登录配置。不要除去此缺省值，因为使用它的其它应用程序会失败。此登录配置认证 WebSphere Application Server 安全性运行时的用户。
+使用此登录配置返回的已认证主题的凭证作为访问 WebSphere Application Server 资源的授权检查。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省：</td>
+<td align="left" valign="top" class="base">ClientContainer</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>相关信息</strong>
+</p>
+<a href="rcon_buttons.html">管理控制台按钮</a>
+<br>
+
+<a href="rcon_pageusage.html">管理控制台页面功能</a>
+<br>
+
+<a href="rcon_scope.html">管理控制台作用域设置</a>
+<br>
+
+<a href="rcon_filter.html">管理控制台过滤器设置</a>
+<br>
+
+<a href="rcon_preferences.html">管理控制台首选项设置</a>
+<br>
+
+</div>
+</body>
+</html>

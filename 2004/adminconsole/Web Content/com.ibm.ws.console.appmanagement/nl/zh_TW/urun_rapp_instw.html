@@ -1,0 +1,291 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>準備應用程式安裝設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="urun_rapp_instw"></a>
+<h2>準備應用程式安裝設定</h2>
+
+<p>請利用這個頁面來安裝應用程式（EAR 檔）或模組（JAR 或 WAR 檔）。</p>
+
+<p>如果要檢視這個管理主控台頁面，請按一下<strong>應用程式 &gt; 安裝新應用程式</strong>。
+</p>
+
+<p>請遵循這個頁面中的步驟來安裝應用程式或模組。
+您至少必須完成第一個步驟；您必須完成這些步驟中的全部或部分，這會隨著您是安裝應用程式、EJB 模組或 Web 模組而不同。
+</p>
+
+<dl>
+<dt>
+<strong><a name="app_deploy_path"></a>路徑</strong>
+</dt>
+<dd>指定企業應用程式的 .ear、.jar 或 .war 檔的完整路徑。
+
+<p>如果瀏覽器和應用程式檔案在相同機器中（不論伺服器是不是也在相同機器中），請使用<strong>本端路徑</strong>。
+</p>
+
+<p>如果應用程式檔案常駐在現行 Cell 環境定義中的任何節點上，請使用<strong>伺服器路徑</strong>。
+如果節點代理程式或部署管理程式正在選取的節點中執行，您可以瀏覽整個檔案系統。
+瀏覽期間，僅顯示 .ear、.jar 或 .war 檔。</p>
+
+<p>在應用程式安裝期間，通常會從執行瀏覽器的用戶端機器中，將應用程式檔案上載到執行管理主控台的伺服器機器，以部署到其中。
+這時會利用執行管理主控台的 Web 瀏覽器來選取 EAR、WAR 或 JAR 模組，以上載至伺服器機器中。
+</p>
+
+<p>不過，在某些情況下，應用程式檔案會常駐在 Cell 中的任何節點的檔案系統中。
+如果要讓應用程式伺服器安裝這些檔案，請使用<strong>伺服器路徑</strong>選項。
+</p>
+
+<p>您也可以使用這個選項，來指定已常駐在執行應用程式伺服器之機器的應用程式檔案。例如，Windows NT 上的欄位值可能是 <samp>C:\WebSphere\AppServer\installableApps\test.ear</samp>。
+如果您正在安裝獨立式 WAR 模組，您也必須指定環境定義起始目錄。
+</p>
+
+</dd>
+<dt>
+<strong><a name="app_deploy_contextRoot"></a>環境定義起始目錄</strong>
+</dt>
+<dd>指定 Web 應用程式 (WAR) 的環境定義起始目錄。
+
+<p>這個欄位只用來安裝獨立式 WAR 檔。
+環境定義起始目錄和定義好的 Servlet 對映（來自 WAR 檔）組合起來就是完整的 URL，使用者就是輸入這個 URL 來存取 Servlet。
+比方說，如果環境定義起始目錄是 /gettingstarted，而 Servlet 對映是 MySession，則 URL 是 <samp>http://host:port/gettingstarted/MySession</samp>。</p>
+
+</dd>
+<dt>
+<strong><a name="app_deploy_genDefBindings"></a>產生預設連結</strong>
+</dt>
+<dd>指定是否要產生預設連結。如果您選取這個勾選框，應用程式中任何未完成的連結都會填入預設值。
+現有的連結不會改變。
+
+<p>如果沒有任何選項旁有星號 (*)，您可以選擇這個選項直接跳至「摘要」步驟來安裝應用程式。
+紅色星號表示步驟有不完整的資料，需要有效值。
+請在「摘要」畫面中，驗證 Cell、節點以及應用程式安裝其中的伺服器。
+</p>
+
+<p>連結的產生方式如下：</p>
+
+<ul>
+
+<li>產生格式為 <em>prefix</em>/<em>ejb-name</em> 的 EJB JNDI 名稱。
+預設 prefix 是 <samp>ejb</samp>，但不能加以置換。<em>ejb-name</em> 同於
+部署描述子 <samp>&lt;ejb-name&gt;</samp> 標籤中指定的。</li>
+
+<li>EJB 參照的連結方式如下：如果找到 &lt;ejb-link&gt;，就遵循它。
+否則，如果利用相符的 Home（或本端 Home）介面找到唯一 Enterprise Bean 來作為所參照的 Bean，就會自動解析參照。
+</li>
+
+<li>資源參照連結是衍生自 &lt;res-ref-name&gt; 標籤。
+請注意，這個動作假設 java:comp/env 名稱與資源廣域 JNDI 名稱相同。
+</li>
+
+<li>Connection Factory 連結（用於 EJB 2.0 JAR 檔）是根據提供的 JNDI 名稱和授權資訊來產生的。
+這個動作會產生在所安裝應用程式中的每個 EJB 2.0 JAR 檔之預設 Connection Factory 設定。
+系統不會產生 Bean 層次 Connection Factory 連結。</li>
+
+<li>資料來源連結（用於 EJB 1.10 JAR 檔）是根據 JNDI 名稱和資料來源使用者名稱密碼選項來產生的。
+這會產生每個 EJB JAR 檔的預設資料來源設定。
+系統不會產生 Bean 層次資料來源連結。</li>
+
+<li>訊息驅動 Bean (MDB) 接聽器埠是衍生自 MDB &lt;ejb-name&gt; 標籤，再附加 <samp>Port</samp> 字串。
+</li>
+
+<li>如果是 .war 檔，除非另有指定，否則虛擬主機會設成 <samp>default_host</samp>。
+</li>
+
+</ul>
+
+<p>預設策略足夠供大部分應用程式使用，至少可供大部分應用程式中的大部分連結使用。
+不過，如果發生下列情況，它就無法運作：
+</p>
+
+<ul>
+
+<li>您要明確控制一或多個 EJB 檔的廣域 JNDI 名稱。</li>
+
+<li>您需要更緊密控制 CMP 的資料來源連結。
+亦即，您具有多個資料來源，而且需要多個廣域資料來源。</li>
+
+<li>您必須將資源參照對映至不同於 java:comp/env 名稱的廣域 JNDI 名稱。</li>
+
+</ul>
+
+<p>在這種情況下，您可以利用 XML 文件（自訂策略）來改變行為。
+使用<strong>特定的連結檔</strong>欄位來指定自訂策略，並參閱欄位的說明來取得範例。</p>
+
+</dd>
+<dt>
+<strong><a name="app_deploy_prefixes"></a>字首</strong>
+</dt>
+<dd>指定要對產生的 JNDI 名稱使用的字首。
+
+</dd>
+<dt>
+<strong><a name="app_deploy_override"></a>置換</strong>
+</dt>
+<dd>指定是否要置換現存的連結。
+<p>如果選取了這個勾選框，產生的連結會置換現有的連結。
+</p>
+
+</dd>
+<dt>
+<strong><a name="app_deploy_ejbCmpBindings"></a>EJB 1.1 CMP 連結</strong>
+</dt>
+<dd>指定預設資料來源 JNDI 名稱。
+<p>如果選取了 <strong>EJB 1.1 CMP 的預設連結</strong>圓鈕，請指定 JNDI 名稱給要與 CMP 1.1 Bean 一起使用的預設資料來源。
+
+亦請指定這個預設資料來源的使用者 ID 和密碼。</p>
+
+</dd>
+<dt>
+<strong><a name="app_deploy_connFacBindings"></a>Connection Factory 連結</strong>
+</dt>
+<dd>指定預設資料來源 JNDI 名稱。
+<p>如果選取了<strong>預設 Connection Factory 連結</strong>圓鈕，請指定 JNDI 名稱給要與連結一起使用的預設資料來源。
+亦請指定資源授權。</p>
+
+</dd>
+<dt>
+<strong><a name="app_deploy_virtualHost"></a>虛擬主機</strong>
+</dt>
+<dd>指定 WAR 模組的虛擬主機。
+
+</dd>
+<dt>
+<strong><a name="app_deploy_specificBindingsFile"></a>特定連結檔</strong>
+</dt>
+<dd>指定置換預設連結的連結檔。
+<p>利用 XML 文件（<em>aka</em> 自訂策略）來改變預設連結的行為。
+ 自訂策略會延伸預設策略，以便您僅需要自訂那些預設策略不足的區域。
+ 亦即，您僅需要說明您要如何變更預設策略所產生的連結；
+ 您不必定義整個應用程式的連結。</p>
+
+<p>如何置換預設連結產生器的不同層面的簡短範例如下：</p>
+
+<p>
+<strong>控制 EJB JNDI 名稱</strong>
+
+</p>
+
+<pre>&lt;?xml version="1.0"?&gt; 
+&lt;!DOCTYPE dfltbndngs SYSTEM "dfltbndngs.dtd"&gt;
+&lt;dfltbndngs&gt;
+  &lt;module-bindings&gt;
+    &lt;ejb-jar-binding&gt;
+      &lt;jar-name&gt;helloEjb.jar&lt;/jar-name&gt;
+&lt;!-- this name must match the module name in the .ear file --&gt;
+      &lt;ejb-bindings&gt;
+        &lt;ejb-binding&gt;
+         &lt;ejb-name&gt;HelloEjb&lt;/ejb-name&gt;
+&lt;!-- this must match the &lt;ejb-name&gt; entry in the EJB jar DD --&gt;
+         &lt;jndi-name&gt;com/acme/ejb/HelloHome&lt;/jndi-name&gt;
+        &lt;/ejb-binding&gt;
+      &lt;/ejb-bindings&gt;
+    &lt;/ejb-jar-binding&gt;
+  &lt;/module-bindings&gt;
+&lt;/dfltbndngs&gt;</pre>
+
+<p> 
+<strong>設定 EJB JAR 檔的 Connection Factory 連結</strong>
+
+</p>
+
+<pre>&lt;!DOCTYPE dfltbndngs SYSTEM "dfltbndngs.dtd"&gt;
+&lt;dfltbndngs&gt;
+  &lt;module-bindings&gt;
+    &lt;ejb-jar-binding&gt;
+      &lt;jar-name&gt;yourEjb20.jar&lt;/jar-name&gt;
+      &lt;connection-factory&gt;
+        &lt;jndi-name&gt;eis/jdbc/YourData_CMP&lt;/jndi-name&gt;
+        &lt;res-auth&gt;Container&lt;/res-auth&gt;
+      &lt;/connection-factory&gt;
+    &lt;/ejb-jar-binding&gt;
+  &lt;/module-bindings&gt;
+&lt;/dfltbndngs&gt;</pre>
+
+<p> 
+<strong>設定 EJB 檔的 Connection Factory 連結</strong>
+
+</p>
+
+<pre>&lt;?xml version="1.0"&gt;
+&lt;!DOCTYPE dfltbndngs SYSTEM "dfltbndngs.dtd"&gt;
+&lt;dfltbndngs&gt;
+  &lt;module-bindings&gt;
+    &lt;ejb-jar-binding&gt;
+      &lt;jar-name&gt;yourEjb20.jar&lt;/jar-name&gt;
+      &lt;ejb-bindings&gt;
+        &lt;ejb-binding&gt;
+          &lt;ejb-name&gt;YourCmp20&lt;/ejb-name&gt;
+&lt;!-- this matches the ejb-name tag in the DD --&gt;
+          &lt;connection-factory&gt;
+           &lt;jndi-name&gt;eis/jdbc/YourData_CMP&lt;/jndi-name&gt;
+           &lt;res-auth&gt;PerConnFact&lt;/res-auth&gt;
+          &lt;/connection-factory&gt;
+        &lt;/ejb-binding&gt;
+      &lt;/ejb-bindings&gt;
+    &lt;/ejb-jar-binding&gt;
+ &lt;/module-bindings&gt;
+&lt;/dfltbndngs&gt;</pre>
+
+<p> 
+<strong>從 WAR、EJB JAR 檔或 J2EE 用戶端 JAR 檔換資源參照連結</strong>
+
+</p>
+
+<p>從 WAR 檔置換「資源參照連結」的程式碼範例如下：請利用類似的程式碼，從 EJB JAR 檔或 J2EE 用戶端 JAR 檔置換資源參照連結。
+</p>
+
+<pre>&lt;?xml version="1.0"?&gt; 
+&lt;!DOCTYPE dfltbndngs SYSTEM "dfltbndngs.dtd"&gt;
+&lt;dfltbndngs&gt;
+  &lt;module-bindings&gt;
+    &lt;war-binding&gt;
+      &lt;jar-name&gt;hello.war&lt;/jar-name&gt;
+      &lt;resource-ref-bindings&gt;
+        &lt;resource-ref-binding&gt;
+          &lt;!-- the following must match the resource-ref in the DD --&gt;
+          &lt;resource-ref-name&gt;jdbc/MyDataSrc&lt;/resource-ref-name&gt;
+          &lt;jndi-name&gt;war/override/dataSource&lt;/jndi-name&gt;
+        &lt;/resource-ref-binding&gt;
+      &lt;/resource-ref-bindings&gt;
+    &lt;/war-binding&gt;
+  &lt;/module-bindings&gt;
+&lt;/dfltbndngs&gt;</pre>
+
+<p> 
+<strong>置換 MDB JMS 接聽器埠</strong>
+
+</p>
+
+<pre>&lt;?xml version="1.0"?&gt; 
+&lt;!DOCTYPE dfltbndngs SYSTEM "dfltbndngs.dtd"&gt;
+&lt;dfltbndngs&gt;
+  &lt;module-bindings&gt;
+    &lt;ejb-jar-binding&gt;
+      &lt;jar-name&gt;YourEjbJar.jar&lt;/jar-name&gt;
+      &lt;ejb-bindings&gt;
+        &lt;ejb-binding&gt;
+          &lt;ejb-name&gt;YourMDB&lt;/ejb-name&gt;
+          &lt;listener-port&gt;yourMdbListPort&lt;/listener-port&gt;
+        &lt;/ejb-binding&gt;
+      &lt;/ejb-bindings&gt;
+    &lt;/ejb-jar-binding&gt;
+  &lt;/module-bindings&gt;
+&lt;/dfltbndngs&gt;</pre>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>相關資訊</strong>
+</p>
+<a href="rcon_buttons.html">管理主控台按鈕</a>
+<br>
+
+</div>
+</body>
+</html>

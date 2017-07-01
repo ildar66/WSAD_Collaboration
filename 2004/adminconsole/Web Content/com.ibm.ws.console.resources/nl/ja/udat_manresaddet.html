@@ -1,0 +1,205 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>リソース・アダプター設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="manage_resource_adapter"></a>
+<h2>リソース・アダプター設定</h2>
+
+<p>このページを使用して、リソース・アダプターの設定を指定します。
+</p>
+
+<p>このリソース・アダプターは、IBM 以外のサード・パーティーのベンダーからも提供されます。
+一般に、1 つのリソース・アダプターが接続できるバックエンド・システム (EIS) の
+タイプは 1 つだけですが、その EIS への接続に対してさまざまな構成をサポートできます。
+リソース・アダプターには、J2C 仕様で定義され、
+コードを提供するベンダーによって設定された構成プロパティーが多数あります。
+</p>
+
+<p>この管理コンソール・ページを表示するには、「
+<strong>リソース</strong>」&gt;「<strong>リソース・アダプター</strong>」&gt;「<em>resource_adapter</em>」をクリックします。</p>
+
+<div>
+<p>
+<strong>「構成」タブ</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="J2CResourceAdapter_detail_contextID"></a>スコープ</strong>
+</dt>
+<dd>このリソース定義を可視にするレベル (セル、ノード、またはサーバーの
+各レベル) を指定します。
+
+<p>WebSphere 5.0 では、JDBC プロバイダー、ネーム・スペース・バインディング、
+共用ライブラリーなどのリソースを複数の有効範囲で定義することが可能です。
+より限定的な有効範囲で定義されたリソースは、
+それより広い有効範囲で定義された重複するリソースをオーバーライドします。
+<dl>
+
+<dt>
+<strong>セル</strong>
+</dt>
+<dd>最も一般的な有効範囲です。「セル」有効範囲で定義されたリソースは、
+オーバーライドされない限り、すべてのノードおよびサーバーから可視です。
+「セル」有効範囲で定義されたリソースを表示する場合は、
+有効範囲選択フォームでサーバーまたはノードの名前を指定しないでください。
+</dd>
+
+<dt>
+<strong>ノード</strong>
+</dt>
+<dd>大部分のリソース・タイプのデフォルト有効範囲。
+「ノード」有効範囲で定義されたリソースは、「
+セル」有効範囲で定義されたすべての重複するリソースをオーバーライドし、
+同じノード上の「サーバー」有効範囲でオーバーライドされない限り、
+そのノード上のすべてのサーバーから可視です。
+「ノード」有効範囲で定義されたリソースを表示する場合は、
+有効範囲選択フォームで、サーバーを指定せず、ノード名を選択します。
+</dd>
+
+<dt>
+<strong>サーバー</strong>
+</dt>
+<dd>リソース定義で最も限定的な有効範囲です。「サーバー」
+有効範囲で定義されたリソースは、「セル」有効範囲または親の「ノード」有効範囲で
+定義されたすべての重複するリソース定義をオーバーライドし、
+特定のサーバーからのみ可視です。
+「サーバー」有効範囲で定義されたリソースを表示するには、
+有効範囲選択フォームで、ノード名だけでなくサーバー名も指定します。
+</dd>
+
+</dl>
+</p>
+
+<p>リソースが作成されるときは常に、パネルで選択されている現行の有効範囲の中に作成されます。
+他の有効範囲でリソースを表示する場合は、有効範囲選択フォームで、
+別のノードまたはサーバーを指定します。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2EEResourceProvider_name_description"></a>名前</strong>
+</dt>
+<dd>リソース・プロバイダーの名前を指定します。
+<p>スペースを含まないストリングです。
+これは、リソース・プロバイダーの意味のあるテキスト ID となります。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2EEResourceProvider_description_description"></a>説明</strong>
+</dt>
+<dd>リソース・ファクトリーを説明するテキストを指定します。
+<p>リソース・ファクトリーおよびその目的を説明するフリー・フォームのテキスト・ストリングです。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2CResourceAdapter_archivePath_description"></a>アーカイブ・パス</strong>
+</dt>
+<dd>このリソース・アダプターのモジュールを含む .RAR ファイルへのパスを指定します
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2EEResourceProvider_classpath_description"></a>クラスパス</strong>
+</dt>
+<dd> リソース・プロバイダー・クラスのロケーションを形成するパス、
+または JAR ファイル名のリストを指定します。
+
+<p>このリストには、リソース・アダプターで必要な追加のライブラリーがすべて含まれています。
+リソース・アダプターのコードベースそのものは、自動的にクラスパスに追加されますが、
+.RAR の外部で必要なものがあれば、ここで指定できます。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2EEResourceProvider_nativepath_description"></a>ネイティブ・パス</strong>
+</dt>
+<dd>リソース・プロバイダーのネイティブ・ライブラリーのロケーションを形成するパスのリストを指定します。
+<p>リソース・アダプターのコードベースそのものは、自動的にクラスパスに追加されますが、
+.RAR の外部で必要なものがあれば、ここで指定できます。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>関連情報</strong>
+</p>
+<a href="rcon_buttons.html">管理コンソールのボタン</a>
+<br>
+
+<a href="rcon_pageusage.html">管理コンソール・ページのフィーチャー</a>
+<br>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>シングル・サインオン設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecsso"></a>
+<h2>シングル・サインオン設定</h2>
+
+<p>このページを使用して、シングル・サインオン (SSO) の構成値を設定します。</p>
+
+<p>この管理コンソール・ページを表示するには、「<strong>セキュリティー</strong>」&gt;「<strong>認証メカニズム</strong>」&gt;「<strong>LTPA</strong>」&gt;「<strong>単一サインオン (SSO)</strong>」をクリックします。</p>
+
+<div>
+<p>
+<strong>「構成」タブ</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="SingleSignon_requiresSSL_description"></a>SSL が必須</strong>
+</dt>
+<dd>要求が HTTPS Secure Sockets Layer (SSL) 接続で送信されている場合にのみ、シングル・サインオン機能が使用可能に
+なるよう指定します。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型:</td>
+<td align="left" valign="top" class="base">ブール</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト:</td>
+<td align="left" valign="top" class="base">使用不可</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲:</td>
+<td align="left" valign="top" class="base">使用可能または使用不可</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SingleSignon_domainName_description"></a>ドメイン・ネーム</strong>
+</dt>
+<dd>シングル・サインオンを行うすべてのホストに、ドメイン名 (.ibm.com など) を指定します。
+<p>値を指定しないと、ユーザーの Web ブラウザーによって、デフォルトの値である、Web アプリケーションが稼働中のホスト名
+に設定されます。これは、HTTP Cookie (SSO が目的で生成されます) を、発信元ホストのみに限定します。
+HTTP Cookie の制限は、SSO ドメインに参加しているホストが複数ある場合に、不適切になる可能性があります。異なるドメイン・ネームを持つ複数の仮想ホストが同じ物理ホスト上で稼働している場合だけは、「
+ドメイン・ネーム」属性を空けておくことが適切です。
+このフィールドを空けておくと、Web ブラウザーは、
+異なる仮想ホストごとに、デフォルトのドメイン・ネームを設定できます。
+このフィールドでドメイン・ネームを明示的に指定すると、その値はすべての仮想ホストに対して使用され、
+したがって、それらの仮想ホストは単一のドメインに限定されます。これは
+、状況によっては不適切になる場合があります。</p>
+
+<p>ドメイン・ネームを明示的に指定すると、保護されている Web リソースへのアクセスに使用するすべての URL には、
+ドメイン・ネーム・システム (DNS) ホスト名が含まれます。
+例えば、LTPA にグローバル・セキュリティーを構成し、SSO ドメイン・ネームを明示的に指定すると、
+管理コンソールには URL: <strong>http://yourhost.austin.ibm.com:9090/admin</strong> でアクセスできます。
+ここで、<em>yourhost.austin.ibm.com</em> は使用するサーバー DNS ホスト名で置き換わります。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型:</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SingleSignon_enabled_description"></a>使用可能</strong>
+</dt>
+<dd>シングル・サインオン機能を使用可能にすると指定します。
+<p>J2EE FormLogin スタイルのログイン・ページ (WebSphere Application Server 管理コンソールなど) を
+使用する Web アプリケーションでは、シングル・サインオン (SSO) を使用可能化する必要があります。SSO を使用不可にするのは、
+LTPA SSO タイプの Cookie が必要ない特定の拡張構成の場合だけにしてください。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型:</td>
+<td align="left" valign="top" class="base">ブール</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト:</td>
+<td align="left" valign="top" class="base">使用可能</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲:</td>
+<td align="left" valign="top" class="base">使用可能または使用不可</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>関連情報</strong>
+</p>
+<a href="rcon_buttons.html">管理コンソールのボタン</a>
+<br>
+
+<a href="rcon_pageusage.html">管理コンソール・ページのフィーチャー</a>
+<br>
+
+<a href="rcon_scope.html">管理コンソールの有効範囲設定</a>
+<br>
+
+<a href="rcon_filter.html">管理コンソールのフィルター設定</a>
+<br>
+
+<a href="rcon_preferences.html">管理コンソールの設定の変更</a>
+<br>
+
+</div>
+</body>
+</html>

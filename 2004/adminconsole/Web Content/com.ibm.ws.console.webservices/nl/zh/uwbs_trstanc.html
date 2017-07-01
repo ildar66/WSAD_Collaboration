@@ -1,0 +1,61 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>信任锚集合</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_trstanc"></a>
+<h2>
+<img alt="[Fix Pack 5.0.2 and later]" src="v502.gif" border="0">信任锚集合</h2>
+
+<p>使用此页面查看包含可信根证书的密钥存储对象列表。这些对象用于进入 X.509 格式的安全性令牌的证书路径验证。信任锚中的密钥存储对象包含 CertPath API 用于验证证书链的信任的可信根证书。</p>
+
+<p>要创建密钥存储文件，使用位于 <samp><em>install_dir</em>\java\jre\bin\keytool</samp> 目录中的密钥工具。</p>
+
+<p>要查看此管理控制台页面，单击<strong>服务器 &gt; 应用程序服务器 &gt; </strong><em>server_name</em>。在&ldquo;其它属性&rdquo;下，单击 <strong>Web 服务：Web 服务安全性的缺省绑定 &gt; 信任锚</strong>。</p>
+
+<p>单击<strong>新建</strong>创建新的信任锚。</p>
+
+<p>单击<strong>删除</strong>删除信任锚。</p>
+
+<p>如果您单击<strong>更新运行时</strong>，则 Web 服务安全性运行时使用缺省绑定信息更新，该信息包含在先前保存的 <samp>ws-security.xml</samp> 文件中。如果您在此面板上进行了更改，则您必须完成以下步骤：<ol>
+
+<li>通过单击位于管理控制台顶部的<strong>保存</strong>来保存您的更改。当您单击<strong>保存</strong>时，您返回到管理控制台主面板。</li>
+
+<li>返回到&ldquo;信任锚&rdquo;集合面板，然后单击<strong>更新运行时</strong>。<p>
+<b>注: </b>当您单击<strong>更新运行时</strong>时，对其它 Web 服务进行的配置更改也在 Web 服务安全性运行时中更新。</p>
+</li>
+
+</ol>
+</p>
+
+<dl>
+<dt>
+<strong><a name="sec_trstancname"></a>信任锚名</strong>
+</dt>
+<dd>指定用于标识信任锚的唯一名称。</dd>
+<dt>
+<strong><a name="sec_keystpath"></a>密钥存储路径</strong>
+</dt>
+<dd>指定包含信任锚的密钥存储文件位置。</dd>
+<dt>
+<strong><a name="sec_keysttype"></a>密钥存储类型</strong>
+</dt>
+<dd>指定密钥存储文件的类型。
+<p>此字段的值为 <strong>JKS</strong> 或 <strong>JCEKS</strong>。</p>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>相关信息</strong>
+</p>
+<a href="uwbs_trstancn.html">信任锚配置设置</a>
+<br>
+
+</div>
+</body>
+</html>

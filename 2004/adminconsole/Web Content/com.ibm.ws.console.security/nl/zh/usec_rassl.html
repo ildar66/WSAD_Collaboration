@@ -1,0 +1,166 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>定制属性的安全套接字层设置</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecrassl"></a>
+<h2>定制属性的安全套接字层设置</h2>
+
+<p>使用此页面为已定义的别名配置附加的安全套接字层（SSL）设置。</p>
+
+<p>要查看此管理控制台页面，单击<strong>安全性</strong> &gt; <strong>SSL</strong> &gt; <em>alias_name</em> &gt; <strong>定制属性</strong>。</p>
+
+<div>
+<p>
+<strong>&ldquo;配置&rdquo;选项卡</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="field_name"></a>定制属性</strong>
+</dt>
+<dd>指定除了可用于管理接口 <samp>com.ibm.ssl.protocol</samp> 中的那些之外，您可用于配置附加 SSL 设置的名称-值对。
+<p>这是使用的 SSL 协议（包括其版本）。可能值为 SSL、SSLv2、SSLv3、TLS 或 TLSv1。缺省值
+SSL 与其它 SSL 协议向后兼容。</p>
+
+<dl>
+
+<dt>
+<strong>com.ibm.ssl.keyStoreProvider</strong>
+</dt>
+<dd>要使用的密钥存储供应商的名称。指定 <samp>java.security</samp>文件中列出的一个包含密钥存储实现的安全性提供程序。缺省值为 IBMJCE。</dd>
+
+<dt>
+<strong>com.ibm.ssl.keyManager</strong>
+</dt>
+<dd>要使用的密钥管理算法的名称。指定由您的 <samp>java.security</samp> 文件列出的一个安全性提供程序实现的任何密钥管理算法。缺省值为 IbmX509。</dd>
+
+<dt>
+<strong>com.ibm.ssl.trustStoreProvider</strong>
+</dt>
+<dd>要使用的信任存储提供程序的名称。指定 <samp>java.security</samp>文件中列出的一个包含信任存储实现的安全性提供程序。缺省值为 IBMJCE。</dd>
+
+<dt>
+<strong>com.ibm.ssl.trustManager</strong>
+</dt>
+<dd>要使用的信任管理算法的名称。指定由您的 <samp>java.security</samp> 文件列出的一个安全性提供程序实现的任何信任管理算法。缺省值为 IbmX509。</dd>
+
+<dt>
+<strong>com.ibm.ssl.trustStoreType</strong>
+</dt>
+<dd>信任存储的类型或格式。可能的值是 JKS、PKCS12 和 JCEK。缺省值是 JKS。</dd>
+
+<dt>
+<strong>com.ibm.ssl.enabledCipherSuites</strong>
+</dt>
+<dd>要启用的密码套件列表。缺省情况下不设置它，而使用的一组密码套件是由安全性级别的值（高、中或低）确定的。密码套件是用于 SSL 连接的密码算法的组合。
+输入以空隔分隔的任意以下密码套件列表：<ul>
+
+<li>SSL_RSA_WITH_RC4_128_MD5
+</li>
+
+<li>SSL_RSA_WITH_RC4_128_SHA
+</li>
+
+<li>SSL_RSA_WITH_DES_CBC_SHA
+</li>
+
+<li>SSL_RSA_WITH_3DES_EDE_CBC_SHA
+</li>
+
+<li>SSL_DHE_RSA_WITH_DES_CBC_SHA
+</li>
+
+<li>SSL_DHE_RSA_WITH_3DES_EDE_CBC_SHA
+</li>
+
+<li>SSL_DHE_DSS_WITH_DES_CBC_SHA
+</li>
+
+<li>SSL_DHE_DSS_WITH_3DES_EDE_CBC_SHA
+</li>
+
+<li>SSL_RSA_EXPORT_WITH_RC4_40_MD5
+</li>
+
+<li>SSL_RSA_EXPORT_WITH_DES40_CBC_SHA
+</li>
+
+<li>SSL_RSA_EXPORT_WITH_RC2_CBC_40_MD5
+</li>
+
+<li>SSL_DHE_RSA_EXPORT_WITH_DES40_CBC_SHA
+</li>
+
+<li>SSL_DHE_DSS_EXPORT_WITH_DES40_CBC_SHA
+</li>
+
+<li>SSL_RSA_WITH_NULL_MD5
+</li>
+
+<li>SSL_RSA_WITH_NULL_SHA
+</li>
+
+<li>SSL_DH_anon_WITH_RC4_128_MD5</li>
+
+<li>SSL_DH_anon_WITH_DES_CBC_SHA
+</li>
+
+<li>SSL_DH_anon_WITH_3DES_EDE_CBC_SHA
+</li>
+
+<li>SSL_DH_anon_EXPORT_WITH_RC4_40_MD5
+</li>
+
+<li>SSL_DH_anon_EXPORT_WITH_DES40_CBC_SHA</li>
+
+</ul>
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型：</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+</dd>
+
+</dl>
+
+</dd>
+<dt>
+<strong><a name="SecureSocketLayer_cryptoHardware_description"></a>加密令牌</strong>
+</dt>
+<dd>指定与 SSL 支持相关的加密令牌的信息。
+<p>加密令牌是具有内置密钥存储实现的硬件或软件设备。以下字段的确切值应该在支持的加密设备的文档中制订。</p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>相关信息</strong>
+</p>
+<a href="rcon_buttons.html">管理控制台按钮</a>
+<br>
+
+<a href="rcon_pageusage.html">管理控制台页面功能</a>
+<br>
+
+<a href="rcon_scope.html">管理控制台作用域设置</a>
+<br>
+
+<a href="rcon_filter.html">管理控制台过滤器设置</a>
+<br>
+
+<a href="rcon_preferences.html">管理控制台首选项设置</a>
+<br>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Valores de autenticaci&oacute;n de salida CSI (Common Secure Interoperability)</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecoutbound"></a>
+<h2>
+<img alt="[Fix Pack 5.0.1 y posterior]" src="v501.gif" border="0">Valores de autenticaci&oacute;n de salida CSI (Common Secure Interoperability)</h2>
+
+<p>Utilice esta p&aacute;gina para especificar las caracter&iacute;sticas que soportar&aacute; un servidor cuando act&uacute;e como cliente de otro servidor en sentido descendente.</p>
+
+<p>Para ver esta p&aacute;gina de la consola administrativa, pulse <strong>Seguridad &gt;
+Protocolo de autenticaci&oacute;n &gt; Autenticaci&oacute;n de salida CSI</strong>.</p>
+
+<p>Las caracter&iacute;sticas de autenticaci&oacute;n incluyen tres capas de
+autenticaci&oacute;n, que se pueden utilizar de forma simult&aacute;nea:  <dl>
+<dt>
+<strong>Capa de transporte</strong>
+</dt>
+<dd>La capa de transporte, que es la capa
+inferior, puede contener como identidad un certificado de cliente SSL
+(Secure Sockets Layer).</dd>
+<dt>
+<strong>Capa de mensajes</strong>
+</dt>
+<dd>La capa de mensajes puede contener un ID de usuario y una contrase&ntilde;a o s&iacute;mbolo autenticado.</dd>
+<dt>
+<strong>Capa de atributos</strong>
+</dt>
+<dd>La capa de atributos puede contener un
+s&iacute;mbolo de identidad, que es una identidad de un servidor en sentido
+ascendente que ya est&aacute; autenticado. La capa de atributos tiene la
+prioridad m&aacute;s alta seguida de la capa de mensajes y, a continuaci&oacute;n, de
+la capa de transporte. Si este servidor env&iacute;a las tres, el servidor en sentido descendente solamente utilizar&aacute; la capa de atributos. El &uacute;nico modo de utilizar el certificado de cliente
+SSL como identidad es si se trata de la &uacute;nica informaci&oacute;n que se presenta durante la petici&oacute;n de salida.</dd>
+</dl>  
+</p>
+
+<div>
+<p>
+<strong>Pesta&ntilde;a Configuraci&oacute;n</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="BasicAuthentication_o_description"></a>Autenticaci&oacute;n b&aacute;sica</strong>
+</dt>
+<dd>Especifica si se env&iacute;a un ID de usuario y una contrase&ntilde;a desde
+el cliente al servidor para autenticarlos.
+<p>Este tipo de la autenticaci&oacute;n se produce en la capa de mensajes. La
+autenticaci&oacute;n b&aacute;sica tambi&eacute;n implica delegar un s&iacute;mbolo de credencial
+desde una credencial ya autenticada, siempre que se pueda enviar ese
+tipo de credencial, por ejemplo, LTPA (Lightweight Third Party
+Authentication)). La autenticaci&oacute;n b&aacute;sica hace referencia a cualquier
+autenticaci&oacute;n que se produzca en la capa de mensajes e indica una
+autenticaci&oacute;n basada en ID de usuario y contrase&ntilde;a, adem&aacute;s de basada en
+s&iacute;mbolos.</p>
+
+<p>Si selecciona <strong>Autenticaci&oacute;n b&aacute;sica</strong>, se determina si es necesaria
+o si est&aacute; soportada. Si selecciona <strong>Necesaria</strong>, se indica que cuando
+el servidor es de salida hacia los servidores en sentido descendente, el
+servidor en sentido descendente debe dar soporte a la autenticaci&oacute;n b&aacute;sica
+para que este servidor pueda conectarse. Si selecciona <strong>Soportada</strong>,
+este servidor podr&aacute; ejecutar o no la autenticaci&oacute;n b&aacute;sica en un servidor
+en sentido descendente.
+Se pueden utilizar otros m&eacute;todos de autenticaci&oacute;n si est&aacute;n configurados. Si
+selecciona <strong>Nunca</strong>, el servidor no enviar&aacute; nunca una salida de
+s&iacute;mbolo de capa de mensajes a un servidor en sentido descendente. Si el servidor en sentido descendente requiere autenticaci&oacute;n b&aacute;sica, no se  intenta la conexi&oacute;n.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos:</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ClientCertificateAuthentication_o_description"></a>Autenticaci&oacute;n de certificados de cliente</strong>
+</dt>
+<dd>Especifica si un certificado de cliente del almac&eacute;n de claves
+configurado se va a utilizar para autenticarse en el servidor cuando se
+establezca la conexi&oacute;n SSL entre este servidor y un servidor en sentido
+descendente (a menos que el servidor en sentido descendente d&eacute; soporte a
+la autenticaci&oacute;n de certificados de cliente).
+<p>Generalmente la autenticaci&oacute;n de certificados de cliente un rendimiento mayor que la autenticaci&oacute;n de la capa de mensajes pero requiere algunos pasos de configuraci&oacute;n adicionales. Estos pasos adicionales requieren la verificaci&oacute;n de que este servidor
+disponga de un certificado personal y de que el servidor en sentido
+descendente tenga el certificado de firmante de este servidor.</p>
+
+<p>Cuando seleccione la autenticaci&oacute;n de certificados de cliente, decida
+si es necesaria o soportada.  Si selecciona <strong>Necesaria</strong>, el servidor s&oacute;lo se puede conectar a
+servidores en sentido descendente que tengan tambi&eacute;n configurada la
+autenticaci&oacute;n de certificados de cliente. Si selecciona <strong>Soportada</strong>,
+el servidor ejecutar&aacute; la autenticaci&oacute;n de certificados de cliente con
+cualquier servidor en sentido descendente, aunque podr&aacute; utilizarla
+dependiendo de si el servidor en sentido descendente la soporta o no. Si selecciona <strong>Nunca</strong>, el cliente no ejecutar&aacute; la
+autenticaci&oacute;n de certificados de cliente en ning&uacute;n servidor en sentido
+descendente.
+Esta limitaci&oacute;n impide el acceso a cualquier servidor en
+sentido descendente que necesite la autenticaci&oacute;n de certificados de
+cliente.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos:</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="IdentityAssertion_o_description"></a>Comprobaci&oacute;n de identidad</strong>
+</dt>
+<dd>Especifica si se deben confirmar las identidades de un servidor a otro durante una
+invocaci&oacute;n de enterprise en sentido descendente. 
+<p>La identidad confirmada es la credencial de invocaci&oacute;n que determina la modalidad RunAs para el enterprise bean. Si la modalidad RunAs es <strong>Cliente</strong>, la identidad es la identidad del cliente. Si la modalidad RunAs es <strong>Sistema</strong>, la identidad es la identidad del servidor. Si la modalidad RunAs es <strong>Especificada</strong>, la identidad es la identidad especificada. El servidor receptor recibe la identidad en un s&iacute;mbolo de identidad, y tambi&eacute;n recibe la identidad del servidor emisor en un s&iacute;mbolo de autenticaci&oacute;n de cliente.  El servidor receptor valida la identidad del servidor emisor para asegurarse de que se trata de una identidad de confianza.</p>
+
+<p>Cuando se especifica la comprobaci&oacute;n de identidad en el panel
+<strong>Salida de autenticaci&oacute;n CSIv2</strong>, tambi&eacute;n se debe seleccionar la
+autenticaci&oacute;n b&aacute;sica como soportada o necesaria en el panel Salida de
+autenticaci&oacute;n CSIv2. De esta forma, se puede someter la identidad del servidor, junto con la se&ntilde;al de identidad, para que el servidor receptor puede <em>confiar</em> en el servidor emisor. Si no se especifica la autenticaci&oacute;n b&aacute;sica como soportada o necesaria, no se establece la confianza y falla la confirmaci&oacute;n de identidad. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos:</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="StatefulSession_description"></a>Sesiones con estado </strong>
+</dt>
+<dd>Especifica si se debe volver a utilizar la informaci&oacute;n de seguridad durante la autenticaci&oacute;n.
+Esta opci&oacute;n generalmente se utiliza para aumentar el rendimiento.
+<p>El primer contacto entre un cliente y un servidor debe autenticarse completamente.
+Sin embargo, todos los dem&aacute;s contactos con sesiones
+v&aacute;lidas, vuelven a utilizar la informaci&oacute;n de seguridad.
+El cliente pasa un ID de contexto al servidor y dicho ID se utiliza para buscar la sesi&oacute;n. El ID de contexto tiene el &aacute;mbito de la conexi&oacute;n, lo cual garantiza la exclusividad. Cuando la sesi&oacute;n de seguridad no es
+v&aacute;lida y si el reintento de autenticaci&oacute;n est&aacute; habilitado (lo est&aacute; por
+omisi&oacute;n), el interceptor de seguridad del extremo del cliente invalida
+la sesi&oacute;n del extremo del cliente y vuelve a someter la petici&oacute;n sin que
+el usuario lo sepa.
+Por ejemplo, si la sesi&oacute;n no existe en el servidor, el
+servidor fallar&aacute; y se reanudar&aacute; su operaci&oacute;n.</p>
+
+<p>Cuando se inhabilita este valor, cada una de las invocaciones de m&eacute;todo deben reautenticarse.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos:</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informaci&oacute;n relacionada</strong>
+</p>
+<a href="rcon_buttons.html">Botones de la consola de administraci&oacute;n</a>
+<br>
+
+<a href="rcon_pageusage.html">Caracter&iacute;sticas de la p&aacute;gina de la consola administrativa</a>
+<br>
+
+<a href="rcon_scope.html">Valores de &aacute;mbito de la consola administrativa</a>
+<br>
+
+<a href="rcon_filter.html">Valores de filtro de la consola administrativa</a>
+<br>
+
+<a href="rcon_preferences.html">Valores de preferencias de la consola administrativa</a>
+<br>
+
+</div>
+</body>
+</html>

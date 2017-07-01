@@ -1,0 +1,70 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Einstellungen f&uuml;r Webmodule </title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uweb_rwebmc"></a>
+<h2>Einstellungen f&uuml;r Webmodule </h2>
+
+<p> Auf dieser Seite k&ouml;nnen Sie Einstellungen f&uuml;r Webmodule konfigurieren. </p>
+
+<p>Rufen
+Sie diese Seite &uuml;ber den folgenden Pfad in der Administrationskonsole auf: </p>
+
+<pre>
+<strong>Anwendungen</strong> &gt; <strong>Enterprise-Anwendungen</strong> &gt; <em>Anwendungsinstanz</em> &gt; <strong>Webmodul</strong>
+</pre>
+
+<dl>
+<dt>
+<strong><a name="rwebm_uri"></a>URI</strong>
+</dt>
+<dd>Der URI gibt die Position des Modularchivinhalts im Dateisystem an, wenn er im Verh&auml;ltnis
+zum
+Anwendungs-URL aufgel&ouml;st wird. Der URI muss mit dem ModuleRef-URI im Deployment-Deskriptor einer Anwendung
+&uuml;bereinstimmen, wenn das Modul als Teil einer implementierten (Deployment) Anwendung oder als
+EAR-Datei (Enterprise Archive) gepackt wurde.  </dd>
+<dt>
+<strong><a name="rwebm_name"></a>Name</strong>
+</dt>
+<dd>Gibt den eindeutigen Anzeigenamen f&uuml;r das Modul an.</dd>
+<dt>
+<strong><a name="rweb_altdd"></a>Alternativer DD</strong>
+</dt>
+<dd>Gibt den Dateinamen einer alternativen Deployment-Deskriptordatei an, die anstelle der
+urspr&uuml;nglichen Deployment-Deskriptordatei in der JAR-Datei des Moduls verwendet werden soll.
+<p> Diese Datei ist die Version der Deployment-Deskriptordatei nach der Assemblierung (<em>post-assembly</em>). Die urspr&uuml;ngliche Deployment-Deskriptordatei kann ge&auml;ndert werden, um
+Abh&auml;ngigkeiten und Sicherheitsinformationen aufzul&ouml;sen. Die Verwendung des alternativen
+Deployment-Deskriptors erm&ouml;glicht Ihnen, die urspr&uuml;ngliche
+Deployment-Deskriptordatei unver&auml;ndert beizubehalten.)</p>
+
+<p>Der Wert des Merkmals <em>Alternativer DD</em> muss den vollst&auml;ndigen Pfad der Deployment-Deskriptordatei im Verh&auml;ltnis zum Stammverzeichnis des Moduls angeben. Standardm&auml;&szlig;ig
+wird die Datei im Verzeichnis <samp>ALT-INF</samp> abgelegt. Falls das Merkmal
+nicht definiert ist, wird die Deployment-Deskriptordatei aus der JAR-Datei
+des Moduls gelesen.</p>
+
+</dd>
+<dt>
+<strong><a name="rwebm_wt"></a>Anfangswertigkeit</strong>
+</dt>
+<dd>Gibt die Reihenfolge an, in der Module gestartet werden.
+Module mit niedrigerer Wertigkeit werden vor Modulen mit h&ouml;herer Wertigkeit gestartet.</dd>
+<dt>
+<strong><a name="rwebm_webinf"></a>WEB-INF-Klassen bevorzugen</strong>
+</dt>
+<dd>Gibt Klassen in
+WEB-INF an, die vor allen anderen Klassen geladen werden m&uuml;ssen. Es wird au&szlig;erdem
+empfohlen, den Klassenlader der Anwendung zu implementieren, damit die in der WAR-Datei gepackten Klassen und
+Ressourcen vor den Klassen und Ressourcen, die in den Bibliotheks-JAR-Dateien des Containers enthalten sind,
+geladen werden.</dd>
+<dt>
+<strong><a name="rwebm_init"></a>Ausgangsstatus</strong>
+</dt>
+<dd>Gibt den Standardstatus dieser Anwendung beim Start des Servers an. </dd>
+</dl>
+</body>
+</html>

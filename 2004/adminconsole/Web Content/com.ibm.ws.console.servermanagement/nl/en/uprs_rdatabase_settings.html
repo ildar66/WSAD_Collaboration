@@ -1,0 +1,100 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Database settings</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="database_settings"></a>
+<h2>Database settings</h2>
+
+<p>Use this page to specify the settings for database session support.</p>
+
+<p>To view this administrative console page, click <strong>Servers</strong> &gt; <strong> Application
+Servers</strong> &gt; <em>server_name</em> &gt; <strong>Web Container</strong> &gt; <strong>Session Management</strong> &gt; <strong>Distributed
+Environment Settings</strong> &gt; <strong>Database</strong>.</p>
+
+<div>
+<p>
+<strong>Configuration tab</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="SessionDatabasePersistence_datasourceJNDIName_description"></a>Datasource JNDI Name</strong>
+</dt>
+<dd>Specifies the datasource description
+<p>The JNDI name of the non-XA enabled data source from which Session Management
+obtains database connections.   For example, if the JNDI name of the datasource
+is "jdbc/sessions", specify "jdbc/sessions."  The data source represents a
+pool of database connections and a configuration for that pool (such as the
+pool size). The data source must already exist as a configured resource in
+the environment. </p>
+
+</dd>
+<dt>
+<strong><a name="SessionDatabasePersistence_userId_description"></a>User ID</strong>
+            &nbsp;
+            </dt>
+<dd>Specifies the user ID for database access</dd>
+<dt>
+<strong><a name="SessionDatabasePersistence_password_description"></a>Password</strong>
+            &nbsp;
+            </dt>
+<dd>Specifies the password for database access</dd>
+<dt>
+<strong><a name="SessionDatabasePersistence_password2_description"></a>Confirm Password</strong>
+            &nbsp;
+            </dt>
+<dd>Specifies the password a second time to ensure it recorded correctly.</dd>
+<dt>
+<strong><a name="SessionDatabasePersistence_db2RowSize_description"></a>DB2 Row Size</strong>
+            &nbsp;
+            </dt>
+<dd>Specifies the tablespace page size configured for the sessions
+table, if using a DB2 database. Possible values are 4, 8, 16, and 32 kilobytes
+(K).   The default row size is 4K.
+<p>The default row size is 4K. In DB2, it can be updated to a larger value.
+This can help database performance in some environments.  When this value
+is other than 4, you must specify Table Space Name to use. For 4K pages, the
+Table Space Name is optional. </p>
+
+</dd>
+<dt>
+<strong><a name="SessionDatabasePersistence_tableSpaceName_description"></a>Table Space Name</strong>
+            &nbsp;
+            </dt>
+<dd>Specifies that tablespace to be used for the sessions table. 
+<p>This value is required when the DB2 Page Size is other than 4K.</p>
+
+</dd>
+<dt>
+<strong><a name="TuningParams_usingRowSchema_description"></a>Use Multirow Sessions  </strong>
+</dt>
+<dd>Specifies that each instance of application data be placed in a
+separate row in the database, allowing larger amounts of data to be stored
+for each session. This action can yield better performance in certain usage
+scenarios. If using multirow schema is not enabled, instances of application
+data can be placed in the same row.</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Related information</strong>
+</p>
+<a href="rcon_buttons.html">Administrative console buttons</a>
+<br>
+
+<a href="rcon_pageusage.html">Administrative console page features</a>
+<br>
+
+<a href="rcon_filter.html">Administrative console filter settings</a>
+<br>
+
+<a href="rcon_preferences.html">Administrative console preference settings</a>
+<br>
+
+</div>
+</body>
+</html>

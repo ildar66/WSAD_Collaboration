@@ -1,0 +1,162 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Param&egrave;tres d'entr&eacute;e de configuration JAAS (Java Authentication and Authorization service)</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecjaas"></a>
+<h2>
+<img alt="[Fix Pack 5.0.1 and later]" src="v501.gif" border="0">Param&egrave;tres d'entr&eacute;e de configuration JAAS (Java Authentication and Authorization service)</h2>
+
+<p>Cette page permet de d&eacute;finir une liste de configurations
+de connexion JAAS (Java Authentication and Authorization Service)
+devant &ecirc;tre utilis&eacute;es par le code de l'application, y compris les
+beans enterprise, les pages JSP (Java
+Server Pages), les servlets et les adaptateurs de ressources.</p>
+
+<p>Pour afficher cette page de la console d'administration, cliquez sur <strong>S&eacute;curit&eacute;</strong> &gt; <strong>Configuration JAAS</strong> &gt; <strong>Configuration de connexion de l'application</strong>.</p>
+
+<p>Nous vous recommandons vivement de lire la documentation JAAS de
+l'InfoCenter avant de commencer &agrave; d&eacute;finir les modules de connexion
+suppl&eacute;mentaires utilis&eacute;s pour l'authentification au niveau de l'ex&eacute;cution
+de la fonction de s&eacute;curit&eacute; de WebSphere Application Server. Vous
+pouvez d&eacute;finir des configurations de connexion suppl&eacute;mentaires
+pour vos applications. Toutefois, si le module de connexion WebSphere
+Application Server
+(<samp>com.ibm.ws.security.common.auth.module.WSLoginModuleImpl</samp>)
+n'est pas utilis&eacute; ou que le module de connexion ne g&eacute;n&egrave;re pas de
+justificatif reconnu par WebSphere Application Server, l'ex&eacute;cution de
+la fonction de s&eacute;curit&eacute; de WebSphere Application Server ne peut pas
+utiliser de sujet
+authentifi&eacute; provenant des configurations de connexion pour la
+v&eacute;rification des autorisations d'acc&egrave;s aux ressources.</p>
+
+<p>
+<p>
+<img alt="[Fix Pack 5.0.1 and later]" src="v501.gif" border="0"><b>Important: </b>Vous devez appeler des programmes client Java qui utilisent
+JAAS (Java Authentication and Authorization Service) pour
+l'authentification en indiquant un fichier de configuration JAAS. Le produit WebSphere fournit le fichier de configuration JAAS
+par d&eacute;faut, wsjaas_client.conf, dans le r&eacute;pertoire &lt;racine_install&gt;/properties. Ce fichier de configuration est d&eacute;fini dans le fichier <em>/&lt;install_root&gt;/bin/launchClient.bat</em>
+en tant que : <strong>set JAAS_LOGIN_CONFIG=-Djava.security.auth.login.config=%WAS_HOME%\properties\wsjaas_client.conf</strong>
+<p>Si le fichier launchClient.bat n'est pas utilis&eacute; pour appeler les
+programmes clients Java, assurez-vous que le fichier de configuration JAAS
+ad&eacute;quat est transmis &agrave; la machine virtuelle Java avec l'indicateur
+<em>-Djava.security.auth.login.config</em>. </p>
+</p>
+</p>
+
+<dl>
+<dt>
+<strong>Conteneur client</strong>
+</dt>
+<dd>Indique la configuration de connexion utilis&eacute;e par
+l'application de conteneur de client, qui utilise l'API
+CallbackHandler d&eacute;finie dans le descripteur de
+d&eacute;ploiement de conteneur de client.
+<p>Le conteneur de client correspond &agrave; la configuration de connexion
+par d&eacute;faut pour le serveur WebSphere Application Server. Ne supprimez pas
+cette valeur par d&eacute;faut car cette suppression entra&icirc;ne des erreurs dans
+les autres applications les utilisant.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut :</td>
+<td align="left" valign="top" class="base">Conteneur client</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong>DefaultPrincipalMapping</strong>
+</dt>
+<dd>Indique la configuration de connexion utilis&eacute;e par les
+connecteurs Java 2 afin de mapper les utilisateurs vers les
+principaux qui sont d&eacute;finis dans
+les <strong>entr&eacute;es de donn&eacute;es d'authentification J2C.</strong>
+
+<p>DefaultPrincipalMapping correspond &agrave; la configuration de connexion
+par d&eacute;faut pour WebSphere Application Server. Ne supprimez pas cette
+valeur par d&eacute;faut car cette suppression entra&icirc;ne des erreurs dans les
+autres applications les utilisant. La
+configuration de connexion DefaultPrincipalMapping authentifie les
+utilisateurs pour l'ex&eacute;cution de la fonction de s&eacute;curit&eacute; WebSphere
+Application Server. Utilisez
+les justificatifs provenant du sujet authentifi&eacute; et renvoy&eacute;s de cette
+configuration comme v&eacute;rification d'autorisation pour l'acc&egrave;s aux
+ressources WebSphere Application Server. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut :</td>
+<td align="left" valign="top" class="base">Conteneur client</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong>WSLogin</strong>
+</dt>
+<dd>Indique si toutes les applications peuvent utiliser la
+configuration WSLogin pour effectuer l'authentification pour
+l'ex&eacute;cution de la fonction de s&eacute;curit&eacute; WebSphere Application Server.
+<p>Cette configuration de connexion ne prend pas en compte
+l'&eacute;l&eacute;ment CallbackHandler d&eacute;fini dans le descripteur de
+d&eacute;ploiement du conteneur du client. Pour utiliser cette
+fonctionnalit&eacute;, utilisez la configuration de connexion de conteneur de client.</p>
+
+<p>WSLogin constitue la configuration de connexion par d&eacute;faut pour
+WebSphere Application Server. Ne supprimez pas cette
+valeur par d&eacute;faut car cette suppression entra&icirc;ne des erreurs dans les
+autres applications les utilisant.
+La configuration de connexion authentifie les utilisateurs pour l'ex&eacute;cution de la fonction de s&eacute;curit&eacute; de WebSphere
+Application Server. Utilisez les
+justificatifs provenant du sujet authentifi&eacute; renvoy&eacute;s par ces
+configurations de connexion en tant que v&eacute;rification d'autorisation
+pour l'acc&egrave;s aux ressources WebSphere Application Server.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut :</td>
+<td align="left" valign="top" class="base">Conteneur client</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>Informations connexes</strong>
+</p>
+<a href="rcon_buttons.html">Boutons de la console administrative</a>
+<br>
+
+<a href="rcon_pageusage.html">Caract&eacute;ristiques de la page de la console d'administration</a>
+<br>
+
+<a href="rcon_scope.html">Param&egrave;tres de la port&eacute;e de la console administrative</a>
+<br>
+
+<a href="rcon_filter.html">Param&egrave;tres de filtrage de la console administrative</a>
+<br>
+
+<a href="rcon_preferences.html">Param&egrave;tres des pr&eacute;f&eacute;rences de la console administrative</a>
+<br>
+
+</div>
+</body>
+</html>

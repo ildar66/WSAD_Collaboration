@@ -1,0 +1,134 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>서명 정보 구성 설정</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_signinfon"></a>
+<h2>
+<img alt="[픽스팩 5.0.2 이상]" src="v502.gif" border="0">서명 정보 구성 설정</h2>
+
+<p>이 페이지를 참조하여 새 서명 정보를 구성하십시오. </p>
+
+<p>서명 메소드, 요약 메소드 및 정규 메소드에 대해 이 페이지에 나열된 스펙은
+"XMLSignature Syntax and Specification: W3C Recommendation 12 Feb 2002"
+W3C 문서에 있습니다. </p>
+
+<p>이 관리 콘솔 페이지를 보려면 <strong>엔터프라이즈 응용프로그램 &gt; </strong><em>application_name</em>을
+클릭하십시오.
+관련 항목 아래에서 <strong>웹 모듈 &gt; </strong><em>URI_file_name</em> <strong>&gt; 웹 서비스:
+서버 보안 바인딩</strong>을 클릭하십시오.
+요청 수신자 바인딩 열에서 <strong>편집 &gt; 서명 정보 &gt; 새로 작성</strong>을
+클릭하십시오. </p>
+
+<p>
+<strong>새로 작성</strong>을 클릭하여 서명 매개변수를 작성하십시오. </p>
+
+<p>
+<strong>삭제</strong>를 클릭하여 서명 매개변수를 삭제하십시오. </p>
+
+<dl>
+<dt>
+<strong><a name="sec_sigmeth"></a>서명 메소드</strong>
+</dt>
+<dd>서명 메소드의 알고리즘 URI를 지정합니다. 이 메소드는 base64를 사용하여
+인코딩된 디지털 서명의 실제 값을 포함합니다. 
+<p>다음은 지원되는 알고리즘입니다. <ul>
+
+<li>
+<samp>http://www.w3.org/2000/09/xmldsig#rsa-sha1</samp>
+</li>
+
+<li>
+<samp>http://www.w3.org/2000/09/xmldsig#dsa-sha1</samp>
+</li>
+
+</ul>
+</p>
+
+</dd>
+<dt>
+<strong><a name="sec_digestmeth"></a>요약 메소드</strong>
+</dt>
+<dd>요약 메소드의 알고리즘 URI를 지정합니다. 
+<p>
+<samp>http://www.w3.org/2000/09/xmldsig#sha1</samp> 알고리즘은 지원됩니다. </p>
+
+</dd>
+<dt>
+<strong><a name="sec_cancmeth"></a>정규 메소드</strong>
+</dt>
+<dd>정규 메소드의 알고리즘 URI를 지정합니다. 
+<p>다음은 지원되는 알고리즘입니다. <ul>
+
+<li>
+<samp>http://www.w3.org/2001/10/xml-exc-c14n#</samp>
+</li>
+
+<li>
+<samp>http://www.w3.org/2001/10/xml-exc-c14n#WithComments</samp>
+</li>
+
+<li>
+<samp>http://www.w3.org/TR/2001/REC-xml-c14n-20010315</samp>
+</li>
+
+<li>
+<samp>http://www.w3.org/TR/2001/REC-xml-c14n-20010315#WithComments</samp>
+</li>
+
+</ul>
+</p>
+
+</dd>
+<dt>
+<strong><a name="sec_signk"></a>서명 키</strong>
+</dt>
+<dd>서명에 사용되는 키 정보를 지정합니다. 수신자측 구성에서는
+이들 필드가 무시됩니다. 
+<p>
+<strong>키 이름</strong> 및 <strong>키 위치 지정자 참조</strong>를 지정하는 경우, 인증 경로에
+<strong>없음</strong>을 선택하십시오. </p>
+
+</dd>
+<dt>
+<strong><a name="sec_certpath"></a>인증 경로</strong>
+</dt>
+<dd> 인증 경로 유효성 검증을 위한 설정을 지정합니다. <strong>모두 신뢰</strong>를 선택하면,
+이 유효성 검증이 생략되고 모든 수신 인증을
+신뢰합니다. 송신자측 구성에서는 이들 필드가 무시됩니다. 
+<p>
+<strong>모두 신뢰</strong>를 클릭하거나 <strong>신뢰 앵커</strong> 및 <strong>인증 저장</strong>을
+선택하는 경우, 이전 필드에서 서명 키에 <strong>없음</strong>을 선택하십시오. </p>
+
+<p>
+<strong>신뢰 앵커</strong>
+</p>
+
+<p>신뢰 앵커에 사용 가능한 선택사항은 <strong>서버 &gt; Application Server &gt; </strong><em>server_name</em>을
+클릭하여 지정됩니다. 추가 등록 정보 아래에서 <strong>웹 서비스: 웹 서비스 보안을 위한
+기본 바인딩 &gt; 신뢰 앵커</strong>를 클릭하십시오. </p>
+
+<p>
+<strong>인증 저장</strong>
+</p>
+
+<p>콜렉션 저장에 사용 가능한 선택사항은 <strong>서버 &gt; Application Server &gt; </strong><em>server_name</em>을
+클릭하여 지정됩니다. 관련 항목 아래에서 <strong>웹 서비스: 웹 서비스 보안을 위한
+기본 바인딩 &gt; 콜렉션 인증 저장</strong>을 클릭하십시오. </p>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>관련 정보</strong>
+</p>
+<a href="uwbs_signinfo.html">서명 정보 콜렉션</a>
+<br>
+
+</div>
+</body>
+</html>

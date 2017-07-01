@@ -1,0 +1,155 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>モニター・ポリシー設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="urun_rmonitorpol"></a>
+<h2>モニター・ポリシー設定</h2>
+
+<p>このページを使用して、
+ノード・エージェントがプロセスをモニターして再始動する方法を制御する設定を、表示または変更します。
+</p>
+
+<p>この管理コンソール・ページを表示するには、「
+<strong>サーバー</strong>」&gt;「<strong>アプリケーション・サーバー</strong>」&gt;「<em>server_name</em>」&gt;「<strong>プロセス定義</strong>」&gt;「<strong>モニター・ポリシー</strong>」をクリックします。</p>
+
+<div>
+<p>
+<strong>「構成」タブ</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="MonitoringPolicy_maximumStartupAttempts_description"></a>始動の最大試行回数</strong>
+</dt>
+<dd>アプリケーション・サーバーの始動を試みる最大回数。これ以上の試行は断念します。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">整数</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MonitoringPolicy_pingInterval_description"></a>Ping 間隔</strong>
+</dt>
+<dd>親プロセス (ノード・エージェントなど) と、
+親プロセスが作成したプロセス (アプリケーション・サーバーなど) との間での通信の試行頻度を指定します。
+障害を起こしたサーバーを再起動する要件に基づいて、この値を調整します。
+この値を小さくすると、障害が早く検出されるようになります。
+この値を大きくすると、Ping の頻度が減少し、システム・オーバーヘッドは削減されます。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">整数</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MonitoringPolicy_pingTimeout_description"></a>Ping タイムアウト</strong>
+</dt>
+<dd>親プロセスが子プロセスを作成する場合 (例えばプロセス・マネージャーがサーバーを作成する場合など)、
+親プロセスは子プロセスに対して Ping を発行し、子プロセスが正常に作成されたかどうかを確認します。
+この値は、親プロセスが (子プロセスに Ping を発行した後に) 子プロセスが失敗したと想定するまで待機する時間 (秒単位) を指定します。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">整数</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">単位</td>
+<td align="left" valign="top" class="base">秒</td>
+
+</tr>
+
+</table>
+</dd>
+<dt>
+<strong><a name="MonitoringPolicy_autoRestart_description"></a>自動再始動</strong>
+</dt>
+<dd>プロセスが失敗したとき、自動的に再始動するかどうかを指定します。
+デフォルトでは、プロセスは自動的に再始動します。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ブール</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">true</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MonitoringPolicy_nodeRestartState_description"></a>ノードの再始動状態</strong>
+</dt>
+<dd>ノードが完全にシャットダウンして再始動した後のプロセスのあるべき状態を指定します。
+オプションは、「<em>STOPPED</em>」、「<em>RUNNING</em>」、「<em>PREVIOUS</em>」です。
+デフォルトは、「<em>STOPPED</em>」です。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">STOPPED</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">有効な値は STOPPED、RUNNING、または PREVIOUS です。</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>関連情報</strong>
+</p>
+<a href="rcon_buttons.html">管理コンソールのボタン</a>
+<br>
+
+<a href="rcon_pageusage.html">管理コンソール・ページのフィーチャー</a>
+<br>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Einstellungen f&uuml;r Prozessausf&uuml;hrung</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="urun_rprocexec"></a>
+<h2>Einstellungen f&uuml;r Prozessausf&uuml;hrung</h2>
+
+<p>Auf dieser Seite k&ouml;nnen Sie &uuml;ber die Befehlszeile Informationen zum Starten
+oder
+Initialisieren eines UNIX-Prozesses anzeigen oder &auml;ndern.</p>
+
+<p>Klicken Sie, um diese Seite der Administrationskonsole anzuzeigen, auf <strong>Server &gt; Anwendungsserver
+&gt; </strong><em>Servername</em><strong> &gt; Prozessdefinition &gt; Prozessausf&uuml;hrung</strong>.</p>
+
+<div>
+<p>
+<strong>Register "Konfiguration"</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="ProcessExecution_processPriority_description"></a>Prozesspriorit&auml;t</strong>
+</dt>
+<dd>Gibt die Priorit&auml;t des Prozesses im Betriebssystem an. Dieser Wert kann nur vom Benutzer "root" ge&auml;ndert werden.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">F&uuml;r Webcontainer ist der
+Standardwert unter den meisten Betriebssystemen 1000. Unter OS/400 ist der Standardwert 25.</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ProcessExecution_umask_description"></a>UMASK</strong>
+</dt>
+<dd>Gibt die Benutzermaske (umask) an, unter der der Prozess ausgef&uuml;hrt wird (die Berechtigungsmaske
+f&uuml;r Dateimodus).
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ProcessExecution_runAsUser_description"></a>RunAs-Benutzer</strong>
+</dt>
+<dd>Gibt den Benutzer an, unter dem der Prozess ausgef&uuml;hrt wird.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ProcessExecution_runAsGroup_description"></a>RunAs-Gruppe</strong>
+</dt>
+<dd>Gibt die Gruppe an, zu der der Prozess geh&ouml;rt und als die er
+ausgef&uuml;hrt wird.
+<p>Unter OS/400 wird die Einstellung f&uuml;r die RunAs-Gruppe ignoriert.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ProcessExecution_runInProcessGroup_description"></a>RunIn-Prozessgruppe</strong>
+</dt>
+<dd>Gibt eine spezifische Prozessgruppe f&uuml;r den Prozess an. Diese Prozessgruppe ist z. B. im Falle
+der Partitionierung eines Prozessors n&uuml;tzlich. Ein Systemadministrator
+kann eine Prozessorgruppe f&uuml;r die Ausf&uuml;hrung zuordnen, z. B. 6 von 12 Prozessoren. Der
+Standardwert (0) sieht vor, den Prozess keiner spezifischen Gruppe zuzuordnen.
+<p>Unter OS/400 wird die Einstellung f&uuml;r die RunIn-Prozessgruppe ignoriert.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">0</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Zugeh&ouml;rige Informationen</strong>
+</p>
+<a href="rcon_buttons.html">Kn&ouml;pfe in der Adminstrationskonsole</a>
+<br>
+
+<a href="rcon_pageusage.html">Funktionen auf den Seiten der Administrationskonsole</a>
+<br>
+
+</div>
+</body>
+</html>

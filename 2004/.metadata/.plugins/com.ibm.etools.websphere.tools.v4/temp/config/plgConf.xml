@@ -1,0 +1,34 @@
+<Config>
+   <!-- The log file that all messages from the plugin code will be written to -->
+   <!-- The LogLevel can be set to either Trace, Warn, or Error -->
+   <Log Name="$(WASROOT)/logs/native.log" LogLevel="Trace"/>
+
+   <!-- VirtualHostGroups allow grouping of sever different hostnames that need to -->
+   <!-- be routed similarly.  Routing is based off of either hostname, uri, or both -->
+   <VirtualHostGroup Name="$(HOSTNAME)">
+      <VirtualHost Name="$(HOSTNAME)"/>
+      <VirtualHost Name="localhost"/>
+      <VirtualHost Name="127.0.0.1"/>
+   </VirtualHostGroup>
+
+   <!-- UriGroups allow grouping of several different uris that need to -->
+   <!-- be routed similarly.  Routing is based off of either hostname, uri, or both -->
+   <UriGroup Name="Uris">
+      <Uri Name="/servlet/snoop"/>
+   </UriGroup>
+
+   <!-- Server groups provide a mechanism of grouping servers together. -->
+   <!-- Servers should be grouped together when they are configured to handle similar -->
+   <!-- sorts of requests. -->
+   <ServerGroup Name="Servers">
+      <Server Name="server1">
+         <Transport Hostname="$(APP_SERVER_HOST)" Port="$(APP_SERVER_PORT)" Protocol="HTTP"/>
+      </Server>
+   </ServerGroup>
+
+   <!-- A route ties together each of the components above. -->
+   <!-- Incoming request information is compared to the defined routing information -->
+   <!-- to determine whether WAS will handle the request and if so which app server -->
+   <!-- will be responsible for doing so. -->
+   <Route VirtualHostGroup="$(HOSTNAME)" UriGroup="Uris" ServerGroup="Servers"/>
+</Config>

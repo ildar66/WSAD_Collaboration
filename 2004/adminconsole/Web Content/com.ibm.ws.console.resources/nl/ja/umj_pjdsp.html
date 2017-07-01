@@ -1,0 +1,134 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>一般 JMS 宛先設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="JMSDestination"></a>
+<h2>一般 JMS 宛先設定</h2>
+
+<p>このパネルを使用して、
+関連する JMS プロバイダーで使用する選択済みの JMS 宛先の構成プロパティーを表示または変更します。
+</p>
+
+<p>JMS 宛先は、関連する一般 JMS プロバイダーの JMS 宛先のプロパティーを構成する際に使用されます。
+JMS 宛先への接続は、関連する JMS 接続ファクトリーによって作成されます。
+一般 JMS プロバイダー (組み込み WebSphere JMS プロバイダーまたは WebSphere MQ JMS プロバイダー以外) で使用する JMS 宛先には、以下のプロパティーがあります。
+</p>
+
+<p>この管理コンソール・ページを表示するには、「<strong>リソース</strong>」-&gt;「<strong>一般 JMS プロバイダー</strong>」-&gt;「<strong><em>provider_name</em></strong>」-&gt;「<strong>JMS 宛先</strong>」-&gt;「<strong><em>destination</em></strong>」をクリックします。</p>
+
+<dl>
+<dt>
+<strong><a name="JMSDestination_name"></a>名前</strong>
+</dt>
+<dd>IBM WebSphere Application Server 内で、このキューを管理目的で使用する際の名前。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JMSDestination_type"></a>型</strong>
+</dt>
+<dd>この JMS 宛先がキュー (point-to-point の場合) であるか
+トピック (Publish/Subscribe の場合) であるかを指定します。
+
+<p>以下のオプションのいずれかを選択します。
+<dl>
+
+<dt>
+<strong>キュー</strong>
+</dt>
+<dd>point-to-point メッセージング用の JMS キュー宛先。</dd>
+
+<dt>
+<strong>トピック</strong>
+</dt>
+<dd>Publish/Subscribe メッセージングを行うための JMS トピック宛先。</dd>
+
+</dl>
+</p>
+
+</dd>
+<dt>
+<strong><a name="JMSDestination_jndiName"></a>JNDI 名</strong>
+</dt>
+<dd>キューをアプリケーション・サーバーのネーム・スペースにバインドする際に使用される JNDI 名。
+<p>規則として、完全修飾の JNDI 名を使用します。
+例えば、jms/<em>Name</em> の形式です。
+ここで、<em>Name</em> は、リソースの論理名です。</p>
+<p>この名前は、プラットフォームのバインディング情報をリンクするために使用します。
+バインディングにより、モジュールのデプロイメント記述子で定義されているリソースと、
+プラットフォーム別に JNDI にバインドされている実際の (物理的な) リソースとの関連付けが行われます。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+</dd>
+<dt>
+<strong><a name="JMSDestination_description"></a>説明</strong>
+</dt>
+<dd>管理目的で使用するキューの説明
+</dd>
+<dt>
+<strong><a name="JMSDestination_category"></a>カテゴリー</strong>
+</dt>
+<dd>IBM WebSphere Application Server 管理レコード用に、このキューを分類またはグループ化する際に使用されるカテゴリー。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JMSDestination_externalJndiName"></a>外部 JNDI 名</strong>
+</dt>
+<dd>キューをアプリケーション・サーバーのネーム・スペースにバインドする際に使用される JNDI 名。
+<p>規則として、完全修飾の JNDI 名を使用します。
+例えば、jms/<em>Name</em> の形式です。
+ここで、<em>Name</em> は、リソースの論理名です。</p>
+<p>この名前は、プラットフォームのバインディング情報をリンクするために使用します。
+バインディングにより、モジュールのデプロイメント記述子で定義されているリソースと、
+プラットフォーム別に JNDI にバインドされている実際の (物理的な) リソースとの関連付けが行われます。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+</dd>
+</dl>
+</body>
+</html>

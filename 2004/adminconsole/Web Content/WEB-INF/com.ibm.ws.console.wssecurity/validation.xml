@@ -1,0 +1,129 @@
+<!--  IBM Confidential OCO Source Material                                    -->
+<!--  5630-A36 (C) COPYRIGHT International Business Machines Corp. 2003       -->
+<!--  The source code for this program is not published or otherwise divested -->
+<!--  of its trade secrets, irrespective of what has been deposited with the  -->
+<!--  U.S. Copyright Office.                                                  -->
+<form-validation>
+   <formset>
+    <form name="com.ibm.ws.console.wssecurity.CollectionCertStoreDetailForm">
+        <field property="name" depends="required">
+            <arg0 key="CollectionCertStore.name.displayName"/>
+        </field>
+        <field property="provider" depends="required">
+            <arg0 key="CollectionCertStore.provider.displayName"/>
+        </field>
+    </form>
+    <form name="com.ibm.ws.console.wssecurity.EncryptionInfoDetailForm">
+        <field property="name" depends="required">
+            <arg0 key="EncryptionInfo.name.displayName"/>
+        </field>
+        <field property="keyLocatorRef" depends="required">
+            <arg0 key="EncryptionInfo.keyReference.displayName"/>
+        </field>
+        <field property="dataEncryption" depends="required">
+            <arg0 key="EncryptionInfo.dataAlgorithm.displayName"/>
+        </field>
+    </form>
+    <form name="com.ibm.ws.console.wssecurity.KeyDetailForm">
+        <field property="name" depends="required">
+            <arg0 key="WSKey.name.displayName"/>
+        </field>
+        <field property="alias" depends="required">
+            <arg0 key="WSKey.alias.displayName"/>
+        </field>
+        <field property="keypass" depends="required">
+            <arg0 key="WSKey.keypass.displayName"/>
+        </field>
+    </form>
+    <form name="com.ibm.ws.console.wssecurity.KeyLocatorDetailForm">
+        <field property="name" depends="required">
+            <arg0 key="KeyLocator.name.displayName"/>
+        </field>
+        <field property="classname" depends="required">
+            <arg0 key="KeyLocator.className.displayName"/>
+        </field>
+    </form>
+    <form name="com.ibm.ws.console.wssecurity.LDAPCertStoreDetailForm">
+    </form>
+    <form name="com.ibm.ws.console.wssecurity.LoginMappingDetailForm">
+        <field property="authMethod" depends="required">
+            <arg0 key="LoginMapping.authMethod.displayName"/>
+        </field>
+        <field property="configName" depends="required">
+            <arg0 key="LoginMapping.configName.displayName"/>
+        </field>
+        <field property="classname" depends="required">
+            <arg0 key="LoginMapping.callbackClassName.displayName"/>
+        </field>
+        <field property="nonceMaxAge" depends="integer">
+            <arg0 key="LoginMapping.nonceMaxAge.displayName"/>
+        </field>
+        <field property="nonceClockSkew" depends="integer">
+            <arg0 key="LoginMapping.nonceClockSkew.displayName"/>
+        </field>
+    </form>
+    <form name="com.ibm.ws.console.wssecurity.WSPropertyDetailForm">
+        <field property="name" depends="required">
+            <arg0 key="WSSecurity.property.name.displayName"/>
+        </field>
+        <field property="value" depends="required">
+            <arg0 key="WSSecurity.property.value.displayName"/>
+        </field>
+    </form>
+    <form name="com.ibm.ws.console.wssecurity.RequestReceiverDetailForm">
+    </form>
+    <form name="com.ibm.ws.console.wssecurity.ResponseSenderDetailForm">
+    </form>
+    <form name="com.ibm.ws.console.wssecurity.SigningInfoDetailForm">
+    </form>
+    <form name="com.ibm.ws.console.wssecurity.TrustAnchorDetailForm">
+        <field property="name" depends="required">
+            <arg0 key="TrustAnchor.name.displayName"/>
+        </field>
+        <field property="keyStorepass" depends="required">
+            <arg0 key="TrustAnchor.keystorePwd.displayName"/>
+        </field>
+        <field property="keyPath" depends="required">
+            <arg0 key="TrustAnchor.keystorePath.displayName"/>
+        </field>
+        <field property="keyType" depends="required">
+            <arg0 key="TrustAnchor.keystoreType.displayName"/>
+        </field>
+    </form>
+    <form name="com.ibm.ws.console.wssecurity.TrustedIDEvaluatorDetailForm">
+        <field property="name" depends="required">
+            <arg0 key="TrustedIDEvaluator.name.displayName"/>
+        </field>
+        <field property="classname" depends="required">
+            <arg0 key="TrustedIDEvaluator.className.displayName"/>
+        </field>
+    </form>
+    <form name="com.ibm.ws.console.wssecurity.WSSecurityDetailForm">
+        <field property="nonceCacheTimeout" depends="required,integer">
+            <arg0 key="WSSecurity.nonceCacheTimeout.displayname"/>
+        </field>
+        <field property="nonceMaxAge" depends="required,integer">
+            <arg0 key="LoginMapping.nonceMaxAge.displayName"/>
+        </field>
+        <field property="nonceClockSkew" depends="required,integer">
+            <arg0 key="LoginMapping.nonceClockSkew.displayName"/>
+        </field>
+    </form>
+    <form name="com.ibm.ws.console.wssecurity.WSServerSecurityDetailForm">
+        <field property="nonceCacheTimeout" depends="integer">
+            <arg0 key="WSSecurity.nonceCacheTimeout.displayname"/>
+        </field>
+        <field property="nonceMaxAge" depends="integer">
+            <arg0 key="LoginMapping.nonceMaxAge.displayName"/>
+        </field>
+        <field property="nonceClockSkew" depends="integer">
+            <arg0 key="LoginMapping.nonceClockSkew.displayName"/>
+        </field>
+    </form>
+    <form name="com.ibm.ws.console.wssecurity.X509CertificateDetailForm">
+        <field property="href" depends="required">
+            <arg0 key="X509Certificate.reference.displayName"/>
+        </field>
+    </form>
+   </formset>
+</form-validation>

@@ -1,0 +1,169 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Valores SSL (Secure Sockets Layer)para propiedades personalizadas</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecrassl"></a>
+<h2>Valores SSL (Secure Sockets Layer)para propiedades personalizadas</h2>
+
+<p>Utilice esta p&aacute;gina para configurar los valores SSL (Secure
+Sockets Layer) adicionales para obtener un alias definido.</p>
+
+<p>Para ver esta p&aacute;gina de la consola administrativa, pulse
+<strong>Seguridad</strong> &gt; <strong>SSL</strong> &gt; <em>nombre_alias</em> &gt; <strong>Propiedades personalizadas</strong>.</p>
+
+<div>
+<p>
+<strong>Pesta&ntilde;a Configuraci&oacute;n</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="field_name"></a>Propiedades personalizadas </strong>
+</dt>
+<dd>Especifica los pares nombre-valor que se pueden utilizar para configurar valores de
+SSL adicionales adem&aacute;s de los que est&aacute;n disponibles en la interfaz administrativa
+<samp>com.ibm.ssl.protocol</samp>. 
+<p>Es el protocolo de SSL utilizado (incluida su versi&oacute;n). Los valores posibles son:
+SSL, SSLv2, SSLv3, TLS o TLSv1. El valor por omisi&oacute;n, SSL, es compatible con las versiones anteriores de los dem&aacute;s protocolos SSL.</p>
+
+<dl>
+
+<dt>
+<strong>com.ibm.ssl.keyStoreProvider</strong>
+</dt>
+<dd>El nombre del proveedor del almac&eacute;n de claves que debe utilizarse. Especifique uno de los proveedores
+de seguridad enumerados en el archivo <samp>java.security</samp>, que cuenta
+con un almac&eacute;n de claves implementado. El valor por omisi&oacute;n es
+IBMJCE.</dd>
+
+<dt>
+<strong>com.ibm.ssl.keyManager</strong>
+</dt>
+<dd>El nombre del algoritmo de gesti&oacute;n de claves que debe utilizarse. Especifique cualquiera de los algoritmos de
+gesti&oacute;n de claves implementados por uno de los proveedores de seguridad
+enumerados en el archivo <samp>java.security</samp>. El valor
+por omisi&oacute;n es IbmX509.  </dd>
+
+<dt>
+<strong>com.ibm.ssl.trustStoreProvider</strong>
+</dt>
+<dd>El nombre del proveedor del almac&eacute;n de confianza que debe utilizarse. Especifique uno de los
+proveedores de seguridad enumerados en el archivo <samp>java.security</samp>,
+que cuenta con un almac&eacute;n de confianza implementado. El valor
+por omisi&oacute;n es IBMJCE. </dd>
+
+<dt>
+<strong>com.ibm.ssl.trustManager</strong>
+</dt>
+<dd>El nombre del algoritmo de gesti&oacute;n de confianza que debe utilizarse. Especifique cualquiera de los algoritmos de
+gesti&oacute;n de confianza implementados por uno de los proveedores de seguridad
+enumerados en el archivo <samp>java.security</samp>. El valor
+por omisi&oacute;n es IbmX509.  </dd>
+
+<dt>
+<strong>com.ibm.ssl.trustStoreType</strong>
+</dt>
+<dd>El tipo o formato del almac&eacute;n de
+confianza. Los valores posibles son JKS, PKCS12, JCEK. El valor por omisi&oacute;n es JKS.</dd>
+
+<dt>
+<strong>com.ibm.ssl.enabledCipherSuites</strong>
+</dt>
+<dd>La lista de suites de cifrado que desee habilitar.
+No est&aacute; configurado por omisi&oacute;n y el conjunto de
+suites de cifrado que se utiliza viene determinado por el valor de nivel
+de seguridad (alto, medio o bajo). Un suite de cifrado es una combinaci&oacute;n de algoritmos criptogr&aacute;ficos que se utiliza para una conexi&oacute;n SSL. Escriba una lista separada por espacios de cualquiera de los siguientes suites de cifrado: <ul>
+
+<li>SSL_RSA_WITH_RC4_128_MD5 </li>
+
+<li>SSL_RSA_WITH_RC4_128_SHA </li>
+
+<li>SSL_RSA_WITH_DES_CBC_SHA </li>
+
+<li>SSL_RSA_WITH_3DES_EDE_CBC_SHA </li>
+
+<li>SSL_DHE_RSA_WITH_DES_CBC_SHA</li>
+
+<li>SSL_DHE_RSA_WITH_3DES_EDE_CBC_SHA </li>
+
+<li>SSL_DHE_DSS_WITH_DES_CBC_SHA </li>
+
+<li>SSL_DHE_DSS_WITH_3DES_EDE_CBC_SHA </li>
+
+<li>SSL_RSA_EXPORT_WITH_RC4_40_MD5 </li>
+
+<li>SSL_RSA_EXPORT_WITH_DES40_CBC_SHA </li>
+
+<li>SSL_RSA_EXPORT_WITH_RC2_CBC_40_MD5</li>
+
+<li>SSL_DHE_RSA_EXPORT_WITH_DES40_CBC_SHA </li>
+
+<li>SSL_DHE_DSS_EXPORT_WITH_DES40_CBC_SHA </li>
+
+<li>SSL_RSA_WITH_NULL_MD5 </li>
+
+<li>SSL_RSA_WITH_NULL_SHA </li>
+
+<li>SSL_DH_anon_WITH_RC4_128_MD5</li>
+
+<li>SSL_DH_anon_WITH_DES_CBC_SHA </li>
+
+<li>SSL_DH_anon_WITH_3DES_EDE_CBC_SHA </li>
+
+<li>SSL_DH_anon_EXPORT_WITH_RC4_40_MD5 </li>
+
+<li>SSL_DH_anon_EXPORT_WITH_DES40_CBC_SHA</li>
+
+</ul>
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos:</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+</dd>
+
+</dl>
+
+</dd>
+<dt>
+<strong><a name="SecureSocketLayer_cryptoHardware_description"></a>S&iacute;mbolo criptogr&aacute;fico</strong>
+</dt>
+<dd>Especifica informaci&oacute;n sobre los s&iacute;mbolos criptogr&aacute;ficos relacionados con el soporte SSL.
+<p>Un s&iacute;mbolo criptogr&aacute;fico es un dispositivo de hardware o de software
+que tiene una implementaci&oacute;n de almac&eacute;n de claves incorporada. Consulte los valores exactos de los siguientes
+campos en la documentaci&oacute;n del dispositivo criptogr&aacute;fico soportado.</p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informaci&oacute;n relacionada</strong>
+</p>
+<a href="rcon_buttons.html">Botones de la consola de administraci&oacute;n</a>
+<br>
+
+<a href="rcon_pageusage.html">Caracter&iacute;sticas de la p&aacute;gina de la consola administrativa</a>
+<br>
+
+<a href="rcon_scope.html">Valores de &aacute;mbito de la consola administrativa</a>
+<br>
+
+<a href="rcon_filter.html">Valores de filtro de la consola administrativa</a>
+<br>
+
+<a href="rcon_preferences.html">Valores de preferencias de la consola administrativa</a>
+<br>
+
+</div>
+</body>
+</html>

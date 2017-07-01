@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+<!--	<bean id="april.securityInterceptor" class="com.hps.april.auth.service.interceptor.AuthInterceptor">-->
+<!--		<property name="checkAuthRoleInvoker" ref="april.authService"/>-->
+<!--	</bean>-->
+
+    <!-- This is the base transaction proxy factory bean, all transactional managers 
+         use this bean definition. -->
+    <bean id="july.txProxyTemplate" abstract="true"
+        class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager">
+            <ref bean="july.transactionManager"/>
+        </property>
+        <property name="transactionAttributes">
+            <props>
+                <prop key="save*">PROPAGATION_REQUIRED</prop>
+                <prop key="update*">PROPAGATION_REQUIRED</prop>
+                <prop key="store*">PROPAGATION_REQUIRED</prop>
+                <prop key="get*">PROPAGATION_REQUIRED,readOnly</prop>
+                <prop key="read*">PROPAGATION_REQUIRED,readOnly</prop>
+                <prop key="load*">PROPAGATION_REQUIRED,readOnly</prop>
+                <prop key="copy*">readOnly</prop>
+                <prop key="*">PROPAGATION_REQUIRED</prop>
+            </props>
+        </property>
+
+<!--        <property name="preInterceptors">-->
+<!--            <list>-->
+<!--            	<ref bean="april.securityInterceptor"/>-->
+<!--            </list>-->
+<!--        </property>-->
+
+        <property name="postInterceptors">
+            <list>
+
+            </list>
+        </property>
+    </bean>
+    
+    <bean id="april.txProxyTemplate" abstract="true"
+        class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager">
+            <ref bean="july.transactionManager"/>
+        </property>
+        <property name="transactionAttributes">
+            <props>
+                <prop key="save*">PROPAGATION_REQUIRED</prop>
+                <prop key="update*">PROPAGATION_REQUIRED</prop>
+                <prop key="store*">PROPAGATION_REQUIRED</prop>
+                <prop key="get*">PROPAGATION_REQUIRED,readOnly</prop>
+                <prop key="read*">PROPAGATION_REQUIRED,readOnly</prop>
+                <prop key="load*">PROPAGATION_REQUIRED,readOnly</prop>
+                <prop key="copy*">readOnly</prop>
+                <prop key="*">PROPAGATION_REQUIRED</prop>
+            </props>
+        </property>
+
+<!--        <property name="preInterceptors">-->
+<!--            <list>-->
+<!--            	<ref bean="april.securityInterceptor"/>-->
+<!--            </list>-->
+<!--        </property>-->
+
+        <property name="postInterceptors">
+            <list>
+
+            </list>
+        </property>
+    </bean>
+
+    <bean id="july.transactionTemplate" class="org.springframework.transaction.support.TransactionTemplate">
+    	<property name="transactionManager"><ref bean="july.transactionManager"/></property>
+    </bean>
+
+</beans>

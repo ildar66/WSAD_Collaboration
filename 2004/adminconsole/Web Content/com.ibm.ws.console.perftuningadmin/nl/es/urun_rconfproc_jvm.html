@@ -1,0 +1,457 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Valores de la m&aacute;quina virtual Java</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="urun_rconfproc_jvm"></a>
+<h2>Valores de la m&aacute;quina virtual Java</h2>
+
+<p>Utilice esta p&aacute;gina para ver y modificar la configuraci&oacute;n de la m&aacute;quina virtual Java
+(JVM) para el proceso del servidor de aplicaciones.</p>
+
+<p>Para ver esta p&aacute;gina de la consola administrativa, pulse <strong>Servidores &gt; Servidores
+de aplicaciones &gt;</strong><em>nombre_servidor</em><strong> &gt; Definici&oacute;n de proceso &gt; M&aacute;quina virtual Java</strong>.</p>
+
+<div>
+<p>
+<strong>Pesta&ntilde;a Configuraci&oacute;n</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="JavaVirtualMachine_classpath_description"></a>Classpath</strong>
+</dt>
+<dd>Especifica la classpath est&aacute;ndar donde el c&oacute;digo de la m&aacute;quina virtual Java busca las clases.
+<p>Entre cada entrada de classpath en la tabla siguiente. No es necesario a&ntilde;adir el
+s&iacute;mbolo de dos puntos o de punto y coma al final de cada
+entrada.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unidades</td>
+<td align="left" valign="top" class="base">Classpath</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_bootClasspath_description"></a>Classpath de arranque</strong>
+</dt>
+<dd>Especifica las clases y recursos de rutina de carga para el c&oacute;digo JVM. Esta opci&oacute;n
+s&oacute;lo est&aacute; disponible para las instrucciones JVM que dan soporte a las clases y recursos de
+rutina de carga. Puede separar varias v&iacute;as de acceso mediante el s&iacute;mbolo de dos puntos (:) o de punto y coma (;), seg&uacute;n el sistema operativo del nodo.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_verboseModeClass_description"></a>Carga de clase verbosa</strong>
+</dt>
+<dd>Especifica si se debe utilizar la salida de depuraci&oacute;n verbosa de la carga de clase.
+ El valor por omisi&oacute;n es no habilitar la carga de clase verbosa.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">false</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_verboseModeGarbageCollection_description"></a>Recogida de basura verbosa</strong>
+</dt>
+<dd>Especifica si se debe utilizar la salida de depuraci&oacute;n verbosa de la recogida de basura.
+ El valor por omisi&oacute;n es no habilitar la recogida de basura verbosa.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">false</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_verboseModeJNI_description"></a>JNI verbosa</strong>
+</dt>
+<dd>Especifica si se debe utilizar la salida de depuraci&oacute;n verbosa de la invocaci&oacute;n de m&eacute;todo nativo.  El valor por omisi&oacute;n es no habilitar la actividad de JNI (Java Native Interface)
+verbosa.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">false</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_initialHeapSize_description"></a>Tama&ntilde;o inicial de almacenamiento din&aacute;mico</strong>
+</dt>
+<dd>Especifica el tama&ntilde;o inicial de almacenamiento din&aacute;mico disponible para el c&oacute;digo JVM, en megabytes. 
+<p>Aumente el tama&ntilde;o m&iacute;nimo de pila para mejorar el proceso de arranque. Se disminuye el n&uacute;mero de veces que se efect&uacute;a la recogida de basura y se obtiene una mejora de rendimiento del 10%.</p>
+
+<p>En general, el aumento del tama&ntilde;o del almacenamiento din&aacute;mico de Java mejora el
+rendimiento hasta que el almacenamiento din&aacute;mico deja de existir en la memoria f&iacute;sica. Cuando la pila inicia el intercambio con el disco, el rendimiento de Java
+se ve afectado de modo dr&aacute;stico. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">64 para OS/400, 50 para las dem&aacute;s plataformas</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_maximumHeapSize_description"></a>Tama&ntilde;o m&aacute;ximo de almacenamiento din&aacute;mico</strong>
+</dt>
+<dd>Especifica el tama&ntilde;o m&aacute;ximo de almacenamiento din&aacute;mico disponible para el c&oacute;digo JVM,
+en megabytes.
+ 
+<p>Aumente el tama&ntilde;o m&iacute;nimo de pila para mejorar el proceso de arranque. Se disminuye el n&uacute;mero de veces que se efect&uacute;a la recogida de basura y se obtiene una mejora de rendimiento del 10%. </p>
+
+<p>En general, el aumento del tama&ntilde;o del almacenamiento din&aacute;mico de Java mejora el
+rendimiento hasta que el almacenamiento din&aacute;mico deja de existir en la memoria f&iacute;sica. Cuando la pila inicia el intercambio con el disco, el rendimiento de Java
+se ve afectado de modo dr&aacute;stico. Por lo tanto, el tama&ntilde;o m&aacute;ximo del almacenamiento din&aacute;mico debe ser lo
+suficientemente peque&ntilde;o como para contener la pila en la memoria f&iacute;sica.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">0 para OS/400, 256 para todas las dem&aacute;s plataformas. Mantenga
+el valor lo suficientemente bajo para evitar que se produzca una
+b&uacute;squeda de p&aacute;ginas o un intercambio de memoria externa a disco.</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_runHProf_description"></a>Ejecutar HProf</strong>
+</dt>
+<dd>Especifica si se debe utilizar el soporte de perfiles de HProf. Para utilizar otro perfil, especifique los valores del perfil personalizado mediante el valor de Argumentos de HProf.  El valor por omisi&oacute;n es no habilitar el soporte de perfiles de HProf.
+<p>Si establece la propiedad Ejecutar HProf en true, debe especificar los argumentos de perfil de la l&iacute;nea de mandatos como valores de la propiedad Argumentos de HProf.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">false</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_hprofArguments_description"></a>Argumentos de HProf</strong>
+</dt>
+<dd>Especifica los argumentos de perfil de la l&iacute;nea de mandatos que se pasan al c&oacute;digo  JVM que inicia el proceso del servidor de aplicaciones. Puede especificar argumentos cuando el soporte de perfiles de HProf est&aacute; habilitado.
+<p>Los argumentos de HProf s&oacute;lo son necesarios si se establece la propiedad Ejecutar HProf
+en true.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_debugMode_description"></a>Modalidad de depuraci&oacute;n</strong>
+</dt>
+<dd>Especifica si se debe ejecutar la JVM en modalidad de depuraci&oacute;n. El valor por omisi&oacute;n es no habilitar el soporte de modalidad de depuraci&oacute;n.
+<p>Si establece la propiedad Modalidad de depuraci&oacute;n en true, debe especificar los argumentos de depuraci&oacute;n de la l&iacute;nea de mandatos como valores de la propiedad Argumentos de depuraci&oacute;n.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">false</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_debugArgs_description"></a>Argumentos de depuraci&oacute;n</strong>
+</dt>
+<dd>Especifica los argumentos de depuraci&oacute;n de la l&iacute;nea de mandatos que se pasan al c&oacute;digo  JVM que inicia el proceso del servidor de aplicaciones. Puede especificar argumentos cuando Modalidad de depuraci&oacute;n est&aacute; habilitada.
+<p>Los argumentos de depuraci&oacute;n s&oacute;lo son necesarios si se establece la propiedad Modalidad de depuraci&oacute;n en true.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unidades</td>
+<td align="left" valign="top" class="base">Argumentos de l&iacute;nea de mandatos de Java</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_genericJvmArguments_description"></a>Argumentos de JVM gen&eacute;ricos</strong>
+</dt>
+<dd>Especifica los argumentos de l&iacute;nea de mandatos que se pasan
+al c&oacute;digo de la m&aacute;quina virtual Java que inicia el proceso del servidor
+de aplicaciones.
+<p>Los siguientes son los argumentos de l&iacute;nea de mandatos opcionales que puede utilizar especific&aacute;ndolos en el campo <strong>Argumentos generales de JVM</strong>:<ul>
+
+<li>
+<strong>-Xquickstart:</strong> puede utilizar este valor para la compilaci&oacute;n
+inicial a un nivel de optimizaci&oacute;n inferior que en la modalidad por
+omisi&oacute;n, dependiendo de los resultados de la prueba, puede volver a
+compilar al nivel de compilaci&oacute;n inicial de la modalidad por omisi&oacute;n. Utilice quickstart para las aplicaciones en las que es m&aacute;s importante
+una velocidad moderada inicial que la producci&oacute;n a largo plazo. En algunos escenarios de depuraci&oacute;n, cuando se comprueban las herramientas a corto plazo, es posible que el proceso de arranque mejore entre un 15 y un 20 por cien. <strong>-DCOPT_NQREACHDEF</strong> puede mejorar el arranque con un 15 por cien
+adicional.</li>
+
+<li>
+<strong>-Xverify:none:</strong> Cuando se utiliza este valor, la fase de verificaci&oacute;n de clases se ignora durante la carga de clases. Si se utiliza <strong>-Xverify:none</strong> con el compilador JIT (Just in time) habilitado, se mejora el tiempo del proceso de arranque entre un 10 y un 15 por cien.</li>
+
+<li>
+<strong>-Xnoclassgc:</strong> Puede utilice este valor para inhabilitar la recogida de basura de clases, lo que permitir&aacute; reutilizar m&aacute;s las clases y mejorar ligeramente el rendimiento. Por omisi&oacute;n, la recogida de basura de clases est&aacute; habilitada pero se le recomienda que la habilite. No puede supervisar la recogida de basura utilizando el valor de configuraci&oacute;n verbose:gc ya que la salida incluye las estad&iacute;sticas de recogida de basura de clases.</li>
+
+<li>
+<strong>-Xgcthreads:</strong> Puede utilizar varias hebras de recogida de basura al mismo tiempo, lo que se conoce como <em>recogida de basura paralela</em>. Cuando especifica este valor en el campo <strong>Argumentos gen&eacute;ricos de JVM</strong>, tambi&eacute;n debe especificar el n&uacute;mero de procesadores que tiene la m&aacute;quina, por ejemplo, <samp>-Xgcthreads=</samp><em>n&uacute;mero_de_procesadores</em>.
+Se le recomienda que utilice la recogida de basura paralela si la m&aacute;quina tiene m&aacute;s de un procesador. Este argumento solamente se aplica a IBM Developer Kit.</li>
+
+<li>
+<strong>-Xnocompactgc:</strong> Este valor inhabilita la compactaci&oacute;n del almacenamiento din&aacute;mico, que es la operaci&oacute;n de recogida de basura m&aacute;s cara. Evite la compactaci&oacute;n en IBM Developer Kit.  Si inhabilita la compactaci&oacute;n del almacenamiento din&aacute;mico, elimina toda la actividad general asociada. Cuando especifica este valor en el campo <strong>Argumentos gen&eacute;ricos de
+JVM</strong>, tambi&eacute;n debe especificar el n&uacute;mero de procesadores que tiene la
+m&aacute;quina, por ejemplo,
+<samp>-Xnocompactgc=</samp><em>n&uacute;mero_de_procesadores</em>.</li>
+
+<li>
+<strong>-Xinitsh:</strong> Puede utilizar este valor para establecer el tama&ntilde;o  inicial del almacenamiento din&aacute;mico en el que se almacenan los objetos de clase. Las definiciones de m&eacute;todo y los campos est&aacute;ticos tambi&eacute;n se almacenan con los objetos de clase. Aunque el tama&ntilde;o del almacenamiento din&aacute;mico del sistema no tiene un l&iacute;mite superior, establezca el tama&ntilde;o inicial de modo que no necesite ampliar el tama&ntilde;o del almacenamiento din&aacute;mico del sistema, lo cual requiere realizar llamadas al gestor de memoria del sistema operativo. Se puede realizar un c&aacute;lculo del tama&ntilde;o inicial del almacenamiento
+din&aacute;mico del sistema si se sabe el n&uacute;mero de clases que hay cargadas en
+el producto WebSphere, el cual es aproximadamente de 8.000 clases, y su
+tama&ntilde;o promedio. Conocer las aplicaciones ayuda a incluirlas en el c&aacute;lculo.</li>
+
+<li>
+<strong>-Xmc:</strong> El tama&ntilde;o del almacenamiento din&aacute;mico local de las hebras es una parte del almacenamiento din&aacute;mico que se asigna exclusivamente a una hebra. Gracias al tama&ntilde;o del almacenamiento din&aacute;mico local de la hebra, &eacute;sta no
+necesita bloquear todo el almacenamiento din&aacute;mico cuando asigna objetos.
+No obstante, cuando el almacenamiento din&aacute;mico local de la hebra se
+llena, la asignaci&oacute;n de objetos se efect&uacute;a desde el almacenamiento
+din&aacute;mico con lo que ser&aacute; necesaria una sincronizaci&oacute;n. Asignar un buen tama&ntilde;o a la antememoria local resulta cr&iacute;tico para el rendimiento y requiere conocer la aplicaci&oacute;n y sus objetos.</li>
+
+<li>
+<strong>-Xml:</strong> Puede utilizar este valor para establecer el l&iacute;mite de tama&ntilde;o de un objeto que se ha de asignar desde la antememoria local. Los objetos que sobrepasen este tama&ntilde;o se asignar&aacute;n desde el almacenamiento din&aacute;mico regular. Asigne objetos desde la antememoria local tanto como sea posible o la antememoria local se agotar&aacute; ya que no aumenta de forma din&aacute;mica.
+Si ya sabe que algunos objetos ser&aacute;n muy grandes, as&iacute;gnelos desde el almacenamiento din&aacute;mico regular.</li>
+
+</ul>
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unidades</td>
+<td align="left" valign="top" class="base">Argumentos de l&iacute;nea de mandatos Java</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_executableJarFileName_description"></a>Nombre de archivo JAR ejecutable</strong>
+</dt>
+<dd>Especifica un nombre completo de la v&iacute;a de acceso del archivo JAR ejecutable que el c&oacute;digo JVM utiliza.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unidades</td>
+<td align="left" valign="top" class="base">Nombre de v&iacute;a de acceso</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_disableJIT_description"></a>Inhabilitar JIT</strong>
+</dt>
+<dd>Especifica si se debe inhabilitar la opci&oacute;n del compilador  JIT (just in time) del c&oacute;digo JVM. 
+<p>Si inhabilita el compilador JIT, el rendimiento disminuir&aacute; de forma perceptible. Por lo tanto, por motivos de rendimiento, mantenga JIT habilitado.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">false (JIT habilitado)</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Recomendado</td>
+<td align="left" valign="top" class="base">JIT habilitado</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_osName_description"></a>Nombre del sistema operativo</strong>
+</dt>
+<dd>Especifica los valores de JVM de un determinado sistema operativo. Cuando se inicia, el proceso utiliza los valores de JVM del sistema operativo del nodo.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informaci&oacute;n relacionada</strong>
+</p>
+<a href="rcon_buttons.html">Botones de la consola de administraci&oacute;n</a>
+<br>
+
+<a href="rcon_pageusage.html">Caracter&iacute;sticas de la p&aacute;gina de la consola administrativa</a>
+<br>
+
+<a href="urun_rproperty.html">Colecci&oacute;n de propiedad personalizada</a>
+<br>
+
+</div>
+</body>
+</html>

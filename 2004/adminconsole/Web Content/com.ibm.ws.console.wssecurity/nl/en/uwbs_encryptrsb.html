@@ -1,0 +1,188 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Encryption information configuration settings</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_encryptrsb"></a>
+<h2>
+<img alt="[Release 5.1 and later]" src="v51x.gif" border="0">Encryption information configuration settings</h2>
+
+<p>Use this page to configure the encryption and decryption parameters.</p>
+
+<p>The specifications listed on this page for the signature method, digest
+method, and canonicalization method are located in the World Wide Web Consortium
+(W3C) document entitled, <em>XML Encryption Syntax and Processing: W3C Recommendation
+10 Dec 2002</em>.</p>
+
+<p>To view this administrative console page, complete the following steps: <ol>
+
+<li>Click <strong>Applications &gt; Enterprise Applications &gt; </strong><em>application_name</em>. </li>
+
+<li>Under Related Items, click <strong>Web Module &gt; </strong><em>URI_file_name</em> &gt; <strong>Web
+Services: Server Security Bindings</strong>. </li>
+
+<li>Under Response Sender Binding, click <strong>Edit &gt; Encryption Information</strong>.</li>
+
+<li>If the encryption information is not available, select <strong>None</strong>.</li>
+
+<li>If the encryption information is available, select <strong>Dedicated Encryption
+Information</strong>.</li>
+
+</ol>
+</p>
+
+<p></p>
+
+<p>Then, specify the configuration in the following fields:</p>
+
+<dl>
+<dt>
+<strong><a name="sec_name"></a>Encryption Information Name</strong>
+</dt>
+<dd>Specifies the name for the encryption information.</dd>
+<dt>
+<strong><a name="sec_klr"></a>Key Locator Reference</strong>
+</dt>
+<dd>Specifies the name used to reference the key locator.
+<p>To specify key locator references, click <strong>Servers &gt; Application Servers
+&gt; </strong><em>server_name</em>. Under Additional Properties, click <strong>Web Services:
+Default bindings for Web Services Security &gt; Key Locators</strong>.</p>
+
+</dd>
+<dt>
+<strong><a name="sec_ekn"></a>Encryption Key Name</strong>
+</dt>
+<dd>Specifies the name of the encryption key, which is resolved to
+the actual key by the specified key locator.</dd>
+<dt>
+<strong><a name="sec_eka"></a>Key Encryption Algorithm </strong>
+</dt>
+<dd>Specifies the algorithm URI of the key encryption method.
+<p>The following algorithms are supported:<ul>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#rsa-1_5</samp>
+</li>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#kw-tripledes</samp>
+</li>
+
+</ul>
+</p>
+
+<p>
+<img alt="[Release 5.1 and later]" src="v51x.gif" border="0">The following additional algorithms are supported:<ul>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#kw-aes128</samp>
+</li>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#kw-aes256</samp>
+</li>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#kw-aes192</samp>
+</li>
+
+</ul>
+</p>
+
+<p>By default the Java Cryptography Extension (JCE) is shipped with restricted
+or limited strength ciphers. To use 192-bit and 256- bit Advanced Encryption
+Standard (AES) encryption algorithms, you must apply unlimited jurisdiction
+policy files. Before downloading these policy files, back up the existing
+policy files (local_policy.jar and US_export_policy.jar in the jre/lib/security/ directory)
+prior to overwriting them in case you want to restore the original files later.
+To download the policy files, complete either of the following sets of steps:<ul>
+
+<li>For WebSphere Application Server platforms using IBM Developer Kit, Java
+Technology Edition Version 1.4.1, including the AIX, Linux, and Windows platforms,
+you can obtain unlimited jurisdiction policy files by completing the following
+steps:<ul>
+
+<li>Go to the following Web site: http://www.ibm.com/developerworks/java/jdk/security/index.html </li>
+
+<li>Click <strong>Policy Files</strong>. <p>The unrestrict.jar file
+is downloaded onto your machine.</p>
+</li>
+
+</ul>
+</li>
+
+<li>For WebSphere Application Server platforms using the Sun-based Java Development
+Kit (JDK) Version 1.4.1, including the Solaris environments and the HP-UX
+platform, you can obtain unlimited jurisdiction policy files by completing
+the following steps:<ul>
+
+<li>Go to the following Web site: http://java.sun.com/j2se/1.4.1/download.html</li>
+
+<li>Go to the bottom of the Web page and click Download, which is next to
+Java Cryptography Extension (JCE) Unlimited Strength Jurisdiction Policy Files
+1.4.1. The jce_policy-1_4_1.zip file is downloaded onto your
+machine.</li>
+
+</ul>
+</li>
+
+</ul>After following either of these sets of steps, two Java Archive (JAR)
+files are placed in the JVM jre/lib/security/ directory.</p>
+
+</dd>
+<dt>
+<strong><a name="sec_dea"></a>Data Encryption Algorithm</strong>
+</dt>
+<dd>Specifies the algorithm Uniform Resource Identifiers (URI) of the
+data encryption method.
+<p>The following algorithm is supported:<ul>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#tripledes-cbc</samp>
+</li>
+
+</ul>
+</p>
+
+<p>
+<img alt="[Release 5.1 and later]" src="v51x.gif" border="0">The following additional algorithms are
+supported:<ul>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#aes128-cbc</samp>
+</li>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#aes256-cbc</samp>
+</li>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#aes192-cbc</samp>
+</li>
+
+</ul>
+</p>
+
+<p>By default the JCE is shipped with restricted or limited strength ciphers.
+To use 192-bit and 256- bit AES encryption algorithms, you must apply unlimited
+jurisdiction policy files. </p>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>Related information</strong>
+</p>
+<a href="uwbs_encrypt.html">Encryption information collection</a>
+<br>
+
+<a href="uwbs_keyl.html">Key locator collection</a>
+<br>
+
+</div>
+</body>
+</html>

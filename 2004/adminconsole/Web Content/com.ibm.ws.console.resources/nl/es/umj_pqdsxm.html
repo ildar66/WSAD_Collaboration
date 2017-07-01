@@ -1,0 +1,894 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Valores de cola de WebSphere MQ (Configuraci&oacute;n de MQ)</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="MQSeriesQueueHost"></a>
+<h2>Valores de cola de WebSphere MQ (Configuraci&oacute;n de MQ)</h2>
+
+<p>Utilice este panel para ver o modificar las propiedades de configuraci&oacute;n definidas
+en WebSphere MQ para el destino de cola seleccionado.</p>
+
+<p>Un destino de cola se utiliza para configurar las propiedades de una cola JMS.
+Una cola que se vaya a utilizar con el proveedor de JMS de WebSphere MQ tiene las propiedades
+adicionales siguientes definidas para WebSphere MQ.<p>
+<b>Notas: </b>
+<ul>
+
+<li>Algunas propiedades mostradas son de s&oacute;lo lectura y no se pueden modificar.</li>
+
+<li>Para poder ver o modificar propiedades, el Queue Manager de WebSphere MQ en
+el que reside la cola tiene que estar configurado para la administraci&oacute;n remota y debe estar
+ejecut&aacute;ndose.</li>
+
+<li>Los valores de las propiedades que especifique deben coincidir con los valores especificados al configurar los recursos JMS de WebSphere MQ. Para obtener m&aacute;s informaci&oacute;n
+sobre la configuraci&oacute;n de recursos JMS de WebSphere MQ, consulte la publicaci&oacute;n WebSphere MQ <cite>Utilizaci&oacute;n de Java</cite>; por ejemplo en la p&aacute;gina Web de la biblioteca multiplataforma de WebSphere MQ en <img border="0" alt="S&oacute;lo se puede acceder al destino si este tema est&aacute; enlazado con la World Wide Web" src="web.gif">&nbsp;&nbsp;               
+   <a target="_blank" href="http://www.ibm.com/software/ts/mqseries/library/manualsa/manuals/crosslatest.html"><strong>http://www.ibm.com/software/ts/mqseries/library/manualsa/manuals/crosslatest.html</strong></a>
+.</li>
+
+<li>En WebSphere MQ, los nombres pueden tener un m&aacute;ximo de 48 caracteres, a excepci&oacute;n de los
+canales, que tienen un m&aacute;ximo de 20 caracteres.</li>
+
+</ul>
+</p>
+</p>
+
+<p>Para ver esta p&aacute;gina de la consola administrativa, pulse <strong>Recursos-&gt; Proveedor de JMS
+de WebSphere MQ-&gt; (en el panel de contenido, en Propiedades adicionales) Destinos de cola
+de WebSphere MQ-&gt; <em>nombre_destino</em>-&gt; (en el panel de contenido, en Propiedades adicionales) Configuraci&oacute;n de MQ</strong>
+</p>
+
+<dl>
+<dt>
+<strong><a name="MQSeriesQueue_baseQueueName"></a>Nombre de cola base</strong>
+</dt>
+<dd>Nombre de la cola donde se env&iacute;an los mensajes (Queue Manager especificado por la propiedad <strong>Nombre de Queue Manager b&aacute;sico</strong>).
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_baseQueueManagerName"></a>Nombre de Queue Manager b&aacute;sico</strong>
+</dt>
+<dd>Nombre de WebSphere MQ Queue Manager donde se env&iacute;an los mensajes.
+<p>Este Queue Manager proporciona la cola especificada en la propiedad <strong>Nombre de cola base</strong>.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_queueManagerHost"></a>Sistema principal de Queue Manager</strong>
+</dt>
+<dd>Nombre del sistema principal de Queue Manager donde se debe crear el destino de cola.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_queueManagerPort"></a>Puerto de Queue Manager</strong>
+</dt>
+<dd>N&uacute;mero del puerto utilizado por Queue Manager donde se va a definir esta cola.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">Un n&uacute;mero de puerto TCP/IP v&aacute;lido. Este puerto debe configurarse en WebSphere MQ Queue Manager. </td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_serverConnectionChannelName"></a>Nombre de canal de la conexi&oacute;n del servidor</strong>
+</dt>
+<dd>Nombre del canal utilizado para la conexi&oacute;n con WebSphere MQ Queue Manager.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">1 a 20 caracteres ASCII</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_userName"></a>ID de usuario</strong>
+</dt>
+<dd>ID de usuario utilizado, con la propiedad <strong>Contrase&ntilde;a</strong>, en la operaci&oacute;n de autenticaci&oacute;n al establecer la conexi&oacute;n con Queue Manager para definir el destino de cola.
+<p>Si especifica un valor para la propiedad <strong>Nombre de usuario</strong>, tambi&eacute;n debe especificar un valor para la propiedad <strong>Contrase&ntilde;a</strong>.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_password"></a>Contrase&ntilde;a</strong>
+</dt>
+<dd>Contrase&ntilde;a, utilizada con la propiedad <strong>Nombre de usuario</strong>, para la operaci&oacute;n
+de autenticaci&oacute;n al establecer la conexi&oacute;n con Queue Manager para definir el destino de cola.
+<p>Si especifica un valor para la propiedad <strong>Nombre de usuario</strong>, tambi&eacute;n debe especificar un valor para la propiedad <strong>Contrase&ntilde;a</strong>.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue"></a>Nombre</strong>
+</dt>
+<dd>Nombre de la cola definida para WebSphere MQ Queue Manager.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">1 a 48 caracteres ASCII</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_description"></a>Descripci&oacute;n</strong>
+</dt>
+<dd>Descripci&oacute;n de la cola de WebSphere MQ, para fines administrativos dentro de WebSphere MQ.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">1 a 64 caracteres ASCII</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue.inhibitPut"></a>Bloquear Put</strong>
+</dt>
+<dd>Especifica si se permiten operaciones put en esta cola.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unidades</td>
+<td align="left" valign="top" class="base">No se aplica</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">Deseleccionado</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>Permitido</strong>
+</dt>
+<dd>Las operaciones put se permiten en esta cola.</dd>
+
+<dt>
+<strong>No permitido</strong>
+</dt>
+<dd>Las operaciones put no se permiten en esta cola.</dd>
+
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_persistence"></a>Persistencia</strong>
+</dt>
+<dd>Especifica si todos los mensajes enviados al destino son persistentes, no
+persistentes o la persistencia est&aacute; definida por la aplicaci&oacute;n.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unidades</td>
+<td align="left" valign="top" class="base">No se aplica</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">DEFINIDA_POR_APLICACI&Oacute;N</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>Definida por aplicaci&oacute;n</strong>
+</dt>
+<dd>La persistencia de los mensajes en el destino est&aacute; definida por la aplicaci&oacute;n que los
+ha colocado en la cola.</dd>
+
+<dt>
+<strong>Cola definida</strong>
+</dt>
+<dd>[S&oacute;lo para destino de WebSphere MQ] La persistencia de los mensajes
+en el destino est&aacute; definida por las propiedades de definici&oacute;n de cola de WebSphere MQ.</dd>
+
+<dt>
+<strong>Persistente</strong>
+</dt>
+<dd>Los mensajes en el destino son persistentes.</dd>
+
+<dt>
+<strong>No persistente</strong>
+</dt>
+<dd>Los mensajes en el destino no son persistentes.</dd>
+
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_clusterName"></a>Nombre de cl&uacute;ster</strong>
+</dt>
+<dd>Nombre del cl&uacute;ster al que pertenece WebSphere MQ Queue Manager.
+<p>Si especifica un valor para <strong>Nombre de cl&uacute;ster</strong>, no puede especificar un valor para <strong>Lista de nombres de cl&uacute;ster</strong>. Los nombres de cl&uacute;ster deben ajustarse a las normas que se describen en la publicaci&oacute;n <cite>WebSphere MQ MQSC Command Reference</cite>.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+
+
+
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">Un nombre de WebSphere MQ v&aacute;lido para un cl&uacute;ster de Queue Manager, de 1 a 48 caracteres ASCII</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_clusterNameList"></a>Lista de nombres de cl&uacute;ster</strong>
+</dt>
+<dd>Nombre de la lista de nombres de cl&uacute;ster al que pertenece WebSphere MQ Queue Manager.
+<p>Si especifica un valor para <strong>Nombre de cl&uacute;ster</strong>, no puede especificar un valor para <strong>Lista de nombres de cl&uacute;ster</strong>.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+
+
+
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">Un nombre de WebSphere MQ v&aacute;lido para una lista de cl&uacute;steres de Queue Manager, de 1 a
+48 caracteres ASCII</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_defaultBind"></a>Enlace por omisi&oacute;n</strong>
+</dt>
+<dd>Enlace por omisi&oacute;n que se debe utilizar al definir la cola como cola de cl&uacute;ster.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+
+
+
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">A<dl>
+
+<dt>
+<strong>Al abrir</strong>
+</dt>
+<dd>La gesti&oacute;n de la cola se enlaza a una instancia espec&iacute;fica de la cola de cl&uacute;ster al abrir la cola.</dd>
+
+<dt>
+<strong> No fijado</strong>
+</dt>
+<dd>La gesti&oacute;n de la cola no se enlaza a ninguna instancia determinada de la cola de cl&uacute;ster. Esto permite que Queue Manager seleccione una instancia de cola espec&iacute;fica al colocar el mensaje y pueda cambiar dicha selecci&oacute;n posteriormente, si es necesario.</dd>
+
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue.inhibitGet"></a>Bloquear Get</strong>
+</dt>
+<dd>Especifica si se permiten operaciones get en esta cola.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unidades</td>
+<td align="left" valign="top" class="base">No se aplica</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">Deseleccionado</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>Permitido</strong>
+</dt>
+<dd>Las operaciones get se permiten en esta cola.</dd>
+
+<dt>
+<strong>No permitido</strong>
+</dt>
+<dd>Las operaciones get no se permiten en esta cola.</dd>
+
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_maxQueueDepth"></a>Profundidad m&aacute;xima de la cola</strong>
+</dt>
+<dd>N&uacute;mero m&aacute;ximo de mensajes permitidos en la cola.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unidades</td>
+<td align="left" valign="top" class="base">Mensajes</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base"></td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">Un valor mayor o igual a 0 y menor o igual a:<ul>
+
+<li>999 999 999 si la cola est&aacute; en OS/390</li>
+
+<li>640 000 si la cola est&aacute; en cualquier otra plataforma WebSphere MQ</li>
+
+</ul>
+<p>Para obtener m&aacute;s informaci&oacute;n sobre el valor m&aacute;ximo permitido, consulte <cite>WebSphere MQ MQSC Command Reference</cite>.</p>
+<p>Si se reduce este valor, esto no afecta a los mensajes que ya est&aacute;n en la cola, incluso si el n&uacute;mero de mensajes es superior al nuevo valor m&aacute;ximo.</p>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_maxMessageLength"></a>Longitud m&aacute;xima de mensaje</strong>
+</dt>
+<dd>Longitud m&aacute;xima en bytes de los mensajes de esta cola.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unidades</td>
+<td align="left" valign="top" class="base">Bytes</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base"></td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">Un Valor mayor o igual a 0 y menor o igual a la longitud m&aacute;xima de los mensajes de Queue Manager y de la plataforma WebSphere MQ.
+Para obtener m&aacute;s informaci&oacute;n sobre el valor m&aacute;ximo permitido, consulte <cite>WebSphere MQ MQSC Command Reference</cite>.<p>Si se reduce este valor, esto no afecta a los mensajes que ya est&aacute;n en la cola, incluso si la longitud del mensaje es superior al nuevo valor m&aacute;ximo.</p>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_shareability"></a>Posibilidad de compartimiento</strong>
+</dt>
+<dd>Especifica si varias aplicaciones pueden recibir mensajes de esta cola.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unidades</td>
+<td align="left" valign="top" class="base">No se aplica</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">No compartible</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>No compartible</strong>
+</dt>
+<dd>S&oacute;lo una instancia de aplicaci&oacute;n puede recibir mensajes de la cola.</dd>
+
+<dt>
+<strong>Compartible</strong>
+</dt>
+<dd>M&aacute;s de una instancia de aplicaci&oacute;n puede recibir mensajes de la cola.</dd>
+
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_inputOpenOption"></a>Opci&oacute;n de apertura de entrada</strong>
+</dt>
+<dd>La opci&oacute;n compartida por omisi&oacute;n de las aplicaciones que abren esta cola para la entrada
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unidades</td>
+<td align="left" valign="top" class="base">No se aplica</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">Deseleccionado</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>Exclusivo</strong>
+</dt>
+<dd>La petici&oacute;n de apertura es para la entrada exclusiva de la cola.</dd>
+
+<dt>
+<strong>Compartido</strong>
+</dt>
+<dd>La petici&oacute;n de apertura es para la entrada compartida de la cola.</dd>
+
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_messageDeliverySequence"></a>Secuencia de entrega de mensajes</strong>
+</dt>
+<dd>Orden en que se env&iacute;an los mensajes de la cola en respuesta a peticiones get.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unidades</td>
+<td align="left" valign="top" class="base">No se aplica</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">Prioridad</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>Prioridad</strong>
+</dt>
+<dd>Los mensajes se env&iacute;an en orden FIFO (first-in-first-out) seg&uacute;n la prioridad. Este es el valor por omisi&oacute;n que se
+facilita con WebSphere MQ, aunque su instalaci&oacute;n la puede haber modificado.</dd>
+
+<dt>
+<strong>FIFO</strong>
+</dt>
+<dd>Los mensajes se env&iacute;an en orden FIFO. No se tiene en cuenta la prioridad para los mensajes de esta cola.</dd>
+
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_backoutThreshold"></a>Umbral de retroceso</strong>
+</dt>
+<dd>N&uacute;mero de veces m&aacute;ximo que un mensaje puede someterse a una operaci&oacute;n de retroceso. Si se alcanza este umbral, el mensaje se vuelve a colocar en la cola de retroceso especificada mediante la propiedad <strong>Backout Requeue name</strong> (nombre de cola de retroceso).
+<p>WebSphere MQ Queue Manager mantiene un registro del n&uacute;mero de veces que cada mensaje se
+somete a una operaci&oacute;n de retroceso. Cuando este n&uacute;mero alcanza un umbral configurable, el
+cliente de conexiones vuelve a colocar el mensaje en una cola de retroceso con nombre. Si esta operaci&oacute;n no se realiza correctamente por alguna raz&oacute;n, el mensaje se elimina de la cola y se vuelve a colocar en la cola de elementos no reclamados o se descarta.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">0</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>0</strong>
+</dt>
+<dd>Nunca se vuelven a poner en cola los mensajes</dd>
+
+<dt>
+<strong>1 o de valor superior</strong>
+</dt>
+<dd>El n&uacute;mero de veces que se ha devuelto el mensaje,
+instante en que ese mensaje se vuelve a poner en cola, en la cola de retroceso con nombre.</dd>
+
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_backoutRequeue"></a>Nombre de cola de retroceso</strong>
+</dt>
+<dd>Nombre de la cola de retroceso donde se vuelven a colocar los mensajes si la posici&oacute;n de retroceso de estos es superior al umbral de retroceso.
+<p>WebSphere MQ Queue Manager mantiene un registro del n&uacute;mero de veces que cada mensaje se
+somete a una operaci&oacute;n de retroceso. Cuando este n&uacute;mero alcanza un umbral configurable, el
+cliente de conexiones vuelve a colocar el mensaje en una cola de retroceso con nombre. Si esta operaci&oacute;n no se realiza correctamente por alguna raz&oacute;n, el mensaje se elimina de la cola y se vuelve a colocar en la cola de elementos no reclamados o se descarta.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">1 a 48 caracteres.</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_hardenGetBackout"></a>Proteger retroceso de Get </strong>
+</dt>
+<dd>Especifica si se debe utilizar protecci&oacute;n para garantizar que el recuento del n&uacute;mero de veces que un mensaje se ha sometido a una operaci&oacute;n de retroceso sea exacto.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unidades</td>
+<td align="left" valign="top" class="base">No se aplica</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">Deseleccionado</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>No protegido</strong>
+</dt>
+<dd>El recuento no est&aacute; protegido. Este es el valor por omisi&oacute;n que se
+facilita con WebSphere MQ, aunque su instalaci&oacute;n la puede haber modificado.</dd>
+
+<dt>
+<strong>Protegido</strong>
+</dt>
+<dd>El recuento est&aacute; protegido.</dd>
+
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</body>
+</html>

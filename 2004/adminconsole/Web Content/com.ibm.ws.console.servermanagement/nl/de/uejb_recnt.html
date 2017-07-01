@@ -1,0 +1,135 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Einstellungen f&uuml;r EJB-Container</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uejbecnt"></a>
+<h2>Einstellungen f&uuml;r EJB-Container</h2>
+
+<p>Auf dieser Seite k&ouml;nnen Sie einen bestimmten EJB-Container konfigurieren und verwalten.</p>
+
+<p>Klicken Sie, um diese Seite der Administrationskonsole anzuzeigen, auf <strong>Server</strong> <strong>&gt;</strong>
+<strong>Anwendungsserver</strong> <strong>&gt;</strong> <em>Servername</em> <strong>&gt;</strong> <strong>EJB-Container</strong>. </p>
+
+<div>
+<p>
+<strong>Register "Konfiguration"</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="EJBContainer_passivationDirectory_description"></a>Verzeichnis f&uuml;r Passivierung</strong>
+</dt>
+<dd>Das Verzeichnis, in dem der Container den persistenten Status inaktivierter Stateful-Session-Beans
+speichert.
+<p>Beans werden inaktiviert, wenn die Anzahl aktiver Bean-Instanzen die
+in der Containerkonfiguration angegebene Cache-Gr&ouml;&szlig;e &uuml;bersteigt. Wenn eine
+Stateful-Bean inaktiviert wird, serialisiert der Container die Bean-Instanz
+in einer Datei im Verzeichnis f&uuml;r Passivierung und l&ouml;scht die Instanz aus
+dem Bean-Cache. Wenn die passivierte Bean-Instanz zu einem sp&auml;teren Zeitpunkt
+angefordert wird, ruft der Container die Instanz im Verzeichnis f&uuml;r Passivierung ab, entserialisiert sie, gibt sie an den Cache zur&uuml;ck
+und teilt ihr die Anforderung zu. Kann einer dieser Schritte nicht durchgef&uuml;hrt werden (z.
+B. wenn die Bean-Instanz sich nicht mehr im Verzeichnis f&uuml;r Passivierung
+befindet), schl&auml;gt der Methodenaufruf fehl.</p>
+
+</dd>
+<dt>
+<strong><a name="EJBContainer_inactivePoolCleanupInterval_description"></a>Bereinigungsintervall f&uuml;r inaktiven Pool</strong>
+</dt>
+<dd>Das Intervall, in dem der Container die Pools verf&uuml;gbarer Bean-Instanzen pr&uuml;ft, um zu ermitteln,
+ob einige Instanzen zur Verringerung der Speicherlast gel&ouml;scht werden k&ouml;nnen.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Einheiten</td>
+<td align="left" valign="top" class="base">Millisekunden</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">Gr&ouml;&szlig;er als 0</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="EJBContainer_defaultDatasourceJNDIName_description"></a>Standarddatenquelle - JNDI-Name</strong>
+</dt>
+<dd>Der JNDI-Name einer Datenquelle, der zu verwenden ist, wenn keine Datenquelle beim Deployment von
+Anwendungen angegeben wurde. Diese Einstellung ist nur f&uuml;r EJB-2.x-kompatible CMP-Beans g&uuml;ltig.
+<p>Servlets und Enterprise-Beans verwenden <em>Datenquellen</em>, um diese Verbindungen abzurufen.
+Bei der Konfiguration eines Containers k&ouml;nnen Sie eine Standarddatenquelle f&uuml;r den Container angeben. Diese
+Datenquelle wird zur Standarddatenquelle, die von allen im Container
+installierten CMP-Entity-Beans verwendet wird.</p>
+
+<p>Die Standarddatenquelle f&uuml;r einen Container ist gesichert. Bei der
+Angabe der Datenquelle m&uuml;ssen Sie, um zugreifen zu k&ouml;nnen, eine
+Benutzer-ID und Kennwort angeben.</p>
+
+<p>Die Angabe einer Standarddatenquelle ist optional, wenn f&uuml;r alle
+CMP-Entity-Beans im Container eine Datenquelle in ihren Konfigurationen
+angegeben ist. Wurde keine Standarddatenquelle angegeben und im Container eine CMP-Entity-Bean ohne Angabe
+der
+Datenquelle f&uuml;r diese Bean installiert, kann diese CMP-Entity-Bean nicht von Anwendungen verwendet werden.</p>
+
+</dd>
+<dt>
+<strong><a name="StateManageable_initialState_description"></a>Ausgangsstatus</strong>
+</dt>
+<dd>Der Ausf&uuml;hrungsstatus, der beim ersten Start des Servers angefordert wird.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">Gestartet</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">Die g&uuml;ltigen Werte sind <samp>Gestartet</samp> und <samp>Gestoppt</samp>.</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Zugeh&ouml;rige Informationen</strong>
+</p>
+<a href="rcon_buttons.html">Kn&ouml;pfe in der Adminstrationskonsole</a>
+<br>
+
+<a href="uejb_rcash.html">Einstellungen des EJB-Cache </a>
+<br>
+
+</div>
+</body>
+</html>

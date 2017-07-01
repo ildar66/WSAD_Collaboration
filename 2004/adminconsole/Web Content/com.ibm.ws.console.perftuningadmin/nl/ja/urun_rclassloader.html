@@ -1,0 +1,52 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>クラス・ローダーの集合</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="urun_rclassloader"></a>
+<h2>クラス・ローダーの集合</h2>
+
+<p>このページを使用して、アプリケーション・サーバー上のクラス・ローダー・インスタンスを管理します。
+クラス・ローダーは、
+アプリケーション・クラス・ローダーまたは親クラス・ローダーのどちらがアプリケーションの Java クラス・ファイルを検索してロードするかを判別します。
+</p>
+
+<p>この管理コンソール・ページを表示するには、「<strong>サーバー</strong>」&gt;「<strong>アプリケーション・サーバー</strong>」&gt;「<em>server_name</em>」&gt;「<strong>Classloader</strong>」をクリックします。</p>
+
+<dl>
+<dt>
+<strong><a name="Classloader_classloaderID_description"></a>クラス・ローダー ID</strong>
+</dt>
+<dd>クラス・ローダー・インスタンスを識別するサーバーに固有のストリングです。
+この ID は製品によって割り当てられます。</dd>
+<dt>
+<strong><a name="Classloader_classloaderMode_description"></a>クラス・ローダー・モード</strong>
+</dt>
+<dd>アプリケーション・クラス・ローダー・ポリシーが SINGLE であるときに、
+クラス・ローダー・モードを指定します。PARENT_FIRST を指定すると、
+クラス・ローダーはローカル・クラスパスからクラスのロードを試行する前に、
+親クラス・ローダーにクラスのロードを委任します。PARENT_LAST を指定した場合、クラス・ローダーは親にクラスのロードを委任する前に、
+ローカルのクラスパスからクラスをロードしようとします。
+これによりアプリケーション・クラス・ローダーは親クラス・ローダーに存在するクラスの独自のバージョンをオーバーライドして、
+提供することができます。</dd>
+</dl>
+<div>
+<p>
+<strong>関連情報</strong>
+</p>
+<a href="rcon_buttons.html">管理コンソールのボタン</a>
+<br>
+
+<a href="rcon_filter.html">管理コンソールのフィルター設定</a>
+<br>
+
+<a href="urun_rclassloader_inst.html">クラス・ローダーの設定</a>
+<br>
+
+</div>
+</body>
+</html>

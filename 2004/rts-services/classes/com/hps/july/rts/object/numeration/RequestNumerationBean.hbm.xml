@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+   "http://dtdserver/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.hps.july.rts.object.numeration" >
+
+    <class name="RequestNumerationBean" abstract="true" table="rts_numerations" discriminator-value="0">
+        <id name="id" column="id">
+            <generator class="native"/>
+        </id>
+        <discriminator column="numerationtype" type="integer"/>
+
+        <property name="requestCode" column="lastreqnumber"/>
+        <property name="requestDate" column="lastreqdate"/>
+        
+        <subclass name="InitiatorRequestNumerationBean" discriminator-value="1">
+            <property name="initiatorCode" column="initiatorcode"/>
+        </subclass>
+
+        <subclass name="ConsolidatedRequestNumerationBean" discriminator-value="2">
+			<subclass name="ElementaryRequestNumerationBean" discriminator-value="3">
+				<property name="elementaryCode" column="elementaryCode"/>
+        	</subclass>
+        </subclass>
+    </class>
+
+</hibernate-mapping>

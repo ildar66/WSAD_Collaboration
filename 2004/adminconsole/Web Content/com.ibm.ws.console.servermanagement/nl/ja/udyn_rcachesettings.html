@@ -1,0 +1,70 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>動的キャッシュ・サービスの設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="udyn_rcachesettings"></a>
+<h2>動的キャッシュ・サービスの設定</h2>
+
+<p>このページを使用して、動的キャッシュ・サービス設定を構成および管理します。
+</p>
+
+<p>この管理コンソール・ページを表示するには、「
+<strong>サーバー</strong>」&gt;「<strong>アプリケーション・サーバー</strong>」&gt;「<em>サーバー</em>」&gt;「<strong>動的キャッシュ・サービス</strong>」をクリックします。</p>
+
+<div>
+<p>
+<strong>「構成」タブ</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="DynamicCache__startup_description"></a>始動状態</strong>
+</dt>
+<dd>動的キャッシュを使用可能にするかどうかを指定します。</dd>
+<dt>
+<strong><a name="DynamicCache_cacheSize_description"></a>キャッシュ・サイズ</strong>
+</dt>
+<dd>キャッシュが保持する最大エントリー数の値として正の整数を指定します。
+
+<p>このフィールドにキャッシュ・サイズ値を 100 から 200,000 の範囲で入力します。
+</p>
+
+</dd>
+<dt>
+<strong><a name="DynamicCache_defaultPriority_description"></a>デフォルト優先順位</strong>
+</dt>
+<dd>キャッシュ・エントリーのデフォルト優先順位を指定します。
+これにより、キャッシュがフル・キャッシュに存在する時間が決まります。
+<table border="1" cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base">デフォルト</td>
+<td align="left" valign="top" class="base">1</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="DynamicCache_enableDiskOffload_description"></a>ディスク・オフロード</strong>
+</dt>
+<dd>ディスク・オフロードを使用可能にするかどうかを指定します。
+<p>デフォルトでは、動的キャッシュには、
+メモリーに構成されるエントリーの数が保持されます。
+キャッシュが満杯であるのに新規エントリーが作成された場合、
+各キャッシュ・エントリーに対し、LRU アルゴリズムを使用するよう構成された優先順位が適用され、
+キャッシュからエントリーが除去されます。
+別の方法として、ディスク・オフロードを構成し、メモリーからエントリーを除去するのではなく、
+後ほど、エントリーをファイル・システム (ロケーションは構成可能) にコピーすることもできます。</p>
+
+</dd>
+</dl>
+</div>
+</body>
+</html>

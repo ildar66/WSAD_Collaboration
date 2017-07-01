@@ -1,0 +1,222 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Servizi Web: collegamenti predefiniti per la sicurezza dei servizi Web (Web Services Security, WS-Security)</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_websvcb"></a>
+<h2>
+<img alt="[Release 5.1 e successive]" src="v51.gif" border="0">Servizi Web: collegamenti predefiniti per la sicurezza dei servizi Web (Web Services Security, WS-Security)</h2>
+
+<p>Utilizzare questa pagina per configurare le impostazioni per nonce al livello del server e per
+gestire i collegamenti predefiniti per gli ancoraggi sicuri, la raccolta archivio certificati, gli
+indicatori di posizione della chiave, i programmi di valutazione ID sicuri e le mappature di login.</p>
+
+<p>Per visualizzare questa pagina della console di gestione, fare clic su <strong>Server &gt; Server delle applicazioni &gt; </strong><em>nome_server</em>. In Ulteriori propriet&agrave;, fare clic su <strong>Servizi Web: collegamenti predefiniti per la sicurezza dei
+servizi Web (WS-Security, Web Services Security)</strong>. </p>
+
+<p>Leggere la documentazione relativa ai servizi Web prima di cominciare a definire i collegamenti predefiniti per la sicurezza dei servizi Web (WS-Security, Web Services Security).</p>
+
+<p>Per definire i collegamenti del server, completare le seguenti operazioni:<ol>
+
+<li>Fare clic su <strong>Applicazioni &gt; Applicazioni enterprise &gt; </strong><em>nome_applicazione</em>. </li>
+
+<li>In Elementi correlati, fare clic su <strong>Moduli Web &gt; </strong><em>nome_file_URI</em><strong>&gt; Servizi Web: collegamenti sicurezza server</strong>.</li>
+
+</ol>
+</p>
+
+<p>Per definire i collegamenti del client, completare le seguenti operazioni: <ol>
+
+<li>Fare clic su <strong>Applicazioni &gt; Applicazioni enterprise &gt; </strong><em>nome_applicazione</em>. </li>
+
+<li>In Elementi correlati, fare clic su <strong>Moduli Web &gt; </strong><em>nome_file_URI</em><strong>&gt; Servizi Web: collegamenti sicurezza client</strong>.</li>
+
+</ol>
+</p>
+
+<p>
+<img alt="[Release 5.1 e successive]" src="v51.gif" border="0"><em>Nonce</em> &egrave; un numero crittografico univoco racchiuso in un messaggio
+che consente di arrestare attacchi non autorizzati e ripetuti dei token nome utente.
+In un ambiente WebSphere Application Server di base, &egrave; necessario specificare i valori per i campi
+<strong>Timeout cache Nonce</strong>, <strong>Durata massima Nonce</strong> e <strong>Orologio non sincronizzato Nonce</strong>
+a livello del server. </p>
+
+<p> La configurazione del collegamento predefinito fornisce un'ubicazione centrale dove vengono definite le informazioni di collegamenti riutilizzabili. Il file di collegamenti dell'applicazione pu&ograve; fare riferimento alle informazioni contenute nella configurazione di collegamento predefinita. </p>
+
+<dl>
+<dt>
+<strong><a name="sec_noncecachetimeout"></a>Timeout cache Nonce</strong>
+            &nbsp;
+            <img alt="[Release 5.1 e successive]" src="v51.gif" border="0"></dt>
+<dd>Specifica il valore di timeout, espresso in secondi, per nonce memorizzato nella cache sul server. Nonce &egrave; un valore generato casualmente.
+<p>&Egrave; necessario specificare un minimo di 300 secondi per il campo <strong>Timeout cache Nonce</strong>.
+Tuttavia, se non viene specificato un valore, il valore predefinito &egrave; di 600 secondi. </p>
+
+<p>Il campo <strong>Timeout cache Nonce</strong> &egrave; necessario per l'ambiente WebSphere
+Application Server di base.</p>
+
+<p>Se si modifica il valore di timeout della cache nonce, &egrave; necessario riavviare WebSphere Application Server per convalidare le modifiche.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">600 secondi</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Minimo</td>
+<td align="left" valign="top" class="base">300 secondi</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="sec_noncemaxage"></a>Durata
+massima Nonce</strong>
+            &nbsp;
+            <img alt="[Release 5.1 e successive]" src="v51.gif" border="0"></dt>
+<dd>Specifica il tempo predefinito, espresso in secondi, prima della scadenza della
+registrazione data/ora nonce. Nonce &egrave; un valore generato casualmente.
+<p>&Egrave; necessario specificare un minimo di 300 secondi per il campo <strong>Durata massima Nonce</strong>.
+Tuttavia, il valore massimo non pu&ograve; superare il numero di secondi specificato nel campo <strong>Timeout
+cache Nonce</strong> per il livello del server. Se non viene specificato un valore, il valore
+predefinito &egrave; di 300 secondi. Il valore impostato per il campo <strong>Durata massima Nonce</strong> al
+livello del server non deve superare il valore impostato per lo stesso campo al livello della
+cella; &egrave; possibile accedere a tale campo facendo clic su <strong>Sicurezza &gt; Servizi Web &gt; Propriet&agrave;</strong>. </p>
+
+<p>Il campo <strong>Durata massima Nonce</strong> &egrave; necessario per l'ambiente WebSphere Application Server di
+base.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">300 secondi</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo</td>
+<td align="left" valign="top" class="base">Da 300 ai secondi impostati per <strong>Timeout cache Nonce</strong></td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="sec_nonceclockskew"></a>Orologio non sincronizzato Nonce</strong>
+            &nbsp;
+            <img alt="[Release 5.1 e successive]" src="v51.gif" border="0"></dt>
+<dd>Specifica il valore predefinito dell'orologio non
+sincronizzato, espresso in secondi, da considerare quando WebSphere Application Server verifica se
+il messaggio &egrave; recente o meno. Nonce &egrave; un valore generato casualmente.
+<p>&Egrave; necessario specificare un minimo di 0 secondi per il campo <strong>Orologio non sincronizzato
+Nonce</strong>.
+Tuttavia, il valore massimo non pu&ograve; superare il numero di secondi specificato nel campo <strong>Durata
+massima Nonce</strong>. Se non viene specificato un valore, il valore predefinito
+&egrave; di 0 secondi.</p>
+
+<p>Il campo <strong>Orologio non sincronizzato Nonce</strong> &egrave; necessario per l'ambiente WebSphere
+Application Server di base.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">0 secondi</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo</td>
+<td align="left" valign="top" class="base">Da 0 ai secondi impostati per <strong>Durata massima Nonce</strong></td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="sec_trustancdescr"></a>Ancoraggi sicuri</strong>
+            &nbsp;
+            <img alt="[Fix Pack 5.0.2 e successive]" src="v502.gif" border="0"></dt>
+<dd>Specifica un elenco di oggetti di memorizzazione delle chiavi contenenti i certificati con root sicura emessi da una CA (Certificate Authority). 
+<p>La CA autentica un utente ed emette un certificato.
+Dopo l'emissione del certificato, gli oggetti di memorizzazione della chiave, che contengono tali certificati, utilizzano il certificato per la convalida di un percorso del certificato o di una catena di certificati di token di sicurezza formattati X.509 in entrata.</p>
+
+</dd>
+<dt>
+<strong><a name="sec_collcert"></a>Raccolta archivio certificati</strong>
+            &nbsp;
+            <img alt="[Fix Pack 5.0.2 e successive]" src="v502.gif" border="0"></dt>
+<dd>Specifica un elenco di file certificato intermedi, non sicuri.
+<p>Raccolta archivio certificati contiene una catena di certificati intermedi, non sicuri. L'API CertPath tenta di convalidare tali certificati, i quali si basano sull'ancoraggio sicuro.</p>
+
+</dd>
+<dt>
+<strong><a name="sec_keyldesc"></a>Indicatori di posizione della chiave</strong>
+            &nbsp;
+            <img alt="[Fix Pack 5.0.2 e successive]" src="v502.gif" border="0"></dt>
+<dd>Specifica un elenco di oggetti indicatori di posizione della chiave che richiamano le chiavi per la firma digitale e la codifica da un file di memorizzazione delle chiavi o da un contenitore.
+L'indicatore di posizione della chiave mappa un nome o un nome logico su un alias o mappa un'identit&agrave; autenticata su una chiave. Questo nome logico viene utilizzato per individuare una chiave in un'implementazione dell'indicatore di posizione della chiave.</dd>
+<dt>
+<strong><a name="sec_trstiddesc"></a>Programmi di valutazione ID sicuri</strong>
+            &nbsp;
+            <img alt="[Fix Pack 5.0.2 e successive]" src="v502.gif" border="0"></dt>
+<dd>Specifica un elenco di programmi di valutazione ID sicuri che determina se rendere affidabile l'autorit&agrave; di asserzione di identit&agrave; o il mittente del messaggio.
+<p>I programmi di valutazione ID sicuri vengono utilizzati per autenticare ulteriori identit&agrave; da un server su un altro server. Ad esempio, un client invia l'identit&agrave; dell'utente A al server 1 per l'autenticazione. Il Server 1 richiama il downstream sul server
+2, asserisce l'identit&agrave; dell'utente A e include l'ID utente e la password del server 1. Il Server 2 tenta di stabilire l'affidabilit&agrave; del server 1 autenticando l'ID utente e la password e verificando tale affidabilit&agrave; in base all'implementazione TrustedIDEvaluator. Se il processo di autenticazione e il controllo dell'affidabilit&agrave; danno risultati positivi, il server 2 assicura che il server 1 ha autenticato l'utente A ed &egrave; stata creata una credenziale per l'utente A sul server 2 per richiamare la richiesta.</p>
+
+</dd>
+<dt>
+<strong><a name="sec_logmapdesc"></a>Mappature di login</strong>
+            &nbsp;
+            <img alt="[Fix Pack 5.0.2 e successive]" src="v502.gif" border="0"></dt>
+<dd>Specifica un elenco di configurazioni per la convalida dei token all'interno  dei messaggi in entrata.
+<p>Le mappature di login mappano il metodo autenticato sulla configurazione JAAS (Java Authentication and Authorization Service).</p>
+
+<p>Per configurare JAAS, utilizzare la console di gestione e fare clic su <strong>Sicurezza
+&gt; Configurazione JAAS</strong>.</p>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>Informazioni correlate</strong>
+</p>
+<a href="uwbs_trstanc.html">Raccolta ancoraggi sicuri</a>
+<br>
+
+<a href="uwbs_colcertst.html">Raccolta archivio certificati</a>
+<br>
+
+<a href="uwbs_keyl.html">Raccolta indicatori di posizione della chiave</a>
+<br>
+
+<a href="uwbs_trstide.html">Raccolta Programmi di valutazione ID sicuri</a>
+<br>
+
+<a href="uwbs_logmap.html">Raccolta delle mappature di login</a>
+<br>
+
+<a href="uwbs_logmapn.html">Impostazioni di configurazione mappatura di login</a>
+<br>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,684 @@
+------Start of DE processing------ = [04.10.25 15:11:56:234 MSD] , key = org.omg.CosNaming.NamingContextPackage.NotFound com.ibm.ws.naming.jndicos.CNContextImpl.doLookup 1471
+Exception = org.omg.CosNaming.NamingContextPackage.NotFound
+Source = com.ibm.ws.naming.jndicos.CNContextImpl.doLookup
+probeid = 1471
+Stack Dump = org.omg.CosNaming.NamingContextPackage.NotFound
+	at com.ibm.ws.naming.ipcos.WsnOptimizedNamingImpl.handleNameNotFound(WsnOptimizedNamingImpl.java:1590)
+	at com.ibm.ws.naming.ipcos.WsnOptimizedNamingImpl.getNextWsnOptimizedNamingContext(WsnOptimizedNamingImpl.java:1486)
+	at com.ibm.ws.naming.cosbase.WsnOptimizedNamingImplBase.getTargetContext(WsnOptimizedNamingImplBase.java:2145)
+	at com.ibm.ws.naming.cosbase.WsnOptimizedNamingImplBase$LeafOperationData.<init>(WsnOptimizedNamingImplBase.java:2537)
+	at com.ibm.ws.naming.cosbase.WsnOptimizedNamingImplBase.resolve_complete_info(WsnOptimizedNamingImplBase.java:1292)
+	at com.ibm.WsnOptimizedNaming._NamingContextStub.resolve_complete_info(_NamingContextStub.java:639)
+	at com.ibm.ws.naming.jndicos.CNContextImpl.cosResolve(CNContextImpl.java:3320)
+	at com.ibm.ws.naming.jndicos.CNContextImpl.doLookup(CNContextImpl.java:1496)
+	at com.ibm.ws.naming.jndicos.CNContextImpl.doLookup(CNContextImpl.java:1457)
+	at com.ibm.ws.naming.jndicos.CNContextImpl.lookup(CNContextImpl.java:1167)
+	at com.ibm.ws.naming.util.WsnInitCtx.lookup(WsnInitCtx.java:132)
+	at javax.naming.InitialContext.lookup(InitialContext.java:359)
+	at com.hps.july.sync.session.dao.ReferencesFinderDAO.initializeResources(ReferencesFinderDAO.java:45)
+	at com.hps.july.sync.session.dao.ReferencesFinderDAO.<init>(ReferencesFinderDAO.java:37)
+	at com.hps.july.sync.session.ReferencesFinderBean.setSessionContext(ReferencesFinderBean.java:27)
+	at com.ibm.ejs.container.StatelessBeanO.<init>(StatelessBeanO.java:102)
+	at com.ibm.ejs.container.CMStatelessBeanO.<init>(CMStatelessBeanO.java:53)
+	at com.ibm.ejs.container.CMStatelessBeanOFactory.create(CMStatelessBeanOFactory.java:40)
+	at com.ibm.ejs.container.EJSHome.createBeanO(EJSHome.java:566)
+	at com.ibm.ejs.container.EJSHome.createBeanO(EJSHome.java:653)
+	at com.ibm.ejs.container.activator.UncachedActivationStrategy.atActivate(UncachedActivationStrategy.java:78)
+	at com.ibm.ejs.container.activator.Activator.activateBean(Activator.java:518)
+	at com.ibm.ejs.container.EJSContainer.preInvoke_internal(EJSContainer.java:2522)
+	at com.ibm.ejs.container.EJSContainer.preInvoke(EJSContainer.java:2259)
+	at com.ibm.ejs.container.EJSContainer.preInvoke(EJSContainer.java:2245)
+	at com.hps.july.sync.session.EJSRemoteStatelessReferencesFinder_f88fc14e.findDbsAntennaPlaces(EJSRemoteStatelessReferencesFinder_f88fc14e.java:26)
+	at com.hps.july.sync.session._ReferencesFinder_Stub.findDbsAntennaPlaces(_ReferencesFinder_Stub.java:256)
+	at com.hps.july.collaboration.formbean.ReferencesForm.doTask(ReferencesForm.java:102)
+	at com.hps.july.collaboration.action.ReferencesAction.perform(ReferencesAction.java:40)
+	at org.apache.struts.action.ActionServlet.processActionPerform(ActionServlet.java:1787)
+	at org.apache.struts.action.ActionServlet.process(ActionServlet.java:1586)
+	at org.apache.struts.action.ActionServlet.doGet(ActionServlet.java:492)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:740)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:853)
+	at com.ibm.ws.webcontainer.servlet.StrictServletInstance.doService(StrictServletInstance.java:110)
+	at com.ibm.ws.webcontainer.servlet.StrictLifecycleServlet._service(StrictLifecycleServlet.java:174)
+	at com.ibm.ws.webcontainer.servlet.IdleServletState.service(StrictLifecycleServlet.java:313)
+	at com.ibm.ws.webcontainer.servlet.StrictLifecycleServlet.service(StrictLifecycleServlet.java:116)
+	at com.ibm.ws.webcontainer.servlet.ServletInstance.service(ServletInstance.java:258)
+	at com.ibm.ws.webcontainer.servlet.ValidServletReferenceState.dispatch(ValidServletReferenceState.java:42)
+	at com.ibm.ws.webcontainer.servlet.ServletInstanceReference.dispatch(ServletInstanceReference.java:40)
+	at com.ibm.ws.webcontainer.webapp.WebAppRequestDispatcher.handleWebAppDispatch(WebAppRequestDispatcher.java:872)
+	at com.ibm.ws.webcontainer.webapp.WebAppRequestDispatcher.dispatch(WebAppRequestDispatcher.java:491)
+	at com.ibm.ws.webcontainer.webapp.WebAppRequestDispatcher.forward(WebAppRequestDispatcher.java:173)
+	at com.ibm.ws.webcontainer.srt.WebAppInvoker.doForward(WebAppInvoker.java:79)
+	at com.ibm.ws.webcontainer.srt.WebAppInvoker.handleInvocationHook(WebAppInvoker.java:199)
+	at com.ibm.ws.webcontainer.cache.invocation.CachedInvocation.handleInvocation(CachedInvocation.java:71)
+	at com.ibm.ws.webcontainer.srp.ServletRequestProcessor.dispatchByURI(ServletRequestProcessor.java:182)
+	at com.ibm.ws.webcontainer.oselistener.OSEListenerDispatcher.service(OSEListener.java:331)
+	at com.ibm.ws.webcontainer.http.HttpConnection.handleRequest(HttpConnection.java:56)
+	at com.ibm.ws.http.HttpConnection.readAndHandleRequest(HttpConnection.java:432)
+	at com.ibm.ws.http.HttpConnection.run(HttpConnection.java:343)
+	at com.ibm.ws.util.ThreadPool$Worker.run(ThreadPool.java:592)
+
+Dump of callerThis = 
+Object type = com.ibm.ws.naming.jndicos.CNContextImpl
+com.ibm.ws.naming.jndicos.CNContextImpl@7e6915c9
+
+Exception = org.omg.CosNaming.NamingContextPackage.NotFound
+Source = com.ibm.ws.naming.jndicos.CNContextImpl.doLookup
+probeid = 1471
+Dump of callerThis = 
+Object type = com.ibm.ws.naming.jndicos.CNContextImpl
+  class$com$ibm$ws$naming$jndicos$CNContextImpl = 
+    serialPersistentFields = {}
+    serialVersionUID = 3206093459760846163
+    allPermDomain = null
+    getPDperm = null
+    have_extensions = true
+  _tc = 
+    ivLogger = null
+    ivResourceBundleName = com.ibm.ws.naming.util.WsnMessages
+    ivDumpEnabled = false
+    defaultMessageFile = com.ibm.ejs.resources.seriousMessages
+    ivEntryEnabled = false
+    ivEventEnabled = false
+    ivDebugEnabled = false
+    ivName = com.ibm.ws.naming.jndicos.CNContextImpl
+  CLASSNAME_FOR_JAVAOBJ = java.lang.Object
+  CLASSNAME_FOR_NULLOBJ = org.omg.CORBA.Object
+  NAME_DELIMITER = /
+  BINDING_ENUM = 1
+  NAME_ENUM = 0
+  _isLocal = true
+  _caching = true
+  _cache = 
+    class$com$ibm$ws$naming$jcache$Cache = 
+      serialPersistentFields = this.class$com$ibm$ws$naming$jndicos$CNContextImpl.serialPersistentFields
+      serialVersionUID = 3206093459760846163
+      allPermDomain = null
+      getPDperm = null
+      have_extensions = true
+    _debug = false
+    _maxEntryLife = 0
+    _maxCacheLife = 0
+    _classLoader = 
+      class$com$ibm$ws$classloader$JarClassLoader = java.lang.Class@487895d3
+      delegationMode = true
+      jarPaths = java.util.ArrayList@3d3295fd
+      tc = com.ibm.ejs.ras.TraceComponent@230c95c9
+      class$com$ibm$ws$classloader$ReloadableClassLoader = java.lang.Class@487095d3
+      resourceTimeout = 60
+      myTimerTask = com.ibm.ws.classloader.ReloadableClassLoader$ReloadTimerTask@3d36d5fd
+      classProviderListeners = java.util.ArrayList@3d35d5fd
+      removed = false
+      reloadingEnabled = true
+      classCache = java.util.HashMap@3d3815fd
+      classLoader = com.ibm.ws.classloader.CompoundClassLoader@f6015fb
+      parent = com.ibm.ws.classloader.ExtJarClassLoader@5bc315d3
+      class$java$lang$ClassLoader = java.lang.Class@e6295db
+      sys_paths = [Ljava.lang.String;@437255dc
+      usr_paths = [Ljava.lang.String;@4714d5dc
+      nativeLibraryContext = java.util.Stack@623655dc
+      nativeLibraries = java.util.Vector@3d3d15fd
+      systemNativeLibraries = java.util.Vector@623495dc
+      loadedLibraryNames = java.util.Vector@623bd5dc
+      defaultPermissions = java.security.Permissions@7b0955cd
+      defaultDomain = null
+      getClassLoaderPerm = null
+      sclSet = true
+      scl = sun.misc.Launcher$AppClassLoader@6403d5dc
+      bootstrapClassPath = sun.misc.URLClassPath@4f52d5de
+      packages = java.util.HashMap@3d4015fd
+      launcherExtLoader = null
+      deleted = false
+      namespace = null
+      classes = java.util.Vector@3d4795fd
+      nocerts = null
+      codesource2buffer = java.util.Hashtable@3d4a95fd
+      package2certs = java.util.Hashtable@3d4e15fd
+      initialized = true
+      finalizer = java.lang.ClassLoader$Finalizer@3d3f55fd
+      isShared = false
+      isTrusted = false
+      loaderCachePointer = 349623128
+    _cacheName = rir:
+    _lastCacheValidationTime = 1098702716109
+    _cache = 
+      class$com$ibm$ws$naming$ipbase$NameSpace = java.lang.Class@371515d4
+      _nameSpaceID = 23
+      _contextsTable = java.util.HashMap@68ecd5c9
+      _bindingsTable = java.util.HashMap@68f015c9
+      _nameSpaceType = 2
+      _nameSpaceCount = 23
+      _tc = com.ibm.ejs.ras.TraceComponent@37aa15d4
+      ROOT_PARENT_CONTEXT_ID = 
+      NAME_COMPONENT_SEPARATOR = /
+      ROOT_CONTEXT_ID = ROOT CONTEXT
+      BINDING_TYPE_DONT_CARE = 99
+      BINDING_TYPE_BIND = 2
+      BINDING_TYPE_CREATE = 1
+      NAME_SPACE_TYPE_CACHE = 2
+      NAME_SPACE_TYPE_PRIMARY = 1
+    _env = 
+      class$java$util$Hashtable$Entry = this._env.class$java$util$Hashtable$Entry
+      emptyIterator = this._env.emptyIterator
+      emptyEnumerator = this._env.emptyEnumerator
+      ENTRIES = 2
+      VALUES = 1
+      KEYS = 0
+      values = null
+      entrySet = null
+      keySet = null
+      serialVersionUID = 1421746759512286392
+      modCount = 15
+      loadFactor = 0.75
+      threshold = 17
+      count = 14
+      table = [Ljava.util.Hashtable$Entry;@698615c9
+    _tc = 
+      ivLogger = null
+      ivResourceBundleName = com.ibm.ejs.resources.seriousMessages
+      ivDumpEnabled = false
+      defaultMessageFile = com.ibm.ejs.resources.seriousMessages
+      ivEntryEnabled = false
+      ivEventEnabled = false
+      ivDebugEnabled = false
+      ivName = com.ibm.ws.naming.jcache.Cache
+    MAX_ENTRY_LIFE_DEFAULT = 0
+    MAX_ENTRY_LIFE = com.ibm.websphere.naming.jndicache.maxentrylife
+    MAX_CACHE_LIFE_DEFAULT = 0
+    MAX_CACHE_LIFE = com.ibm.websphere.naming.jndicache.maxcachelife
+    CACHE_NAME_DEFAULT_VALUE = iiop:///
+    CACHE_NAME_DEFAULT = providerURL
+    CACHE_NAME = com.ibm.websphere.naming.jndicache.cachename
+    CACHE_OBJECT_DEFAULT = populated
+    CACHE_OBJECT_CLEARED = cleared
+    CACHE_OBJECT_POPULATED = populated
+    CACHE_OBJECT_NONE = none
+    CACHE_OBJECT = com.ibm.websphere.naming.jndicache.cacheobject
+    kIBMCopyright = (c) Copyright IBM Corporation 2000
+  _contextID = 
+    _idString = localhost/nodes/localhost/servers/server1
+  _env = 
+    class$java$util$Hashtable$Entry = 
+      serialPersistentFields = this.class$com$ibm$ws$naming$jndicos$CNContextImpl.serialPersistentFields
+      serialVersionUID = 3206093459760846163
+      allPermDomain = null
+      getPDperm = null
+      have_extensions = true
+    emptyIterator = java.util.Hashtable$EmptyIterator@622a15dc
+    emptyEnumerator = java.util.Hashtable$EmptyEnumerator@623395dc
+    ENTRIES = 2
+    VALUES = 1
+    KEYS = 0
+    values = null
+    entrySet = null
+    keySet = null
+    serialVersionUID = 1421746759512286392
+    modCount = 0
+    loadFactor = 0.75
+    threshold = 17
+    count = 14
+    table = 
+      [0] = null
+      [1] = null
+      [2] = null
+      [3] = null
+      [4] = java.util.Hashtable$Entry@7e5a15c9
+      [5] = java.util.Hashtable$Entry@7e5815c9
+      [6] = null
+      [7] = null
+      [8] = java.util.Hashtable$Entry@7e5915c9
+      [9] = null
+      [10] = java.util.Hashtable$Entry@7e5e15c9
+      [11] = null
+      [12] = null
+      [13] = java.util.Hashtable$Entry@7e5c15c9
+      [14] = null
+      [15] = null
+      [16] = null
+      [17] = java.util.Hashtable$Entry@7e5d15c9
+      [18] = java.util.Hashtable$Entry@7e6215c9
+      [19] = null
+      [20] = java.util.Hashtable$Entry@7e6015c9
+      [21] = java.util.Hashtable$Entry@7e6115c9
+      [22] = java.util.Hashtable$Entry@7e6715c9
+  _contextNameIsPrimary = true
+  _contextName = localhost/nodes/localhost/servers/server1
+  _parser = 
+    class$com$ibm$ws$naming$util$WsnNameParser = 
+      serialPersistentFields = this.class$com$ibm$ws$naming$jndicos$CNContextImpl.serialPersistentFields
+      serialVersionUID = 3206093459760846163
+      allPermDomain = null
+      getPDperm = null
+      have_extensions = true
+    parsers = 
+      [0] = this._parser
+      [1] = com.ibm.ws.naming.util.WsnNameParser@30ea95d5
+    _sourceInfo = ws/code/naming/src/com/ibm/ws/naming/util/WsnNameParser.java, WAS.naming, ASV, s0244.17.fix, ver. 1.14
+    _tc = 
+      ivLogger = null
+      ivResourceBundleName = com.ibm.ejs.resources.seriousMessages
+      ivDumpEnabled = false
+      defaultMessageFile = com.ibm.ejs.resources.seriousMessages
+      ivEntryEnabled = false
+      ivEventEnabled = false
+      ivDebugEnabled = false
+      ivName = com.ibm.ws.naming.util.WsnNameParser
+    _env = 
+      class$java$util$Hashtable$Entry = this._env.class$java$util$Hashtable$Entry
+      emptyIterator = this._env.emptyIterator
+      emptyEnumerator = this._env.emptyEnumerator
+      ENTRIES = 2
+      VALUES = 1
+      KEYS = 0
+      values = null
+      entrySet = null
+      keySet = null
+      serialVersionUID = 1421746759512286392
+      modCount = 2
+      loadFactor = 0.75
+      threshold = 2
+      count = 1
+      table = [Ljava.util.Hashtable$Entry;@30f295d5
+  _serverType = 3
+  SERVER_TYPE_AE_CURR = 3
+  SERVER_TYPE_AE_PRE_4_0 = 2
+  SERVER_TYPE_CB = 1
+  SERVER_TYPE_GENERIC_ONLY = 0
+  _batchModeContext = null
+  _wsOptNC = 
+    class$com$ibm$WsnOptimizedNaming$NamingContextOperations = 
+      serialPersistentFields = this.class$com$ibm$ws$naming$jndicos$CNContextImpl.serialPersistentFields
+      serialVersionUID = 3206093459760846163
+      allPermDomain = null
+      getPDperm = null
+      have_extensions = true
+    _opsClass = this._wsOptNC.class$com$ibm$WsnOptimizedNaming$NamingContextOperations
+    __ids = 
+      [0] = IDL:com.ibm/WsnOptimizedNaming/NamingContext:1.0
+      [1] = IDL:omg.org/CosNaming/NamingContextExt:1.0
+      [2] = IDL:omg.org/CosNaming/NamingContext:1.0
+    class$org$omg$CORBA$Object = null
+    __delegate = 
+      class$java$lang$Object = null
+      requestRetriesDelay = 0
+      requestRetriesCount = 1
+      proxyCache = com.ibm.rmi.util.IdentityHashtable@787cd5d5
+      threadCache = java.util.Hashtable@7882d5d5
+      pmiServer = null
+      numFalses = 0
+      isAFalses = [I@788055d5
+      numTrues = 0
+      isATrues = [I@788195d5
+      isACache = java.util.Vector@6e8555d3
+      isDirect = false
+      needLocateRequest = true
+      clientCallback = false
+      headlessIOR = null
+      piCurrent = com.ibm.rmi.pi.CurrentImpl@7b2c55d4
+      firstInit = false
+      WLMClient = this._orb.fWLMPlugin
+      registry = this._orb.subcontractRegistry
+      suidRetry = 0
+      codeSets = null
+      ctxConnection = null
+      firstContexts = null
+      contexts = null
+      isWLMInitializeComplete = false
+      disconnected = false
+      serverDelegate = com.ibm.ws.orb.WSExtendedServerDelegate@6f5d95d3
+      servant = com.ibm.rmi.corba.ServantObjectImpl@7879d5d5
+      id = 18
+      locatedIOR = com.ibm.rmi.IOR@789355d5
+      ior = this._wsOptNC.__delegate.locatedIOR
+      orb = this._orb
+  _ibmExtNC = null
+  _omgExtNC = null
+  _corbaNC = this._wsOptNC
+  _orb = 
+    commTraceVarSet = false
+    commTraceEnabled = false
+    currentCreators = 
+      class$java$util$Hashtable$Entry = this._env.class$java$util$Hashtable$Entry
+      emptyIterator = this._env.emptyIterator
+      emptyEnumerator = this._env.emptyEnumerator
+      ENTRIES = 2
+      VALUES = 1
+      KEYS = 0
+      values = null
+      entrySet = null
+      keySet = null
+      serialVersionUID = 1421746759512286392
+      modCount = 1
+      loadFactor = 0.75
+      threshold = 8
+      count = 1
+      table = [Ljava.util.Hashtable$Entry;@786dd5d2
+    thisInstanceNumber = 0
+    instanceCounter = 1
+    orbLoadTime = 868969
+    threadGroup = 
+      class$java$lang$Thread = java.lang.Class@e5295db
+      class$java$lang$ThreadGroup = java.lang.Class@ce295db
+      groups = null
+      ngroups = 0
+      threads = [Ljava.lang.Thread;@ca555c9
+      nthreads = 21
+      vmAllowSuspension = false
+      daemon = false
+      destroyed = false
+      maxPriority = 10
+      name = main
+      parent = java.lang.ThreadGroup@61ce55dc
+    transientServerId = -809758807
+    giopTransport = 
+      handler = this._orb
+      orb = this._orb
+      transportManager = com.ibm.rmi.iiop.TransportManager@7853d5d2
+      requestId = 5
+    subcontractRegistry = 
+      insRegistry = this._orb.insRegistry
+      bootstrapServer = com.ibm.rmi.iiop.BootstrapRequestHandler@635415d5
+      defaultId = 16
+      clientFactory = [Ljava.lang.Class;@794cd5d2
+      serverRegistry = [Lcom.ibm.CORBA.iiop.ServerSubcontract;@796d55d2
+      size = 256
+    class$com$ibm$rmi$corba$ORB = 
+      serialPersistentFields = this.class$com$ibm$ws$naming$jndicos$CNContextImpl.serialPersistentFields
+      serialVersionUID = 3206093459760846163
+      allPermDomain = null
+      getPDperm = null
+      have_extensions = true
+    proxyInvoke = 
+      key = java.lang.ThreadLocal$SecureKey@46e155d2
+      INITIAL_CAPACITY = 11
+    insRegistry = 
+      services = java.util.Hashtable@4b1795d5
+      orb = this._orb
+    servantIORNew = null
+    servantIOROld = null
+    maxObjectURLIterations = 2
+    nativeCodeset = 
+      forWCharData = com.ibm.rmi.CodeSetComponentInfo$CodeSetComponent@2bf295d4
+      forCharData = com.ibm.rmi.CodeSetComponentInfo$CodeSetComponent@2bf055d4
+    partnerVersionCtx = null
+    extendedVersionId = 0
+    MIN_SOCKET_QUEUE_DEPTH = 50
+    MIN_HIGH_LOW_DELTA = 5
+    MIN_HIGH_WATER_MARK = 10
+    DEFAULT_LOW_WATER_MARK = 100
+    DEFAULT_HIGH_WATER_MARK = 240
+    DEFAULT_FRAGMENT_TIMEOUT = 300000
+    MAX_FRAGMENT_TIMEOUT = 600000
+    MAX_LOCATE_REQUEST_TIMEOUT = 300000
+    MAX_REQUEST_TIMEOUT = 300000
+    MAX_RETRY_DELAY = 60000
+    MAX_RETRY_COUNT = 10
+    PLUG_CLASS = com.ibm.CORBA.ORBPluginClass.
+    INIT_CLASS = org.omg.PortableInterceptor.ORBInitializerClass.
+    thisClass = this._orb.class$com$ibm$rmi$corba$ORB
+    fWLMPlugin = 
+      class$com$ibm$ws$wlm$client$WLMClient = java.lang.Class@53b95d3
+      selectionMgr = com.ibm.ws.wlm.client.selection.SelectionManager@3273d5d3
+      affinityMgr = com.ibm.ws.wlm.client.affinity.AffinityManager@e8055d3
+      orb = this._orb
+      tc = com.ibm.ejs.ras.TraceComponent@43a455d3
+    fTransportKey = true
+    fReaderPoolKey = true
+    fReaderPool = 
+      fOrb = this._orb
+    fThreadPoolKey = true
+    fThreadPool = 
+      threadPool = com.ibm.ws.util.ThreadPool@1f115d1
+      workerPool = com.ibm.ejs.oa.pool.ThreadPool$1@74e055d0
+      DEFAULT_MAX_SIZE = 20
+      DEFAULT_MIN_SIZE = 2
+    orbPropMgr = 
+      JavaIDLURLPropertyNames = [Ljava.lang.String;@462f95d2
+      JavaIDLPropertyNames = [Ljava.lang.String;@467c15d2
+      props = this._orb.propList
+      orb = null
+    propManagers = 
+      class$java$util$HashMap$Entry = java.lang.Class@a0295db
+      serialVersionUID = 362498820763181265
+      emptyHashIterator = java.util.HashMap$EmptyHashIterator@6fe955dc
+      ENTRIES = 2
+      VALUES = 1
+      KEYS = 0
+      values = null
+      entrySet = null
+      keySet = null
+      modCount = 317
+      loadFactor = 0.75
+      threshold = 575
+      count = 311
+      table = [Ljava.util.HashMap$Entry;@2e9b55d3
+    pluginList = 
+      class$java$lang$Object = null
+      size = 1
+      elementData = [Ljava.lang.Object;@4692d5d2
+      serialVersionUID = 8683452581122892189
+      modCount = 13
+    interceptorList = 
+      class$java$lang$Object = null
+      size = 17
+      elementData = [Ljava.lang.Object;@561855d2
+      serialVersionUID = 8683452581122892189
+      modCount = 17
+    propList = 
+      hexDigit = [C@622755dc
+      whiteSpaceChars =  	
+
+      specialSaveChars = =: 	
+#!
+      strictKeyValueSeparators = =:
+      keyValueSeparators = =: 	
+
+      defaults = null
+      serialVersionUID = 4112578634029874840
+      class$java$util$Hashtable$Entry = this._env.class$java$util$Hashtable$Entry
+      emptyIterator = this._env.emptyIterator
+      emptyEnumerator = this._env.emptyEnumerator
+      ENTRIES = 2
+      VALUES = 1
+      KEYS = 0
+      values = null
+      entrySet = null
+      keySet = null
+      modCount = 12
+      loadFactor = 0.75
+      threshold = 17
+      count = 11
+      table = [Ljava.util.Hashtable$Entry;@46a9d5d2
+    ORBRasInitialized = true
+    thisClassName = com.ibm.rmi.corba.ORB
+    addressingDisposition = 0
+    bufferPool = null
+    lsdPlugin = null
+    pmiServer = null
+    lowWaterMark = 100
+    highWaterMark = 240
+    noLocalInterceptors = false
+    clientCallback = false
+    fragmentTimeout = 300000
+    locateRequestTimeout = 180000
+    requestTimeout = 180000
+    requestRetriesDelay = 0
+    requestRetriesCount = 1
+    valueFactoryCache = 
+      class$java$util$Hashtable$Entry = this._env.class$java$util$Hashtable$Entry
+      emptyIterator = this._env.emptyIterator
+      emptyEnumerator = this._env.emptyEnumerator
+      ENTRIES = 2
+      VALUES = 1
+      KEYS = 0
+      values = null
+      entrySet = null
+      keySet = null
+      serialVersionUID = 1421746759512286392
+      modCount = 0
+      loadFactor = 0.75
+      threshold = 8
+      count = 0
+      table = [Ljava.util.Hashtable$Entry;@79c915d2
+    savedCode = null
+    savedId = null
+    typeCodeMap = 
+      class$java$util$Hashtable$Entry = this._env.class$java$util$Hashtable$Entry
+      emptyIterator = this._env.emptyIterator
+      emptyEnumerator = this._env.emptyEnumerator
+      ENTRIES = 2
+      VALUES = 1
+      KEYS = 0
+      values = null
+      entrySet = null
+      keySet = null
+      serialVersionUID = 1421746759512286392
+      modCount = 9
+      loadFactor = 0.75
+      threshold = 48
+      count = 9
+      table = [Ljava.util.Hashtable$Entry;@55f655ca
+    initialReferenceClient = 
+      reservedNames = [Ljava.lang.String;@79a5d5d2
+      defaultInitRefProperty = com.ibm.CORBA.ORBDefaultInitRef
+      initRefProperty = com.ibm.CORBA.ORBInitRef.
+      defaultInitRefParm = -ORBDefaultInitRef
+      initRefParm = -ORBInitRef
+      localRefs = java.util.Hashtable@79abd5d2
+      initRefs = java.util.Hashtable@79af55d2
+      defaultInitRef = null
+      orb = this._orb
+      resolvedInitialReferences = null
+      listOfInitialServices = null
+      initialServicesPort = 2809
+      servicesURL = null
+    shutdownObj = java.lang.Object@79cc95d2
+    isRunningInApplet = false
+    debug = false
+    defaultInitialServicesPort = 2809
+    objectResolver = 
+      class$com$ibm$ejs$oa$EJSRootOAImpl = java.lang.Class@3ea115df
+      delegateOR = com.ibm.ejs.container.EJSContainer@5dcc55d7
+      modelNameBytes = null
+      serverNameBytes = [B@7ce2d5d4
+      quiesceException = null
+      quiesce = false
+      tc = com.ibm.ejs.ras.TraceComponent@1cd15d0
+      keys = com.ibm.ejs.util.FastHashtable@4b7955d2
+      objects = com.ibm.ejs.util.FastHashtable@264855d1
+      objAdapters = java.util.Hashtable@264e95d1
+      orb = this._orb
+    interceptorManager = 
+      maxSlotId = 2
+      piCurrent = this._wsOptNC.__delegate.piCurrent
+      iorInterceptors = [Lorg.omg.PortableInterceptor.IORInterceptor;@7aa155d3
+      serverInterceptorsLocalInfo = [Z@7aa655d3
+      serverInterceptors = [Lorg.omg.PortableInterceptor.ServerRequestInterceptor;@7aab95d3
+      clientInterceptorsLocalInfo = [Z@7aa915d3
+      clientInterceptors = [Lorg.omg.PortableInterceptor.ClientRequestInterceptor;@7ab355d3
+      iorNames = null
+      iorList = null
+      serverNames = null
+      serverLocalInfo = null
+      serverList = null
+      clientNames = null
+      clientLocalInfo = null
+      clientList = null
+      orbInitInfo = com.ibm.rmi.pi.ORBInitInfoImpl@195de
+      STATE_SEND_OTHER = 12
+      STATE_SEND_EXCEPTION = 11
+      STATE_SEND_REPLY = 10
+      STATE_RECEIVE_REQUEST = 9
+      STATE_RECEIVE_CONTEXT = 8
+      STATE_RECEIVE_OTHER = 7
+      STATE_RECEIVE_EXCEPTION = 6
+      STATE_RECEIVE_REPLY = 5
+      STATE_SEND_POLL = 4
+      STATE_SEND_REQUEST = 3
+      STATE_POST_INIT = 2
+      STATE_PRE_INIT = 1
+      STATE_NOTHING = 0
+      pmiServer = null
+      localServerInterceptors = false
+      localClientInterceptors = false
+      orb = this._orb
+    scInit = 
+      class$com$ibm$CORBA$iiop$ServerDelegate = java.lang.Class@43a954f
+      scTable = [[Ljava.lang.String;@640b55d3
+      orb = this._orb
+    pluginRegistry = 
+      class$com$ibm$CORBA$transport$Transport = java.lang.Class@402954f
+      class$com$ibm$CORBA$transport$ReaderPool = java.lang.Class@46a954f
+      class$com$ibm$CORBA$iiop$ThreadPool = java.lang.Class@5b329555
+      class$com$ibm$CORBA$iiop$PropertyManager = java.lang.Class@59aa9555
+      class$com$ibm$CORBA$iiop$PMIPlugin = java.lang.Class@7f2954f
+      class$com$ibm$CORBA$iiop$SubcontractInit = java.lang.Class@598a9555
+      subcontractClass = this._orb.pluginRegistry.class$com$ibm$CORBA$iiop$SubcontractInit
+      instanceTable = java.util.Hashtable@784695d2
+      nameTable = java.util.Hashtable@784a15d2
+      orb = this._orb
+    queueDepth = 0
+    useLocateRequest = true
+    outputBufferListSize = 100
+    fragmentSize = 1024
+    bufferSize = 2048
+    initApplet = null
+    initProps = 
+      hexDigit = this._orb.propList.hexDigit
+      whiteSpaceChars =  	
+
+      specialSaveChars = =: 	
+#!
+      strictKeyValueSeparators = =:
+      keyValueSeparators = =: 	
+
+      defaults = null
+      serialVersionUID = 4112578634029874840
+      class$java$util$Hashtable$Entry = this._env.class$java$util$Hashtable$Entry
+      emptyIterator = this._env.emptyIterator
+      emptyEnumerator = this._env.emptyEnumerator
+      ENTRIES = 2
+      VALUES = 1
+      KEYS = 0
+      values = null
+      entrySet = null
+      keySet = null
+      modCount = 128
+      loadFactor = 0.75
+      threshold = 143
+      count = 124
+      table = [Ljava.util.Hashtable$Entry;@7bccd5d2
+    arguments = {}
+    serverId = 1198777258
+    wcharDefault = 0
+    wcharEncoding = 65792
+    charEncoding = 83951617
+    appletCodeBase = null
+    appletHost = 
+    ORBServerPort = 0
+    ORBServerHost = localhost
+    ORBInitialPort = 2809
+    ORBInitialHost = localhost
+    _svResponseReceived = 
+      _flag = false
+    _dynamicRequests = 
+      serialVersionUID = -2767605614048989439
+      capacityIncrement = 0
+      elementCount = 0
+      elementData = [Ljava.lang.Object;@79c555d2
+      modCount = 0
+    singleton = 
+      bufferPool = com.ibm.rmi.iiop.BufferPool@720e15d3
+      kNullTypeCode = com.ibm.rmi.corba.TypeCodeImpl@720f15d3
+      typeCodeMap = java.util.Hashtable@7200d5d3
+      singleton = this._orb.singleton
+      defaultORBSingleton = com.ibm.rmi.corba.ORBSingleton
+      defaultORB2 = com.ibm.rmi.iiop.ORB
+      defaultORB = com.ibm.CORBA.iiop.ORB
+      ORBSingletonClassKey = org.omg.CORBA.ORBSingletonClass
+      ORBClassKey = org.omg.CORBA.ORBClass
+    defaultORBSingleton = com.ibm.rmi.corba.ORBSingleton
+    defaultORB2 = com.ibm.rmi.iiop.ORB
+    defaultORB = com.ibm.CORBA.iiop.ORB
+    ORBSingletonClassKey = org.omg.CORBA.ORBSingletonClass
+    ORBClassKey = org.omg.CORBA.ORBClass
+

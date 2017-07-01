@@ -1,0 +1,361 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Valores de la agrupaci&oacute;n de conexiones (Versi&oacute;n 4)</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="Connection_poolV4_settings"></a>
+<h2>Valores de la agrupaci&oacute;n de conexiones (Versi&oacute;n 4)</h2>
+
+<p>Utilice esta p&aacute;gina para crear una agrupaci&oacute;n de conexiones para un origen de datos de la versi&oacute;n 4.0.</p>
+
+<p>Para ver esta p&aacute;gina de la consola administrativa, pulse <strong>Recursos</strong> &gt;
+<strong>Proveedores JDBC</strong> &gt; <em>proveedor_JDBC</em> &gt; <strong>Or&iacute;genes de datos (Versi&oacute;n 4)</strong>
+&gt; <em>origen_datos</em> &gt; <strong>Agrupaci&oacute;n de conexiones</strong>.</p>
+
+<div>
+<p>
+<strong>Pesta&ntilde;a Configuraci&oacute;n</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="WAS40ConnectionPool_detail_contextID"></a>&Aacute;mbito</strong>
+</dt>
+<dd>Especifica el nivel hasta el cual puede visualizarse esta definici&oacute;n de recurso --
+nivel de c&eacute;lula, nodo o servidor.
+<p>Los recursos tales como los proveedores JDBC, enlaces de espacio de nombres o
+bibliotecas compartidas se pueden definir en varios &aacute;mbitos, de tal modo que los recursos
+definidos en &aacute;mbitos m&aacute;s espec&iacute;ficos alteren temporalmente los duplicados definidos en
+&aacute;mbitos m&aacute;s generales.</p>
+
+<p>Tenga en cuenta que, independientemente del &aacute;mbito de un recurso definido, las propiedades
+de dicho recurso s&oacute;lo se aplican a nivel de servidor individual. Por ejemplo, si define el
+&aacute;mbito de un origen de datos a nivel de c&eacute;lula, todos los usuarios de la c&eacute;lula pueden buscar
+y utilizar dicho origen de datos, que es exclusivo en esa c&eacute;lula. Sin
+embargo, los valores de propiedades de recursos son locales para cada
+servidor de la c&eacute;lula. 
+Por ejemplo, si define <em>n&uacute;mero m&aacute;ximo de conexiones</em> en 10, cada servidor de la c&eacute;lula
+puede tener 10 conexiones.<dl>
+
+<dt>
+<strong>C&eacute;lula</strong>
+</dt>
+<dd>El &aacute;mbito m&aacute;s general.  Los recursos definidos en el &aacute;mbito de c&eacute;lula son visibles desde todos los nodos y servidores, a menos que se alteren temporalmente. Para ver los recursos definidos en el &aacute;mbito de c&eacute;lula, no especifique ning&uacute;n servidor o nombre nodo en el formulario de selecci&oacute;n de &aacute;mbito.</dd>
+
+<dt>
+<strong>Nodo</strong>
+</dt>
+<dd>En &aacute;mbito por omisi&oacute;n de la mayor&iacute;a de tipos de recurso.  Los recursos
+definidos en el &aacute;mbito de nodo alteran temporalmente cualquier duplicado definido en el
+&aacute;mbito de c&eacute;lula y son visibles en todos los servidores del mismo nodo, a menos que se
+alteren temporalmente en un &aacute;mbito de servidor de ese nodo. Para ver los recursos definidos en un &aacute;mbito de nodo, no especifique ning&uacute;n servidor, sino que seleccione un nombre de nodo en el formulario de selecci&oacute;n de &aacute;mbito.</dd>
+
+<dt>
+<strong>Servidor</strong>
+</dt>
+<dd>El &aacute;mbito m&aacute;s espec&iacute;fico para definir recursos.  Los recursos definidos en
+el &aacute;mbito de servidor alteran temporalmente cualquier definici&oacute;n de recurso duplicado definida
+en el &aacute;mbito de c&eacute;lula o &aacute;mbito de nodo padre y s&oacute;lo son visibles en un servidor determinado. Para ver los recursos definidos en un &aacute;mbito de servidor, especifique un nombre de servidor, adem&aacute;s de un nombre de nodo en el formulario de selecci&oacute;n de &aacute;mbito.</dd>
+
+</dl>
+</p>
+
+<p>Al crear recursos, estos siempre se crean en el &aacute;mbito actual seleccionado en el panel.   Para ver recursos de otros &aacute;mbitos, especifique un nodo o servidor distinto en el formulario de selecci&oacute;n de &aacute;mbito.  </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WAS40ConnectionPool_minimumPoolSize_description"></a>Tama&ntilde;o m&iacute;nimo de agrupaci&oacute;n </strong>
+</dt>
+<dd>Especifica el n&uacute;mero m&iacute;nimo de conexiones que se deben mantener en la agrupaci&oacute;n.  
+<p>El tama&ntilde;o m&iacute;nimo de agrupaci&oacute;n puede afectar al rendimiento de una aplicaci&oacute;n.  Las agrupaciones m&aacute;s peque&ntilde;as requieren menos actividad adicional cuando la demanda es baja porque menos conexiones permanecen abiertas para la base de datos.  Cuando la demanda es alta,
+las primeras aplicaciones experimentan un respuesta lenta, ya que se tienen que crear nuevas
+conexiones si se est&aacute; utilizando el resto de las conexiones de la agrupaci&oacute;n.  </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">1</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">Cualquier entero no negativo</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WAS40ConnectionPool_maximumPoolSize_description"></a>Tama&ntilde;o m&aacute;ximo de agrupaci&oacute;n </strong>
+</dt>
+<dd>Especifica el n&uacute;mero m&aacute;ximo de conexiones que se deben mantener en la agrupaci&oacute;n. 
+<p> Si se alcanza el n&uacute;mero m&aacute;ximo de conexiones y todas ellas se est&aacute;n utilizando, las peticiones adicionales de conexi&oacute;n esperan el n&uacute;mero de segundos especificado como tiempo de espera de conexi&oacute;n. El tama&ntilde;o m&aacute;ximo de agrupaci&oacute;n puede afectar al rendimiento de una aplicaci&oacute;n.  Las agrupaciones m&aacute;s grandes requieren m&aacute;s carga adicional cuando la demanda es alta, ya que
+hay m&aacute;s conexiones abiertas en la base de datos en el momento de m&aacute;xima demanda.
+ Estas conexiones persisten hasta que se desocupan y se eliminan de la agrupaci&oacute;n.  Si el valor
+m&aacute;ximo es menor, puede haber tiempos de espera m&aacute;s largos o posibles errores de tiempo
+de espera de conexi&oacute;n en las horas puntas.  Aseg&uacute;rese de que la base de datos pueda dar
+soporte al n&uacute;mero m&aacute;ximo de conexiones en el servidor de aplicaciones, adem&aacute;s de dar soporte a
+cualquier carga que tenga fuera del servidor de aplicaci&oacute;n.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">10</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">Cualquier entero positivo.</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WAS40ConnectionPool_connectionTimeout_description"></a>Tiempo de espera de conexi&oacute;n </strong>
+</dt>
+<dd> Especifica el n&uacute;mero m&aacute;ximo de segundos que espera una aplicaci&oacute;n para una conexi&oacute;n
+con la agrupaci&oacute;n antes de que se exceda el tiempo de espera y se genere una excepci&oacute;n
+ConnectionWaitTimeoutException para la aplicaci&oacute;n.
+<p>Si establece este valor en 0, se inhabilita tiempo de espera de conexi&oacute;n.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unidades</td>
+<td align="left" valign="top" class="base">Segundos</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">180</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">Cualquier entero no negativo.</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WAS40ConnectionPool_idleTimeout_description"></a>Tiempo de espera desocupado </strong>
+</dt>
+<dd>Especifica el tiempo m&aacute;ximo en segundos que una conexi&oacute;n desocupada (no asignada)
+puede permanecer en la agrupaci&oacute;n antes de que se elimine para liberar recursos. 
+<p>Es necesario desocupar las conexiones y eliminarlas de la agrupaci&oacute;n porque si se
+mantienen abiertas para la base de datos pueden ocasionar problemas de memoria en dicha base
+de datos.  Sin embargo, no todas las conexiones se desocupan y eliminan de la agrupaci&oacute;n, incluso si son anteriores al valor de Tiempo de espera desocupado.
+ Una conexi&oacute;n no se desocupa si, al eliminarla, se reduce la agrupaci&oacute;n por debajo de su tama&ntilde;o m&iacute;nimo.  Si establece este valor en 0, se inhabilita el tiempo de espera desocupado.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unidades</td>
+<td align="left" valign="top" class="base">Segundos</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">1800</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">Cualquier entero no negativo.</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WAS40ConnectionPool_orphanTimeout_description"></a>Tiempo de espera hu&eacute;rfano </strong>
+</dt>
+<dd>Especifica el n&uacute;mero m&aacute;ximo de segundos que una aplicaci&oacute;n puede mantener una
+conexi&oacute;n sin utilizarla antes de que se devuelva a la agrupaci&oacute;n. 
+<p>Si no hay ninguna actividad en una conexi&oacute;n asignada durante m&aacute;s tiempo que el
+correspondiente al valor de Tiempo de espera hu&eacute;rfano, la conexi&oacute;n se marca como hu&eacute;rfana.  
+Despu&eacute;s de otra cantidad de segundos de Tiempo de espera hu&eacute;rfano, si la conexi&oacute;n sigue sin
+actividad alguna, la conexi&oacute;n se devuelve a la agrupaci&oacute;n.  Si la aplicaci&oacute;n intenta utilizar la conexi&oacute;n de nuevo, se genera una StaleConnectionException.  Las conexiones que han participado en una transacci&oacute;n no son hu&eacute;rfanas.  Si establece este valor en 0, se inhabilita el tiempo de espera hu&eacute;rfano. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unidades</td>
+<td align="left" valign="top" class="base">Segundos</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">1800</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">Cualquier entero no negativo.</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WAS40ConnectionPool_statementCacheSize_description"></a>Tama&ntilde;o de la antememoria de la sentencia </strong>
+</dt>
+<dd> Especifica el n&uacute;mero de sentencias preparadas en antememoria para mantener la conexi&oacute;n.
+<p>El valor m&aacute;s grande para establecer el tama&ntilde;o de la antememoria que necesitar&aacute; si no desea
+que se descarte de ning&uacute;n modo la antememoria es el siguiente: para cada aplicaci&oacute;n que utilice
+este origen de datos en un servidor determinado, sume el n&uacute;mero de sentencias preparadas
+exclusivas (seg&uacute;n lo determina la serie <em>sql</em>, la simultaneidad y el tipo de
+desplazamiento). Este es el n&uacute;mero m&aacute;ximo de sentencias preparadas posibles que pueden colocarse en antememoria en una conexi&oacute;n determinada durante la vida &uacute;til del servidor. Si
+se establece el tama&ntilde;o de la antememoria en este valor significa que en ning&uacute;n caso se
+descartar&aacute; la antememoria. Esto proporciona un mayor rendimiento. No obstante, debido a las limitaciones potenciales de recursos, no siempre es posible.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">10</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">Cualquier entero no negativo.</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WAS40ConnectionPool_disableAutoConnectionCleanup_description"></a>Limpieza autom&aacute;tica de conexiones</strong>
+</dt>
+<dd>Especifica si el software de agrupaci&oacute;n de conexiones cerrar&aacute; o no
+autom&aacute;ticamente las conexiones desde este origen de datos al finalizar una transacci&oacute;n. 
+<p> El valor por omisi&oacute;n es <em>false</em>, que indica que WebSphere
+Application Server cierra la conexi&oacute;n y la devuelve a la agrupaci&oacute;n al
+finalizar una conexi&oacute;n. Si se utiliza la conexi&oacute;n despu&eacute;s de que
+haya finalizado la transacci&oacute;n, se genera una excepci&oacute;n StaleConnectionException, ya que la
+conexi&oacute;n est&aacute; cerrada y se ha devuelto a la agrupaci&oacute;n.  Este mecanismo garantiza que la aplicaci&oacute;n no retenga las conexiones indefinidamente.  Si el valor se establece en <em>true</em>, la conexi&oacute;n no se devuelve a la agrupaci&oacute;n al final de la transacci&oacute;n.  En este caso, la aplicaci&oacute;n debe devolver la conexi&oacute;n a la agrupaci&oacute;n llamando a <em>close()</em>.  Si la aplicaci&oacute;n no cierra la conexi&oacute;n, la agrupaci&oacute;n puede quedarse sin conexiones para las dem&aacute;s aplicaciones.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Recuadro de selecci&oacute;n</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">False (cerrar)</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informaci&oacute;n relacionada</strong>
+</p>
+<a href="rcon_buttons.html">Botones de la consola de administraci&oacute;n</a>
+<br>
+
+<a href="rcon_pageusage.html">Caracter&iacute;sticas de la p&aacute;gina de la consola administrativa</a>
+<br>
+
+</div>
+</body>
+</html>

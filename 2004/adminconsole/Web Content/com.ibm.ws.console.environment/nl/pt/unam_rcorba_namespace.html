@@ -1,0 +1,110 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>CORBA object binding settings</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="unam_rcorba_namespace"></a>
+<h2>CORBA object binding settings</h2>
+
+<p>Use this page to configure a new name binding of a CORBA object
+binding, or to view or edit an existing CORBA object binding. </p>
+
+<p>To view this administrative console page, click <strong> Environment</strong> &gt; <strong> Naming</strong> &gt; <strong>Name
+Space Bindings</strong> &gt; <em>CORBA_namespace_binding</em>.</p>
+
+<div>
+<p>
+<strong>Configuration tab</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="NameSpaceBinding_scope_description"></a>Scope</strong>
+</dt>
+<dd>Shows the scope of the configured binding. This value indicates
+the configuration location for the <samp>namebindings.xml</samp> file. This field
+is for information purposes only and cannot be updated. 
+<p> If the configured binding is cell-scoped, the starting context is the
+cell persistent root context.  If the configured binding is node-scoped, the
+starting context is the node persistent root context.  If the configured binding
+is server-scoped, the starting context is the server's server root context.</p>
+
+</dd>
+<dt>
+<strong><a name="NameSpaceBinding_bindingtype_description"></a>Binding Type</strong>
+</dt>
+<dd>Shows the type of binding configured. Possible choices are String,
+EJB, CORBA, and Indirect. This field is for information purposes only and
+cannot be updated. </dd>
+<dt>
+<strong><a name="NameSpaceBinding_name_description"></a>Binding Identifier</strong>
+</dt>
+<dd>Specifies the name that uniquely identifies this configured binding.</dd>
+<dt>
+<strong><a name="NameSpaceBinding_nameInNameSpace_description"></a>Name in Name Space</strong>
+</dt>
+<dd>Specifies the name used for this binding in the name space. This
+name can be a simple or compound name depending on the portion of the name
+space where this binding is configured.</dd>
+<dt>
+<strong><a name="CORBAObjectNameSpaceBinding_corbanameUrl_description"></a>Corbaname URL</strong>
+</dt>
+<dd>Specifies the CORBA name URL string identifying where the object
+is bound in a CosNaming server.</dd>
+<dt>
+<strong><a name="CORBAObjectNameSpaceBinding_federatedContext_description"></a>Federated Context</strong>
+</dt>
+<dd>Specifies whether the target is a CosNaming context (true) or a
+leaf node object (false).
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Value</td>
+<td align="left" valign="top" class="base">Result</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">true</td>
+<td align="left" valign="top" class="base">The target object is bound with a context CORBA binding type.  If
+the corbaname URL does not resolve to a NamingContext, an error occurs when
+the binding is first used (which is when the URL is first resolved).</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede"> false</td>
+<td align="left" valign="top" class="base">The target object is bound with an object CORBA binding type.</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Related information</strong>
+</p>
+<a href="rcon_buttons.html">Administrative console buttons</a>
+<br>
+
+<a href="rcon_pageusage.html">Administrative console page features</a>
+<br>
+
+<a href="rcon_preferences.html">Administrative console preference settings</a>
+<br>
+
+<a href="unam_rmanage_namespace.html">Name space binding collection</a>
+<br>
+
+</div>
+</body>
+</html>

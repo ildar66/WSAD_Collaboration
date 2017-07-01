@@ -1,0 +1,487 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Param&egrave;tres de la machine virtuelle Java</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="urun_rconfproc_jvm"></a>
+<h2>Param&egrave;tres de la machine virtuelle Java</h2>
+
+<p>Cette page permet d'afficher et de modifier la configuration de la machine virtuelle Java (JVM) pour le processus du serveur d'applications.</p>
+
+<p>Pour afficher cette page de la console d'administration,
+cliquez sur <strong>Serveurs &gt; Serveurs d'applications
+&gt; </strong><em>nom_serveur</em><strong> &gt; D&eacute;finition du processus
+&gt; Machine virtuelle Java</strong>.</p>
+
+<div>
+<p>
+<strong>Onglet Configuration</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="JavaVirtualMachine_classpath_description"></a>Chemin d'acc&egrave;s aux classes</strong>
+</dt>
+<dd>Indique le chemin d'acc&egrave;s aux classes standard dans lequel
+le code de la machine virtuelle Java recherche les classes.
+<p>Entrez chaque chemin d'acc&egrave;s aux classes dans une ligne de table. Il n'est pas n&eacute;cessaire d'ajouter une virgule ou un point virgule &agrave;
+la fin de chaque entr&eacute;e.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&eacute;</td>
+<td align="left" valign="top" class="base">Chemin d'acc&egrave;s aux classes</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_bootClasspath_description"></a>Chemin d'acc&egrave;s aux classes d'amor&ccedil;age</strong>
+</dt>
+<dd>Indique les ressources et les classes d'amor&ccedil;age pour
+le code JVM. Cette option est disponible uniquement pour les
+instructions JVM qui prennent en charge les ressources et les classes
+d'amor&ccedil;age. En fonction du syst&egrave;me d'exploitation
+ du noeud, vous pouvez s&eacute;parer plusieurs chemins d'acc&egrave;s &agrave; l'aide de
+deux points (:) ou d'un point-virgule.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_verboseModeClass_description"></a>Chargement des classes en mode prolixe</strong>
+</dt>
+<dd>Indique si le mode prolixe de d&eacute;bogage est utilis&eacute; pour le
+chargement des classes.
+ Par d&eacute;faut, le chargement des classes en mode prolixe n'est pas activ&eacute;.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Bool&eacute;en</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">false</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_verboseModeGarbageCollection_description"></a>R&eacute;cup&eacute;ration de place en mode prolixe</strong>
+</dt>
+<dd>Indique si le mode prolixe de d&eacute;bogage pour le processus
+de r&eacute;cup&eacute;ration de place Java est utilis&eacute;.
+ Par d&eacute;faut, la r&eacute;cup&eacute;ration de place en mode prolixe n'est pas activ&eacute;e.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Bool&eacute;en</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">false</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_verboseModeJNI_description"></a>JNI en mode prolixe</strong>
+</dt>
+<dd>Indique si le mode prolixe de d&eacute;bogage pour les appels de
+m&eacute;thodes de l'interface native Java (JNI) est utilis&eacute;.  Par d&eacute;faut, l'activit&eacute; JNDI (Java Native Interface) en mode prolixe
+n'est pas activ&eacute;e.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Bool&eacute;en</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">false</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_initialHeapSize_description"></a>Taille initiale du segment Java</strong>
+</dt>
+<dd>Indique la taille initiale, en m&eacute;ga-octets, du segment Java attribu&eacute; au code de la JVM. 
+<p>L'augmentation de la taille minimale des segments peut am&eacute;liorer le d&eacute;marrage. Le nombre
+d'occurrences de r&eacute;cup&eacute;ration de place diminue et les performances sont accrues de 10 %.</p>
+
+<p>En g&eacute;n&eacute;ral, l'augmentation de la taille du segment Java am&eacute;liore le d&eacute;bit, jusqu'&agrave; ce que le segment ne puisse plus r&eacute;sider en m&eacute;moire physique. Si cette limite est franchie, le segment d&eacute;borde sur le disque et la permutation qui en r&eacute;sulte r&eacute;duit consid&eacute;rablement les performances de Java. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Entier</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">64 pour OS/400, 50 pour toutes les autres plateformes</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_maximumHeapSize_description"></a>Taille maximale du segment Java</strong>
+</dt>
+<dd>Indique la taille maximale, en m&eacute;ga-octets, du segment
+Java attribu&eacute; au code de la JVM.
+ 
+<p>L'augmentation de la taille des segments peut am&eacute;liorer le d&eacute;marrage. Le nombre
+d'occurrences de r&eacute;cup&eacute;ration de place diminue et les performances sont accrues de 10 %. </p>
+
+<p>En g&eacute;n&eacute;ral, l'augmentation de la taille du segment Java am&eacute;liore le d&eacute;bit, jusqu'&agrave; ce que le segment ne puisse plus r&eacute;sider en m&eacute;moire physique. Si cette limite est franchie, le segment d&eacute;borde sur le disque et la permutation qui en r&eacute;sulte r&eacute;duit consid&eacute;rablement les performances de Java. Par cons&eacute;quent, il est important d'attribuer une valeur suffisamment faible &agrave; la taille maximale du segment pour que ce dernier puisse tenir en entier dans la m&eacute;moire physique.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Entier</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">0 pour OS/400, 256 pour toutes les autres plateformes. D&eacute;finissez une valeur
+suffisamment faible pour &eacute;viter une pagination ou un transfert de m&eacute;moire sur disque par
+permutation.</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_runHProf_description"></a>Ex&eacute;cuter HProf</strong>
+</dt>
+<dd>Indique si le support du profileur HProf est utilis&eacute;. Pour
+utiliser un autre profileur, sp&eacute;cifiez les param&egrave;tres du profileur
+personnalis&eacute; via le param&egrave;tres Arguments de HProf.  Par d&eacute;faut, le support du profileur HProf n'est pas activ&eacute;.
+<p>Si la valeur true est attribu&eacute;e &agrave; la propri&eacute;t&eacute; Ex&eacute;cuter HProf,
+vous devez sp&eacute;cifier les arguments de ligne de commande comme valeurs
+de la propri&eacute;t&eacute; Arguments HProf.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Bool&eacute;en</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">false</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_hprofArguments_description"></a>Arguments de Hprof</strong>
+</dt>
+<dd>Indique les arguments du profileur de ligne de commande &agrave;
+transmettre au code JVM qui lance le processus du serveur
+d'applications. Vous pouvez sp&eacute;cifier les arguments lorsque le
+support du profileur HProf est activ&eacute;.
+<p>Les arguments de HProf sont requis uniquement si la valeur de la
+propri&eacute;t&eacute; Ex&eacute;cuter HProf est true.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_debugMode_description"></a>Mode de d&eacute;bogage</strong>
+</dt>
+<dd>Indique si la JVM doit &ecirc;tre ex&eacute;cut&eacute;e en mode d&eacute;bogage. Par
+d&eacute;faut, le support du mode de d&eacute;bogage n'est pas activ&eacute;.
+<p>Si la valeur true est attribu&eacute;e &agrave; la propri&eacute;t&eacute; Mode de d&eacute;bogage,
+vous devez sp&eacute;cifier les arguments de ligne de commande comme valeurs
+de la propri&eacute;t&eacute; Arguments de d&eacute;bogage.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Bool&eacute;en</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">false</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_debugArgs_description"></a>Arguments de d&eacute;bogage</strong>
+</dt>
+<dd>Indique les arguments de d&eacute;bogage de ligne de commande &agrave;
+transmettre au code JVM qui lance le processus du serveur d'applications. Vous pouvez sp&eacute;cifier les arguments lorsque le mode de d&eacute;bogage est activ&eacute;.
+<p>Les arguments de d&eacute;bogage sont requis uniquement si la valeur de
+la propri&eacute;t&eacute; Mode de d&eacute;bogage est true.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&eacute;</td>
+<td align="left" valign="top" class="base">Arguments de la ligne de commande Java</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_genericJvmArguments_description"></a>Arguments JVM g&eacute;n&eacute;riques</strong>
+</dt>
+<dd>Indique les arguments de ligne de commande &agrave; transmettre
+au code de la machine virtuelle Java qui lance le processus
+du serveur d'applications.
+<p>Les arguments suivants sont des arguments de ligne de commande facultatifs que vous pouvez utiliser en les indiquant dans la zone <strong>Arguments JVM g&eacute;n&eacute;raux</strong> :<ul>
+
+<li>
+<strong>-Xquickstart :</strong> Vous pouvez utiliser cette valeur pour la compilation initiale &agrave; un
+niveau d'optimisation inf&eacute;rieur au niveau du mode par d&eacute;faut, puis, suivant certains r&eacute;sultats
+d'&eacute;chantillonnage, vous pouvez effectuer une recompilation au niveau de la compilation
+initiale du mode par d&eacute;faut. Quickstart est utile pour les applications dans lesquelles un d&eacute;bit mod&eacute;r&eacute; &agrave; court terme est
+plus important qu'un d&eacute;bit &agrave; long terme. Dans certains sc&eacute;narios de d&eacute;bogage, routines de test et outils &agrave; ex&eacute;cution courte, il est
+possible de r&eacute;duire la dur&eacute;e de d&eacute;marrage de 15 &agrave; 20 %. <strong>-DCOPT_NQREACHDEF</strong> peut encore am&eacute;liorer la dur&eacute;e de d&eacute;marrage de 15 %.</li>
+
+<li>
+<strong>-Xverify:none:</strong> Lorsque cette valeur est utilis&eacute;e, la phase de v&eacute;rification des classes est ignor&eacute;e lors du chargement des classes. Le temps de d&eacute;marrage est am&eacute;lior&eacute; de 10 &agrave; 15 % en utilisant <strong>-Xverify:none</strong>, le
+compilateur just in time (JIT) &eacute;tant activ&eacute;.</li>
+
+<li>
+<strong>-Xnoclassgc:</strong> Vous pouvez utiliser cette valeur pour d&eacute;sactiver la fonction de
+collecte des classes pour lib&eacute;ration m&eacute;moire, ce qui permet de r&eacute;utiliser les classes plus
+facilement et am&eacute;liore l&eacute;g&egrave;rement les performances. La fonction de collecte des classes pour lib&eacute;ration m&eacute;moire est activ&eacute;e par d&eacute;faut, mais il est conseill&eacute; de l'activer tout de m&ecirc;me. Vous pouvez contr&ocirc;ler les statistiques de r&eacute;cup&eacute;ration de place &agrave; l'aide du param&egrave;tre de
+configuration verbose:gc, car il produit des statistiques de lib&eacute;ration m&eacute;moire de classes.</li>
+
+<li>
+<strong>-Xgcthreads :</strong> Vous pouvez utiliser plusieurs unit&eacute;s d'ex&eacute;cution de lib&eacute;ration m&eacute;moire simultan&eacute;ment. Cette fonction est appel&eacute;e <em>lib&eacute;ration m&eacute;moire parall&egrave;le</em>. Lorsque vous indiquez cette valeur dans la zone <strong>Arguments JVM g&eacute;n&eacute;riques</strong>, indiquez
+aussi le nombre de processeurs dont votre poste est &eacute;quip&eacute;, par exemple,
+<samp>-Xgcthreads=</samp><em>nombre_de_processeurs</em>.
+Il est conseill&eacute; d'utiliser la fonction de lib&eacute;ration m&eacute;moire parall&egrave;le si votre poste est &eacute;quip&eacute; de plusieurs processeurs. Cet argument s'applique uniquement &agrave; IBM Developer Kit.</li>
+
+<li>
+<strong>-Xnocompactgc :</strong> Cette valeur d&eacute;sactive la compression du segment, qui repr&eacute;sente l'op&eacute;ration de lib&eacute;ration m&eacute;moire la plus on&eacute;reuse. Evitez d'utiliser la fonction de compression de segment dans IBM Developer Kit 1.3.  Si vous d&eacute;sactivez la fonction de compression de segment, vous &eacute;liminez toutes les surcharges qui lui sont associ&eacute;es. Lorsque vous indiquez cette valeur dans la zone <strong>Arguments JVM g&eacute;n&eacute;riques</strong>, indiquez
+aussi le nombre de processeurs dont votre poste est &eacute;quip&eacute;, par exemple,
+<samp>-Xnocompactgc=</samp><em>nombre_de_processeurs</em>.</li>
+
+<li>
+<strong>-Xinitsh :</strong> Cette valeur permet de d&eacute;finir le taille de segment initiale
+pour le stockage des objets de classe. Les d&eacute;finitions de m&eacute;thode et les zones statiques sont aussi stock&eacute;es avec les objets de classe. Bien que la taille de segment syst&egrave;me n'ait pas de
+limite maximale, d&eacute;finissez une taille initiale ad&eacute;quate pour &eacute;viter d'augmenter la taille de
+segment syst&egrave;me et donc d'appeler le gestionnaire de m&eacute;moire du syst&egrave;me d'exploitation. Vous pouvez obtenir une taille de segment syst&egrave;me initiale correcte en connaissant le nombre
+de classes charg&eacute;es dans le produit Websphere, soit environ 8000, et la taille moyenne de ces
+classes. Si vous connaissez l'application, vous pourrez les inclure dans votre calcul.</li>
+
+<li>
+<strong>-Xmc :</strong> La taille de segment local de l'unit&eacute; d'ex&eacute;cution est une partie du segment allou&eacute;e exclusivement &agrave; une unit&eacute; d'ex&eacute;cution. En raison de la taille de segment locale de
+l'unit&eacute; d'ex&eacute;cution, l'unit&eacute; d'ex&eacute;cution n'est pas oblig&eacute;e de verrouiller l'ensemble du
+segment lors de l'attribution des objets.
+Lorsque le segment local de l'unit&eacute; d'ex&eacute;cution est satur&eacute;, l'attribution des objets est
+toutefois effectu&eacute;e &agrave; partir du segment qui a besoin d'&ecirc;tre synchronis&eacute;. Une taille de m&eacute;moire cache locale correcte est essentielle pour obtenir de bonnes
+performances et exige de conna&icirc;tre l'application et ses objets.</li>
+
+<li>
+<strong>-Xml :</strong> Cette valeur permet de d&eacute;finir la taille maximale d'un objet &agrave; attribuer &agrave; partir de la m&eacute;moire cache locale. Les objets qui d&eacute;passent la taille maximale doivent &ecirc;tre attribu&eacute;s &agrave; partir du segment standard. Attribuez les objets &agrave; partir de la m&eacute;moire cache locale, sinon celle-ci diminue car elle
+n'augmente pas de mani&egrave;re dynamique.
+Si vous savez que certains objets doivent devenir tr&egrave;s volumineux, attribuez-les &agrave; partir du
+segment standard.</li>
+
+</ul>
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&eacute;</td>
+<td align="left" valign="top" class="base">Arguments de ligne de commande Java</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_executableJarFileName_description"></a>Nom du fichier JAR du programme ex&eacute;cutable</strong>
+</dt>
+<dd>Indique le nom du chemin complet d'un fichier JAR
+ex&eacute;cutable utilis&eacute; par le code de la JVM.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&eacute;</td>
+<td align="left" valign="top" class="base">Nom de chemin d'acc&egrave;s</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_disableJIT_description"></a>D&eacute;sactivation du compilateur JIT</strong>
+</dt>
+<dd>Indique s'il est n&eacute;cessaire de d&eacute;sactiver l'option du
+compilateur JIT (just in time) du code de la JVM. 
+<p>Si vous d&eacute;sactivez le compilateur JIT, le d&eacute;bit diminue sensiblement. Pour obtenir de meilleures performances, &eacute;vitez de d&eacute;sactiver le compilateur JIT.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Bool&eacute;en</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">false (JIT activ&eacute;</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Mesure recommand&eacute;e</td>
+<td align="left" valign="top" class="base">JIT activ&eacute;</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_osName_description"></a>Nom du syst&egrave;me d'exploitation</strong>
+</dt>
+<dd>Sp&eacute;cifie les param&egrave;tres de la JVM sp&eacute;cifiques &agrave; un
+syst&egrave;me d'exploitation donn&eacute;. Une fois lanc&eacute;, le processus utilise
+les param&egrave;tres de la JVM du syst&egrave;me d'exploitation du noeud.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informations connexes</strong>
+</p>
+<a href="rcon_buttons.html">Boutons de la console administrative</a>
+<br>
+
+<a href="rcon_pageusage.html">Caract&eacute;ristiques de la page de la console d'administration</a>
+<br>
+
+<a href="urun_rproperty.html">Collection de propri&eacute;t&eacute;s personnalis&eacute;es</a>
+<br>
+
+</div>
+</body>
+</html>

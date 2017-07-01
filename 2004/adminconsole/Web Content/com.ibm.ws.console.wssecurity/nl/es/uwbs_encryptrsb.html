@@ -1,0 +1,167 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Valores de configuraci&oacute;n de la informaci&oacute;n de cifrado</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_encryptrsb"></a>
+<h2>
+<img alt="[Release 5.1 y posterior]" src="v51.gif" border="0">Valores de configuraci&oacute;n de la informaci&oacute;n de cifrado</h2>
+
+<p>Utilice esta p&aacute;gina para configurar los par&aacute;metros de cifrado y descifrado.</p>
+
+<p>Las especificaciones que figuran en esta p&aacute;gina para el m&eacute;todo de
+signatura, para los m&eacute;todos de conversi&oacute;n y canonicalizaci&oacute;n se encuentran
+en el documento WC3 (World Wide Web Consortium) titulado <em>XML Encryption Syntax and Processing: W3C Recommendation
+10 Dec 2002</em>.</p>
+
+<p>Para ver esta p&aacute;gina de la consola administrativa, realice los pasos siguientes:<ol>
+
+<li>Pulse <strong>Aplicaciones &gt; Aplicaciones de empresa &gt;
+</strong><em>nombre_aplicaci&oacute;n</em>.</li>
+
+<li>En Elementos relacionados, pulse <strong>M&oacute;dulos Web &gt; </strong><em>nombre_archivo_URI</em>&gt; <strong>Servicios Web: Enlaces de seguridad del servidor</strong>. </li>
+
+<li>En Enlace del remitente de respuestas,  pulse <strong>Editar &gt; Informaci&oacute;n de cifrado</strong>.</li>
+
+<li>Si no est&aacute; disponible la informaci&oacute;n de cifrado, seleccione <strong>Ninguna</strong>.</li>
+
+<li>Si est&aacute; disponible la informaci&oacute;n de cifrado, seleccione <strong>Informaci&oacute;n de cifrado dedicada</strong>.</li>
+
+</ol>
+</p>
+
+<p></p>
+
+<p>A continuaci&oacute;n, especifique la configuraci&oacute;n en los siguientes campos:</p>
+
+<dl>
+<dt>
+<strong><a name="sec_name"></a>Nombre de la informaci&oacute;n de cifrado</strong>
+</dt>
+<dd>Especifica el nombre de la informaci&oacute;n de cifrado.</dd>
+<dt>
+<strong><a name="sec_klr"></a>Referencia del localizador de claves</strong>
+</dt>
+<dd>Especifica el nombre que se utiliza para hacer referencia al localizador de claves.
+<p>Para especificar las referencias a localizadores de claves, pulse <strong>Servidores &gt;
+Servidores de aplicaciones &gt; </strong><em>nombre_servidor</em>. En Propiedades adicionales, pulse <strong>Servicios Web: Enlaces por omisi&oacute;n
+para Web Services Security &gt; Localizadores de claves</strong>.</p>
+
+</dd>
+<dt>
+<strong><a name="sec_ekn"></a>Nombre de la clave de cifrado</strong>
+</dt>
+<dd>Especifica el nombre de la clave de cifrado que se resuelve en la clave real mediante el localizador de claves especificado.</dd>
+<dt>
+<strong><a name="sec_eka"></a>Algoritmo del cifrado de claves </strong>
+</dt>
+<dd>Especifica el URI del algoritmo del m&eacute;todo de cifrado de claves.
+<p>Se da soporte a los siguientes algoritmos:<ul>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#rsa-1_5</samp>
+</li>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#kw-tripledes</samp>
+</li>
+
+</ul>
+</p>
+
+<p>Se da soporte a los siguientes algoritmos adicionales:<ul>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#kw-aes128</samp>
+</li>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#kw-aes256</samp>
+</li>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#kw-aes192</samp>
+</li>
+
+</ul>
+</p>
+
+<p>Por omisi&oacute;n JCE (Java Cryptography Extension) se facilita con cifrados de nivel limitado o restringido. Para utilizar algoritmos de cifrado AES ( Advanced Encryption
+Standard) de 192 bits y 256 bits, debe aplicar archivos de pol&iacute;tica de jurisdicci&oacute;n ilimitada. Antes de bajar estos archivos de pol&iacute;tica, haga una copia de seguridad de los archivos de pol&iacute;tica (local_policy.jar y US_export_policy.jar en el directorio jre/lib/security/) antes de sobrescribirlos en caso de que desee restaurar los archivos originales posteriormente. Para bajar los archivos de pol&iacute;tica, realice cualquiera de los dos conjuntos de pasos siguientes:<ul>
+
+<li>En las plataformas de WebSphere Application Server, y mediante IBM Developer Kit, Java
+Technology Edition Versi&oacute;n 1.4.1, incluidas las plataformas AIX, Linux y Windows, puede obtener archivos de pol&iacute;tica de jurisdicci&oacute;n ilimitada realizando los pasos siguientes:<ul>
+
+<li>Vaya al siguiente sitio Web: http://www.ibm.com/developerworks/java/jdk/security/index.html </li>
+
+<li>Pulse <strong>Archivos de pol&iacute;tica</strong>. <p>El archivo unrestrict.jar se descarga en la m&aacute;quina.</p>
+</li>
+
+</ul>
+</li>
+
+<li>En las plataformas de WebSphere Application Server, y mediante JDK ( Java Development
+Kit) Versi&oacute;n 1.4.1 basado en Sun, incluidos los entornos Solaris y la plataforma HP-UX, puede obtener archivos de pol&iacute;tica de jurisdicci&oacute;n ilimitada realizando los pasos siguientes:<ul>
+
+<li>Vaya al sitio Web siguiente: http://java.sun.com/j2se/1.4.1/download.html</li>
+
+<li>Vaya a la parte inferior de la p&aacute;gina Web y pulse Descargar, que aparece junto a Java Cryptography Extension (JCE) Unlimited Strength Jurisdiction Policy Files
+1.4.1. El archivo jce_policy-1_4_1.zip se descarga en la m&aacute;quina.</li>
+
+</ul>
+</li>
+
+</ul>Despu&eacute;s de seguir uno de estos dos conjuntos de pasos, se colocar&aacute;n dos archivos JAR (Java Archive) en el directorio jre/lib/security/ de JVM.</p>
+
+</dd>
+<dt>
+<strong><a name="sec_dea"></a>Algoritmo del cifrado de datos</strong>
+</dt>
+<dd>Especifica el algoritmo URI (Uniform Resource Identifiers) del m&eacute;todo de cifrado de datos.
+<p>Se da soporte al siguiente algoritmo:<ul>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#tripledes-cbc</samp>
+</li>
+
+</ul>
+</p>
+
+<p>Se da soporte a los siguientes algoritmos adicionales:<ul>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#aes128-cbc</samp>
+</li>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#aes256-cbc</samp>
+</li>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#aes192-cbc</samp>
+</li>
+
+</ul>
+</p>
+
+<p>Por omisi&oacute;n JCE se facilita con cifrados de nivel limitado o restringido. Para utilizar algoritmos de cifrado AES de 192 bits y 256 bits, debe aplicar archivos de pol&iacute;tica de jurisdicci&oacute;n ilimitada. </p>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>Informaci&oacute;n relacionada</strong>
+</p>
+<a href="uwbs_encrypt.html">Recogida de informaci&oacute;n de cifrado</a>
+<br>
+
+<a href="uwbs_keyl.html">Grupo de localizadores de claves</a>
+<br>
+
+</div>
+</body>
+</html>

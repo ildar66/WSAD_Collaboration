@@ -1,0 +1,314 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>企業應用程式設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="urun_rapp_inst"></a>
+<h2>企業應用程式設定</h2>
+
+<p>請利用這個頁面來配置企業應用程式。
+</p>
+
+<p>如果要檢視這個管理主控台頁面，請按一下<strong>應用程式 &gt; 企業應用程式 &gt; </strong><em>application_name</em>。
+</p>
+
+<div>
+<p>
+<strong>「配置」標籤</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="ApplicationDeployment_name_description"></a>名稱
+</strong>
+</dt>
+<dd>指定應用程式的邏輯名稱。在 Cell 中，應用程式名稱必須是專屬的，不能含有不能作為物件名稱的字元。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationDeployment_startingWeight_description"></a>啟動加權</strong>
+</dt>
+<dd>指定在伺服器啟動時的應用程式啟動次序。
+有最低啟動加權的應用程式會最先啟動。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">整數</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">1
+</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">0 至 100</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationDeployment_binariesURL_description"></a>應用程式二進位檔</strong>
+</dt>
+<dd>可指定應用程式 EAR 檔所要安裝的目錄。
+預設值是 APP_INSTALL_ROOT/<em>cell_name</em>，其中 APP_INSTALL_ROOT 變數是 <em>install_root</em>/installedApps；例如，C:\WebSphere\AppServer\installedApps\<em>cell_name</em>。
+
+<p>您可以指定一個絕對路徑，或者使用路徑對映變數，如 ${MY_APPS}。
+您可以在任何安裝架構使用路徑對映變數。
+代表現行 Cell 名稱的 WebSphere Application Server 變數 ${CELL}，也可以用在路徑對映變數中；例如，${MY_APP}/${CELL}。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">單位</td>
+<td align="left" valign="top" class="base">完整路徑名稱</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationDeployment_useMetadataFromBinaries_description"></a>從二進位檔使用 Meta 資料</strong>
+</dt>
+<dd>指定應用程式伺服器要使用以應用程式部署文件（deployment.xml 檔（預設值））來找到的連結、延伸規格和部署描述子，或使用在企業應用程式資源 (EAR) 檔中的連結、延伸規格和部署描述子。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">true
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationDeployment_enableDistribution_description"></a>啟用分送</strong>
+</dt>
+<dd>指定 WebSphere Application Server 要在安裝目的地展開或刪除應用程式二進位檔。
+預設值是啟用應用程式分散作業。
+專供安裝的應用程式所用的應用程式二進位檔，會展開到指定目錄下。
+當您解除安裝和儲存您對配置所做的變更時，也會刪除二進位檔。
+如果停用這個選項，則必須確定在所有應用程式要執行之節點的目的目錄中，應用程式二進位檔都必須適當的展開。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">true
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationDeployment_classloaderMode_description"></a>類別載入器模式</strong>
+</dt>
+<dd>指定類別載入器要先在母類別載入器中搜尋，或先在應用程式類別載入器中搜尋，來載入類別。
+JDK 類別載入器和 WebSphere Application Server 類別載入器的標準都是 PARENT_FIRST。
+您的應用程式可以指定 PARENT_LAST 來置換母類別載入器中所包含的類別，但如果您混合使用已置換的類別及非置換的類別，這個動作可能會造成 ClassCastException 或 LinkageErrors。
+
+<p>選項是 PARENT_FIRST 和 PARENT_LAST。預設值是在應用程式類別載入器中搜尋前，先在母類別載入器中搜尋來載入類別。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">PARENT_FIRST</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationDeployment_warClassloaderPolicy_description"></a>WAR 類別載入器原則</strong>
+</dt>
+<dd>指定要使用單一類別載入器來載入這個應用程式的所有 WAR 檔，或每個 WAR 檔都使用不同的類別載入器。
+
+<p>選項有：APPLICATION 和 MODULE。預設值是利用個別類別載入器來載入每個 WAR 檔。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">MODULE</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationDeployment_createMBeansForResource"></a>建立資源的 MBean</strong>
+</dt>
+<dd>指定要不要建立應用程式內各資源（如 Servlet 或 JSP 檔）的 MBean 檔。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">true
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationDeployment_enableClassReloading"></a>已啟用重新載入</strong>
+</dt>
+<dd>指定在更新應用程式檔案時，要不要啟用類別重新載入。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">true
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationDeployment_reloadInterval"></a>重新載入間隔</strong>
+</dt>
+<dd>指定掃描應用程式檔案系統來找出更新的檔案的秒數。預設值是 EAR 檔的 IBM 延伸規格  (META-INF/ibm-application-ext.xmi) 檔中的重新載入間隔屬性值。只有在啟用類別重新載入功能時，這個設定才有效。
+
+<p>此處所指定的重新載入間隔，會置換 IBM 延伸規格中，為 EAR 檔中每一個 Web 模組所指定的值
+（它會輸流置換 IBM 延伸規格中，為 EAR 檔中的應用程式所指定的重新載入間隔）。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">整數</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">單位</td>
+<td align="left" valign="top" class="base">秒</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>相關資訊</strong>
+</p>
+<a href="rcon_buttons.html">管理主控台按鈕</a>
+<br>
+
+<a href="rcon_pageusage.html">管理主控台頁面特性</a>
+<br>
+
+<a href="udat_nestjcaconfac.html">連接器模組集合</a>
+<br>
+
+<a href="ucws_rlibref.html">程式庫參照集合</a>
+<br>
+
+<a href="uweb_rwebmc.html">Web 模組設定</a>
+<br>
+
+</div>
+</body>
+</html>

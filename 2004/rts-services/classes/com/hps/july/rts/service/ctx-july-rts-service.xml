@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+    <!-- Mapping services -->
+
+    <bean id="july.rts.service.commentService" parent="july.txProxyTemplate">
+        <property name="proxyInterfaces"
+            value="com.hps.july.rts.service.CommentService"/>
+        <property name="target">
+            <bean class="com.hps.july.rts.service.impl.CommentServiceImpl">
+                <property name="commentDAO" ref="july.rts.dao.commentDAO"/>
+                <property name="authService" ref="july.rts.auth.RTSAuthService"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="july.rts.RTSRequestNumerationService" parent="july.txProxyTemplate">
+        <property name="proxyInterfaces"
+            value="com.hps.july.rts.service.RTSRequestNumerationService"/>
+        <property name="target">
+            <bean class="com.hps.july.rts.service.impl.RTSRequestNumerationServiceImpl">
+                <property name="requestNumerationDAO" ref="july.rts.dao.requestNumerationDAO"/>
+                <property name="authService" ref="july.rts.auth.RTSAuthService"/>
+				<property name="operatorService" ref="july.rts.service.operatorService"/>
+            </bean>
+        </property>
+    </bean>
+
+
+    <bean id="july.rts.service.initiatorRequestService" parent="july.txProxyTemplate">
+        <property name="proxyInterfaces"
+            value="com.hps.july.rts.service.InitiatorRequestService"/>
+        <property name="target">
+            <bean class="com.hps.july.rts.service.impl.InitiatorRequestServiceImpl">
+                <property name="initiatorRequestDAO" ref="july.rts.dao.initiatorRequestDAO"/>
+                <property name="numerationService" ref="july.rts.RTSRequestNumerationService"/>
+                <property name="operatorService" ref="july.rts.service.operatorService"/>
+                <property name="authService" ref="july.rts.auth.RTSAuthService"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="july.rts.service.consolidatedRequest" parent="july.txProxyTemplate">
+        <property name="proxyInterfaces"
+            value="com.hps.july.rts.service.ConsolidatedRequestService"/>
+        <property name="target">
+            <bean class="com.hps.july.rts.service.impl.ConsolidatedRequestServiceImpl">
+                <property name="consolidatedRequestDAO" ref="july.rts.dao.consolidatedRequestDAO"/>
+                <property name="numerationService" ref="july.rts.RTSRequestNumerationService"/>
+                <property name="operatorService" ref="july.rts.service.operatorService"/>
+                <property name="authService" ref="july.rts.auth.RTSAuthService"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="july.rts.service.elementaryRequest" parent="july.txProxyTemplate">
+        <property name="proxyInterfaces"
+            value="com.hps.july.rts.service.ElementaryRequestService"/>
+        <property name="target">
+            <bean class="com.hps.july.rts.service.impl.ElementaryRequestServiceImpl">
+                <property name="elementaryRequestDAO" ref="july.rts.dao.elementaryRequestDAO"/>
+                <property name="numerationService" ref="july.rts.RTSRequestNumerationService"/>
+                <property name="operatorService" ref="july.rts.service.operatorService"/>
+                <property name="authService" ref="july.rts.auth.RTSAuthService"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="july.rts.service.rentElementaryRequest" parent="july.txProxyTemplate">
+        <property name="proxyInterfaces"
+            value="com.hps.july.rts.service.RentElementaryRequestService"/>
+        <property name="target">
+            <bean class="com.hps.july.rts.service.impl.RentElementaryRequestServiceImpl">
+                <property name="rentElementaryRequestDAO" ref="july.rts.dao.rentElementaryRequestDAO"/>
+                <property name="numerationService" ref="july.rts.RTSRequestNumerationService"/>
+                <property name="operatorService" ref="july.rts.service.operatorService"/>
+                <property name="authService" ref="july.rts.auth.RTSAuthService"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="july.rts.service.notification" parent="july.txProxyTemplate">
+        <property name="proxyInterfaces"
+            value="com.hps.july.rts.service.NotificationService"/>
+        <property name="target">
+            <bean class="com.hps.july.rts.service.impl.NotificationServiceImpl">
+                <property name="notificationDAO" ref="july.rts.dao.notificationDAO"/>
+                <property name="operatorService" ref="july.rts.service.operatorService"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="july.rts.service.operatorService" parent="july.txProxyTemplate">
+        <property name="proxyInterfaces"
+            value="com.hps.july.rts.service.RTSOperatorService"/>
+        <property name="target">
+            <bean class="com.hps.july.rts.service.impl.RTSOperatorServiceImpl">
+            	<property name="authService" ref="july.rts.auth.RTSAuthService"/>
+            </bean>
+        </property>
+    </bean>
+
+	<bean id="july.rts.service.channelTypeService" class="com.hps.july.rts.service.impl.ChannelTypeServiceImpl">
+	</bean>
+
+	<bean id="july.rts.statusService" class="com.hps.july.rts.service.impl.RTSStatusServiceImpl">
+	</bean>
+	
+	<bean id="july.rts.service.channelSettingService" class="com.hps.july.rts.service.impl.ChannelSettingServiceImpl">
+	</bean>
+	
+	<bean id="july.rts.service.requestTypeService" class="com.hps.july.rts.service.impl.RTSRequestTypeServiceImpl">
+	</bean>
+	
+	<bean id="july.rts.service.channelInterfaceTypeService" class="com.hps.july.rts.service.impl.ChannelInterfaceTypeServiceImpl">
+	</bean>
+	
+	<bean id="july.rts.service.channelInterfaceService" class="com.hps.july.rts.service.impl.ChannelInterfaceServiceImpl">
+	</bean>
+	
+    <bean id="july.rts.service.capacityService" class="com.hps.july.rts.service.impl.CapacityServiceImpl">
+    </bean>
+
+	<bean id="july.rts.service.counterAgentService" class="com.hps.july.rts.service.impl.CounterAgentServiceImpl">
+    </bean>
+
+    <!-- sample
+        <bean id="rssManager" parent="july.txProxyTemplate">
+            <property name="proxyInterfaces"
+                value="com.example.jsf.hibernate.example.manager.FeedManager"/>
+            <property name="target">
+               <bean class="com.example.jsf.hibernate.example.manager.FeedManagerImpl">
+                    <property name="rssDAO" ref="rssDAO"/>
+               </bean>
+            </property>
+        </bean>
+    -->
+
+</beans>

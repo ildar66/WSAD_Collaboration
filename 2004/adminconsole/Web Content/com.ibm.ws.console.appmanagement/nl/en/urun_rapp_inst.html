@@ -1,0 +1,322 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Enterprise application settings</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="urun_rapp_inst"></a>
+<h2>Enterprise application settings</h2>
+
+<p>Use this page to configure an enterprise application.</p>
+
+<p>To view this administrative console page, click <strong>Applications &gt; Enterprise
+ Applications &gt; </strong><em>application_name</em>.</p>
+
+<div>
+<p>
+<strong>Configuration tab</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="ApplicationDeployment_name_description"></a>Name</strong>
+</dt>
+<dd>Specifies a logical name for the application. Application names
+must be unique within a cell and cannot contain characters that are not allowed
+in object names.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationDeployment_startingWeight_description"></a>Starting Weight</strong>
+</dt>
+<dd>Specifies the order in which applications are started when the
+server starts. The application with the lowest starting weight is started
+first.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">1</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range</td>
+<td align="left" valign="top" class="base">0 to 100</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationDeployment_binariesURL_description"></a>Application Binaries</strong>
+</dt>
+<dd>Specifies the directory to which the application EAR file will
+be installed.  The default value is the value of APP_INSTALL_ROOT/<em>cell_name</em>,
+where the  APP_INSTALL_ROOT variable is <em>install_root</em>/installedApps;
+for example,  C:\WebSphere\AppServer\installedApps\<em>cell_name</em>.
+<p>You can specify an absolute path or use a pathmap variable such as ${MY_APPS}.
+You can use a pathmap variable in any installation. A WebSphere Application Server
+variable ${CELL} that denotes the current cell name can also be in the pathmap
+variable; for example, ${MY_APP}/${CELL}.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Units</td>
+<td align="left" valign="top" class="base">Full path name</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationDeployment_useMetadataFromBinaries_description"></a>Use Metadata From Binaries</strong>
+</dt>
+<dd>Specifies whether the application server uses the binding, extensions,
+and  deployment descriptors located with the application deployment document,
+the deployment.xml file (default), or those located in the enterprise application
+resource (EAR) file.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">false</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationDeployment_enableDistribution_description"></a>Enable Distribution</strong>
+</dt>
+<dd>Specifies whether WebSphere Application Server expands or deletes
+application binaries in  the installation destination. The default is to enable
+application distribution.  Application binaries for installed applications
+are expanded to the directory  specified. The binaries are also deleted when
+you uninstall and save changes to  the configuration. If you disable this
+option, then you must ensure that the application binaries are expanded appropriately
+in the destination directories of  all nodes where the application runs.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">true</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationDeployment_classloaderMode_description"></a>Classloader Mode</strong>
+</dt>
+<dd>Specifies whether the class loader searches in the parent class
+loader or in the application class loader first to load a class. The standard
+for JDK class loaders and WebSphere Application Server class loaders is PARENT_FIRST.
+By specifying PARENT_LAST, your application can override classes contained
+in the parent class loader, but this action can potentially result in ClassCastException
+or LinkageErrors if you have mixed use of overridden classes and non-overridden
+classes.
+<p>The options are PARENT_FIRST and PARENT_LAST. The default is to search
+in the parent class loader before searching in the application class loader
+to load a class.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">PARENT_FIRST</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationDeployment_warClassloaderPolicy_description"></a>WAR Classloader Policy</strong>
+</dt>
+<dd>Specifies whether to use a single class loader to load all WAR
+files of this  application or to use a different class loader for each WAR
+file.
+<p>The options are APPLICATION and MODULE. The default is to use a separate
+class loader to load each WAR file.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">MODULE</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationDeployment_createMBeansForResource"></a>Create MBeans for Resources</strong>
+</dt>
+<dd>Specifies whether to create MBean files for various resources (such
+as servlets    or JSP files) within an application.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">true</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationDeployment_enableClassReloading"></a>Reload Enabled</strong>
+</dt>
+<dd>Specifies whether to enable class reloading when application files
+are updated.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">true</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationDeployment_reloadInterval"></a>Reload Interval</strong>
+</dt>
+<dd>Specifies the number of seconds to scan the application's file
+system for updated files. The default is the value of the reload interval
+attribute in the IBM extension (META-INF/ibm-application-ext.xmi) file of
+the EAR file. This setting takes effect only if class reloading is enabled.
+<p>The reload interval specified here overrides the value specified in the
+IBM extensions for each Web module in the EAR file (which in
+turn overrides the reload interval specified in the IBM extensions for the
+application in the EAR file).</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Units</td>
+<td align="left" valign="top" class="base">Seconds</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Related information</strong>
+</p>
+<a href="rcon_buttons.html">Administrative console buttons</a>
+<br>
+
+<a href="rcon_pageusage.html">Administrative console page features</a>
+<br>
+
+<a href="udat_nestjcaconfac.html">Connector Modules collection</a>
+<br>
+
+<a href="ucws_rlibref.html">Library reference collection</a>
+<br>
+
+<a href="uweb_rwebmc.html">Web module settings</a>
+<br>
+
+</div>
+</body>
+</html>

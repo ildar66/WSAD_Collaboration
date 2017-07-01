@@ -1,0 +1,182 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>CSI(Common Secure Interoperability) 아웃바운드 인증 설정</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecoutbound"></a>
+<h2>
+<img alt="[픽스팩 5.0.1 이상]" src="v501.gif" border="0">CSI(Common Secure Interoperability) 아웃바운드 인증 설정</h2>
+
+<p>이 페이지를 참조하여 서버가 다른 다운스트림 서버에 대한
+클라이언트로서 작동할 때 지원하는 기능을 지정하십시오.</p>
+
+<p>이 관리 콘솔 페이지를 보려면 <strong>보안 &gt; 인증 프로토콜 &gt; CSI 아웃바운드 인증</strong>을 클릭하십시오.</p>
+
+<p>인증 기능에는 동시에 사용할 수 있는 다음과 같은 세 가지 인증 레이어가 포함됩니다.  <dl>
+<dt>
+<strong>전송 레이어</strong>
+</dt>
+<dd>가장 낮은 레이어인 전송 레이어는
+SSL(Secure Socket Layer) 클라이언트 인증을 ID로 포함할 수 있습니다.</dd>
+<dt>
+<strong>메시지 레이어</strong>
+</dt>
+<dd>메시지 레이어는 사용자 ID 및 암호 또는 인증 토큰을 포함할 수 있습니다. </dd>
+<dt>
+<strong>속성 레이어</strong>
+</dt>
+<dd>속성 레이어는 이미 인증된 업스트림 서버의 ID인 ID 토큰을 포함할 수 있습니다.
+속성 레이어가 최고의 우선순위를 가지며 다음에 메시지 레이어, 그 다음에
+전송 레이어 순입니다. 클라이언트가 세 레이어 모두를 전송한 경우, 다운스트림 서버에서는 속성 레이어만 사용합니다. SSL 클라이언트 인증을 ID로 사용하는 유일한 방법은 이것이
+아웃바운드 요청 중 제시된 유일한 정보인 경우입니다. </dd>
+</dl>  
+</p>
+
+<div>
+<p>
+<strong>구성 탭</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="BasicAuthentication_o_description"></a>기본 인증</strong>
+</dt>
+<dd>인증을 위해 사용자 ID 및 암호를 클라이언트에서 서버로 전송할지 지정합니다.
+<p>이 인증 유형은 메시지 레이어에서 발생합니다. 기본 인증은 또한 신임 유형이 전달 가능한 경우
+(예: LTPA(Lightweight Third Party Authentication)) 이미 인증된 신임으로부터
+신임 토큰을 위임받는 작업도 포함합니다. 기본 인증은 메시지 레이어에서 임의의 인증을 참조하고
+토큰 기반 인증뿐만 아니라 사용자 ID 및 암호도 표시합니다.</p>
+
+<p>
+<strong>기본 인증</strong>을 선택하면 필수인지 지원인지 판별됩니다. <strong>필수</strong>를 선택하면 서버가 다운스트림 서버로
+아웃바운드될 때 다운스트림 서버가 연결할 기본 인증을 지원해야 함을 의미합니다. <strong>지원</strong>을 선택하면 이 서버가
+다운스트림 서버에 대한 기본 인증을 수행할 수 있거나 수행할 수 없음을 표시합니다.
+구성된 경우, 다른 인증 메소드가 발생할 수 있습니다. <strong>안함</strong>을 선택하면 이 서버가 메시지 레이어 토큰을
+다운스트림 서버에 아웃바운드로 전송하지 않음을 의미합니다. 다운스트림 서버에
+기본 인증이 필요하면 연결이 시도되지 않습니다.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형:</td>
+<td align="left" valign="top" class="base">문자열</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ClientCertificateAuthentication_o_description"></a>클라이언트 인증서 인증</strong>
+</dt>
+<dd>이 서버와 다운스트림 서버 간의 SSL(Secure Socket Layer) 연결이
+작성된 경우, 구성된 키 저장영역 파일의 클라이언트 인증서를 사용하여 서버를
+인증할지 여부를 지정합니다(다운스트림 서버가 클라이언트 인증서 인증을
+지원하는 경우).
+<p>일반적으로, 클라이언트 인증서 인증은 메시지 레이어 인증보다 고성능이지만, 일부 추가 설정 단계가 필요합니다.
+이들 추가 단계는 이 서버가 개인 인증서를 갖고 다운스트림 서버가 이 서버의 서명자 인증을
+갖는지 검증하는 것이 포함됩니다.</p>
+
+<p>클라이언트 인증서 인증을 선택하면, 인증이 필수인지 또는 지원인지를
+결정해야 합니다.  <strong>필수</strong>를 선택하면 이 서버가 클라이언트 인증서 인증도 구성된 상태에서 다운스트림 서버에만 연결할 수 있음을
+의미합니다. <strong>지원</strong>을 선택하면 이 서버가 다운스트림 서버에서 클라이언트 인증서 인증을 수행하지만
+다운스트림 서버의 지원 여부에 따라 클라이언트 인증서 인증을 사용할 수 없음을
+의미합니다. <strong>하지 않음</strong>을 선택하면 이 클라이언트가 클라이언트 인증서 인증을 다운스트림 서버에서
+수행하지 않음을 의미합니다. 이러한 한계는 클라이언트 인증서 인증이 필요한 다운스트림 서버에 대한 액세스를 방지합니다. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형:</td>
+<td align="left" valign="top" class="base">문자열</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="IdentityAssertion_o_description"></a>ID 신뢰</strong>
+</dt>
+<dd>다운스트림 Enterprise Bean 호출 중에 한 서버에서 다른 서버로 ID를 신뢰할지 지정합니다.
+<p>신뢰된 ID는 Enterprise Bean에 대한 RunAs 모드로 판별되는
+호출 신임입니다. RunAs 모드가 <strong>클라이언트</strong>인 경우, ID는 클라이언트의 ID입니다. RunAs 모드가 <strong>시스템</strong>인 경우,
+ID는 서버 ID가 됩니다. RunAs 모드가 <strong>지정됨</strong>인 경우 ID는
+지정된 ID입니다. 수신 중인 서버는 ID 토큰에서 ID를 수신하며 또한 클라이언트 인증 토큰에 전송 중인
+서버 ID를 수신합니다. 수신 서버는 전송 서버 ID의 유효성을
+검증하여 신뢰 ID를 확인합니다.</p>
+
+<p>
+<strong>CSIv2 인증 아웃바운드</strong> 패널에서 ID 신뢰 지정 시,
+CSIv2 인증 아웃바운드 패널에서 필요하거나 지원되는 기본 인증도 선택해야 합니다. 이 조치에서는
+ID 토큰과 함께 서버 ID가 제출되게 하여, 수신 서버는 송신 서버를 <em>신뢰</em>할 수 있습니다. 기본
+인증을 지원 또는 필수로 지정하지 않으면, 신뢰가 확립되지 않으며 ID 신뢰에 실패합니다. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형:</td>
+<td align="left" valign="top" class="base">문자열</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="StatefulSession_description"></a>Stateful 세션</strong>
+</dt>
+<dd>인증하는 동안 보안 정보를 재사용할지 지정합니다.
+이 옵션은 보통 성능을 향상시키는 데 사용됩니다.
+<p>클라이언트와 서버 간의 첫 번째 접속은 완전하게 인증되어야 합니다.
+그러나 유효한 세션인 모든 후속 접속이 보안 정보를 다시 사용합니다.
+클라이언트는 컨텍스트 ID를 서버에 전달하고
+세션을 조회하기 위해 이 ID가 사용됩니다. 컨텍스트 ID 범위는 고유성을 보증하는
+연결입니다. 보안 세션이 유효하지 않고 인증 재시도가 사용 가능한 경우마다(기본적으로 사용 가능)
+클라이언트측 보안 인터셉터가 클라이언트측 세션을 무효화하고 투과성의 요청을 다시 제출합니다.
+예를 들어, 세션이 서버에 존재하지 않는 경우, 서버가 실패하여 조작을 재개합니다.</p>
+
+<p>이 값이 사용 불가능하게 되면 모든 메소드 호출을 재인증해야 합니다.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형:</td>
+<td align="left" valign="top" class="base">문자열</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>관련 정보</strong>
+</p>
+<a href="rcon_buttons.html">관리 콘솔 단추</a>
+<br>
+
+<a href="rcon_pageusage.html">관리 콘솔 페이지 기능</a>
+<br>
+
+<a href="rcon_scope.html">관리 콘솔 범위 설정</a>
+<br>
+
+<a href="rcon_filter.html">관리 콘솔 필터 설정</a>
+<br>
+
+<a href="rcon_preferences.html">관리 콘솔 환경 설정</a>
+<br>
+
+</div>
+</body>
+</html>

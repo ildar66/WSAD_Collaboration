@@ -1,0 +1,132 @@
+<project name="july-mail-client" basedir="." default="deploy">
+    <description>Deploy to WSAD</description>
+
+	<property file="${basedir}/build.properties"/> 
+	<property file="${basedir}/current.properties"/> 
+
+	<property name="app.dir" value="${basedir}"/>
+	<property name="app.target.dir" value="${target.dir}/${project.name}"/>
+
+	<!-- SRC -->
+	<property name="app.classpath.src" value="${app.dir}${classpath.src}"/>
+	<property name="target.classpath.src" value="${app.target.dir}${classpath.src}"/>
+	
+	<property name="app.classpath.conf" value="${app.dir}${classpath.conf}"/>
+	<property name="target.classpath.conf" value="${app.target.dir}${classpath.conf}"/>
+	
+	<property name="app.classpath.test" value="${app.dir}${classpath.test}"/>
+	<property name="target.classpath.test" value="${app.target.dir}${classpath.test}"/>
+
+	<!-- BUILD -->
+	<property name="app.classpath.build.classes" value="${app.dir}${classpath.build.classes}"/>
+	<property name="target.classpath.build.classes" value="${app.target.dir}${classpath.build.classes}"/>
+
+	<property name="app.classpath.build.test" value="${app.dir}${classpath.build.test}"/>
+	<property name="target.classpath.build.test" value="${app.target.dir}${classpath.build.test}"/>
+
+	<!-- LIB -->
+	<property name="app.classpath.lib" value="${app.dir}${classpath.lib}"/>
+	<property name="target.classpath.lib" value="${app.target.dir}${classpath.lib}"/>
+
+	<!-- WEB -->
+	<property name="app.classpath.web" value="${app.dir}${classpath.web}"/>
+	<property name="target.classpath.web" value="${app.target.dir}${classpath.web}"/>
+	
+	<!-- ### CLEAN ### -->
+	<target name="clean-src" depends="clean-classpath-src,clean-classpath-conf,clean-classpath-test"/>
+	
+	<target name="clean-classpath-src" if="classpath.src">
+		<delete>
+			<fileset dir="${target.classpath.src}" includes="**/*" excludes="**/CVS/*"/>
+		</delete>
+	</target>
+		
+	<target name="clean-classpath-conf" if="classpath.conf">
+		<delete>
+			<fileset dir="${target.classpath.conf}" includes="**/*" excludes="**/CVS/*"/>
+		</delete>
+	</target>
+
+	<target name="clean-classpath-test" if="classpath.test">
+		<delete>
+			<fileset dir="${target.classpath.test}" includes="**/*" excludes="**/CVS/*"/>
+		</delete>
+	</target>
+	
+
+	<target name="clean-bin">
+		<delete dir="${target.classpath.build.classes}"/>
+		<delete dir="${target.classpath.build.test}"/>
+	</target>
+	
+	<target name="clean-lib" if="classpath.lib">
+		<delete>
+			<fileset dir="${target.classpath.lib}" includes="**/*" excludes="**/CVS/*"/>
+		</delete>
+	</target>
+	
+	<target name="clean-web" if="classpath.web">
+		<delete>
+			<fileset dir="${target.classpath.web}" includes="**/*" excludes="**/CVS/*"/>
+		</delete>
+	</target>
+		
+	<target name="clean" depends="clean-src,clean-bin,clean-lib,clean-web"/>
+
+	<!-- ### DEPLOY SOURCE ### -->
+	<target name="deploy-source" depends="deploy-source-conf, deploy-source-test">
+	    <copy todir="${target.classpath.src}">
+    	    <fileset dir="${app.classpath.src}" includes="**/*" excludes="**/CVS/*"/>
+	    </copy>
+	</target>
+
+	<target name="deploy-source-test" if="classpath.test">
+	    <copy todir="${target.classpath.test}">
+    	    <fileset dir="${app.classpath.test}" includes="**/*" excludes="**/CVS/*"/>
+	    </copy>
+	</target>
+
+	<target name="deploy-source-conf" if="classpath.conf">
+	    <copy todir="${target.classpath.conf}">
+    	    <fileset dir="${app.classpath.conf}" includes="**/*" excludes="**/CVS/*"/>
+	    </copy>
+	</target>
+
+	<!-- ### DEPLOY BUILD ### -->
+	<target name="deploy-build" depends="deploy-build-test">
+	    <copy todir="${target.classpath.build.classes}">
+    	    <fileset dir="${app.classpath.build.classes}" includes="**/*"/>
+	    </copy>
+	</target>
+ 
+	<target name="deploy-build-test" if="classpath.build.test">
+	    <copy todir="${target.classpath.build.test}">
+    	    <fileset dir="${app.classpath.build.test}" includes="**/*"/>
+	    </copy>
+	</target>
+	
+	<target name="deploy-lib" if="classpath.lib">
+	    <copy todir="${target.classpath.lib}">
+    	    <fileset dir="${app.classpath.lib}" includes="**/*"/>
+	    </copy>
+	</target>
+	
+	<target name="deploy-web" if="classpath.web">
+	    <copy todir="${target.classpath.web}">
+    	    <fileset dir="${app.classpath.web}" includes="**/*" excludes="**/CVS/*"/>
+	    </copy>
+	</target>
+	
+	<target name="deploy" depends="deploy-source,deploy-build,deploy-lib,deploy-web"/>
+
+	<target name="clean-deploy" depends="clean,deploy"/>
+	
+	<target name="deploy-depends" if="project.depends" depends="deploy">
+		<ant dir="../${project.depends}" antfile="build-wsad.xml" target="deploy-depends" inheritall="false" />
+	</target>
+	
+	<target name="clean-deploy-depends" if="project.depends" depends="clean-deploy">
+		<ant dir="../${project.depends}" antfile="build-wsad.xml" target="clean-deploy-depends" inheritall="false"/>
+	</target>
+	
+</project>

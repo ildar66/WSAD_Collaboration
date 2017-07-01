@@ -1,0 +1,228 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>WebSphere MQ topic connection factory custom properties</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="TopicConnectionFactory_customProperties"></a>
+<h2>
+<img alt="[Release 5.1 and later]" src="v51x.gif" border="0">WebSphere MQ topic connection factory custom properties</h2>
+
+<p>Use this panel to view or change an optional set of name and value
+pairs for custom properties of the selected topic connection factory for use
+with the WebSphere MQ JMS provider. These custom properties are passed to
+WebSphere MQ.</p>
+
+<p>To view this administrative console page, click <strong>Resources-&gt; WebSphere
+MQ JMS Provider-&gt; (In content pane, under Additional Properties) WebSphere
+MQ Topic Connection Factories-&gt; <em>connection_factory</em>-&gt; Custom Properties</strong>
+</p>
+
+<p>You can use the Custom properties page to define the following WebSphere
+MQ properties. These properties apply only if you set the property <a href="umj_ptcfm.html#MQTopicConnectionFactory_transportType">Transport type=CLIENT</a>.</p>
+
+<ul>
+
+<li>
+<a href="#SSLCIPHERSUITE">SSLCIPHERSUITE</a>
+</li>
+
+<li>
+<a href="#SSLCRL">SSLCRL</a>
+</li>
+
+<li>
+<a href="#SSLCRL">SSLPEERNAME</a>
+</li>
+
+<li>
+<a href="#MSGSELECTION">MSGSELECTION</a>
+</li>
+
+<li>
+<a href="#SUBSTORE">SUBSTORE</a>
+</li>
+
+</ul>
+
+<p>For more information about setting the SSL properties for WebSphere MQ,
+see the section <a href="http://publibfp.boulder.ibm.com/epubs/html/csqzaw11/csqzaw1116.htm#HDRJSSLPR">SSL properties</a> in
+the <cite>WebSphere MQ Using Java</cite> book.</p>
+
+<dl>
+<dt>
+<strong><a name="SSLCIPHERSUITE"></a>SSLCIPHERSUITE</strong>
+</dt>
+<dd>The cipher suite to use for SSL connection.
+<p>Set this property to a valid cipher suite provided by your JSSE provider;
+it must match the CipherSpec named on the SVRCONN channel named by the <a href="umj_ptcfm.html#MQTopicConnectionFactory_channel">Channel property</a>.</p>
+
+<p>You must set this property if the SSLPEERNAME is to be set.</p>
+
+</dd>
+<dt>
+<strong><a name="SSLCRL"></a>SSLCRL</strong>
+</dt>
+<dd>A list of zero or more CRL (Certificate Revocation List) servers
+used to check for SSL certificate revocation. (Use of this property requires
+a WebSphere MQ JVM at Java 2 version 1.4.)
+<p>The value is a space-delimited list of entries of the form:<pre>ldap://<strong>hostname</strong>:[<strong>port</strong>]</pre>
+</p>
+
+<p>optionally followed by a single / (forward slash). If <strong>port</strong> is
+omitted, the default LDAP port of 389 is assumed. At connect-time, the SSL
+certificate presented by the server is checked against the specified CRL servers.
+For more information about CRL security, see the section "Working with Certificate
+Revocation Lists" in the <cite>WebSphere MQ Security book</cite>; for example
+at: <a href="http://publibfp.boulder.ibm.com/epubs/html/csqzas01/csqzas012w.htm#IDX2254">http://publibfp.boulder.ibm.com/epubs/html/csqzas01/csqzas012w.htm#IDX2254</a>.</p>
+
+</dd>
+<dt>
+<strong><a name="SSLPEERNAME"></a>SSLPEERNAME</strong>
+</dt>
+<dd>For SSL, a <em>distinguished name</em> skeleton that must match the
+name provided by the WebSphere MQ queue manager. The distinguished name is
+used to check the identifying certificate presented by the server at connect-time.
+<p>If SSLPEERNAME is not set, such checking is performed.  SSLPEERNAME is
+ignored if SSLCIPHERSUITE is not specified.</p>
+
+<p>The SSLPEERNAME property is a list of attribute name and value pairs separated
+by commas or semicolons. For example: <pre>SSLPEERNAME(CN=QMGR.*, OU=IBM, OU=WEBSPHERE)</pre>
+</p>
+
+<p>The example given checks the identifying certificate presented by the server
+at connect-time. For the connection to succeed, the certificate must have
+a Common Name beginning QMGR., and must have at least two Organizational Unit
+names, the first of which is IBM and the second WEBSPHERE. Checking is not
+case-sensitive.</p>
+
+<p>For more details about distinguished names and their use with WebSphere
+MQ, see the <cite>WebSphere MQ Security</cite> book; for example, the section "Distinguished
+Names" at <a href="http://publibfp.boulder.ibm.com/epubs/html/csqzas01/csqzas010p.htm#HDRDCDN">http://publibfp.boulder.ibm.com/epubs/html/csqzas01/csqzas010p.htm#HDRDCDN</a>.</p>
+
+</dd>
+<dt>
+<strong><a name="MSGSELECTION"></a>MSGSELECTION</strong>
+</dt>
+<dd>Determines whether message selection is done by the JMS Client
+or by the Broker.
+<p>If you set the property <strong>Transport type</strong>=BINDINGS, message selection
+is always done by the Broker and the setting of this property is ignored.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">CLIENT</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range</td>
+<td align="left" valign="top" class="base">
+<dl>
+<dt>
+<strong>CLIENT</strong>
+</dt>
+<dd>Message selection is done by the JMS Client.</dd>
+<dt>
+<strong>BROKER</strong>
+</dt>
+<dd>Message selection is done by the Broker.</dd>
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SUBSTORE"></a>SUBSTORE</strong>
+</dt>
+<dd>Where WebSphere MQ JMS should store persistent data relating to
+active subscriptions.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">MIGRATE</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range</td>
+<td align="left" valign="top" class="base">
+<dl>
+<dt>
+<strong>BROKER</strong>
+</dt>
+<dd>Subscription information is stored by the publish/subscribe broker used
+by the application.<p>If a non-durable subscriber fails, the subscription
+is deregistered from the broker as soon as possible. The broker adds a response
+to this deregistration onto the SYSTEM.JMS.REPORT.QUEUE, which is used to
+clean up after the failed subscriber. With SUBSTORE(BROKER), a separate cleanup
+thread is run regularly in the background of each JMS publish/subscribe application.</p>
+</dd>
+<dt>
+<strong>MIGRATE</strong>
+</dt>
+<dd>This option dynamically selects the queue-based or broker-based subscription
+store based on the levels of queue manager and publish/subscribe broker installed.
+If both queue manager and broker are capable of supporting SUBSTORE(BROKER),
+this behaves as SUBSTORE(BROKER); otherwise it behaves as SUBSTORE(QUEUE).
+Additionally, SUBSTORE(MIGRATE) transfers durable subscription information
+from the queue-based subscription store to the broker-based store. <p>This
+provides an easy migration path from older versions of WebSphere MQ JMS, WebSphere
+MQ, and publish/subscribe broker.</p>
+</dd>
+<dt>
+<strong>QUEUE</strong>
+</dt>
+<dd>Subscription information is stored on SYSTEM.JMS.ADMIN.QUEUE and SYSTEM.JMS.PS.STATUS.QUEUE
+on the local queue manager. SUBSTORE(QUEUE) is provided for compatibility
+with versions of MQSeries JMS.</dd>
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+<p>For more information about the use of this property in WebSphere MQ, see
+the section <a href="http://publibfp.boulder.ibm.com/epubs/html/csqzaw11/csqzaw1134.htm#HDRJMSPSSS">Subscription stores</a> in
+the <cite>WebSphere MQ Using Java</cite> book.</p>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>Related information</strong>
+</p>
+<a href="umj_ptcfm.html">WebSphere MQ topic connection factory settings</a>
+<br>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,287 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Param&egrave;tres du serveur d'applications</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="urun_rappsvr"></a>
+<h2>Param&egrave;tres du serveur d'applications</h2>
+
+<p>Cette page permet d'afficher ou de modifier les param&egrave;tres d'instance d'un serveur d'applications.</p>
+
+<p>Pour afficher cette page de la console d'administration, cliquez
+sur <strong>Serveurs &gt; Serveurs d'applications &gt; </strong><em>nom_serveur</em>.</p>
+
+<p>L'onglet <strong>Configuration</strong> contient des zones que vous pouvez modifier et l'onglet
+<strong>Ex&eacute;cution</strong> fournit des informations en lecture seule. L'onglet <strong>Ex&eacute;cution</strong> est disponible uniquement
+ lorsque le serveur est en cours de fonctionnement.</p>
+
+<div>
+<p>
+<strong>Onglet Configuration</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="Server_name_description"></a>Nom</strong>
+</dt>
+<dd>Indique le nom logique du serveur. Les noms de serveur
+doivent &ecirc;tre uniques dans un noeud.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">server1</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="StateManageable_initialState_description"></a>Etat initial</strong>
+</dt>
+<dd>Indique l'&eacute;tat d'ex&eacute;cution du composant demand&eacute; lors du premier d&eacute;marrage du serveur.
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">D&eacute;marr&eacute;</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationServer_classloaderPolicy_description"></a>R&egrave;gle de chargeur de classe d'application</strong>
+</dt>
+<dd>Indique s'il faut utiliser un chargeur de classe unique pour charger toutes les applications ou un chargeur de classe diff&eacute;rent pour chaque application.
+<p>Les options possibles sont SINGLE et MULTIPLE. Par d&eacute;faut, un chargeur de classe diff&eacute;rent est utilis&eacute; pour chaque application (MULTIPLE).</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">MULTIPLE</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationServer_classloaderMode_description"></a>Mode
+de chargement des classes de l'application</strong>
+</dt>
+<dd>Indique si le chargeur de classe doit d'abord effectuer la recherche dans le chargeur de classe parent ou dans le chargeur de classe de l'application afin de charger une classe. PARENT_FIRST est la norme pour les chargeurs de clase JDK et les chargeurs de classe WebSphere.
+Si vous indiquez PARENT_LAST, votre application peut remplacer des classes contenues dans le chargeur de classe parent, mais cette action peut &eacute;ventuellement aboutir &agrave; l'exception ClassCastException ou &agrave; des erreurs LinkageErrors si vous avez utilis&eacute; aussi bien des classes remplac&eacute;es que des classes non remplac&eacute;es.
+<p>Les options possibles sont PARENT_FIRST et PARENT_LAST. Par d&eacute;faut, la recherche s'effectue d'abord dans le chargeur de classe parent, puis dans le chargeur de classe d'application pour charger une classe.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">PARENT_FIRST</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Onglet Contexte d'ex&eacute;cution</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="rappsvr-rt1"></a>ID processus</strong>
+            &nbsp;
+            </dt>
+<dd>Indique une cha&icirc;ne identifiant le processus.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="rappsvr-rt2"></a>Nom de cellule</strong>
+            &nbsp;
+            </dt>
+<dd>Indique le nom de la cellule du serveur d'applications.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base"><em>nom_h&ocirc;te</em>Network</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="rappsvr-rt3"></a>Nom du noeud</strong>
+            &nbsp;
+            </dt>
+<dd>Indique le nom du noeud du serveur d'applications.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="rappsvr-rt4"></a>Etat</strong>
+            &nbsp;
+            </dt>
+<dd>Indique si le serveur d'applications est d&eacute;marr&eacute; ou arr&ecirc;t&eacute;.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">D&eacute;marr&eacute;</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informations connexes</strong>
+</p>
+<a href="rcon_buttons.html">Boutons de la console administrative</a>
+<br>
+
+<a href="rcon_pageusage.html">Caract&eacute;ristiques de la page de la console d'administration</a>
+<br>
+
+<a href="uagt_radmin.html">Param&egrave;tres du service d'administration</a>
+<br>
+
+<a href="urun_rclassloader.html">Collection de chargeurs de classes</a>
+<br>
+
+<a href="urun_rapp.html">Collection d'applications d'entreprise</a>
+<br>
+
+<a href="urun_rsvr_services.html">Collection de services personnalis&eacute;s</a>
+<br>
+
+<a href="utrb_debugsvc.html">D&eacute;tails du service de d&eacute;bogage</a>
+<br>
+
+<a href="udyn_rcachesettings.html">Param&egrave;tres du service de cache dynamique</a>
+<br>
+
+<a href="uejb_recnt.html">Param&egrave;tres de conteneur EJB</a>
+<br>
+
+<a href="urun_rendpoint.html">Collection de noeuds finaux</a>
+<br>
+
+<a href="utrb_servicelogs.html">Param&egrave;tres du journal de service IBM</a>
+<br>
+
+<a href="utrb_logtrace.html">Param&egrave;tres de journalisation et de tra&ccedil;age</a>
+<br>
+
+<a href="umb_smlp.html">Collection de ports d'&eacute;coute de messages</a>
+<br>
+
+<a href="uorb_rsetg.html">Param&egrave;tres du service ORB (Object Request Broker) dans la console d'administration</a>
+<br>
+
+<a href="uprf_rmonitorsettings.html">Param&egrave;tres du service de contr&ocirc;le des performances</a>
+<br>
+
+<a href="urun_rconfproc.html">Param&egrave;tres de d&eacute;finition des processus</a>
+<br>
+
+<a href="urun_rproperty.html">Collection de propri&eacute;t&eacute;s personnalis&eacute;es</a>
+<br>
+
+<a href="urun_rsvrcomp.html">Collection de composants de serveur</a>
+<br>
+
+<a href="utrb_traceservice.html">Param&egrave;tres du service de trace des diagnostics</a>
+<br>
+
+<a href="udat_contranserv.html">Param&egrave;tres du service de transactions</a>
+<br>
+
+<a href="uweb_rcont.html">Param&egrave;tres de conteneur Web</a>
+<br>
+
+</div>
+</body>
+</html>

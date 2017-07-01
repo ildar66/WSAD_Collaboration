@@ -1,0 +1,209 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Konsolgruppen und Gruppen des CORBA-Namensservice</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="useccongroup"></a>
+<h2>Konsolgruppen und Gruppen des CORBA-Namensservice</h2>
+
+<p>Auf der Seite "Konsolgruppen" k&ouml;nnen Sie Gruppen bestimmte Berechtigungen f&uuml;r die Verwaltung
+der Syntaxtools von WebSphere Application Server wie der Administrationskonsole
+oder des Scripting-Tools wsadmin erteilen. Die Voraussetzungen f&uuml;r die Berechtigungen sind nur g&uuml;ltig, wenn die
+Sicherheitseinrichtung aktiviert ist. Auf der Seite "Gruppen des CORBA-Namensservice" k&ouml;nnen Sie die Einstellungen
+f&uuml;r Gruppen des CORBA-Namensservice verwalten. </p>
+
+<p>Klicken Sie zum Anzeigen der Seite <strong>Konsolgruppen</strong> der Administrationskonsole
+auf <strong>Systemverwaltung</strong> &gt; <strong>Konsolgruppen</strong>. </p>
+
+<p>Klicken Sie zum Anzeigen der Seite "Gruppen des CORBA-Namensservice" der Administrationskonsole auf <strong>Umgebung</strong> &gt; <strong>Naming</strong> &gt;
+<strong>Gruppen des CORBA-Namensservice</strong>. </p>
+
+<dl>
+<dt>
+<strong><a name="desc_groups_title"></a>Gruppe (Konsolgruppen)</strong>
+</dt>
+<dd>Gibt Gruppen an. 
+<p>Die Gruppen ALL_AUTHENTICATED und EVERYONE k&ouml;nnen die folgenden Berechtigungen f&uuml;r Aufgabenbereiche
+haben: Administrator, Configurator, Operator und Monitor.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">ALL_AUTHENTICATED, EVERYONE</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="CORBA_desc_groups_title"></a>Gruppe (Gruppen des CORBA-Namensservice)</strong>
+</dt>
+<dd>Gruppen des CORBA-Namensservice.
+<p>F&uuml;r die Gruppe ALL_AUTHENTICATED sind vier Sicherheitsaufgabenbereiche g&uuml;ltig: CosNamingRead,
+CosNamingWrite, CosNamingCreate und
+CosNamingDelete. Die Gruppe EVERYONE gibt an, dass die Benutzer in dieser Gruppe nur die Berechtigungen f&uuml;r
+CosNamingRead besitzen. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">ALL_AUTHENTICATED, EVERYONE</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="label_role_desc"></a>Aufgabenbereich (Konsolgruppe)</strong>
+</dt>
+<dd>Gibt Aufgabenbereiche f&uuml;r Benutzer an. 
+<p>Die folgenden Administrationsaufgabenbereiche umfassen unterschiedliche Berechtigungsgrade, die erforderlich sind, um bestimmte
+Administrationsfunktionen von WebSphere Application Server auszuf&uuml;hren:<dl>
+<dt>
+<strong>Administrator</strong>
+</dt>
+<dd>Der Aufgabenbereich des Administrators umfasst die Operator-Berechtigungen,
+die Configurator-Berechtigungen und die Berechtigung f&uuml;r den Zugriff auf sensible Daten wie
+das Serverkennwort, das LTPA-Kennwort, Schl&uuml;ssel usw. </dd>
+<dt>
+<strong>Configurator</strong>
+</dt>
+<dd>Der Aufgabenbereich des Configurator umfasst die Monitor-Berechtigungen und die M&ouml;glichkeit,
+die Konfiguration von WebSphere Application Server zu &auml;ndern.</dd>
+<dt>
+<strong>Operator</strong>
+</dt>
+<dd>Der Aufgabenbereich des Operator umfasst die Monitor-Berechtigungen und die M&ouml;glichkeit, den Laufzeitstatus
+zu &auml;ndern. Der Operator kann beispielsweise Services starten und stoppen. </dd>
+<dt>
+<strong>Monitor</strong>
+</dt>
+<dd>Der Aufgabenbereich des Monitor umfasst die wenigsten Berechtigungen. Dieser Aufgabenbereich
+beschr&auml;nkt den Benutzer auf die Anzeige der Konfiguration und des aktuellen Status von WebSphere Application Server. </dd>
+</dl>
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">Administrator, Configurator, Operator und Monitor</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="CORBA_label_role_desc"></a>Aufgabenbereich (Gruppen des CORBA-Namensservice)</strong>
+</dt>
+<dd>Gibt die Aufgabenbereiche f&uuml;r die Gruppen des Namensservice an. 
+<p>Es sind eine Reihe von Naming-Aufgabenbereichen f&uuml;r die verschiedenen Berechtigungsgrade definiert, die erforderlich sind, um
+bestimmte Funktionen des WebSphere-Namensservice auszuf&uuml;hren. Die
+Berechtigungs-Policy wird nur bei Aktivierung der globalen Sicherheitseinrichtung umgesetzt. </p>
+
+<p> Es sind vier Sicherheitsaufgabenbereiche f&uuml;r Namespaces verf&uuml;gbar: CosNamingRead, CosNamingWrite, CosNamingCreate und CosNamingDelete. Die Namen
+der vier Aufgabenbereiche sind identisch mit denen in WebSphere Advanced Edition Version 4.0.2. Die Aufgabenbereiche haben jetzt jedoch mehr Berechtigungsstufen:<dl>
+<dt>
+<strong>CosNamingRead</strong>
+</dt>
+<dd>Benutzer k&ouml;nnen den WebSphere-Namespace beispielsweise mit der JNDI-Lookup-Methode
+abfragen.
+Das Sondersubjekt <strong>EVERYONE</strong> ist die Standard-Policy f&uuml;r diesen Aufgabenbereich. </dd>
+<dt>
+<strong>CosNamingWrite</strong>
+</dt>
+<dd>Benutzer k&ouml;nnen Schreiboperationen wie JNDI
+bind, rebind und unbind sowie CosNamingRead-Operationen durchf&uuml;hren. Das Sondersubjekt
+<strong>ALL_AUTHENTICATED</strong> ist die Standard-Policy f&uuml;r diesen Aufgabenbereich. </dd>
+<dt>
+<strong>CosNamingCreate</strong>
+</dt>
+<dd>Benutzer k&ouml;nnen mit Operationen wie JNDI createSubcontext und CosNamingWrite-Operationen
+neue Objekte im Namespace erstellen.
+Das Sondersubjekt
+<strong>ALL_AUTHENTICATED</strong> ist die Standard-Policy f&uuml;r diesen Aufgabenbereich. </dd>
+<dt>
+<strong>CosNamingDelete</strong>
+</dt>
+<dd>Benutzer k&ouml;nnen Objekte im Namespace l&ouml;schen, z. B. mit der JNDI-Methode
+destroySubcontext und CosNamingCreate-Operationen.
+Das Sondersubjekt
+<strong>ALL_AUTHENTICATED</strong> ist die Standard-Policy f&uuml;r diesen Aufgabenbereich. </dd>
+</dl>
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">CosNamingRead, CosNamingWrite, CosNamingCreate und CosNamingDelete</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>Zugeh&ouml;rige Informationen</strong>
+</p>
+<a href="rcon_buttons.html">Kn&ouml;pfe in der Adminstrationskonsole</a>
+<br>
+
+<a href="rcon_pageusage.html">Funktionen auf den Seiten der Administrationskonsole</a>
+<br>
+
+<a href="rcon_scope.html">Geltungsbereichseinstellungen f&uuml;r die Administrationskonsole</a>
+<br>
+
+<a href="rcon_filter.html">Filtereinstellungen f&uuml;r die Administrationskonsole</a>
+<br>
+
+<a href="rcon_preferences.html">Vorgaben f&uuml;r die Administrationskonsole</a>
+<br>
+
+</div>
+</body>
+</html>

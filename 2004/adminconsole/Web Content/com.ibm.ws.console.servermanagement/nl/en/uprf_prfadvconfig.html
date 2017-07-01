@@ -1,0 +1,202 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Runtime Performance Advisor configuration settings</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uprf_prfadvconfig"></a>
+<h2>Runtime Performance Advisor configuration settings</h2>
+
+<p>Use this page to specify settings for the Runtime Performance Advisor.</p>
+
+<p>For more information on how to use the Runtime Performance Advisor, see <a href="tprf_enpadvice.html">Using the Runtime Performance Advisor</a>. </p>
+
+<p>To view this administrative page, click <strong>Servers</strong> &gt; <strong>Application
+Servers</strong> &gt; <em>server_name</em> &gt; <strong>Runtime Performance Advisor Configuration</strong>.</p>
+
+<div>
+<p>
+<strong>Configuration tab</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="RPARuleEngine_enabled_description"></a>Enable Runtime Performance Advisor</strong>
+</dt>
+<dd>Specifies whether the Runtime Performance Advisor will run on server
+startup. 
+<p>The Runtime Performance Advisor (RPA) requires that the Performance Monitoring
+Service be enabled. It does not require that individual counters be enabled.
+When a counter that is needed by RPA is not enabled, RPA will enable it automatically.
+When disabling the Runtime Performance Advisor the user may want to disable
+the PMI Service or the counters that RPA enabled. The following counters may
+be enabled by RPA: <ul>
+
+<li>ThreadPools</li>
+
+<li>Web Container Pool Size</li>
+
+<li>Active Threads</li>
+
+<li>Object Request Broker Pool Size</li>
+
+<li>Active Threads</li>
+
+<li>JDBC Connection Pools</li>
+
+<li>Pool size</li>
+
+<li>Percent used</li>
+
+<li>Prepared Statement Discards</li>
+
+<li>Servlet Session Manager</li>
+
+<li>External Read Size</li>
+
+<li>External Write Size</li>
+
+<li>External Read Time</li>
+
+<li>External Write Time</li>
+
+<li>No Room For New Session</li>
+
+</ul> 
+</p>
+
+</dd>
+<dt>
+<strong><a name="RPARuleEngine_calculationInterval_description"></a>Calculation Interval</strong>
+</dt>
+<dd>PMI data is taken over an interval of time and averaged to provide
+advice. The calculation interval specifies the length of the time over which
+data is taken for this advice. Details within the advice messages will appear
+as averages over this interval.</dd>
+<dt>
+<strong><a name="RPARuleEngine_maxAlertStreak_description"></a>Maximum warning sequence</strong>
+</dt>
+<dd>The maximum warning sequence refers to the number of consecutive
+warnings issued before the threshold is relaxed.
+<p>For example, if the maximum warning sequence is set to 3, then the advisor
+only sends three warnings to indicate that the prepared statement cache is
+overflowing. After that, a new alert is only issued if the rate of discards
+exceeds the new threshold setting.</p>
+
+</dd>
+<dt>
+<strong><a name="RPARuleEngine_numberOfProcessors_description"></a>Number of processors</strong>
+</dt>
+<dd>Specifies the number of processors on the server.
+<p>This setting is critical to ensure accurate advice for the system's specific
+configuration.</p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Runtime tab</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="RPARuleEngine_enabled_description_2"></a>Enable Runtime Performance Advisor</strong>
+</dt>
+<dd>Starts the Runtime Performance Advisor on the current server.
+<p>The Runtime Performance Advisor (RPA) requires that the Performance Monitoring
+Service be enabled. It does not require that individual counters be enabled.
+When a counter that is needed by RPA is not enabled, RPA will enable it automatically.
+When disabling the Runtime Performance Advisor the user may want to disable
+the PMI Service or the counters that RPA enabled. The following counters may
+be enabled by RPA: <ul>
+
+<li>ThreadPools</li>
+
+<li>Web Container Pool Size</li>
+
+<li>Active Threads</li>
+
+<li>Object Request Broker Pool Size</li>
+
+<li>Active Threads</li>
+
+<li>JDBC Connection Pools</li>
+
+<li>Pool size</li>
+
+<li>Percent used</li>
+
+<li>Prepared Statement Discards</li>
+
+<li>Servlet Session Manager</li>
+
+<li>External Read Size</li>
+
+<li>External Write Size</li>
+
+<li>External Read Time</li>
+
+<li>External Write Time</li>
+
+<li>No Room For New Session</li>
+
+</ul> 
+</p>
+
+</dd>
+<dt>
+<strong><a name="RPARuleEngine_calculationInterval_description"></a>Calculation Interval</strong>
+</dt>
+<dd>PMI data is taken over an interval of time and averaged to provide
+advice. The calculation interval specifies the length of the time over which
+data is taken for this advice. Details within the advice messages will appear
+as averages over this interval.</dd>
+<dt>
+<strong><a name="RPARuleEngine_maxAlertStreak_description"></a>Maximum warning sequence</strong>
+</dt>
+<dd>The maximum warning sequence refers to the number of consecutive
+warnings issued before the threshold is relaxed.
+<p>For example, if the maximum warning sequence is set to 3, then the advisor
+only sends three warnings to indicate that the prepared statement cache is
+overflowing. After that, a new alert is only issued if the rate of discards
+exceeds the new threshold setting.</p>
+
+</dd>
+<dt>
+<strong><a name="RPARuleEngine_numberOfProcessors_description"></a>Number of processors</strong>
+</dt>
+<dd>Specifies the number of processors on the server.
+<p>This setting is critical to ensure accurate advice for the system's specific
+configuration.</p>
+
+</dd>
+<dt>
+<strong><a name="field_name"></a>Restart button</strong>
+</dt>
+<dd>Selecting Restart on the Runtime tab reinitializes the Runtime
+Performance Advisor using the last information saved to disk.  Note that this
+action also resets the state of the Runtime Performance Advisor.  For example,
+the current warning sequence is reset to zero for each recommendation/advice.</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Related information</strong>
+</p>
+<a href="rcon_buttons.html">Administrative console buttons</a>
+<br>
+
+<a href="rcon_scope.html">Administrative console scope settings</a>
+<br>
+
+<a href="rcon_filter.html">Administrative console filter settings</a>
+<br>
+
+<a href="rcon_preferences.html">Administrative console preference settings</a>
+<br>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Valores de entrada de transporte CSI (Common Secure Interoperability)</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecinboundconn"></a>
+<h2>Valores de entrada de transporte CSI (Common Secure Interoperability)</h2>
+
+<p>Utilice esta p&aacute;gina para especificar los puertos receptores que
+desea abrir y los valores SSL (Secure Sockets Layer) que desea utilizar. Estas especificaciones determinan qu&eacute; transporte utiliza un cliente o un servidor en sentido ascendente para comunicarse con este servidor para las peticiones de entrada.</p>
+
+<p>Para ver esta p&aacute;gina de la consola administrativa, pulse <strong>Seguridad</strong> &gt; <strong>Protocolo de
+autenticaci&oacute;n</strong> &gt; <strong>Transporte de entrada CSI</strong>.</p>
+
+<div>
+<p>
+<strong>Pesta&ntilde;a Configuraci&oacute;n</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="Transport_i_description"></a>Transporte</strong>
+</dt>
+<dd>Especifica si los procesos de cliente se conectan al servidor utilizando uno de los
+transportes conectados del mismo.
+<p>Puede elegir si desea utilizar SSL (Secure Socket Layer), TCP/IP o ambos tipos de conexi&oacute;n como transporte de entrada que recibe soporte del servidor.  Si especifica <strong>TCP/IP</strong>, el servidor s&oacute;lo dar&aacute; soporte a
+TCP/IP y no aceptar&aacute; conexiones SSL. Si especifica <strong>SSL soportado</strong>,
+este servidor puede dar soporte a las conexiones TCP/IP o SSL
+indistintamente. Si especifica <strong>SSL necesario</strong>, cualquier servidor
+que se comunique con &eacute;ste debe utilizar SSL.</p>
+
+<p>Si especifica <strong>SSL soportado</strong> o <strong>SSL necesario</strong>, debe decidir
+qu&eacute; conjunto de valores de configuraci&oacute;n SSL desea utilizar para la
+configuraci&oacute;n de entrada.
+Esta decisi&oacute;n determina qu&eacute; archivo de claves y archivo de confianza se utilizan para las conexiones de entrada con el servidor.</p>
+
+<p>Por omisi&oacute;n, los puertos SSL para CSIv2 (Common Secure Interoperability
+Version 2) y SAS (Security Authentication Service)se generan din&aacute;micamente. En aquellos casos en los que es necesario fijar los
+puertos SSL en los servidores de aplicaciones, pulse <strong>Servidores</strong>
+&gt; <strong>Servidores de aplicaciones</strong> &gt; <em>nombre_servidor</em> &gt;
+<strong>Puntos finales</strong>. 
+Configure los siguientes puertos para que sean fijos. Un n&uacute;mero de puerto
+igual a cero indica que se realiza una asignaci&oacute;n din&aacute;mica durante el
+tiempo de ejecuci&oacute;n. <pre class="program">
+<font style="font-family: arial">CSIV2_SSL_MUTUALAUTH_LISTENER_ADDRESS 
+CSIV2_SSL_SERVERAUTH_LISTENER_ADDRESS 
+SAS_SSL_SERVERAUTH_LISTENER_ADDRESS</font>
+</pre>
+</p>
+
+<p>
+<ul>
+
+<li>
+<strong>TCP/IP</strong>: s&oacute;lo est&aacute; abierto un puerto receptor TCP/IP y ninguna
+de las peticiones de entrada dispone de protecci&oacute;n SSL.</li>
+
+<li>
+<strong>SSL soportado</strong>: tanto el puerto receptor TCP/IP como SSL est&aacute;n
+abiertos y la mayor&iacute;a de las peticiones llegan de entrada a trav&eacute;s de
+SSL.</li>
+
+<li>
+<strong>SSL necesario</strong>: s&oacute;lo est&aacute; abierto un puerto receptor SSL y todas
+las peticiones llegan a trav&eacute;s de SSL. Si selecciona <strong>SSL necesario</strong>,
+tambi&eacute;n debe seleccionar <strong>CSI</strong> como protocolo de autenticaci&oacute;n
+activo. Si selecciona <strong>CSI y SAS</strong>, SAS requiere un socket TCP/IP
+abierto para algunas peticiones especiales.</li>
+
+</ul>
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n:</td>
+<td align="left" valign="top" class="base">SSL soportado</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango:</td>
+<td align="left" valign="top" class="base">TCP/IP, SSL necesario, SSL soportado</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SSLSettings_csi_i_description"></a>Valores SSL</strong>
+</dt>
+<dd>Especifica una lista de valores SSL predefinidos que se pueden elegir para las conexiones de entrada. Estos valores se configuran en el panel Repertorio SSL.
+<p></p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos:</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n:</td>
+<td align="left" valign="top" class="base">DefaultSSLSettings</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango:</td>
+<td align="left" valign="top" class="base">Cualquier valor SSL que est&eacute; configurado en Repertorio de configuraci&oacute;n SSL</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informaci&oacute;n relacionada</strong>
+</p>
+<a href="rcon_buttons.html">Botones de la consola de administraci&oacute;n</a>
+<br>
+
+<a href="rcon_pageusage.html">Caracter&iacute;sticas de la p&aacute;gina de la consola administrativa</a>
+<br>
+
+<a href="rcon_scope.html">Valores de &aacute;mbito de la consola administrativa</a>
+<br>
+
+<a href="rcon_filter.html">Valores de filtro de la consola administrativa</a>
+<br>
+
+<a href="rcon_preferences.html">Valores de preferencias de la consola administrativa</a>
+<br>
+
+</div>
+</body>
+</html>

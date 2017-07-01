@@ -1,0 +1,108 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Valores del registro de usuario del sistema operativo local</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecrpseclos"></a>
+<h2>Valores del registro de usuario del sistema operativo local</h2>
+
+<p>Utilice esta p&aacute;gina para configurar los valores del registro de usuario del sistema operativo local.</p>
+
+<p>Para ver esta p&aacute;gina de la consola administrativa, pulse
+<strong>Seguridad</strong> &gt; <strong>Registros de usuario</strong> &gt; <strong>Sistema
+operativo local</strong>.</p>
+
+<div>
+<p>
+<strong>Pesta&ntilde;a Configuraci&oacute;n</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="UserRegistry_serverId_description"></a>ID de usuario de servidor </strong>
+</dt>
+<dd>Especifica un ID de usuario v&aacute;lido en el registro de sistema operativo local.
+<p>&Eacute;ste ID es el ID de servidor de seguridad que s&oacute;lo se utiliza en la seguridad de WebSphere
+Application Server y no est&aacute; asociado con el proceso del sistema que ejecuta el servidor. El servidor llama al registro de sistema operativo local para autenticar y obtener informaci&oacute;n de privilegios sobre los usuarios llamando a las API de ese determinado registro. El acceso a las
+API originales est&aacute; restringido normalmente a los usuarios que tienen
+privilegios especiales (por ejemplo, <strong>root</strong> en sistemas UNIX y
+<strong>actuar como parte del sistema operativo</strong> en sistemas Windows). Para
+utilizar la seguridad en el servidor de aplicaciones, el ID del proceso
+(no el ID del servidor de seguridad) en el que se ejecuta WebSphere
+Application Server debe tener suficientes privilegios para llamar a las
+API del sistema. El privilegio especial significa que es necesario que el
+proceso que est&aacute; ejecutando WebSphere Application Server forme parte del
+grupos de <strong>Administradores</strong> y tenga el privilegio  <strong>actuar como
+parte del sistema operativo</strong> en sistemas Windows y sea <strong>root</strong> o
+tenga autoridad root en sistemas UNIX.</p>
+
+<p>Al utilizar un registro del sistema Windows, este ID no puede coincidir
+con el nombre de la m&aacute;quina Windows. Los sistemas Windows tratan el
+nombre de la m&aacute;quina <strong>bob</strong> como si tuviera una cuenta similar a
+la del usuario <strong>bob</strong>.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos:</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unidades:</td>
+<td align="left" valign="top" class="base">Caracteres alfanum&eacute;ricos</td>
+
+</tr>
+
+</table>
+
+
+</dd>
+<dt>
+<strong><a name="UserRegistry_serverPassword_description"></a> Contrase&ntilde;a de usuario de servidor</strong>
+</dt>
+<dd>Especifica una contrase&ntilde;a de usuario v&aacute;lida que corresponde a un ID de usuario v&aacute;lido del registro de sistema operativo local.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+<p></p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informaci&oacute;n relacionada</strong>
+</p>
+<a href="rcon_buttons.html">Botones de la consola de administraci&oacute;n</a>
+<br>
+
+<a href="rcon_pageusage.html">Caracter&iacute;sticas de la p&aacute;gina de la consola administrativa</a>
+<br>
+
+<a href="rcon_scope.html">Valores de &aacute;mbito de la consola administrativa</a>
+<br>
+
+<a href="rcon_filter.html">Valores de filtro de la consola administrativa</a>
+<br>
+
+<a href="rcon_preferences.html">Valores de preferencias de la consola administrativa</a>
+<br>
+
+</div>
+</body>
+</html>

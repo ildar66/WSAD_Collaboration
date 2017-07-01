@@ -1,0 +1,150 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Common Secure Interoperability transport inbound settings</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecinboundconn"></a>
+<h2>Common Secure Interoperability transport inbound settings</h2>
+
+<p>Use this page to specify which listener ports to open and which
+Secure Sockets Layer (SSL) settings to use. These specifications determine
+which transport a client or upstream server uses to communicate with this
+server for incoming requests.</p>
+
+<p>To view this administrative console page, click <strong>Security</strong> &gt; <strong>Authentication
+Protocol</strong> &gt; <strong>CSI Inbound Transport</strong>.</p>
+
+<div>
+<p>
+<strong>Configuration tab</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="Transport_i_description"></a>Transport</strong>
+</dt>
+<dd>Specifies whether client processes connect to the server using
+one of its connected transports.
+<p>You can choose to use either Secure Socket Layer (SSL), TCP/IP or both
+as the inbound transport that a server supports.  If you specify <strong>TCP/IP</strong>,
+the server only supports TCP/IP and cannot accept SSL connections. If you
+specify <strong>SSL Supported</strong>, this server can support either TCP/IP or SSL
+connections. If you specify <strong>SSL-Required</strong>, then any server
+communicating with this one must use SSL.</p>
+
+<p>If you specify <strong>SSL-Supported</strong> or <strong>SSL-Required</strong>, decide which
+set of SSL configuration settings you want to use for the inbound configuration.
+This decision determines which key file and trust file are used for inbound
+connections to this server.</p>
+
+<p>By default, SSL ports for Common Secure Interoperability Version 2 (CSIv2)
+and Security Authentication Service (SAS) are dynamically generated. In cases
+where you need to fix the SSL ports on application servers, click <strong>Servers</strong> &gt; <strong>Application
+Servers</strong> &gt; <em>server_name</em> &gt; <strong>End Points</strong>. Configure the following
+ports to be fixed. A zero port number indicates that a dynamic assignment
+is made at run time. <pre class="program">
+<font style="font-family: arial">CSIV2_SSL_MUTUALAUTH_LISTENER_ADDRESS 
+CSIV2_SSL_SERVERAUTH_LISTENER_ADDRESS 
+SAS_SSL_SERVERAUTH_LISTENER_ADDRESS</font>
+</pre>
+</p>
+
+<p>
+<ul>
+
+<li>
+<strong>TCP/IP</strong>: Only a TCP/IP listener port is opened and all requests
+inbound do not have SSL protection.</li>
+
+<li>
+<strong>SSL-Supported</strong>: Both a TCP/IP and SSL listener port are opened and
+most requests come inbound by way of SSL.</li>
+
+<li>
+<strong>SSL-Required</strong>: Only an SSL listener port is opened, and all requests
+come through SSL connections. If you choose <strong>SSL-Required</strong>, you must
+also choose <strong>CSI</strong> as the active authentication protocol. If you choose <strong>CSI
+and SAS</strong>, SAS requires an open TCP/IP socket for some special requests.</li>
+
+</ul>
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default:</td>
+<td align="left" valign="top" class="base">SSL-Supported</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range:</td>
+<td align="left" valign="top" class="base">TCP/IP, SSL Required, SSL-Supported</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SSLSettings_csi_i_description"></a>SSL settings</strong>
+</dt>
+<dd>Specifies a list of predefined SSL settings to choose from for
+inbound connections. These settings are configured at the SSL Repertoire panel.
+<p></p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type:</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default:</td>
+<td align="left" valign="top" class="base">DefaultSSLSettings</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range:</td>
+<td align="left" valign="top" class="base">Any SSL settings configured in the SSL Configuration Repertoire</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Related information</strong>
+</p>
+<a href="rcon_buttons.html">Administrative console buttons</a>
+<br>
+
+<a href="rcon_pageusage.html">Administrative console page features</a>
+<br>
+
+<a href="rcon_scope.html">Administrative console scope settings</a>
+<br>
+
+<a href="rcon_filter.html">Administrative console filter settings</a>
+<br>
+
+<a href="rcon_preferences.html">Administrative console preference settings</a>
+<br>
+
+</div>
+</body>
+</html>

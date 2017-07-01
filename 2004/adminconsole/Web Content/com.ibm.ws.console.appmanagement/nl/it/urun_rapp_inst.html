@@ -1,0 +1,315 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Impostazioni applicazione enterprise</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="urun_rapp_inst"></a>
+<h2>Impostazioni applicazione enterprise</h2>
+
+<p>Utilizzare questa pagina per configurare un'applicazione enterprise.</p>
+
+<p>Per visualizzare questa pagina della console di gestione, fare clic su <strong>Applicazioni &gt; Applicazioni enterprise &gt; </strong><em>nome_applicazione</em>.</p>
+
+<div>
+<p>
+<strong>Scheda Configurazione</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="ApplicationDeployment_name_description"></a>Nome</strong>
+</dt>
+<dd>Specifica un nome logico dell'applicazione. I nomi dell'applicazione devono
+essere univoci all'interno di una cella e non possono contenere caratteri non
+validi per i nomi oggetto.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationDeployment_startingWeight_description"></a>Relazione di avvio</strong>
+</dt>
+<dd>Specifica l'ordine in cui le applicazioni sono state avviate all'attivazione
+del server. L'applicazione con la relazione di avvio pi&ugrave; bassa viene avviata per prima.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Numero intero</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">1</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo</td>
+<td align="left" valign="top" class="base">Da 0 a 100</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationDeployment_binariesURL_description"></a>File binari dell'applicazione</strong>
+</dt>
+<dd>Specifica la directory in cui verr&agrave; installato il file EAR dell'applicazione.  Il valore predefinito &egrave; quello di
+ APP_INSTALL_ROOT/<em>nome_cella</em>, dove
+la variabile APP_INSTALL_ROOT &egrave; <em>root_installazione</em>/installedApps; ad esempio,
+ C:\WebSphere\AppServer\installedApps\<em>nome_cella</em>.
+<p>&Egrave; possibile specificare un percorso assoluto oppure utilizzare una variabile pathmap,
+come ad esempio ${MY_APPS}.
+  Si pu&ograve; utilizzare una variabile pathmap in qualunque installazione
+. Una
+variabile ${CELL} di WebSphere Application Server, che denota il nome cella corrente, pu&ograve;
+trovarsi anche nella variabile pathmap;
+ad esempio, ${MY_APP}/${CELL}.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&agrave;</td>
+<td align="left" valign="top" class="base">Nome percorso completo</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationDeployment_useMetadataFromBinaries_description"></a>Utilizzo dei metadati dei file binari</strong>
+</dt>
+<dd>Specifica se il server delle applicazioni utilizzer&agrave; il collegamento, le estensioni e i descrittori di distribuzione individuati con il documento di distribuzione dell'applicazione, il file deployment.xml (predefinito), o quelli individuati nel file dell'applicazione enterprise (EAR).
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Valore booleano</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">vero</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationDeployment_enableDistribution_description"></a>Abilitazione distribuzione</strong>
+</dt>
+<dd>Specifica se WebSphere Application Server espande o cancella i file binari dell'applicazione nella
+destinazione di installazione. Il valore predefinito &egrave; impostato sull'abilitazione
+della distribuzione dell'applicazione.
+ I file binari delle applicazioni installate sono estesi alla directory
+ specificata. I file binari, inoltre, vengono cancellati con la disinstallazione e
+quando si salvano le modifiche sulla configurazione. Se si disattiva questa opzione,
+bisogna verificare che i file binari dell'applicazione siano estesi in modo
+appropriato nelle directory di destinazione di tutti i nodi, dove &egrave; in esecuzione
+l'applicazione.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Valore booleano</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">vero</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationDeployment_classloaderMode_description"></a>Modalit&agrave; del programma di caricamento classi</strong>
+</dt>
+<dd>Specifica se il programma di caricamento classi deve eseguire una ricerca nel programma di caricamento classi parent o in quello dell'applicazione, prima di caricare una classe. Il valore standard per i programmi di caricamento classi di JDK e di WebSphere Application Server &egrave;
+PARENT_FIRST. Se si specifica PARENT_LAST, l'applicazione pu&ograve; sovrapporsi alle classi contenute nel programma di caricamento classi parent ma questa azione pu&ograve;, potenzialmente, causare un'eccezione ClassCastException o un errore LinkageErrors, se si utilizzano insieme classi sovrapposte e non.
+<p>Le opzioni sono PARENT_FIRST e PARENT_LAST. Per caricare una classe, il valore predefinito
+&egrave; quello di eseguire una ricerca nel programma di caricamento classi parent prima di
+effettuare tale operazione in quello dell'applicazione.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">PARENT_FIRST</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationDeployment_warClassloaderPolicy_description"></a>Politiche del programma di caricamento classi WAR</strong>
+</dt>
+<dd>Specifica se utilizzare un solo programma di caricamento classi per caricare tutti i file WAR dell'applicazione o utilizzare un programma di caricamento classi diverso per ogni file WAR.
+<p>Le opzioni sono APPLICATION e MODULE. Il valore predefinito &egrave; quello di utilizzare un programma di caricamento classi per caricare ogni file WAR.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">MODULE</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationDeployment_createMBeansForResource"></a>Creazione di MBeans per le risorse</strong>
+</dt>
+<dd>Specifica se creare file MBean per varie risorse (come servlet o file JSP)
+all'interno di un'applicazione.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Valore booleano</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">vero</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationDeployment_enableClassReloading"></a>Ricaricamento abilitato</strong>
+</dt>
+<dd>Specifica se abilitare o meno il ricaricamento delle classi quando i file
+dell'applicazione vengono aggiornati.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Valore booleano</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">vero</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationDeployment_reloadInterval"></a>Intervallo di ricaricamento</strong>
+</dt>
+<dd>Specifica il numero di secondi impiegato per eseguire la scansione del file
+system dell'applicazione per ricercare i file aggiornati. Il valore predefinito &egrave; il
+valore dell'attributo di intervallo di caricamento nel file
+(META-INF/ibm-application-ext.xmi) dell'estensione IBM del file EAR. Questa
+impostazione diventa attiva solo se &egrave; abilitato il caricamento classi.
+<p>L'intervallo di caricamento specificato qui sovrascrive il valore indicato nelle
+estensioni IBM per ogni modulo Web nel file EAR (che, in risposta, sovrascrive
+l'intervallo di caricamento specificato nelle estensioni IBM dell'applicazione nel
+file EAR).</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Numero intero</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&agrave;</td>
+<td align="left" valign="top" class="base">Secondi</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informazioni correlate</strong>
+</p>
+<a href="rcon_buttons.html">Pulsanti della console di gestione</a>
+<br>
+
+<a href="rcon_pageusage.html">Funzioni della pagina della console di gestione</a>
+<br>
+
+<a href="udat_nestjcaconfac.html">Raccolta di moduli connettore</a>
+<br>
+
+<a href="ucws_rlibref.html">Raccolta di riferimenti libreria</a>
+<br>
+
+<a href="uweb_rwebmc.html">Impostazioni del modulo Web</a>
+<br>
+
+</div>
+</body>
+</html>

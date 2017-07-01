@@ -1,0 +1,121 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Einstellungen f&uuml;r Mail-Sitzungen</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="ujtc_rjmsi"></a>
+<h2>Einstellungen f&uuml;r Mail-Sitzungen</h2>
+
+<p>Auf dieser Seite k&ouml;nnen Sie spezifische Mail-Provider konfigurieren.</p>
+
+<p>Klicken Sie, um diese Seite der Administrationskonsole
+anzuzeigen, auf <strong>Ressourcen</strong> &gt; <strong>Mail-Provider</strong> &gt; <em>Mail-Provider</em> &gt;
+<strong>Mail-Sitzungen</strong> &gt; <em>Mail-Sitzung</em>. </p>
+
+<div>
+<p>
+<strong>Register "Konfiguration"</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="MailSession_name_description"></a>Name</strong>
+</dt>
+<dd>Gibt den Administrationsnamen des JavaMail-Sitzungsobjekts an.</dd>
+<dt>
+<strong><a name="MailSession_jndiName_description"></a>JNDI-Name</strong>
+</dt>
+<dd>Gibt den JNDI-Namen (Java Naming and Directory Interface) f&uuml;r die Ressource einschlie&szlig;lich aller
+Subkontexte an.
+<p>Dieser Name wird als Verbindung zwischen den Bindungsinformationen
+der Plattform f&uuml;r die Ressourcen, die im Deployment-Deskriptor der
+Clientanwendung definiert sind, und den Ressourcen verwendet, die
+tats&auml;chlich von der Plattform an die JNDI gebunden wurden.</p>
+
+</dd>
+<dt>
+<strong><a name="MailSession_description_description"></a>Beschreibung</strong>
+</dt>
+<dd> Eine optionale Beschreibung der Datens&auml;tze f&uuml;r die Administration.</dd>
+<dt>
+<strong><a name="MailSession_category_description"></a>Kategorie </strong>
+</dt>
+<dd>Gibt eine optionale Gruppe f&uuml;r das Klassifizieren oder das Zusammenfassen von Sitzungen an. </dd>
+<dt>
+<strong><a name="MailSession_mailTransportHost_description"></a>Host f&uuml;r Mail-Transport</strong>
+</dt>
+<dd>Gibt den Server an, auf den beim Senden von Mails zugegriffen wird.</dd>
+<dt>
+<strong><a name="MailSession_mailTransportProtocol_description"></a>Protokoll f&uuml;r Mail-Transport</strong>
+</dt>
+<dd>Gibt das Transportprotokoll an, das beim Senden von Mails verwendet wird. </dd>
+<dt>
+<strong><a name="MailSession_mailTransportUser_description"></a>Benutzer-ID f&uuml;r Mail-Transport</strong>
+</dt>
+<dd> Gibt die Benutzer-ID an, die verwendet werden soll, wenn der Host f&uuml;r Mail-&Uuml;bertragung die
+Authentifizierung anfordert.
+<p>Diese Einstellung wird f&uuml;r die meisten Mail-Server nicht verwendet. Wenn Sie
+keinen Server verwenden m&ouml;chten, f&uuml;r den eine Benutzer-ID und ein
+Kennwort erforderlich sind, lassen Sie dieses Feld leer.</p>
+
+</dd>
+<dt>
+<strong><a name="MailSession_mailTransportPassword_description"></a>Kennwort f&uuml;r Mail-Transport</strong>
+</dt>
+<dd> Gibt das Kennwort an, das verwendet werden soll, wenn der Host f&uuml;r Mail-Transport
+die Authentifizierung anfordert.
+<p>Diese Einstellung wird f&uuml;r die meisten Mail-Server nicht verwendet. Wenn Sie
+keinen Server verwenden m&ouml;chten, f&uuml;r den eine Benutzer-ID und ein Kennwort
+erforderlich sind, lassen Sie dieses Feld leer. </p>
+
+</dd>
+<dt>
+<strong><a name="MailSession_mailFrom_description"></a>Mail von</strong>
+</dt>
+<dd>Gibt den Absender der Mail an.
+<p>Dieser Wert bezeichnet die Internet-E-Mail-Adresse, die standardm&auml;&szlig;ig in der empfangenen Nachricht
+entweder im Feld <samp>Von</samp> oder <samp>Antwort</samp> erscheint.
+Die Antwort des Empf&auml;ngers wird an diese Adresse gesendet.</p>
+
+</dd>
+<dt>
+<strong><a name="MailSession_mailStoreHost_description"></a>Host f&uuml;r Mail-Speicher</strong>
+</dt>
+<dd>Gibt den Server an, auf den beim Empfangen von Mails zugegriffen wird.
+<p>Diese Einstellung in Kombination mit der Benutzer-ID und dem Kennwort
+f&uuml;r den Mail-Speicher stellt einen g&uuml;ltigen Mail-Account dar. Lautet ein Mail-Account z. B. <em>john_william@my.company.com</em>, dann
+ist der Host f&uuml;r den Mail-Speicher <em>my.company.com</em>.</p>
+
+</dd>
+<dt>
+<strong><a name="MailSession_mailStoreProtocol_description"></a>Protokoll f&uuml;r Mail-Speicher</strong>
+</dt>
+<dd>Gibt das Protokoll an, das beim Empfangen von Mails verwendet wird, z. B. IMAP, POP3 oder ein
+Speicherprotokoll, f&uuml;r das der Benutzer einen Provider installiert hat.</dd>
+<dt>
+<strong><a name="MailSession_mailStoreUser_description"></a>Benutzer f&uuml;r Mail-Speicher</strong>
+</dt>
+<dd>Gibt die Benutzer-ID f&uuml;r einen bestimmten Mail-Account an.
+<p>Lautet z. B. ein Mail-Account <em>john_william@my.company.com</em>, dann
+ist der Benutzer <em>john_william</em>.</p>
+
+</dd>
+<dt>
+<strong><a name="MailSession_mailStorePassword_description"></a>Kennwort f&uuml;r Mail-Speicher</strong>
+</dt>
+<dd>Gibt das Kennwort f&uuml;r einen bestimmten Mail-Account an.
+<p>Lautet z. B. ein Mail-Account <em>john_william@my.company.com</em>, dann
+m&uuml;ssen Sie das Kennwort f&uuml;r die Benutzer-ID <em>john_william</em> eingeben.</p>
+
+</dd>
+<dt>
+<strong><a name="MailSession_debug_description"></a>Debug</strong>
+</dt>
+<dd>Schaltet den Debug-Modus f&uuml;r diese Mail-Sitzung an oder aus.</dd>
+</dl>
+</div>
+</body>
+</html>

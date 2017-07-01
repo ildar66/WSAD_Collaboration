@@ -1,0 +1,99 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Configuration de nonce au niveau de la cellule</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="twbs_confnoncecell"></a>
+<h2>
+<img alt="[Release 5.1 and later]" src="v51.gif" border="0">Configuration de nonce au niveau de la cellule</h2>
+
+
+<div> Cette t&acirc;che fournit
+des instructions indiquant comment configurer nonce au niveau de la cellule &agrave; l'aide
+de la console d'administration WebSphere Application Server. Vous pouvez configurer
+nonce au niveau de l'application, du serveur et de la cellule. Toutefois, vous devez
+prendre en compte l'ordre de priorit&eacute;. La liste suivante affiche la liste
+de priorit&eacute; :<ol>
+
+<li>Niveau de l'application</li>
+
+<li>Niveau du serveur</li>
+
+<li>Niveau de la cellule</li>
+
+</ol>Si vous configurez nonce au niveau de l'application et au niveau du serveur,
+les valeurs indiqu&eacute;es pour le niveau de l'application ont priorit&eacute; sur les valeurs
+indiqu&eacute;es pour le niveau du serveur. De la m&ecirc;me fa&ccedil;on, les valeurs d&eacute;finies
+pour le niveau de l'application ont priorit&eacute; sur les valeurs d&eacute;finies pour le niveau
+du serveur et de la cellule. Dans WebSphere Application Server Network Deployment, les
+zones correspondant au d&eacute;lai d'expiration du cache nonce<strong></strong> ainsi que les zones <strong>D&eacute;lai maximal Nonce</strong> et <strong>D&eacute;calage d'horloge</strong>
+sont requises afin d'utiliser nonce de mani&egrave;re plus efficace. Toutefois, ces zones sont facultatives au
+niveau du serveur. Suivez la proc&eacute;dure ci-apr&egrave;s pour configurer nonce au niveau
+du serveur.</div>
+
+<div>
+<p class="sectiontitle">Etapes pour cette t&acirc;che</p>
+<ol>
+
+<li>Connectez-vous &agrave; la console d'administration en entrant http://h&ocirc;telocal:9090/admin dans
+votre navigateur Web sauf si vous avez modifi&eacute; le num&eacute;ro de port.</li>
+
+<li>Cliquez sur <strong>Serveurs &gt; Serveurs d'applications &gt; </strong><strong>serveur1</strong>.
+</li>
+
+<li>Dans la section Propri&eacute;t&eacute;s suppl&eacute;mentaires, cliquez sur <strong>Services Web : Liaisons par d&eacute;faut
+pour la s&eacute;curit&eacute; des services Web</strong>.</li>
+
+<li>Indiquez une valeur, en secondes, dans la zone correspondant au d&eacute;lai d'expiration du cache nonce<strong></strong>.
+<div>La valeur indiqu&eacute;e dans la zone correspondant au d&eacute;lai du cache nonce<strong></strong> indique la dur&eacute;e
+pendant laquelle l'&eacute;l&eacute;ment nonce reste en cache avant d'&ecirc;tre supprim&eacute;. Vous devez indiquer une valeur
+sup&eacute;rieure ou &eacute;gale &agrave; 300 secondes. Si vous ne renseignez pas cette zone, la valeur par d&eacute;faut est de 600
+secondes. Cette zone est facultative au niveau du serveur mais est requise au niveau de la cellule.</div>
+</li>
+
+<li>Indiquez une valeur, en secondes, dans la zone <strong>D&eacute;lai maximal Nonce</strong>.
+<div>La valeur indiqu&eacute;e dans la zone <strong>D&eacute;lai maximal Nonce</strong> indique la dur&eacute;e de validit&eacute;
+de l'&eacute;l&eacute;ment Nonce. Vous devez indiquer une valeur sup&eacute;rieure ou &eacute;gale &agrave; 300 secondes mais la
+valeur ne peut pas d&eacute;passer le nombre de secondes indiqu&eacute; pour la zone correspondant au d&eacute;lai
+maximal nonce<strong></strong> d&eacute;finie &agrave; l'&eacute;tape pr&eacute;c&eacute;dente. Si vous n'indiquez pas de valeur, la valeur
+par d&eacute;faut est 600 secondes. Dans un environnement WebSphere Application Server
+Network Deployment ou WebSphere Application Server pour z/OS,, si vous indiquez une valeur
+au niveau du serveur pour la zone de d&eacute;lai du cache Nonce<strong></strong>, la valeur ne peut pas d&eacute;passer la valeur
+d&eacute;finie pour la m&ecirc;me zone au niveau de la cellule<strong></strong>. Cette zone est facultative au niveau du serveur mais
+est requise au niveau de la cellule</div>
+</li>
+
+<li>Indiquez une valeur, en secondes, pour la zone <strong>D&eacute;calage d'horloge</strong>.
+<div>La valeur d&eacute;finie pour la zone <strong>D&eacute;calage d'horloge</strong> indique la dur&eacute;e, en secondes,
+pendant laquelle le programme de r&eacute;ception des messages v&eacute;rifie l'anciennet&eacute; de la valeur. Prenez en
+compte les informations suivantes lorsque vous d&eacute;finissez cette valeur :<ul>
+
+<li>Diff&eacute;rence temporelle entre l'exp&eacute;diteur du message et le destinataire du message si les horloges
+ne sont pas synchronis&eacute;es.</li>
+
+<li>Temps n&eacute;cessaire au chiffrement et &agrave; la transmission du message.</li>
+
+<li>Temps &agrave; prendre en compte pour l'encombrement r&eacute;seau.</li>
+
+</ul>Vous devez indiquer une valeur sup&eacute;rieure ou &eacute;gale &agrave; z&eacute;ro dans cette zone. Toutefois, la valeur
+indiqu&eacute;e maximale ne peut pas d&eacute;passer le nombre maximal de secondes indiqu&eacute; dans la zone <strong>D&eacute;lai
+maximal Nonce</strong>. Si vous ne renseignez pas cette zone, la valeur par d&eacute;faut est de 0
+secondes.
+Cette zone est facultative au niveau du serveur mais est requise au niveau de la cellule.</div>
+
+</li>
+
+<li>Red&eacute;marrez le serveur.<div>Si vous modifiez la valeur de la zone
+correspondant au d&eacute;lai du cache nonce<strong></strong> et que vous ne red&eacute;marrez pas le serveur,
+la modification n'est pas reconnue par le serveur.</div>
+</li>
+
+</ol>
+</div>
+
+</body>
+</html>

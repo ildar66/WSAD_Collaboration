@@ -1,0 +1,906 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>「WebSphere MQ 佇列」設定（MQ 配置）</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="MQSeriesQueueHost"></a>
+<h2>「WebSphere MQ 佇列」設定（MQ 配置）</h2>
+
+<p>使用這個畫面來檢視或變更定義給選取的 Queue Destination 之 WebSphere MQ 的配置內容。</p>
+
+<p>Queue Destination 用來配置 JMS 佇列的內容。
+搭配 WebSphere MQ JMS Provider 使用的佇列有下列定義給 WebSphere MQ 的額外內容。
+<p>
+<b>注意事項: </b>
+<ul>
+
+<li>部分顯示的內容是唯讀的，不能改變。</li>
+
+<li>如果要能檢視或變更內容，佇列所在的 WebSphere MQ 佇列管理程式必須配置了遠端管理，且在執行中。
+</li>
+
+<li>您指定的內容值必須符合在配置 WebSphere MQ JMS 資源時所指定的值。
+如果需要配置 WebSphere MQ JMS 資源的詳細資訊，請參閱 WebSphere MQ <cite>使用 Java</cite> 一書；
+比方說，造訪 WebSphere MQ 多平台書庫網頁，網址如下：<img border="0" alt="僅當這個主題鏈結到全球資訊網時，才可存取此目標" src="web.gif">&nbsp;&nbsp;               
+   <a target="_blank" href="http://www.ibm.com/software/ts/mqseries/library/manualsa/manuals/crosslatest.html"><strong>http://www.ibm.com/software/ts/mqseries/library/manualsa/manuals/crosslatest.html</strong></a>
+。</li>
+
+<li>在 WebSphere MQ 中，名稱最多可有 48 個字元，但通道例外，它最多只能有 20 個字元。</li>
+
+</ul>
+</p>
+</p>
+
+<p>如果要檢視這個管理主控台頁面，請按一下<strong>資源 -&gt; WebSphere
+MQ JMS Provider-&gt;（在內容窗格的「其他內容」下）WebSphere
+MQ Queue Destination-&gt; <em>destination_name</em>-&gt;（在內容窗格的「其他內容」）MQ 配置</strong>
+</p>
+
+<dl>
+<dt>
+<strong><a name="MQSeriesQueue_baseQueueName"></a>基本佇列名稱</strong>
+</dt>
+<dd>訊息要送往之佇列的名稱，在<strong>基本佇列管理者名稱</strong>內容所指定的佇列管理程式中。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_baseQueueManagerName"></a>基本佇列管理者名稱</strong>
+</dt>
+<dd>訊息要送往之 WebSphere MQ 佇列管理程式的名稱。
+<p>這個佇列管理程式提供<strong>基本佇列名稱</strong>內容所指定的佇列。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_queueManagerHost"></a>佇列管理程式主機</strong>
+</dt>
+<dd> Queue Destination 建立所在的佇列管理程式的主機名稱。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_queueManagerPort"></a>佇列管理程式埠</strong>
+</dt>
+<dd>這個佇列定義所在的佇列管理程式所使用的埠號。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">整數</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">有效的 TCP/IP 埠號。這個埠必須配置在 WebSphere MQ 佇列管理程式中。
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_serverConnectionChannelName"></a>伺服器連線通道名稱</strong>
+</dt>
+<dd>用於連接到 WebSphere MQ 佇列管理程式的通道名稱。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">1 至 20 個 ASCII 字元</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_userName"></a>使用者 ID</strong>
+</dt>
+<dd>連接至佇列管理程式來定義 Queue Destination 時，要搭配<strong>密碼</strong>內容來進行鑑別的使用者 ID。
+<p>如果您指定了<strong>使用者名稱</strong>內容值，您也必須指定<strong>密碼</strong>內容值。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_password"></a>密碼</strong>
+</dt>
+<dd>連接至佇列管理程式來定義 Queue Destination 時，要搭配<strong>使用者名稱</strong>內容來進行鑑別的密碼。
+<p>如果您指定了<strong>使用者名稱</strong>內容值，您也必須指定<strong>密碼</strong>內容值。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue"></a>名稱
+</strong>
+</dt>
+<dd>定義給 WebSphere MQ 佇列管理程式的佇列名稱。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">1 至 48 個 ASCII 字元。</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_description"></a>說明
+</strong>
+</dt>
+<dd>WebSphere MQ 佇列說明，供 Websphere MQ 內的管理使用。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">空值</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">1 至 64 個 ASCII 字元。</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue.inhibitPut"></a>抑制放置</strong>
+</dt>
+<dd>是否容許這個佇列的放置作業。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">列舉</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">單位</td>
+<td align="left" valign="top" class="base">不適用</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">已清除
+</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>容許</strong>
+</dt>
+<dd>容許這個佇列的放置作業。</dd>
+
+<dt>
+<strong>不容許</strong>
+</dt>
+<dd>不容許這個佇列的放置作業。</dd>
+
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_persistence"></a>持續性</strong>
+</dt>
+<dd>傳送至目的地的所有訊息是不是全部具持續性、不具持續性，或是由應用程式來定義其持續性
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">列舉</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">單位</td>
+<td align="left" valign="top" class="base">不適用</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">APPLICATION_DEFINED</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>定義的應用程式
+</strong>
+</dt>
+<dd>在目的地的訊息，其持續性由將它們放入佇列的應用程式來定義。
+</dd>
+
+<dt>
+<strong>已定義的佇列</strong>
+</dt>
+<dd>[只適用於 WebSphere MQ 目的地] 在目的地的訊息，其持續性由 WebSphere MQ 佇列定義內容來定義。</dd>
+
+<dt>
+<strong>持續性</strong>
+</dt>
+<dd>在目的地的訊息具有持續性。</dd>
+
+<dt>
+<strong>非持續性</strong>
+</dt>
+<dd>在目的地的訊息沒有持續性。
+</dd>
+
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_clusterName"></a>叢集名稱</strong>
+</dt>
+<dd>WebSphere MQ 佇列管理程式所屬的叢集名稱。
+<p>如果您指定<strong>叢集名稱</strong>的值，將無法指定<strong>叢集名稱清單</strong>的值。
+叢集名稱必須遵守 <cite>WebSphere MQ MQSC 指令參考手冊</cite>一書中所說明的規則。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+
+
+
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">空值</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">佇列管理程式叢集的有效 WebSphere MQ 名稱，1 至 48 個 ASCII 字元
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_clusterNameList"></a>叢集名稱清單</strong>
+</dt>
+<dd>WebSphere MQ 佇列管理程式所屬的叢集名稱清單的名稱。
+<p>如果您指定<strong>叢集名稱</strong>的值，將無法指定<strong>叢集名稱清單</strong>的值。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+
+
+
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">空值</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">佇列管理程式叢集清單的有效 WebSphere MQ 名稱，1 至 48 個 ASCII 字元
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_defaultBind"></a>預設連結</strong>
+</dt>
+<dd>當佇列定義成叢集佇列時要使用的預設連結。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">列舉</td>
+
+</tr>
+
+
+
+
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">空值</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>開啟時</strong>
+</dt>
+<dd>當佇列開啟時，佇列控點將連結到特定的叢集佇列實例。</dd>
+
+<dt>
+<strong> 不固定</strong>
+</dt>
+<dd>佇列控點不會連結到任何特定的叢集佇列實例。
+這容許佇列管理程式在訊息放置時可以選取特定的佇列實例，以及如果產生需要的話，可以隨後變更該選擇。</dd>
+
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue.inhibitGet"></a>抑制取得</strong>
+</dt>
+<dd>是否容許這個佇列的取得作業。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">列舉</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">單位</td>
+<td align="left" valign="top" class="base">不適用</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">已清除
+</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>容許</strong>
+</dt>
+<dd>容許這個佇列的取得作業。</dd>
+
+<dt>
+<strong>不容許</strong>
+</dt>
+<dd>不容許這個佇列的取得作業。</dd>
+
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_maxQueueDepth"></a>佇列深度上限</strong>
+</dt>
+<dd>佇列上容許的訊息數目上限。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">整數</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">單位</td>
+<td align="left" valign="top" class="base">訊息</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base"></td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">值大於或等於零，以及小於或等於：<ul>
+
+<li>999 999 999，如果佇列在 OS/390 的話</li>
+
+<li>640 000，如果佇列在任何其他 WebSphere MQ 平台的話</li>
+
+</ul>
+<p>如果需要容許的上限值的詳細資訊，請參閱 <cite>WebSphere MQ MQSC 指令參考手冊</cite>。</p>
+<p>如果減少這個值，即使訊息數目超過新的上限，也不會影響任何已在佇列上的訊息。</p>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_maxMessageLength"></a>訊息長度上限</strong>
+</dt>
+<dd>這個佇列上的訊息長度上限，以位元組表示。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">整數</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">單位</td>
+<td align="left" valign="top" class="base">位元組</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base"></td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">值大於或等於零，以及小於或等於佇列管理程式及 WebSphere MQ 平台的訊息長度上限。如果需要容許的上限值的詳細資訊，請參閱 <cite>WebSphere MQ MQSC 指令參考手冊</cite>。<p>如果減少這個值，即使訊息長度超過新的上限，也不會影響任何已在佇列上的訊息。</p>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_shareability"></a>可共用性</strong>
+</dt>
+<dd>多個應用程式是否可從這個佇列取得訊息。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">列舉</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">單位</td>
+<td align="left" valign="top" class="base">不適用</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">不可共用</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>不可共用</strong>
+</dt>
+<dd>僅有一個應用程式實例可從佇列取得訊息。</dd>
+
+<dt>
+<strong>可共用</strong>
+</dt>
+<dd>多個應用程式實例可從佇列取得訊息。</dd>
+
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_inputOpenOption"></a>輸入開啟選項</strong>
+</dt>
+<dd>開啟這個佇列進行輸入之應用程式的預設共用選項
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">列舉</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">單位</td>
+<td align="left" valign="top" class="base">不適用</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">已清除
+</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>專用</strong>
+</dt>
+<dd>開啟要求是針對來自佇列的專用輸入。</dd>
+
+<dt>
+<strong>共用</strong>
+</dt>
+<dd>開啟要求是針對來自佇列的共用輸入。</dd>
+
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_messageDeliverySequence"></a>訊息遞送順序</strong>
+</dt>
+<dd>回應取得要求而從佇列遞送訊息的次序。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">列舉</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">單位</td>
+<td align="left" valign="top" class="base">不適用</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">優先順序
+</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>優先順序
+</strong>
+</dt>
+<dd>以優先順序內的先進先出 (FIFO) 次序來遞送訊息。
+這是隨 WebSphere MQ一起提供的預設值，但是您的安裝作業可能已變更了它。</dd>
+
+<dt>
+<strong>FIFO</strong>
+</dt>
+<dd>以 FIFO 次序來遞送訊息。對於這個佇列上的訊息，將忽略優先順序。</dd>
+
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_backoutThreshold"></a>取消臨界值</strong>
+</dt>
+<dd>訊息可以取消之次數的上限。如果達到了這個臨界值，訊息會重入佇列，放在<strong>回復重入佇列名稱</strong>內容所指定的回復佇列中。
+
+<p>「MQSeries MQ 佇列管理程式」將記錄每一個訊息已被取消的次數。
+當這個數目達到了可配置的臨界值時，連線使用者會將訊息重新佇列在指名的取消佇列上。
+如果這個重新佇列因為任何理由而失敗，則訊息將從佇列移除，並且將重新佇列在無法傳送的郵件佇列，或是加以捨棄。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">整數</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">0</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>0</strong>
+</dt>
+<dd>訊息絕不重入佇列</dd>
+
+<dt>
+<strong>一或多次
+</strong>
+</dt>
+<dd>訊息的回復次數（訊息重入在具名回復佇列中）。</dd>
+
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_backoutRequeue"></a>取消重新佇列名稱</strong>
+</dt>
+<dd>取消佇列的名稱，如果訊息已因超過取消臨界值而被取消，則這些訊息將重新佇列到這個取消佇列。
+<p>「MQSeries MQ 佇列管理程式」將記錄每一個訊息已被取消的次數。
+當這個數目達到了可配置的臨界值時，連線使用者會將訊息重新佇列在指名的取消佇列上。
+如果這個重新佇列因為任何理由而失敗，則訊息將從佇列移除，並且將重新佇列在無法傳送的郵件佇列，或是加以捨棄。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">空值</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">1 至 48 個字元。</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_hardenGetBackout"></a>加強取得取消</strong>
+</dt>
+<dd>是否應該使用加強來確定訊息已被取消的次數是精確的計數。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">列舉</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">單位</td>
+<td align="left" valign="top" class="base">不適用</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">已清除
+</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>不加強</strong>
+</dt>
+<dd>不加強計數。這是隨 WebSphere MQ一起提供的預設值，但是您的安裝作業可能已變更了它。</dd>
+
+<dt>
+<strong>已加強</strong>
+</dt>
+<dd>加強計數。</dd>
+
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Einstellungen f&uuml;r abgehende CSI-Transporte</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecoutboundconn"></a>
+<h2>Einstellungen f&uuml;r abgehende CSI-Transporte</h2>
+
+<p>Auf dieser Seite k&ouml;nnen Sie angeben, welche Transport- und SSL-Einstellungen der Server
+verwenden kann, wenn er mit Downstream-Servern hinsichtlich abgehender Verbindungen kommuniziert.  </p>
+
+<p>Klicken Sie zum Anzeigen dieser Seite der Administrationskonsole auf
+<strong>Sicherheit &gt; Authentifizierungsprotokoll &gt; Abgehender CSI-Transport</strong>.</p>
+
+<div>
+<p>
+<strong>Register "Konfiguration"</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="Transport_o_description"></a>Transport</strong>
+</dt>
+<dd>Gibt an, ob die Clientprozesse mit einem der f&uuml;r den Server konfigurierten Transportverfahren eine
+Verbindung zum Server herstellen.
+<p>Sie k&ouml;nnen als Transportverfahren f&uuml;r abgehende Nachrichten, die ein Server unterst&uuml;tzen soll, <strong>SSL</strong>,
+<strong>TCP/IP</strong> oder <strong>Both</strong> festlegen. Bei Angabe von <strong>TCP/IP</strong> legen Sie fest, dass der Server nur
+TCP/IP unterst&uuml;tzt und keine SSL-Verbindungen zu Downstream-Servern herstellen kann.  Wenn
+Sie <strong>SSL unterst&uuml;tzt</strong> angeben, kann der Server TCP/IP- und SSL-Verbindungen herstellen. Bei
+Angabe von <strong>SSL erforderlich</strong> muss dieser Server SSL verwenden, um
+Verbindungen zu Downstream-Servern herzustellen. Wenn Sie SSL angeben, m&uuml;ssen Sie festlegen, welche Gruppe der
+SSL-Konfigurationseinstellungen Sie f&uuml;r die Konfiguration von
+abgehenden Verbindungen verwenden m&ouml;chten. Mit dieser Entscheidung legen Sie fest,
+welche Schl&uuml;sseldatei und welche Trust-Datei f&uuml;r abgehende Verbindungen zu
+Downstream-Servern verwendet werden soll. Betrachten Sie folgendes Beispiel:
+<dl>
+
+<dt>
+<strong>TCP/IP</strong>
+</dt>
+<dd>Dieser Server &ouml;ffnet nur TCP/IP-Verbindungen zu
+Downstream-Servern. </dd>
+
+<dt>
+<strong>SSL unterst&uuml;tzt</strong>
+</dt>
+<dd>Dieser Server &ouml;ffnet SSL-Verbindungen zu allen
+Downstream-Servern, die diese Verbindungen unterst&uuml;tzen, und TCP/IP-Verbindungen zu
+allen Downstream-Servern, die diese Verbindungen nicht unterst&uuml;tzen. </dd>
+
+<dt>
+<strong>SSL erforderlich</strong>
+</dt>
+<dd>Dieser Server &ouml;ffnet immer SSL-Verbindungen zu
+Downstream-Servern.
+</dd>
+
+</dl>
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">SSL unterst&uuml;tzt</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">TCP/IP, SSL erforderlich, SSL unterst&uuml;tzt</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SSLSettings_ibm_o_description"></a>SSL-Einstellungen</strong>
+</dt>
+<dd>Gibt eine Liste von vordefinierten SSL-Einstellungen f&uuml;r abgehende Verbindungen an.  Diese
+Einstellungen werden in der Anzeige "SSL-Konfigurationsrepertoire" konfiguriert.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">SSL-Standardeinstellungen</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">Alle SSL-Einstellungen, die in der Anzeige "SSL-Konfigurationsrepertoire" konfiguriert wurden.
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Zugeh&ouml;rige Informationen</strong>
+</p>
+<a href="rcon_buttons.html">Kn&ouml;pfe in der Adminstrationskonsole</a>
+<br>
+
+<a href="rcon_pageusage.html">Funktionen auf den Seiten der Administrationskonsole</a>
+<br>
+
+<a href="rcon_scope.html">Geltungsbereichseinstellungen f&uuml;r die Administrationskonsole</a>
+<br>
+
+<a href="rcon_filter.html">Filtereinstellungen f&uuml;r die Administrationskonsole</a>
+<br>
+
+<a href="rcon_preferences.html">Vorgaben f&uuml;r die Administrationskonsole</a>
+<br>
+
+</div>
+</body>
+</html>

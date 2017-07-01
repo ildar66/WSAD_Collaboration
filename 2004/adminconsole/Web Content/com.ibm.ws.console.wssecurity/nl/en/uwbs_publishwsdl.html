@@ -1,0 +1,92 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Publish WSDL files settings</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_publishwsdl"></a>
+<h2>Publish WSDL files settings</h2>
+
+<p>Use this page to publish Web Services Description Language (WSDL)
+files.      </p>
+
+<p>To view this page, click <strong>Applications</strong> &gt;<strong>Enterprise Applications</strong> &gt; <em>application_instance</em> &gt; <strong>Publish
+WSDL</strong>. </p>
+
+<p>When you click <strong>OK</strong>, a zip file of all the Web services-enabled modules
+in the application is produced. The name of the published zip file is <samp>application_name_WSDLFiles.zip</samp>.
+In the published zip file, the directory structure is <em>application_name/module_name/[META-INF|WEB-INF]/wsdl/wsdl_file_name</em>.
+ </p>
+
+<p>In a published WSDL file, the location attribute of a service <samp>soap:address</samp> stanza
+contains the URL through which the Web service is accessed. You can specify
+the portion of the URL to be used for the Web services in each module. You
+can access the Web services in a module through a HTTP transport or JMS transport,
+or both. You can specify URL information for both types of transports.   </p>
+
+<div>
+<p>
+<strong>Configuration tab</strong>
+</p>
+<dl>
+<dt>
+<strong>Specify URL prefixes for Web Services</strong>
+</dt>
+<dd>Specifies the <em>protocol</em> (either http or https), <em>host_name</em>,
+and <em>port_number </em>to be used in the URL. 
+<p>The URL prefix format is protocol://<em>host_name:port_number</em>, for example,
+http://<em>myHost</em>:9045. The actual URL that appears in a published WSDL
+file consists of the prefix prepended to the module's context-root and the
+Web service url-pattern, for example, http://<em>myHost</em>:9045/services/<em>myService</em> .</p>
+
+</dd>
+<dt>
+<strong>Select HTTP URL prefix </strong>
+</dt>
+<dd>Specifies the drop down list associated with a default list of
+URL prefixes. This list is the intersection of the set of ports for the module's
+virtual host and the set of ports for the module's application server. Use
+items from this list if the Web services application server is accessed directly. 
+<p>To set an HTTP prefix, select either the <strong>HTTP URL prefix</strong> or <strong>Custom
+HTTP URL prefix</strong>, enter the value, select the check box of the modules
+that are to use the prefix, and click <strong>Apply</strong>. When you click <strong>Apply</strong>,
+the entry in the <strong>Select HTTP URL prefix</strong> or <strong>Custom HTTP URL prefix</strong> fields,
+depending on which is selected, is copied into the <strong>HTTP URL prefix</strong> field
+of any module whose check box (in the leftmost column) is selected. The HTTP
+prefix is not applied to the fields in the JMS URL prefix column.</p>
+
+</dd>
+<dt>
+<strong>Custom HTTP URL prefix </strong>
+</dt>
+<dd>Specifies the <em>protocol</em>, <em>host</em>, and <em>port_number</em> of
+the intermediate service if the Web services in a module are accessed through
+an intermediate node, for example the Web services gateway or an IHS server. 
+<p>To set an HTTP prefix, select either the <strong>HTTP URL prefix</strong> or <strong>Custom
+HTTP URL prefix</strong>, enter the value, select the check box of the modules
+that are to use the prefix, and click <strong>Apply</strong>. When you click <strong>Apply</strong>,
+the entry in the <strong>Select HTTP URL prefix</strong> or <strong>Custom HTTP URL prefix</strong> fields,
+depending on which is selected, is copied into the <strong>HTTP URL prefix</strong> field
+of any module whose check box (in the leftmost column) is selected. The HTTP
+prefix is not applied to the fields in the JMS URL prefix column.</p>
+
+</dd>
+<dt>
+<strong>JMS URL prefix</strong>
+</dt>
+<dd>Specifies the JMS URL prefix string used for each module. 
+<p>The URL prefix specified must contain the destination and connectionFactory
+properties. It can contain other property-value pairs, but it must not contain
+the targetService property, which is added by the system when the published
+WSDL files are created. The format of the JMS URL prefix is jms:/[<em>queue&amp;topic</em>]?destination=<em>target_queue_or_topic_jndi_name</em>&amp;connectionFactory=<em>factory_jndi_name</em>, for example, jms:/queue?destination=jms/Q1&amp;connectionFactory=jms/QCF.
+The actual URL that appears in a published WSDL file consists of the prefix
+prepended to the Web service targetService, for example, jms:/queue?destination=jms/Q1&amp;connectionFactory=jms/QCF&amp;targetService=StockQuote.</p>
+
+</dd>
+</dl>
+</div>
+</body>
+</html>

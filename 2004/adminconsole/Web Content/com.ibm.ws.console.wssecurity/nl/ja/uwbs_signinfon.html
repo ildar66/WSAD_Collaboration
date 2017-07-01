@@ -1,0 +1,118 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>署名情報構成の設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_signinfon"></a>
+<h2>
+<img alt="[修正パッケージ 5.0.2 以降]" src="v502.gif" border="0">署名情報構成の設定</h2>
+
+<p>このページを使用して、新規の署名パラメーターを構成します。</p>
+
+<p>このページにリストされている、シグニチャー・メソッド、ダイジェスト・メソッド、
+および正規化メソッドの仕様は、W3C の文書「XMLSignature Syntax and Specification: W3C Recommendation 12 Feb 2002」
+記述されています。</p>
+
+<p>この管理コンソール・ページを表示するには、「<strong>エンタープライズ・アプリケーション </strong>」&gt;「<em>application_name</em>」をクリックします。
+「Related Items」の下の「<strong>Web モジュール</strong>」&gt;「<em>URI_file_name</em>」&gt;「<strong>Web Services: Server Security Bindings</strong>」をクリックします。
+「Request Receiver Binding」列で、「<strong>編集</strong>」&gt;「<strong>Signing Information</strong>」&gt;「<strong>新規</strong>」をクリックします。</p>
+
+<p>署名パラメーターを作成する場合は、「<strong>新規</strong>」をクリックします。</p>
+
+<p>署名パラメーターを削除する場合は、「<strong>削除</strong>」をクリックします。</p>
+
+<dl>
+<dt>
+<strong><a name="sec_sigmeth"></a>Signature Method</strong>
+</dt>
+<dd>シグニチャー・メソッドのアルゴリズムの URI を指定します。このメソッドには、base64 を使用してエンコードされたディジタル署名の実際の値が含まれています。
+<p>以下のアルゴリズムがサポートされています。<ul>
+
+<li>
+<samp>http://www.w3.org/2000/09/xmldsig#rsa-sha1</samp>
+</li>
+
+<li>
+<samp>http://www.w3.org/2000/09/xmldsig#dsa-sha1</samp>
+</li>
+
+</ul>
+</p>
+
+</dd>
+<dt>
+<strong><a name="sec_digestmeth"></a>Digest Method</strong>
+</dt>
+<dd>ダイジェスト・メソッドのアルゴリズムの URI を指定します。
+<p>
+<samp>http://www.w3.org/2000/09/xmldsig#sha1</samp> のアルゴリズムがサポートされています。</p>
+
+</dd>
+<dt>
+<strong><a name="sec_cancmeth"></a>Canonicalization Method</strong>
+</dt>
+<dd>正規化メソッドのアルゴリズムの URI を指定します。
+<p>以下のアルゴリズムがサポートされています。<ul>
+
+<li>
+<samp>http://www.w3.org/2001/10/xml-exc-c14n#</samp>
+</li>
+
+<li>
+<samp>http://www.w3.org/2001/10/xml-exc-c14n#WithComments</samp>
+</li>
+
+<li>
+<samp>http://www.w3.org/TR/2001/REC-xml-c14n-20010315</samp>
+</li>
+
+<li>
+<samp>http://www.w3.org/TR/2001/REC-xml-c14n-20010315#WithComments</samp>
+</li>
+
+</ul>
+</p>
+
+</dd>
+<dt>
+<strong><a name="sec_signk"></a>Signing Key</strong>
+</dt>
+<dd>署名に使用される鍵情報を指定します。受信側の構成では、これらのフィールドは無視されます。
+<p>「<strong>Key Name</strong>」と「<strong>Key Locator Reference</strong>」を指定する場合は、「Certificate Path」に「<strong>なし</strong>」を選択してください。</p>
+
+</dd>
+<dt>
+<strong><a name="sec_certpath"></a>Certificate Path</strong>
+</dt>
+<dd> 証明書のパスの検証設定を指定します。「<strong>Trust Any</strong>」を選択すると、この検証はスキップされ、着信する証明書はすべて信頼されます。送信側の構成では、これらのフィールドは無視されます。
+<p>「<strong>Trust Any</strong>」をクリックするか、「<strong>Trust Anchor</strong>」と「<strong>Certificate Store</strong>」を選択した場合は、前のフィールドの「Signing Key」に「<strong>なし</strong>」を選択してください。</p>
+
+<p>
+<strong>Trust Anchor</strong>
+</p>
+
+<p>「Trust Anchor」に使用可能な選択項目は、「<strong>サーバー</strong>」&gt;「<strong>アプリケーション・サーバー</strong>」&gt;「<em>server_name</em>」をクリックして指定します。「追加プロパティー」の下の「<strong>Web Services: Default bindings for Web Services Security</strong>」&gt;「<strong>Trust Anchors</strong>」をクリックします。</p>
+
+<p>
+<strong>Certificate Store</strong>
+</p>
+
+<p>「Collection Store」に使用可能な選択項目は、「<strong>サーバー</strong>」&gt;「<strong>アプリケーション・サーバー</strong>」&gt;「<em>server_name</em>」とクリックして指定します。「Related Items」の下の「<strong>Web Services:
+Default bindings for Web Services Security</strong>」&gt;「<strong>Collection Certificate Store</strong>」をクリックします。</p>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>関連情報</strong>
+</p>
+<a href="uwbs_signinfo.html">署名情報コレクション</a>
+<br>
+
+</div>
+</body>
+</html>

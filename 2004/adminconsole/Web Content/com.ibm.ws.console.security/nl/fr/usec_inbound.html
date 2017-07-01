@@ -1,0 +1,276 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Param&egrave;tres d'authentification des communications entrantes CSI
+(Common Secure Interoperability)</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecinbound"></a>
+<h2>Param&egrave;tres d'authentification des communications entrantes CSI
+(Common Secure Interoperability)</h2>
+
+<p>Cette page permet d'indiquer les caract&eacute;ristiques prises en
+charge par un serveur pour un client qui acc&egrave;de &agrave; ses ressources.</p>
+
+<p>Pour afficher cette page de la console d'administration, cliquez sur <strong>S&eacute;curit&eacute;</strong> &gt; <strong>Protocole d'authentification</strong> &gt; <strong>Authentification des communications entrantes CSI</strong>.</p>
+
+<p>Les param&egrave;tres d'authentification des communications entrantes CSI
+permettent de configurer le type d'informations d'authentification
+contenues dans un protocole de transport ou une demande entrante.</p>
+
+<p>Les fonctions d'authentification incluent trois couches
+d'authentification qui peuvent &ecirc;tre utilis&eacute;es simultan&eacute;ment :  <ul>
+
+<li>
+<strong>Couche transport</strong>. La couche de transport, couche inf&eacute;rieure,
+peut contenir un certificat client SSL (Secure Sockets Layer) comme
+identit&eacute;.</li>
+
+<li>
+<strong>Couche messages</strong>. La couche messages peut contenir un ID
+utilisateur et un mot de passe ou un jeton d'authentification avec d&eacute;lai
+d'expiration.</li>
+
+<li>
+<strong>Couche attributs</strong>. La couche attributs peut contenir un jeton
+d'identit&eacute;, qui est une identit&eacute; provenant d'un serveur en amont qui est
+d&eacute;j&agrave; authentifi&eacute;.
+La couche de v&eacute;rification d'identit&eacute; poss&egrave;de la priorit&eacute; la plus &eacute;lev&eacute;e, suivie de la couche de message, puis enfin, de la couche de transport. Si
+un client envoie les trois couches, seule celle d'identit&eacute; est
+employ&eacute;e. Le certificat client SSL peut uniquement &ecirc;tre employ&eacute; comme
+identit&eacute; s'il s'agit de la seule information pr&eacute;sent&eacute;e lors de la
+demande. Le client extrait l'IOR de l'espace de noms et lit les
+valeurs du composant r&eacute;f&eacute;renc&eacute; pour d&eacute;terminer ce dont le serveur a
+besoin en mati&egrave;re de s&eacute;curit&eacute;. </li>
+
+</ul>  
+</p>
+
+<div>
+<p>
+<strong>Onglet Configuration</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="BasicAuthentication_i_description"></a>Authentification de base </strong>
+</dt>
+<dd>Indique que l'authentification de base se produit sur la couche messages.
+<p>Dans la couche messages, l'authentification de base (ID utilisateur et
+mot de passe) est effectu&eacute;e. Ce type d'authentification
+n&eacute;cessite g&eacute;n&eacute;ralement l'envoi d'un ID utilisateur et d'un mot de
+passe &agrave; partir du client au serveur pour authentification.  Il implique
+&eacute;galement la d&eacute;l&eacute;gation d'un jeton de justificatif &eacute;manant d'un
+justificatif d&eacute;j&agrave; authentifi&eacute;, &agrave; condition que ce type de justificatif
+puisse &ecirc;tre envoy&eacute; (LTPA, par exemple). Si l'option <strong>Authentification de
+base</strong> est s&eacute;lectionn&eacute;e pour le serveur, sp&eacute;cifiez l'authentification de
+l'ID utilisateur et du mot de passe, ainsi que l'authentification par
+jeton.</p>
+
+<p>Si vous s&eacute;lectionnez <strong>Authentification de base</strong>, vous devez
+indiquer si elle est <strong>Requise</strong> ou <strong>Prise en charge</strong>.  En
+s&eacute;lectionnant <strong>Requise</strong>, seuls les clients configur&eacute;s pour
+s'authentifier sur ce serveur via la couche messages sont autoris&eacute;s &agrave;
+appeler des demandes sur ce serveur. Si l'option Prise en charge
+est s&eacute;lectionn&eacute;e, le serveur accepte l'<strong>authentification de base</strong>. Toutefois,
+d'autres m&eacute;thodes d'authentification peuvent &ecirc;tre utilis&eacute;es si elles
+sont configur&eacute;es et que les demandes anonymes sont accept&eacute;es.
+Si
+l'option <strong>Jamais</strong> est s&eacute;lectionn&eacute;e, le serveur n'est pas
+configur&eacute; pour accepter l'authentification via la couche messages
+d'un quelconque client.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es :</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ClientCertificateAuthentication_i_description"></a>Authentification par certificat client</strong>
+</dt>
+<dd>Indique que l'authentification a lieu lorsque la connexion
+initiale est &eacute;tablie entre le client et le serveur lors d'une demande de m&eacute;thode.
+<p>Dans la couche transport, l'authentification par certificat client SSL
+(Secure Sockets Layer) est effectu&eacute;e. Dans la couche messages,
+l'authentification de base (ID utilisateur et mot de passe) est effectu&eacute;e. L'authentification par certificat client s'effectue g&eacute;n&eacute;ralement mieux que
+l'authentification sur la couche messages, mais requiert davantage
+d'&eacute;tapes de configuration.
+Ces &eacute;tapes suppl&eacute;mentaires impliquent l'assurance que le serveur dispose
+du certificat de signataire de chaque client auquel il est connect&eacute;. Si le client
+utilise une autorit&eacute; de certification (CA) pour cr&eacute;er son certificat
+personnel, vous n'avez besoin que du certificat racine du CA qui se
+trouve dans la section signataire du fichier SSL des tiers dignes de
+confiance. Lorsque le certificat est authentifi&eacute; par rapport &agrave; un registre
+d'utilisateurs LDAP, le nom DN est mapp&eacute; en fonction du filtre indiqu&eacute;
+lors de la configuration de LDAP. Lorsque le certificat est authentifi&eacute;
+aupr&egrave;s d'un syst&egrave;me d'exploitation local, le
+premier attribut du nom
+distinctif du certificat (g&eacute;n&eacute;ralement le nom commun) est mapp&eacute; &agrave; l'ID
+utilisateur du registre. L'identit&eacute; extraite des certificats client n'est utilis&eacute;e que si
+aucune autre couche d'authentification n'est pr&eacute;sent&eacute;e au serveur.</p>
+
+<p>Si vous s&eacute;lectionnez <strong>Authentification par certificat client</strong>, vous devez indiquer si elle est <strong>Requise</strong> ou <strong>Prise en charge</strong>. Si vous s&eacute;lectionnez <strong>Requise</strong>, seuls les clients configur&eacute;s pour
+s'authentifier sur ce serveur via les certificats client SSL sont
+autoris&eacute;s &agrave; appeler des demandes sur le serveur. Si vous s&eacute;lectionnez <strong>Prise en charge</strong>, ce serveur
+accepte l'authentification par certificat client SSL, mais d'autres
+m&eacute;thodes d'authentification peuvent &ecirc;tre utilis&eacute;es (si elles
+sont configur&eacute;es) et les demandes anonymes sont accept&eacute;es. Si vous
+s&eacute;lectionnez <strong>Jamais</strong>, ce serveur n'est pas configur&eacute; pour
+accepter l'authentification par certificat client d'un quelconque
+client.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="IdentityAssertion_i_description"></a>V&eacute;rification d'identit&eacute;</strong>
+</dt>
+<dd>Indique que la v&eacute;rification d'identit&eacute; est un moyen permettant de v&eacute;rifier
+les identit&eacute;s d'un serveur &agrave; un autre au cours d'un appel d'EJB en aval.
+<p>La v&eacute;rification de l'identit&eacute; est effectu&eacute;e dans la couche des
+attributs et ne s'applique qu'aux serveurs. Le principal d&eacute;termin&eacute; sur le serveur se base sur les r&egrave;gles de pr&eacute;s&eacute;ance. Si la v&eacute;rification de l'identit&eacute; est effectu&eacute;e, l'identit&eacute; est toujours
+d&eacute;riv&eacute;e de cet attribut. Si l'authentification de base est effectu&eacute;e sans
+la v&eacute;rification d'identit&eacute;, l'identit&eacute; est toujours d&eacute;riv&eacute;e de la
+couche message. Enfin, si l'authentification par certificat client SSL est
+effectu&eacute;e sans authentification de base ou v&eacute;rification de l'identit&eacute;,
+l'identit&eacute; est d&eacute;riv&eacute;e de la couche de transport.</p>
+
+<p>L'identit&eacute; v&eacute;rifi&eacute;e constitue le justificatif d'appel d&eacute;termin&eacute; par le
+mode d'ex&eacute;cution pour le bean enterprise. Si le mode
+d'ex&eacute;cution est <strong>Client</strong>, l'identit&eacute; correspond &agrave;
+l'identit&eacute; du client. Si le mode d'ex&eacute;cution est <strong>Syst&egrave;me</strong>,
+l'identit&eacute; correspond &agrave; l'identit&eacute; du serveur.  Si le mode
+d'ex&eacute;cution est <strong>Sp&eacute;cifi&eacute;</strong>, l'identit&eacute; correspond &agrave;
+celle indiqu&eacute;e. Le serveur r&eacute;cepteur re&ccedil;oit l'identit&eacute; dans un jeton
+d'identit&eacute;, ainsi que celle du serveur &eacute;metteur dans un
+jeton d'authentification client. Le serveur r&eacute;cepteur v&eacute;rifie si
+l'identit&eacute; du serveur &eacute;metteur est s&eacute;curis&eacute;e &agrave; l'aide de la zone d'entr&eacute;e
+<strong>ID serveur s&eacute;curis&eacute;s</strong>. Entrez une liste de noms principaux s&eacute;par&eacute;s par des virgules, par
+exemple <samp>serverid1, serverid2, serverid3</samp>.</p>
+
+<p>Lors de l'authentification par rapport &agrave; un registre
+d'utilisateurs LocalOS, tous les types de jeton d'identit&eacute; sont
+mapp&eacute;s &agrave; la zone d'ID utilisateur du registre d'utilisateurs
+actif. Pour un jeton d'identit&eacute; <samp>ITTPrincipal</samp>, celui-ci est mapp&eacute; un-&agrave;-un aux zones ID utilisateur. Pour un jeton d'identit&eacute;
+<samp>ITTDistinguishedName</samp>, la valeur du premier signe &eacute;gal est
+mapp&eacute;e &agrave; zone ID utilisateur.
+Pour un jeton d'identit&eacute; <samp>ITTCertChain</samp>, la valeur du premier
+signe &eacute;gal du nom distinctif est mapp&eacute;e &agrave; la zone ID utilisateur.</p>
+
+<p>Lors de l'authentification par rapport &agrave; un registre d'utilisateurs
+LDAP, les filtres LDAP d&eacute;terminent comment des identit&eacute;s de type
+<samp>ITTCertChain</samp> et <samp>ITTDistinguishedName</samp> sont mapp&eacute;es au
+registre. Si le
+jeton est de type <samp>ITTPrincipal</samp>, le principal est mapp&eacute;
+&agrave; la zone d'UID dans le registre LDAP.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es :</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="IdentityAssertionLayer_trustedServers_description"></a>ID utilisateur de serveur s&eacute;curis&eacute;</strong>
+</dt>
+<dd>Indique une liste d'ID utilisateur du serveur, s&eacute;par&eacute;s par des virgules,
+dignes de confiance permettant d'effectuer la v&eacute;rification d'identit&eacute; sur le serveur.
+<p>Cette liste permet de d&eacute;terminer rapidement si un serveur est digne de
+confiance. M&ecirc;me si le serveur se trouve dans la liste, le serveur
+&eacute;metteur doit s'authentifier aupr&egrave;s du serveur r&eacute;cepteur pour
+accepter le jeton d'identit&eacute; du serveur &eacute;metteur.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="StatefulSession_description"></a>Sessions avec &eacute;tat</strong>
+</dt>
+<dd>Sp&eacute;cifie des sessions avec &eacute;tat, utilis&eacute;es g&eacute;n&eacute;ralement
+pour l'am&eacute;lioration des performances.
+<p>Le premier contact entre un client et un serveur doit &ecirc;tre
+totalement authentifi&eacute;.
+Toutefois, tous les contacts suivants avec des sessions valides
+r&eacute;utilisent les informations de s&eacute;curit&eacute;.
+Le client
+transmet un ID de contexte au serveur ; cet ID permet de rechercher la
+session. L'ID de contexte est sectoris&eacute; &agrave; la connexion, garantissant
+son unicit&eacute;. Lorsque la session de s&eacute;curit&eacute; n'est pas valide et que les
+nouvelles tentatives d'authentification sont autoris&eacute;es (il s'agit de la
+valeur par d&eacute;faut), l'intercepteur de s&eacute;curit&eacute; c&ocirc;t&eacute; client invalide la
+session c&ocirc;t&eacute; client et soumet &agrave; nouveau la demande. Ces op&eacute;rations sont
+invisibles au niveau utilisateur. Cela peut se
+produire si la session n'existe pas sur le serveur (situation d'&eacute;chec
+du serveur et op&eacute;ration de reprise). Lorsque cette valeur est
+d&eacute;sactiv&eacute;e, tous les appels de m&eacute;thode doivent &ecirc;tre &agrave; nouveau
+authentifi&eacute;s.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informations connexes</strong>
+</p>
+<a href="rcon_buttons.html">Boutons de la console administrative</a>
+<br>
+
+<a href="rcon_pageusage.html">Caract&eacute;ristiques de la page de la console d'administration</a>
+<br>
+
+<a href="rcon_scope.html">Param&egrave;tres de la port&eacute;e de la console administrative</a>
+<br>
+
+<a href="rcon_filter.html">Param&egrave;tres de filtrage de la console administrative</a>
+<br>
+
+<a href="rcon_preferences.html">Param&egrave;tres des pr&eacute;f&eacute;rences de la console administrative</a>
+<br>
+
+</div>
+</body>
+</html>

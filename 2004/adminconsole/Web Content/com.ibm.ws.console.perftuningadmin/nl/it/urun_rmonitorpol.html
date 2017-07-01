@@ -1,0 +1,159 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Impostazioni Politica di monitoraggio</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="urun_rmonitorpol"></a>
+<h2>Impostazioni Politica di monitoraggio</h2>
+
+<p>Utilizzare questa pagina per visualizzare o modificare le impostazioni che
+controllano le modalit&agrave; di monitoraggio e di riavvio di un processo da parte dell'agente
+nodo.</p>
+
+<p>Per visualizzare questa pagina della console di gestione, fare clic su <strong>Server &gt; Server delle applicazioni &gt; </strong><em>nome_server</em><strong> &gt; Definizione processo &gt; Politica di monitoraggio</strong>.</p>
+
+<div>
+<p>
+<strong>Scheda Configurazione</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="MonitoringPolicy_maximumStartupAttempts_description"></a>Numero massimo di tentativi di avvio</strong>
+</dt>
+<dd>Specifica il numero massimo di tentativi da effettuare per avviare il server
+delle applicazioni prima di rinunciare.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Numero intero</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MonitoringPolicy_pingInterval_description"></a>Intervallo di ping</strong>
+</dt>
+<dd>Specifica la frequenza dei tentativi di
+comunicazione tra il processo parent, come ad esempio l'agente nodo, e il processo che
+sta tentando di creare, come ad esempio un server delle applicazioni.
+ Regolare questo valore in base ai requisiti per il riavvio del
+server non avviato. La
+diminuzione del valore consente di rilevare pi&ugrave; rapidamente gli errori; aumentando il valore, si riduce la frequenza
+dell'esecuzione del ping, diminuendo cos&igrave; il sovraccarico
+del sistema.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Numero intero</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MonitoringPolicy_pingTimeout_description"></a>Timeout di ping</strong>
+</dt>
+<dd>Quando un processo parent richiama un processo child, ad esempio quando un gestore del processo richiama un server, il processo parent esegue il ping del processo child per verificare che quest'ultimo sia stato richiamato con esito positivo. Questo valore specifica il numero di secondi che il processo parent deve attendere (dopo
+il ping del processo child) prima di attestare che il processo child ha avuto esito
+negativo.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Numero intero</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&agrave;</td>
+<td align="left" valign="top" class="base">Secondi</td>
+
+</tr>
+
+</table>
+</dd>
+<dt>
+<strong><a name="MonitoringPolicy_autoRestart_description"></a>Riavvio automatico</strong>
+</dt>
+<dd>Specifica se il processo deve eseguire o meno l'avvio automatico in caso di errore. 
+ Il valore predefinito &egrave; quello di consentire il riavvio automatico del processo.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Valore booleano</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">vero</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MonitoringPolicy_nodeRestartState_description"></a>Stato riavvio nodo</strong>
+</dt>
+<dd>Specifica lo stato desiderato di un processo dopo la chiusura e il riavvio di
+un nodo. Le opzioni sono le seguenti: <em>STOPPED</em>, <em>RUNNING</em>, <em>PREVIOUS</em>.
+ Il valore
+predefinito &egrave; <em>STOPPED</em>.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">STOPPED</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo</td>
+<td align="left" valign="top" class="base">I valori validi sono STOPPED, RUNNING o PREVIOUS.</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informazioni correlate</strong>
+</p>
+<a href="rcon_buttons.html">Pulsanti della console di gestione</a>
+<br>
+
+<a href="rcon_pageusage.html">Funzioni della pagina della console di gestione</a>
+<br>
+
+</div>
+</body>
+</html>

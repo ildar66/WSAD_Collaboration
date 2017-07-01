@@ -1,0 +1,151 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Tuning parameter custom settings</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="tune_para_custom"></a>
+<h2>Tuning parameter custom settings</h2>
+
+<p>Use this page to customize tuning parameters for distributed sessions.</p>
+
+<p>To view this administrative console page, click <strong>Servers</strong> &gt; <strong> Application
+Servers</strong> &gt; <em>server_name</em> &gt; <strong>Web Container</strong> &gt; <strong>Session Management</strong> &gt; <strong>Distributed
+Environment Settings</strong> &gt; <strong>Custom Tuning Parameters</strong> &gt; <strong>Custom settings</strong>.</p>
+
+<div>
+<p>
+<strong>Configuration tab</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="TuningParams_writeFrequency_description"></a>Write frequency</strong>
+</dt>
+<dd>Specifies when the session is written to the persistent store.
+<p></p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">End of servlet service</td>
+<td align="left" valign="top" class="base">A session writes to a database or another WebSphere Application Server
+instance after the servlet completes execution.</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Manual update</td>
+<td align="left" valign="top" class="base">A programmatic sync on the IBMSession object is required to write
+the session data to the database or another WebSphere Application Server instance.</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Time based</td>
+<td align="left" valign="top" class="base">Session data writes to the database or another WebSphere Application
+Server instance based on the specified Write Interval value. Default: 10 seconds</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="TuningParams_writeContents_description"></a>Write contents  </strong>
+</dt>
+<dd>Specifies whether updated attributes are only written to the external
+location or all of the session attributes are written to the external location,
+regardless of whether or not they changed. The external location can be either
+a database or another application server instance.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Only updated attributes</td>
+<td align="left" valign="top" class="base">Only updated attributes are written to the persistent store.</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">All session attribute</td>
+<td align="left" valign="top" class="base">All attributes are written to the persistent store.</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="TuningParams_scheduleInvalidation_description"></a>Schedule sessions cleanup</strong>
+</dt>
+<dd> Specifies when to clean the invalid sessions from a database or
+another application server instance. 
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Specify distributed sessions cleanup schedule</td>
+<td align="left" valign="top" class="base">Enables the scheduled invalidation process for cleaning up the invalidated
+HTTP sessions from the external location. Enable this option to reduce the
+number of updates to a database or another application server instance required
+to keep the HTTP sessions alive.   When this option is not enabled, the invalidator
+process runs every few minutes to remove invalidated HTTP sessions.<p>When
+this option is enabled, specify the two hours of a day for the process to
+clean up the invalidated sessions in the external location. Specify the times
+when there is the least activity in the application servers. An external location
+can be either a database or another application server instance.  </p>
+</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">First Time of Day (0 - 23)</td>
+<td align="left" valign="top" class="base">Indicates the first hour, in Greenwich Mean Time (GMT), during which
+the invalidated sessions are cleared from the external location. Specify this
+value as a positive integer between 0 and 23. This value is valid only when
+schedule invalidation is enabled.</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Second Time of Day (0 - 23)</td>
+<td align="left" valign="top" class="base">Indicates the second hour, in Greenwich Mean Time (GMT), during which
+the invalidated sessions are cleared from the external location. Specify this
+value as a positive integer between 0 and 23. This value is valid only when
+schedule invalidation is enabled.</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Related information</strong>
+</p>
+<a href="rcon_buttons.html">Administrative console buttons</a>
+<br>
+
+<a href="rcon_pageusage.html">Administrative console page features</a>
+<br>
+
+<a href="rcon_preferences.html">Administrative console preference settings</a>
+<br>
+
+<a href="uprs_rtuning_parameters.html">Tuning parameter settings</a>
+<br>
+
+</div>
+</body>
+</html>

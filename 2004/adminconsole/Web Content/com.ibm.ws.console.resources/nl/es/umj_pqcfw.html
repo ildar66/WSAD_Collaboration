@@ -1,0 +1,417 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Valores de f&aacute;brica de conexiones de cola WebSphere</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="WASQueueConnectionFactory"></a>
+<h2>Valores de f&aacute;brica de conexiones de cola WebSphere</h2>
+
+<p>Utilice este panel para ver o modificar las propiedades de configuraci&oacute;n de la
+f&aacute;brica de conexiones de cola seleccionada que se va a utilizar con el proveedor de JMS incorporado
+de WebSphere instalado con WebSphere Application Server. Estas propiedades de configuraci&oacute;n controlan c&oacute;mo se crean las conexiones para el destino de cola JMS asociado.</p>
+
+<p>Una f&aacute;brica de conexiones de cola sirve para crear conexiones de JMS con destinos de cola.
+El proveedor de JMS incorporado de WebSphere crea la f&aacute;brica de conexiones de cola.
+Una f&aacute;brica de
+conexiones de cola del proveedor de JMS incorporado de WebSphere tiene las propiedades siguientes.</p>
+
+<p>Para ver esta p&aacute;gina de la consola administrativa, pulse <strong>Recursos-&gt;
+Proveedor de JMS de WebSphere-&gt; (en el panel de contenido, en Propiedades
+adicionales) F&aacute;bricas de conexiones de cola de WebSphere-&gt;
+<strong>f&aacute;brica_conexiones</strong></strong>
+</p>
+
+<div>
+<p>
+<strong>Pesta&ntilde;a Configuraci&oacute;n</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="WASQueueConnectionFactory_contextId"></a>&Aacute;mbito</strong>
+</dt>
+<dd>Especifica el nivel hasta el cual puede visualizarse esta definici&oacute;n de recurso --
+nivel de c&eacute;lula, nodo o servidor.
+<p>Los recursos tales como los proveedores de JMS, enlaces de espacio de nombres o
+bibliotecas compartidas se pueden definir en varios &aacute;mbitos, de tal modo que los recursos
+definidos en &aacute;mbitos m&aacute;s espec&iacute;ficos alteren temporalmente los duplicados definidos en
+&aacute;mbitos m&aacute;s generales.</p>
+
+<p>Tenga en cuenta que, independientemente del &aacute;mbito de un recurso definido, las propiedades
+de dicho recurso s&oacute;lo se aplican a nivel de servidor individual. Por ejemplo, si define el
+&aacute;mbito de un origen de datos a nivel de c&eacute;lula, todos los usuarios de la c&eacute;lula pueden buscar
+y utilizar dicho origen de datos, que es exclusivo en esa c&eacute;lula. Sin
+embargo, los valores de propiedades de recursos son locales para cada
+servidor de la c&eacute;lula. Por ejemplo, si establece <strong>N&uacute;mero m&aacute;ximo de
+conexiones</strong> en 10, cada servidor de la c&eacute;lula puede tener 10 conexiones.<dl>
+<dt>
+<strong>C&eacute;lula</strong>
+</dt>
+<dd>El &aacute;mbito m&aacute;s general.  Los recursos definidos en el &aacute;mbito de c&eacute;lula son visibles desde todos los nodos y servidores, a menos que se alteren temporalmente. Para ver los recursos definidos en el &aacute;mbito de c&eacute;lula, no especifique ning&uacute;n servidor o nombre nodo en el formulario de selecci&oacute;n de &aacute;mbito.</dd>
+<dt>
+<strong>Nodo</strong>
+</dt>
+<dd>En &aacute;mbito por omisi&oacute;n de la mayor&iacute;a de tipos de recurso.  Los recursos
+definidos en el &aacute;mbito de nodo alteran temporalmente cualquier duplicado definido en el
+&aacute;mbito de c&eacute;lula y son visibles en todos los servidores del mismo nodo, a menos que se
+alteren temporalmente en un &aacute;mbito de servidor de ese nodo. Para ver los recursos definidos en un &aacute;mbito de nodo, no especifique ning&uacute;n servidor, sino que seleccione un nombre de nodo en el formulario de selecci&oacute;n de &aacute;mbito.</dd>
+<dt>
+<strong>Servidor</strong>
+</dt>
+<dd>El &aacute;mbito m&aacute;s espec&iacute;fico para definir recursos.  Los recursos definidos en
+el &aacute;mbito de servidor alteran temporalmente cualquier definici&oacute;n de recurso duplicado definida
+en el &aacute;mbito de c&eacute;lula o &aacute;mbito de nodo padre y s&oacute;lo son visibles en un servidor determinado.
+Para ver los recursos definidos en un &aacute;mbito de servidor, especifique un nombre de servidor, adem&aacute;s de un nombre de nodo en el formulario de selecci&oacute;n de &aacute;mbito.</dd>
+</dl>
+</p>
+
+<p>Al crear recursos, estos siempre se crean en el &aacute;mbito actual seleccionado en el panel.   Para ver recursos de otros &aacute;mbitos, especifique un nodo o servidor distinto en el formulario de selecci&oacute;n de &aacute;mbito.  </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASQueueConnectionFactory_name"></a>Nombre</strong>
+</dt>
+<dd>Nombre por el que se conoce esta
+f&aacute;brica de conexiones de cola para fines administrativos dentro de IBM
+WebSphere Application Server. El nombre debe ser exclusivo dentro de las f&aacute;bricas de conexiones de JMS en el dominio administrativo de WebSphere.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASQueueConnectionFactory_jndiName"></a>Nombre JNDI</strong>
+</dt>
+<dd>Nombre JNDI utilizado para
+enlazar la f&aacute;brica de conexiones con el espacio de nombres del servidor
+de aplicaciones.
+<p>Como convenci&oacute;n, utilice el nombre JNDI plenamente cualificado; por ejemplo, con el
+formato jms/<em>Nombre</em>, donde <em>Nombre</em> es el nombre
+l&oacute;gico del recurso.</p>
+
+<p>Este nombre se utiliza para enlazar la informaci&oacute;n de enlace de la plataforma. El enlace asocia los recursos definidos en el
+descriptor de despliegue del m&oacute;dulo con los recursos reales (f&iacute;sicos) enlazados con JNDI por la plataforma.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASQueueConnectionFactory_description"></a>Descripci&oacute;n</strong>
+</dt>
+<dd>Descripci&oacute;n de esta f&aacute;brica
+de conexiones, para fines administrativos dentro de IBM WebSphere
+Application Server.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASQueueConnectionFactory_category"></a>Categor&iacute;a</strong>
+</dt>
+<dd>Categor&iacute;a utilizada para
+clasificar o agrupar esta f&aacute;brica de conexiones, para sus registros
+administrativos de IBM WebSphere Application Server.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASQueueConnectionFactory_AuthDataAlias"></a>Alias de autenticaci&oacute;n gestionado por componentes</strong>
+</dt>
+<dd>Este alias especifica un ID de usuario y una contrase&ntilde;a que sirven para autenticar
+la conexi&oacute;n con un proveedor de JMS para la autenticaci&oacute;n gestionada por aplicaci&oacute;n.
+<p>Esta propiedad proporciona una lista de los alias de entradas de datos de autenticaci&oacute;n de J2C que se hayan definido en WebSphere Application Server. Puede seleccionar un alias de entrada de datos que sirva para autenticar la creaci&oacute;n de una nueva conexi&oacute;n con el proveedor de JMS.</p>
+
+<p>Si ha habilitado la seguridad global para WebSphere Application Server, seleccione el alias que especifica el ID de usuario y la contrase&ntilde;a que sirven para autenticar la creaci&oacute;n de una nueva conexi&oacute;n con el proveedor de JMS. La utilizaci&oacute;n del alias depende del valor de
+la autenticaci&oacute;n de recursos (res-auth) declarado en la referencia de
+recursos de la f&aacute;brica de conexiones de los descriptores de despliegue
+de un componente de aplicaci&oacute;n.</p>
+
+<p>
+<b>Nota: </b>No se pueden utilizar ID de usuario de m&aacute;s de 12 caracteres para la autenticaci&oacute;n con el proveedor de JMS
+incorporado de WebSphere. Por ejemplo, el ID de usuario por omisi&oacute;n de
+Windows NT, <strong>Administrator</strong>, no se puede utilizar en WebSphere Embedded Messaging, ya que contiene 13 caracteres. Por lo tanto, un alias de autenticaci&oacute;n para la f&aacute;brica de conexiones del proveedor de JMS de WebSphere debe especificar un ID de usuario que no contenga m&aacute;s de 12 caracteres.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Lista de selecci&oacute;n</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASQueueConnectionFactory_mappingAuthDataAlias"></a>Alias de autenticaci&oacute;n gestionado por contenedor</strong>
+</dt>
+<dd>Este alias especifica un ID de usuario y una contrase&ntilde;a que sirven para autenticar
+la conexi&oacute;n con un proveedor de JMS para la autenticaci&oacute;n gestionada por contenedor.
+<p>Esta propiedad proporciona una lista de los alias de entradas de datos de autenticaci&oacute;n de J2C que se hayan definido en WebSphere Application Server. Puede seleccionar un alias de entrada de datos que sirva para autenticar la creaci&oacute;n de una nueva conexi&oacute;n con el proveedor de JMS.</p>
+
+<p>Si ha habilitado la seguridad global para WebSphere Application Server, seleccione el alias que especifica el ID de usuario y la contrase&ntilde;a que sirven para autenticar la creaci&oacute;n de una nueva conexi&oacute;n con el proveedor de JMS. La utilizaci&oacute;n del alias depende del valor de
+la autenticaci&oacute;n de recursos (res-auth) declarado en la referencia de
+recursos de la f&aacute;brica de conexiones de los descriptores de despliegue
+de un componente de aplicaci&oacute;n.</p>
+
+<p>
+<b>Nota: </b>No se pueden utilizar ID de usuario de m&aacute;s de 12 caracteres para la autenticaci&oacute;n con el proveedor de JMS
+incorporado de WebSphere. Por ejemplo, el ID de usuario por omisi&oacute;n de
+Windows NT, <strong>Administrator</strong>, no se puede utilizar en WebSphere Embedded Messaging, ya que contiene 13 caracteres. Por lo tanto, un alias de autenticaci&oacute;n para la f&aacute;brica de conexiones del proveedor de JMS de WebSphere debe especificar un ID de usuario que no contenga m&aacute;s de 12 caracteres.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Lista de selecci&oacute;n</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASQueueConnectionFactory_mappingConfigAlias"></a>Alias de correlaci&oacute;n-configuraci&oacute;n</strong>
+</dt>
+<dd>Permite a los usuarios seleccionar de la lista <strong>Seguridad</strong> &gt;
+<strong>Configuraci&oacute;n de JAAS</strong> &gt; <strong>Configuraci&oacute;n de inicio de sesi&oacute;n de la
+aplicaci&oacute;n</strong>.
+<p>La configuraci&oacute;n JAAS de <strong>DefaultPrincipalMapping</strong>
+ establece la correlaci&oacute;n del alias de autenticaci&oacute;n con el ID de usuario y la contrase&ntilde;a . Puede
+definir y utilizar otras configuraciones de correlaci&oacute;n.
+Para obtener m&aacute;s informaci&oacute;n sobre las configuraciones de correlaci&oacute;n, consulte
+<a href="usec_jaas.html">Valores de entrada de configuraci&oacute;n JAAS (Java Authentication and Authorization Service)</a>.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Lista de selecci&oacute;n</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASQueueConnectionFactory_node"></a>Nodo</strong>
+</dt>
+<dd>Nombre del nodo de WebSphere del nodo administrativo donde se ejecuta el servidor JMS para esta f&aacute;brica de
+conexiones. Las conexiones creadas por esta f&aacute;brica se conectan al servidor JMS.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unidades</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">Lista desplegable de nodos del dominio administrativo de WebSphere.</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASQueueConnectionFactory_type"></a>Habilitado para XA</strong>
+</dt>
+<dd>Especifica si la f&aacute;brica de conexiones es para coordinaci&oacute;n XA y no XA de los mensajes y controla si el servidor de aplicaciones utilizar&aacute; XA QCF/TCF. Habilite XA cuando no se utilizan en la misma transacci&oacute;n varios recursos.
+<p>Si borra esta propiedad de recuadro de selecci&oacute;n (para coordinaci&oacute;n no XA),
+la sesi&oacute;n JMS est&aacute; todav&iacute;a incluida en una transacci&oacute;n, pero utiliza las
+llamadas de transacci&oacute;n local del gestor de recursos (session.commit y
+session.rollback) en lugar de las llamadas de XA. Esto puede producir una mejora en el rendimiento. Sin
+embargo, esto significa que s&oacute;lo un &uacute;nico recurso puede incluirse en
+una transacci&oacute;n en WebSphere Application Server. En WebSphere
+Application Server Enterprise, el soporte de &uacute;ltimo participante le
+permite incluir un recurso que no sea XA con otros recursos compatibles
+con XA.</p>
+
+<p>Esta propiedad no se aplica para una f&aacute;brica de conexiones de tema WebSphere
+con la propiedad <strong>Port</strong> establecida en <samp>DIRECT</samp> y siempre adopta la
+coordinaci&oacute;n no XA. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Recuadro de selecci&oacute;n</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">Seleccionado (habilitado para coordinaci&oacute;n XA)</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">
+<dl>
+<dt>
+<strong>Seleccionado</strong>
+</dt>
+<dd>La f&aacute;brica de conexiones est&aacute; habilitada para coordinaci&oacute;n XA de mensajes</dd>
+<dt>
+<strong>Deseleccionado</strong>
+</dt>
+<dd>La f&aacute;brica de conexiones no est&aacute; habilitada para coordinaci&oacute;n XA de mensajes</dd>
+</dl>
+</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Recomendado</td>
+<td align="left" valign="top" class="base">No habilite la coordinaci&oacute;n XA cuando la cola de mensajes o el tema
+recibido sea el &uacute;nico recurso de la transacci&oacute;n. Habilite la coordinaci&oacute;n XA
+cuando otros recursos, incluidas otras colas o temas, est&eacute;n implicados.</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="QueueConnectionFactory_connectionPool"></a>Agrupaci&oacute;n de conexiones</strong>
+</dt>
+<dd>Especifica un conjunto opcional
+de valores de agrupaci&oacute;n de conexiones.
+<p>Las propiedades de agrupaci&oacute;n de conexiones
+son comunes a todos los conectores J2C. </p>
+
+<p>El servidor de aplicaciones agrupa conexiones y sesiones con el proveedor de JMS para mejorar el rendimiento. Es necesario que configure
+las propiedades de agrupaci&oacute;n de sesiones y conexiones para las
+aplicaciones adecuadamente; de lo contrario, es posible que no obtenga
+el comportamiento de sesi&oacute;n o conexi&oacute;n deseado.</p>
+
+<p>Cambie el
+tama&ntilde;o de la agrupaci&oacute;n de conexiones si el acceso simult&aacute;neo en el servidor al
+recurso JMS supera el valor por omisi&oacute;n. El tama&ntilde;o de la agrupaci&oacute;n de conexiones se establece
+por cola o por tema. Para obtener m&aacute;s detalles, consulte la tabla siguiente.</p>
+
+</dd>
+<dt>
+<strong><a name="QueueConnectionFactory_sessionPool"></a>Agrupaci&oacute;n de sesiones</strong>
+</dt>
+<dd>Conjunto opcional de valores de agrupaciones de sesiones.
+<p>Este enlace proporciona un panel de propiedades de agrupaci&oacute;n de conexiones opcionales,
+comunes a todos los conectores J2C.</p>
+
+<p>El servidor de aplicaciones agrupa conexiones y sesiones con el proveedor de JMS para mejorar el rendimiento. Es necesario que configure
+las propiedades de agrupaci&oacute;n de sesiones y conexiones para las
+aplicaciones adecuadamente; de lo contrario, es posible que no obtenga
+el comportamiento de sesi&oacute;n o conexi&oacute;n deseado.</p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informaci&oacute;n relacionada</strong>
+</p>
+<a href="rcon_buttons.html">Botones de la consola de administraci&oacute;n</a>
+<br>
+
+<a href="rcon_scope.html">Valores de &aacute;mbito de la consola administrativa</a>
+<br>
+
+<a href="udat_conpoolset.html">Valores de agrupaci&oacute;n de conexiones</a>
+<br>
+
+<a href="umj_sesspoolset.html">Valores de agrupaci&oacute;n de sesiones</a>
+<br>
+
+<a href="usec_j2cauthdata.html">Valores de entrada de datos de autenticaci&oacute;n del conector Java 2</a>
+<br>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,235 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>CMP 接続ファクトリー設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="CMP_connection_factories_detail"></a>
+<h2>CMP 接続ファクトリー設定</h2>
+
+<p>このページを使用して、CMP Bean が任意のバックエンド・データ・ストアに
+アクセスするために使用する接続ファクトリーの設定を表示します。
+この接続ファクトリーは、「読み取り」のみ可能です。
+変更または削除はできません。
+</p>
+
+<p>この管理コンソール・ページを表示するには、「<strong>リソース</strong>」&gt;「<strong>リソース・
+アダプター</strong>」&gt;「<em>WebSphere リレーショナル・リソース・
+アダプター</em>」&gt;「<strong>CMP 接続ファクトリー</strong>」&gt;「<em>接続ファクトリー</em>」をクリックします。</p>
+
+<div>
+<p>
+<strong>「構成」タブ</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="j2eeresourcefactory_detail_contextID"></a>有効範囲</strong>
+</dt>
+<dd>このリソース定義を可視にするレベル (セル、ノード、またはサーバーの
+各レベル) を指定します。
+
+<p>JDBC プロバイダー、ネーム・スペース・バインディング、
+共用ライブラリーなどのリソースを複数の有効範囲で定義することが可能です。
+より限定的な有効範囲で定義されたリソースは、
+それより広い有効範囲で定義された重複するリソースをオーバーライドします。
+</p>
+
+<p>定義済みリソースの有効範囲が何であれ、そのリソースのプロパティーは
+個々のサーバー・レベルでのみ適用されることに注意して下さい。
+例えば、あるデータ・ソースの有効範囲を「セル」レベルで定義する場合、
+そのセルのすべてのユーザーが、そのデータ・ソースをルックアップおよび使用できます。
+このとき、そのデータ・ソースはそのセル内で固有です。ただし、リソース・プロパティーの設定値は、そのセル内の各サーバーに対してローカルです。例えば、<em>最大接続数</em> を 10 に設定する場合、そのセル内の
+各サーバーは 10 個の接続を使用できます。<dl>
+
+<dt>
+<strong>セル</strong>
+</dt>
+<dd>最も一般的な有効範囲です。「セル」有効範囲で定義されている
+リソースは、オーバーライドされない限り、すべてのノードおよびサーバーから可視です。
+「セル」有効範囲で定義されたリソースを表示する場合は、
+有効範囲選択フォームでサーバーまたはノードの名前を指定しないでください。
+</dd>
+
+<dt>
+<strong>ノード</strong>
+</dt>
+<dd>大部分のリソース・タイプのデフォルト有効範囲。
+「ノード」有効範囲で定義されたリソースは、「
+セル」有効範囲で定義されたすべての重複するリソースをオーバーライドします。
+同じノード上の「サーバー」有効範囲でオーバーライドされない限り、
+そのノード上のすべてのサーバーから可視です。
+「ノード」有効範囲で定義されたリソースを表示する場合は、
+有効範囲選択フォームで、サーバーを指定せず、ノード名を選択します。
+</dd>
+
+<dt>
+<strong>サーバー</strong>
+</dt>
+<dd>リソース定義で最も限定的な有効範囲です。「サーバー」
+有効範囲で定義されたリソースは、「セル」有効範囲または親の「ノード」有効範囲で
+定義されたすべての重複するリソース定義をオーバーライドし、
+特定のサーバーからのみ可視です。
+「サーバー」有効範囲で定義されたリソースを表示するには、
+有効範囲選択フォームで、ノード名だけでなくサーバー名も指定します。
+</dd>
+
+</dl>
+</p>
+
+<p>リソースが作成されるときは常に、パネルで選択されている現行の有効範囲内に
+作成されます。
+他の有効範囲でリソースを表示する場合は、有効範囲選択フォームで、
+別のノードまたはサーバーを指定します。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2EEResourceFactory_name_displayName"></a>名前</strong>
+</dt>
+<dd>リソースの表示名を指定します。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2EEResourceFactory_jndiName_displayName"></a>JNDI 名</strong>
+</dt>
+<dd>リソースの JNDI 名を指定します。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2EEResourceFactory_description_displayName"></a>説明</strong>
+</dt>
+<dd>リソースの説明を明記します。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2EEResourceFactory_category_displayName"></a>カテゴリー</strong>
+</dt>
+<dd>リソースの分類またはグループ化に使用できるカテゴリー・ストリングを指定します。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2CConnectionFactory_authMechanismPreference_displayName"></a>認証設定</strong>
+</dt>
+<dd>対応するリソース・アダプターに定義された認証メカニズムのどれを
+この接続ファクトリーに適用するかを指定します。
+<p>例えば、
+リソース・アダプター (<em>KerbV5</em> および<em>基本パスワード</em>) に対して 2 つの認証メカニズム・エントリーが定義されている場合、2 つのタイプのいずれかをこれで指定します。
+指定された認証メカニズム設定が該当のリソース・アダプターで使用可能な
+認証メカニズムでない場合、これは無視されます。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2CConnectionFactory_authDataAlias_displayName"></a>コンポーネント管理認証エイリアス</strong>
+</dt>
+<dd>リソースに対するコンポーネント管理サインオンの認証データを参照します。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ドロップダウン・リスト</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2CConnectionFactory_authDataAlias_displayName"></a>コンテナー管理認証エイリアス</strong>
+</dt>
+<dd>リソースに対するコンテナー管理サインオンの認証データを参照します。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ドロップダウン・リスト</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>関連情報</strong>
+</p>
+<a href="rcon_buttons.html">管理コンソールのボタン</a>
+<br>
+
+<a href="rcon_pageusage.html">管理コンソール・ページのフィーチャー</a>
+<br>
+
+</div>
+</body>
+</html>

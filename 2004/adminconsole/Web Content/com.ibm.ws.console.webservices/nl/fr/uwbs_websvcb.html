@@ -1,0 +1,268 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Services Web : Liaisons par d&eacute;faut pour la collection de s&eacute;curit&eacute; des services Web</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_websvcb"></a>
+<h2>
+<img alt="[Release 5.1 and later]" src="v51.gif" border="0">Services Web : Liaisons par d&eacute;faut pour la collection de s&eacute;curit&eacute; des services Web</h2>
+
+<p>Cette page permet de configurer les param&egrave;tres nonce au niveau
+du serveur et de g&eacute;rer les liaisons par d&eacute;faut pour les ancres de
+s&eacute;curisation, le magasin de certificats de
+collection, les localisateurs de cl&eacute;s, les &eacute;valuateurs d'ID dignes de
+confiance et les mappages de connexion.</p>
+
+<p>Pour afficher cette page de la console d'administration, cliquez sur <strong>Serveurs &gt; Serveurs
+d'applications &gt; </strong><em>nom_serveur</em>. Dans Propri&eacute;t&eacute;s suppl&eacute;mentaires, cliquez sur <strong>Services Web :
+Liaisons par d&eacute;faut pour la s&eacute;curit&eacute; des services Web</strong>.</p>
+
+<p>Lisez la documentation des services Web avant de commencer &agrave; d&eacute;finir les liaisons par d&eacute;faut pour la s&eacute;curit&eacute; des
+services Web.</p>
+
+<p>Pour d&eacute;finir les liaisons de serveur, suivez la proc&eacute;dure ci-apr&egrave;s.<ol>
+
+<li>Cliquez sur <strong>Applications &gt; Applications d'entreprise &gt; </strong><em>nom_application</em>. </li>
+
+<li>Dans la section Articles
+li&eacute;s, cliquez sur <strong>Modules Web &gt; </strong><em>nom_fichier_URI</em><strong>&gt;
+Services Web : Liaisons de s&eacute;curit&eacute; du serveur</strong>.</li>
+
+</ol>
+</p>
+
+<p>Pour d&eacute;finir les liaisons client, suivez la proc&eacute;dure ci-apr&egrave;s. <ol>
+
+<li>Cliquez sur <strong>Applications &gt; Applications d'entreprise &gt; </strong><em>nom_application</em>. </li>
+
+<li>Dans la section Articles li&eacute;s, cliquez sur <strong>Modules Web &gt; </strong><em>nom_fichier_URI</em><strong>&gt;
+Services Web : Liaisons de s&eacute;curit&eacute; du client</strong>.</li>
+
+</ol>
+</p>
+
+<p>
+<img alt="[Release 5.1 and later]" src="v51.gif" border="0"><em>Nonce</em> correspond &agrave; un num&eacute;ro
+cryptographique ins&eacute;r&eacute; dans un message pour permettre d'arr&ecirc;ter des
+attaques &agrave; r&eacute;p&eacute;tition et non autoris&eacute;es des jetons de noms
+utilisateur.
+Dans un environnement WebSphere Application Server Network
+Deployment de base , vous devez renseigner les zones <strong>D&eacute;lai
+d'expiration du cache</strong>, <strong>D&eacute;lai maximal Nonce</strong> et <strong>D&eacute;calage d'horloge</strong>
+pour le niveau du serveur. </p>
+
+<p> La configuration de liaison par
+d&eacute;faut constitue un emplacement central dans lequel sont d&eacute;finies les
+informations de liaison r&eacute;utilisables. Le fichier de liaison d'application
+peut r&eacute;f&eacute;rencer les informations contenues dans la configuration de
+liaison par d&eacute;faut. </p>
+
+<dl>
+<dt>
+<strong><a name="sec_noncecachetimeout"></a>D&eacute;lai d'expiration du cache</strong>
+            &nbsp;
+            <img alt="[Release 5.1 and later]" src="v51.gif" border="0"></dt>
+<dd>Indique le d&eacute;lai d'expiration en secondes pour le cache sur le
+serveur. Nonce est une valeur g&eacute;n&eacute;r&eacute;e de mani&egrave;re al&eacute;atoire.
+<p>Vous devez entrer un minimum de 300 secondes dans la zone <strong>D&eacute;lai
+d'expiration du cache</strong>.
+Si vous ne renseignez pas cette zone, la valeur par d&eacute;faut est de 600
+secondes. </p>
+
+<p>La zone <strong>D&eacute;lai d'expiration du cache</strong> est obligatoire pour
+l'environnement WebSphere Application Server de base.</p>
+
+<p>Si vous apportez des modifications &agrave; la valeur de d&eacute;lai du cache nonce, vous
+devez red&eacute;marrer WebSphere Application Server pour que les modifications soient effectives.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">600 secondes</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Minimum</td>
+<td align="left" valign="top" class="base">300 secondes</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="sec_noncemaxage"></a>D&eacute;lai maximal Nonce</strong>
+            &nbsp;
+            <img alt="[Release 5.1 and later]" src="v51.gif" border="0"></dt>
+<dd>Indique le temps, en secondes, avant expiration de l'horodatage nonce. Nonce est une valeur g&eacute;n&eacute;r&eacute;e de mani&egrave;re al&eacute;atoire.
+<p>Vous devez entrer un minimum de 300 secondes dans la zone <strong>D&eacute;lai
+maximal Nonce</strong>.
+Toutefois, la valeur maximale ne peut d&eacute;passer le nombre de secondes
+figurant dans la zone <strong>D&eacute;lai maximal Nonce</strong> au niveau du serveur. Si vous ne renseignez pas cette zone, la valeur par d&eacute;faut est de 300
+secondes. La valeur d&eacute;finie pour la zone <strong>D&eacute;lai maximal Nonce</strong>
+au niveau du serveur ne doit pas d&eacute;passer celle de <strong>D&eacute;lai maximal
+Nonce</strong> au niveau de la cellule, accessible en cliquant sur
+<strong>S&eacute;curit&eacute; &gt; Services Web &gt; Propri&eacute;t&eacute;s</strong>. </p>
+
+<p>La zone <strong>D&eacute;lai maximal Nonce</strong> est obligatoire pour
+l'environnement WebSphere Application Server de base.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">300 secondes</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Plage</td>
+<td align="left" valign="top" class="base">300 &agrave; <strong>D&eacute;lai maximal Nonce</strong> secondes</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="sec_nonceclockskew"></a>D&eacute;calage d'horloge</strong>
+            &nbsp;
+            <img alt="[Release 5.1 and later]" src="v51.gif" border="0"></dt>
+<dd>Indique en secondes la valeur par d&eacute;faut de d&eacute;calage d'horloge &agrave; prendre en
+compte lorsque WebSphere Application Server v&eacute;rifie l'anciennet&eacute; du
+message. Nonce est une valeur g&eacute;n&eacute;r&eacute;e de mani&egrave;re al&eacute;atoire.
+<p>Vous devez entrer un minimum de 0 secondes dans la zone
+<strong>D&eacute;calage d'horloge</strong>.
+Toutefois, la valeur maximale ne peut d&eacute;passer le nombre de secondes
+figurant dans la zone <strong>D&eacute;lai maximal Nonce</strong>. Si vous ne renseignez pas cette zone, la valeur par d&eacute;faut est de 0
+secondes.</p>
+
+<p>La zone <strong>D&eacute;calage d'horloge</strong> est obligatoire pour
+l'environnement WebSphere Application Server de base.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">0 secondes</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Plage</td>
+<td align="left" valign="top" class="base">0 &agrave; <strong>D&eacute;lai maximal Nonce</strong> secondes</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="sec_trustancdescr"></a>Ancres
+de s&eacute;curisation</strong>
+            &nbsp;
+            <img alt="[Fix Pack 5.0.2 and later]" src="v502.gif" border="0"></dt>
+<dd>Indique une liste d'objets de magasin de donn&eacute;es qui contiennent les
+certificats racine s&eacute;curis&eacute;s, auto-sign&eacute;s ou &eacute;mis par une autorit&eacute; de
+certification.
+<p>L'autorit&eacute; de certification authentifie un utilisateur et &eacute;met un certificat.
+Une fois que le certificat a &eacute;t&eacute; &eacute;mis, les objets du magasin de cl&eacute;s
+qui contiennent ces certificats utilisent le certificat pour le
+chemin des certificats ou la validation d'une cha&icirc;ne de certificats
+des jetons de s&eacute;curit&eacute; entrants au format X.509.</p>
+
+</dd>
+<dt>
+<strong><a name="sec_collcert"></a>Magasin de certificats de collection</strong>
+            &nbsp;
+            <img alt="[Fix Pack 5.0.2 and later]" src="v502.gif" border="0"></dt>
+<dd>Indique une liste de fichiers de certificat interm&eacute;diaires, non
+s&eacute;curis&eacute;s.
+<p>Le magasin de certificats de collection contient une cha&icirc;ne de
+certificats interm&eacute;diaires, non s&eacute;curis&eacute;s. L'API CertPath tente de valider
+ces certificats bas&eacute;s sur les ancres de s&eacute;curisation.</p>
+
+</dd>
+<dt>
+<strong><a name="sec_keyldesc"></a>Localisateurs de cl&eacute;s</strong>
+            &nbsp;
+            <img alt="[Fix Pack 5.0.2 and later]" src="v502.gif" border="0"></dt>
+<dd>Indique une liste de localisateurs de cl&eacute;s qui extraient les cl&eacute;s
+pour la signature num&eacute;rique et le chiffrement &agrave; partir d'un fichier
+de cl&eacute;s ou d'un r&eacute;f&eacute;rentiel.
+Le localisateur de cl&eacute;s mappe un nom ou un nom logique vers un alias ou
+mappe une identit&eacute; authentifi&eacute;e vers une cl&eacute;. Ce nom logique permet de
+localiser une cl&eacute; dans l'impl&eacute;mentation d'adresse de cl&eacute;.</dd>
+<dt>
+<strong><a name="sec_trstiddesc"></a>Evaluateurs d'ID dignes de confiance</strong>
+            &nbsp;
+            <img alt="[Fix Pack 5.0.2 and later]" src="v502.gif" border="0"></dt>
+<dd>Indique une liste d'&eacute;valuateurs d'ID dignes de confiance qui
+d&eacute;terminent s'il convient de faire confiance &agrave; l'autorit&eacute; de v&eacute;rification
+d'identit&eacute; ou &agrave; l'&eacute;metteur du message.
+<p>Les &eacute;valuateurs d'ID dignes de confiance permettent d'authentifier des
+identit&eacute;s suppl&eacute;mentaires &agrave; partir d'un serveur vers un autre serveur. Par
+exemple, un client envoie l'identit&eacute; de l'utilisateur A au serveur 1 &agrave; des
+fins d'authentification. Le serveur 1 lance un appel en aval vers le
+serveur 2, v&eacute;rifie l'identit&eacute; de l'utilisateur A et inclut l'ID
+utilisateur et le mot de passe du serveur 1. Le serveur 2 tente d'&eacute;tablir
+une relation de confiance avec le serveur 1 en authentifiant son ID
+utilisateur et son mot de passe et en contr&ocirc;lant l'accr&eacute;ditation en se
+basant sur l'impl&eacute;mentation TrustedIDEvaluator. Si le processus
+d'authentification et le contr&ocirc;le d'accr&eacute;ditation aboutissent, le serveur
+2 reconna&icirc;t que le serveur 1 a authentifi&eacute; l'utilisateur A et une
+accr&eacute;ditation est cr&eacute;&eacute;e afin que l'utilisateur A du serveur 2 puisse
+appeler la demande.</p>
+
+</dd>
+<dt>
+<strong><a name="sec_logmapdesc"></a>Mappages de connexion</strong>
+            &nbsp;
+            <img alt="[Fix Pack 5.0.2 and later]" src="v502.gif" border="0"></dt>
+<dd>Indique une liste de configurations pour la validation
+de jetons dans les messages entrants.
+<p>Les mappages de connexions mappent la m&eacute;thode d'authentification vers
+la configuration JAAS (Java Authentication and Authorization Service).</p>
+
+<p>Pour configurer JAAS, utilisez la console d'administration et cliquez sur <strong>S&eacute;curit&eacute;
+&gt; Configuration JAAS</strong>.</p>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>Informations connexes</strong>
+</p>
+<a href="uwbs_trstanc.html">Collection d'ancres de s&eacute;curisation</a>
+<br>
+
+<a href="uwbs_colcertst.html">Collection de magasins de certificats de collection</a>
+<br>
+
+<a href="uwbs_keyl.html">Collection d'adresses de cl&eacute;</a>
+<br>
+
+<a href="uwbs_trstide.html">Collection d'&eacute;valuateurs d'ID dignes de confiance</a>
+<br>
+
+<a href="uwbs_logmap.html">Collection de mappages de connexion</a>
+<br>
+
+<a href="uwbs_logmapn.html">Param&egrave;tres de configuration des mappages de connexion</a>
+<br>
+
+</div>
+</body>
+</html>

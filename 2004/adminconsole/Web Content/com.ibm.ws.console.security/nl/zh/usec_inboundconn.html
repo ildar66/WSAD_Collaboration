@@ -1,0 +1,126 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>公共安全互操作性传输入站设置</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecinboundconn"></a>
+<h2>公共安全互操作性传输入站设置</h2>
+
+<p>使用此页面指定打开哪个侦听器端口和使用哪个安全套接字层（SSL）。这些规范确定客户机或上行服务器用于为进入请求与此服务器进行通信的传输。</p>
+
+<p>要查看此管理控制台页面，单击<strong>安全性</strong> &gt; <strong>认证协议</strong> &gt; <strong>CSI 入站传输</strong>。</p>
+
+<div>
+<p>
+<strong>&ldquo;配置&rdquo;选项卡</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="Transport_i_description"></a>传输</strong>
+</dt>
+<dd>指定客户机进程是否使用其已连接传输之一连接到服务器。
+<p>您可以选择使用安全套接字层（SSL）、TCP/IP 或这两者作为服务器支持的入站传输。如果指定 <strong>TCP/IP</strong>，服务器仅支持 TCP/IP 并且无法接受 SSL 连接。如果您指定 <strong>SSL 支持的</strong>，则此服务器可以支持 TCP/IP 或 SSL 连接。如果指定<strong> SSL 必需的</strong>，那么与它通信的所有服务器都必须使用 SSL。</p>
+
+<p>如果您指定 <strong>SSL 支持的</strong>或<strong> SSL 必需的</strong>，确定要用于入站配置的 SSL 配置设置集。此决策确定用于到此服务器的入站连接的密钥文件和信任文件。</p>
+
+<p>缺省情况下，公共安全互操作性 V2（CSIv2）和安全性认证服务（SAS）的 SSL 端口动态生成。在您需要固定应用程序服务器上的 SSL 端口的情况下，单击<strong>服务器</strong> &gt; <strong>应用程序服务器</strong> &gt; <em>server_name</em> &gt; <strong>端点</strong>。配置固定以下端口。零端口号表明在运行时进行动态指定。<pre class="program">
+<font style="font-family: arial">CSIV2_SSL_MUTUALAUTH_LISTENER_ADDRESS 
+CSIV2_SSL_SERVERAUTH_LISTENER_ADDRESS 
+SAS_SSL_SERVERAUTH_LISTENER_ADDRESS</font>
+</pre>
+</p>
+
+<p>
+<ul>
+
+<li>
+<strong>TCP/IP</strong>：仅打开 TCP/IP 侦听器端口，并且所有请求入站都不会有 SSL 保护。</li>
+
+<li>
+<strong>SSL 支持的</strong>：打开 TCP/IP 和 SSL 侦听器端口，并且大多数请求通过 SSL 方法入站。</li>
+
+<li>
+<strong>SSL 必需的</strong>：仅打开 SSL 侦听器端口，并且所有请求都通过 SSL 连接。如果您选择 <strong>SSL 必需的</strong>，那么您还必须选择 <strong>CSI</strong> 作为活动认证协议。如果您选择 <strong>CSI 和 SAS</strong>，那么 SAS 需要为某些特殊的请求打开 TCP/IP 套接字。</li>
+
+</ul>
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省：</td>
+<td align="left" valign="top" class="base">SSL 支持的</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">范围：</td>
+<td align="left" valign="top" class="base">TCP/IP、SSL 必需的、SSL 支持的</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SSLSettings_csi_i_description"></a>SSL 设置</strong>
+</dt>
+<dd>指定从中为入站连接选择的预定义 SSL 设置的列表。这些设置在&ldquo;SSL 指令表&rdquo;面板上配置。
+<p></p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型：</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省：</td>
+<td align="left" valign="top" class="base">DefaultSSLSettings</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">范围：</td>
+<td align="left" valign="top" class="base">SSL 配置指令表中配置的任何 SSL 设置</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>相关信息</strong>
+</p>
+<a href="rcon_buttons.html">管理控制台按钮</a>
+<br>
+
+<a href="rcon_pageusage.html">管理控制台页面功能</a>
+<br>
+
+<a href="rcon_scope.html">管理控制台作用域设置</a>
+<br>
+
+<a href="rcon_filter.html">管理控制台过滤器设置</a>
+<br>
+
+<a href="rcon_preferences.html">管理控制台首选项设置</a>
+<br>
+
+</div>
+</body>
+</html>

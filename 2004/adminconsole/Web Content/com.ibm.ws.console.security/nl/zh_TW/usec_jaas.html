@@ -1,0 +1,129 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Java 鑑別和授權服務配置項目設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecjaas"></a>
+<h2>
+<img alt="[修正套件 5.0.1 和更新版本]" src="v501.gif" border="0">Java 鑑別和授權服務配置項目設定</h2>
+
+<p>請利用這個頁面，來指定應用程式碼所要使用的 Java 鑑別和授權服務 (JAAS) 登入配置清單，其中包括 Enterprise Bean、Java Server Pages (JSP) 檔、Servlet 和資源配接器。
+</p>
+
+<p>如果要檢視這個管理主控台頁面，請按一下<strong>安全</strong> &gt; <strong>JAAS 配置</strong> &gt; <strong>應用程式登入配置</strong>。</p>
+
+<p>我們強烈建議您，在開始定義其他登入模組來接受 WebSphere Application Server 安全執行時期的鑑別之前，先閱讀 InfoCenter 中的 JAAS 文件。
+您可以定義應用程式的其他登入配置。
+不過，如果沒有使用 WebSphere Application Server LoginModule (<samp>com.ibm.ws.security.common.auth.module.WSLoginModuleImpl</samp>)，或者 LoginModule 沒有產生 WebSphere Application Server 所能辨識的憑證，那麼 WebSphere Application Server 安全執行時期程式，就無法利用這些登入配置中經過鑑別的主體，來進行資源存取的授權檢查。
+</p>
+
+<p>
+<p>
+<img alt="[修正套件 5.0.1 和更新版本]" src="v501.gif" border="0"><b>附註: </b>您必須利用指定的 Java 鑑別和授權服務 (JAAS) 配置檔來呼叫利用 JAAS 進行鑑別的 Java 用戶端程式。
+WebSphere 產品提供了預設 JAAS 配置檔 wsjaas_client.conf，在 &lt;install_root&gt;/properties 目錄下。
+在 <em>/&lt;install_root&gt;/bin/launchClient.bat</em> 檔中，將這個配置檔設定如下：<strong>set JAAS_LOGIN_CONFIG=-Djava.security.auth.login.config=%WAS_HOME%\properties\wsjaas_client.conf</strong>
+
+<p>如果沒有利用 launchClient.bat 檔來呼叫 Java 用戶端程式，請確定已利用 <em>-Djava.security.auth.login.config</em> 旗標將適當的 JAAS 配置檔傳給 Java 虛擬機器。
+</p>
+</p>
+</p>
+
+<dl>
+<dt>
+<strong>ClientContainer</strong>
+</dt>
+<dd>指定用戶端儲存區應用程式所用的登入配置，這個配置會用到用戶端儲存區部署描述子所定義的 CallbackHandler API。
+
+<p>ClientContainer 是 WebSphere Application Server 的預設登入配置。
+請不要移除這個預設值，因為使用它的其他應用程式會失敗。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值：</td>
+<td align="left" valign="top" class="base">ClientContainer</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong>DefaultPrincipalMapping</strong>
+</dt>
+<dd>指定 Java 2 Connectors 用來將使用者對映至 <strong>J2C 鑑別資料項目</strong>所定義的主體之登入配置。
+
+<p>DefaultPrincipalMapping 是 WebSphere Application Server 的預設登入配置。
+請不要移除這個預設值，因為使用它的其他應用程式會失敗。
+DefaultPrincipalMapping 登入配置會鑑別 WebSphere Application Server 安全執行時期的使用者。
+請使用這個登入配置所傳回鑑別過的主體之憑證來作為存取 WebSphere Application Server 資源的授權檢查。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值：</td>
+<td align="left" valign="top" class="base">ClientContainer</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong>WSLogin</strong>
+</dt>
+<dd>指定是不是所有應用程式都能利用 WSLogin 配置，來執行 WebSphere Application Server 安全執行時期的鑑別。
+
+<p>這個登入配置不接受用戶端儲存區部署描述子所定義的 CallbackHandler。
+如果要使用這個功能，請使用 ClientContainer 登入配置。
+</p>
+
+<p>WSLogin 是 WebSphere Application Server 的預設登入配置。
+請不要移除這個預設值，因為使用它的其他應用程式會失敗。
+這個登入配置會鑑別 WebSphere Application Server 安全執行時期的使用者。
+請使用這個登入配置所傳回鑑別過的主體之憑證來作為存取 WebSphere Application Server 資源的授權檢查。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值：</td>
+<td align="left" valign="top" class="base">ClientContainer</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>相關資訊</strong>
+</p>
+<a href="rcon_buttons.html">管理主控台按鈕</a>
+<br>
+
+<a href="rcon_pageusage.html">管理主控台頁面特性</a>
+<br>
+
+<a href="rcon_scope.html">管理主控台範圍設定</a>
+<br>
+
+<a href="rcon_filter.html">管理主控台過濾器設定</a>
+<br>
+
+<a href="rcon_preferences.html">管理主控台喜好設定</a>
+<br>
+
+</div>
+</body>
+</html>

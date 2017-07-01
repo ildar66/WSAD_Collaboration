@@ -1,0 +1,411 @@
+------Start of DE processing------ = [04.10.25 11:30:35:422 MSD] , key = java.net.SocketException com.ibm.ws.webcontainer.servlet.ServletInstance.service 266
+Exception = java.net.SocketException
+Source = com.ibm.ws.webcontainer.servlet.ServletInstance.service
+probeid = 266
+Stack Dump = java.net.SocketException: Connection reset by peer: socket write error
+	at java.net.SocketOutputStream.socketWrite(Native Method)
+	at java.net.SocketOutputStream.write(SocketOutputStream.java:103)
+	at com.ibm.ws.io.Stream.write(Stream.java:26)
+	at com.ibm.ws.io.WriteStream.flushMyBuf(WriteStream.java:145)
+	at com.ibm.ws.io.WriteStream.flush(WriteStream.java:137)
+	at com.ibm.ws.http.ResponseStream.flush(ResponseStream.java:323)
+	at com.ibm.ws.io.WriteStream.flush(WriteStream.java:139)
+	at com.ibm.ws.webcontainer.http.HttpConnection.flush(HttpConnection.java:379)
+	at com.ibm.ws.webcontainer.srp.SRPConnection.flush(SRPConnection.java:242)
+	at com.ibm.ws.webcontainer.srt.SRTOutputStream.flush(SRTOutputStream.java:45)
+	at java.io.OutputStreamWriter.flush(OutputStreamWriter.java:259)
+	at com.ibm.ws.webcontainer.srt.BufferedWriter.flushChars(BufferedWriter.java:348)
+	at com.ibm.ws.webcontainer.srt.BufferedWriter.flush(BufferedWriter.java:326)
+	at com.ibm.ws.webcontainer.srt.BufferedWriter.flushBuffer(BufferedWriter.java:488)
+	at com.ibm.ws.webcontainer.srt.SRTServletResponse.flushBuffer(SRTServletResponse.java:841)
+	at com.ibm.ws.webcontainer.servlet.HttpServletResponseProxy.flushBuffer(HttpServletResponseProxy.java:142)
+	at com.ibm.ws.webcontainer.servlet.HttpServletResponseProxy.flushBuffer(HttpServletResponseProxy.java:142)
+	at com.ibm.ws.webcontainer.webapp.WebAppRequestDispatcher.handleWebAppDispatch(WebAppRequestDispatcher.java:879)
+	at com.ibm.ws.webcontainer.webapp.WebAppRequestDispatcher.dispatch(WebAppRequestDispatcher.java:491)
+	at com.ibm.ws.webcontainer.webapp.WebAppRequestDispatcher.forward(WebAppRequestDispatcher.java:173)
+	at org.apache.struts.action.ActionServlet.processActionForward(ActionServlet.java:1759)
+	at org.apache.struts.action.ActionServlet.process(ActionServlet.java:1596)
+	at org.apache.struts.action.ActionServlet.doGet(ActionServlet.java:492)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:740)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:853)
+	at com.ibm.ws.webcontainer.servlet.StrictServletInstance.doService(StrictServletInstance.java:110)
+	at com.ibm.ws.webcontainer.servlet.StrictLifecycleServlet._service(StrictLifecycleServlet.java:174)
+	at com.ibm.ws.webcontainer.servlet.IdleServletState.service(StrictLifecycleServlet.java:313)
+	at com.ibm.ws.webcontainer.servlet.StrictLifecycleServlet.service(StrictLifecycleServlet.java:116)
+	at com.ibm.ws.webcontainer.servlet.ServletInstance.service(ServletInstance.java:258)
+	at com.ibm.ws.webcontainer.servlet.ValidServletReferenceState.dispatch(ValidServletReferenceState.java:42)
+	at com.ibm.ws.webcontainer.servlet.ServletInstanceReference.dispatch(ServletInstanceReference.java:40)
+	at com.ibm.ws.webcontainer.webapp.WebAppRequestDispatcher.handleWebAppDispatch(WebAppRequestDispatcher.java:872)
+	at com.ibm.ws.webcontainer.webapp.WebAppRequestDispatcher.dispatch(WebAppRequestDispatcher.java:491)
+	at com.ibm.ws.webcontainer.webapp.WebAppRequestDispatcher.forward(WebAppRequestDispatcher.java:173)
+	at com.ibm.ws.webcontainer.srt.WebAppInvoker.doForward(WebAppInvoker.java:79)
+	at com.ibm.ws.webcontainer.srt.WebAppInvoker.handleInvocationHook(WebAppInvoker.java:199)
+	at com.ibm.ws.webcontainer.cache.invocation.CachedInvocation.handleInvocation(CachedInvocation.java:71)
+	at com.ibm.ws.webcontainer.cache.invocation.CacheableInvocationContext.invoke(CacheableInvocationContext.java:114)
+	at com.ibm.ws.webcontainer.srp.ServletRequestProcessor.dispatchByURI(ServletRequestProcessor.java:187)
+	at com.ibm.ws.webcontainer.oselistener.OSEListenerDispatcher.service(OSEListener.java:331)
+	at com.ibm.ws.webcontainer.http.HttpConnection.handleRequest(HttpConnection.java:56)
+	at com.ibm.ws.http.HttpConnection.readAndHandleRequest(HttpConnection.java:432)
+	at com.ibm.ws.http.HttpConnection.run(HttpConnection.java:343)
+	at com.ibm.ws.util.ThreadPool$Worker.run(ThreadPool.java:592)
+
+Dump of callerThis = 
+Object type = com.ibm.ws.webcontainer.servlet.ServletInstance
+com.ibm.ws.webcontainer.servlet.ServletInstance@17727cce
+
+Exception = java.net.SocketException
+Source = com.ibm.ws.webcontainer.servlet.ServletInstance.service
+probeid = 266
+Dump of callerThis = 
+Object type = com.ibm.ws.webcontainer.servlet.ServletInstance
+  class$com$ibm$ws$webcontainer$servlet$ServletInstance = 
+    serialPersistentFields = {}
+    serialVersionUID = 3206093459760846163
+    allPermDomain = null
+    getPDperm = null
+    have_extensions = true
+  disableServletAuditLogging = -1
+  _permanentlyUnavailable = false
+  _unavailableMessage = null
+  _unavailableUntil = -1
+  nls = 
+    class$com$ibm$ejs$sm$client$ui$NLS = 
+      serialPersistentFields = this.class$com$ibm$ws$webcontainer$servlet$ServletInstance.serialPersistentFields
+      serialVersionUID = 3206093459760846163
+      allPermDomain = null
+      getPDperm = null
+      have_extensions = true
+    bundle = 
+      resources = [[Ljava.lang.Object;@21417cfc
+      lookup = java.util.Hashtable@39277ce1
+      class$java$util$ResourceBundle = java.lang.Class@37b27c67
+      locale = java.util.Locale@3167bcfc
+      parent = null
+      cacheList = sun.misc.SoftCache@2a04bceb
+      DEFAULT_NOT_FOUND = -1
+      underConstruction = java.util.Hashtable@2a113ceb
+      MAX_BUNDLES_SEARCHED = 3
+      CACHE_LOAD_FACTOR = 1.0
+      INITIAL_CACHE_SIZE = 25
+      cacheKey = java.util.ResourceBundle$ResourceCacheKey@2a17bceb
+    bundleName = com.ibm.servlet.resources.ServletEngineNLS
+    baseClassPackage = com.ibm.ejs.resources
+    messages = 
+      class$com$ibm$ejs$sm$client$ui$NLS = this.nls.class$com$ibm$ejs$sm$client$ui$NLS
+      bundle = java.util.PropertyResourceBundle@4cc3bcfc
+      bundleName = messages
+      baseClassPackage = com.ibm.ejs.resources
+      messages = this.nls.messages
+      tc = this.nls.tc
+    tc = 
+      ivLogger = null
+      ivResourceBundleName = com.ibm.ejs.resources.seriousMessages
+      ivDumpEnabled = false
+      defaultMessageFile = com.ibm.ejs.resources.seriousMessages
+      ivEntryEnabled = false
+      ivEventEnabled = false
+      ivDebugEnabled = false
+      ivName = com.ibm.ejs.sm.client.ui.NLS
+  tc = 
+    ivLogger = null
+    ivResourceBundleName = com.ibm.ejs.resources.seriousMessages
+    ivDumpEnabled = false
+    defaultMessageFile = com.ibm.ejs.resources.seriousMessages
+    ivEntryEnabled = false
+    ivEventEnabled = false
+    ivDebugEnabled = false
+    ivName = com.ibm.ws.webcontainer.servlet.ServletInstance
+  _event = 
+    _servletClassName = org.apache.struts.action.ActionServlet
+    _servletName = action
+    _servletNames = 
+      _instance = this._event._servletNames
+    _context = 
+      class$com$ibm$ws$webcontainer$webapp$WebApp = java.lang.Class@1d95bce7
+      autoResponseEncoding = false
+      autoRequestEncoding = false
+      currentTrans = com.ibm.ejs.jts.jts.CurrentSet@7513ce7
+      _metaDataService = com.ibm.ws.runtime.component.MetaDataMgrImpl@25a7fce8
+      _j2eeNameFactory = com.ibm.ejs.csi.J2EENameFactoryImpl@37dafcf3
+      _isServlet23OrHigher = true
+      JSP_API_VERSION = JSP 1.2
+      SERVLET_API_VERSION = Servlet 2.3
+      SERVLET_API_MINOR_VERSION = 3
+      SERVLET_API_MAJOR_VERSION = 2
+      _alive = true
+      _mimeFilteringEnabled = false
+      _availableForService = true
+      _mimeFilters = java.util.HashMap@37d13cf3
+      _userTransaction = com.ibm.ejs.jts.jta.UserTransactionImpl@76043ce0
+      _javaColonCtxt = this._compMetaData._javaColonContext
+      _connectionHandleCollaborator = com.ibm.ws.webcontainer.collaborator.ConnectionHandleCollaborator@12387cfc
+      _mmd = this._compMetaData._mmd
+      _webAppCollaboratorConfig = com.ibm.ws.webcontainer.webapp.collaborator.WebAppCollaboratorConfigImpl@3bfafcf3
+      _webAppInvocationCollaborators = [Lcom.ibm.ws.webcontainer.webapp.collaborator.WebAppInvocationCollaborator;@e0efcfc
+      _webAppInitializationCollaborators = {}
+      _webAppTransactionCollaborator = com.ibm.ws.webcontainer.webapp.WebAppTransactionCollaborator@37da7cf3
+      _webAppSecurityCollaborator = com.ibm.ws.webcontainer.webapp.WebAppSecurityCollaborator@5ff4fceb
+      _webAppNameSpaceCollaborator = com.ibm.ws.webcontainer.webapp.WebAppNameSpaceCollaborator@37db3cf3
+      _javaNameSpaceValue = com.ibm.ws.naming.java.javaNameSpace@3706fcf3
+      _initParameters = java.util.HashMap@37d5fcf3
+      _eventSource = com.ibm.ws.webcontainer.webapp.WebAppEventSource@37c9bcf3
+      _URIToServletNameTable = com.ibm.ws.webcontainer.util.StringMatcher@20b17ceb
+      _webAppContext = com.ibm.ws.webcontainer.srt.WebGroup@7d0a7cfe
+      _attributes = java.util.HashMap@37ccbcf3
+      _filtersDefined = false
+      _filterManager = com.ibm.ws.webcontainer.filter.WebAppFilterManager@5fe63ceb
+      _servletManager = com.ibm.ws.webcontainer.webapp.WebAppServletManager@66fcf3
+      _webModuleExt = com.ibm.ejs.models.base.extensions.webappext.impl.WebAppExtensionImpl@25f67cf3
+      _webModuleDD = com.ibm.etools.webapplication.impl.WebAppImpl@485abcf3
+      nls = com.ibm.ejs.sm.client.ui.NLS@63533ce2
+      tc = com.ibm.ejs.ras.TraceComponent@6351fce2
+      ERROR_BEAN_NAME = ErrorReport
+    source = this
+  _evtSource = 
+    _applicationListeners = 
+      listeners = {}
+      EMPTY_LISTENERS = this._evtSource._applicationListeners.listeners
+    _errorListeners = 
+      listeners = [Ljava.util.EventListener;@753cf3
+      EMPTY_LISTENERS = this._evtSource._applicationListeners.listeners
+    _servletListeners = 
+      listeners = [Ljava.util.EventListener;@6afcf3
+      EMPTY_LISTENERS = this._evtSource._applicationListeners.listeners
+    _invocationListeners = 
+      listeners = [Ljava.util.EventListener;@6bbcf3
+      EMPTY_LISTENERS = this._evtSource._applicationListeners.listeners
+  _outstandingReferences = 
+    serialVersionUID = -2767605614048989439
+    capacityIncrement = 0
+    elementCount = 0
+    elementData = 
+      [0] = null
+      [1] = null
+      [2] = null
+      [3] = null
+      [4] = null
+      [5] = null
+      [6] = null
+      [7] = null
+      [8] = null
+      [9] = null
+    modCount = 0
+  _compMetaData = 
+    class$com$ibm$ws$webcontainer$metadata$WebComponentMetaDataImpl = 
+      serialPersistentFields = this.class$com$ibm$ws$webcontainer$servlet$ServletInstance.serialPersistentFields
+      serialVersionUID = 3206093459760846163
+      allPermDomain = null
+      getPDperm = null
+      have_extensions = true
+    DESTROYED = 1
+    VALID = 0
+    _state = 0
+    _pageList = 
+      class$java$lang$Object = null
+      size = 0
+      elementData = [Ljava.lang.Object;@7e997cfe
+      serialVersionUID = 8683452581122892189
+      modCount = 0
+    _webComponentInitParameters = 
+      class$java$util$HashMap$Entry = java.lang.Class@a3a7ced
+      serialVersionUID = 362498820763181265
+      emptyHashIterator = java.util.HashMap$EmptyHashIterator@6fd5fcea
+      ENTRIES = 2
+      VALUES = 1
+      KEYS = 0
+      values = null
+      entrySet = null
+      keySet = null
+      modCount = 5
+      loadFactor = 0.75
+      threshold = 8
+      count = 5
+      table = [Ljava.util.HashMap$Entry;@7e91fcfe
+    _webComponentDescription = null
+    _jns = 
+      class$com$ibm$ws$naming$java$javaNameSpace = java.lang.Class@4b30fce3
+      METHOD_writeObject = writeObject(ObjectOutputStream)
+      METHOD_init = init()
+      CLASS_ctor = javaNameSpace()
+      BUILD_IN_COMP_ENV = env
+      BUILD_IN_COMP = comp
+      ROOT_CONTEXT = 
+      _serializationInProcess = false
+      _alreadyInitialized = true
+      _ns = com.ibm.ws.naming.ipbase.NameSpace@7a607cfe
+      _sourceInfo = ws/code/naming/src/com/ibm/ws/naming/java/javaNameSpace.java, WAS.naming, ASV, s0244.17.fix, ver. 1.27
+      tc = com.ibm.ejs.ras.TraceComponent@4db5fce3
+      _parser = com.ibm.ws.naming.util.WsnNameParser@32e07ce3
+    _localTran = 
+      class$com$ibm$ejs$csi$LocalTranConfigDataImpl = java.lang.Class@7500fce3
+      unresolvedAction = 1
+      resolver = 0
+      boundary = 0
+      tc = com.ibm.ejs.ras.TraceComponent@63a13ce3
+    _resRefList = 
+      class$com$ibm$ejs$csi$ResRefListImpl = java.lang.Class@7038bcfc
+      tc = com.ibm.ejs.ras.TraceComponent@4e703cfc
+      WebSphereCMPConnectionFactory = WebSphereCMPConnectionFactory
+      lookupString = null
+      _resRefVector = java.util.Vector@7e817cfe
+    _webComponentVersion = Servlet 2.3
+    _webComponentType = 1
+    _j2eeName = 
+      j2eeNameBytes = [B@7eb4bcfe
+      j2eeName = CollaborationEAR#CollaborationWEB.war#action
+      component = action
+      module = CollaborationWEB.war
+      application = CollaborationEAR
+      SEPARATOR = #
+    _mmd = 
+      _jns = null
+      _groupIndex = default_host/collaboration
+      _webModuleDD = com.ibm.etools.webapplication.impl.WebAppImpl@79767cff
+      _webModuleExt = com.ibm.ejs.models.base.extensions.webappext.impl.WebAppExtensionImpl@1372bcff
+      _webModuleBnd = com.ibm.ejs.models.base.bindings.webappbnd.impl.WebAppBindingImpl@21d6fcff
+      _isServlet23OrHigher = true
+      _localTran = com.ibm.ejs.csi.LocalTranConfigDataImpl@4964fcff
+      _j2eeName = com.ibm.ejs.csi.J2EENameImpl@7e8d7cfe
+      _resRefList = this._compMetaData._resRefList
+      _context = this._compMetaData._javaColonContext
+      _cmd = [Lcom.ibm.ws.webcontainer.metadata.WebComponentMetaDataImpl;@7e95bcfe
+      _amd = com.ibm.ws.runtime.metadata.ApplicationMetaDataImpl@4142bcff
+      _name = CollaborationWEB.war
+      slots = [Ljava.lang.Object;@7e957cfe
+    _javaColonContext = 
+      gotDefault = true
+      defaultInitCtx = com.ibm.ws.naming.java.javaURLContextRoot@35cbfcf3
+      myProps = java.util.Properties@34d8bcf3
+    _implementationClass = org.apache.struts.action.ActionServlet
+    _name = action
+    tc = 
+      ivLogger = null
+      ivResourceBundleName = com.ibm.ejs.resources.seriousMessages
+      ivDumpEnabled = false
+      defaultMessageFile = com.ibm.ejs.resources.seriousMessages
+      ivEntryEnabled = false
+      ivEventEnabled = false
+      ivDebugEnabled = false
+      ivName = com.ibm.ws.webcontainer.metadata.WebComponentMetaDataImpl
+    slots = 
+      [0] = null
+  _jspFile = null
+  _servletClassname = org.apache.struts.action.ActionServlet
+  _servletName = action
+  _servletInstance = 
+    class$com$ibm$ws$webcontainer$servlet$StrictServletInstance = 
+      serialPersistentFields = this.class$com$ibm$ws$webcontainer$servlet$ServletInstance.serialPersistentFields
+      serialVersionUID = 3206093459760846163
+      allPermDomain = null
+      getPDperm = null
+      have_extensions = true
+    _servicingCount = 0
+    _servletClassname = org.apache.struts.action.ActionServlet
+    _servletName = action
+    _servlet = 
+      tempDir = null
+      multipartClass = org.apache.struts.upload.DiskMultipartRequestHandler
+      maxFileSize = 250M
+      bufferSize = 4096
+      validating = true
+      validate = true
+      servletName = action
+      servletMapping = *.do
+      registrations = [Ljava.lang.String;@9d8fcce
+      nocache = false
+      mappings = org.apache.struts.action.ActionMappings@9d57cce
+      mappingClass = org.apache.struts.action.ActionMapping
+      locale = true
+      internalName = org.apache.struts.action.ActionResources
+      internal = org.apache.struts.util.PropertyMessageResources@72643ccf
+      forwards = org.apache.struts.action.ActionForwards@e7d3cce
+      forwardClass = org.apache.struts.action.ActionForward
+      formBeans = org.apache.struts.action.ActionFormBeans@48afcce
+      formBeanClass = org.apache.struts.action.ActionFormBean
+      factoryClass = null
+      defaultLocale = java.util.Locale@7f5f7cea
+      debug = 2
+      dataSources = org.apache.struts.util.FastHashMap@3161fcce
+      content = text/html
+      config = WEB-INF/struts-config.xml
+      application = org.apache.struts.util.PropertyMessageResources@78d0fccf
+      actions = org.apache.struts.util.FastHashMap@3152bcce
+      lStrings = java.util.PropertyResourceBundle@5dd43ce3
+      LSTRING_FILE = javax.servlet.http.LocalStrings
+      HEADER_LASTMOD = Last-Modified
+      HEADER_IFMODSINCE = If-Modified-Since
+      METHOD_TRACE = TRACE
+      METHOD_PUT = PUT
+      METHOD_POST = POST
+      METHOD_OPTIONS = OPTIONS
+      METHOD_GET = GET
+      METHOD_HEAD = HEAD
+      METHOD_DELETE = DELETE
+      config = this.config
+    tc = 
+      ivLogger = null
+      ivResourceBundleName = com.ibm.ejs.resources.seriousMessages
+      ivDumpEnabled = false
+      defaultMessageFile = com.ibm.ejs.resources.seriousMessages
+      ivEntryEnabled = false
+      ivEventEnabled = false
+      ivDebugEnabled = false
+      ivName = com.ibm.ws.webcontainer.servlet.StrictServletInstance
+    syncObject = java.lang.Object@17793cce
+    servicingCount = 1
+    _implementsSTM = false
+    _config = this.config
+    _unavailableUntil = -1
+    _servicingState = 
+      _instance = this._servletInstance._servicingState
+    _state = 
+      _instance = this._servletInstance._state
+    PERMANENTLY_UNAVAILABLE_FOR_SERVICE_STATE = 
+      _instance = this._servletInstance.PERMANENTLY_UNAVAILABLE_FOR_SERVICE_STATE
+    UNAVAILABLE_FOR_SERVICE_STATE = 
+      _instance = this._servletInstance.UNAVAILABLE_FOR_SERVICE_STATE
+    AVAILABLE_FOR_SERVICE_STATE = this._servletInstance._servicingState
+    ERROR_STATE = 
+      _instance = this._servletInstance.ERROR_STATE
+    DESTROYED_STATE = 
+      _instance = this._servletInstance.DESTROYED_STATE
+    DESTROYING_STATE = 
+      _instance = this._servletInstance.DESTROYING_STATE
+    STM_SERVICING_STATE = 
+      _instance = this._servletInstance.STM_SERVICING_STATE
+    SERVICING_STATE = this._servletInstance._state
+    IDLE_STATE = 
+      _instance = this._servletInstance.IDLE_STATE
+    INITIALIZING_STATE = 
+      _instance = this._servletInstance.PRE_INITIALIZED_STATE
+    PRE_INITIALIZED_STATE = 
+      _instance = this._servletInstance.PRE_INITIALIZED_STATE
+  config = 
+    _servletName = action
+    _initParams = 
+      hexDigit = [C@621ffcea
+      whiteSpaceChars =  	
+
+      specialSaveChars = =: 	
+#!
+      strictKeyValueSeparators = =:
+      keyValueSeparators = =: 	
+
+      defaults = null
+      serialVersionUID = 4112578634029874840
+      class$java$util$Hashtable$Entry = java.lang.Class@cea7ced
+      emptyIterator = java.util.Hashtable$EmptyIterator@620b7cea
+      emptyEnumerator = java.util.Hashtable$EmptyEnumerator@6208fcea
+      ENTRIES = 2
+      VALUES = 1
+      KEYS = 0
+      values = null
+      entrySet = null
+      keySet = null
+      modCount = 5
+      loadFactor = 0.75
+      threshold = 8
+      count = 5
+      table = [Ljava.util.Hashtable$Entry;@986fcce
+    _servletContext = this._event._context
+

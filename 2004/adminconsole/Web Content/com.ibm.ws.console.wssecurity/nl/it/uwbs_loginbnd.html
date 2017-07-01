@@ -1,0 +1,88 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Impostazioni di configurazione di Collegamenti di login</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_loginbnd"></a>
+<h2>
+<img alt="[Fix Pack 5.0.2 e successive]" src="v502.gif" border="0">Impostazioni di configurazione di Collegamenti di login</h2>
+
+<p>Utilizzare questa pagina per configurare i parametri di codifica e di decodifica.</p>
+
+<p>Il token collegabile utilizza l'interfaccia  (javax.security.auth.callback.CallBackHandler) CallBackHandler di JAAS (Java Authentication and Authorization Service) per creare il token che viene inserito nel messaggio. Il seguente elenco descrive le implementazioni di supporto CallBack:<dl>
+<dt>
+<strong>com.ibm.wsspi.wssecurity.auth.callback.BinaryTokenCallback</strong>
+</dt>
+<dd>Questa implementazione viene utilizzata per creare token binari inseriti come <samp>&lt;wsse:BinarySecurityToken/@ValueType&gt;</samp> nel messaggio.</dd>
+<dt>
+<strong>javax.security.auth.callback.NameCallback e javax.security.auth.callback.NameCallback</strong>
+</dt>
+<dd>Questa implementazione viene utilizzata per creare dei token nomi utente inseriti come <samp>&lt;wsse:UsernameToken&gt;</samp> nel messaggio.</dd>
+<dt>
+<strong>com.ibm.wsspi.wssecurity.auth.callback.XMLTokenSenderCallback</strong>
+</dt>
+<dd>Questa implementazione viene utilizzata per creare dei token XML (eXtensible Markup Language) e viene inserita come elemento <samp>&lt;SAML: Asserzione&gt;</samp> nel messaggio.</dd>
+<dt>
+<strong>com.ibm.wsspi.wssecurity.auth.callback.PropertyCallback</strong>
+</dt>
+<dd>Questa implementazione viene utilizzata per ottenere delle propriet&agrave; specificate nel file di collegamenti.</dd>
+</dl>
+</p>
+
+<p>Per visualizzare questa pagina della console di gestione, completare le seguenti operazioni:<ol>
+
+<li>Fare clic su <strong>Applicazioni &gt; Applicazioni enterprise &gt; </strong><em>nome_applicazione</em>. </li>
+
+<li>In Elementi correlati, fare clic su <strong>Modulo Web &gt; </strong><em>nome_file_URI</em> &gt; <strong>Servizi Web: collegamenti sicurezza client </strong>. </li>
+
+<li>In Collegamenti mittente richiesta, fare clic su <strong>Modifica &gt; Collegamento di login</strong>.</li>
+
+</ol>
+</p>
+
+<p>Se le informazioni sulla codifica non sono disponibili, selezionare <strong>Nessuno</strong>.</p>
+
+<p>Se le informazioni sulla codifica sono disponibili, selezionare <strong>Collegamento di login dedicato</strong> e specificare la configurazione nei seguenti campi:</p>
+
+<dl>
+<dt>
+<strong><a name="sec_authmeth"></a>Metodo di autenticazione</strong>
+</dt>
+<dd>Specifica il nome univoco per il metodo di autenticazione.</dd>
+<dt>
+<strong><a name="sec_cbhand"></a>Gestore richiamante</strong>
+</dt>
+<dd>Specifica il nome del gestore richiamante. Questi deve implementare l'interfaccia javax.security.auth.callback.CallbackHandler.</dd>
+<dt>
+<strong><a name="sec_userid"></a>ID utente autenticazione di base</strong>
+</dt>
+<dd>Specifica il nome utente per l'autenticazione di base. L'autenticazione di base consente di definire un ID utente e una password nel file di collegamenti.</dd>
+<dt>
+<strong><a name="sec_authpass"></a>Password autenticazione di base</strong>
+</dt>
+<dd>Specifica la password per l'autenticazione di base.</dd>
+<dt>
+<strong><a name="sec_uri"></a>URI tipo di token</strong>
+</dt>
+<dd>Specifica l'URI (Uniform Resource Identifier) per il tipo di token. Queste informazioni vengono inserite come <samp>&lt;wsse:BinarySecurityToken&gt;/ValueType</samp> per il token XML <samp>&lt;SAML:
+Asserzione&gt;</samp>. </dd>
+<dt>
+<strong><a name="sec_lname"></a>Nome locale tipo di token</strong>
+</dt>
+<dd>Specifica il nome locale per il tipo di token. Queste informazioni vengono inserite come<samp>&lt;wsse:BinarySecurityToken&gt;/ValueType</samp> per il token XML <samp>&lt;SAML:
+Asserzione&gt;</samp>.</dd>
+</dl>
+<div>
+<p>
+<strong>Informazioni correlate</strong>
+</p>
+<a href="uwbs_wsclientbind.html">Servizi Web: raccolta collegamenti sicurezza client</a>
+<br>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,186 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Impostazioni di autenticazione in uscita di interoperabilit&agrave; comune sicura (CSI, Common Secure Interoperability)</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecoutbound"></a>
+<h2>
+<img alt="[Fix Pack 5.0.1 e successive]" src="v501.gif" border="0">Impostazioni di autenticazione in uscita di interoperabilit&agrave; comune sicura (CSI, Common Secure Interoperability)</h2>
+
+<p>Utilizzare questa pagina per specificare le funzioni che un server supporta quando funge da client di un altro server downstream.</p>
+
+<p>Per visualizzare questa pagina della console di gestione, fare clic su <strong>Sicurezza &gt; Protocollo di autenticazione &gt; Autenticazione in uscita CSI</strong>.</p>
+
+<p>Le funzioni di autenticazione comprendono tre livelli di autenticazione, che possono
+essere utilizzati contemporaneamente:  <dl>
+<dt>
+<strong>Livello di trasporto</strong>
+</dt>
+<dd>Il livello di trasporto, quello pi&ugrave; basso, potrebbe
+contenere, come identit&agrave;, un certificato client SSL (Secure Sockets Layer).</dd>
+<dt>
+<strong>Livello di messaggio</strong>
+</dt>
+<dd>Il livello di messaggio pu&ograve; contenere un ID utente e
+password o un token autenticato.</dd>
+<dt>
+<strong>Livello di attributo</strong>
+</dt>
+<dd>Il livello di attributo pu&ograve; contenere un token di
+identit&agrave; che rappresenta un'identit&agrave; proveniente da un server
+upstream ed &egrave; gi&agrave; autenticato. Il livello di attributo ha la priorit&agrave; pi&ugrave; alta ed &egrave; seguito dal
+livello di messaggio e, quindi, da quello di trasporto. Se questo server li invia tutti e tre,
+il server downstream utilizza solo  il livello di attributo. Il certificato client SSL viene utilizzato come
+identit&agrave;, solo se questo rappresenta le uniche informazioni fornite
+durante la richiesta in uscita.</dd>
+</dl>  
+</p>
+
+<div>
+<p>
+<strong>Scheda Configurazione</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="BasicAuthentication_o_description"></a>Autenticazione di base</strong>
+</dt>
+<dd>Specifica se inviare un ID utente e una password
+dal client al server per l'autenticazione.
+<p>Questo tipo di autenticazione si verifica sul livello di messaggio. L'autenticazione di
+base coinvolge la delega di un token della credenziale da una credenziale gi&agrave; autenticata, nel
+caso in cui tale tipo di credenziale sia inoltrabile (ad esempio, LTPA, Lightweight Third
+Party Authentication). L'autenticazione base si riferisce a qualsiasi autenticazione sul
+livello di messaggio e indica l'ID utente, la password e l'autenticazione basata sul token.</p>
+
+<p>Selezionando <strong>Autenticazione di base</strong> si stabilisce se se questa &egrave; obbligatoria o supportata. <strong>Obbligatoria</strong> indica che quando il server accede al server downstream, quest'ultimo deve supportare l'autenticazione di base per la connessione del
+server. <strong>Supportata</strong> indica che questo server potrebbe eseguire o meno l'Autenticazione di base su un server downstream.
+Se configurati, possono verificarsi altri metodi di autenticazione. Selezionando <strong>Mai</strong> si indica che questo server non invier&agrave; mai un
+token a livello di messaggio in uscita su un server downstream. Se il server downstream richiede l'autenticazione di base, allora la connessione non viene
+tentata.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati:</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ClientCertificateAuthentication_o_description"></a>Autenticazione certificato client</strong>
+</dt>
+<dd>Indica se un certificato client, che deriva da un keystore configurato, viene
+utilizzato per autenticare il server nel momento in cui viene effettuata la connessione
+SSL tra questo server e un server downstream (con il presupposto che il server downstream
+supporti l'autenticazione del certificato client).
+<p>In genere, l'autenticazione del certificato client fornisce prestazioni pi&ugrave; elevate dell'autenticazione del livello di messaggio, ma richiede delle fasi aggiuntive di impostazione. Queste fasi aggiuntive prevedono che si controlli che il server abbia un certificato personale e che il server downstream disponga del certificato del firmatario di tale server.</p>
+
+<p>Quando viene selezionata Autenticazione certificato client, decidere se &egrave;
+obbligatoria o supportata.  Selezionando <strong>Obbligatoria</strong> si indica che il server pu&ograve; solo connettersi ai server
+downstream con l'autenticazione del certificato client configurata. Selezionando <strong>Supportata</strong>, si indica che questo server esegue l'Autenticazione
+certificato client con qualsiasi server downstream ma potrebbe non utilizzare tale Autenticazione solo
+se il server downstream la supporta. Selezionando <strong>Mai</strong>, si indica che questo client non
+eseguir&agrave; l'autenticazione del certificato client su nessun server downstream.
+Questa
+limitazione impedisce l'accesso a qualsiasi server downstream che richiede l'autenticazione
+del certificato client.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati:</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="IdentityAssertion_o_description"></a>Asserzione d'identit&agrave;</strong>
+</dt>
+<dd>Specifica se asserire l'identit&agrave; da un server ad un altro durante un richiamo
+bean enterprise downstream. 
+<p>L'identit&agrave; asserita &egrave; la credenziale di richiamo, determinata dalla modalit&agrave; RunAs per
+il bean enterprise. Se la modalit&agrave; RunAs &egrave; <strong>Client</strong>, l'identit&agrave; &egrave; quella del client. Se la modalit&agrave; RunAs &egrave; <strong>Sistema</strong>, l'identit&agrave; &egrave; quella del server. Se la modalit&agrave;
+RunAs &egrave; <strong>Specificata</strong>, l'identit&agrave; &egrave; quella specificata. Il server ricevente riceve
+l'identit&agrave; in un token di identit&agrave; e anche l'identit&agrave; del server trasmittente in un token
+di autenticazione client.  Il server ricevente convalida l'identit&agrave; del server
+trasmittente per verificare un'identit&agrave; sicura.</p>
+
+<p>Quando si specifica l'asserzione d'identit&agrave; sul pannello <strong>Autenticazione in uscita
+CSIv2</strong>, &egrave; necessario specificare in questo pannello anche l'autenticazione di base come supportata o obbligatoria. Quest'operazione consente di inoltrare l'identit&agrave; server e il token d'identit&agrave;, in modo che il server ricevente possa considerare <em>affidabile</em> il server trasmittente. Se non si specifica l'autenticazione di base come supportata o obbligatoria, l'affidabilit&agrave; non viene stabilita e l'asserzione d'identit&agrave; non riesce. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati:</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="StatefulSession_description"></a>Sessioni stateful </strong>
+</dt>
+<dd>Specifica se riutilizzare o meno le informazioni di sicurezza durante
+l'autenticazione.
+Questa opzione viene utilizzata normalmente per migliorare le prestazioni.
+<p>Il primo contatto tra un client e il server deve essere autenticato completamente.
+Tuttavia, tutti i contatti successivi con sessioni valide, riutilizzano le informazioni sulla sicurezza.
+Il client invia un ID di contesto al server
+e quell'ID viene utilizzato per ricercare la sessione. L'ID di contesto si trova nell'ambito della connessione e ci&ograve; garantisce l'univocit&agrave;. Ogni qualvolta la sessione di sicurezza non &egrave; valida e se il nuovo tentativo di autenticazione &egrave; abilitato (abilitato per impostazione predefinita), l'intercettatore di sicurezza lato client convalida la sessione lato
+client e inoltra nuovamente la richiesta.
+Ad esempio, se la sessione non esiste sul server; l'operazione sul server non riesce e  viene ritentata.</p>
+
+<p>Quando questo valore viene disabilitato, tutte le chiamate ai metodi devono
+essere nuovamente autenticate.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati:</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informazioni correlate</strong>
+</p>
+<a href="rcon_buttons.html">Pulsanti della console di gestione</a>
+<br>
+
+<a href="rcon_pageusage.html">Funzioni della pagina della console di gestione</a>
+<br>
+
+<a href="rcon_scope.html">Impostazioni ambito della console di gestione</a>
+<br>
+
+<a href="rcon_filter.html">Impostazioni di filtro della console di gestione</a>
+<br>
+
+<a href="rcon_preferences.html">Impostazioni delle preferenze della console di gestione</a>
+<br>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Web Module Deployment  settings</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uweb_rwar"></a>
+<h2>Web Module Deployment  settings</h2>
+
+<p> Use this page to configure  an instance of Web module deployment. </p>
+
+<p>To view this administrative console page, click <strong>Applications</strong> &gt; <strong>Enterprise
+Application</strong> &gt; <em>application_instance</em> &gt; <strong>Web Modules</strong> &gt; <em>Web
+Module_instance</em>.</p>
+
+<dl>
+<dt>
+<strong><a name="rwar_uri"></a>URI</strong>
+</dt>
+<dd>Specifies a URI that, when resolved relative to the application
+URL, specifies the  location of the module archive contents on a file system.
+The URI must match the ModuleRef URI in the deployment descriptor of an application
+if the module was packaged as part of a deployed application  or enterprise
+archive (EAR) file.  </dd>
+<dt>
+<strong><a name="rwar_altdd"></a>Alternate DD</strong>
+</dt>
+<dd>Specifies the file name for an alternative deployment descriptor
+ file to use instead of the original deployment descriptor file in the  module
+JAR file.
+<p> This file is the <em>post-assembly</em> version of the  deployment
+descriptor file. You can edit the original deployment descriptor file to resolve
+dependencies and security information.  Specifying  the use of the alternative
+deployment descriptor  keeps  the original deployment descriptor file intact.</p>
+
+<p>The value of the <em>Alternate DD</em> property must be the full path name
+of  the deployment descriptor file,  relative to the module root directory.
+ By convention, the file is in the <samp>ALT-INF</samp> directory. If this property
+ is not specified, the deployment descriptor file is read  from  the module
+JAR file.</p>
+
+</dd>
+<dt>
+<strong><a name="rwar_wt"></a>Starting weight</strong>
+</dt>
+<dd>Specifies the  order in which modules are started.  Lower weighted
+modules are started before higher  weighted modules.</dd>
+<dt>
+<strong><a name="rwar_classloaderMode_description"></a>Classloader Mode</strong>
+</dt>
+<dd>Specifies whether the class loader should search in the parent
+class loader or  in the application class loader first to load a class. The
+standard for JDK class loaders  and WebSphere class loaders is PARENT_FIRST.
+By specifying PARENT_LAST, your application  can override classes contained
+in the parent class loader, but this action can potentially  result in ClassCastException
+or LinkageErrors if you have mixed use of overriden classes  and non-overriden
+classes.
+<p>The options are PARENT_FIRST and PARENT_LAST. The default is to search
+in the parent  class loader before searching in the application class loader
+to load a class.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">PARENT_FIRST</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</body>
+</html>

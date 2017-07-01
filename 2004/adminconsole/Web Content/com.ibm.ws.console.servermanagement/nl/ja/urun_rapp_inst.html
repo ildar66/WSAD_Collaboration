@@ -1,0 +1,309 @@
+﻿<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>エンタープライズ・アプリケーション設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="urun_rapp_inst"></a>
+<h2>エンタープライズ・アプリケーション設定</h2>
+
+<p>このページを使用して、エンタープライズ・アプリケーションを構成します。</p>
+
+<p>この管理コンソール・ページを表示するには、「
+<strong>アプリケーション</strong>」&gt;「<strong>エンタープライズ・アプリケーション</strong>」&gt;「<strong><em>application_name</em></strong>」をクリックします。</p>
+
+<div>
+<p>
+<strong>「構成」タブ</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="ApplicationDeployment_name_description"></a>名前</strong>
+</dt>
+<dd>アプリケーションの論理名を指定します。
+アプリケーション名は、セル内で固有にする必要があり、オブジェクト名で使用できない文字は使用できません。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationDeployment_startingWeight_description"></a>開始ウェイト</strong>
+</dt>
+<dd>サーバーの始動時にアプリケーションがどの順序で始動するかを指定します。
+開始ウェイトが最も小さいアプリケーションが最初に始動します。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">整数</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">1</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">0 から 100</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationDeployment_binariesURL_description"></a>アプリケーション・バイナリー</strong>
+</dt>
+<dd>アプリケーションの EAR ファイルのインストール先のディレクトリーを指定します。 デフォルト値は、APP_INSTALL_ROOT/<em>cell_name</em> の値です。この APP_INSTALL_ROOT 変数は、<em>install_root</em>/installedApps (C:&yen;WebSphere&yen;AppServer&yen;installedApps&yen;<em>cell_name</em> など) になります。
+<p>絶対パスを指定するか、またはパス・マップ変数 (${MY_APPS} など) を使用します。パス・マップ変数は、
+任意のシステムで使用できます。現在のセル名を示す WebSphere Application Server 変数 ${CELL} をパス・マップ変数に指定することも可能です (例 ${MY_APP}/${CELL})。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">単位</td>
+<td align="left" valign="top" class="base">絶対パス名</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationDeployment_useMetadataFromBinaries_description"></a>バイナリーからメタデータの使用</strong>
+</dt>
+<dd>アプリケーション・サーバーが、
+アプリケーション・ディスクリプター文書の deployment.xml ファイルにあるバインディング、拡張子、
+デプロイメント記述子を使用するか (デフォルト)、
+またはエンタープライズ・アプリケーション・リソース (EAR) ファイルにあるものを使用するかを指定します。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ブール</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">true</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationDeployment_enableDistribution_description"></a>配布の使用可能</strong>
+</dt>
+<dd>WebSphere Application Server がインストール先でアプリケーション・バイナリーを展開するかまたは削除するかどうかを指定します。デフォルトでは、アプリケーションの分散を使用可能にします。
+インストールされたアプリケーションのアプリケーション・バイナリーは、指定のディレクトリーに展開されます。
+構成に対する変更をアンインストールして保管する際には、
+バイナリー・ファイルも削除されます。
+このオプションを使用不可にする場合、アプリケーションを実行するすべてのノードの宛先ディレクトリーで、アプリケーション・バイナリーを必ず適切に展開してください。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ブール</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">true</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationDeployment_classloaderMode_description"></a>クラス・ローダー・モード</strong>
+</dt>
+<dd>クラス・ローダーが、クラスをロードする際に、
+最初に親クラス・ローダーを検索するのか、
+あるいはアプリケーション・クラス・ローダーを検索するのかを指定します。 JDK クラス・ローダーおよび WebSphere Application Server クラス・ローダーの標準は PARENT_FIRST です。PARENT_LAST を指定することによって、
+アプリケーションは、親クラス・ローダーに含まれるクラスをオーバーライドできますが、
+オーバーライドされたクラスとオーバーライドされていないクラスを一緒に使用した場合、
+このアクションにより、ClassCastException または LinkageErrors が発生する可能性があります。
+<p>オプションは PARENT_FIRST と PARENT_LAST です。
+デフォルトでは、クラスをロードする際に、
+親クラス・ローダーを検索してから、アプリケーション・クラス・ローダーを検索します。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">PARENT_FIRST</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationDeployment_warClassloaderPolicy_description"></a>WAR クラス・ローダー・ポリシー</strong>
+</dt>
+<dd>単一のクラス・ローダーを使用してこのアプリケーションのすべての WAR ファイルをロードするか、
+または WAR ファイルごとに異なるクラス・ローダーを使用するかを指定します。
+<p>APPLICATION と MODULE のいずれかを選択できます。
+デフォルトでは、
+それぞれの WAR ファイルをロードするために別々のクラス・ローダーが使用されます。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">MODULE</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationDeployment_createMBeansForResource"></a>リソース用の MBeans の作成</strong>
+</dt>
+<dd>アプリケーション内にさまざまなリソース (サーブレットや JSP ファイルなど) 用の MBean ファイルを作成するかどうかを指定します。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ブール</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">true</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationDeployment_enableClassReloading"></a>再ロード使用可能</strong>
+</dt>
+<dd>アプリケーション・ファイルの更新時に、クラスの再ロードを可能にするかどうかを指定します。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ブール</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">true</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationDeployment_reloadInterval"></a>再ロード間隔</strong>
+</dt>
+<dd>更新されたファイルを探すためにアプリケーションのファイル・システムをスキャンする秒数を指定します。 デフォルトは、EAR ファイルの IBM 拡張 (META-INF/ibm-application-ext.xmi) ファイルの再ロード間隔属性の値です。
+クラスの再ロードが使用可能になっている場合にだけ、この設定は有効になります。
+<p>ここで指定する再ロード間隔は、EAR ファイルの各 Web モジュール
+ごとに IBM 拡張で指定されている値 (この値は、EAR ファイルのアプリケーションに対して
+IBM 拡張で指定されている再ロード間隔をオーバーライドします) をオーバーライドします。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">整数</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">単位</td>
+<td align="left" valign="top" class="base">秒</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>関連情報</strong>
+</p>
+<a href="rcon_buttons.html">管理コンソールのボタン</a>
+<br>
+
+<a href="rcon_pageusage.html">管理コンソール・ページのフィーチャー</a>
+<br>
+
+<a href="udat_nestjcaconfac.html">コネクター・モジュール・コレクション</a>
+<br>
+
+<a href="ucws_rlibref.html">ライブラリー参照コレクション</a>
+<br>
+
+<a href="uweb_rwebmc.html">Web モジュール設定</a>
+<br>
+
+</div>
+</body>
+</html>

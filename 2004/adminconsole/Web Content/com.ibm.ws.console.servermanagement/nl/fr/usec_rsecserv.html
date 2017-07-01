@@ -1,0 +1,250 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Param&egrave;tres de s&eacute;curit&eacute; au niveau du serveur</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecrsecserv"></a>
+<h2>Param&egrave;tres de s&eacute;curit&eacute; au niveau du serveur</h2>
+
+<p>Cette page permet d'activer la s&eacute;curit&eacute; au niveau du
+serveur et de d&eacute;finir d'autres configurations &agrave; ce niveau.</p>
+
+<p>Pour afficher cette page de la console d'administration, cliquez sur <strong>Serveurs</strong> &gt;
+<strong>Serveurs d'applications</strong> &gt; <em>serveur</em> &gt; <strong>S&eacute;curit&eacute; du serveur</strong> &gt;
+<strong>S&eacute;curit&eacute; au niveau serveur</strong>.</p>
+
+<div>
+<p>
+<strong>Onglet Configuration</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="SecurityS_enabled_description"></a>Activ&eacute;e </strong>
+</dt>
+<dd>Cet indicateur permet de d&eacute;sactiver ou d'activer &agrave; nouveau la s&eacute;curit&eacute; pour ce
+serveur d'applications alors que la s&eacute;curit&eacute; globale est activ&eacute;e. La s&eacute;curit&eacute; du serveur est activ&eacute;e par d&eacute;faut lorsque la
+s&eacute;curit&eacute; globale est activ&eacute;e. Vous ne pouvez pas activer la s&eacute;curit&eacute; pour un serveur
+d'applications lorsque la s&eacute;curit&eacute; globale est d&eacute;sactiv&eacute;e. La s&eacute;curit&eacute; de la console
+d'administration (console d'administration et wsadmin) et la
+s&eacute;curit&eacute; du syst&egrave;me de nommage sont activ&eacute;es lorsque la s&eacute;curit&eacute; globale est
+activ&eacute;e, quel que soit l'&eacute;tat de cet indicateur.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Bool&eacute;en</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">D&eacute;sactiv&eacute;e</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecurityS_enforceJava2Security_description"></a>Application de la s&eacute;curit&eacute; Java 2</strong>
+</dt>
+<dd> Indique que le serveur applique la v&eacute;rification des droits d'acc&egrave;s Java 2
+au niveau serveur. Lorsque cette option n'est pas s&eacute;lectionn&eacute;e, le gestionnaire de
+s&eacute;curit&eacute; au niveau serveur Java 2 n'est pas install&eacute; et la v&eacute;rification de tous les
+droits d'acc&egrave;s de la s&eacute;curit&eacute; Java 2 est d&eacute;sactiv&eacute;e au niveau serveur.  
+<p>Si votre fichier de r&egrave;gles d'application n'est pas configur&eacute; correctement,
+reportez-vous &agrave; la rubrique <a href="tsec_waspolicyfile.html">Configuration de was.policy</a> pour plus d'informations sur la mani&egrave;re de
+configurer un fichier de r&egrave;gles d'application.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Bool&eacute;en</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">D&eacute;sactiv&eacute;e</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Plage</td>
+<td align="left" valign="top" class="base">Activ&eacute;e ou D&eacute;sactiv&eacute;e</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecurityS_useDomainQualifiedUserNames_description"></a>Utiliser les ID utilisateur complets du domaine</strong>
+</dt>
+<dd>Indique si les ID utilisateur renvoy&eacute;s par les appels getUserPrincipal()-like
+sont qualifi&eacute;s &agrave; l'aide du domaine de s&eacute;curit&eacute; au niveau serveur dans lequel ils se
+trouvent. 
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Bool&eacute;en</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">D&eacute;sactiv&eacute;e</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Plage</td>
+<td align="left" valign="top" class="base">Activ&eacute;e ou D&eacute;sactiv&eacute;e</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecurityS_cacheTimeout_description"></a>D&eacute;lai d'expiration de la cache </strong>
+</dt>
+<dd>Indique, en secondes, la valeur du d&eacute;lai d'expiration de la cache de
+s&eacute;curit&eacute; au niveau serveur. 
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Integer (entier)</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&eacute;s</td>
+<td align="left" valign="top" class="base">Secondes</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">600</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Plage</td>
+<td align="left" valign="top" class="base">Sup&eacute;rieure &agrave; 30 secondes.  Evitez d'attribuer
+une valeur &eacute;gale ou inf&eacute;rieure &agrave; 30 secondes au d&eacute;lai d'expiration de la cache.</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecurityS_issuePermissionWarning_description"></a>Emettre un avertissement de droit d'acc&egrave;s</strong>
+</dt>
+<dd>Indique si un avertissement est &eacute;mis lors de l'installation de l'application
+lorsqu'une application requiert un droit d'acc&egrave;s Java 2 qui normalement ne doivent pas
+&ecirc;tre accord&eacute;s &agrave; une application.
+<p>WebSphere Application Server fournit le support de gestion du fichier de r&egrave;gles.
+Il existe un certain nombre de fichiers de r&egrave;gles inclus dans WebSphere Application Server.
+Certains de ces fichiers de r&egrave;gles sont statiques et d'autres dynamiques. La r&egrave;gle dynamique est un
+mod&egrave;le de droits d'acc&egrave;s destin&eacute;s &agrave; un type de ressources sp&eacute;cifique. Dans les fichiers
+de r&egrave;gles dynamiques, les bases du code sont &eacute;valu&eacute;es lors de l'ex&eacute;cution &agrave; l'aide des
+donn&eacute;es de configuration. Vous pouvez ajouter ou supprimer des droits, si n&eacute;cessaire,
+pour chaque base de code. Toutefois, vous ne devez pas ajouter,
+supprimer ou modifier les bases de code existantes. La v&eacute;ritable base de code est dynamiquement cr&eacute;&eacute;e &agrave;
+partir des donn&eacute;es de configuration et d'ex&eacute;cution. Le fichier <samp>filter.policy</samp> contient la liste des droits d'acc&egrave;s dont une application ne doit pas disposer en vertu de la sp&eacute;cification J2EE 1.3. Pour obtenir plus d'informations sur les droits d'acc&egrave;s, reportez-vous &agrave;
+l'article Gestion de la r&egrave;gle Java 2 Security de l'InfoCenter.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Bool&eacute;en</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">Activ&eacute;e</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Plage</td>
+<td align="left" valign="top" class="base">Activ&eacute;e ou D&eacute;sactiv&eacute;e</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecurityS_activeProtocol_description"></a>Protocole actif </strong>
+</dt>
+<dd>Indique le protocole actif d'authentification de s&eacute;curit&eacute; au niveau serveur
+lorsque la s&eacute;curit&eacute; au niveau serveur est activ&eacute;e. 
+<p>Vous pouvez utiliser un protocole OMG (Object Management Group) appel&eacute; CSIV2 (Common
+Secure Interoperability Version 2) pour une meilleure interop&eacute;rabilit&eacute; avec les diff&eacute;rents
+fournisseurs et des fonctions suppl&eacute;mentaires. Si
+tous les serveurs de votre domaine de s&eacute;curit&eacute; sont des serveurs de la version
+5.0, il est pr&eacute;f&eacute;rable d'indiquer <strong>CSI</strong> en tant que protocole. Si
+certains serveurs sont des serveurs version 3.x ou version
+4.x, il est pr&eacute;f&eacute;rable d'indiquer <strong>CSI et SAS</strong>. Toutefois, en sp&eacute;cifiant <strong>CSI et
+SAS</strong>, vous avez maintenant deux intercepteurs appelant chaque demande. 
+Toutefois, en sp&eacute;cifiant <strong>CSI et
+zSAS</strong>, vous avez maintenant deux intercepteurs appelant chaque demande.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">CSI et SAS</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Plage</td>
+<td align="left" valign="top" class="base">CSI, CSI et SAS  </td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+</body>
+</html>

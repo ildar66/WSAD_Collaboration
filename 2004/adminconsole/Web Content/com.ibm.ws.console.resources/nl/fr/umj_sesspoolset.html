@@ -1,0 +1,466 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Param&egrave;tres du pool de sessions</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="Session_pool_settings"></a>
+<h2>Param&egrave;tres du pool de sessions</h2>
+
+<p>Cette page permet de d&eacute;finir les param&egrave;tres du pool de sessions.
+</p>
+
+<p>La page de la console d'administration est commune &agrave; plusieurs types de ressource, comme les fabriques de connexions de file d'attente JMS.
+Pour afficher cette page, le chemin d&eacute;pend du type de ressource, mais en g&eacute;n&eacute;ral, vous devez s&eacute;lectionner une
+instance du fournisseur de ressources, puis une instance du type de ressource, puis vous cliquez sur <strong>Pool de sessions</strong>.
+Par exemple, cliquez sur <strong>Ressources</strong> &gt; <strong>Fournisseurs JMS WebSphere</strong> &gt; <strong>Fabriques de
+connexions de file d'attente WebSphere</strong> &gt; <strong>fabrique_connexion</strong> &gt; <strong>Pool de sessions</strong>.</p>
+
+<div>
+<p>
+<strong>Onglet Configuration</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="Sessionpool_detail_contextID"></a>Port&eacute;e</strong>
+</dt>
+<dd>Indique &agrave; quel niveau cette d&eacute;finition de ressource est visible :
+cellule, noeud ou serveur.
+<p>Des ressources telles que les fournisseurs JDBC, les liaisons d'espace de noms et les biblioth&egrave;ques
+partag&eacute;es peuvent &ecirc;tre d&eacute;finies &agrave; plusieurs niveaux. Dans ce cas, pour une ressource donn&eacute;e, la d&eacute;finition
+figurant au niveau le plus sp&eacute;cifique (par exemple, le serveur) l'emporte sur l'&eacute;ventuelle d&eacute;finition homologue
+figurant &agrave; un niveau plus g&eacute;n&eacute;ral (par exemple, la cellule).</p>
+
+<p>Notez que quelle que soit la port&eacute;e d'une ressource d&eacute;finie, les propri&eacute;t&eacute;s de cette
+ressource s'appliquent uniquement au niveau d'un serveur individuel. Par exemple, si vous
+d&eacute;finissez la port&eacute;e d'une source de donn&eacute;es au niveau cellule, tous les utilisateurs de
+cette cellule peuvent rechercher et utiliser cette source de donn&eacute;es, laquelle est unique
+au sein de cette cellule. Cependant, les propri&eacute;t&eacute;s de la ressource sont locales
+&agrave; chaque serveur de la cellule. Par exemple, si vous attribuez la valeur 10
+&agrave; la propri&eacute;t&eacute; <strong>Nombre maximal de connexions</strong>, chaque serveur de cette cellule pourra
+avoir 10 connexions.<dl>
+<dt>
+<strong>Cellule</strong>
+</dt>
+<dd>Niveau de port&eacute;e le plus g&eacute;n&eacute;ral.  Les ressources d&eacute;finies au niveau cellule
+sont visibles depuis tous les noeuds et serveurs de cette cellule, sauf si elles sont red&eacute;finies
+&agrave; un niveau inf&eacute;rieur. Pour visualiser les ressources d&eacute;finies au niveau cellule, ne sp&eacute;cifiez pas
+de nom de serveur ni de nom de noeud dans le formulaire de s&eacute;lection de port&eacute;e.</dd>
+<dt>
+<strong>Noeud</strong>
+</dt>
+<dd>Port&eacute;e par d&eacute;faut de la plupart des types de ressources.  Les ressources d&eacute;finies
+au niveau noeud l'emportent sur les &eacute;ventuelles d&eacute;finitions homologues figurant au niveau cellule
+et sont visibles depuis tous les serveurs du noeud consid&eacute;r&eacute;, sauf si elles sont red&eacute;finies &agrave; un niveau
+serveur sur ce noeud. Pour visualiser les ressources d&eacute;finies au niveau d'un noeud, ne sp&eacute;cifiez pas de
+serveur dans le formulaire de s&eacute;lection de port&eacute;e ; sp&eacute;cifiez simplement le nom du noeud concern&eacute;.</dd>
+<dt>
+<strong>Serveur</strong>
+</dt>
+<dd>Niveau de port&eacute;e le plus sp&eacute;cifique pour la d&eacute;finition des ressources.  Les ressources
+d&eacute;finies au niveau d'un serveur l'emportent sur les &eacute;ventuelles d&eacute;finitions homologues apparaissant au niveau
+de la cellule parente ou du noeud parent ; elles sont visibles uniquement
+depuis ce serveur.
+Pour visualiser les ressources d&eacute;finies au niveau d'un serveur, sp&eacute;cifiez le nom de ce
+serveur ainsi que celui de son noeud parent dans le formulaire de s&eacute;lection de port&eacute;e.</dd>
+</dl>
+</p>
+
+<p>Lorsque des ressources sont cr&eacute;&eacute;es, elles le sont toujours dans la port&eacute;e en cours,
+c'est-&agrave;-dire celle qui est s&eacute;lectionn&eacute;e dans le formulaire.   Pour afficher les ressources d'autres port&eacute;es, sp&eacute;cifiez un noeud ou un serveur
+diff&eacute;rent dans le formulaire de s&eacute;lection de port&eacute;e.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="Sessionpool_connectionTimeout_displayName"></a>D&eacute;lai d'expiration de connexion </strong>
+</dt>
+<dd>Sp&eacute;cifie le d&eacute;lai, en secondes, au terme duquel une demande de connexion expire
+et une exception ConnectionWaitTimeoutException est &eacute;mise.
+<p>L'attente peut &ecirc;tre n&eacute;cessaire lorsque le nombre maximal de connexions &agrave; un pool particulier
+(param&egrave;tre <strong>Nombre maximal de connexions</strong>) est atteint.  Par exemple, si le param&egrave;tre <em>D&eacute;lai d'expiration
+de connexion</em> est r&eacute;gl&eacute; sur 300 et que le nombre maximal de connexions est atteint, le gestionnaire du pool
+attend 300 secondes qu'une connexion physique devienne disponible.
+Si, pass&eacute; ce d&eacute;lai, <em>aucune</em> connexion physique n'est disponible, le gestionnaire du pool
+lance une exception ConnectionWaitTimeoutException.  Il n'y a g&eacute;n&eacute;ralement pas lieu de retenter la m&eacute;thode
+getConnection(), car si une attente plus longue est n&eacute;cessaire pour l'obtention d'une connexion, vous devez
+augmenter la valeur du param&egrave;tre <strong>D&eacute;lai d'expiration de connexion</strong>. Par cons&eacute;quent, si cette exception est intercept&eacute;e par l'application,
+l'administrateur doit &eacute;tudier l'usage attendu de l'application et
+ajuster en cons&eacute;quence les param&egrave;tres du pool de connexions et de la
+base de donn&eacute;es.</p>
+
+<p>Si le d&eacute;lai d'expiration de connexion est r&eacute;gl&eacute; sur 0, le gestionnaire du pool attend aussi longtemps que n&eacute;cessaire
+qu'une connexion soit allou&eacute;e (cela se produit lorsque le nombre de connexions chute en-de&ccedil;&agrave; de la
+valeur du param&egrave;tre <strong>Nombre maximal de connexions</strong>). </p>
+
+<p>Si le param&egrave;tre Nombre maximal de connexions est r&eacute;gl&eacute; sur 0, ce qui autorise un nombre illimit&eacute; de connexions
+physiques, la valeur du d&eacute;lai d'expiration de connexion est ignor&eacute;e.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Entier</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&eacute;s</td>
+<td align="left" valign="top" class="base">Secondes</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">180</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Plage</td>
+<td align="left" valign="top" class="base">0 &agrave; max (nombre entier)</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="Sessionpool_detail_maxConnections_displayName"></a>Nombre maximal de connexions</strong>
+</dt>
+<dd>Sp&eacute;cifie le nombre maximal de connexions physiques qui peuvent &ecirc;tre
+cr&eacute;&eacute;es dans le pool. 
+<p>Il s'agit de connexions physiques &agrave; une ressource dorsale. Une fois ce nombre atteint, aucune nouvelle
+connexion physique n'est cr&eacute;&eacute;e et le demandeur doit attendre qu'une connexion physique en cours d'utilisation
+soit renvoy&eacute;e au pool ou qu'une exception ConnectionWaitTimeoutException soit lanc&eacute;e. </p>
+
+<p>Par exemple, si le param&egrave;tre Nombre maximal de connexions est r&eacute;gl&eacute; sur 5 et qu'il y a cinq connexions
+physiques en cours d'utilisation, le gestionnaire de pool attend qu'une connexion physique se lib&egrave;re pendant la
+dur&eacute;e sp&eacute;cifi&eacute;e par le param&egrave;tre D&eacute;lai d'expiration de connexion. </p>
+
+<p>Si le param&egrave;tre Nombre maximal de connexions est r&eacute;gl&eacute; sur 0, la valeur du d&eacute;lai d'expiration de connexion est ignor&eacute;e.
+ </p>
+
+<p>Les meilleurs r&eacute;sultats sont obtenus lorsque la valeur de la taille du pool de connexions est inf&eacute;rieure au
+nombre maximal de connexions d&eacute;fini dans le conteneur Web.
+Des valeurs basses (entre 10 et 30 connexions) permettent de meilleures performances que des valeurs hautes (100, par exemple).
+</p>
+
+<p>Si des clones sont utilis&eacute;s, il existe un pool de donn&eacute;es par
+clone. Il est important de conna&icirc;tre le nombre de pools de donn&eacute;es lors de la configuration du nombre
+maximal de connexions &agrave; la base de donn&eacute;es.</p>
+
+<p>Vous pouvez utiliser Tivoli Performance Viewer pour d&eacute;terminer le nombre optimal de connexions dans un pool.
+Si le nombre de demandeurs simultan&eacute;ment en attente d'&ecirc;tres servis est sup&eacute;rieur &agrave; 0, mais que la charge CPU
+n'est pas proche de 100 %, pensez &agrave; augmenter la taille du pool de connexion. Si la valeur Pourcentage utilis&eacute; est
+est constamment faible et en dessous de la charge de travail normale, diminuez le nombre de connexions du pool. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Entier</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">10</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Plage</td>
+<td align="left" valign="top" class="base">0 &agrave; max (nombre entier)</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="Sessionpool_detail_minConnections_displayName"></a>Nombre minimal de connexions </strong>
+</dt>
+<dd>Sp&eacute;cifie le nombre minimal de connexions physiques &agrave; maintenir.
+<p>Tant que ce nombre n'est pas atteint, l'unit&eacute; d'ex&eacute;cution (thread) de maintenance du pool n'&eacute;limine
+aucune connexion physique. Cependant, aucune tentative n'est faite pour que le nombre de
+connexions atteigne cette valeur plancher.  Si vous sp&eacute;cifiez une valeur pour le param&egrave;tre D&eacute;lai d&eacute;pass&eacute;,
+le nombre minimal de connexions n'est pas maintenu. Toutes les connexions p&eacute;rim&eacute;es du fait de leur &acirc;ge sont
+supprim&eacute;es.</p>
+
+<p>Par exemple, si le param&egrave;tre <strong>Nombre minimal de connexions</strong> est r&eacute;gl&eacute; sur 3 et qu'une seule connexion
+physique est cr&eacute;&eacute;e, cette connexion n'est pas supprim&eacute;e suite au d&eacute;passement du D&eacute;lai d'inutilisation.
+De m&ecirc;me, l'unit&eacute; d'ex&eacute;cution ne cr&eacute;e pas automatiquement deux connexions physiques suppl&eacute;mentaires
+pour atteindre la valeur du param&egrave;tre <strong>Nombre minimal de connexions</strong>. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Entier</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">1</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Plage</td>
+<td align="left" valign="top" class="base">0 &agrave; max (nombre entier)</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="Sessionpool_detail_reapTime_displayName"></a>Intervalle de ramassage</strong>
+</dt>
+<dd>Sp&eacute;cifie l'intervalle, en secondes, entre deux ex&eacute;cutions cons&eacute;cutives de l'unit&eacute; d'ex&eacute;cution
+(thread) de maintenance du pool de connexions.
+<p> Par exemple, si l'<strong>intervalle de ramassage</strong> est r&eacute;gl&eacute; sur 60, l'unit&eacute; d'ex&eacute;cution de maintenance du pool
+s'ex&eacute;cutera toutes les minutes. L'intervalle de ramassage a un impact sur l'exactitude des param&egrave;tres <strong>D&eacute;lai
+d'inutilisation</strong> et <strong>D&eacute;lai d&eacute;pass&eacute;</strong>. Plus l'intervalle est court, plus ces param&egrave;tres peuvent &ecirc;tre exacts. Si
+l'unit&eacute; d'ex&eacute;cution de maintenance du pool est activ&eacute;e, r&eacute;glez le d&eacute;lai de ramassage sur une
+valeur inf&eacute;rieure &agrave; celles des param&egrave;tres D&eacute;lai d'inutilisation et
+D&eacute;lai d&eacute;pass&eacute;. Lorsque l'unit&eacute; d'ex&eacute;cution de maintenance du pool s'ex&eacute;cute, elle &eacute;limine les connexions
+qui sont rest&eacute;es inutilis&eacute;es plus longtemps que la valeur fix&eacute;e par le param&egrave;tre D&eacute;lai d'inutilisation,
+jusqu'&agrave; ce que le nombre de connexions sp&eacute;cifi&eacute; par le param&egrave;tre <strong>Nombre minimal de connexions</strong>
+soit atteint. L'unit&eacute; d'ex&eacute;cution de maintenant &eacute;limine &eacute;galement les connexions qui sont rest&eacute;es actives
+plus longtemps que la valeur sp&eacute;cifi&eacute;e par le param&egrave;tre D&eacute;lai d&eacute;pass&eacute;.</p>
+
+<p> L'intervalle de ramassage a &eacute;galement un impact sur les performances.  Plus il est court, plus l'unit&eacute;
+d'ex&eacute;cution de maintenance du pool est sollicit&eacute;e, ce qui a pour cons&eacute;quence de d&eacute;grader les performances.</p>
+
+<p>Pour d&eacute;sactiver l'unit&eacute; d'ex&eacute;cution de maintenance du pool, r&eacute;glez le d&eacute;lai de ramassage sur 0
+ou mettez &agrave; z&eacute;ro les param&egrave;tres D&eacute;lai d'inutilisation et D&eacute;lai d&eacute;pass&eacute;. La m&eacute;thode recommand&eacute;e pour
+d&eacute;sactiver l'unit&eacute; d'ex&eacute;cution de maintenance du pool est de r&eacute;gler le d&eacute;lai de ramassage sur 0,
+auquel cas les param&egrave;tres D&eacute;lai d'inutilisation et D&eacute;lai d&eacute;pass&eacute; sont ignor&eacute;s. Cependant, si le d&eacute;lai
+d'inutilisation et le d&eacute;lai d&eacute;pass&eacute; sont r&eacute;gl&eacute;s sur 0, l'unit&eacute; d'ex&eacute;cution de maintenance du pool s'ex&eacute;cute,
+mais seules les connexions physiques qui sont en d&eacute;passement de d&eacute;lai en raison d'un d&eacute;lai d'attente non nul
+sont &eacute;limin&eacute;es.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Entier</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&eacute;s</td>
+<td align="left" valign="top" class="base">Secondes</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">180</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Plage</td>
+<td align="left" valign="top" class="base">0 &agrave; max (nombre entier)</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="Sessionpool_detail_unusedTimeout_displayName"></a>D&eacute;lai d'inutilisation </strong>
+</dt>
+<dd>Sp&eacute;cifie le d&eacute;lai, en secondes, au terme duquel une connexion inutilis&eacute;e ou au repos
+est &eacute;limin&eacute;e.
+<p> Pour des performances optimales, r&eacute;glez le d&eacute;lai d'inutilisation sur une valeur plus grande que celle
+du d&eacute;lai de ramassage.  Les connexions physiques inutilis&eacute;es sont &eacute;limin&eacute;es uniquement si elles sont en nombre
+sup&eacute;rieur &agrave; la valeur du param&egrave;tre <strong>Nombre minimal de connexions</strong>. Par exemple, si la valeur du d&eacute;lai d'inutilisation
+est 120 secondes et que l'unit&eacute; d'ex&eacute;cution de maintenance du pool est activ&eacute;e (d&eacute;lai de ramassage diff&eacute;rent de 0),
+toute connexion physique qui reste inutilis&eacute;e plus de deux minutes
+est &eacute;limin&eacute;e.  Sachez que l'exactitude de ce d&eacute;lai ainsi que les performances sont affect&eacute;es par la valeur de l'<strong>intervalle de ramassage</strong>. Pour plus d'informations, reportez-vous &agrave; la section
+<a href="#Sessionpool_detail_reapTime_displayName">Intervalle de ramassage</a>.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Entier</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&eacute;s</td>
+<td align="left" valign="top" class="base">Secondes</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">1800</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Plage</td>
+<td align="left" valign="top" class="base">0 &agrave; max (nombre entier)</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="Sessionpool_detail_agedTimeout_displayName"></a>D&eacute;lai d&eacute;pass&eacute;</strong>
+</dt>
+<dd>Sp&eacute;cifie le d&eacute;lai, en secondes, au terme duquel une connexion physique est &eacute;limin&eacute;e en raison
+de son "&acirc;ge".
+<p>Si le param&egrave;tre <strong>D&eacute;lai d&eacute;pass&eacute;</strong> est r&eacute;gl&eacute; sur 0, les connexions
+physiques actives sont conserv&eacute;es dans le pool ind&eacute;finiment. Pour des performances optimales, r&eacute;glez le d&eacute;lai
+d&eacute;pass&eacute; sur une valeur plus grande que celle de l'<strong>intervalle de ramassage</strong>. Par exemple, si la valeur du d&eacute;lai d&eacute;pass&eacute;
+est 1200 secondes (20 minutes) et que le d&eacute;lai de ramassage est diff&eacute;rent de 0, toute connexion physique
+qui existe pendant plus de 20 minutes est &eacute;limin&eacute;e du pool. Sachez que l'exactitude de ce d&eacute;lai ainsi que les
+performances sont affect&eacute;es par la valeur de l'intervalle de ramassage.  Pour plus d'informations,
+reportez-vous &agrave; la section <a href="#Sessionpool_detail_reapTime_displayName">Intervalle de
+ramassage</a>.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Entier</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&eacute;s</td>
+<td align="left" valign="top" class="base">Secondes</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">0</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Plage</td>
+<td align="left" valign="top" class="base">0 &agrave; max (nombre entier)</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="Sessionpool_detail_purgePolicy_displayName"></a>R&egrave;gle de purge </strong>
+</dt>
+<dd>Sp&eacute;cifie comment purger les connexions <em>p&eacute;rim&eacute;es</em> (stale) ou pr&eacute;sentant une <em>erreur
+fatale</em>. 
+<p>Les valeurs possibles sont <strong>Totalit&eacute; du pool</strong> et <strong>Connexion d&eacute;faillante uniquement</strong>. Vous pouvez d&eacute;finir l'une ou l'autre option pour les sources de donn&eacute;es JCA.
+Les sources de donn&eacute;es WebSphere version 4.0 sont syst&eacute;matiquement configur&eacute;es avec la r&egrave;gle de purge <strong>Totalit&eacute; du pool</strong>.
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">FailingConnectionOnly</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Plage</td>
+<td align="left" valign="top" class="base">
+<dl>
+<dt>
+<strong>Totalit&eacute; du pool</strong>
+</dt>
+<dd>Toutes les connexions actuellement dans le pool sont alors marqu&eacute;es comme p&eacute;rim&eacute;es. Toute connexion qui n'est pas en cours d'utilisation
+est imm&eacute;diatement ferm&eacute;e. Une connexion en cours d'utilisation est ferm&eacute;e et une exception <em>StaleConnectionException</em> est lanc&eacute;e lors
+de l'op&eacute;ration suivante sur cette connexion. Les demandes <em>getConnection</em> &eacute;mises subs&eacute;quemment
+par l'application conduisent &agrave; l'ouverture de nouvelles connexions &agrave; la base de donn&eacute;es. Lorsque cette r&egrave;gle de purge est utilis&eacute;e, il existe une possibilit&eacute; que certaines connexions du
+pool soient ferm&eacute;es inutilement parce qu'elles ne sont pas p&eacute;rim&eacute;es. Cependant, la probabilit&eacute; d'une
+telle situation reste tr&egrave;s faible. Dans la plupart des cas, la r&egrave;gle de purge Totalit&eacute; du pool est le
+meilleur choix.</dd>
+<dt>
+<strong>FailingConnectionOnly</strong>
+</dt>
+<dd>Seule la connexion &agrave; l'origine de l'erreur <em>StaleConnectionException</em> est ferm&eacute;e. Si ce choix permet
+d'&eacute;viter que des connexions valides ne soient ferm&eacute;es inutilement, il a pour inconv&eacute;nient de rendre la reprise
+plus compliqu&eacute;e du point de vue de l'application. Comme la connexion d&eacute;faillante est la seule a &ecirc;tre ferm&eacute;e, il
+existe une tr&egrave;s forte probabilit&eacute; que la demande <em>getConnection</em> suivante de l'application renvoie une
+connexion du pool qui est &eacute;galement p&eacute;rim&eacute;e, ce qui conduit &agrave; la g&eacute;n&eacute;ration d'autres exceptions
+<em>StaleConnectionException</em>.</dd>
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informations connexes</strong>
+</p>
+<a href="rcon_buttons.html">Boutons de la console administrative</a>
+<br>
+
+<a href="rcon_pageusage.html">Caract&eacute;ristiques de la page de la console d'administration</a>
+<br>
+
+</div>
+</body>
+</html>

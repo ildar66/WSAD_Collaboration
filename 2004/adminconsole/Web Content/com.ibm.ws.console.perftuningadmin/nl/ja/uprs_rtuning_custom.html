@@ -1,0 +1,148 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>チューニング・パラメーター・カスタム設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="tune_para_custom"></a>
+<h2>チューニング・パラメーター・カスタム設定</h2>
+
+<p>このページを使用して、分散セッションのチューニング・パラメーターをカスタマイズします。</p>
+
+<p>この管理コンソール・ページを表示するには、「<strong>サーバー</strong>」&gt;「<strong>アプリケーション・サーバー</strong>」&gt;「<em>server_name</em>」&gt;「<strong>Web コンテナー</strong>」&gt;「<strong>セッション管理</strong>」&gt;「<strong>Distributed Environment Settings</strong>」&gt;「<strong>Custom Tuning Parameters</strong>」&gt;「<strong>カスタム設定</strong>」をクリックします。</p>
+
+<div>
+<p>
+<strong>「構成」タブ</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="TuningParams_writeFrequency_description"></a>書き込み頻度</strong>
+</dt>
+<dd>セッションが永続ストアに書き込まれるタイミングを指定します。
+<p></p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">サーブレット・サービスの終了</td>
+<td align="left" valign="top" class="base">サーブレットの実行が完了すると、
+セッションは、データベースまたは別の WebSphere Application Server インスタンスに書き込みを行います。</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">手動更新</td>
+<td align="left" valign="top" class="base">セッション・データをデータベースまたは別の WebSphere Application Server インスタンスに書き込むために、
+プログラムにより IBMSession オブジェクトで同期させる必要があります。</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">時間基準</td>
+<td align="left" valign="top" class="base">セッション・データは、指定された「書き込み間隔」の値に基づいて、
+データベースまたは別の WebSphere Application Server インスタンスに書き込みを行います。デフォルトでは 10 秒になります。</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="TuningParams_writeContents_description"></a>書き込みの内容</strong>
+</dt>
+<dd>更新された属性だけを外部ロケーションに書き込むのか、
+あるいは変更の有無にかかわらず、
+すべてのセッション属性を外部ロケーションに書き込むのかを指定します。
+外部ロケーションとなる可能性があるのは、
+データベースまたは別のアプリケーション・サーバー・インスタンスのいずれかです。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">更新された属性のみ</td>
+<td align="left" valign="top" class="base">更新された属性のみが永続ストアに書き込まれます。</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">すべてのセッション属性</td>
+<td align="left" valign="top" class="base">すべての属性が永続ストアに書き込まれます。</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="TuningParams_scheduleInvalidation_description"></a>セッション・クリーンアップのスケジュール</strong>
+</dt>
+<dd> データベースまたは別のアプリケーション・サーバー・インスタンスの無効なセッションをクリーンにする時点を指定します。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">分散セッション・クリーンアップ・スケジュールの指定</td>
+<td align="left" valign="top" class="base">
+無効化された HTTP セッションを外部ロケーションからクリーンアップするためのスケジュール済み無効化プロセスを使用可能にします。
+このオプションを使用可能にすると、
+HTTP セッションを存続させておくために必要なデータベースまたは別のアプリケーション・サーバー・インスタンスへの更新回数を削減できます。
+このオプションが使用可能になっていない場合は、無効化された HTTP セッションを除去するために、
+無効化プロセスが数分ごとに実行されます。
+<p>このオプションが使用可能な場合は、
+外部ロケーションでの無効化セッションのクリーンアップ処理のための時間 (1 日の中の 2 つの時間) を指定します。
+アプリケーション・サーバーでのアクティビティーが最低になる時間を指定します。
+外部ロケーションとして可能性があるのは、
+データベースまたは別のアプリケーション・サーバー・インスタンスのいずれかです。</p>
+</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">最初の時刻 (0 - 23)</td>
+<td align="left" valign="top" class="base">無効化されたセッションが外部ロケーションから消去される最初の時間 (グリニッジ標準時 (GMT)) を指定します。この値は、0 から 23 の正の整数として指定します。
+この値は、スケジュールの無効化が使用可能である場合のみ有効です。</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">2 番目の時刻 (0 - 23)</td>
+<td align="left" valign="top" class="base">無効化されたセッションが外部ロケーションから
+消去される 2 番目の時間 (Greenwich Mean Time (GMT)) を指定します。この値は、0 から 23 の正の整数として指定します。
+この値は、スケジュールの無効化が使用可能である場合のみ有効です。</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>関連情報</strong>
+</p>
+<a href="rcon_buttons.html">管理コンソールのボタン</a>
+<br>
+
+<a href="rcon_pageusage.html">管理コンソール・ページのフィーチャー</a>
+<br>
+
+<a href="rcon_preferences.html">管理コンソールの設定の変更</a>
+<br>
+
+<a href="uprs_rtuning_parameters.html">チューニング・パラメーター設定</a>
+<br>
+
+</div>
+</body>
+</html>

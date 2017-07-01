@@ -1,0 +1,178 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Valores de propiedades personalizadas (Versi&oacute;n 4)</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="WAS40_Custom_property_detail"></a>
+<h2>Valores de propiedades personalizadas (Versi&oacute;n 4)</h2>
+
+<p>Utilice esta p&aacute;gina para a&ntilde;adir propiedades de un origen de datos de la versi&oacute;n 4.0.</p>
+
+<p>Para ver esta p&aacute;gina de la consola administrativa, pulse <strong>Recursos</strong>
+&gt;<strong>Proveedores JDBC</strong>&gt; <em>proveedor_JDBC</em> &gt; <strong>Or&iacute;genes de datos (Versi&oacute;n
+4)</strong> &gt; <em>origen_datos</em> &gt; <strong>Propiedades personalizadas</strong> &gt;
+<em>propiedad_personalizada</em>.</p>
+
+<div>
+<p>
+<strong>Pesta&ntilde;a Configuraci&oacute;n</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="J2EEResourceProperty_detail_contextID"></a>&Aacute;mbito</strong>
+</dt>
+<dd>Especifica el nivel hasta el cual puede visualizarse esta definici&oacute;n de recurso --
+nivel de c&eacute;lula, nodo o servidor.
+<p>Los recursos tales como los proveedores JDBC, enlaces de espacio de nombres o
+bibliotecas compartidas se pueden definir en varios &aacute;mbitos, de tal modo que los recursos
+definidos en &aacute;mbitos m&aacute;s espec&iacute;ficos alteren temporalmente los duplicados definidos en
+&aacute;mbitos m&aacute;s generales.</p>
+
+<p>Tenga en cuenta que, independientemente del &aacute;mbito de un recurso definido, las propiedades
+de dicho recurso s&oacute;lo se aplican a nivel de servidor individual. Por ejemplo, si define el
+&aacute;mbito de un origen de datos a nivel de c&eacute;lula, todos los usuarios de la c&eacute;lula pueden buscar
+y utilizar dicho origen de datos, que es exclusivo en esa c&eacute;lula. Sin
+embargo, los valores de propiedades de recursos son locales para cada
+servidor de la c&eacute;lula. 
+Por ejemplo, si define <em>n&uacute;mero m&aacute;ximo de conexiones</em> en 10, cada servidor de la c&eacute;lula
+puede tener 10 conexiones.<dl>
+
+<dt>
+<strong>C&eacute;lula</strong>
+</dt>
+<dd>El &aacute;mbito m&aacute;s general.  Los recursos definidos en el &aacute;mbito de c&eacute;lula son visibles desde todos los nodos y servidores, a menos que se alteren temporalmente. Para ver los recursos definidos en el &aacute;mbito de c&eacute;lula, no especifique ning&uacute;n servidor o nombre nodo en el formulario de selecci&oacute;n de &aacute;mbito.</dd>
+
+<dt>
+<strong>Nodo</strong>
+</dt>
+<dd>En &aacute;mbito por omisi&oacute;n de la mayor&iacute;a de tipos de recurso.  Los recursos
+definidos en el &aacute;mbito de nodo alteran temporalmente cualquier duplicado definido en el
+&aacute;mbito de c&eacute;lula y son visibles en todos los servidores del mismo nodo, a menos que se
+alteren temporalmente en un &aacute;mbito de servidor de ese nodo. Para ver los recursos definidos en un &aacute;mbito de nodo, no especifique ning&uacute;n servidor, sino que seleccione un nombre de nodo en el formulario de selecci&oacute;n de &aacute;mbito.</dd>
+
+<dt>
+<strong>Servidor</strong>
+</dt>
+<dd>El &aacute;mbito m&aacute;s espec&iacute;fico para definir recursos.  Los recursos definidos en
+el &aacute;mbito de servidor alteran temporalmente cualquier definici&oacute;n de recurso duplicado definida
+en el &aacute;mbito de c&eacute;lula o &aacute;mbito de nodo padre y s&oacute;lo son visibles en un servidor determinado. Para ver los recursos definidos en un &aacute;mbito de servidor, especifique un nombre de servidor, adem&aacute;s de un nombre de nodo en el formulario de selecci&oacute;n de &aacute;mbito.</dd>
+
+</dl>
+</p>
+
+<p>Al crear recursos, estos siempre se crean en el &aacute;mbito actual seleccionado en el panel.   Para ver recursos de otros &aacute;mbitos, especifique un nodo o servidor distinto en el formulario de selecci&oacute;n de &aacute;mbito.  </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2EEResourceProperty_required_description"></a>Necesaria</strong>
+</dt>
+<dd>Especifica las propiedades necesarias para este recurso. 
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2EEResourceProperty_name_displayName"></a>Nombre</strong>
+</dt>
+<dd>Especifica el nombre asociado con esta propiedad (PortNumber, ConnectionURL, etc). 
+<p>Aseg&uacute;rese de que el origen de datos tiene el m&eacute;todo setter de esta propiedad.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2EEResourceProperty_value_displayName"></a>Valor</strong>
+</dt>
+<dd>Especifica el valor asociado con esta propiedad en este conjunto de propiedades. 
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2EEResourceProperty_description_displayName"></a>Descripci&oacute;n</strong>
+</dt>
+<dd>Especifica el texto que describe los enlaces o los valores bien definidos de esta propiedad. 
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2EEResourceProperty_type_displayName"></a>Tipo</strong>
+</dt>
+<dd>Especifica el tipo Java plenamente cualificado de esta propiedad (java.lang.Integer,
+java.lang.Byte). 
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informaci&oacute;n relacionada</strong>
+</p>
+<a href="rcon_buttons.html">Botones de la consola de administraci&oacute;n</a>
+<br>
+
+<a href="rcon_pageusage.html">Caracter&iacute;sticas de la p&aacute;gina de la consola administrativa</a>
+<br>
+
+</div>
+</body>
+</html>

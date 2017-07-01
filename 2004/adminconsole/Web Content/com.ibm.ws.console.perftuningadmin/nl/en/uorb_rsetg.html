@@ -1,0 +1,438 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Object Request Broker service settings in administrative console</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uorbsetg"></a>
+<h2>Object Request Broker service settings in administrative console</h2>
+
+<p>Use this page to configure the Java Object Request Broker (ORB)
+service. </p>
+
+<p>To view this administrative console page, click <strong>Servers</strong> <strong>&gt;</strong> <strong>Application
+Servers</strong> <strong>&gt;</strong> <em>serverName</em> <strong>&gt;</strong> <strong>ORB Service</strong>.</p>
+
+<p>Several settings are available for controlling internal Object Request
+Broker (ORB) processing. You can use these settings to improve application
+performance in the case of applications containing enterprise beans. You can
+make changes to these settings for the default server or any application server
+configured in the administrative domain.</p>
+
+<div>
+<p>
+<strong>Configuration tab</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="ObjectRequestBroker_requestTimeout_description"></a>Request timeout</strong>
+            &nbsp;
+            </dt>
+<dd>Specifies the number of seconds to wait before timing out on a
+request message.
+<p>For use in command-line scripting, the full name of this system property
+is com.ibm.CORBA.RequestTimeout.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">int</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Units</td>
+<td align="left" valign="top" class="base">Seconds</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">180</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range</td>
+<td align="left" valign="top" class="base">0 to 300</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ObjectRequestBroker_requestRetriesCount_description"></a>Request retries count</strong>
+            &nbsp;
+            </dt>
+<dd>Specifies the number of times that the ORB attempts to send a request
+if a server fails. Retrying sometimes enables recovery from transient network
+failures.
+<p>For use in command-line scripting, the full name of this system property
+is com.ibm.CORBA.requestRetriesCount.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">int</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">1</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range</td>
+<td align="left" valign="top" class="base">1 to 10</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ObjectRequestBroker_requestRetriesDelay_description"></a>Request retries delay</strong>
+            &nbsp;
+            </dt>
+<dd>Specifies the number of milliseconds between request retries.
+<p>For use in command-line scripting, the full name of this system property
+is com.ibm.CORBA.requestRetriesDelay.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">int</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Units</td>
+<td align="left" valign="top" class="base">Milliseconds</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">0</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range</td>
+<td align="left" valign="top" class="base">0 to 60</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ObjectRequestBroker_connectionCacheMaximum_description"></a>Connection cache maximum</strong>
+            &nbsp;
+            </dt>
+<dd>Specifies the largest number of connections allowed to occupy the
+connection cache for the service. If there are many simultaneous clients connecting
+to the server-side ORB, this parameter can be increased to support the heavy
+load up to 1000 clients.
+<p>For use in command-line scripting, the full name of this system property
+is com.ibm.CORBA.MaxOpenConnections.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Units</td>
+<td align="left" valign="top" class="base">Connections</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">240</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ObjectRequestBroker_connectionCacheMinimum_description"></a>Connection cache minimum</strong>
+            &nbsp;
+            </dt>
+<dd>Specifies the smallest number of connections allowed to occupy
+the connection cache for the service.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Units</td>
+<td align="left" valign="top" class="base">Connections</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">100</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ObjectRequestBroker_commTraceEnabled_description"></a>ORB tracing</strong>
+            &nbsp;
+            </dt>
+<dd>Enables the tracing of ORB GIOP messages.
+<p>This setting affects two system properties: com.ibm.CORBA.Debug and com.ibm.CORBA.CommTrace.
+If you set these properties through command-line scripting, you must set both
+to <samp>true</samp> in order to enable the tracing of GIOP messages.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">Not enabled (<samp>false</samp>)</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ObjectRequestBroker_locateRequestTimeout_description"></a>Locate request timeout</strong>
+            &nbsp;
+            </dt>
+<dd>Specifies the number of seconds to wait before timing out on a
+LocateRequest message.
+<p>For use in command-line scripting, the full name of this system property
+is com.ibm.CORBA.LocateRequestTimeout.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">int</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Units</td>
+<td align="left" valign="top" class="base">Seconds</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">180</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range</td>
+<td align="left" valign="top" class="base">0 to 300</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ObjectRequestBroker_forceTunnel_description"></a>Force tunneling</strong>
+            &nbsp;
+            </dt>
+<dd>Controls how the client ORB attempts to use HTTP tunneling.
+<p>For direct access, the full name of this property is com.ibm.CORBA.ForceTunnel.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base"><samp>NEVER</samp></td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range</td>
+<td align="left" valign="top" class="base">Valid values are <samp>ALWAYS</samp>, <samp>NEVER</samp>, or <samp>WHENREQUIRED</samp>.</td>
+
+</tr>
+
+</table>
+
+<p>Additional information about valid values follows:<dl>
+
+<dt>
+<strong>ALWAYS</strong>
+</dt>
+<dd>Use HTTP tunneling immediately, without trying TCP connections
+first.</dd>
+
+<dt>
+<strong>NEVER</strong>
+</dt>
+<dd>Disable HTTP tunneling. If a TCP connection fails, a CORBA
+system exception (COMM_FAILURE) is thrown.</dd>
+
+<dt>
+<strong>WHENREQUIRED</strong>
+</dt>
+<dd>Use HTTP tunneling if TCP connections fail.</dd>
+
+</dl>
+</p>
+
+</dd>
+<dt>
+<strong><a name="ObjectRequestBroker_tunnelAgentURL_description"></a>Tunnel agent URL</strong>
+            &nbsp;
+            </dt>
+<dd>Specifies the URL of the servlet used to support HTTP tunneling.
+<p>This must be a properly formed URL, such as <samp>http://w3.mycorp.com:81/servlet/com.ibm.CORBA.services.IIOPTunnelServlet</samp> or,
+for applets, <samp>http://applethost:port/servlet/com.ibm.CORBA.services.IIOPTunnelServlet</samp>.
+This field is required if <strong>HTTP tunneling</strong> is set.</p>
+
+<p>For use in command-line scripting, the full name of this system property
+is com.ibm.CORBA.TunnelAgentURL.</p>
+
+</dd>
+<dt>
+<strong><a name="ObjectRequestBroker_noLocalCopies_description"></a>Pass by reference</strong>
+            &nbsp;
+            </dt>
+<dd>Specifies how the ORB passes parameters. If enabled, the ORB passes
+parameters by reference instead of by value, which avoids making an object
+copy. If you do not enable pass by reference, the parameters are copied to
+the stack before every remote method call is made, which can be expensive. 
+<p>If the EJB client and the EJB server are installed in the same WebSphere
+Application Server instance, and the client and server use remote interfaces,
+enabling Pass by reference can improve performance up to 50%. Pass by reference
+helps performance only where non-primitive object types are passed as parameters.
+Therefore, int and floats are always copied, regardless of the call model.</p>
+
+<p>Enable this property with caution, because unexpected behavior can occur.
+If an object reference is modified by the remote method, the caller might
+change.</p>
+
+<p>For use in command line scripting, the full name of this system property
+is com.ibm.CORBA.iiop.noLocalCopies.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">Not enabled (false)</td>
+
+</tr>
+
+</table>
+
+<p>The use of this option for enterprise beans with remote interfaces violates
+the EJB Specification, Version 2.0 (see section 5.4). Object references passed
+to EJB methods or to EJB home methods are not copied and can be subject to
+corruption.</p>
+
+<p>Consider the following example:<pre>Iterator iterator = collection.iterator();
+MyPrimaryKey pk = new MyPrimaryKey();
+while (iterator.hasNext()) {
+   pk.id = (String) iterator.next();
+   MyEJB myEJB = myEJBHome.findByPrimaryKey(pk);
+}</pre>
+</p>
+
+<p>In this example, a reference to the same MyPrimaryKey object passes into
+WebSphere Application Server with a different ID value each time. Running
+this code with Pass by reference <samp>enabled</samp> causes a problem within
+the application server because multiple enterprise beans are referencing the
+same MyPrimaryKey object. To avoid this problem, set the system property com.ibm.websphere.ejbcontainer.allowPrimaryKeyMutation
+to <samp>true</samp> when Pass by reference is enabled. Setting Pass by reference
+to <samp>true</samp> causes the EJB container to make a local copy of the PrimaryKey
+object. As a result, however, a small portion of the performance advantage
+of setting Pass by reference is lost.</p>
+
+<p>As a general rule, any application code that passes an object reference
+as a parameter to an enterprise bean method or EJB home method must be scrutinized
+to determine if passing that object reference results in loss of data integrity
+or other problems.</p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Related information</strong>
+</p>
+<a href="rcon_buttons.html">Administrative console buttons</a>
+<br>
+
+<a href="uejb_rthrd.html">Thread pool settings</a>
+<br>
+
+</div>
+</body>
+</html>

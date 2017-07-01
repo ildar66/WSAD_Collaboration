@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<core:DataSource xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:core="core.xmi" xmlns:RDBSchema="RDBSchema.xmi" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmi:id="DataSource_1035205924318" id="DataSourceImpl_1985.0" version="1" name="CompanyAddressBook" description="">
+  <DataDomainMapping xmi:type="core:RDBDomainMapping" xmi:id="RDBDomainMapping_1035205994960" id="RDBDomainMappingImpl_2023.0" version="1">
+    <DataSourceMappings xmi:type="core:RDBDataSourceMapping" xmi:id="RDBDataSourceMapping_1035205994960" id="RDBDataSourceMappingImpl_2030.0" version="1">
+      <FieldMappings xmi:type="core:RDBFieldMapping" xmi:id="RDBFieldMapping_1035205994960" id="RDBFieldMappingImpl_2045.0" version="1" PersistentField="PersistentField_1035205994960">
+        <RDBColumn href="models/TWWizardConnection11_ADDRESS_BOOK_APP_COMPANY_ADDRESS_BOOK.tblxmi#RDBColumn_1035271204020"/>
+      </FieldMappings>
+      <FieldMappings xmi:type="core:RDBFieldMapping" xmi:id="RDBFieldMapping_1035205994961" id="RDBFieldMappingImpl_2047.0" version="1" PersistentField="PersistentField_1035205994961">
+        <RDBColumn href="models/TWWizardConnection11_ADDRESS_BOOK_APP_COMPANY_ADDRESS_BOOK.tblxmi#RDBColumn_1035271204016"/>
+      </FieldMappings>
+      <FieldMappings xmi:type="core:RDBFieldMapping" xmi:id="RDBFieldMapping_1035205994962" id="RDBFieldMappingImpl_2049.0" version="1" PersistentField="PersistentField_1035205994962">
+        <RDBColumn href="models/TWWizardConnection11_ADDRESS_BOOK_APP_COMPANY_ADDRESS_BOOK.tblxmi#RDBColumn_1035271204019"/>
+      </FieldMappings>
+      <RDBTable href="models/TWWizardConnection11_ADDRESS_BOOK_APP_COMPANY_ADDRESS_BOOK.tblxmi#RDBTable_1035271204016"/>
+    </DataSourceMappings>
+    <RDBDatabase href="models/TWWizardConnection11_ADDRESS_BOOK.dbxmi#RDBDatabase_1035271204016"/>
+  </DataDomainMapping>
+  <Fields xmi:type="core:PersistentField" xmi:id="PersistentField_1035205994961" id="PersistentFieldImpl_2025.0" version="1" name="user_id" FieldMapping="RDBFieldMapping_1035205994961">
+    <CoreTypeDescriptor href="AddressBook.prjxmi#CoreTypeDescriptor_8"/>
+    <FieldDescriptor xmi:type="core:AlphanumFieldDescriptor" xmi:id="AlphanumFieldDescriptor_1035205994960" id="AlphanumFieldDescriptorImpl_2048.0" version="1" length="20">
+      <initialValue xsi:nil="true"/>
+      <CoreTypeDescriptor href="AddressBook.prjxmi#CoreTypeDescriptor_8"/>
+    </FieldDescriptor>
+  </Fields>
+  <Fields xmi:type="core:PersistentField" xmi:id="PersistentField_1035205994962" id="PersistentFieldImpl_2033.0" version="1" name="last_name" FieldMapping="RDBFieldMapping_1035205994962">
+    <CoreTypeDescriptor href="AddressBook.prjxmi#CoreTypeDescriptor_8"/>
+    <FieldDescriptor xmi:type="core:AlphanumFieldDescriptor" xmi:id="AlphanumFieldDescriptor_1035205994961" id="AlphanumFieldDescriptorImpl_2050.0" version="1" length="20">
+      <initialValue xsi:nil="true"/>
+      <CoreTypeDescriptor href="AddressBook.prjxmi#CoreTypeDescriptor_8"/>
+    </FieldDescriptor>
+  </Fields>
+  <Fields xmi:type="core:PersistentField" xmi:id="PersistentField_1035205994960" id="PersistentFieldImpl_2041.0" version="1" name="department" FieldMapping="RDBFieldMapping_1035205994960">
+    <CoreTypeDescriptor href="AddressBook.prjxmi#CoreTypeDescriptor_8"/>
+    <FieldDescriptor xmi:type="core:AlphanumFieldDescriptor" xmi:id="AlphanumFieldDescriptor_1035205994962" id="AlphanumFieldDescriptorImpl_2046.0" version="1" length="20">
+      <initialValue xsi:nil="true"/>
+      <CoreTypeDescriptor href="AddressBook.prjxmi#CoreTypeDescriptor_8"/>
+    </FieldDescriptor>
+  </Fields>
+   <DomainActionDescriptors xmi:id="DomainActionDescriptor_1" version="1" name="Create" description="Performs a Create">
+    <ActionMapping xmi:type="core:SQLStatementMapping" xmi:id="SQLStatementMapping_1" version="1" SQLStatement="INSERT INTO APP.USERS (NICKNAME,LAST_NAME,CITY,POSITION,FIRST_NAME) VALUES (:nickname,:last_name,:city,:position,:first_name)"/>
+  </DomainActionDescriptors>
+  <DomainActionDescriptors xmi:id="DomainActionDescriptor_2" version="1" name="Update" description="Performs a Update">
+    <ActionMapping xmi:type="core:SQLStatementMapping" xmi:id="SQLStatementMapping_2" version="1" SQLStatement=" UPDATE APP.USERS SET LAST_NAME = :last_name, CITY = :city, POSITION = :position, FIRST_NAME = :first_name WHERE APP.USERS.NICKNAME = :nickname"/>
+  </DomainActionDescriptors>
+  <DomainActionDescriptors xmi:id="DomainActionDescriptor_3" version="1" name="Delete" description="Performs a Delete">
+    <ActionMapping xmi:type="core:SQLStatementMapping" xmi:id="SQLStatementMapping_3" version="1" SQLStatement="DELETE FROM APP.USERS WHERE APP.USERS.NICKNAME = :nickname"/>
+  </DomainActionDescriptors>
+  <DomainActionDescriptors xmi:id="DomainActionDescriptor_4" version="1" name="Select All" description="Performs a Select All">
+    <ActionMapping xmi:type="core:SQLStatementMapping" xmi:id="SQLStatementMapping_4" version="1" SQLStatement="SELECT * FROM APP.USERS"/>
+  </DomainActionDescriptors>
+  <DomainActionDescriptors xmi:id="DomainActionDescriptor_5" version="1" name="Read" description="Performs a Read">
+    <returnedValue xmi:type="core:CoreTypeDescriptor" href="AddressBook.prjxmi#CoreTypeDescriptor_4"/>
+    <ActionMapping xmi:type="core:SQLStatementMapping" xmi:id="SQLStatementMapping_5" version="1" SQLStatement="SELECT * FROM APP.USERS WHERE APP.USERS.NICKNAME = :nickname"/>
+  </DomainActionDescriptors>
+  <DomainActionDescriptors xmi:id="DomainActionDescriptor_6" version="1" name="Search" description="Performs a Search">
+    <returnedValue xmi:type="core:CoreTypeDescriptor" href="AddressBook.prjxmi#CoreTypeDescriptor_4"/>
+    <parameters xmi:id="ParameterType_1" version="1">
+      <type xmi:type="core:CoreTypeDescriptor" href="AddressBook.prjxmi#CoreTypeDescriptor_11"/>
+    </parameters>
+    <parameters xmi:id="ParameterType_2" version="1">
+      <type xmi:type="core:CoreTypeDescriptor" href="AddressBook.prjxmi#CoreTypeDescriptor_8"/>
+    </parameters>
+  </DomainActionDescriptors>
+  <DomainActionDescriptors xmi:id="DomainActionDescriptor_7" version="1" name="Read By Field" description="Performs a Read By Field">
+    <returnedValue xmi:type="core:CoreTypeDescriptor" href="AddressBook.prjxmi#CoreTypeDescriptor_4"/>
+    <parameters xmi:id="ParameterType_3" version="1">
+      <type xmi:type="core:CoreTypeDescriptor" href="AddressBook.prjxmi#CoreTypeDescriptor_11"/>
+    </parameters>
+  </DomainActionDescriptors>
+  <KeyFields xmi:id="KeyField_1035205994970" id="KeyFieldImpl_2028.0" version="1" PersistentField="PersistentField_1035205994961"/>
+  <DataSourceTypeDescriptor xmi:id="DataSourceTypeDescriptor_1035205924328" id="DataSourceTypeDescriptorImpl_1986.0" version="1"/>
+</core:DataSource>

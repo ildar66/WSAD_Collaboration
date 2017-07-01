@@ -1,0 +1,89 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>数据库设置</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="database_settings"></a>
+<h2>数据库设置</h2>
+
+<p>使用此页面指定数据库会话支持的设置。</p>
+
+<p>要查看此管理控制台页面，单击<strong>服务器</strong> &gt; <strong>应用程序服务器</strong> &gt; <em>server_name</em> &gt; <strong>Web 容器</strong> &gt; <strong>会话管理</strong> &gt; <strong>分布式环境设置</strong> &gt; <strong>数据库</strong>。</p>
+
+<div>
+<p>
+<strong>&ldquo;配置&rdquo;选项卡</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="SessionDatabasePersistence_datasourceJNDIName_description"></a>数据源 JNDI 名称</strong>
+</dt>
+<dd>指定数据源描述
+<p>非 XA 支持的数据源 JNDI 名称，由它会话管理获取数据库连接。例如，如果数据源的 JNDI 名称是&ldquo;jdbc/sessions&rdquo;，则指定&ldquo;jdbc/sessions&rdquo;。
+数据源表示数据库连接池和此池的配置（如池大小）。数据源必须已作为环境中的已配置资源而存在。
+</p>
+
+</dd>
+<dt>
+<strong><a name="SessionDatabasePersistence_userId_description"></a>用户标识</strong>
+            &nbsp;
+            </dt>
+<dd>指定数据库访问的用户标识</dd>
+<dt>
+<strong><a name="SessionDatabasePersistence_password_description"></a>密码</strong>
+            &nbsp;
+            </dt>
+<dd>指定数据库访问的密码</dd>
+<dt>
+<strong><a name="SessionDatabasePersistence_password2_description"></a>确认密码</strong>
+            &nbsp;
+            </dt>
+<dd>第二次指定密码以确保记录正确。</dd>
+<dt>
+<strong><a name="SessionDatabasePersistence_db2RowSize_description"></a>DB2 行大小
+</strong>
+            &nbsp;
+            </dt>
+<dd>指定为会话表配置的表空间页面大小（如果使用 DB2 数据库）。可能的值是 4、8、16 和 32 千字节（K）。缺省行大小是 4K。
+<p>缺省行大小是 4K。在 DB2 中，它可更新到更大的值。这有助于改进某些环境中的数据库性能。当此值不是 4 时，您必须指定要使用的表空间名称。对于 4K 页面，表空间名称是可选的。</p>
+
+</dd>
+<dt>
+<strong><a name="SessionDatabasePersistence_tableSpaceName_description"></a>表空间名称
+</strong>
+            &nbsp;
+            </dt>
+<dd>指定用于会话表的表空间。
+<p>当 DB2 页面大小不是 4 K 时此值是必需的。</p>
+
+</dd>
+<dt>
+<strong><a name="TuningParams_usingRowSchema_description"></a>使用多行会话</strong>
+</dt>
+<dd>指定应用程序数据的每个实例放入数据库中的独立行，允许为每个会话存储更大的数据量。此操作在某些使用方案中可以产生更好的性能。如果未启用使用多行模式，应用程序数据的实例可放在同一行中。
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>相关信息</strong>
+</p>
+<a href="rcon_buttons.html">管理控制台按钮</a>
+<br>
+
+<a href="rcon_pageusage.html">管理控制台页面功能</a>
+<br>
+
+<a href="rcon_filter.html">管理控制台过滤器设置</a>
+<br>
+
+<a href="rcon_preferences.html">管理控制台首选项设置</a>
+<br>
+
+</div>
+</body>
+</html>

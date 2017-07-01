@@ -1,0 +1,144 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>プロセス実行設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="urun_rprocexec"></a>
+<h2>プロセス実行設定</h2>
+
+<p>このページを使用して、UNIX プロセスの始動または初期化のためのコマンド行情報を表示または変更します。
+</p>
+
+<p>この管理コンソール・ページを表示するには、「
+<strong>サーバー</strong>」&gt;「<strong>アプリケーション・サーバー</strong>」&gt;「<em>server_name</em>」&gt;「<strong>プロセス定義</strong>」&gt;「<strong>プロセスの実行</strong>」をクリックします。</p>
+
+<div>
+<p>
+<strong>「構成」タブ</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="ProcessExecution_processPriority_description"></a>プロセスの優先順位</strong>
+</dt>
+<dd>プロセスのオペレーティング・システムの優先順位を指定します。
+この値を変更できるのは、root ユーザーのみです。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">整数</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">ほとんどのオペレーティング・システムの WebSphere Application Server では 1000 です。OS/400 の場合、デフォルトは 25 です。</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ProcessExecution_umask_description"></a>UMASK</strong>
+</dt>
+<dd>プロセスが実行されるユーザー・マスク (ファイル・モード許可マスク) を指定します。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">整数</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ProcessExecution_runAsUser_description"></a>Run-As ユーザー</strong>
+</dt>
+<dd>プロセスが実行されるユーザーを指定します。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ProcessExecution_runAsGroup_description"></a>Run-As グループ</strong>
+</dt>
+<dd>プロセスがメンバーとして所属し、そのプロセスが実行されるグループを指定します。
+<p>OS/400 の場合、「Run-As グループ」の設定は無視されます。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ProcessExecution_runInProcessGroup_description"></a>プロセス・グループで実行</strong>
+</dt>
+<dd>プロセスに特定のプロセス・グループを指定します。
+このプロセス・グループは、プロセッサーの区分化などを行う場合に役立ちます。
+例えば、システム管理者は、
+12 個のプロセッサーのうちの 6 個で実行されるようにプロセス・グループを割り当てることができます。
+デフォルト (0) では、
+どの特定グループにもプロセスは割り当てられていません。
+
+<p>OS/400 の場合、「
+プロセス・グループで実行」の設定は無視されます。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">整数</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">0</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>関連情報</strong>
+</p>
+<a href="rcon_buttons.html">管理コンソールのボタン</a>
+<br>
+
+<a href="rcon_pageusage.html">管理コンソール・ページのフィーチャー</a>
+<br>
+
+</div>
+</body>
+</html>

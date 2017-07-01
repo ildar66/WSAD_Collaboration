@@ -1,0 +1,213 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Web サービス: Web サービス・セキュリティーのデフォルト・バインディング・コレクション</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_websvcb"></a>
+<h2>
+<img alt="[リリース 5.1 以降]" src="v51.gif" border="0">Web サービス: Web サービス・セキュリティーのデフォルト・バインディング・コレクション</h2>
+
+<p>このページを使用して、サーバー・レベルの nonce に対する設定を構成し、トラスト・アンカー、コレクション証明書ストア、鍵ロケーター、
+トラステッド ID エバリュエーター、およびログイン・マッピングのデフォルトのバインディングを
+管理します。</p>
+
+<p>この管理コンソール・ページを表示するには、「<strong>サーバー</strong>」&gt;「<strong>アプリケーション・サーバー</strong>」&gt;「<em>server_name</em>」をクリックします。「追加プロパティー」の下の「<strong>Web Services: Default bindings for Web Services Security</strong>」をクリックします。</p>
+
+<p>Web サービス・セキュリティーにデフォルトのバインディングを定義する前に、Web サービスの文書をお読みください。</p>
+
+<p>サーバーのバインディングを構成するには、以下のステップを完了します。<ol>
+
+<li>「<strong>アプリケーション</strong>」&gt;「<strong>エンタープライズ・アプリケーション</strong>」&gt;「<em>application_name</em> 」をクリックします。</li>
+
+<li>「Related Items」の下の「<strong>Web モジュール</strong>」&gt;「<em>URI_file_name</em> 」&gt;「<strong>Web Services: Server Security Bindings</strong>」をクリックします。</li>
+
+</ol>
+</p>
+
+<p>クライアントのバインディングを構成するには、以下のステップを完了します。<ol>
+
+<li>「<strong>アプリケーション</strong>」&gt;「<strong>エンタープライズ・アプリケーション</strong>」&gt;「<em>application_name</em> 」をクリックします。</li>
+
+<li>「Related Items」の下の「<strong>Web モジュール</strong>」&gt;「<em>URI_file_name</em> 」&gt;「<strong>Web Services: Client Security Bindings</strong>」をクリックします。</li>
+
+</ol>
+</p>
+
+<p>
+<img alt="[リリース 5.1 以降]" src="v51.gif" border="0"><em>nonce</em> は、メッセージに埋め込まれた固有の暗号番号であり、
+ユーザー名トークンの未許可のアタックが繰り返されることを防止するために役立ちます。
+基本の WebSphere Application Server 環境では、
+サーバー・レベルの「<strong>Nonce Cache Timeout</strong>」、「<strong>Nonce Maximum Age</strong>」、
+および「<strong>Nonce Clock Skew</strong>」フィールドに値を指定する必要があります。</p>
+
+<p> デフォルトのバインディング構成では、再使用可能なバインディング情報が定義されている
+中央設置場所が作成されます。アプリケーションのバインディング・ファイルは、デフォルトのバインディング構成に
+含まれている情報を参照することができます。</p>
+
+<dl>
+<dt>
+<strong><a name="sec_noncecachetimeout"></a>Nonce Cache Timeout</strong>
+            &nbsp;
+            <img alt="[リリース 5.1 以降]" src="v51.gif" border="0"></dt>
+<dd>サーバー上のキャッシュされた nonce に対するタイムアウト値を
+秒単位で指定します。nonce はランダムに生成される値です。
+<p>「<strong>Nonce Cache Timeout</strong>」フィールドには、少なくとも 300 秒を指定する必要があります。値を指定しない場合には、デフォルトで 600 秒になります。
+</p>
+
+<p>「<strong>Nonce Cache Timeout</strong>」フィールドは、基本の WebSphere Application Server 環境では必須です。</p>
+
+<p>nonce キャッシュ・タイムアウト値を変更する場合、WebSphere Application Server を再始動して変更を有効にする必要があります。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">600 秒</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">最小</td>
+<td align="left" valign="top" class="base">300 秒</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="sec_noncemaxage"></a>Nonce Maximum Age</strong>
+            &nbsp;
+            <img alt="[リリース 5.1 以降]" src="v51.gif" border="0"></dt>
+<dd>nonce タイム・スタンプの有効期限が切れるまでのデフォルト時間 (秒) を指定します。nonce はランダムに生成される値です。
+<p>「<strong>Nonce Maximum Age</strong>」フィールドには、少なくとも 300 秒を指定する必要があります。ただし、最大値として、
+サーバー・レベルの「<strong>Nonce Cache Timeout</strong>」フィールドに指定した以上の秒数を指定することはできません。値を指定しない場合には、デフォルトで 300 秒になります。このサーバー・レベルの「<strong>Nonce
+Maximum Age</strong>」フィールドに設定する値は、セル・レベルに設定する「<strong>Nonce Maximum Age</strong>」の値を超えてはなりません。
+この値には、「<strong>Security</strong>」&gt;「<strong>Web Services</strong>」&gt;「<strong>Properties</strong>」をクリックしてアクセスできます。</p>
+
+<p>「<strong>Nonce Maximum Age</strong>」フィールドは、基本の WebSphere Application Server 環境では必須です。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">300 秒</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">300 〜「<strong>Nonce Cache Timeout</strong>」に指定した値 (秒)</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="sec_nonceclockskew"></a>Nonce Clock Skew</strong>
+            &nbsp;
+            <img alt="[リリース 5.1 以降]" src="v51.gif" border="0"></dt>
+<dd>WebSphere Application Server がメッセージの日付をチェックする際に検討する
+デフォルトのクロック・スキュー値 (秒) を指定します。nonce はランダムに生成される値です。
+<p>「<strong>Nonce Clock Skew</strong>」フィールドには、少なくとも 0 秒を指定する必要があります。ただし、最大値として、
+「<strong>Nonce Maximum Age</strong>」フィールドに指定した以上の秒数を指定することはできません。値を指定しない場合には、デフォルトで 0 秒になります。
+</p>
+
+<p>「<strong>Nonce Clock Skew</strong>」フィールドは、基本の WebSphere Application Server 環境では必須です。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">0 秒</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">0 〜「<strong>Nonce Maximum Age</strong>」に指定した値 (秒)</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="sec_trustancdescr"></a>Trust Anchors</strong>
+            &nbsp;
+            <img alt="[修正パッケージ 5.0.2 以降]" src="v502.gif" border="0"></dt>
+<dd>認証局 (CA) が自己署名または発行したトラステッド・ルート証明書を含む鍵ストア・オブジェクトのリストを指定します。
+<p>認証局は、ユーザーを認証し、証明書を発行します。
+証明書が発行されると、これらの証明書を含む鍵ストア・オブジェクトは、着信する X.509 形式のセキュリティー・トークンの証明書パスまたは証明書チェーンの検証にこの証明書を使用します。</p>
+
+</dd>
+<dt>
+<strong><a name="sec_collcert"></a>Collection Certificate Store</strong>
+            &nbsp;
+            <img alt="[修正パッケージ 5.0.2 以降]" src="v502.gif" border="0"></dt>
+<dd>信頼されていない中間証明書ファイルのリストを指定します。
+<p>コレクション証明書ストアには、信頼されていない、中間証明書のチェーンが含まれています。CertPath API は、トラスト・アンカーに基づいているこれらの証明書を検証します。</p>
+
+</dd>
+<dt>
+<strong><a name="sec_keyldesc"></a>Key Locators</strong>
+            &nbsp;
+            <img alt="[修正パッケージ 5.0.2 以降]" src="v502.gif" border="0"></dt>
+<dd>ディジタル署名および暗号化のための鍵を、鍵ストア・ファイルまたはリポジトリーから取り出す鍵ロケーター・オブジェクトのリストを指定します。
+鍵ロケーターは、名前または論理名をエイリアスにマップするか、認証済みの識別を鍵にマップします。この論理名は、
+鍵ロケーターのインプリメンテーションに鍵を配置するために使用されます。</dd>
+<dt>
+<strong><a name="sec_trstiddesc"></a>Trusted ID Evaluators</strong>
+            &nbsp;
+            <img alt="[修正パッケージ 5.0.2 以降]" src="v502.gif" border="0"></dt>
+<dd>識別表明権限を信頼するのか、メッセージの送信側を信頼するのかを決定する、トラステッド ID エバリュエーターのリストを指定します。
+<p>トラステッド ID エバリュエーターは、あるサーバーから別のサーバーに追加された ID を認証するために使用されます。例えば、あるクライアントが、認証を行うためにユーザー A の識別をサーバー 1 に送信したとします。サーバー 1 は、ダウンストリームでサーバー 2 を呼び出し、ユーザー A の ID を表明し、サーバー 1 のユーザー ID とパスワードを組み込みます。サーバー 2 は、そのユーザー ID とパスワードを認証し、TrustedIDEvaluator のインプリメンテーションに基づく信頼をチェックすることにより、サーバー 1 との信頼を確立しようとします。認証プロセスと信頼チェックが正常に行われると、サーバー 2 は、サーバー 1 で認証済みのユーザー A を信頼し、ユーザー A がサーバー 2 で要求を起動するための信任状が作成されます。</p>
+
+</dd>
+<dt>
+<strong><a name="sec_logmapdesc"></a>Login Mappings</strong>
+            &nbsp;
+            <img alt="[修正パッケージ 5.0.2 以降]" src="v502.gif" border="0"></dt>
+<dd>着信メッセージ内のトークンを検証するための構成のリストを指定します。
+<p>ログイン・マッピングは、認証メソッドを Java Authentication and Authorization Service (JAAS) 構成にマップします。</p>
+
+<p>JAAS を構成するには、管理コンソールを使用して、「<strong>セキュリティー</strong>」&gt;「<strong>JAAS Configuration</strong>」をクリックします。</p>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>関連情報</strong>
+</p>
+<a href="uwbs_trstanc.html">トラスト・アンカー・コレクション</a>
+<br>
+
+<a href="uwbs_colcertst.html">コレクション証明書ストアのコレクション</a>
+<br>
+
+<a href="uwbs_keyl.html">鍵ロケーターのコレクション</a>
+<br>
+
+<a href="uwbs_trstide.html">トラステッド ID エバリュエーター・コレクション</a>
+<br>
+
+<a href="uwbs_logmap.html">ログイン・マッピング・コレクション</a>
+<br>
+
+<a href="uwbs_logmapn.html">ログイン・マッピング構成の設定</a>
+<br>
+
+</div>
+</body>
+</html>

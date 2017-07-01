@@ -1,0 +1,124 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Encryption information configuration settings</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_encryptrrb"></a>
+<h2>
+<img alt="[Release 5.1 and later]" src="v51x.gif" border="0">Encryption information configuration settings</h2>
+
+<p>Use this page to configure the encryption and decryption parameters.
+You can use these parameters to encrypt and decrypt various parts of the message
+including the body and user name token.</p>
+
+<p>To view this administrative console page, click <strong>Applications &gt; Enterprise
+Applications &gt; </strong><em>application_name</em>. Under Related Items, click <strong>Web
+Module &gt; </strong><em>URI_file_name</em> <strong>&gt; Web Services: Server Security Bindings</strong>.
+Under Request Receiver Binding, click <strong>Edit &gt; Encryption Information &gt; New</strong>.</p>
+
+<dl>
+<dt>
+<strong><a name="sec_name"></a>Encryption Information Name</strong>
+</dt>
+<dd>Specifies the name for the encryption information.</dd>
+<dt>
+<strong><a name="sec_klr"></a>Key Locator Reference</strong>
+</dt>
+<dd>Specifies the name used to reference the key locator.
+<p>To specify key locator references, click <strong>Servers &gt; Application Servers
+&gt; </strong><em>server_name</em>. Under Additional Properties, click <strong>Web Services:
+Default bindings for Web Services Security &gt; Key Locators</strong>.</p>
+
+</dd>
+<dt>
+<strong><a name="sec_ekn"></a>Encryption Key Name</strong>
+</dt>
+<dd>Specifies the name of the encryption key, which is resolved to
+the actual key by the specified key locator.</dd>
+<dt>
+<strong><a name="sec_eka"></a>Key Encryption Algorithm </strong>
+</dt>
+<dd>Specifies the algorithm Uniform Resource Identifier (URI) of the
+key encryption method.
+<p>The following algorithms are supported:<ul>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#rsa-1_5</samp>
+</li>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#kw-tripledes</samp>
+</li>
+
+</ul>
+</p>
+
+<p>
+<img alt="[Release 5.1 and later]" src="v51x.gif" border="0">The following additional algorithms are supported:<ul>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#kw-aes128</samp>
+</li>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#kw-aes256</samp>
+</li>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#kw-aes192</samp>
+</li>
+
+</ul>
+</p>
+
+</dd>
+<dt>
+<strong><a name="sec_dea"></a>Data Encryption Algorithm</strong>
+</dt>
+<dd>Specifies the algorithm URI of the data encryption method.
+<p>The following algorithm is supported:<ul>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#tripledes-cbc</samp>
+</li>
+
+</ul>
+</p>
+
+<p>
+<img alt="[Release 5.1 and later]" src="v51x.gif" border="0">The following additional algorithms are supported:<ul>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#aes128-cbc</samp>
+</li>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#aes256-cbc</samp>
+</li>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#aes192-cbc</samp>
+</li>
+
+</ul>
+</p>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>Related information</strong>
+</p>
+<a href="uwbs_encrypt.html">Encryption information collection</a>
+<br>
+
+<a href="uwbs_keyl.html">Key locator collection</a>
+<br>
+
+</div>
+</body>
+</html>

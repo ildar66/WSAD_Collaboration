@@ -1,0 +1,189 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>小型認證機構設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecrltpa"></a>
+<h2>小型認證機構設定</h2>
+
+<p>請利用這個頁面來配置小型認證機構 (LTPA) 設定。
+</p>
+
+<p>如果要檢視這個管理主控台頁面，請按一下<strong>安全</strong> &gt; <strong>鑑別機制</strong> &gt; <strong>LTPA</strong>。</p>
+
+<p>如果您是第一次配置安全性，只有密碼是必要的。
+輸入密碼之後，請按一下<strong>套用</strong>。
+請按一下<strong>單一登入</strong> (SSO)，再輸入領域名稱。
+確定已啟用 SSO。
+請按一下<strong>套用</strong>。
+如果要完成安全設定，請確定您設定了適當的登錄，再按一下「廣域安全」畫面中的<strong>套用</strong>。
+當啟用安全且任何這些內容有了改變時，請進入「廣域安全」畫面，按一下<strong>套用</strong>來驗證變更。
+</p>
+
+<div>
+<p>
+<strong>「配置」標籤</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="button"></a>產生金鑰</strong>
+</dt>
+<dd>指定伺服器要不要產生新的 LTPA 金鑰。
+
+<p>當安全性第一次開啟並以 LTPA 作為鑑別機制時，系統會自動以
+畫面中輸入的密碼產生 LTPA 金鑰。
+如果您需要使用之前設定的密碼，來產生新的金鑰集，請按一下<strong>產生金鑰</strong>。
+如果已經使用新密碼，就不要按這個按鈕。
+當您輸入新密碼，並且按一下<strong>確定</strong>或<strong>套用</strong>時，就會產生新的金鑰集。
+<em>每當新的金鑰集產生時，除非您儲存它們，否則不會使用它們。</em>
+
+</p>
+
+</dd>
+<dt>
+<strong><a name="LTPA_password_description"></a>匯入金鑰</strong>
+</dt>
+<dd>指定伺服器要不要匯入新的 LTPA 金鑰。
+
+<p>如果要跨越多個 WebSphere 領域 (Cell) 來支援 WebSphere 產品中的單一登入 (SSO)，這些領域要共用 LTPA 金鑰和密碼。
+您可以利用<strong>匯入金鑰</strong>按鈕，從其他領域匯入 LTPA 金鑰。LTPA 金鑰應該已經從其中一個 Cell 匯出到某個檔案。
+為了匯入新的 LTPA 金鑰集，請輸入適當的密碼和 LTPA 金鑰所在的檔名。
+接著只要按一下<strong>匯入金鑰</strong>即可，<strong><em>不要按一下</em></strong> <strong>確定</strong>或<strong>套用</strong>。
+</p>
+
+</dd>
+<dt>
+<strong><a name="LTPA_password_description"></a>匯出金鑰</strong>
+</dt>
+<dd>指定伺服器要不要匯出 LTPA 金鑰。
+
+<p>如果要跨越多個 WebSphere 領域 (Cell) 來支援 WebSphere 產品中的單一登入 (SSO)，這些領域要共用 LTPA 金鑰和密碼。
+您可以利用<strong>匯出金鑰</strong>按鈕，將 LTPA 金鑰匯出至其他領域。</p>
+
+<p>如果要匯出 LTPA 金鑰，系統必須啟用安全，而且使用 LTPA。
+然後在<strong>金鑰檔名稱</strong>欄位中輸入檔案名稱，接著按一下<strong>匯出金鑰</strong>。
+加密的金鑰會儲存在指定的檔案中。
+</p>
+
+</dd>
+<dt>
+<strong><a name="LTPA_password_description"></a>密碼</strong>
+</dt>
+<dd>指定用來加密和解密 LTPA 金鑰的密碼。
+當匯入這些金鑰到其他 WebSphere Application Server 管理領域配置（如果有的話）時，以及在配置 Domino 伺服器的 SSO 時，請使用這個密碼。
+
+<p>產生或匯入金鑰之後，會利用它們來加密及解密 LTPA 記號。
+每當密碼變更時，只要您按一下<strong>確定</strong>或<strong>套用</strong>，就會自動產生新的 LTPA 金鑰集。
+這些新的金鑰集只會在您儲存它們時，才會派上用場。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LTPA_confirmPassword_description"></a>確認密碼</strong>
+</dt>
+<dd>指定用來加密和解密 LTPA 金鑰的確認密碼。
+
+<p>將這些金鑰匯入其他 WebSphere Application Server 管理領域配置（如果有的話）時，以及在配置 SSO for Domino Server 時，請使用這個密碼。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LTPA_timeout_description"></a>逾時值</strong>
+</dt>
+<dd>指定 LTPA 記號到期之前的時間長度（分鐘）。請確定這個時間長度比「廣域安全」畫面中配置的快取逾時值長。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">整數</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">單位</td>
+<td align="left" valign="top" class="base">分鐘</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">120</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LTPA_keyFilename_description"></a>金鑰檔名稱</strong>
+</dt>
+<dd>指定匯入或匯出金鑰時所用的檔案名稱。
+<p>請輸入完整的金鑰檔名稱，然後再按一下<strong>匯入金鑰</strong>或<strong>匯出金鑰</strong>。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>相關資訊</strong>
+</p>
+<a href="rcon_buttons.html">管理主控台按鈕</a>
+<br>
+
+<a href="rcon_pageusage.html">管理主控台頁面特性</a>
+<br>
+
+<a href="rcon_scope.html">管理主控台範圍設定</a>
+<br>
+
+<a href="rcon_filter.html">管理主控台過濾器設定</a>
+<br>
+
+<a href="rcon_preferences.html">管理主控台喜好設定</a>
+<br>
+
+</div>
+</body>
+</html>

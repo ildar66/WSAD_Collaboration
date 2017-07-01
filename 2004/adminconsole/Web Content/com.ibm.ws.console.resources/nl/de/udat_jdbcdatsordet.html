@@ -1,0 +1,395 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Einstellungen f&uuml;r Datenquellen</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="Data_source_detail"></a>
+<h2>Einstellungen f&uuml;r Datenquellen</h2>
+
+<p>Auf dieser Seite k&ouml;nnen Sie eine Datenquelle unter einem JDBC-Provider
+erstellen, der die Implementierungsklasse des
+spezifischen JDBC-Treibers bereitstellt. </p>
+
+<p>Pr&uuml;fen Sie, ob Sie eine Datenquelle der Version 5.0 verwenden m&ouml;chten. Wenn Sie das EJB-Komponentenmodell
+der Version 1.0 und Servlets der Version 2.2 verwenden m&ouml;chten, m&uuml;ssen Sie eine Datenquelle der
+Version 4.0 verwenden.</p>
+
+<p>Klicken Sie, um diese Seite der Administrationskonsole anzuzeigen, auf <strong>Ressourcen</strong>
+&gt; <strong>JDBC-Provider</strong> &gt; <em>JDBC-Provider</em> &gt; <strong>Datenquellen</strong> &gt; <em>Datenquelle</em>. </p>
+
+<div>
+<p>
+<strong>Register "Konfiguration"</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="DataSource_detail_contextID"></a>Bereich</strong>
+</dt>
+<dd>Gibt die Ebene an, bis zu der diese Ressourcendefinition sichtbar ist - Zelle, Knoten oder Server.
+<p>Ressourcen, wie z. B. JDBC-Provider, Namespace-Bindungen oder gemeinsam
+benutzte Bibliotheken k&ouml;nnen in mehreren Bereichen definiert werden. Dabei &uuml;berschreiben Ressourcen, die in
+spezifischeren Bereichen
+definiert wurden, Ressourcen, die in allgemeineren Bereichen definiert wurden. </p>
+
+<p>Die Merkmale einer Ressource gelten nur f&uuml;r eine bestimmte Serverebene, unabh&auml;ngig vom
+Geltungsbereich einer definierten Ressource.
+Wenn Sie beispielsweise den Geltungsbereich einer Datenquelle auf Zellenebene definieren,
+k&ouml;nnen alle Benutzer in dieser Zelle diese Datenquelle durchsuchen und verwenden.
+Die Einstellungen von Ressourcenmerkmalen gelten jedoch lokal f&uuml;r jeden Server in der Zelle.
+Wenn Sie beispielsweise die <em>maximale Anzahl von Verbindungen</em> mit 10 definieren, kann jeder
+Server in dieser Zelle 10 Verbindungen haben.
+<dl>
+
+<dt>
+<strong>Zelle</strong>
+</dt>
+<dd>Der allgemeinste Bereich. Ressourcen, die im Zellenbereich definiert werden, sind auf
+allen Knoten und Servern sichtbar, vorausgesetzt, sie wurden nicht &uuml;berschrieben.
+M&ouml;chten Sie Ressourcen anzeigen, die im Zellenbereich definiert wurden, d&uuml;rfen Sie
+keinen Server oder Knotennamen im Formular f&uuml;r die Bereichsauswahl angeben.</dd>
+
+<dt>
+<strong>Knoten</strong>
+</dt>
+<dd>Der Standardbereich f&uuml;r die meisten Ressourcentypen.  Ressourcen, die im Knotenbereich
+definiert werden, &uuml;berschreiben alle Duplikate im Zellenbereich und sind auf allen Servern, die sich auf
+demselben
+Knoten befinden, sichtbar, vorausgesetzt, sie wurden nicht in einem Serverbereich auf diesem Knoten
+&uuml;berschrieben. M&ouml;chten Sie Ressourcen anzeigen, die in einem Knotenbereich
+definiert
+wurden, d&uuml;rfen Sie keinen Server angeben, sondern m&uuml;ssen einen Knotennamen im Formular f&uuml;r
+die Bereichsauswahl ausw&auml;hlen.</dd>
+
+<dt>
+<strong>Server</strong>
+</dt>
+<dd>Der spezifischste Bereich f&uuml;r die Definition von Ressourcen.  Ressourcen,
+die im Serverbereich definiert werden, &uuml;berschreiben alle Duplikate von
+Ressourcendefinitionen, die im Zellenbereich oder im &uuml;bergeordneten
+Knotenbereich definiert wurden, und k&ouml;nnen nur von einem spezifischen Server erkannt werden. M&ouml;chten
+Sie Ressourcen anzeigen, die in einem Serverbereich definiert wurden, m&uuml;ssen Sie im
+Formular f&uuml;r die Bereichsauswahl einen Servernamen und einen Knotennamen ausw&auml;hlen.</dd>
+
+</dl>
+</p>
+
+<p>Wenn Ressourcen erstellt werden, werden sie immer im aktuellen, in der Anzeige ausgew&auml;hlten Bereich
+erstellt. M&ouml;chten Sie Ressourcen in anderen Bereichen anzeigen,
+geben Sie einen anderen Knoten oder Server im Formular f&uuml;r die Bereichsauswahl an.  </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2EEResourceFactory_name_displayName"></a>Name</strong>
+</dt>
+<dd>Gibt den Anzeigenamen f&uuml;r die Datenquelle an. 
+<p>Beispielsweise k&ouml;nnen Sie dieses Feld auf <em>Datenquelle testen</em> einstellen.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2EEResourceFactory_jndiName_displayName"></a>JNDI-Name</strong>
+</dt>
+<dd>Gibt den JNDI-Namen (Java Naming and Directory Interface) an. 
+<p>Verteilte Datenverarbeitungsumgebungen verwenden h&auml;ufig Namens- und Verzeichnisservices, um
+gemeinsam verwendete Komponenten und Ressourcen abzurufen. Namens- und Verzeichnisservices ordnen Namen
+Verzeichnissen, Services, Daten und Ressourcen zu. </p>
+
+<p>Namensservices erm&ouml;glichen die Zuordnung von Namen zu Objekten. Verzeichnisservices stellen
+Informationen zu Objekten und Such-Tools bereit, die zum Lokalisieren dieser Objekte erforderlich sind. </p>
+
+<p>Es gibt viele Implementierungen von Namens- und Verzeichnisservices, und die Interfaces zu diesen
+Services variieren. JNDI bietet ein gemeinsames Interface f&uuml;r den
+Zugriff auf die verschiedenen Namens- und Verzeichnisservices.</p>
+
+<p>Sie k&ouml;nnen z. B. den Namen <em>jdbc/markSection</em> verwenden.</p>
+
+<p>Wenn Sie dieses Feld leer lassen, wird ein JNDI-Name aus dem Namen der Datenquelle generiert. Beispielsweise wird f&uuml;r den Namen der Datenquelle von
+markSection der JNDI-Name <em>jdbc/markSection</em> generiert.</p>
+
+<p>Nachdem Sie diesen Wert definiert, gespeichert und den Server erneut gestartet haben, ist
+diese Zeichenfolge bei Ausf&uuml;hrung von <em>dumpnamespace</em> sichtbar. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="DataSource_isUsedByCmp_displayName"></a>CMP (Container Managed Persistence) </strong>
+</dt>
+<dd>Gibt an, ob diese Datenquelle f&uuml;r die
+containergest&uuml;tzte Persistenz von Enterprise-Beans verwendet
+wird. 
+<p>Bei Auswahl dieses Markierungsfelds wird eine CMP-Connector-Factory, die dieser
+Datenquelle entspricht, f&uuml;r den
+relationalen Ressourcenadapter erstellt. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Markierungsfeld</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">Nicht aktiviert</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2EEResourceFactory_description_displayName"></a>Beschreibung</strong>
+</dt>
+<dd>Gibt eine Textbeschreibung der Ressource an. 
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2EEResourceFactory_category_displayName"></a>Kategorie </strong>
+</dt>
+<dd>Gibt eine Kategoriezeichenfolge an, die zur Klassifizierung oder
+Gruppierung der Ressource verwendet werden kann. 
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="DataSource_statementCacheSize_displayName"></a>Gr&ouml;&szlig;e des Anweisungs-Cache </strong>
+</dt>
+<dd>Gibt die Anzahl der freien Anweisungen an, die pro Verbindung zwischengespeichert
+werden. 
+<p>Die WAS-Datenquelle optimiert die Verarbeitung vorbereiteter Anweisungen.
+Eine vorbereitete Anweisung ist eine vorkompilierte SQL-Anweisung, die in einem Objekt f&uuml;r vorbereitete
+Anweisungen (Prepared Statement Object) gespeichert ist. Mit diesem Objekt
+kann eine gegebene-SQL-Anweisungen effizient mehrfach ausgef&uuml;hrt werden.
+</p>
+
+<p>Wenn der Cache nicht gro&szlig; genug ist,
+werden m&ouml;glicherweise wichtige Eintr&auml;ge gel&ouml;scht, um Platz f&uuml;r neue Eintr&auml;ge zu schaffen. Der gr&ouml;&szlig;te Wert, auf den Sie die Cache-Gr&ouml;&szlig;e einstellen m&uuml;ssen, wenn Sie vermeiden m&ouml;chten, dass der Cache
+gel&ouml;scht wird, stellt sich wie folgt dar: F&uuml;r jede Anwendung, die diese Datenquelle auf einem bestimmten
+Server verwendet, m&uuml;ssen Sie die Anzahl eindeutiger vorbereiteter Anweisungen hinzuf&uuml;gen (wie durch
+<em>sql</em>-Zeichenfolge, gemeinsamen Zugriff und Bl&auml;ttertyp festgelegt). Das ist die Maximalanzahl
+m&ouml;glicher vorbereiteter Anweisungen, die f&uuml;r eine bestimmte Verbindung w&auml;hrend der Lebensdauer des
+Servers zwischengespeichert werden k&ouml;nnen. Wenn Sie die Cache-Gr&ouml;&szlig;e auf diesen Wert einstellen, bedeutet
+das, dass der Cache nie gel&ouml;scht wird. Allgemein gilt: Je mehr Anweisungen Ihre Anwendung enth&auml;lt,
+desto gr&ouml;&szlig;er sollte der Cache sein. Enth&auml;lt die Anwendung beispielsweise
+f&uuml;nf SQL-Anweisungen, setzen Sie die Gr&ouml;&szlig;e des Cache f&uuml;r Anweisungen auf 5,
+so dass jeder Verbindung f&uuml;nf Anweisungen zugeordnet sind. </p>
+
+<p>Die Anzahl der aus dem Cache gel&ouml;schten Objekte
+kann mit Tivoli Performance Viewer minimiert werden.
+Verwenden Sie eine
+Standardarbeitsbelastung mit einer typischen Anzahl
+eingehender Clientanforderungen, eine feste Anzahl von Iterationen und eine Gruppe von Standardkonfigurationseinstellungen. <strong>Anmerkung:</strong>
+Jede gr&ouml;&szlig;er der Cache f&uuml;r Anweisungen ist, desto mehr Versp&auml;tungen treten bei den Systemressourcen auf.
+Wenn Sie einen zu hohen Wert w&auml;hlen, k&ouml;nnten deshalb Ressourcen fehlen, weil Ihr System nicht in
+der Lage ist, eine entsprechende Anzahl von vorbereiteten Anweisungen zu &ouml;ffnen.
+</p>
+
+<p>In Testanwendungen konnte der Durchsatz durch die Optimierung des
+Cache f&uuml;r Anweisungen um 10 bis 20 % gesteigert werden.
+M&ouml;glicherweise
+ist dies aufgrund von Ressourceneinschr&auml;nkungen jedoch nicht immer m&ouml;glich. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">Ist von der Datenbank abh&auml;ngig.
+Der obere Grenzwert ist 10. F&uuml;r Informix Version 7.3, 9.2 bzw. 9.3 ohne das aktuellste Fix muss
+ebenfalls 0 angegeben werden. Der Standardwert 0 bedeutet, dass keine Cache-Anweisung
+vorhanden ist. </td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="DataSource_datasourceHelperClassname_displayName"></a>Name der DatasourceHelper-Klasse </strong>
+</dt>
+<dd>Die DatastoreHelper-Klasse, die zur Ausf&uuml;hrung der datenbankspezifischen Funktionen
+verwendet wird.  
+<p>Dieses Merkmal wird vom relationalen Ressourcenadapter zur Laufzeit verwendet. Die
+DataStoreHelper-Standardimplementierungsklasse wird basierend auf der Implementierungsklasse des JDBC-Treibers
+definiert. Dabei wird folgende Struktur verwendet:
+<em>com.ibm.websphere.rsadapter.&lt;database&gt;DataStoreHelper</em>.
+Wenn z. B. DB2 als JDBC-Provider eingesetzt wird, lautet die standardm&auml;&szlig;ig
+vorgegebene DataStoreHelper-Klasse <em>com.ibm.websphere.rsadapter.DB2DataStoreHelper</em>.
+Sie k&ouml;nnen diese Klasse in die Unterklasse dieser DataStoreHelper-Klasse &auml;ndern, falls
+erforderlich.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">Ist abh&auml;ngig von der Implementierungsklasse des JDBC-Treibers.</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="DataSource_authDataAlias_displayName"></a>Aliasname f&uuml;r komponentengest&uuml;tzte Authentifizierung</strong>
+</dt>
+<dd>Dieser Aliasname wird f&uuml;r die Datenbankauthentifizierung in der Laufzeit verwendet. 
+<p>Wenn die ressourcengest&uuml;tzte Authentifizierung (res-auth) auf
+<em>Anwendung</em> eingestellt ist, m&uuml;ssen Sie den Aliasnamen im Feld des Aliasnamens f&uuml;r
+komponentengest&uuml;tzte
+Authentifizierung definieren. </p>
+
+<p>Wenn Sie in diesem Feld keinen Wert angeben und f&uuml;r Ihre Datenbank eine Kombination aus Benutzer-ID und
+Kennwort eingegeben werden muss, um eine Verbindung abzurufen, erhalten Sie eine Ausnahmebedingung w&auml;hrend
+der Laufzeit. </p>
+
+<p>Wenn Ihre Datenbank (z. B. Cloudscape) die Merkmale <em>Benutzer-ID</em> und <em>Kennwort</em> nicht unterst&uuml;tzt, d&uuml;rfen Sie den Aliasnamen nicht in den Feldern, die f&uuml;r den Aliasnamen f&uuml;r
+komponentengest&uuml;tzte bzw. containergest&uuml;tzte Authentifizierung vorgesehen sind, definieren. Andernfalls
+sehen Sie die Warnung im Systemprotokoll, die anzeigt, dass der Benutzer und das Kennwort keine g&uuml;ltigen Merkmale sind. Diese Nachricht ist nur eine Warnnachricht, daher wird die Datenquelle erfolgreich
+erstellt. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Auswahlliste</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="DataSource_mappingModule_authDataAlias_displayName"></a>Aliasname f&uuml;r containergest&uuml;tzte Authentifizierung
+</strong>
+</dt>
+<dd>Dieser Aliasname wird f&uuml;r die Datenbankauthentifizierung in der Laufzeit verwendet. 
+<p>Wenn f&uuml;r res-auth der Wert <em>Container</em> angegeben ist, m&uuml;ssen Sie
+den Aliasnamen f&uuml;r containergest&uuml;tzte Authentifizierung angeben. </p>
+
+<p>Wenn Sie in diesem Feld keinen Wert angeben und f&uuml;r Ihre Datenbank eine Kombination aus Benutzer-ID und
+Kennwort eingegeben werden muss, um eine Verbindung abzurufen, erhalten Sie eine Ausnahmebedingung w&auml;hrend
+der Laufzeit. </p>
+
+<p>Wenn Ihre Datenbank (z. B. Cloudscape) die Merkmale <em>Benutzer-ID</em> und <em>Kennwort</em> nicht unterst&uuml;tzt, d&uuml;rfen Sie den Aliasnamen nicht in den Feldern, die f&uuml;r den Aliasnamen f&uuml;r
+komponentengest&uuml;tzte bzw. containergest&uuml;tzte Authentifizierung vorgesehen sind, definieren. Andernfalls
+sehen Sie die Warnung im Systemprotokoll, die anzeigt, dass der Benutzer und das Kennwort keine g&uuml;ltigen Merkmale sind. Diese Nachricht ist nur eine Warnnachricht, daher wird die Datenquelle erfolgreich
+erstellt. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Auswahlliste</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="DataSource_mappingConfigAlias"></a>Aliasname f&uuml;r die Zuordnung der Konfiguration</strong>
+</dt>
+<dd>Erm&ouml;glicht Benutzern die Auswahl eines Eintrags in der Liste, die nach Anklicken von
+<strong>Sicherheit</strong> &gt; <strong>JAAS-Konfiguration</strong> &gt; <strong>Anmeldekonfigurationen der Anwendung</strong> angezeigt wird.
+
+<p>Die JAAS-Konfiguration <strong>DefaultPrincipalMapping</strong> ordnet den Authentifizierungaliasnamen der Benutzer-ID und dem Kennwort zu. 
+Sie k&ouml;nnen andere Zuordnungskonfigurationen definieren und verwenden. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Auswahlliste</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Zugeh&ouml;rige Informationen</strong>
+</p>
+<a href="rcon_buttons.html">Kn&ouml;pfe in der Adminstrationskonsole</a>
+<br>
+
+</div>
+</body>
+</html>

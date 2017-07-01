@@ -1,0 +1,177 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Valores de LTPA (Lightweight Third Party Authentication)</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecrltpa"></a>
+<h2>Valores de LTPA (Lightweight Third Party Authentication)</h2>
+
+<p>Utilice esta p&aacute;gina para configurar los valores de LTPA (Lightweight Third Party
+Authentication).</p>
+
+<p>Para ver esta p&aacute;gina de la consola administrativa, pulse
+<strong>Seguridad</strong> &gt; <strong>Mecanismos de autenticaci&oacute;n</strong> &gt;
+<strong>LTPA</strong>.</p>
+
+<p>Si est&aacute; configurando la seguridad por primera vez, s&oacute;lo necesita la contrase&ntilde;a. Una vez entrada la contrase&ntilde;a, pulse <strong>Aplicar</strong>. Pulse <strong>Inicio de sesi&oacute;n &uacute;nico</strong> (SSO) y entre el nombre de dominio. Aseg&uacute;rese de que SSO est&eacute; habilitado.
+Pulse <strong>Aplicar</strong>.  Para completar la configuraci&oacute;n de
+seguridad, aseg&uacute;rese de que el registro apropiado est&eacute; configurado y
+pulse <strong>Aplicar</strong> en el panel Seguridad Global. Cuando se habilite la seguridad y se modifique una de estas propiedades, vaya al panel Seguridad global y pulse <strong>Aplicar</strong> para validar los cambios.</p>
+
+<div>
+<p>
+<strong>Pesta&ntilde;a Configuraci&oacute;n</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="button"></a>Generar claves</strong>
+</dt>
+<dd>Especifica si el servidor generar&aacute; nuevas claves LTPA.
+<p>Cuando se activa la seguridad por primera vez con LTPA como mecanismo de autenticaci&oacute;n, las claves se generan autom&aacute;ticamente al entrar la contrase&ntilde;a en el panel. Si necesita que se
+genere un nuevo conjunto de claves mediante la contrase&ntilde;a establecida anteriormente, pulse
+<strong>Generar claves</strong>. Si se utiliza una nueva contrase&ntilde;a, no pulse este bot&oacute;n. Una vez que entre la nueva contrase&ntilde;a y pulse <strong>Aceptar</strong> o <strong>Aplicar</strong>, se generar&aacute; un nuevo conjunto de claves. <em>Siempre que se genere un nuevo conjunto de claves, &eacute;stas no se
+utilizar&aacute;n hasta que las guarde.</em> 
+</p>
+
+</dd>
+<dt>
+<strong><a name="LTPA_password_description"></a>Importar claves</strong>
+</dt>
+<dd>Especifica si el servidor importar&aacute; nuevas claves LTPA.
+<p>Para dar soporte al inicio de sesi&oacute;n &uacute;nico (SSO) del producto WebSphere en varios dominios
+de WebSphere (c&eacute;lulas), las claves LTPA y la contrase&ntilde;a se deben compartir entre los dominios. El bot&oacute;n <strong>Importar claves</strong> puede utilizarse para importar las claves LTPA de otros dominios. Las claves LTPA se deben haber exportado anteriormente de una de las c&eacute;lulas a un archivo. Para importar un nuevo conjunto de claves LTPA, entre la contrase&ntilde;a correcta y el nombre de archivo donde se encuentren las claves LTPA.
+Pulse &uacute;nicamente <strong>Importar claves</strong>;
+<strong><em>no pulse</em></strong> <strong>Aceptar</strong> o <strong>Aplicar</strong>.</p>
+
+</dd>
+<dt>
+<strong><a name="LTPA_password_description"></a>Exportar claves</strong>
+</dt>
+<dd>Especifica si el servidor exportar&aacute; claves LTPA.
+<p>Para dar soporte al inicio de sesi&oacute;n &uacute;nico (SSO) del producto WebSphere en varios dominios
+de WebSphere (c&eacute;lulas), las claves LTPA y la contrase&ntilde;a se deben compartir entre los dominios. Se puede utilizar el bot&oacute;n <strong>Exportar claves</strong> para
+exportar las claves LTPA a otros dominios.</p>
+
+<p>Para exportar las claves LTPA, aseg&uacute;rese de que el sistema se est&eacute; ejecutando con la seguridad habilitada y est&eacute; utilizando LTPA. Entre el nombre de archivo en el campo
+<strong>Nombre de archivo de claves</strong> y pulse <strong>Exportar claves</strong>. Las claves cifradas se almacenar&aacute;n en el archivo especificado.</p>
+
+</dd>
+<dt>
+<strong><a name="LTPA_password_description"></a>Contrase&ntilde;a</strong>
+</dt>
+<dd>Especifica la contrase&ntilde;a para cifrar y descifrar las claves LTPA. Utilice esta
+contrase&ntilde;a cuando se importen estas claves a otras configuraciones del dominio administrativo
+de WebSphere Application Server (si existen) y cuando se configure SSO para Domino Server.
+<p>Una vez generadas o importadas las claves, se utilizan para cifrar o descifrar el s&iacute;mbolo
+LTPA. Siempre que se modifique la contrase&ntilde;a, autom&aacute;ticamente se generar&aacute; un nuevo conjunto de claves LTPA al pulsar <strong>Aceptar</strong> o <strong>Aplicar</strong>. Estos conjuntos de claves nuevos se utilizar&aacute;n &uacute;nicamente cuando realice la operaci&oacute;n de guardar.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LTPA_confirmPassword_description"></a>Confirmar contrase&ntilde;a</strong>
+</dt>
+<dd>Especifica la contrase&ntilde;a confirmada para cifrar y descifrar las claves LTPA.
+<p>Utilice esta contrase&ntilde;a cuando se importen estas claves a otras configuraciones del dominio
+administrativo de WebSphere Application Server (si existen) y cuando se configure SSO para
+Domino Server.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LTPA_timeout_description"></a>Tiempo de espera</strong>
+</dt>
+<dd>Especifica el intervalo en minutos durante el cual caduca un s&iacute;mbolo LTPA. Aseg&uacute;rese
+de que este periodo de tiempo sea mayor que el tiempo de espera de antememoria configurado
+en el panel Seguridad Global.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unidades</td>
+<td align="left" valign="top" class="base">Minutos</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">120</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LTPA_keyFilename_description"></a>Nombre de archivo de claves</strong>
+</dt>
+<dd>Especifica el nombre del archivo utilizado al importar o exportar claves.
+<p>Especifique un nombre de archivo de claves plenamente cualificado, y pulse <strong>Importar claves</strong> o <strong>Exportar claves</strong>.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informaci&oacute;n relacionada</strong>
+</p>
+<a href="rcon_buttons.html">Botones de la consola de administraci&oacute;n</a>
+<br>
+
+<a href="rcon_pageusage.html">Caracter&iacute;sticas de la p&aacute;gina de la consola administrativa</a>
+<br>
+
+<a href="rcon_scope.html">Valores de &aacute;mbito de la consola administrativa</a>
+<br>
+
+<a href="rcon_filter.html">Valores de filtro de la consola administrativa</a>
+<br>
+
+<a href="rcon_preferences.html">Valores de preferencias de la consola administrativa</a>
+<br>
+
+</div>
+</body>
+</html>

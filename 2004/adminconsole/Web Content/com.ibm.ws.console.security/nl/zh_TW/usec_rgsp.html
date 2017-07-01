@@ -1,0 +1,404 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>廣域安全設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecrgsp"></a>
+<h2>
+<img alt="[修正套件 5.0.2 和更新版本]" src="v502.gif" border="0">廣域安全設定</h2>
+
+<p>請利用這個頁面來配置安全。當您啟用安全時，您是在啟用廣域層次的安全設定。當停用安全時，WebSphere Application Server 的效能可以增加 10-20%。因此，當沒有必要時，請考慮停用安全。</p>
+
+<p>如果要檢視這個管理主控台頁面，請按一下<strong>安全</strong> &gt; <strong>廣域安全</strong>。</p>
+
+<div>
+<p>如果您是第一次配置安全，請完成文件中的「配置廣域安全」所提供的步驟來防止發生問題。
+配置好安全之後，請驗證登錄或鑑別機制畫面的任何變更。
+請按一下<strong>套用</strong>來驗證使用者登錄設定。
+您想要讓已配置的使用者登錄來鑑別伺服器 ID。
+在啟用廣域安全之後驗證使用者登錄設定，可以避免在第一次重新啟動伺服器時發生問題。
+</p>
+</div>
+
+<div>
+<p>
+<strong>「配置」標籤</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="Security_enabled_description"></a>已啟用</strong>
+</dt>
+<dd>指定伺服器要啟用安全子系統。
+
+<p>在 WebSphere Application Server 資訊中，這個旗標通常稱為<em>廣域安全旗標</em>。
+當啟用安全時，請設定鑑別機制配置，以及在選取的使用者登錄配置中指定有效的使用者 ID 和密碼。
+</p>
+
+
+
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型：</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值：</td>
+<td align="left" valign="top" class="base">停用</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="Security_enforceJava2Security_description"></a>強制 Java 2 安全</strong>
+</dt>
+<dd>指定要啟用或停用 Java 2 安全許可權檢查。
+依預設，它會停用 Java 2 安全。
+不過，啟用廣域安全會自動啟用 Java 2 安全。
+您可以選擇停用 Java 2 安全，即使已經啟用廣域安全也一樣。
+
+<p>當您啟用 Java 2 安全時，如果應用程式需要超出預設原則所授予的 Java 2 安全許可權，倘沒有在應用程式的 <samp>app.policy</samp> 檔或 <samp>was.policy</samp> 檔中授予必要的許可權，應用程式可能無法順利執行。
+應用程式如果不具備所有必要的許可權，會產生 AccessControl 異常狀況。
+如果不熟悉 Java 2 安全，請參閱 InfoCenter，並檢視 <em>Java 2 安全和動態原則</em>等節。
+</p>
+
+<p>如果在啟用廣域安全之後，不重新啟動伺服器，就可以停用安全。
+請移至 <samp>$&lt;install_root&gt;\bin</samp> 目錄，執行 <samp>wsadmin -conntype NONE</samp> 指令。
+請在 <samp>wsadmin&gt;</samp> 提示中，輸入 <samp>securityoff</samp>，再輸入 <samp>exit</samp> 來返回命令提示模式。
+請停安全來重新啟動伺服器伺服器，利用管理主控台來檢查任何不正確的設定。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型：</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值：</td>
+<td align="left" valign="top" class="base">停用</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍：</td>
+<td align="left" valign="top" class="base">啟用或停用</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="Security_useDomainQualifiedUserNames_description"></a>使用領域完整使用者名稱
+</strong>
+</dt>
+<dd>指定以使用者所在的安全領域來限定使用者名稱。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型：</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值：</td>
+<td align="left" valign="top" class="base">停用</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍：</td>
+<td align="left" valign="top" class="base">啟用或停用</td>
+
+</tr>
+
+</table>
+
+
+<p>
+<img alt="[只適用於 5.0]" src="v50x.gif" border="0"><img alt="[修正套件 5.0.1]" src="v501x.gif" border="0">當您從<strong>安全 &gt; 廣域安全</strong>配置畫面中指定<strong>使用領域完整使用者名稱</strong>時，Enterprise Bean 所發出的 getCallerPrincipal() 執行時期呼叫會傳回在前面附加了兩次範圍的完整名稱。
+比方說，傳回格式是 realm/realm/user。
+當發出 API 呼叫時，您可以從傳回的值中除去第一個範圍。
+Servlet API getUserPrincipal() 會正確運作。
+</p>
+
+</dd>
+<dt>
+<strong><a name="Security_cacheTimeout_description"></a>快取逾時值</strong>
+</dt>
+<dd>指定安全快取的逾時值（秒）。這個值是相對的逾時值。
+<p>如果啟用 WebSphere Application Server 安全，安全快取逾時可能會影響效能。
+逾時設定會指定安全相關快取記憶體的重新整理頻率。
+Bean、許可權和憑證的相關安全資訊都在快取範圍內。
+當快取記憶體逾時到期之後，所有快取資訊都會成為無效。
+後續的資訊要求都會執行資料庫查閱。
+有時必須呼叫輕裝備目錄存取通訊協定 (LDAP) 連結或原生鑑別才能取得資訊。兩種呼叫都是成本相對較高的效能作業。
+請檢視用法型樣和網站的安全需求來決定應用程式的最佳取捨。</p>
+
+<p>在 20 分鐘的效能測試中，將快取逾時值設成不會發生逾時可以增進 40% 的效能。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型：</td>
+<td align="left" valign="top" class="base">整數</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">單位：</td>
+<td align="left" valign="top" class="base">秒</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值：</td>
+<td align="left" valign="top" class="base">600</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍：</td>
+<td align="left" valign="top" class="base">大於 30 秒</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="Security_issuePermissionWarning_description"></a>發出許可權警告</strong>
+</dt>
+<dd>可指定在啟用<em>發出許可權警告</em>的情況下，當應用程式部署和應用程式啟動時，如果應用程式取得任何自訂許可權，安全執行時期就會發出警告。
+自訂許可權是使用者應用程式所定義的許可權，不是 JDK 許可權。
+JDK 許可權是 <samp>package java.*</samp> 和 <samp>javax.*</samp> 中的許可權。
+
+<p>Websphere 產品提供原則檔管理支援。
+這個產品有若干原則檔，有些是靜態的，有些是動態的。
+動態原則是特殊資源類型的許可權範本。
+動態原則範本中沒有定義任何程式碼庫，也沒有使用任何相關的程式碼庫。
+真正的程式碼庫是以動態方式，從配置及執行時期資料建立的。
+<samp>filter.policy</samp> 檔含有根據 J2EE 1.3 規格，應用程式不應擁有的許可權清單。
+如果需要許可權的詳細資訊，請參閱 InfoCenter 中的「Java 2 安全原則管理」一文。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型：</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值：</td>
+<td align="left" valign="top" class="base">停用</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍：</td>
+<td align="left" valign="top" class="base">啟用或停用</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="Security_activeProtocol_description"></a>作用中的通訊協定</strong>
+</dt>
+<dd>指定在啟用安全時，RMI/IIOP（透過 Internet 交互 ORB 通訊協定的遠端方法呼叫）要求的作用中鑑別通訊協定。
+在先前的版次中，安全鑑別服務 (SAS) 通訊協定是唯一可用的通訊協定。
+
+<p>稱為 Common Secure Interoperability 第 2 版 (CSIv2) 的 Object Management Group (OMG) 通訊協定支援增強的供應商交互作業功能和其他特性。
+如果安全領域中的所有伺服器都是第 5 版伺服器，請指定 <strong>CSI</strong> 作為通訊協定。
+如果部分伺服器是 3.x 或 4.x 伺服器，請指定 <strong>CSI 和 SAS</strong>。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型：</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值：</td>
+<td align="left" valign="top" class="base">BOTH</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍：</td>
+<td align="left" valign="top" class="base">CSI 和 SAS、CSI</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="Security_activeAuthMechanism_description"></a>作用中的鑑別機制</strong>
+</dt>
+<dd>指定啟用安全時，在作用中的鑑別機制。
+
+
+<p>WebSphere Application Server 第 5 版支援下列鑑別機制：簡式 WebSphere 鑑別機制 (SWAM) 和小型認證機構 (LTPA)。</p>
+
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型：</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值：</td>
+<td align="left" valign="top" class="base">SWAM (WebSphere Application Server)</td>
+
+</tr>
+
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍：</td>
+<td align="left" valign="top" class="base">SWAM、LTPA</td>
+
+</tr>
+
+</table>
+
+
+</dd>
+<dt>
+<strong><a name="Security_activeUserRegistry_description"></a>作用中的使用者登錄</strong>
+</dt>
+<dd>指定啟用安全時，在作用中的使用者登錄。
+<p>您可以配置下列使用者登錄之一的設定：<ul>
+
+
+<li>本端作業系統
+</li>
+
+<li>LDAP 使用者登錄。
+當使用者和群組是在外部 LDAP 目錄時，會使用 LDAP 使用者登錄設定。
+當啟用安全且任何這些內容有了改變時，請進入<strong>廣域安全</strong>畫面，再按一下<strong>套用</strong>或<strong>確定</strong>來驗證變更。
+</li>
+
+<li>自訂使用者登錄</li>
+
+</ul>
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型：</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值：</td>
+<td align="left" valign="top" class="base">本端 OS</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍：</td>
+<td align="left" valign="top" class="base">本端 OS、LDAP、自訂</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="Security_fips"></a>使用 FIPS</strong>
+            &nbsp;
+            <img alt="[修正套件 5.0.2 和更新版本]" src="v502.gif" border="0"></dt>
+<dd>啟用 FIPS（聯邦資訊處理標準）核准的加密演算法。
+<p>當啟用<strong>使用 FIPS</strong> 時，小型認證機構 (LTPA) 實作會使用 IBMJCEFIPS。
+IBMJCEFIPS 支援美國聯邦資訊處理標準 (FIPS) 核准的 DES、三重 DES 和 AES 加密演算法。
+雖然 LTPA 金鑰相容於 WebSphere Application Server 的舊版本，但 LTPA 記號與舊版本不相容。
+</p>
+
+<p>WebSphere Application Server 提供了 FIPS 核准的 Java Secure Socket Extension (JSSE) 提供者，稱為 IBMJSSEFIPS。FIPS 核准的 JSSE 需要傳輸層安全 (TLS) 通訊協定，因為它不相容於 Secure Socket Layer (SSL) 通訊協定。
+如果您在指定 FIPS 核准的 JSSE 提供者和 TLS 通訊協定之前選取<strong>使用 FIPS</strong> 勾選框，<strong>廣域安全</strong>畫面頂端會顯示下列錯誤訊息：
+<pre class="program">
+<font style="font-family: arial"><samp>安全原則設為只使用 FIPS 核准的加密演算法。
+不過，至少有一個 SSL 配置可能沒有使用 FIPS 核准的 JSSE 提供者。
+在這些情況下，不能使用 FIPS 核准的加密演算法。
+</samp></font>
+</pre>如果要更正這個問題，請在 <strong>SSL 配置內容</strong>畫面中完成下列作業來配置您的 JSSE 提供者和安全通訊協定：<ul>
+
+<li>按一下<strong>安全 &gt; SSL</strong>，修改現有的配置</li>
+
+<li>按一下<strong>新建</strong>，建立新的配置</li>
+
+</ul>
+</p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>相關資訊</strong>
+</p>
+<a href="rcon_buttons.html">管理主控台按鈕</a>
+<br>
+
+<a href="rcon_pageusage.html">管理主控台頁面特性</a>
+<br>
+
+<a href="rcon_scope.html">管理主控台範圍設定</a>
+<br>
+
+<a href="rcon_filter.html">管理主控台過濾器設定</a>
+<br>
+
+<a href="rcon_preferences.html">管理主控台喜好設定</a>
+<br>
+
+</div>
+</body>
+</html>

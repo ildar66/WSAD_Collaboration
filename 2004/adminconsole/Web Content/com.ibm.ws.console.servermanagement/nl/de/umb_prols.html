@@ -1,0 +1,218 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Message Listener Service</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="MessageListenerService"></a>
+<h2>Message Listener Service</h2>
+
+<p>Der Message Listener Service ist eine Erweiterung der JMS-Funktionen des JMS-Provider. Der Service bietet einen
+Listener-Manager, der einen oder mehrere JMS-Listener steuert
+und &uuml;berwacht. Die JMS-Listener &uuml;berwachen ihrerseits jeweils
+eine JMS-Zieladresse f&uuml;r eine implementierte (Deployment) nachrichtengesteuerte
+Bean. </p>
+
+<p>Diese Anzeige enth&auml;lt Links zu den Seiten "Weitere Merkmale" f&uuml;r Listener-Ports, Thread-Pools und
+"Benutzerdefinierte Merkmale" f&uuml;r den Message Listener Service.</p>
+
+<p>Klicken Sie zum Anzeigen dieser Seite der Administrationskonsole auf
+<strong>Server -&gt; <em>Anwendungsserver</em> -&gt; Nachrichten-Listener-Service</strong>.</p>
+
+<dl>
+<dt>
+<strong><a name="MessageListenerService_name"></a>Name</strong>
+</dt>
+<dd>Der Name, mit dem der Message Listener Service f&uuml;r die Administration bezeichnet wird.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+
+
+
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">MsgLService</td>
+
+</tr>
+
+
+
+
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MessageListenerService_description"></a>Beschreibung</strong>
+</dt>
+<dd>Eine Beschreibung des Message Listener Service f&uuml;r die Administration.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+
+
+
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">Keiner</td>
+
+</tr>
+
+
+
+
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MessageListenerService_threadPool"></a>Thread-Pool</strong>
+            &nbsp;
+            </dt>
+<dd>Steuert die maximale Anzahl Threads, die der Message Listener Service ausf&uuml;hren darf.
+W&auml;hlen Sie diesen Link aus, um die Merkmale des
+Service-Thread-Pools anzuzeigen.
+<p>Passen Sie diesen Parameter an, wenn mehrere nachrichtengesteuerte Beans in demselben Anwendungsserver implementiert
+werden und die Summe ihrer maximalen Sitzungswerte den Standardwert 10 &uuml;berschreitet.
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Einheiten</td>
+<td align="left" valign="top" class="base">Nicht anwendbar</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">Minimum: 10, maximum 50</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">Nicht anwendbar</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">
+Empfohlene Einstellung</td>
+<td align="left" valign="top" class="base">Setzen Sie den Mindestwert auf die Summe der maximalen Sitzungswerte aller nachrichtengesteuerten Beans.
+Setzen Sie den Maximalwert auf einen Wert gr&ouml;&szlig;er-gleich dem Mindestwert. </td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MessageListenerService_custom"></a>Benutzerdefinierte Merkmale</strong>
+</dt>
+<dd>Benutzerdefinierte Merkmale des Message Listener Service. Der JMS-Server kann in zwei Modi arbeiten:
+Application Server Facilities (ASF) und Non-ASF.
+ASF unterst&uuml;tzt gemeinsamen Zugriff und Transaktionen in Anwendungen.
+Non-ASF umgeht diese Unterst&uuml;tzung, um die Pfadl&auml;nge zu optimieren. 
+<p>Verwenden Sie Non-ASF in den folgenden F&auml;llen:<ul>
+
+<li>Die Reihenfolge der Nachrichten ist eine strikte Anforderung.</li>
+
+<li>Gleichzeitige PTP-Nachrichten sind erw&uuml;nscht. </li>
+
+<li>Das Merkmal <samp>non.asf.receive.timeout</samp> ist angegeben und hat einen Wert gr&ouml;&szlig;er als 0.
+</li>
+
+</ul>Verwenden Sie Non-ASF nicht, wenn gleichzeitige Pub/Sub-Nachrichten erw&uuml;nscht sind. ASF bietet hier einen besseren Durchsatz.
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Einheiten</td>
+<td align="left" valign="top" class="base">Millisekunden</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">ASF-Modus (keine Erstellung benutzerdefinierter Merkmale)</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base"></td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">
+Empfohlene Einstellung</td>
+<td align="left" valign="top" class="base">Der Wert steht f&uuml;r die Anzahl Millisekunden, die f&uuml;r die Zustellung einer Nachricht
+ben&ouml;tigt werden.
+Wenn das Zeitlimit &uuml;berschritten wird, muss die Zustellung wiederholt werden. Dies bedeutet zus&auml;tzlichen Aufwand.
+Sie sollten f&uuml;r diese Einstellung einen geringf&uuml;gig niedrigeren Wert als f&uuml;r das Transaktionszeitlimit w&auml;hlen. Die Differenz
+sollte einige Sekunden (10 oder mehr) betragen.
+Die Differenz sollte bei extrem hohen Arbeitslasten, wenn Threads lange auf die Zuteilung von CPU-Zeit warten, h&ouml;her
+gew&auml;hlt werden.
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>Zugeh&ouml;rige Informationen</strong>
+</p>
+<a href="umb_smlp.html">Gruppe der Message-Listener-Ports </a>
+<br>
+
+</div>
+</body>
+</html>

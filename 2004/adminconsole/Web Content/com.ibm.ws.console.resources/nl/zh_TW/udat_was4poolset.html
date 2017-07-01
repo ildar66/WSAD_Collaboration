@@ -1,0 +1,353 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>連線儲存池（第 4 版）設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="Connection_poolV4_settings"></a>
+<h2>連線儲存池（第 4 版）設定</h2>
+
+<p>請利用這個頁面來建立 4.0 版資料來源的連線儲存池。
+</p>
+
+<p>如果要檢視這個管理主控台頁面，請按一下<strong>資源</strong> &gt; <strong>JDBC 提供者</strong> &gt; <em>JDBC_provider</em> &gt; <strong>資料來源（第 4 版）</strong> &gt; <em>data_source</em>&gt; <strong>連線儲存池</strong>。
+</p>
+
+<div>
+<p>
+<strong>「配置」標籤</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="WAS40ConnectionPool_detail_contextID"></a>範圍</strong>
+</dt>
+<dd>指定這個資源定義的層次是可見的 -- Cell、節點或伺服器層次。
+
+<p>JDBC 提供者、名稱空間連結或共用程式庫之類的資源可以定義在多個範圍，定義在較明確範圍的資源會改寫定義在較一般範圍的複本。
+</p>
+
+<p>請注意，不管所定義的資源範圍是什麼，資源的內容只適用於個別的伺服器層次。
+比方說，如果您在 Cell 層次定義資料來源的範圍，則 Cell 中所有的使用者，都可以查閱以及使用這個資料來源，而這個資料來源在該 Cell 中是唯一的。
+但是，資源內容設定對於 Cell 中的每一個伺服器來說，是本端設定。
+比方說，如果您將<em>連線數上限</em>定義為 10，則該 Cell 中的每一個伺服器都可以有多達 10 個連線。
+<dl>
+
+<dt>
+<strong>Cell</strong>
+</dt>
+<dd>最一般的範圍。除非遭到置換，否則，所有節點和伺服器都能看到 Cell 範圍所定義的資源。
+如果要檢視 Cell 範圍中所定義的資源，請不要在範圍選擇表單中指定伺服器或節點名稱。</dd>
+
+<dt>
+<strong>節點</strong>
+</dt>
+<dd>大部分資源類型的預設範圍。定義在節點範圍的資源會置換任何定義在 Cell 範圍的複本，且相同節點中的所有伺服器都能看到它們，除非它們在這個節點的伺服器範圍中遭到置換。
+如果要檢視節點範圍中所定義的資源，請不要指定伺服器，但在範圍選擇表單中選取一個節點名稱。</dd>
+
+<dt>
+<strong>伺服器</strong>
+</dt>
+<dd>定義資源的最特定範圍。
+定義在「伺服器」範圍的資源會置換任何定義在 Cell 範圍或「母節點」範圍的重複資源定義，而且僅特定伺服器能夠看到它們。如果要檢視定義在伺服器範圍中的資源，請在範圍選擇表單中指定伺服器名稱和節點名稱。</dd>
+
+</dl>
+</p>
+
+<p>當建立資源時，始終都會將它們建立畫面中所選取的現行範圍內。
+如果要檢視其他範圍中的資源，請在範圍選擇表單中指定不同的節點或伺服器。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WAS40ConnectionPool_minimumPoolSize_description"></a>儲存池大小下限</strong>
+</dt>
+<dd>指定要在儲存池內維護的連線數目下限。
+
+<p>儲存池大小下限可以影響應用程式的效能。
+當需求低時，較小的儲存池需要更少的額外負荷，因為保留的資料庫連線更少。
+當需求高時，前幾個應用程式會遇到回應慢的情況，因為如果儲存池中所有其他連線都在使用中，就會建立新的連線。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">整數</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">1
+</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">任何非負的整數。</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WAS40ConnectionPool_maximumPoolSize_description"></a>儲存池大小上限</strong>
+</dt>
+<dd>指定要在儲存池內維護的連線數目上限。
+<p> 如果已到達連線數目上限，且所有連線都在使用中，則其他連線要求最多會等待指定為連線逾時值的秒數。
+儲存池大小上限可以影響應用程式的效能。當需求高時，較大的儲存池需要更多的額外負荷，因為在尖峰需求時，有更多的資料庫連線。
+這些連線將持續到它們因閒置而離開儲存池為止。
+如果上限值較小，在尖峰時刻，等待的時間可能更長，也可能發生連線逾時錯誤。
+請確定資料庫能夠支援應用程式伺服器中的連線數目上限，加上它在應用程式伺服器之外的任何負荷。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">整數</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">10</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">任何正整數</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WAS40ConnectionPool_connectionTimeout_description"></a>連線逾時值</strong>
+</dt>
+<dd> 指定在發生逾時並擲出 ConnectionWaitTimeoutException 給應用程式之前，應用程式等待儲存池所提供的連線之秒數上限。
+
+<p>將這個值設成 0 將停用連線逾時值。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">整數</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">單位</td>
+<td align="left" valign="top" class="base">秒</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">180</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">任何非負的整數</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WAS40ConnectionPool_idleTimeout_description"></a>閒置逾時值</strong>
+</dt>
+<dd>指定在移除閒置（未配置）的連線以釋出資源之前，這些連線可保留在儲存池內的秒數上限。
+
+<p>連線必須因閒置而離開儲存池，因為保持開啟的資料庫連線可能使資料庫發生記憶體問題。
+不過，並非所有連線都會因閒置而離開儲存池，即使它們比「閒置逾時值」設定還要舊，也是如此。如果移除連線將導致儲存池低於它的大小下限，則連線將不會閒置。
+將這個值設成 0 將停用閒置逾時值。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">整數</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">單位</td>
+<td align="left" valign="top" class="base">秒</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">1800</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">任何非負的整數</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WAS40ConnectionPool_orphanTimeout_description"></a>孤兒逾時值</strong>
+</dt>
+<dd>指定在連線傳回儲存池之前，應用程式可保留卻沒有使用這個連線的秒數上限。
+
+<p>如果在配置的連線上沒有活動的時間長於「孤兒逾時值」設定，就會將連線標示為孤兒。
+在經過另一個「孤兒逾時值」秒數之後，如果連線仍沒有活動，就會將連線傳回儲存池。
+如果應用程式嘗試再次使用連線，系統將擲出 StaleConnectionException 給它。加入交易的連線不是孤兒。
+將這個值設成 0 將停用孤兒逾時值。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">整數</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">單位</td>
+<td align="left" valign="top" class="base">秒</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">1800</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">任何非負的整數</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WAS40ConnectionPool_statementCacheSize_description"></a>陳述式快取記憶體大小</strong>
+</dt>
+<dd> 指定每個連線要保留的快取備妥陳述式數目。
+<p>如果您不要捨棄任何快取，您的快取大小所需設定的最大值是依照下列方式來決定的：對於在特定伺服器中使用這個資料來源的每個應用程式，加上唯一備妥陳述式的數目（如 <em>sql</em> 字串、並行性及捲動類型所決定）。
+這是在伺服器的生命過程中，給定連線所可能快取的備妥陳述式數目上限。
+將快取大小設為這個值，表示永遠不捨棄快取。
+這會有較好的效能。
+不過，由於可能的資源限制，這不一定可能。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">整數</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">10</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">任何非負的整數</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WAS40ConnectionPool_disableAutoConnectionCleanup_description"></a>自動連線清除</strong>
+</dt>
+<dd>指定在交易結束時，連線儲存池軟體要不要自動關閉起始於這個資料來源的連線。
+<p> 預設值是 <em>false</em>，表示當交易完成時，WebSphere Application Server 會關閉連線並將它傳回儲存池。
+在結束交易後，如果使用連線，就會造成 StaleConnectionException，因為連線已關閉並傳回儲存池。
+這個機制確定該連線不會被應用程式永遠保有。
+如果值設成 <em>true</em>，在交易結束時，連線不會傳回儲存池。
+在這種情況下，應用程式必須呼叫 <em>close()</em>，將連線傳回到儲存池。如果應用程式未關閉連線，則儲存池可能會用光供其他應用程式使用的連線。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">勾選框</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">False（清除）</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>相關資訊</strong>
+</p>
+<a href="rcon_buttons.html">管理主控台按鈕</a>
+<br>
+
+<a href="rcon_pageusage.html">管理主控台頁面特性</a>
+<br>
+
+</div>
+</body>
+</html>

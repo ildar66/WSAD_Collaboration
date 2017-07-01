@@ -1,0 +1,168 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Thread-Pool-Einstellungen</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uejb_rthrd"></a>
+<h2>Thread-Pool-Einstellungen</h2>
+
+<p>Auf dieser Seite k&ouml;nnen Sie eine Thread-Gruppe, die von einem Anwendungsserver verwendet wird,
+konfigurieren. Die Anforderungen werden &uuml;ber einen der HTTP-Transporte an den Server gesendet.
+Ein Thread-Pool erm&ouml;glicht den Serverkomponenten, Threads
+wiederzuverwenden. Auf diese Weise wird verhindert, dass
+zur Laufzeit neue Threads erstellt werden m&uuml;ssen. Das Erstellen neuer Threads ist zeit- und
+ressourcenintensiv. </p>
+
+<p>Klicken Sie zum Aufrufen dieser Seite der Administrationskonsole auf <strong>Server &gt; Anwendungsserver
+verwalten &gt; </strong><em>Servername</em><strong> &gt; ORB-Service &gt; Thread-Pool</strong>. (Sie
+k&ouml;nnen diese Seite &uuml;ber verschiedene Optionskombinationen aufrufen.)</p>
+
+<div>
+<p>
+<strong>Register "Konfiguration"</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="ThreadPool_minimumSize_description"></a>Mindestgr&ouml;&szlig;e</strong>
+</dt>
+<dd>Die Mindestanzahl der Threads im Pool.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">10</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ThreadPool_maximumSize_description"></a>Maximale Gr&ouml;&szlig;e</strong>
+</dt>
+<dd>Die maximal zul&auml;ssige Anzahl der Threads im Pool.
+<p>Falls der Tivoli Performance Viewer anzeigt, dass die Metrik Percent Maxed konstant im zweistelligen Bereich liegt,
+sollten Sie die maximale Gr&ouml;&szlig;e erh&ouml;hen.
+Die Metrik Percent Maxed gibt Aufschluss &uuml;ber die Verwendungsdauer der konfigurierten Threads.
+Wenn mehrere Clients gleichzeitig eine Verbindung zum serverseitigen ORB herstellen,
+k&ouml;nnen Sie den Parameter f&uuml;r eine Unterst&uuml;tzung von bis zu 1000 Clients erh&ouml;hen.
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">50</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Empfohlener Wert</td>
+<td align="left" valign="top" class="base"><a href="rprf_troubleshoot.html">50
+ (25 auf Linux-Systemen)</a></td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ThreadPool_inactivityTimeout_description"></a>Zeitlimit f&uuml;r Thread-Inaktivit&auml;t</strong>
+</dt>
+<dd>Gibt den Zeitraum der Inaktivit&auml;t an (in Millisekunden). Nach Ablauf
+dieses Zeitraums wird ein Thread wiederhergestellt. Der Wert 0 steht f&uuml;r keine Wartezeit, ein
+negativer Wert (kleiner als 0) steht f&uuml;r eine unbegrenzte Wartezeit.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Einheiten</td>
+<td align="left" valign="top" class="base">Millisekunden</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">3500</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ThreadPool_isGrowable_description"></a>Ist erweiterbar</strong>
+</dt>
+<dd>Bei Auswahl dieser Option kann die Anzahl der Threads den f&uuml;r den
+Thread-Pool konfigurierten Maximalwert &uuml;bersteigen.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Boolescher Wert</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">Nicht aktiviert (false)</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">Die g&uuml;ltigen Werte sind <strong>Thread-Zuordnung &uuml;ber maximale Gr&ouml;&szlig;e des
+Thread-Pools hinaus zulassen</strong> und <strong>Nicht aktiviert</strong>. </td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Zugeh&ouml;rige Informationen</strong>
+</p>
+<a href="rcon_buttons.html">Kn&ouml;pfe in der Adminstrationskonsole</a>
+<br>
+
+<a href="rcon_pageusage.html">Funktionen auf den Seiten der Administrationskonsole</a>
+<br>
+
+</div>
+</body>
+</html>

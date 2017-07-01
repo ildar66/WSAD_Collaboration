@@ -1,0 +1,98 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Java 认证授权服务登录模块设置</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecjaaslogin"></a>
+<h2>Java 认证授权服务登录模块设置</h2>
+
+<p>使用此页面定义 Java 认证授权服务（JAAS）登录配置的登录模块。</p>
+
+<p>要查看此管理页面，单击<strong>安全性</strong> &gt; <strong>JAAS 配置</strong> &gt; <strong>应用程序登录</strong> &gt; <em>alias_name</em> &gt; <strong>JAAS 登录模块</strong>。</p>
+
+<div>
+<p>
+<strong>&ldquo;配置&rdquo;选项卡</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="JAASLoginModule_moduleClassName_description"></a>模块类名</strong>
+</dt>
+<dd>指定给定的登录模块的类名。
+<p>由 WebSphere 产品定义的缺省登录模块使用代理 LoginModule 类，com.ibm.ws.security.common.auth.module.WSLoginModuleProxy。此代理类用线程上下文类装入程序装入 WebSphere 登录模块并委托所有操作到<em>实际的</em>登录模块实现。实际的登录模块实现指定为选项配置中的委托选项。代理类是必需的，因为 WebSphere 产品类装入程序对于开发者工具箱应用程序类装入程序是不可见的。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型：</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JAASLoginModule_authenticationStrategy_description"></a>认证策略</strong>
+</dt>
+<dd>指定认证行为是沿登录模块堆栈继续向下认证。
+<p>JAAS 认证提供程序提供认证策略。在 JAAS 中，认证策略通过 LoginModule 接口实现。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型：</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省：</td>
+<td align="left" valign="top" class="base">必需的</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">范围：</td>
+<td align="left" valign="top" class="base">必需的、必要的、足够的和可选的</td>
+
+</tr>
+
+</table>
+
+<p>在<strong>选项其它属性</strong>中指定附加的选项。在初始化期间，这些名称和值对传递到登录模块。这是用于传递信息到登录模块的一种机制。
+</p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>相关信息</strong>
+</p>
+<a href="rcon_buttons.html">管理控制台按钮</a>
+<br>
+
+<a href="rcon_pageusage.html">管理控制台页面功能</a>
+<br>
+
+<a href="rcon_scope.html">管理控制台作用域设置</a>
+<br>
+
+<a href="rcon_filter.html">管理控制台过滤器设置</a>
+<br>
+
+<a href="rcon_preferences.html">管理控制台首选项设置</a>
+<br>
+
+</div>
+</body>
+</html>

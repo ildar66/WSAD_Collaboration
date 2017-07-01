@@ -1,0 +1,246 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Common Secure Interoperability inbound authentication settings</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecinbound"></a>
+<h2>Common Secure Interoperability inbound authentication settings</h2>
+
+<p>Use this page to specify the features that a server supports for
+a client accessing its resources.</p>
+
+<p>To view this administrative console page, click <strong>Security</strong> &gt; <strong>Authentication
+Protocol</strong> &gt; <strong>CSI Inbound Authentication</strong>.</p>
+
+<p>CSI inbound authentication settings for configuring the type of authentication
+information contained in an incoming request or transport.</p>
+
+<p>Authentication features include three layers of authentication that you
+can use simultaneously:  <ul>
+
+<li>
+<strong>Transport layer</strong>. The transport layer, the lowest layer, might contain
+a Secure Sockets Layer (SSL) client certificate as the identity.</li>
+
+<li>
+<strong>Message layer</strong>. The message layer might contain a user ID and password
+or an expirable authenticated token.</li>
+
+<li>
+<strong>Attribute layer</strong>. The attribute layer might contain an identity
+token, which is an identity from an upstream server that already is authenticated.
+The identity layer has the highest priority, followed by the message layer
+and then the transport layer. If a client sends all three, only the identity
+layer is used. The only way to use the SSL client certificate as the identity
+is if it is the only information presented during the request. The client
+picks up the IOR from the name space and reads the values from the tagged component
+to determine what the server needs for security. </li>
+
+</ul>  
+</p>
+
+<div>
+<p>
+<strong>Configuration tab</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="BasicAuthentication_i_description"></a>Basic Authentication </strong>
+</dt>
+<dd>Specifies that basic authentication occurs over the message layer.
+<p>In the message layer, basic authentication (user ID and password) takes
+place. This type of authentication typically involves sending a user ID and
+password from the client to the server for authentication.  This also involves
+delegating a credential token from an already authenticated credential, provided
+the credential type is forwardable (for example, Lightweight Third Party Authentication
+(LTPA)). If <strong>Basic Authentication</strong> is selected for the server, specify
+both user ID and password authentication as well as token-based authentication.</p>
+
+<p>When selecting <strong>Basic Authentication</strong>, you need to decide whether
+it is <strong>Required</strong> or <strong>Supported</strong>.  Selecting <strong>Required</strong>, indicates
+only clients configured to authenticate to this server through the message
+layer are allowed to invoke requests on the server. Selecting supported, indicates
+that this server accepts <strong>Basic Authentication</strong>. However, other methods
+of authentication can occur if configured and anonymous requests are accepted.
+Selecting <strong>Never</strong>, indicates that the server is not configured to accept
+message layer authentication from any client.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type:</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ClientCertificateAuthentication_i_description"></a>Client Certificate Authentication</strong>
+</dt>
+<dd>Specifies that authentication occurs when the initial connection
+is made between the client and server during a method request.
+<p>In the transport layer, Secure Sockets Layer (SSL) client certificate authentication
+takes place. In the message layer, basic authentication (user ID and password)
+is performed. Client certificate authentication typically performs better
+than message layer authentication, but requires some additional setup steps.
+These additional steps involve ensuring that the server has the signer certificate
+of each client to which it is connected. If the client uses a certificate
+authority (CA) to create its personal certificate, then you need only the CA
+root certificate in the server signer section of the SSL trust file. When
+the certificate is authenticated to an Lightweight Directory Access Protocol (LDAP)
+user registry, the distinguished name (DN) is mapped based on the filter specified
+when configuring LDAP. When the certificate is authenticated to a Local OS
+user registry, the first attribute of the DN in the certificate (typically
+the common name) is mapped to the user ID in the registry. The identity from
+client certificates is used only if no other layer of authentication is presented
+to the server.</p>
+
+<p>When selecting <strong>Client Certificate Authentication</strong>, you need to decide
+whether it is <strong>Required</strong> or <strong>Supported</strong>. When selecting <strong>Required</strong>,
+only clients that are configured to authenticate to this server through SSL
+client certificates can invoke requests on the server. When selecting <strong>Supported</strong>,
+this server accepts SSL client certificate authentication, however, other
+methods of authentication can occur (if configured) and anonymous requests
+are accepted. When selecting <strong>Never</strong>, this server is not configured to
+accept client certificate authentication from any client.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="IdentityAssertion_i_description"></a>Identity Assertion</strong>
+</dt>
+<dd>Specifies that identity assertion is a way to assert identities
+from one server to another during a downstream EJB invocation.
+<p>Identity assertion is performed in the attribute layer and is only applicable
+on servers. The principal determined at the server is based on precedence
+rules. If identity assertion is performed, the identity is always derived
+from the attribute. If basic authentication is performed without identity
+assertion, the identity is always derived from the message layer. Finally,
+if SSL client certificate authentication is performed without either basic
+authentication, or identity assertion, then the identity is derived from the
+transport layer.</p>
+
+<p>The identity asserted is the invocation credential that is determined by
+the RunAs mode for the enterprise bean. If the RunAs mode is <strong>Client</strong>,
+the identity is the client identity. If the RunAs mode is <strong>System</strong>, the
+identity is the server identity.  If the RunAs mode is <strong>Specified</strong>, the
+identity is the one specified. The receiving server receives the identity
+in an identity token and also receives the sending server identity in a client
+authentication token. The receiving server validates the sending server identity
+as a trusted identity through the <strong>Trusted Server IDs</strong> entry box. Enter
+a list of comma-separated principal names, for example, <samp>serverid1, serverid2,
+serverid3</samp>.</p>
+
+<p>When authenticating to a LocalOS user registry, all identity token types
+map to the user ID field of the active user registry. For an <samp>ITTPrincipal</samp> identity
+token, this maps one-to-one with the user ID fields. For an <samp>ITTDistinguishedName</samp> identity
+token, the value from the first equal sign is mapped to the user ID field.
+For an <samp>ITTCertChain</samp> identity token, the value from the first equal
+sign of the distinguished name is mapped to the user ID field.</p>
+
+<p>When authenticating to an LDAP user registry, the LDAP filters determine
+how an identity of type <samp>ITTCertChain</samp> and <samp>ITTDistinguishedName</samp> get
+mapped to the registry. If the token type is <samp>ITTPrincipal</samp>, then the
+principal gets mapped to the UID field in the LDAP registry.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type:</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="IdentityAssertionLayer_trustedServers_description"></a>Trusted Server User IDs</strong>
+</dt>
+<dd>Specifies a comma-separated list of server user IDs, which are
+trusted to perform identity assertion to this server.
+<p>Use this list to quickly decide whether a server is trusted. Even if the
+server is on the list, the sending server must still authenticate with the
+receiving server to accept the identity token of the sending server.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="StatefulSession_description"></a>Stateful Sessions</strong>
+</dt>
+<dd>Specifies stateful sessions, used mostly for performance improvements.
+<p>The first contact between a client and server must fully authenticate.
+However, all subsequent contacts with valid sessions, reuse the security information.
+The client passes a context ID to the server, and the ID is used to look up
+the session. The context ID is scoped to the connection, which guarantees
+uniqueness. Whenever the security session is invalid and the authentication
+retry is enabled (it is by default), the client-side security interceptor
+invalidate the client-side session and resubmits the request without user
+awareness. This might occur if the session does not exist on the server (the
+server failed and resumed operation). When this value is disabled, every method
+invocation must re-authenticate.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Related information</strong>
+</p>
+<a href="rcon_buttons.html">Administrative console buttons</a>
+<br>
+
+<a href="rcon_pageusage.html">Administrative console page features</a>
+<br>
+
+<a href="rcon_scope.html">Administrative console scope settings</a>
+<br>
+
+<a href="rcon_filter.html">Administrative console filter settings</a>
+<br>
+
+<a href="rcon_preferences.html">Administrative console preference settings</a>
+<br>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,730 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>WebSphere MQ queue connection factory settings</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="MQQueueConnectionFactory"></a>
+<h2>
+<img alt="[Release 5.1 and later]" src="v51x.gif" border="0">WebSphere MQ queue connection factory settings</h2>
+
+<p>Use this panel to view or change the configuration properties of
+the selected queue connection factory for use with the WebSphere MQ JMS provider.
+These configuration properties control how connections are created to the
+associated JMS queue destination.</p>
+
+<p>A queue connection factory is used to create JMS connections to queue destinations.
+The queue connection factory is created by the WebSphere MQ JMS provider.
+A queue connection factory for the WebSphere MQ JMS provider has the following
+properties.<p>
+<b>Note: </b>
+<ul>
+
+<li>The property values that you specify must match the values that you specified
+when configuring WebSphere MQ for JMS resources. For more information about
+configuring WebSphere MQ JMS resources, see the WebSphere MQ <cite>Using Java</cite> book.
+and the <cite>WebSphere MQ System Administration</cite> book, SC33-1873, which
+are available from the WebSphere MQ messaging platform-specific books Web
+page at <img border="0" alt="Target can be accessed only when this topic is linked to the World Wide Web" src="web.gif">&nbsp;&nbsp;               
+   <a target="_blank" href="http://www-3.ibm.com/software/ts/mqseries/library/manualsa/manuals/platspecific.html"><strong>http://www-3.ibm.com/software/ts/mqseries/library/manualsa/manuals/platspecific.html</strong></a>
+,
+the <img border="0" alt="Target can be accessed only when this topic is linked to the World Wide Web" src="web.gif">&nbsp;&nbsp;               
+   <a target="_blank" href="http://www.elink.ibmlink.ibm.com/public/applications/publications/cgibin/pbi.cgi"><strong>IBM Publications Center</strong></a>
+,
+or from the WebSphere MQ collection kit, SK2T-0730. </li>
+
+<li>In WebSphere MQ, names can have a maximum of 48 characters, with the exception
+of channels which have a maximum of 20 characters.</li>
+
+<li>
+<img alt="[Release 5.1 and later]" src="v51x.gif" border="0">You can use the Custom properties page to define
+WebSphere MQ Secure Sockets Layer (SSL) properties. For more information about
+setting those properties, see <a href="#ConnectionFactory_customProperties">Custom properties</a>.</li>
+
+</ul>
+</p>
+</p>
+
+<p>To view this administrative console page, click <strong>Resources-&gt; WebSphere
+MQ JMS Provider-&gt; (In content pane, under Additional Properties) WebSphere
+MQ Queue Connection Factories-&gt; <em>connection_factory</em></strong>
+</p>
+
+<dl>
+<dt>
+<strong><a name="MQQueueConnectionFactory_name"></a>Name</strong>
+</dt>
+<dd>The name by which this queue connection factory is known for administrative
+purposes within IBM WebSphere Application Server. The name must be unique
+within the JMS connection factories across the WebSphere administrative domain.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQQueueConnectionFactory_jndiName"></a>JNDI name</strong>
+</dt>
+<dd>The JNDI name that is used to bind the connection factory into
+the application server's name space.
+<p>As a convention, use the fully qualified JNDI name; for example, in the
+form jms/<em>Name</em>, where <em>Name</em>  is
+the logical name of the resource.</p>
+
+<p>This name is used to link the platform binding information. The binding
+associates the resources defined by the deployment descriptor of the module
+to the actual (physical) resources bound into JNDI by the platform.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQQueueConnectionFactory_description"></a>Description</strong>
+</dt>
+<dd>A description of this connection factory for administrative purposes
+within IBM WebSphere Application Server.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQQueueConnectionFactory_category"></a>Category</strong>
+</dt>
+<dd>A category used to classify or group this connection factory, for
+your IBM WebSphere Application Server administrative records.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="AuthDataAlias"></a>Component-managed Authentication Alias</strong>
+</dt>
+<dd>This alias specifies a user ID and password to be used to authenticate
+connection to a JMS provider for application-managed authentication.
+<p>This property provides a list of the J2C authentication data entry aliases
+that have been defined to WebSphere Application Server. You can select a data
+entry alias to be used to authenticate the creation of a new connection to
+the JMS provider.</p>
+
+<p>If you have enabled global security for WebSphere Application Server, select
+the alias that specifies the user ID and password used to authenticate the
+creation of a new connection to the JMS provider. The use of this alias depends
+on the resource authentication (res-auth) setting declared in the connection
+factory resource reference of an application  component's deployment descriptors.</p>
+
+<p>
+<b>Note: </b>
+<ol>
+
+<li>User IDs longer than 12 characters cannot be used for authentication with
+the embedded WebSphere JMS provider. For example, the default Windows NT user
+ID, <strong>Administrator</strong>, is not valid for use with embedded WebSphere messaging,
+because it contains 13 characters. Therefore, an authentication alias for
+a WebSphere JMS provider connection factory must specify a user ID no longer
+than 12 characters.</li>
+
+
+<li>If you want to use a WebSphere MQ JMS Provider JMS connection
+when using Bindings transport mode, you set the property <strong>Transport type</strong>=BINDINGS
+on the WebSphere MQ Queue Connection Factory. You must also choose one of
+the following options: <ul>
+
+<li>To use security credentials, ensure that the user specified is the currently
+logged on user for the WebSphere Application Server process. If the user specified
+is not the current logged on user for the WebSphere Application Server process,
+then the WebSphere MQ JMS Bindings authentication throws a "MQJMS2013 invalid
+security authentication supplied for MQQueueManager" error.</li>
+
+<li>Do not specify security credentials. On the WebSphere MQ Connection Factory,
+ensure that both the <strong>Component-managed Authentication Alias</strong> and the <strong>Container-managed
+Authentication Alias</strong> properties are not set.</li>
+
+</ul>
+</li>
+
+</ol>
+</p>
+
+</dd>
+<dt>
+<strong><a name="mappingAuthDataAlias"></a>Container-managed Authentication Alias</strong>
+</dt>
+<dd>This alias specifies a user ID and password to be used to authenticate
+connection to a JMS provider for container-managed authentication.
+<p>This property provides a list of the J2C authentication data entry aliases
+that have been defined to WebSphere Application Server. You can select a data
+entry alias to be used to authenticate the creation of a new connection to
+the JMS provider.</p>
+
+<p>If you have enabled global security for WebSphere Application Server, select
+the alias that specifies the user ID and password used to authenticate the
+creation of a new connection to the JMS provider. The use of this alias depends
+on the resource authentication (res-auth) setting declared in the connection
+factory resource reference of an application  component's deployment descriptors.</p>
+
+<p>
+<b>Note: </b>
+<ol>
+
+<li>User IDs longer than 12 characters cannot be used for authentication with
+the embedded WebSphere JMS provider. For example, the default Windows NT user
+ID, <strong>Administrator</strong>, is not valid for use with embedded WebSphere messaging,
+because it contains 13 characters. Therefore, an authentication alias for
+a WebSphere JMS provider connection factory must specify a user ID no longer
+than 12 characters.</li>
+
+
+<li>If you want to use a WebSphere MQ JMS Provider JMS connection
+when using Bindings transport mode, you set the property <strong>Transport type</strong>=BINDINGS
+on the WebSphere MQ Queue Connection Factory. You must also choose one of
+the following options: <ul>
+
+<li>To use security credentials, ensure that the user specified is the currently
+logged on user for the WebSphere Application Server process. If the user specified
+is not the current logged on user for the WebSphere Application Server process,
+then the WebSphere MQ JMS Bindings authentication throws a "MQJMS2013 invalid
+security authentication supplied for MQQueueManager" error.</li>
+
+<li>Do not specify security credentials. On the WebSphere MQ Connection Factory,
+ensure that both the <strong>Component-managed Authentication Alias</strong> and the <strong>Container-managed
+Authentication Alias</strong> properties are not set.</li>
+
+</ul>
+</li>
+
+</ol>
+</p>
+
+</dd>
+<dt>
+<strong><a name="MQQueueConnectionFactory_queueManager"></a>Queue manager</strong>
+</dt>
+<dd>The name of the WebSphere MQ queue manager for this connection
+factory. Connections created by this factory connect to that queue manager.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range</td>
+<td align="left" valign="top" class="base">A valid WebSphere MQ queue manager name, as 1 through 48 ASCII characters</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQQueueConnectionFactory_host"></a>Host</strong>
+</dt>
+<dd>The name of the host on which the WebSphere MQ queue manager runs,
+for client connection only.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range</td>
+<td align="left" valign="top" class="base">A valid TCP/IP hostname</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQQueueConnectionFactory_port"></a>Port</strong>
+</dt>
+<dd>The TCP/IP port number used for connection to the WebSphere MQ
+queue manager, for client connection only.
+<p>This port must be configured on the WebSphere MQ queue manager.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range</td>
+<td align="left" valign="top" class="base">A valid TCP/IP port number, configured on the WebSphere MQ queue
+manager.</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQQueueConnectionFactory_channel"></a>Channel</strong>
+</dt>
+<dd>The name of the channel used for connection to the WebSphere MQ
+queue manager, for client connection only.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range</td>
+<td align="left" valign="top" class="base">1 through 20 ASCII characters</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQQueueConnectionFactory_transportType"></a>Transport type</strong>
+</dt>
+<dd>Specifies whether the WebSphere MQ client connection or JNI bindings
+are used for connection to the WebSphere MQ queue manager. The external JMS
+provider controls the communication protocols between JMS clients and JMS
+servers. Tune the transport type when you are using non-ASF non-persistent,
+non-durable, non-transactional messaging or when you want to satisfy security
+issues and the client is local to the queue manager node.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Units</td>
+<td align="left" valign="top" class="base">Not applicable</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">BINDINGS</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range</td>
+<td align="left" valign="top" class="base">
+<dl>
+<dt>
+<strong>BINDINGS</strong>
+</dt>
+<dd>JNI bindings are used to connect to the queue manager. BINDINGS is a shared
+memory protocol and can only be used when the queue manager is on the same
+node as the JMS client and comes at some security risks that should be addressed
+through the use of EJB roles.</dd>
+<dt>
+<strong>CLIENT</strong>
+</dt>
+<dd>WebSphere MQ client connection is used to connect to the queue manager.
+CLIENT is a typical TCP-based protocol. </dd>
+</dl>
+</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Recommended</td>
+<td align="left" valign="top" class="base">BINDINGS is faster by 30% or more, but it lacks security. When you
+have security concerns, BINDINGS is more desirable than CLIENT.</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQQueueConnectionFactory_tempModel"></a>Model queue definition</strong>
+</dt>
+<dd>The name of the model queue definition that can be used by the
+queue manager to create temporary queues if a queue requested does not already
+exist.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range</td>
+<td align="left" valign="top" class="base">1 through 48 ASCII characters</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQQueueConnectionFactory_clientID"></a>Client ID</strong>
+</dt>
+<dd>The JMS client identifier used for connections to the WebSphere
+MQ queue manager.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQQueueConnectionFactory_CCSID"></a>CCSID</strong>
+</dt>
+<dd>The coded character set identifier for use with the WebSphere MQ
+queue manager.
+<p>This coded character set identifier (CCSID) must be one of the CCSIDs supported
+by WebSphere MQ.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Units</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range</td>
+<td align="left" valign="top" class="base">1 through 65535</td>
+
+</tr>
+
+</table>
+
+<p>For more information about supported CCSIDs, and about converting between
+message data from one coded character set to another, see the <cite>WebSphere
+MQ System Administration</cite>  and the <cite>WebSphere MQ Application Programming
+Reference</cite> books. These are available from the WebSphere MQ messaging
+multiplatform and platform-specific books Web pages; for example, at <img border="0" alt="Target can be accessed only when this topic is linked to the World Wide Web" src="web.gif">&nbsp;&nbsp;               
+   <a target="_blank" href="http://www-3.ibm.com/software/ts/mqseries/library/manualsa/manuals/crosslatest.html.html"><strong>http://www-3.ibm.com/software/ts/mqseries/library/manualsa/manuals/platspecific.html</strong></a>
+,
+the <img border="0" alt="Target can be accessed only when this topic is linked to the World Wide Web" src="web.gif">&nbsp;&nbsp;               
+   <a target="_blank" href="http://www.elink.ibmlink.ibm.com/public/applications/publications/cgibin/pbi.cgi"><strong>IBM Publications Center</strong></a>
+,
+or from the WebSphere MQ collection kit, SK2T-0730.</p>
+
+</dd>
+<dt>
+<strong><a name="MQQueueConnectionFactory_msgRetention"></a>Message retention</strong>
+</dt>
+<dd>Select this check box to specify that unwanted messages are to
+be left on the queue. Otherwise, unwanted messages are dealt with according
+to their disposition options.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Units</td>
+<td align="left" valign="top" class="base">Not applicable</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">Cleared</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range</td>
+<td align="left" valign="top" class="base">
+<dl>
+<dt>
+<strong>Selected</strong>
+</dt>
+<dd>Unwanted messages are left on the queue.</dd>
+<dt>
+<strong>Cleared</strong>
+</dt>
+<dd>Unwanted messages are dealt with according to their disposition options.</dd>
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASQueueConnectionFactory_type"></a>XA Enabled</strong>
+</dt>
+<dd>Specifies whether the connection factory is for XA or non-XA coordination
+of messages and controls if the application server uses XA QCF/TCF. Enable
+XA if multiple resources are not used in the same transaction.
+<p>If you set this property to <samp>NON_XA</samp>, the JMS session is still enlisted
+in a transaction, but uses the resource manager local transaction calls (session.commit
+and session.rollback) instead of XA calls. This can lead to an improvement
+in performance. However, this means that only a single resource can be enlisted
+in a transaction in WebSphere Application Server. In WebSphere Application
+Server Enterprise the last participant support enables you to enlist one non-XA
+resource with other XA-capable resources.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Units</td>
+<td align="left" valign="top" class="base">Not applicable</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">XA enabled</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range</td>
+<td align="left" valign="top" class="base">
+<dl>
+<dt>
+<strong>XA</strong>
+</dt>
+<dd>The connection factory is for XA-coordination of messages</dd>
+<dt>
+<strong>NON_XA</strong>
+</dt>
+<dd>The connection factory is for non-XA coordination of messages</dd>
+</dl>
+</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Recommended</td>
+<td align="left" valign="top" class="base">Do not enable XA when the message queue received is the only resource
+in the transaction. Enable XA when other resources, including other queues
+or topics, are involved.</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ConnectionFactory_connectionPool"></a>Connection pool</strong>
+</dt>
+<dd>Specifies an optional set of connection pool settings. 
+<p>Connection pool properties are common to all J2C connectors. </p>
+
+<p>The application server pools connections and sessions with the JMS provider
+to improve performance. This is independent from any WebSphere MQ connection
+pooling. You need to configure the connection and session pool properties
+appropriately for your applications, otherwise you may not get the connection
+and session behavior that you want.</p>
+
+<p>Change the size of the connection pool if concurrent server-side access
+to the JMS resource exceeds the default value. The size of the connection
+pool is set on a per queue or topic basis.</p>
+
+</dd>
+<dt>
+<strong><a name="ConnectionFactory_sessionPool"></a>Session pool</strong>
+</dt>
+<dd>An optional set of session pool settings.
+<p>This link provides a panel of optional connection pool properties, common
+to all J2C connectors.</p>
+
+<p>The application server pools connections and sessions with the JMS provider
+to improve performance. This is independent from any WebSphere MQ connection
+pooling. You need to configure the connection and session pool properties
+appropriately for your applications, otherwise you may not get the connection
+and session behavior that you want.</p>
+
+</dd>
+<dt>
+<strong><a name="ConnectionFactory_customProperties"></a>Custom properties</strong>
+</dt>
+<dd>An optional set of name and value pairs for custom properties passed
+to WebSphere MQ.
+<p>You can use the Custom properties page to define the following WebSphere
+MQ Secure Sockets Layer (SSL) properties. These properties apply only if you
+set the property <a href="#MQQueueConnectionFactory_transportType">Transport
+type=CLIENT</a>.</p>
+
+<ul>
+
+<li>
+<a href="umj_pqcfmcp.html#SSLCIPHERSUITE">SSLCIPHERSUITE</a>
+</li>
+
+<li>
+<a href="umj_pqcfmcp.html#SSLCRL">SSLCRL</a>
+</li>
+
+<li>
+<a href="umj_pqcfmcp.html#SSLCRL">SSLPEERNAME</a>
+</li>
+
+</ul>
+
+<p>For more information about setting these properties, see the section <a href="http://publibfp.boulder.ibm.com/epubs/html/csqzaw11/csqzaw1116.htm#HDRJSSLPR">SSL properties</a> in
+the <cite>WebSphere MQ Using Java</cite> book.</p>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>Related information</strong>
+</p>
+<a href="umj_pqcfmcp.html#QueueConnectionFactory_customProperties">WebSphere MQ queue connection factory custom properties</a>
+<br>
+
+</div>
+</body>
+</html>

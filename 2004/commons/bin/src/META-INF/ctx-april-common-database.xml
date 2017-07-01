@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<!-- reference to Test DataSource -->
+	<bean id="april.basic-dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+        destroy-method="close">
+        
+        <property name="driverClassName" value="com.informix.jdbc.IfxDriver"/>
+        <property name="url" value="jdbc:informix-sqli://172.21.9.137:1541:informixserver=infdata;database=july;DB_LOCALE=ru_RU.1251;CLIENT_LOCALE=ru_RU.1251;informixLockModeWait=60"/>
+        <property name="username" value="dimitry"/>
+        <property name="password" value="312800"/>
+    </bean>
+
+	<!-- reference to DataSource -->
+	<bean id="april.jndi-dataSource" class="org.springframework.jndi.JndiObjectFactoryBean" lazy-init="true">
+		<property name="resourceRef" value="true"/>
+		<property name="jndiName" value="jdbc/permit"/>
+	</bean>
+
+	<alias name="april.jndi-dataSource" alias="april.dataSource"/>
+
+
+<!--    <bean id="april.hibernateMappingLocations" class="com.hps.april.common.utils.context.AprilResourceLoader">-->
+<!--    	<property name="resourceLocations">-->
+<!--            <value>classpath*:/META-INF/hibernate/*.hbm.xml</value>    	-->
+<!--    	</property>-->
+<!--    </bean>-->
+
+    <!--
+      Setup Hibernate based on config file 
+      classpath:com/example/jsf/hibernate/example/resources/hibernate.cfg.xml and properties
+      defined by hibernateProperties.
+    -->
+    <bean id="april.sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+        <property name="dataSource"><ref bean="april.dataSource"/></property>
+		 <property name="mappingLocations">
+		 	<list>
+	            <value>classpath*:/META-INF/hibernate/Operator.hbm.xml</value>
+   	            <value>classpath*:/META-INF/hibernate/Person.hbm.xml</value>
+   	            <value>classpath*:/META-INF/hibernate/Role.hbm.xml</value>
+	         </list>
+	     </property>
+         <property name="hibernateProperties"><ref local="april.hibernateProperties"/></property>
+    </bean>
+    
+   	<bean id="april.hibernateProperties" 
+    	  class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+    	<property name="properties">
+        	<props>
+<!--       			<prop key="hibernate.dialect">org.hibernate.dialect.HSQLDialect</prop>-->
+				<prop key="hibernate.dialect">org.hibernate.dialect.InformixDialect</prop>
+
+               	<prop key="hibernate.show_sql">true</prop>
+               	<prop key="hibernate.format_sql">false</prop>
+
+	           	<prop key="hibernate.cglib.use_reflection_optimizer">true</prop>
+				<prop key="hibernate.query.substitutions">yes 'Y', no 'N'</prop>
+				<prop key="hibernate.connection.pool_size">1</prop>
+				<prop key="hibernate.proxool.pool_alias">pool1</prop>
+				<prop key="hibernate.max_fetch_depth">1</prop>
+				<prop key="hibernate.jdbc.batch_versioned_data">false</prop>
+				<prop key="hibernate.jdbc.use_streams_for_binary">true</prop>
+				<prop key="hibernate.cache.region_prefix">hibernate.test</prop>
+				<prop key="hibernate.cache.provider_class">org.hibernate.cache.HashtableCacheProvider</prop>
+<!--				<prop key="hibernate.hbm2ddl.auto">create</prop>-->
+				
+            </props>
+        </property>
+    </bean>
+    
+    <!-- This configures default properties, which can overridden with the file specified by 
+    		the location property -->
+    <!--<bean id="april.hibernateProperties" 
+          class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+         <property name="properties">
+            <props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.InformixDialect</prop>
+                <prop key="hibernate.show_sql">true</prop>
+                <prop key="hibernate.cglib.use_reflection_optimizer">true</prop>
+            </props>
+        </property>
+        <property name="location" value="classpath:hibernate.properties"/> 
+    </bean>-->
+
+    <!-- If we opt to use JTA transactions, we could replace this with the JTATransactionManager or
+         configure Hibernante to work with JTATransactions and keep this as is. -->
+    <bean id="april.transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+        <property name="sessionFactory">
+            <ref bean="april.sessionFactory"/>
+        </property>
+    </bean>
+
+    <!-- You can setup a HibernateTemplate that configures Hibernate sessions in special ways.
+         For example, you could set a different FlushMode than the default.
+         NOTE THIS COMMENTED OUT AS THE DEFAULTS ARE ACCEPTABLE.
+    <bean id="hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory"/>
+        </property>
+        <property name="cacheQueries">
+            <value>true</value>
+        </property>
+    </bean>
+    -->
+
+    <!-- This is the base definition for all Hibernate based DAOs -->
+    <bean id="april.hibernateDaoSupport" 
+          class="org.springframework.orm.hibernate3.support.HibernateDaoSupport"
+          abstract="true">
+        <property name="sessionFactory">
+            <ref bean="april.sessionFactory"/>
+        </property>
+        <!-- You could use the configured Hibernate template or create
+             a new mapping that uses a configured hibernate template. 
+             HibernateDaoSupport creates a HibernateTemplate with the default settings.
+             NOTE THIS IS COMMENTED OUT.
+        <property name="hibernateTemplate">
+            <ref bean="hibernateTemplate"/>
+        </property>
+        -->
+    </bean>
+    
+    <!-- You can use Hibernate for 90% to 95% or so of database access.
+        The JdbcTemplate is for when you can't use Hibernate. 
+        Don't use JDBC directly! Use the JdbcTemplate as it handles JDBC cleanup.-->
+    <bean id="april.jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource">
+            <ref bean="april.dataSource"/>
+        </property>
+    </bean>
+    
+    <!-- This is the base definition for all Jdbc based DAOs -->
+    <bean id="april.jdbcDaoSupport" 
+          class="org.springframework.jdbc.core.support.JdbcDaoSupport"
+          abstract="true">
+        <property name="jdbcTemplate">
+            <ref bean="april.jdbcTemplate"/>
+        </property>
+    </bean>
+
+   <bean id="april.hibernateJdbcDaoSupport" 
+          class="com.hps.april.common.utils.dao.HibernateJdbcDaoSupport"
+          abstract="true">
+        <property name="sessionFactory">
+            <ref bean="april.sessionFactory"/>
+        </property>
+        <property name="jdbcTemplate">
+            <ref bean="april.jdbcTemplate"/>
+        </property>
+    </bean>
+
+</beans>

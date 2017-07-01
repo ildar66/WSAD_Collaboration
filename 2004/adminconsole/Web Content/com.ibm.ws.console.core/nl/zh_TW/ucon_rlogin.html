@@ -1,0 +1,125 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>登入設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="urun_rlogin"></a>
+<h2>登入設定</h2>
+
+<p>請利用這個頁面來指定 WebSphere Application Server 管理主控台的使用者。
+如果您正在使用廣域安全，也要指定一個密碼。</p>
+
+<p>指定使用者可讓您回復產品先前所完成的工作。
+輸入使用者 ID 之後，請按一下<strong>確定</strong>來進入下一頁及存取管理主控台。
+</p>
+
+<p>如果要檢視這個頁面，請開啟管理主控台。</p>
+
+<dl>
+<dt>
+<strong><a name="logon_desc"></a>使用者 ID</strong>
+</dt>
+<dd>指定識別使用者的字串。對管理伺服器而言，這個使用者 ID 必須是唯一的。
+
+<p>您利用本產品來執行，且在本產品結束之前加以儲存的工作，會儲存在您輸入的使用者 ID 所識別的配置中。
+如果稍後要存取用這個使用者 ID 來執行的工作，請在「登入」頁面中指定使用者 ID。
+</p>
+
+<p>如果您是從目前管理主控台開啟了瀏覽器的用戶端機器中登入，且您連接至相同的伺服器，您的兩個連線可能會共用相同的 HTTP 階段作業物件，不論您是否使用不同的使用者 ID 來登入都是如此。
+您必須使用兩個不同類型的瀏覽器（如 Microsoft Internet Explorer 和 Netscape Communicator），才能從相同的用戶端機器登入管理主控台，以從兩個不同的 HTTP 階段作業物件工作，不論您是否用相同的使用者 ID 都是如此。
+也就是說，如果您在相同的用戶端機器中需要兩個並行的階段作業，請從兩個不同的瀏覽器類型中存取管理主控台。
+</p>
+
+<p>請注意，您可以利用相同的瀏覽器類型來登入主控台兩次，但您必須從不同的實體主機登入，且必須使用不同的使用者 ID。
+比方說，假設 Joe 在實體主機 <em>myhost1</em> 中，以 <em>joe</em> 這個使用者 ID，利用 Internet Explorer 瀏覽器來登入管理主控台。
+Joe 可以利用 Internet Explorer 瀏覽器第二次登入相同的主控台，但他必須使用不同的使用者 ID（如 <em>peggy</em>）和不同的實體主機（如 <em>myhost2</em>）。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="UserExists_information"></a>另一個使用者目前以相同使用者名稱登入</strong>
+</dt>
+<dd>指定是否要登出使用者並繼續使用指定的使用者 ID，或是回到「登入」頁面並指定不同使用者 ID 或等待使用者登出。
+<p>如果使用者在瀏覽管理主控台時關閉了 Web 瀏覽器，但未先登出，然後開啟了新的瀏覽器並嘗試存取管理主控台，則將會出現這個欄位。</p>
+
+</dd>
+<dt>
+<strong><a name="ChangesFound_restore"></a>使用主要配置</strong>
+</dt>
+<dd>啟用時，指定您想要使用預設管理配置，不使用上次針對使用者階段作業使用的配置。
+自從上次儲存管理配置後對使用者階段作業所做的變更將失去。
+<p>僅在使用者變更了管理配置，然後不儲存變更的登出時，這個欄位才會出現。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">false</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ChangesFound_recover"></a>回復先前階段作業中所做的變更</strong>
+</dt>
+<dd>啟用時，指定您想要使用上次針對使用者階段作業使用的同一個管理配置。
+回復自從上次儲存使用者階段作業的管理配置之後，使用者所進行的變更。
+
+<p>僅在使用者變更了管理配置，然後不儲存變更的登出時，這個欄位才會出現。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">true
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>相關資訊</strong>
+</p>
+<a href="rcon_buttons.html">管理主控台按鈕</a>
+<br>
+
+</div>
+</body>
+</html>

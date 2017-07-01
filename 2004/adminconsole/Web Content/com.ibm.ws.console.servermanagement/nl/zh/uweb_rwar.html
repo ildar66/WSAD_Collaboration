@@ -1,0 +1,67 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Web 模块部署设置</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uweb_rwar"></a>
+<h2>Web 模块部署设置</h2>
+
+<p> 使用此页面配置 Web 模块部署的实例。
+</p>
+
+<p>要查看此管理控制台页面，单击<strong>应用程序</strong> &gt; <strong>企业应用程序</strong> &gt; <em>application_instance</em> &gt; <strong>Web 模块</strong> &gt; <em>Web
+Module_instance</em>。</p>
+
+<dl>
+<dt>
+<strong><a name="rwar_uri"></a>URI</strong>
+</dt>
+<dd>指定当相对于应用程序 URL 解析时，指定文件系统上的内容的模块归档位置的 URI。如果模块作为已部署应用程序或企业归档（EAR）文件的一部分封装时，此 URI 必须与应用程序部署描述符中的模块引用 URI 匹配。
+</dd>
+<dt>
+<strong><a name="rwar_altdd"></a>备用 DD</strong>
+</dt>
+<dd>指定备用部署描述符文件的文件名，该文件用于在模块 JAR 文件中代替原始部署描述符文件。
+<p> 此文件是部署描述符文件的<em>组装后</em>版本。您可编辑原始部署描述符文件以解析相关性和安全性信息。指定使用备用部署描述符将使您能保持原始部署描述符文件的完整。</p>
+
+<p>
+<em>备用 DD</em> 属性必须是相对于模块根目录的部署描述符文件的全路径名。按照约定，此文件位于 <samp>ALT-INF</samp> 目录中。如果未指定此属性，则从模块 JAR 文件中读部署描述符文件。</p>
+
+</dd>
+<dt>
+<strong><a name="rwar_wt"></a>启动权值</strong>
+</dt>
+<dd>指定模块启动的顺序。
+权值较低的模块在权值较高的模块之前启动。</dd>
+<dt>
+<strong><a name="rwar_classloaderMode_description"></a>类装入程序方式</strong>
+</dt>
+<dd>指定类装入程序是否首先在父类装入程序或应用程序类装入程序中搜索来装入类。JDK 类装入程序和 WebSphere 类装入程序的标准为 PARENT_FIRST。通过指定 PARENT_LAST，您的应用程序可以重设包含在父类装入程序中的类，但如果您混合使用了覆盖的类和未覆盖的类，则此操作可能潜在地导致 ClassCastException 或 LinkageErrors。
+<p>选项是 PARENT_FIRST 和 PARENT_LAST。缺省是在应用程序类装入程序装入一个类中搜索之前，在父类装入程序中搜索。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">PARENT_FIRST</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</body>
+</html>

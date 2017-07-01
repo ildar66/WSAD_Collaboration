@@ -1,0 +1,394 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>WebSphere 队列设置</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="WASQueue"></a>
+<h2>WebSphere 队列设置</h2>
+
+<p>使用此面板查看或更改所选队列目标的配置属性，以与 WebSphere JMS 提供程序一起使用。</p>
+
+<p>队列目标用于配置 JMS 队列的属性。
+到队列的连接由嵌入式 WebSphere JMS 提供程序的关联队列连接工厂创建。与内部 WebSphere JMS 提供程序一起使用的队列具有下列属性。</p>
+
+<p>
+<b>注: </b>您必须在主管队列的 JMS 服务器的配置中将队列名称添加到队列名称列表。</p>
+
+<p>要查看此管理控制台页面，单击<strong>资源 -&gt; WebSphere JMS 提供程序 -&gt;（在内容窗格中，&ldquo;其它属性&rdquo;下）WebSphere 队列目标 -&gt; <em>destination_name</em></strong>
+</p>
+
+<div>
+<p>
+<strong>&ldquo;配置&rdquo;选项卡</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="WASQueue_contextId"></a>作用域</strong>
+</dt>
+<dd>指定可看到此资源定义的级别 － 单元、节点或服务器级别。
+<p>资源（如 JMS 提供程序、名称空间绑定或共享库）可以在多个作用域上定义，在较特定的作用域上定义的资源覆盖较一般作用域上定义的重复项。</p>
+
+<p>注意，无论定义的资源的作用域是什么，资源的属性仅在单个服务器级别上应用。例如，如果您在单元级别上定义数据源的作用域（它在该单元内是唯一的），则该单元中的所有用户都可以查找和使用该数据源。然而，资源属性设置对于单元中的每台服务器是本地的。例如，如果您设置<strong>最大连接数</strong>为 10，那么该单元中的每台服务器都可以有 10 个连接。<dl>
+<dt>
+<strong>单元</strong>
+</dt>
+<dd>最常规的作用域。在&ldquo;单元&rdquo;作用域上定义的资源对于所有节点和服务器都是可见的，除非它们被覆盖了。
+要查看单元作用域中定义的资源，不要在作用域选择表单中指定服务器或节点名。</dd>
+<dt>
+<strong>节点</strong>
+</dt>
+<dd>多数资源类型的缺省作用域。在&ldquo;节点&rdquo;作用域上定义的资源覆盖任何在&ldquo;单元&rdquo;作用域上定义的重复项，并且对于相同节点上的所有服务器都是可见的，除非它们在该节点上的服务器作用域中被覆盖了。要查看节点作用域中定义的资源，不要指定服务器，但是要在作用域选择表单中选择节点名。</dd>
+<dt>
+<strong>服务器</strong>
+</dt>
+<dd>定义资源的最特定作用域。在&ldquo;服务器&rdquo;作用域上定义的资源覆盖任何在&ldquo;单元&rdquo;作用域或父&ldquo;节点&rdquo;作用域上定义的重复资源定义，并且它们仅对于特定服务器是可见的。要查看服务器作用域中定义的资源，在作用域选择表单中指定服务器名和节点名。
+</dd>
+</dl>
+</p>
+
+<p>当创建资源时，它们总是创建到面板中所选的当前作用域中。要在其它作用域中查看作用域，在作用域选择表单中指定不同的节点或服务器。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASQueue_name"></a>名称</strong>
+</dt>
+<dd>在 IBM WebSphere Application Server 中出于管理目的，用于标识队列的名称。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASQueue_jndiName"></a>JNDI 名称</strong>
+</dt>
+<dd>用于将连接绑定到应用程序服务器的名称空间的 JNDI 名称。
+<p>按约定，使用全限定 JNDI 名称；例如，格式为 jms/<em>Name</em>，其中 <em>Name</em> 是资源的逻辑名称。</p>
+
+<p>该名称用于链接平台绑定信息。绑定使模块部署描述符定义的资源与由平台绑定到 JNDI 的实际（物理）资源相关联。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASQueue_description"></a>描述</strong>
+</dt>
+<dd>用于管理目的，队列的描述
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">空</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASQueue_category"></a>类别</strong>
+</dt>
+<dd>为了您的 IBM WebSphere Application Server 管理记录，用于分类或分组此队列的类别。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASQueue_persistence"></a>持久性</strong>
+</dt>
+<dd>发送到目标的所有消息是持久的、非持久的，还是由应用程序定义其持久性
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">枚举</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">APPLICATION DEFINED</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">范围</td>
+<td align="left" valign="top" class="base">
+<dl>
+<dt>
+<strong>APPLICATION DEFINED</strong>
+</dt>
+<dd>目标上的消息由将它们放到队列的应用程序定义持久性。</dd>
+<dt>
+<strong>NON-PERSISTENT</strong>
+</dt>
+<dd>目标上的消息是不持久的。</dd>
+<dt>
+<strong>PERSISTENT</strong>
+</dt>
+<dd>目标上的消息是持久的。</dd>
+<dt>
+<strong>QUEUE DEFINED</strong>
+</dt>
+<dd>［仅用于 WebSphere MQ 目标］目标上的消息由 WebSphere MQ 队列定义属性定义其持久性。</dd>
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASQueue_priority"></a>优先级</strong>
+</dt>
+<dd>由应用程序或<strong>指定的优先级</strong>属性定义此目标的消息优先级
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">枚举</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">单位</td>
+<td align="left" valign="top" class="base">不适用</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">APPLICATION DEFINED</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">范围</td>
+<td align="left" valign="top" class="base">
+<dl>
+<dt>
+<strong>APPLICATION DEFINED</strong>
+</dt>
+<dd>此目标上消息的优先级由将它们放到目标上的应用程序定义。</dd>
+<dt>
+<strong>QUEUE DEFINED</strong>
+</dt>
+<dd>［仅用于 WebSphere MQ 目标］目标上的消息由 WebSphere MQ 队列定义属性定义其持久性。</dd>
+<dt>
+<strong>SPECIFIED</strong>
+</dt>
+<dd>此目标上的消息的优先级由<strong>指定的优先级</strong>属性定义。<em>如果您选择此选项，您必须在<strong>指定的优先级</strong>属性上定义优先级。</em>
+</dd>
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASQueue_specifiedPriority"></a>指定的优先级</strong>
+</dt>
+<dd>如果<strong>优先级</strong>属性设置为 <samp>Specified</samp>，则在这里输入该队列的消息优先级，其范围在 0（最低）到 9（最大）之间
+<p>如果<strong>优先级</strong>属性设置为 <samp>Specified</samp>，则发送到此队列的消息具有此属性指定的优先级值。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">整型</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">单位</td>
+<td align="left" valign="top" class="base">消息优先级级别</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">0</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">范围</td>
+<td align="left" valign="top" class="base">0（最低优先级）到 9（最高优先级）</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASQueue_expiry"></a>到期</strong>
+</dt>
+<dd>此队列的到期超时由应用程序或<strong>指定的到期</strong>属性定义，或者队列上的消息从不到期（具有无限到期超时）
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">枚举</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">单位</td>
+<td align="left" valign="top" class="base">不适用</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">APPLICATION DEFINED</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">范围</td>
+<td align="left" valign="top" class="base">
+<dl>
+<dt>
+<strong>APPLICATION DEFINED</strong>
+</dt>
+<dd>此队列上消息的到期超时由将它们放到队列上的应用程序定义。</dd>
+<dt>
+<strong>UNLIMITED</strong>
+</dt>
+<dd>此队列上的消息无到期超时，所以这些消息从不到期。</dd>
+<dt>
+<strong>SPECIFIED</strong>
+</dt>
+<dd>此队列上的消息的到期超时由<strong>指定的到期</strong>属性定义。<em>如果您选择了此选项，则您必须在<strong>指定的到期</strong>属性上定义超时。</em>
+</dd>
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASQueue_specifiedExpiry"></a>指定的到期</strong>
+</dt>
+<dd>如果<strong>到期超时</strong>属性设置为 <samp>Specified</samp>，则在此输入此队列上消息到期前的毫秒数（大于 0）
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">整型</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">单位</td>
+<td align="left" valign="top" class="base">毫秒</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">0</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">范围</td>
+<td align="left" valign="top" class="base">大于或等于 0<ul>
+
+<li>0 表明消息从不超时</li>
+
+<li>其它值是整数的毫秒</li>
+
+</ul> 
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>相关信息</strong>
+</p>
+<a href="rcon_buttons.html">管理控制台按钮</a>
+<br>
+
+<a href="rcon_scope.html">管理控制台作用域设置</a>
+<br>
+
+</div>
+</body>
+</html>

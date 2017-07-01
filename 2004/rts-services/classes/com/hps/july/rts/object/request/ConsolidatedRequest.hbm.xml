@@ -1,0 +1,152 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://dtdserver/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.hps.july.rts.object.request">
+
+	<class name="ConsolidatedRequest" table="rts_consrequest">
+
+		<id name="requestId" column="consreqid">
+			<generator class="native"/>
+		</id>
+		
+		<version name="version" column="version" type="integer"/>
+
+		<property name="statusId" column="status" type="integer"/>
+		<property name="rtsRequestTypeId" column="reqtype" type="integer"/>
+
+		<many-to-one name="channelType"
+			column="channeltype"
+			class="com.hps.july.rts.object.channeltype.ChannelType" />
+
+		<many-to-one name="channelSetting"
+			column="channelstlmnt"
+			class="com.hps.july.rts.object.channelsetting.ChannelSetting" />
+
+        <many-to-one name="keyManager"
+            column="keymanager"
+            class="com.hps.april.auth.object.Person"/>
+        <many-to-one name="owner"
+            column="owner"
+            class="com.hps.april.auth.object.Person"/>
+
+        <property name="arendaType" column="arendatype" type="integer"/>
+
+        <property name="ownerName" column="ownername" type="string"/>
+        <property name="ownerPhone" column="ownerphone" type="string"/>
+
+		<many-to-one name="equipmentA"
+			column="equipmentA" cascade="none"
+			class="com.hps.july.storageplace.object.Equipment"/>
+	
+		<property name="portA" column="portA" type="string"/>
+
+		<many-to-one name="transEquipmentA"
+			column="transequipmenta" cascade="none"
+			class="com.hps.july.storageplace.object.Equipment"/>
+
+		<many-to-one name="positionA"
+			column="positiona" cascade="none"
+			class="com.hps.july.storageplace.object.Position"/>
+
+        <property name="transPortA" column="transportA"/>
+
+		<many-to-one name="equipmentB"
+			column="equipmentB" cascade="none"
+			class="com.hps.july.storageplace.object.Equipment"/>
+		        
+        <property name="portB" column="portB" type="string"/>
+
+
+		<many-to-one name="transEquipmentB"
+			column="transequipmentb" cascade="none"
+			class="com.hps.july.storageplace.object.Equipment"/>
+
+		<many-to-one name="positionB"
+			column="positionb" cascade="none"
+			class="com.hps.july.storageplace.object.Position"/>
+
+		<property name="transPortB" column="transportB"/>
+<!-- deprecated
+		<property name="equipmentA" column="equipmentA" type="integer"/>
+        <property name="equipmentB" column="equipmentB" type="integer"/>
+        
+ -->		
+        
+		<property name="contactA" column="contactA" type="string"/>
+        <property name="contactB" column="contactB" type="string"/>
+
+		<property name="number" column="number" type="string" update="true"/>
+        <property name="comment" column="comment" type="string"/>
+
+		<!-- dates -->
+		<property name="requiredDate" column="reqdate" type="date"/>
+        <property name="factComplDate" column="factcompldate" type="date"/>
+        <property name="planComplDate" column="plancompldate" type="date"/>
+        <property name="arrivedDate" column="arriveddate" type="date"/>
+<!--
+		<property name="completeDate" column="completedate" type="date"/>
+-->
+        <!-- dates -->
+        <property name="channelLabel" column="channellabel" type="string"/>
+        <property name="channelCode" column="channelCode" type="string"/>
+
+		<many-to-one name="capacity"
+			column="capacityid" cascade="none"
+			class="com.hps.july.rts.object.capacity.Capacity"/>
+
+        <property name="tested" column="testeddate" type="date"/>
+
+        <many-to-one name="testedBy"
+            column="testedby"
+            class="com.hps.april.auth.object.Person"/>
+
+        <many-to-one name="head"
+            column="head"
+            class="com.hps.april.auth.object.Person"/>
+
+        <property name="closed" column="closedate" type="date"/>
+
+        <property name="modified" column="modified" type="timestamp"/>
+        <property name="created" column="created" type="timestamp" update="false"/>
+        
+        <many-to-one name="createdBy"
+            column="createdBy"
+            class="com.hps.april.auth.object.Person" update="false"/>
+        
+        <many-to-one name="modifiedBy"
+            column="modifiedBy"
+            class="com.hps.april.auth.object.Person"/>
+
+        <set name="initiatorRequests" table="rts_request">
+                <key column="consreqid"/>
+                <one-to-many class="InitiatorRequest"/>
+        </set>
+
+        <set name="elementaryRequests" table="rts_elemrequest">
+                <key column="consreqid"/>
+                <one-to-many class="ElementaryRequest"/>
+        </set>
+
+        <!-- regional manager-->
+        <many-to-one name="regMan"
+            column="regionman"
+            class="com.hps.april.auth.object.Person"/>
+            
+        <!-- confrimative  -->
+        <many-to-one name="confirmativeMan" 
+            column="confirmative"
+            class="com.hps.april.auth.object.Person"/>
+
+		<many-to-one name="beenetA"
+			column="beenetA" cascade="none" 
+			class="com.hps.july.storageplace.object.Beenet"/>
+	
+		<many-to-one name="beenetB"
+			column="beenetB" cascade="none" 
+			class="com.hps.july.storageplace.object.Beenet"/>
+	
+    </class>
+
+</hibernate-mapping>

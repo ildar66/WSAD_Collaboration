@@ -1,0 +1,206 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Session Management settings</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uprs_rsession_manager"></a>
+<h2>Session Management settings</h2>
+
+<p>Use this page to manage HTTP session support. This support includes
+specifying a session tracking mechanism, setting maximum in-memory session
+count, controlling overflow, and configuring session timeout.</p>
+
+<p>To view this administrative console page, click <strong>Servers</strong> &gt; <strong> Application
+Servers</strong> &gt; <em>server_name</em> &gt; <strong>Web Container</strong> &gt; <strong>Session Management</strong>.</p>
+
+<div>
+<p>
+<strong>Configuration tab</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="SessionManager_enable_description"></a>Overwrite Session Management (application and Web module level only)</strong>
+</dt>
+<dd>Specifies whether or not these Session Management settings take
+precedence over those normally inherited from a higher level for the current
+application or Web module.
+<p>By default, Web modules inherit Session Management settings from the application
+level above it, and applications inherit Session Management settings from
+the Web container level above it.</p>
+
+</dd>
+<dt>
+<strong><a name="SessionManager_sessionTracking_description"></a>Session tracking mechanism </strong>
+</dt>
+<dd>Specifies a mechanism for HTTP session management.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Mechanism</td>
+<td align="left" valign="top" class="base">Function</td>
+<td align="left" valign="top" class="base">Default</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Enable SSL ID Tracking</td>
+<td align="left" valign="top" class="base">Specifies that session tracking uses Secure Sockets Layer (SSL) information
+as a session ID. Enabling SSL tracking takes precedence over cookie-based
+session tracking and URL rewriting. <p>There are two parameters available
+if you enable SSL ID tracking: SSLV3Timeout and Secure Association Server
+(SAS). SSLV3Timeout specifies the time interval after which SSL sessions are
+renegotiated. This is a high setting and modification does not provide any
+significant impact on performance. The SAS parameter establishes an SSL connection
+only if it goes out of the Java Virtual Machine (JVM) to another JVM. If all
+the beans are co-located within the same JVM, the SSL used by SAS does not
+hinder performance.</p>
+<p>These are set by editing the <samp>sas.server.properties</samp> and <samp>sas.client.props</samp> files
+located in the <em>product_installation_root</em>\properties directory, where <em>product_installation_root</em> is
+the directory where WebSphere Application Server is installed. </p>
+</td>
+<td align="left" valign="top" class="base">9600 seconds</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Enable Cookies</td>
+<td align="left" valign="top" class="base">Specifies that session tracking uses cookies to carry session IDs.
+If cookies are enabled, session tracking recognizes session IDs that arrive
+as cookies and tries to use cookies for sending session IDs. If cookies are
+not enabled, session tracking uses URL rewriting instead of cookies (if URL
+rewriting is enabled).<p>Enabling cookies takes precedence over URL rewriting.
+Do not disable cookies in the Session Management facility of the application
+server that is running the administrative application because this action
+causes the administrative application not to function after a restart of the
+server. As an alternative, run the administrative application in a separate
+process from your applications. </p>
+<p>Click <strong>Modify</strong> to change these
+settings.</p>
+</td>
+<td align="left" valign="top" class="base"></td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Enable URL Rewriting</td>
+<td align="left" valign="top" class="base">Specifies that the Session Management facility uses rewritten URLs
+to carry the session IDs. If URL rewriting is enabled, the Session Management
+facility recognizes session IDs that arrive in the URL if the encodeURL method
+is called in the servlet.</td>
+<td align="left" valign="top" class="base"></td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Enable Protocol Switch Rewriting</td>
+<td align="left" valign="top" class="base">Specifies that the session ID is added to a URL when the URL requires
+a switch from HTTP to HTTPS or from HTTPS to HTTP. If rewriting is enabled,
+the session ID is required to go between HTTP and HTTPS.</td>
+<td align="left" valign="top" class="base"></td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SessionManager_overflow_description"></a>Overflow  </strong>
+</dt>
+<dd>Specifies that the number of sessions in memory can exceed the
+value specified by the Max In Memory Session Count property. This option is
+valid only in nondistributed sessions mode.</dd>
+<dt>
+<strong><a name="TuningParams_maxInMemorySessionCount_description"></a>Maximum in-memory session count  </strong>
+</dt>
+<dd>Specifies the maximum number of sessions to maintain in memory.
+<p>The meaning differs depending on whether you are using in-memory or distributed
+sessions. For in-memory sessions, this value specifies the number of sessions
+in the base session table. Use the Allow Overflow property to specify whether
+to limit sessions to this number for the entire Session Management facility
+or to allow additional sessions to be stored in secondary tables.  For distributed
+sessions, this value specifies the size of the memory cache for sessions.
+When the session cache has reached its maximum size and a new session is requested,
+the Session Management facility removes the least recently used session from
+the cache to make room for the new one. <p>
+<b>Note: </b>Do
+not set this value to a number less than the maximum thread pool size for
+your server.</p>
+</p>
+
+</dd>
+<dt>
+<strong><a name="SessionManager_sessionTimeout_description"></a>Session timeout  </strong>
+</dt>
+<dd>Specifies how long a session can go unused before it is no longer
+valid.   Specify either <samp>Set timeout</samp> or <samp>No timeout</samp>. Specify
+the value in minutes greater than or equal to two. 
+<p> The value of this setting is used as a default when the session timeout
+is not specified in a Web module deployment descriptor.  Note that to preserve
+performance, the invalidation timer is not accurate to the second. When the
+Write Frequency is time based, ensure that this value is least twice as large
+as the write interval. </p>
+
+</dd>
+<dt>
+<strong><a name="SessionManager_securityIntegration_description"></a>Security integration</strong>
+</dt>
+<dd>Specifies that when security integration is enabled, the Session
+Management facility associates the identity of users with their HTTP sessions</dd>
+<dt>
+<strong><a name="SessionManager_serialAccess_description"></a>Serialize session access</strong>
+</dt>
+<dd>Specifies that concurrent session access in a given server is not
+allowed.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Maximum wait time</td>
+<td align="left" valign="top" class="base">Specifies the maximum amount of time a servlet request waits on an
+HTTP session before continuing execution. This parameter is optional and expressed
+in seconds. The default is 120, or 2 minutes. Under normal conditions, a servlet
+request waiting for access to an HTTP session gets notified by the request
+that currently owns the given HTTP session when the request finishes.</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Allow access on timeout</td>
+<td align="left" valign="top" class="base">Specifies whether the servlet is executed normally or aborted in
+the event of a timeout. If this box is checked, the servlet executes normally.
+ If this box is not checked, the servlet execution aborts and error logs are
+generated.</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Related information</strong>
+</p>
+<a href="rcon_buttons.html">Administrative console buttons</a>
+<br>
+
+<a href="rcon_pageusage.html">Administrative console page features</a>
+<br>
+
+<a href="rcon_preferences.html">Administrative console preference settings</a>
+<br>
+
+</div>
+</body>
+</html>

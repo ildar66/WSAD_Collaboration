@@ -1,0 +1,575 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration//EN"
+                                   "http://jakarta.apache.org/struts/dtds/tiles-config.dtd">
+<tiles-definitions>
+    <definition
+        controllerClass="com.ibm.ws.console.perfTuningAdmin.PerfTuningAdminController"
+        extends="detail.config.view" name="perfTuningAdmin.config.view">
+        <putList name="list">
+            <add value="perfTuningAdmin.detail.title"/>
+            <add value="perfTuningAdmin.detail.tabsLayout"/>
+        </putList>
+    </definition>
+    <definition extends="detail.title" name="perfTuningAdmin.detail.title">
+        <put name="formName" value="perfTuningAdminDetailForm"/>
+        <put name="objectTypeImage" value="perfTuningAdmin.smallIcon:pluginId=com.ibm.ws.console.perftuningadmin"/>
+        <put name="titleKey" value="perfTuningAdmin.displayName"/>
+        <!--
+I am not sure what to do with this collectionLink
+-->
+        <put name="collectionLink" value="com.ibm.ws.console.servermanagement.forwardCmd.do?forwardName=ApplicationServer.config.view&amp;noChange=true"/>
+        <put name="includeLink" value="no"/>
+        <put name="instanceDetails" value="title"/>
+        <put name="instanceDescription" value="perfTuningAdmin.description"/>
+        <put name="displayName" value="perfTuningAdmin.displayName"/>
+    </definition>
+    <definition name="perfTuningAdmin.detail.tabsLayout" path="/secure/layouts/tabsLayout.jsp">
+        <put name="selectUri" value="perfTuningAdminDetail.do"/>
+        <put name="selectedPerspective" value="tab.configuration"/>
+        <put name="formAction" value="perfTuningAdminDetail.do"/>
+        <put name="formName" value="perfTuningAdminDetailForm"/>
+        <put name="formType" value="com.ibm.ws.console.perfTuningAdmin.PerfTuningAdminDetailForm"/>
+        <put name="formFocus" value="enable"/>
+        <putList name="tabList">
+            <!--   
+            <item  value="tab.runtime" icon="" tooltip="" link="perfTuningAdmin.runtime.tab.view" classtype="org.apache.struts.tiles.beans.SimpleMenuItem"/>
+            -->
+            <item
+                classtype="org.apache.struts.tiles.beans.SimpleMenuItem"
+                icon="" link="RPA.runtime.tab.view" tooltip="" value="tab.runtime"/>
+            <item
+                classtype="org.apache.struts.tiles.beans.SimpleMenuItem"
+                icon="" link="perfTuningAdmin.config.tab.view"
+                tooltip="" value="tab.configuration"/>
+        </putList>
+    </definition>
+    <!--
+    not  sure if I want to use detail.runtime.tab.view 
+    here.  I have seen other runtime tabs use the detail.config.tab.view or detail.runtime.tab.view
+    <definition name="TransactionService.runtime.tab.view" path="/secure/layouts/configTabLayout.jsp">
+        <putList name="list">
+            <add value="TransactionService.runtime.buttons.panel"/>
+            <add value="TransactionService.runtime.generic.properties"/>
+        </putList>
+    </definition>
+
+    <definition name="TransactionService.runtime.buttons.panel" extends="buttons.panel">
+        <put name="buttonCount" value="1"/>
+        <put name="definitionName" value="TransactionService.runtime.buttons.panel"/>
+        <put name="includeForm" value="yes"/>
+        <putList name="actionList">
+            <item value="button.transactionlist:transactionServiceDetail.do" link="" icon="" tooltip="administrator,operator"  classtype="com.ibm.ws.console.core.item.ActionSetItem"/>
+        </putList>
+    </definition>
+
+        <definition name="perfTuningAdmin.runtime.tab.view" extends="detail.config.tab.view">
+        <putList name="list">
+            <add value="perfTuningAdmin.detail.buttons.panel"/>
+            <add value="perfTuningAdmin.runtime.general.properties"/>
+        </putList>
+    </definition>
+
+-->
+    <definition name="perfTuningAdmin.runtime.tab.view" path="/secure/layouts/configTabLayout.jsp">
+        <putList name="list">
+            <add value="perfTuningAdmin.detail.buttons.panel"/>
+            <add value="perfTuningAdmin.runtime.general.properties"/>
+        </putList>
+    </definition>
+    <definition extends="detail.config.tab.view" name="perfTuningAdmin.config.tab.view">
+        <putList name="list">
+            <add value="perfTuningAdmin.detail.buttons.panel"/>
+            <add value="perfTuningAdmin.config.general.properties"/>
+        </putList>
+    </definition>
+    <definition extends="buttons.panel" name="perfTuningAdmin.detail.buttons.panel">
+        <put name="buttonCount" value="1"/>
+        <put name="definitionName" value="perfTuningAdmin.detail.buttons.panel"/>
+        <put name="includeForm" value="yes"/>
+        <putList name="actionList"/>
+    </definition>
+    <definition extends="detail.runtime.general.generic.properties" name="perfTuningAdmin.runtime.general.properties">
+        <put name="formAction" value="perfTuningAdminDetail.do"/>
+        <put name="propertyLabel" value="jvm.general.properties"/>
+        <put name="formName" value="perfTuningAdminDetailForm"/>
+        <put name="formType" value="com.ibm.ws.console.perfTuningAdmin.PerfTuningAdminDetailForm"/>
+        <put name="formFocus" value="enable"/>
+        <put name="readOnlyView" value="no"/>
+        <put name="showButtons" value="true"/>
+        <put name="showOkButton" value="true"/>
+        <put name="showApplyButton" value="false"/>
+        <put name="showResetButton" value="false"/>
+        <put name="showCancelButton" value="false"/>
+        <putList name="attributeList"/>
+    </definition>
+    <definition extends="detail.config.general.properties" name="perfTuningAdmin.config.general.properties">
+        <put name="formAction" value="perfTuningAdminDetail.do"/>
+        <put name="propertyLabel" value="jvm.general.properties"/>
+        <put name="formName" value="perfTuningAdminDetailForm"/>
+        <put name="formType" value="com.ibm.ws.console.perfTuningAdmin.PerfTuningAdminDetailForm"/>
+        <put name="formFocus" value="enable"/>
+        <put name="readOnlyView" value="no"/>
+        <put name="showButtons" value="true"/>
+        <put name="showOkButton" value="true"/>
+        <put name="showApplyButton" value="true"/>
+        <put name="showResetButton" value="true"/>
+        <put name="showCancelButton" value="true"/>
+        <putList name="attributeList"/>
+    </definition>
+    <definition extends="detail.config.additional.properties" name="perfTuningAdmin.config.additional.properties">
+        <put name="formName" value="perfTuningAdminDetailForm"/>
+        <putList name="list">
+            <item
+                classtype="org.apache.struts.tiles.beans.SimpleMenuItem"
+                icon="" link="http://localhost:9090/admin" tooltip="" value="perfTuningAdmin.advanced"/>
+        </putList>
+    </definition>
+    <!--
+        here is the stuff to display rules
+    -->
+    <definition
+        controllerClass="com.ibm.ws.console.perfTuningAdmin.RPAController"
+        extends="detail.config.view" name="RPA.rules.main">
+        <putList name="list">
+            <add value="RPA.rules.detail.tabsLayout"/>
+        </putList>
+    </definition>
+    <definition
+        controllerClass="com.ibm.ws.console.perfTuningAdmin.RPAController"
+        extends="detail.config.view" name="RPA.rules.main_contained">
+        <putList name="list">
+            <add value="RPA.rules.detail.title_contained"/>
+            <add value="RPA.rules.detail.tabsLayout_contained"/>
+        </putList>
+    </definition>
+    <definition extends="detail.title" name="RPA.rules.detail.title_contained">
+        <put name="objectTypeImage" value="perfTuningAdmin.smallIcon:pluginId=com.ibm.ws.console.perftuningadmin"/>
+        <put name="titleKey" value="perfTuningAdmin.advice.config.displayName"/>
+        <put name="collectionLink" value=""/>
+        <put name="includeLink" value="no"/>
+        <put name="instanceDetails" value="title"/>
+        <!-- title jsp will use this is the title addribute of the form is nothing -->
+        <put name="displayName" value="perfTuningAdmin.displayName"/>
+        <put name="instanceDescription" value="perfTuningAdmin.advice.config.description"/>
+        <put name="formName" value="com.ibm.ws.console.perfTuningAdmin.RPAAdviceDetailForm"/>
+        <put name="formType" value="com.ibm.ws.console.perfTuningAdmin.RPAAdviceDetailForm"/>
+        <!--
+         
+        <put name="formName" value="com.ibm.ws.console.perfTuningAdmin.RPACollectionForm"/>
+        <put name="formType" value="com.ibm.ws.console.perfTuningAdmin.RPACollectionForm"/>
+        -->
+    </definition>
+    <definition name="RPA.rules.detail.tabsLayout" path="/secure/layouts/tabsLayout.jsp">
+        <put name="selectUri" value="rPACollection.do"/>
+        <put name="selectedPerspective" value="tab.configuration"/>
+        <put name="formAction" value="rPACollection.do"/>
+        <put name="formName" value="com.ibm.ws.console.perfTuningAdmin.RPACollectionForm"/>
+        <put name="formType" value="com.ibm.ws.console.perfTuningAdmin.RPACollectionForm"/>
+        <!--
+            <put name="formFocus" value="status"/>
+        -->
+        <putList name="tabList">
+            <item
+                classtype="org.apache.struts.tiles.beans.SimpleMenuItem"
+                icon="" link="RPA.rules.runtime.tab.view" tooltip="" value="tab.runtime"/>
+            <item
+                classtype="org.apache.struts.tiles.beans.SimpleMenuItem"
+                icon="" link="RPA.rules.config.tab.view" tooltip="" value="tab.configuration"/>
+        </putList>
+    </definition>
+    <definition name="RPA.rules.detail.tabsLayout_contained" path="/secure/layouts/tabsLayout.jsp">
+        <put name="selectUri" value="rPACollection.do"/>
+        <put name="selectedPerspective" value="tab.configuration"/>
+        <put name="formAction" value="rPACollection.do"/>
+        <put name="formName" value="com.ibm.ws.console.perfTuningAdmin.RPACollectionForm"/>
+        <put name="formType" value="com.ibm.ws.console.perfTuningAdmin.RPACollectionForm"/>
+        <!--
+            <put name="formFocus" value="status"/>
+        -->
+        <putList name="tabList">
+            <item
+                classtype="org.apache.struts.tiles.beans.SimpleMenuItem"
+                icon="" link="RPA.rules.runtime.tab.view_contained"
+                tooltip="" value="tab.runtime"/>
+            <item
+                classtype="org.apache.struts.tiles.beans.SimpleMenuItem"
+                icon="" link="RPA.rules.config.tab.view_contained"
+                tooltip="" value="tab.configuration"/>
+        </putList>
+    </definition>
+    <definition name="RPA.rules.runtime.tab.view" path="/secure/layouts/configTabLayout.jsp">
+        <putList name="list">
+            <add value="RPA.rules.content.main"/>
+        </putList>
+    </definition>
+    <definition name="RPA.rules.runtime.tab.view_contained" path="/secure/layouts/configTabLayout.jsp">
+        <putList name="list">
+            <add value="RPA.rules.content.main_contained"/>
+        </putList>
+    </definition>
+    <definition name="RPA.rules.config.tab.view" path="/secure/layouts/configTabLayout.jsp">
+        <putList name="list">
+            <add value="RPA.rules.content.main"/>
+        </putList>
+    </definition>
+    <definition name="RPA.rules.config.tab.view_contained" path="/secure/layouts/configTabLayout.jsp">
+        <putList name="list">
+            <add value="RPA.rules.content.main_contained"/>
+        </putList>
+    </definition>
+    <definition
+        controllerClass="com.ibm.ws.console.perfTuningAdmin.RPAController"
+        name="RPA.rules.content.main" path="/secure/layouts/contentLayout.jsp">
+        <put name="descTitle" value="perfTuningAdmin.advice.config.displayName"/>
+        <put name="descImage" value="pluginId=com.ibm.ws.console.perftuningadmin"/>
+        <put name="descText" value="perfTuningAdmin.advice.config.description"/>
+        <putList name="contentList">
+            <add value="RPA.rules.paging.extend"/>
+            <add value="RPA.rules.quicksearch.extend"/>
+            <add value="RPA.rules.collection.table.extends"/>
+        </putList>
+    </definition>
+    <definition
+        controllerClass="com.ibm.ws.console.perfTuningAdmin.RPAController"
+        name="RPA.rules.content.main_contained" path="/com.ibm.ws.console.perftuningadmin/containedContentLayout.jsp">
+        <put name="descTitle" value="perfTuningAdmin.advice.config.displayName"/>
+        <put name="descImage" value="pluginId=com.ibm.ws.console.perftuningadmin"/>
+        <put name="descText" value="perfTuningAdmin.advice.config.description"/>
+        <putList name="contentList">
+            <add value="RPA.rules.paging.extend"/>
+            <add value="RPA.rules.quicksearch.extend"/>
+            <add value="RPA.rules.collection.table.extends_contained"/>
+        </putList>
+    </definition>
+    <definition extends="quicksearch.main" name="RPA.rules.quicksearch.extend">
+        <put name="selectUri" value="rPACollection.do?ToggleViewAction=true"/>
+        <put name="collectionForm" value="com.ibm.ws.console.perfTuningAdmin.RPACollectionForm"/>
+        <put name="formAction" value="rPACollection.do"/>
+        <put name="formName" value="com.ibm.ws.console.perfTuningAdmin.RPACollectionForm"/>
+        <put name="formType" value="com.ibm.ws.console.perfTuningAdmin.RPACollectionForm"/>
+        <putList name="searchList">
+            <add value="perfTuningAdmin.advice.displayName:ruleName"/>
+            <add value="perfTuningAdmin.component.displayName:component"/>
+            <add value="perfTuningAdmin.status.displayName:status"/>
+        </putList>
+    </definition>
+    <definition extends="paging.main" name="RPA.rules.paging.extend">
+        <put name="displayLabelKey" value="perfTuningAdmin.displayName"/>
+        <put name="collectionForm" value="com.ibm.ws.console.perfTuningAdmin.RPACollectionForm"/>
+        <put name="formAction" value="rPACollection.do"/>
+        <put name="formName" value="com.ibm.ws.console.perfTuningAdmin.RPACollectionForm"/>
+        <put name="formType" value="com.ibm.ws.console.perfTuningAdmin.RPACollectionForm"/>
+    </definition>
+    <definition extends="collection.table.main" name="RPA.rules.collection.table.extends">
+        <put name="iterationName" value="com.ibm.ws.console.perfTuningAdmin.RPACollectionForm"/>
+        <put name="iterationProperty" value="subsetList"/>
+        <put name="formAction" value="rPACollection.do"/>
+        <put name="formName" value="com.ibm.ws.console.perfTuningAdmin.RPACollectionForm"/>
+        <put name="formType" value="com.ibm.ws.console.perfTuningAdmin.RPACollectionForm"/>
+        <put name="selectionType" value="multiple"/>
+        <put name="createButtons" value="false"/>
+        <!--
+            research do not think this is actually used.
+        -->
+        <put name="selectName" value="selectedItems"/>
+        <put name="buttons" value="RPA.rules.buttons.panel"/>
+        <put name="includeForm" value="no"/>
+        <put name="parent" value="com.ibm.ws.console.perfTuningAdmin.forwardCmd.do?forwardName=RPA.rules.content.main"/>
+        <putList name="collectionList">
+            <item
+                classtype="com.ibm.ws.console.core.item.CollectionItem"
+                icon="" link="rpaAdviceParamDetail.do?EditAction=true"
+                tooltip="perfTuningAdmin.advice.displayName" value="ruleName:sort"/>
+            <item
+                classtype="com.ibm.ws.console.core.item.CollectionItem"
+                icon="" link=""
+                tooltip="perfTuningAdmin.component.displayName" value="component:sort"/>
+            <item
+                classtype="com.ibm.ws.console.core.item.CollectionItem"
+                icon="" link=""
+                tooltip="perfTuningAdmin.status.displayName" value="status:sort"/>
+        </putList>
+        <putList name="collectionPreferenceList">
+            <item
+                classtype="com.ibm.ws.console.core.item.PreferenceItem"
+                link="collection.preferences.maxRowLabel: :collection.preferences.maxRowDesc:20" value="text:UI/Collections/RPA/Preferences#maximumRows:25"/>
+            <item
+                classtype="com.ibm.ws.console.core.item.PreferenceItem"
+                link="collection.preferences.searchHistoryLabel:collection.preferences.searchHistoryUnits:collection.preferences.searchHistoryDesc" value="checkbox:UI/Collections/RPA/Preferences#retainSearchCriteria:32"/>
+        </putList>
+    </definition>
+    <definition extends="collection.table.main" name="RPA.rules.collection.table.extends_contained">
+        <put name="iterationName" value="com.ibm.ws.console.perfTuningAdmin.RPACollectionForm"/>
+        <put name="iterationProperty" value="subsetList"/>
+        <put name="formAction" value="rPACollection.do"/>
+        <put name="formName" value="com.ibm.ws.console.perfTuningAdmin.RPACollectionForm"/>
+        <put name="formType" value="com.ibm.ws.console.perfTuningAdmin.RPACollectionForm"/>
+        <put name="selectionType" value="multiple"/>
+        <put name="createButtons" value="false"/>
+        <!--
+            research do not think this is actually used.
+        -->
+        <put name="selectName" value="selectedItems"/>
+        <put name="buttons" value="RPA.rules.buttons.panel"/>
+        <put name="includeForm" value="no"/>
+        <put name="parent" value="com.ibm.ws.console.perfTuningAdmin.forwardCmd.do?forwardName=RPA.rules.main_contained"/>
+        <putList name="collectionList">
+            <item
+                classtype="com.ibm.ws.console.core.item.CollectionItem"
+                icon="" link="rpaAdviceParamDetail.do?EditAction=true"
+                tooltip="perfTuningAdmin.advice.displayName" value="ruleName:sort"/>
+            <item
+                classtype="com.ibm.ws.console.core.item.CollectionItem"
+                icon="" link=""
+                tooltip="perfTuningAdmin.component.displayName" value="component:sort"/>
+            <item
+                classtype="com.ibm.ws.console.core.item.CollectionItem"
+                icon="" link=""
+                tooltip="perfTuningAdmin.status.displayName" value="status:sort"/>
+        </putList>
+        <putList name="collectionPreferenceList">
+            <item
+                classtype="com.ibm.ws.console.core.item.PreferenceItem"
+                link="collection.preferences.maxRowLabel: :collection.preferences.maxRowDesc:20" value="text:UI/Collections/RPA/Preferences#maximumRows:25"/>
+            <item
+                classtype="com.ibm.ws.console.core.item.PreferenceItem"
+                link="collection.preferences.searchHistoryLabel:collection.preferences.searchHistoryUnits:collection.preferences.searchHistoryDesc" value="checkbox:UI/Collections/RPA/Preferences#retainSearchCriteria:32"/>
+        </putList>
+    </definition>
+    <definition extends="buttons.panel" name="RPA.rules.buttons.panel">
+        <put name="buttonCount" value="2"/>
+        <put name="definitionName" value="RPA.rules.buttons.panel"/>
+        <put name="includeForm" value="no"/>
+        <putList name="actionList">
+            <item classtype="com.ibm.ws.console.core.item.ActionSetItem"
+                icon="" link="" tooltip="" value="button.start:rPACollection.do"/>
+            <item classtype="com.ibm.ws.console.core.item.ActionSetItem"
+                icon="" link="" tooltip="" value="button.stop:rPACollection.do"/>
+        </putList>
+    </definition>
+    <!--
+        STUFF TO DISPLAY THE RULE_ENGINE
+    
+    -->
+    <definition
+        controllerClass="com.ibm.ws.console.perfTuningAdmin.RPARuleEngineController"
+        extends="detail.config.view" name="RPA.ruleEngine.view">
+        <putList name="list">
+            <add value="RPA.ruleEngine.detail.title"/>
+            <add value="RPA.ruleEngine.detail.tabsLayout"/>
+        </putList>
+    </definition>
+    <definition extends="detail.title" name="RPA.ruleEngine.detail.title">
+        <put name="formName" value="rPARuleEngineDetailForm"/>
+        <put name="objectTypeImage" value="perfTuningAdmin.smallIcon:pluginId=com.ibm.ws.console.perftuningadmin"/>
+        <put name="titleKey" value="perfTuningAdmin.ruleEngine.displayName"/>
+        <!--
+        ?   what is this    ?
+        <put name="collectionLink" value="com.ibm.ws.console.servermanagement.forwardCmd.do?forwardName=ApplicationServer.config.view&#38;noChange=true"/>
+-->
+        <put name="includeLink" value="no"/>
+        <put name="instanceDetails" value="title"/>
+        <put name="instanceDescription" value="perfTuningAdmin.ruleEngine.description"/>
+        <put name="displayName" value="perfTuningAdmin.ruleEngine.displayName"/>
+    </definition>
+    <definition name="RPA.ruleEngine.detail.tabsLayout" path="/secure/layouts/tabsLayout.jsp">
+        <put name="selectUri" value="rPARuleEngineDetail.do"/>
+        <put name="selectedPerspective" value="tab.configuration"/>
+        <put name="formAction" value="rPARuleEngineDetail.do"/>
+        <put name="formName" value="rPARuleEngineDetailForm"/>
+        <put name="formType" value="com.ibm.ws.console.perfTuningAdmin.RPARuleEngineDetailForm"/>
+        <put name="formFocus" value="enable"/>
+        <putList name="tabList">
+            <item
+                classtype="org.apache.struts.tiles.beans.SimpleMenuItem"
+                icon="" link="RPA.ruleEngine.runtime.tab.view"
+                tooltip="" value="tab.runtime"/>
+            <item
+                classtype="org.apache.struts.tiles.beans.SimpleMenuItem"
+                icon="" link="RPA.ruleEngine.config.tab.view" tooltip="" value="tab.configuration"/>
+        </putList>
+    </definition>
+    <definition name="RPA.ruleEngine.runtime.tab.view" path="/secure/layouts/configTabLayout.jsp">
+        <putList name="list">
+            <add value="RPA.ruleEngine.detail.buttons.panel"/>
+            <add value="RPA.ruleEngine.runtime.general.properties"/>
+            <add value="RPA.ruleEngine.additional.properties"/>
+            <!--
+            
+            <add value="perfTuningAdmin.config.additional.properties"/>
+                <add value="RPA.ruleEngine.additional.properties"/>
+            -->
+        </putList>
+    </definition>
+    <definition extends="detail.config.tab.view" name="RPA.ruleEngine.config.tab.view">
+        <putList name="list">
+            <!--
+                <add value="RPA.ruleEngine.detail.buttons.panel"/>
+            -->
+            <add value="RPA.ruleEngine.config.general.properties"/>
+            <add value="RPA.ruleEngine.additional.properties"/>
+            <!--
+            <add value="RPA.ruleEngine.test.additional.properties"/>
+                <add value="RPA.ruleEngine.additional.properties"/>
+            -->
+        </putList>
+    </definition>
+    <definition extends="buttons.panel" name="RPA.ruleEngine.detail.buttons.panel">
+        <put name="buttonCount" value="1"/>
+        <put name="definitionName" value="RPA.ruleEngine.detail.buttons.panel"/>
+        <!--
+            I am not sure what this is
+        -->
+        <put name="includeForm" value="yes"/>
+        <putList name="actionList">
+            <item classtype="com.ibm.ws.console.core.item.ActionSetItem"
+                icon="" link="" tooltip="" value="button.restart:rPARuleEngineDetail.do"/>
+        </putList>
+    </definition>
+    <definition extends="detail.runtime.general.generic.properties" name="RPA.ruleEngine.runtime.general.properties">
+        <put name="formAction" value="rPARuleEngineDetail.do"/>
+        <put name="propertyLabel" value="jvm.general.properties"/>
+        <put name="formName" value="rPARuleEngineDetailForm"/>
+        <put name="formType" value="com.ibm.ws.console.perfTuningAdmin.RPARuleEngineDetailForm"/>
+        <put name="formFocus" value="enable"/>
+        <put name="readOnlyView" value="no"/>
+        <put name="showButtons" value="true"/>
+        <put name="showOkButton" value="true"/>
+        <put name="showApplyButton" value="false"/>
+        <put name="showResetButton" value="false"/>
+        <put name="showCancelButton" value="false"/>
+        <putList name="attributeList">
+            <item classtype="com.ibm.ws.console.core.item.PropertyItem"
+                icon="" link="" tooltip="" value="perfTuningAdmin.enable.displayName:enabled:no:Checkbox:perfTuningAdmin.enable.description:no:yes: : :perfTuningAdmin.enable.units"/>
+        </putList>
+    </definition>
+    <definition extends="detail.config.general.properties" name="RPA.ruleEngine.config.general.properties">
+        <put name="formAction" value="rPARuleEngineDetail.do"/>
+        <put name="propertyLabel" value="jvm.general.properties"/>
+        <put name="formName" value="rPARuleEngineDetailForm"/>
+        <put name="formType" value="com.ibm.ws.console.perfTuningAdmin.RPARuleEngineDetailForm"/>
+        <put name="formFocus" value="enable"/>
+        <put name="readOnlyView" value="no"/>
+        <put name="showButtons" value="true"/>
+        <put name="showOkButton" value="true"/>
+        <put name="showApplyButton" value="true"/>
+        <put name="showResetButton" value="true"/>
+        <put name="showCancelButton" value="true"/>
+        <putList name="attributeList">
+            <item classtype="com.ibm.ws.console.core.item.PropertyItem"
+                icon="" link="" tooltip="" value="perfTuningAdmin.enable.displayName:enabled:no:Checkbox:perfTuningAdmin.enable.description:no:yes: : :perfTuningAdmin.enable.units"/>
+        </putList>
+    </definition>
+    <definition name="RPA.ruleEngine.additional.properties" path="/secure/layouts/addPropLayout.jsp">
+        <!--
+        <definition name="RPA.ruleEngine.additional.properties"  extends="detail.config.additional.properties">
+    -->
+        <put name="formName" value="rPARuleEngineDetailForm"/>
+        <putList name="list">
+            <!--
+            <item  value="perfTuningAdmin.advice.config.displayName" link="com.ibm.ws.console.perfTuningAdmin.forwardCmd.do?forwardName=RPA.rules.main" tooltip="perfTuningAdmin.advice.config.displayName" classtype="org.apache.struts.tiles.beans.SimpleMenuItem"/>
+         -->
+            <item
+                classtype="org.apache.struts.tiles.beans.SimpleMenuItem"
+                link="com.ibm.ws.console.perfTuningAdmin.forwardCmd.do?forwardName=RPA.rules.main_contained"
+                tooltip="perfTuningAdmin.advice.config.displayName" value="perfTuningAdmin.advice.config.displayName"/>
+        </putList>
+    </definition>
+    <!--
+        STUFF FOR THE INDIVIDUAL RULE PARAMETERS
+    
+    -->
+    <definition
+        controllerClass="com.ibm.ws.console.perfTuningAdmin.RPAAdviceParamController"
+        extends="detail.config.view" name="RPA.advice.param.config.view">
+        <putList name="list">
+            <add value="RPA.advice.param.detail.title"/>
+            <add value="RPA.advice.param.detail.tabsLayout"/>
+        </putList>
+    </definition>
+    <definition extends="detail.title" name="RPA.advice.param.detail.title">
+        <put name="formName" value="rPAAdviceParamDetailForm"/>
+        <put name="objectTypeImage" value="perfTuningAdmin.smallIcon:pluginId=com.ibm.ws.console.perftuningadmin"/>
+        <!--
+            The title of the page is set in the controller by calling form.setTitle
+        -->
+        <put name="titleKey" value="perfTuningAdmin.adviceParam.config.displayName"/>
+        <!--
+        testing removing this
+        <put name="collectionLink" value="com.ibm.ws.console.servermanagement.forwardCmd.do?forwardName=ApplicationServer.config.view&#38;noChange=true"/>
+        -->
+        <put name="includeLink" value="no"/>
+        <put name="instanceDetails" value="title"/>
+        <put name="instanceDescription" value="perfTuningAdmin.adviceParam.config.description"/>
+        <put name="displayName" value="perfTuningAdmin.displayName"/>
+    </definition>
+    <definition name="RPA.advice.param.detail.tabsLayout" path="/secure/layouts/tabsLayout.jsp">
+        <put name="selectUri" value="rpaAdviceParamDetail.do"/>
+        <put name="selectedPerspective" value="tab.configuration"/>
+        <put name="formAction" value="rpaAdviceParamDetail.do"/>
+        <put name="formName" value="rPAAdviceParamDetailForm"/>
+        <put name="formType" value="com.ibm.ws.console.perfTuningAdmin.RPAAdviceParamDetailForm"/>
+        <put name="formFocus" value="attribute_0"/>
+        <putList name="tabList">
+            <item
+                classtype="org.apache.struts.tiles.beans.SimpleMenuItem"
+                icon="" link="RPA.advice.param.runtime.tab.view"
+                tooltip="" value="tab.runtime"/>
+            <item
+                classtype="org.apache.struts.tiles.beans.SimpleMenuItem"
+                icon="" link="RPA.advice.param.config.tab.view"
+                tooltip="" value="tab.configuration"/>
+        </putList>
+    </definition>
+    <definition name="RPA.advice.param.runtime.tab.view" path="/secure/layouts/configTabLayout.jsp">
+        <putList name="list">
+            <add value="RPA.advice.param.detail.buttons.panel"/>
+            <add value="RPA.advice.param.runtime.general.properties"/>
+        </putList>
+    </definition>
+    <definition extends="detail.config.tab.view" name="RPA.advice.param.config.tab.view">
+        <putList name="list">
+            <add value="RPA.advice.param.detail.buttons.panel"/>
+            <add value="RPA.advice.param.config.general.properties"/>
+        </putList>
+    </definition>
+    <definition extends="buttons.panel" name="RPA.advice.param.detail.buttons.panel">
+        <put name="buttonCount" value="1"/>
+        <put name="definitionName" value="RPA.advice.param.detail.buttons.panel"/>
+        <put name="includeForm" value="yes"/>
+        <putList name="actionList"/>
+    </definition>
+    <definition extends="detail.runtime.general.generic.properties" name="RPA.advice.param.runtime.general.properties">
+        <put name="formAction" value="rpaAdviceParamDetail.do"/>
+        <put name="propertyLabel" value="jvm.general.properties"/>
+        <put name="formName" value="rPAAdviceParamDetailForm"/>
+        <put name="formType" value="com.ibm.ws.console.perfTuningAdmin.RPAAdviceParamDetailForm"/>
+        <put name="formFocus" value="attribute_0"/>
+        <put name="readOnlyView" value="no"/>
+        <put name="showButtons" value="true"/>
+        <put name="showOkButton" value="true"/>
+        <put name="showApplyButton" value="false"/>
+        <put name="showResetButton" value="false"/>
+        <put name="showCancelButton" value="false"/>
+        <putList name="attributeList"/>
+    </definition>
+    <definition extends="detail.config.general.properties" name="RPA.advice.param.config.general.properties">
+        <put name="formAction" value="rpaAdviceParamDetail.do"/>
+        <put name="propertyLabel" value="jvm.general.properties"/>
+        <put name="formName" value="rPAAdviceParamDetailForm"/>
+        <put name="formType" value="com.ibm.ws.console.perfTuningAdmin.RPAAdviceParamDetailForm"/>
+        <put name="formFocus" value="attribute_0"/>
+        <put name="readOnlyView" value="no"/>
+        <put name="showButtons" value="true"/>
+        <put name="showOkButton" value="true"/>
+        <put name="showApplyButton" value="true"/>
+        <put name="showResetButton" value="false"/>
+        <put name="showCancelButton" value="true"/>
+        <putList name="attributeList">
+            <!--                        
+            <item value="perfTuning.attName.CpuNotSaturated:attribute_0:no:Select:perfTuningAdmin.attribute.rule.CpuNotSaturated.des:no:yes:test_enable,test_disable:perfTuningAdmin.enable,perfTuningAdmin.disable" classtype="com.ibm.ws.console.core.item.PropertyItem" icon="" tooltip="" link=""/>
+            <item value="perfTuning.attName.CpuNotSaturated:attribute_1:no:Select:perfTuningAdmin.attribute.rule.CpuNotSaturated.des:no:yes:test_enable,test_disable:perfTuningAdmin.enable,perfTuningAdmin.disable" classtype="com.ibm.ws.console.core.item.PropertyItem" icon="" tooltip="" link=""/>
+            -->
+        </putList>
+    </definition>
+</tiles-definitions>

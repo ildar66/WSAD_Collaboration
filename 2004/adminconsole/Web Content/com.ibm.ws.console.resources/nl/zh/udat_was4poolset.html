@@ -1,0 +1,321 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>连接池（V4）设置</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="Connection_poolV4_settings"></a>
+<h2>连接池（V4）设置</h2>
+
+<p>使用此页面创建 V4.0 数据源的连接池。</p>
+
+<p>要查看此管理控制台页面，单击<strong>资源</strong> &gt; <strong>JDBC 提供程序</strong> &gt; <em>JDBC_provider</em> &gt; <strong>数据源（V4）</strong> &gt; <em>data_source</em> &gt; <strong>连接池</strong>。</p>
+
+<div>
+<p>
+<strong>&ldquo;配置&rdquo;选项卡</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="WAS40ConnectionPool_detail_contextID"></a>作用域</strong>
+</dt>
+<dd>指定可看到此资源定义的级别 － 单元、节点或服务器级别。
+<p>资源（如 JDBC 提供程序、名称空间绑定或共享库）可以在多个作用域上定义，在较特定的作用域上定义的资源覆盖较一般作用域上定义的重复项。</p>
+
+<p>注意，无论定义的资源的作用域是什么，资源的属性仅在单个服务器级别上应用。例如，如果您在单元级别上定义数据源的作用域（它在该单元内是唯一的），则该单元中的所有用户都可以查找和使用该数据源。然而，资源属性设置对于单元中的每台服务器是本地的。例如，如果您定义<em>最大连接数</em>为 10，那么该单元中的每台服务器都可以有 10 个连接。<dl>
+
+<dt>
+<strong>单元</strong>
+</dt>
+<dd>最常规的作用域。在&ldquo;单元&rdquo;作用域上定义的资源对于所有节点和服务器都是可见的，除非它们被覆盖了。
+要查看单元作用域中定义的资源，不要在作用域选择表单中指定服务器或节点名。</dd>
+
+<dt>
+<strong>节点</strong>
+</dt>
+<dd>多数资源类型的缺省作用域。在&ldquo;节点&rdquo;作用域上定义的资源覆盖任何在&ldquo;单元&rdquo;作用域上定义的重复项，并且对于相同节点上的所有服务器都是可见的，除非它们在该节点上的服务器作用域中被覆盖了。要查看节点作用域中定义的资源，不要指定服务器，但是要在作用域选择表单中选择节点名。</dd>
+
+<dt>
+<strong>服务器</strong>
+</dt>
+<dd>定义资源的最特定作用域。在&ldquo;服务器&rdquo;作用域上定义的资源覆盖任何在&ldquo;单元&rdquo;作用域或父&ldquo;节点&rdquo;作用域上定义的重复资源定义，并且它们仅对于特定服务器是可见的。要查看服务器作用域中定义的资源，在作用域选择表单中指定服务器名和节点名。
+</dd>
+
+</dl>
+</p>
+
+<p>当创建资源时，它们总是创建到面板中所选的当前作用域中。要在其它作用域中查看作用域，在作用域选择表单中指定不同的节点或服务器。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WAS40ConnectionPool_minimumPoolSize_description"></a>最小池大小
+</strong>
+</dt>
+<dd>指定池中维护的最小连接数。
+<p>最小池大小可影响应用程序的性能。较小的池在需求较低时需要较少的开销，因为保持打开的数据库连接较少。当需求较高时，因为如果池中的所有其它连接都在使用中，则创建新的连接，所以第一个应用程序经历较慢的响应。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">整型</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">1</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">范围</td>
+<td align="left" valign="top" class="base">任意非负整数。</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WAS40ConnectionPool_maximumPoolSize_description"></a>最大池大小 </strong>
+</dt>
+<dd>指定池中维持的最大连接数。
+<p> 如果已经达到了最大连接数并且所有连接都在使用中，则其它连接请求会最多等待指定为连接超时的秒数。最大池大小会影响应用程序的性能。较大的池在需求较高时需要更多的开销，因为在需求高峰时有更多的数据库连接打开。这些连接一直存留，直到空闲而脱离池。如果最大值较小，则在高峰期会发生更长的等待时间或可能有连接超时错误。确保数据库可支持应用程序服务器中的最大连接数，除了在应用程序服务器外可能有的任何负载之外。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">整型</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">10</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">范围</td>
+<td align="left" valign="top" class="base">任意正整数</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WAS40ConnectionPool_connectionTimeout_description"></a>连接超时 </strong>
+</dt>
+<dd> 指定在超时和向应用程序抛出 ConnectionWaitTimeoutException 前，应用程序等待池连接的最大秒数。
+<p>设置这个值为 0 将禁用连接超时。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">整型</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">单位</td>
+<td align="left" valign="top" class="base">秒</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">180</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">范围</td>
+<td align="left" valign="top" class="base">任意非负整数</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WAS40ConnectionPool_idleTimeout_description"></a>空闲超时 </strong>
+</dt>
+<dd>在除去空闲（未分配）连接以释放资源之前，此空闲连接可保留在池中的最长秒数。
+<p>空闲的连接应该从池中脱离，因为保持打开数据库连接会导致数据库的内存问题。但是，并不是所有的连接都会从池中脱离，即使它们旧于&ldquo;空闲超时&rdquo;设置。如果除去连接将导致池下降到它的最小大小以下，则连接不是空闲的。这个值设置
+为 0 将禁用空闲超时。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">整型</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">单位</td>
+<td align="left" valign="top" class="base">秒</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">1800</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">范围</td>
+<td align="left" valign="top" class="base">任意非负整数</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WAS40ConnectionPool_orphanTimeout_description"></a>孤立超时 </strong>
+</dt>
+<dd>指定在连接返回池之前，应用程序可以保持此连接而不使用它的最大秒数
+<p>如果分配的连接上没有活动时间长于&ldquo;孤立超时&rdquo;设置，则连接标记为孤立。在另一个&ldquo;孤立超时&rdquo;秒数
+后，如果连接仍然没有活动，则连接返回池。如果应用程序尝试再次使用连接，则它抛出 StaleConnectionException。加入列表事务
+中的连接不是孤立的。这个设置值为 0 将禁用孤立超时。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">整型</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">单位</td>
+<td align="left" valign="top" class="base">秒</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">1800</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">范围</td>
+<td align="left" valign="top" class="base">任意非负整数</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WAS40ConnectionPool_statementCacheSize_description"></a>语句高速缓存大小</strong>
+</dt>
+<dd> 指定每个连接要保持的已高速缓存的已准备语句数。
+<p>如果您不希望废弃任何高速缓存，按以下设置需要的高速缓存大小最大值：对于每个使用特殊服务器上的数据源的应用程序，提高唯一的已准备语句数（如同由 <em>sql</em> 字符串、并发的和滚动类型所确定的那样）。这是可能准备的语句的最大数值，这些语句可被高速缓存在服务器活动期间给定的连接上。将高速缓存大小设置为该值意味着您不会再有高速缓存废弃的情况发生。这样提供了更佳的性能。但是，由于潜在的资源限制，这种情况不会总是可行的。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">整型</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">10</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">范围</td>
+<td align="left" valign="top" class="base">任意非负整数</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WAS40ConnectionPool_disableAutoConnectionCleanup_description"></a>自动连接清除</strong>
+</dt>
+<dd>指定在事务结束时，连接池软件是否自动关闭来自此数据源的连接。
+<p> 缺省为<em>假</em>，表明当事务完成时，WebSphere Application Server 关闭连接并将它返回到池。在事务结束后，任何连接的使用都导致一个 StaleConnectionException，因为连接关闭并已返回到池。这个机制
+确保连接不被应用程序不限定地保留。如果这个值设置为<em>真</em>，则连接在事务结束时不返回到池。在这种情况下，应用程序必须通过调用 <em>close()</em> 将连接返回到池。如果应用程序不关闭连接，则池能为使用其它应用程序而用完连接。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">复选框</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">假（清除）</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>相关信息</strong>
+</p>
+<a href="rcon_buttons.html">管理控制台按钮</a>
+<br>
+
+<a href="rcon_pageusage.html">管理控制台页面功能</a>
+<br>
+
+</div>
+</body>
+</html>

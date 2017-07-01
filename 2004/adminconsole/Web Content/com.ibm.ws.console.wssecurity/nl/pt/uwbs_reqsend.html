@@ -1,0 +1,77 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Request sender binding collection</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_reqsend"></a>
+<h2>Request sender binding collection</h2>
+
+<p>Use this page to specify the binding configuration to send request
+messages for Web services security.</p>
+
+<p>To view this administrative console page, complete the following steps: <ol>
+
+<li>Click <strong>Applications &gt; Enterprise Applications &gt; </strong><em>application_name</em>.</li>
+
+<li>Under Related Items, click <strong>Web Modules</strong> &gt; <em>URI_file_name</em> &gt; <strong>Web
+Services: Client Security Bindings</strong>.</li>
+
+<li>Under Request Sender Binding, click <strong>Edit</strong>.</li>
+
+</ol>
+</p>
+
+<dl>
+<dt>
+<strong><a name="sec_signing"></a>Signing Information</strong>
+</dt>
+<dd>Specifies the configuration for the signing parameters. Signing
+information is used to sign and validate parts of the message including the
+body and time stamp.
+<p>You can also use these parameters for X.509 validation when <em>Authentication
+Method</em> is <samp>IDAssertion</samp> and <em>ID Type</em> is <samp>X509Certificate</samp> in
+the server-level configuration. In such cases, you must fill in the <em>Certificate
+Path </em> fields only.</p>
+
+</dd>
+<dt>
+<strong><a name="sec_encrypt"></a>Encryption Information</strong>
+</dt>
+<dd>Specifies the configuration for the encrypting and decrypting parameters.
+Encryption information is used for encrypting and decrypting various parts
+of a message including the body and user name token.</dd>
+<dt>
+<strong><a name="sec_keyldesc"></a>Key Locators</strong>
+</dt>
+<dd>Specifies a list of key locator objects that retrieve the keys
+for digital signature and encryption from a keystore file or a repository.
+The key locator maps a name or logical name to an alias or maps an authenticated
+identity to a key. This logical name is used to locate a key in a key locator
+implementation.</dd>
+<dt>
+<strong><a name="sec_logmapdesc"></a>Login Mappings</strong>
+</dt>
+<dd>Specifies a list of configurations for validating tokens within
+incoming messages.
+<p>Login mappings map the authentication method to the Java Authentication
+and Authorization Service (JAAS) configuration.</p>
+
+<p>To configure JAAS, use the administrative console and click <strong>Security
+&gt; JAAS Configuration</strong>.</p>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>Related information</strong>
+</p>
+<a href="uwbs_encrypt.html">Encryption information collection</a>
+<br>
+
+</div>
+</body>
+</html>

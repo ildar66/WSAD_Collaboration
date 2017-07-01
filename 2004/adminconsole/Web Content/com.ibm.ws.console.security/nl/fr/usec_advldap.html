@@ -1,0 +1,298 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Param&egrave;tres LTPA (Lightweight Directory Access Protocol) avanc&eacute;s</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecadvldap"></a>
+<h2>Param&egrave;tres LTPA (Lightweight Directory Access Protocol) avanc&eacute;s</h2>
+
+<p>Cette page permet de configurer les param&egrave;tres LTPA
+(Lightweight Directory Access Protocol) lorsque les utilisateurs et les
+groupes se trouvent dans un annuaire LDAP externe.</p>
+
+<p>Pour visualiser cette page d'administration, cliquez sur <strong>S&eacute;curit&eacute;</strong> &gt; <strong>Registres d'utilisateurs</strong> &gt; <strong>LDAP </strong> <strong>Param&egrave;tres LDAP avanc&eacute;s</strong>.</p>
+
+<p>Les valeurs par d&eacute;faut pour tous les filtres d'utilisateurs et relatifs au
+groupe sont d&eacute;j&agrave; indiqu&eacute;es dans les zones appropri&eacute;es. Vous pouvez modifier ces
+valeurs en fonction de vos besoins.
+Ces valeurs par d&eacute;faut d&eacute;pendent du type de
+serveur LDAP s&eacute;lectionn&eacute; dans le panneau <strong>Param&egrave;tres LDAP</strong>. Si ce
+type est modifi&eacute; (par exemple de NETSCAPE en SECUREWAY), les filtres par
+d&eacute;faut sont automatiquement modifi&eacute;s. Si les valeurs des filtres par
+d&eacute;faut sont modifi&eacute;es, le type du serveur LDAP devient <strong>Personnalis&eacute;</strong>
+pour indiquer que des filtres personnalis&eacute;s sont utilis&eacute;s. Lorsque la
+s&eacute;curit&eacute; est activ&eacute;e et que certaines de ces propri&eacute;t&eacute;s sont modifi&eacute;es,
+ouvrez la fen&ecirc;tre <strong>S&eacute;curit&eacute; globale</strong> et cliquez sur <strong>Valider</strong> ou
+<strong>OK</strong> pour valider les modifications.</p>
+
+<div>
+<p>
+<strong>Onglet Configuration</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="LDAPSearchFilter_userFilter_description"></a>Filtre d'utilisateurs </strong>
+</dt>
+<dd>Indique le filtre utilisateur LDAP qui recherche des utilisateurs dans le registre.
+<p>Cette option est g&eacute;n&eacute;ralement utilis&eacute;e pour l'affectation de r&ocirc;les
+de s&eacute;curit&eacute; aux utilisateurs. Elle pr&eacute;cise sur quelle propri&eacute;t&eacute; doit porter la recherche des
+utilisateurs dans le service d'annuaire.
+Par exemple, pour rechercher des utilisateurs en fonction de leur ID
+utilisateur, indiquez
+<samp>(ampersand(uid=%v)(objectclass=inetOrgPerson)</samp>, ampersand
+correspondant au symbole "perlu&egrave;te" (&amp;).  Pour plus
+d'informations sur cette syntaxe, reportez-vous &agrave; la documentation du
+service d'annuaire LDAP.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es :</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LDAPSearchFilter_groupFilter_description"></a>Filtre de groupes</strong>
+</dt>
+<dd>Indique le filtre de groupe LDAP qui recherche des groupes dans le registre 
+<p>Cette option est g&eacute;n&eacute;ralement utilis&eacute;e pour l'affectation de r&ocirc;les de
+s&eacute;curit&eacute; aux groupes. Elle pr&eacute;cise sur quelle propri&eacute;t&eacute; doit
+porter la recherche des groupes dans le service d'annuaire.
+Pour plus
+d'informations sur cette syntaxe, reportez-vous &agrave; la documentation du
+service d'annuaire LDAP.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es :</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LDAPSearchFilter_userIdMap_description"></a>Mappe d'ID utilisateur</strong>
+</dt>
+<dd>Indique le filtre LDAP qui mappe le nom abr&eacute;g&eacute; d'un utilisateur
+vers une entr&eacute;e LDAP.
+<p>Indique l'information repr&eacute;sentant les utilisateurs lorsque ces derniers s'affichent.
+Par exemple, pour afficher des entr&eacute;es du type
+<samp>object class = inetOrgPerson</samp> par ID,
+indiquez <samp>inetOrgPerson:uid</samp>. Cette zone accepte plusieurs paires
+objectclass:property s&eacute;par&eacute;es par des points-virgules (;).</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es :</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LDAPSearchFilter_groupIdMap_description"></a>Mappe d'ID de groupe</strong>
+</dt>
+<dd>Indique le filtre LDAP qui mappe le nom abr&eacute;g&eacute; d'un groupe vers une entr&eacute;e
+LDAP.
+<p>Indique l'information repr&eacute;sentant les groupes lorsque ces derniers apparaissent.
+Par exemple, pour afficher les groupes par leur nom, indiquez <samp>*:cn</samp>. Dans
+cet exemple, le caract&egrave;re g&eacute;n&eacute;rique <samp>*</samp> permet de lancer une
+recherche sur toute classe d'objets. Cette zone
+accepte plusieurs paires <samp>objectclass:property</samp> s&eacute;par&eacute;es par des
+points-virgules (;). </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es :</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LDAPSearchFilter_groupMemberIdMap_description"></a>Mappe d'ID de membre de groupe </strong>
+</dt>
+<dd>Indique le filtre LDAP qui identifie l'utilisateur en fonction
+des relations de groupe.
+<p>Pour les types d'annuaire SecureWay, NetScape et Domino, cette zone
+accepte plusieurs paires classeobjet:propri&eacute;t&eacute; d&eacute;limit&eacute;es par un
+point-virgule (;). Dans la paire classeobjet:propri&eacute;t&eacute;, l'&eacute;l&eacute;ment
+classeobjet est identique &agrave; celui d&eacute;fini dans Filtres de groupe et la
+propri&eacute;t&eacute; correspond &agrave; l'attribut member. Lorsque l'&eacute;l&eacute;ment classeobjet ne
+correspond pas &agrave; celui d&eacute;fini dans Filtres de groupe, l'autorisation peut
+&eacute;chouer si des groupes sont mapp&eacute;s &agrave; des r&ocirc;les de s&eacute;curit&eacute;. Pour plus d'informations sur cette syntaxe, reportez-vous &agrave; la
+documentation du service d'annuaire LDAP.</p>
+
+<p>Pour IBM Directory Server, iPlanet Directory Server et Active
+Directory, cette zone accepte plusieurs paires
+(<samp>attributgroupe:attributmembre</samp>) d&eacute;limit&eacute;es par un point-virgule (;). Ces paires sont utilis&eacute;es pour
+rechercher les appartenances d'un utilisateur &agrave; des groupes en
+&eacute;num&eacute;rant tous les attributs de groupe d'un utilisateur donn&eacute;.
+Par exemple, la paire d'attributs <samp>(membrede:membre)</samp> est utilis&eacute;e
+parActive Directory et (ibm-touslesgroupes:membre) est utilis&eacute;e par IBM Directory Server. Cette zone indique quelle propri&eacute;t&eacute; d'une classe d'objet d&eacute;tient la liste des
+membres appartenant au groupe repr&eacute;sent&eacute; par cette classe. Pour les serveurs d'annuaire pris en charge, reportez-vous &agrave; l'article de l'InfoCenter, "Services d'annuaire pris en charge".</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es :</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LDAPSearchFilter_certificateMapMode_description"></a>Mode de mappage des certificats</strong>
+</dt>
+<dd>Indique si les certificats X.509 doivent &ecirc;tre mapp&eacute;s
+dans un annuaire LDAP par nom distinctif exact
+(EXACT_DN) ou par filtre de certificats (CERTIFICATE_FILTER). Choisissez CERTIFICATE_FILTER si vous souhaitez utiliser le filtre de
+certificats sp&eacute;cifi&eacute; pour le mappage.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es :</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LDAPSearchFilter_certificateFilter_description"></a>Filtre de certificats</strong>
+</dt>
+<dd>Indique s'il est n&eacute;cessaire d'utiliser le filtre de propri&eacute;t&eacute;
+de mappage de certificat afin d'indiquer le filtre LDAP, qui est utilis&eacute;
+pour mapper les attributs dans le certificat client vers les entr&eacute;e du
+registre LDAP.
+<p> Pour activer cette zone, cliquez sur <strong>CERTIFICATE_FILTER</strong>
+pour le mappage des certificats. Si plusieurs entr&eacute;es LDAP correspondent &agrave; la sp&eacute;cification du
+filtre au cours de l'ex&eacute;cution, l'authentification &eacute;choue car la
+correspondance est alors consid&eacute;r&eacute;e comme ambigu&euml;.
+La syntaxe ou structure de ce
+filtre est la suivante : <samp>LDAP attribute=${attribut de
+certificat client}</samp> (par exemple, <samp>uid=${SubjectCN}</samp>). La partie gauche de la sp&eacute;cification du filtre est un attribut LDAP qui d&eacute;pend du sch&eacute;ma d'utilisation pour lequel votre serveur LDAP est configur&eacute;. La partie droite de la
+sp&eacute;cification du filtre est l'un des attributs publics du certificat
+de votre client. La partie de droite doit commencer par le signe dollar
+($) et une accolade ouvrante ({) et se terminer par une accolade
+fermante (}). Vous pouvez utiliser les valeurs d'attribut de
+certificat suivantes dans la partie droite de la sp&eacute;cification du
+filtre. L'utilisation des minuscules et des majuscules dans les cha&icirc;nes est importante.
+  <ul>
+
+<li>
+<samp>${UniqueKey} </samp>
+</li>
+
+<li>
+<samp>${PublicKey}</samp>
+</li>
+
+<li>
+<samp>${PublicKey}</samp>
+</li>
+
+<li>
+<samp>${Issuer}</samp>
+</li>
+
+<li>
+<samp>${NotAfter}</samp>
+</li>
+
+<li>
+<samp>${NotBefore}</samp>
+</li>
+
+<li>
+<samp>${SerialNumber}</samp>
+</li>
+
+<li>
+<samp>${SigAlgName}</samp>
+</li>
+
+<li>
+<samp>${SigAlgOID}</samp>
+</li>
+
+<li>
+<samp>${SigAlgParams}</samp>
+</li>
+
+<li>
+<samp>${SubjectCN}</samp>
+</li>
+
+<li>
+<samp>${Version}</samp>
+</li>
+
+</ul>
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es :</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informations connexes</strong>
+</p>
+<a href="rcon_buttons.html">Boutons de la console administrative</a>
+<br>
+
+<a href="rcon_pageusage.html">Caract&eacute;ristiques de la page de la console d'administration</a>
+<br>
+
+<a href="rcon_scope.html">Param&egrave;tres de la port&eacute;e de la console administrative</a>
+<br>
+
+<a href="rcon_filter.html">Param&egrave;tres de filtrage de la console administrative</a>
+<br>
+
+<a href="rcon_preferences.html">Param&egrave;tres des pr&eacute;f&eacute;rences de la console administrative</a>
+<br>
+
+<a href="usec_rprdap.html">Param&egrave;tres LTPA (Lightweight Directory Access Protocol)</a>
+<br>
+
+</div>
+</body>
+</html>

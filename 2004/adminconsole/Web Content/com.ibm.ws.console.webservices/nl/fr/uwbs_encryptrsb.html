@@ -1,0 +1,192 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Param&egrave;tres de configuration des informations de chiffrement</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_encryptrsb"></a>
+<h2>
+<img alt="[Release 5.1 and later]" src="v51.gif" border="0">Param&egrave;tres de configuration des informations de chiffrement</h2>
+
+<p>Cette page permet de configurer les param&egrave;tres de chiffrement
+et de d&eacute;chiffrement.</p>
+
+<p>Les sp&eacute;cifications indiqu&eacute;es dans cette page pour la m&eacute;thode de
+signature, la m&eacute;thode simplifi&eacute;e et la m&eacute;thode de canonisation sont
+disponibles dans le document W3C (World Wide Web Consortium) intitul&eacute;, <em>XML Encryption Syntax and
+Processing: W3C Recommendation 10 Dec 2002</em>.</p>
+
+<p>Pour afficher cette page de la console d'administration, suivez la proc&eacute;dure ci-apr&egrave;s. <ol>
+
+<li>Cliquez sur <strong>Applications &gt; Applications d'entreprise &gt; </strong><em>nom_application</em>. </li>
+
+<li>Dans la section Articles li&eacute;s, cliquez sur <strong>Module Web &gt; </strong><em>nom_fichier_URI</em> &gt; <strong>Services
+Web : Liaisons de s&eacute;curit&eacute; du client</strong>. </li>
+
+<li>Dans la section Liaison d'&eacute;metteur de r&eacute;ponse, cliquez sur <strong>Editer &gt; Informations de chiffrement</strong>.</li>
+
+<li>Si les informations de chiffrement ne sont pas disponibles,
+s&eacute;lectionnez <strong>Aucune</strong>.</li>
+
+<li>Si les informations de chiffrement sont disponibles, s&eacute;lectionnez l'option
+correspondante<strong></strong>.</li>
+
+</ol>
+</p>
+
+<p></p>
+
+<p>Puis, d&eacute;finissez la configuration dans les zones suivantes :</p>
+
+<dl>
+<dt>
+<strong><a name="sec_name"></a>Nom des informations relatives au chiffrement</strong>
+</dt>
+<dd>Indique le nom des informations de chiffrement.</dd>
+<dt>
+<strong><a name="sec_klr"></a>R&eacute;f&eacute;rence
+de l'adresse de cl&eacute;s</strong>
+</dt>
+<dd>Indique le nom utilis&eacute;
+pour r&eacute;f&eacute;rencer l'adresse de cl&eacute;s.
+<p>Pour indiquer des r&eacute;f&eacute;rences d'adresse de cl&eacute;s, cliquez sur <strong>Serveurs &gt; Serveurs d'applications
+&gt; </strong><em>nom_serveur</em>. Dans la
+section Propri&eacute;t&eacute;s suppl&eacute;mentaires, cliquez sur <strong>Services Web :
+Liaisons par d&eacute;faut pour la s&eacute;curit&eacute; des services Web &gt;
+Adresse de cl&eacute;s</strong>.</p>
+
+</dd>
+<dt>
+<strong><a name="sec_ekn"></a>Nom de la cl&eacute; de chiffrement</strong>
+</dt>
+<dd>Indique le nom de la cl&eacute; de chiffrement, qui est r&eacute;solu par
+l'adresse de cl&eacute;s sp&eacute;cifi&eacute; en cl&eacute; r&eacute;elle.</dd>
+<dt>
+<strong><a name="sec_eka"></a>Algorithme de chiffrement des cl&eacute;s </strong>
+</dt>
+<dd>Indique l'URI de l'algorithme de la m&eacute;thode de chiffrement des
+cl&eacute;s.
+<p>Les algorithmes suivants sont pris en charge :<ul>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#rsa-1_5</samp>
+</li>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#kw-tripledes</samp>
+</li>
+
+</ul>
+</p>
+
+<p>Les algorithmes suivants sont pris en charge :<ul>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#kw-aes128</samp>
+</li>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#kw-aes256</samp>
+</li>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#kw-aes192</samp>
+</li>
+
+</ul>
+</p>
+
+<p>Par d&eacute;faut, l'extension JCE (Java Cryptography Extension) est livr&eacute;e avec des
+codes de chiffrement de puissance limit&eacute;e. Pour utiliser les algorithmes de chiffrement
+AES (Advanced Encryption
+Standard) 192 bits et 256 bits, vous devez appliquer des fichiers de r&egrave;gles de juridiction
+illimit&eacute;es. Avant de t&eacute;l&eacute;charger ces fichiers de r&egrave;gles, sauvegardez les fichiers de r&egrave;gles existants
+(local_policy.jar et US_export_policy.jar dans le r&eacute;pertoire jre/lib/security/)
+avant de les remplacer. Cette op&eacute;ration s'av&egrave;re utile si vous voulez ult&eacute;rieurement restaurer les fichiers
+d'origine.
+Pour t&eacute;l&eacute;charger les fichiers de r&egrave;gles, suivez une des proc&eacute;dures ci-apr&egrave;s.<ul>
+
+<li>Pour les plateformes de WebSphere Application Server utilisant IBM Developer Kit, Java
+Technology Edition Version 1.4.1, notamment les plateformes AIX, Linux et Windows, vous pouvez
+obtenir des fichiers de r&egrave;gles de juridiction illimit&eacute;es en suivant la proc&eacute;dure ci-apr&egrave;s.<ul>
+
+<li>Acc&eacute;dez au site Web suivant : http://www.ibm.com/developerworks/java/jdk/security/index.html </li>
+
+<li>Cliquez sur <strong>Policy Files</strong>. <p>Le fichier unrestrict.jar est t&eacute;l&eacute;charg&eacute;
+sur votre machine.</p>
+</li>
+
+</ul>
+</li>
+
+<li>Pour les plateformes de WebSphere Application Server utilisant le kit JDK (Java Development
+Kit) version 1.4.1 de type Sun, notamment les environnements Solaris et la plateforme HP-UX, vous
+pouvez obtenir des fichiers de r&egrave;gles de juridiction illimit&eacute;es en suivant la proc&eacute;dure ci-apr&egrave;s.<ul>
+
+<li>Acc&eacute;dez au site Web suivant : http://java.sun.com/j2se/1.4.1/download.html</li>
+
+<li>Dans la partie inf&eacute;rieure de la page Web, cliquez sur Download qui se trouve &agrave; c&ocirc;t&eacute; de
+Java Cryptography Extension (JCE) Unlimited Strength Jurisdiction Policy Files
+1.4.1. Le fichier jce_policy-1_4_1.zip est t&eacute;l&eacute;charg&eacute; sur votre machine.</li>
+
+</ul>
+</li>
+
+</ul>Une fois une de ces proc&eacute;dures suivies, deux fichiers JAR (Java Archive) sont plac&eacute;s dans le r&eacute;pertoire
+JVM jre/lib/security/.</p>
+
+</dd>
+<dt>
+<strong><a name="sec_dea"></a>Algorithme de chiffrement des donn&eacute;es</strong>
+</dt>
+<dd>Indiquez les URI (Uniform Resource Identifier) d'algorithme de la m&eacute;thode de
+chiffrement de donn&eacute;es.
+<p>Les algorithmes suivants sont pris en charge :<ul>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#tripledes-cbc</samp>
+</li>
+
+</ul>
+</p>
+
+<p>Les algorithmes suivants sont pris en charge :<ul>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#aes128-cbc</samp>
+</li>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#aes256-cbc</samp>
+</li>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#aes192-cbc</samp>
+</li>
+
+</ul>
+</p>
+
+<p>Par d&eacute;faut, l'extension JCE est livr&eacute;e avec des
+codes de chiffrement de puissance limit&eacute;e. Pour utiliser les algorithmes de chiffrement
+AES 192 bits et 256 bits, vous devez appliquer des fichiers de r&egrave;gles de juridiction
+illimit&eacute;es. </p>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>Informations connexes</strong>
+</p>
+<a href="uwbs_encrypt.html">Collection des informations de chiffrement</a>
+<br>
+
+<a href="uwbs_keyl.html">Collection d'adresses de cl&eacute;</a>
+<br>
+
+</div>
+</body>
+</html>

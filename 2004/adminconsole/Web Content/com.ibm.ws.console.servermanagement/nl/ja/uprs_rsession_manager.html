@@ -1,0 +1,208 @@
+﻿<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>セッション管理設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uprs_rsession_manager"></a>
+<h2>セッション管理設定</h2>
+
+<p>このページを使用して、HTTP セッション・サポートを管理します。
+HTTP セッション・サポートには、セッション・トラッキング・メカニズムの指定、
+最大のメモリー内セッション・カウントの設定、オーバーフローの制御、
+セッション・タイムアウトの構成などがあります。</p>
+
+<p>この管理コンソール・ページを表示するには、「<strong>サーバー</strong>」&gt;「<strong>アプリケーション・サーバー</strong>」&gt;「<em>server_name</em>」&gt;「<strong>Web コンテナー</strong>」&gt;「<strong>セッション管理</strong>」をクリックします。</p>
+
+<div>
+<p>
+<strong>「構成」タブ</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="SessionManager_enable_description"></a>Overwrite Session Management (アプリケーションおよび Web モジュール・レベルのみ)</strong>
+</dt>
+<dd>これらのセッション管理設定が、現在のアプリケーションや Web モジュールについて、高位レベルから継承される通常の設定に優先するかどうかを指定します。
+<p>デフォルトでは、Web モジュールはレベルが上のアプリケーションからセッション管理設定を継承し、アプリケーションはレベルが上の Web コンテナーからセッション管理設定を継承します。</p>
+
+</dd>
+<dt>
+<strong><a name="SessionManager_sessionTracking_description"></a>セッション・トラッキング・メカニズム</strong>
+</dt>
+<dd>HTTP セッション管理のメカニズムを指定します。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">メカニズム</td>
+<td align="left" valign="top" class="base">機能</td>
+<td align="left" valign="top" class="base">デフォルト</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">SSL ID トラッキングを使用可能にする</td>
+<td align="left" valign="top" class="base">セッション・トラッキングが Secure Sockets Layer  (SSL) 情報をセッション ID として使用することを指定します。
+SSL トラッキングの使用可能化は、
+Cookie ベースのセッション・トラッキングおよび URL の再書き込みよりも優先順位が高くなります。<p>
+SSL ID トラッキングを使用可能にする場合は、SSLV3Timeout および Secure Association Server (SAS) の 2 つのパラメーターを使用することができます。
+SSLV3Timeout により、SSL セッションが再調整された後の時間間隔が指定されます。
+この値は高く設定されており、変更してもパフォーマンスに影響を与えません。
+SAS パラメーターにより、Java 仮想マシン (JVM) 外部の 別の JVM に向かう場合にのみ、SSL 接続が確立されます。
+すべての Bean が同じ JVM 内に配置されている場合は、SAS によって SSL が使用されていてもパフォーマンスは低下しません。</p>
+<p>これらの値は、<samp>sas.server.properties</samp> ファイルおよび  <samp>sas.client.props</samp> ファイルを編集して設定します。
+これらのファイルは、<em>product_installation_root</em>&yen;properties ディレクトリーにあります。このとき、<em>product_installation_root</em> は、WebSphere Application Server がインストールされているディレクトリーです。</p>
+</td>
+<td align="left" valign="top" class="base">9600 秒</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Cookie を使用可能にする</td>
+<td align="left" valign="top" class="base">セッション・トラッキングでセッション ID を運ぶために Cookie を使用するように指定します。
+Cookie が使用可能である場合、セッション・トラッキングは Cookie として到着するセッション ID を認識し、
+Cookie を使用してセッション ID を送信しようとします。
+Cookie が使用不可である場合、
+セッション・トラッキングは Cookie の代わりに URL 再書き込みを使用します (URL 再書き込みが使用可能である場合)。
+<p>Cookie の使用可能化は、URL 再書き込みより優先順位が高くなります。
+管理アプリケーションを実行するアプリケーション・サーバーのセッション管理機能では Cookie を使用不可にしないでください。
+使用不可にすると、サーバーを再始動した後に管理アプリケーションが機能しなくなります。
+他の方法としては、ユーザー・アプリケーションとは別のプロセスで管理アプリケーションを実行します。
+</p>
+<p>これらの設定を変更するには、「<strong>変更</strong>」をクリックします。
+</p>
+</td>
+<td align="left" valign="top" class="base"></td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">URL 再書き込みを使用可能にする</td>
+<td align="left" valign="top" class="base">セッション管理機能が、
+セッション ID を運ぶために再書き込み URL を使用するように指定します。
+URL 再書き込みを使用可能にしておくと、
+encodeURL メソッドがサーブレットで呼び出された場合に、
+URL に到達したセッション ID がセッション管理機能によって認識されます。</td>
+<td align="left" valign="top" class="base"></td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">プロトコル・スイッチ再書き込みを使用可能にする</td>
+<td align="left" valign="top" class="base">URL で HTTP から HTTPS へ、
+あるいは HTTPS から HTTP への切り替えが必要となる場合に、
+セッション ID を URL に追加するように指定します。
+再書き込みが使用可能である場合、HTTP と HTTPS との切り替えには、セッション ID が必要です。</td>
+<td align="left" valign="top" class="base"></td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SessionManager_overflow_description"></a>オーバーフロー</strong>
+</dt>
+<dd>メモリー内のセッション数が「メモリー内の最大セッション・カウント」プロパティーで指定されている値を超えることができることを指定します。
+このオプションは、非分散セッション・モードでのみ有効です。
+</dd>
+<dt>
+<strong><a name="TuningParams_maxInMemorySessionCount_description"></a>メモリー内の最大セッション・カウント</strong>
+</dt>
+<dd>メモリー内で保持されるセッションの最大数を指定します。
+
+<p>メモリー内セッションを使用しているのか、
+分散セッションを使用しているのかによって、意味が異なります。
+メモリー内セッションの場合、この値は基本セッション表内のセッション数を指定します。
+セッションをセッション管理機能全体でこの数に制限するか、
+あるいは 2 次表での追加セッションの保管を許可するかを指定するには、「
+オーバーフローの許可」プロパティーを使用してください。
+分散セッションの場合、
+この値はセッションのメモリー・キャッシュのサイズを示します。
+セッション・キャッシュが最大サイズに到達し、新規セッションが要求されると、
+セッション管理機能はキャッシュから LRU セッションを除去し、
+新規のセッションのための場所を空けます。
+<p>
+<img alt="[修正パッケージ 5.0.2 以降]" src="v502.gif" border="0"><b>注: </b>この値は、サーバーの最大スレッド・プール・サイズよりも小さい値に設定しないようにしてください。</p>
+</p>
+
+</dd>
+<dt>
+<strong><a name="SessionManager_sessionTimeout_description"></a>セッション・タイムアウト
+</strong>
+</dt>
+<dd>セッションが使用されなくなってから無効になるまでの時間を指定します。
+「<samp>タイムアウトの設定</samp>」または「<samp>タイムアウトなし</samp>」を指定します。
+2 以上の値 (分単位) を指定します。
+
+<p> この設定値は、
+セッション・タイムアウトが Web モジュールのデプロイメント記述子に指定されていない場合に、
+デフォルトとして使用します。
+パフォーマンスを維持するために、
+無効化タイマーは秒単位までの精度はないので注意してください。
+「書き込み頻度」が時間ベースである場合、
+この値は「書き込み間隔」の少なくとも 2 倍に設定してください。
+</p>
+
+</dd>
+<dt>
+<strong><a name="SessionManager_securityIntegration_description"></a>セキュリティー統合</strong>
+</dt>
+<dd>セキュリティー統合が使用可能である場合、
+セッション管理機能がユーザーの ID を HTTP セッションに関連付けるように指定します。
+</dd>
+<dt>
+<strong><a name="SessionManager_serialAccess_description"></a>セッション・アクセスのシリアライズ</strong>
+</dt>
+<dd>所定のサーバー内で同時のセッション・アクセスを許可しないように指定します。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">最大待機時間</td>
+<td align="left" valign="top" class="base">サーブレット要求が、実行を継続するまで HTTP セッションで待機する最大時間を指定します。
+このパラメーターはオプションであり、秒単位で指定します。デフォルトは 120 秒または、2 分です。通常の状態では、HTTP セッションへのアクセスを待機しているサーブレット要求は、
+指定の HTTP セッションを現在所有している要求が終了すると、その要求から通知を受け取ります。</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">タイムアウト時のアクセスを許可する</td>
+<td align="left" valign="top" class="base">タイムアウトのイベント時にサーブレットを通常通り実行す
+るか、または打ち切るかを指定します。このボックスがチェックされた場合には、サーブレッ
+トは通常通り実行されます。このボックスがチェックされていない場合には、サーブレッ
+トの実行は打ち切られ、エラー・ログが生成されます。</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>関連情報</strong>
+</p>
+<a href="rcon_buttons.html">管理コンソールのボタン</a>
+<br>
+
+<a href="rcon_pageusage.html">管理コンソール・ページのフィーチャー</a>
+<br>
+
+<a href="rcon_preferences.html">管理コンソールの設定の変更</a>
+<br>
+
+</div>
+</body>
+</html>

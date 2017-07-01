@@ -1,0 +1,192 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>CMP 连接工厂设置</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="CMP_connection_factories_detail"></a>
+<h2>CMP 连接工厂设置</h2>
+
+<p>使用此页面查看 CMP bean 用于访问任何后端数据存储的连接工厂的设置。此连接工厂仅以&ldquo;读&rdquo;方式。不能修改或删除它。</p>
+
+<p>要查看此管理控制台页面，单击<strong>资源</strong> &gt;<strong>资源适配器</strong> &gt; <em>WebSphere 关系资源适配器</em>&gt; <strong>CMP 连接工厂</strong> &gt; <em>connection_factory</em>。</p>
+
+<div>
+<p>
+<strong>&ldquo;配置&rdquo;选项卡</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="j2eeresourcefactory_detail_contextID"></a>作用域</strong>
+</dt>
+<dd>指定可看到此资源定义的级别 － 单元、节点或服务器级别。
+<p>资源（如 JDBC 提供程序、名称空间绑定或共享库）可以在多个作用域上定义，在较特定的作用域上定义的资源覆盖较一般作用域上定义的重复项。</p>
+
+<p>注意，无论定义的资源的作用域是什么，资源的属性仅在单个服务器级别上应用。例如，如果您在单元级别上定义数据源的作用域（它在该单元内是唯一的），则该单元中的所有用户都可以查找和使用该数据源。然而，资源属性设置对于单元中的每台服务器是本地的。例如，如果您定义<em>最大连接数</em>为 10，那么该单元中的每台服务器都可以有 10 个连接。<dl>
+
+<dt>
+<strong>单元</strong>
+</dt>
+<dd>最常规的作用域。在&ldquo;单元&rdquo;作用域上定义的资源对于所有节点和服务器都是可见的，除非它们被覆盖了。
+要查看单元作用域中定义的资源，不要在作用域选择表单中指定服务器或节点名。</dd>
+
+<dt>
+<strong>节点</strong>
+</dt>
+<dd>多数资源类型的缺省作用域。在&ldquo;节点&rdquo;作用域上定义的资源覆盖任何在&ldquo;单元&rdquo;作用域上定义的重复项，并且对于相同节点上的所有服务器都是可见的，除非它们在该节点上的服务器作用域中被覆盖了。要查看节点作用域中定义的资源，不要指定服务器，但是要在作用域选择表单中选择节点名。</dd>
+
+<dt>
+<strong>服务器</strong>
+</dt>
+<dd>定义资源的最特定作用域。在&ldquo;服务器&rdquo;作用域上定义的资源覆盖任何在&ldquo;单元&rdquo;作用域或父&ldquo;节点&rdquo;作用域上定义的重复资源定义，并且它们仅对于特定服务器是可见的。要查看服务器作用域中定义的资源，在作用域选择表单中指定服务器名和节点名。
+</dd>
+
+</dl>
+</p>
+
+<p>当创建资源时，它们总是创建到面板中所选的当前作用域中。要在其它作用域中查看作用域，在作用域选择表单中指定不同的节点或服务器。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2EEResourceFactory_name_displayName"></a>名称</strong>
+</dt>
+<dd>指定资源的显示名称。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2EEResourceFactory_jndiName_displayName"></a>JNDI 名称</strong>
+</dt>
+<dd>指定资源的 JNDI 名称。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2EEResourceFactory_description_displayName"></a>描述</strong>
+</dt>
+<dd>指定资源的描述。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2EEResourceFactory_category_displayName"></a>类别</strong>
+</dt>
+<dd>指定可用于分类或分组资源的类别字符串。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2CConnectionFactory_authMechanismPreference_displayName"></a>认证首选项</strong>
+</dt>
+<dd>指定了哪些为相应资源适配器定义的认证机制应用于这个连接工厂。
+<p>例如，如果为资源适配器（<em>KerbV5</em> 和 <em>Basic Password</em>）定义了两个认证机制条目，则这将指定两种类型中的一个。如果指定的认证机制首选项不是相应资源适配器上可用的认证机制，则忽略它。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2CConnectionFactory_authDataAlias_displayName"></a>组件管理的认证别名</strong>
+</dt>
+<dd>组件管理的引用认证数据注册到资源。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">下拉列表</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2CConnectionFactory_authDataAlias_displayName"></a>容器管理的认证别名</strong>
+</dt>
+<dd>容器管理的引用认证数据注册到资源。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">下拉列表</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>相关信息</strong>
+</p>
+<a href="rcon_buttons.html">管理控制台按钮</a>
+<br>
+
+<a href="rcon_pageusage.html">管理控制台页面功能</a>
+<br>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>本端作業系統使用者登錄設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecrpseclos"></a>
+<h2>本端作業系統使用者登錄設定</h2>
+
+<p>請利用這個頁面來配置本端作業系統使用者登錄設定。</p>
+
+<p>如果要檢視這個管理主控台頁面，請按一下<strong>安全</strong> &gt; <strong>使用者登錄</strong> &gt; <strong>本端 OS</strong>。</p>
+
+<div>
+<p>
+<strong>「配置」標籤</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="UserRegistry_serverId_description"></a>伺服器使用者 ID</strong>
+</dt>
+<dd>指定本端 OS 登錄中的有效使用者 ID。
+
+<p>這個 ID 是安全伺服器 ID，只用在 WebSphere Application Server 安全上，與執行伺服器的系統程序無關。
+伺服器會在本端 OS 登錄中呼叫原生 API，以呼叫這個特定登錄來鑑別和取得使用者的相關專用權資訊。
+通常只有具備特殊專用權的使用者（如 UNIX 系統中的 <strong>root</strong>，以及 Windows 系統中的<strong>作為部分作業系統</strong>），才能存取原生 API。
+如果要在應用程式伺服器中使用安全，用來執行 WebSphere Application Server 的程序 ID（不是安全伺服器 ID）必須有足以呼叫系統 API 的專用權。
+特殊專用權表示執行 WebSphere Application Server 的程序必須是<strong>管理者</strong>群組的一部分，且在 Windows 系統中必須有<strong>作為部分作業系統</strong>專用權，在 UNIX 系統中必須是 <strong>root</strong> 或具有最高權限。
+</p>
+
+<p>在使用 Windows 系統登錄時，這個 ID 不能與 Windows 機器同名。
+Windows 系統會將機器名稱 <strong>bob</strong> 視為擁有類似使用者 <strong>bob</strong> 的帳戶。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型：</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">單位：</td>
+<td align="left" valign="top" class="base">英數字元</td>
+
+</tr>
+
+</table>
+
+
+</dd>
+<dt>
+<strong><a name="UserRegistry_serverPassword_description"></a> 伺服器使用者密碼</strong>
+</dt>
+<dd>指定對應於本端 OS 登錄中之有效使用者 ID 的有效使用者密碼。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+</table>
+
+<p></p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>相關資訊</strong>
+</p>
+<a href="rcon_buttons.html">管理主控台按鈕</a>
+<br>
+
+<a href="rcon_pageusage.html">管理主控台頁面特性</a>
+<br>
+
+<a href="rcon_scope.html">管理主控台範圍設定</a>
+<br>
+
+<a href="rcon_filter.html">管理主控台過濾器設定</a>
+<br>
+
+<a href="rcon_preferences.html">管理主控台喜好設定</a>
+<br>
+
+</div>
+</body>
+</html>

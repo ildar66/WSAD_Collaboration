@@ -1,0 +1,185 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>定制属性设置</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="Custom_properties_detail"></a>
+<h2>定制属性设置</h2>
+
+<p>使用此页面设置资源提供程序和资源工厂可能必需的定制属性</p>
+
+<p>要查看此管理控制台页面，单击<strong>资源</strong> &gt; <strong>JDBC 提供程序</strong> &gt; <em>JDBC_provider</em> &gt; <strong>数据源</strong> &gt; <em>data_source</em> &gt; <strong>定制属性</strong> &gt; <em>custom_property</em>。</p>
+
+<div>
+<p>
+<strong>&ldquo;配置&rdquo;选项卡</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="J2EEResourceproperty_detail_contextID"></a>作用域</strong>
+</dt>
+<dd>指定可看到此资源定义的级别 － 单元、节点或服务器级别。
+<p>资源（如 JDBC 提供程序、名称空间绑定或共享库）可以在多个作用域上定义，在较特定的作用域上定义的资源覆盖较一般作用域上定义的重复项。</p>
+
+<p>注意，无论定义的资源的作用域是什么，资源的属性仅在单个服务器级别上应用。例如，如果您在单元级别上定义数据源的作用域（它在该单元内是唯一的），则该单元中的所有用户都可以查找和使用该数据源。然而，资源属性设置对于单元中的每台服务器是本地的。例如，如果您定义<em>最大连接数</em>为 10，那么该单元中的每台服务器都可以有 10 个连接。<dl>
+
+<dt>
+<strong>单元</strong>
+</dt>
+<dd>最常规的作用域。在&ldquo;单元&rdquo;作用域上定义的资源对于所有节点和服务器都是可见的，除非它们被覆盖了。
+要查看单元作用域中定义的资源，不要在作用域选择表单中指定服务器或节点名。</dd>
+
+<dt>
+<strong>节点</strong>
+</dt>
+<dd>多数资源类型的缺省作用域。在&ldquo;节点&rdquo;作用域上定义的资源覆盖任何在&ldquo;单元&rdquo;作用域上定义的重复项，并且对于相同节点上的所有服务器都是可见的，除非它们在该节点上的服务器作用域中被覆盖了。要查看节点作用域中定义的资源，不要指定服务器，但是要在作用域选择表单中选择节点名。</dd>
+
+<dt>
+<strong>服务器</strong>
+</dt>
+<dd>定义资源的最特定作用域。在&ldquo;服务器&rdquo;作用域上定义的资源覆盖任何在&ldquo;单元&rdquo;作用域或父&ldquo;节点&rdquo;作用域上定义的重复资源定义，并且它们仅对于特定服务器是可见的。要查看服务器作用域中定义的资源，在作用域选择表单中指定服务器名和节点名。
+</dd>
+
+</dl>
+</p>
+
+<p>当创建资源时，它们总是创建到面板中所选的当前作用域中。要在其它作用域中查看作用域，在作用域选择表单中指定不同的节点或服务器。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2EEResourceProperty_required_description"></a>必需的</strong>
+</dt>
+<dd>指定此资源所需的属性。
+<p>设置可以是<em>真</em>或<em>假</em>。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2EEResourceProperty_name_displayName"></a>名称</strong>
+</dt>
+<dd>指定与这个属性（PortNumber、ConnectionURL 等）关联的名称。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2EEResourceProperty_value_displayName"></a>值</strong>
+</dt>
+<dd>指定这个属性集中与此属性关联的值。
+<p></p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">整型</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2EEResourceProperty_description_displayName"></a>描述</strong>
+</dt>
+<dd>指定描述这个属性的所有边界或明确的值的文本。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2EEResourceProperty_type_displayName"></a>类型</strong>
+</dt>
+<dd>指定这个属性的全限定 Java 数据类型。
+<p>有效的特定类型是：<ul>
+
+<li>java.lang.Boolean</li>
+
+<li>java.lang.String</li>
+
+<li>java.lang.Integer</li>
+
+<li>java.lang.Double</li>
+
+<li> java.lang.Byte</li>
+
+<li>java.lang.Short</li>
+
+<li>java.lang.Long</li>
+
+<li>java.lang.Float</li>
+
+<li>java.lang.Character</li>
+
+</ul>
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">选取文件</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>相关信息</strong>
+</p>
+<a href="rcon_buttons.html">管理控制台按钮</a>
+<br>
+
+<a href="rcon_pageusage.html">管理控制台页面功能</a>
+<br>
+
+</div>
+</body>
+</html>

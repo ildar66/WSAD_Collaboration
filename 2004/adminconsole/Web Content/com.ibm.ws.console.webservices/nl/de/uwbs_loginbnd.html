@@ -1,0 +1,104 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Konfigurationseinstellungen f&uuml;r die Anmeldebindungen</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_loginbnd"></a>
+<h2>
+<img alt="[Fixpack 5.0.2 und h&ouml;her]" src="v502.gif" border="0">Konfigurationseinstellungen f&uuml;r die Anmeldebindungen</h2>
+
+<p>Verwenden Sie diese Seite, um die Ver- und Entschl&uuml;sselungsparameter zu konfigurieren.
+</p>
+
+<p>Das Pluggable-Token verwendet das JAAS-CallBackHandler-Interface
+(javax.security.auth.callback.CallBackHandler), um das Token zu generieren, das in die Nachricht eingef&uuml;gt wird. Die folgende Liste beschreibt
+die Implementierungen der CallBack-Unterst&uuml;tzung:
+<dl>
+<dt>
+<strong>com.ibm.wsspi.wssecurity.auth.callback.BinaryTokenCallback</strong>
+</dt>
+<dd>Diese
+Implementierung wird zum Generieren von bin&auml;ren Token verwendet, die als
+<samp>&lt;wsse:BinarySecurityToken/@ValueType&gt;</samp> in die Nachricht eingef&uuml;gt werden. </dd>
+<dt>
+<strong>javax.security.auth.callback.NameCallback and javax.security.auth.callback.NameCallback</strong>
+</dt>
+<dd>Diese Implementierung wird f&uuml;r das Generieren von Benutzernamen-Token verwendet, die als
+<samp>&lt;wsse:UsernameToken&gt;</samp> in die Nachricht eingef&uuml;gt werden.</dd>
+<dt>
+<strong>com.ibm.wsspi.wssecurity.auth.callback.XMLTokenSenderCallback</strong>
+</dt>
+<dd>Diese Implementierung wird zum Generieren von XML-Token (eXtensible Markup Language) verwendet, die als Element <samp>&lt;SAML:
+Assertion&gt;</samp> in die Nachricht eingef&uuml;gt werden. </dd>
+<dt>
+<strong>com.ibm.wsspi.wssecurity.auth.callback.PropertyCallback</strong>
+</dt>
+<dd>Diese Implementierung
+wird verwendet, um die in der Bindungsdatei angegebenen Merkmale abzurufen. </dd>
+</dl>
+</p>
+
+<p>Gehen Sie zum Anzeigen dieser Seite der Administrationskonsole wie folgt vor:<ol>
+
+<li>Klicken Sie auf <strong>Anwendungen &gt; Enterprise-Anwendungen &gt; </strong><em>Anwendungsname</em>. </li>
+
+<li>Klicken Sie unter "Zugeh&ouml;rige Elemente" auf <strong>Webmodul &gt; </strong><em>Name_der_URI-Datei</em>&gt; <strong>Web Services: Sicherheitsbindungen
+des Clients</strong>.</li>
+
+<li>Klicken Sie unter "Bindungen des Anforderungssenders" auf <strong>Bearbeiten &gt; Anmeldebindung</strong>.</li>
+
+</ol>
+</p>
+
+<p>Wenn die Verschl&uuml;sselungsdaten nicht verf&uuml;gbar sind, w&auml;hlen Sie <strong>Keine</strong> aus.</p>
+
+<p>Wenn die Verschl&uuml;sselungsdaten verf&uuml;gbar sind, w&auml;hlen Sie
+<strong>Dedizierte Anmeldebindung</strong> aus und geben Sie in den folgenden Feldern die Konfiguration an:</p>
+
+<dl>
+<dt>
+<strong><a name="sec_authmeth"></a>Authentifizierungsmethode</strong>
+</dt>
+<dd>Der eindeutige Name der Authentifizierungsmethode. </dd>
+<dt>
+<strong><a name="sec_cbhand"></a>Callback-Handler</strong>
+</dt>
+<dd>Der Name des Callback-Handler.  Der Callback-Handler muss das Interface
+javax.security.auth.callback.CallbackHandler implementieren.</dd>
+<dt>
+<strong><a name="sec_userid"></a>Benutzer-ID f&uuml;r Basisauthentifizierung</strong>
+</dt>
+<dd>Der Benutzername f&uuml;r die Basisauthentifizierung. Mit der Basisauthentifizierung k&ouml;nnen Sie
+eine Benutzer-ID und ein Kennwort in der Bindungsdatei definieren. </dd>
+<dt>
+<strong><a name="sec_authpass"></a>Kennwort f&uuml;r Basisauthentifizierung</strong>
+</dt>
+<dd>Das Kennwort f&uuml;r Basisauthentifizierung. </dd>
+<dt>
+<strong><a name="sec_uri"></a>URI des Token-Typs</strong>
+</dt>
+<dd>Der URI (Uniform Resource Identifier) f&uuml;r den Token-Typ.
+Diese Informationen werden als
+<samp>&lt;wsse:BinarySecurityToken&gt;/ValueType</samp> f&uuml;r das XML-Token <samp>&lt;SAML:
+Assertion&gt;</samp> eingef&uuml;gt. </dd>
+<dt>
+<strong><a name="sec_lname"></a>Lokaler Name des Token-Typs</strong>
+</dt>
+<dd>Der lokale Name f&uuml;r den Token-Typ. Diese Informationen werden als
+<samp>&lt;wsse:BinarySecurityToken&gt;/ValueType</samp> f&uuml;r das XML-Token <samp>&lt;SAML:
+Assertion&gt;</samp> eingef&uuml;gt. </dd>
+</dl>
+<div>
+<p>
+<strong>Zugeh&ouml;rige Informationen</strong>
+</p>
+<a href="uwbs_wsclientbind.html">Web Services: Sicherheitsbindungen des Clients </a>
+<br>
+
+</div>
+</body>
+</html>

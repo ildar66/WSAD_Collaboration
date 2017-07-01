@@ -1,0 +1,82 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>登录映射集合</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_logmap"></a>
+<h2>
+<img alt="[Fix Pack 5.0.2 and later]" src="v502.gif" border="0">登录映射集合</h2>
+
+<p>使用此页面查看用于验证进入消息中令牌的配置列表。登录映射将认证方法映射到 Java 认证和授权服务（JAAS）登录配置，以验证安全性令牌。WebSphere Application Server 中预定义了四种认证方法：BasicAuth、Signature、IDAssertion 和 LTPA。</p>
+
+<p>要查看此管理控制台页面，完成以下步骤：<ol>
+
+<li>单击<strong>服务器 &gt; 应用程序服务器 &gt; </strong><em>server_name</em>。</li>
+
+<li>在&ldquo;其它属性&rdquo;下，单击 <strong>Web 服务：Web 服务安全性的缺省绑定 &gt; 登录映射</strong>。</li>
+
+</ol>
+</p>
+
+<p>单击<strong>新建</strong>创建一个登录映射。</p>
+
+<p>单击<strong>删除</strong>删除一个登录映射。</p>
+
+<p>如果您单击<strong>更新运行时</strong>，则 Web 服务安全性运行时使用缺省绑定信息更新，该信息包含在先前保存的 <samp>ws-security.xml</samp> 文件中。在您在此面板上指定认证方法、Java 认证和授权服务（JAAS）配置名称和回调处理程序工厂类名后，您必须完成以下步骤：</p>
+
+<p>单击管理控制台顶部的<strong>保存</strong>。当您单击<strong>保存</strong>时，返回到管理控制台主面板。</p>
+
+<p>返回到&ldquo;登录到映射&rdquo;集合面板，然后单击<strong>更新运行时</strong>。</p>
+
+<p>
+<b>注: </b>当您单击<strong>更新运行时</strong>时，对其它 Web 服务进行的配置更改也在 Web 服务安全性运行时中更新。</p>
+
+<dl>
+<dt>
+<strong><a name="sec_authmeth"></a>认证方法</strong>
+</dt>
+<dd>指定用于验证安全性令牌的认证方法。
+<p>以下认证方法是可用的：<dl>
+<dt>
+<strong>基本认证</strong>
+</dt>
+<dd>基本认证把汗安全性令牌中的用户名和密码。令牌中的信息通过接收服务器认证，并用于创建凭证。</dd>
+<dt>
+<strong>Signature</strong>
+</dt>
+<dd>当认证方法为 signature 时，发送 X.509 证书作为安全性令牌。对于轻量级目录访问协议（LDAP）注册表，专有名称（DN）映射到基于 LDAP 证书过滤设置的凭证。对于本地 OS 注册表，证书的第一个属性，通常公共名称（CN）直接映射到注册表中的用户标识。</dd>
+<dt>
+<strong>IDAssertion</strong>
+</dt>
+<dd>身份声明将可信声明（标识）映射到 WebSphere 凭证。此认证方法仅包含安全性令牌中的用户名。其它令牌包含在此消息中，用于信任目的。一旦信任其它令牌后，IDAssertion 令牌用户名映射到凭证。</dd>
+<dt>
+<strong>LTPA</strong>
+</dt>
+<dd>轻量级第三方认证（LTPA）验证 LTPA 令牌。</dd>
+</dl>
+</p>
+
+</dd>
+<dt>
+<strong><a name="sec_jaasconfg"></a>JAAS 配置名</strong>
+</dt>
+<dd>指定 Java 认证和授权服务（JAAS）配置的名称。</dd>
+<dt>
+<strong><a name="sec_classname"></a>回调处理程序工厂类名</strong>
+</dt>
+<dd>指定 CallbackHandler 类的工厂名。</dd>
+</dl>
+<div>
+<p>
+<strong>相关信息</strong>
+</p>
+<a href="uwbs_logmapn.html">登录映射配置设置</a>
+<br>
+
+</div>
+</body>
+</html>

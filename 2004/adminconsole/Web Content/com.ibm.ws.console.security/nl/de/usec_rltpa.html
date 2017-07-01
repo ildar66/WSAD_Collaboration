@@ -1,0 +1,200 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>LTPA-Einstellungen</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecrltpa"></a>
+<h2>LTPA-Einstellungen</h2>
+
+<p>Auf dieser Seite k&ouml;nnen Sie LTPA-Einstellungen (Lightweight Third Party Authentication) konfigurieren. </p>
+
+<p>Klicken Sie zum Anzeigen dieser Seite der Administrationskonsole auf
+<strong>Sicherheit</strong> &gt; <strong>Authentifizierungsverfahren</strong> &gt; <strong>LTPA</strong>.</p>
+
+<p>Wenn Sie die Sicherheitseinrichtung zum ersten Mal konfigurieren, m&uuml;ssen Sie nur das Kennwort angeben. 
+Klicken Sie nach der Eingabe des Kennworts auf <strong>Anwenden</strong>. Klicken Sie dann auf <strong>SSO (Single Sign-On)</strong>
+und geben Sie den Namen der Dom&auml;ne ein. Vergewissern Sie sich,
+dass SSO aktiviert ist.
+Klicken Sie auf <strong>Anwenden</strong>.  Wenn Sie die Konfiguration der Sicherheitseinrichtung abschlie&szlig;en m&ouml;chten,
+vergewissern Sie sich, dass die richtige Registry
+konfiguriert ist, und klicken Sie in der Anzeige "Globale Sicherheit" auf <strong>Anwenden</strong>. Wenn bei
+aktivierter Sicherheitseinrichtung eines dieser Merkmale ge&auml;ndert wird, m&uuml;ssen Sie in die Anzeige "Globale
+Sicherheit" wechseln und auf <strong>Anwenden</strong> klicken, um die &Auml;nderungen zu &uuml;berpr&uuml;fen.  </p>
+
+<div>
+<p>
+<strong>Register "Konfiguration"</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="button"></a>Schl&uuml;ssel generieren</strong>
+</dt>
+<dd>Gibt an, ob der Server neue LTPA-Schl&uuml;ssel generiert. 
+<p>Wenn die Sicherheitseinrichtung zum
+ersten Mal aktiviert wird und LTPA als Authentifizierungsverfahren angegeben ist,
+werden die LTPA-Schl&uuml;ssel automatisch anhand des in der
+Anzeige eingegebenen Kennworts generiert. Wenn Sie neue Schl&uuml;ssel ben&ouml;tigen, klicken Sie auf
+<strong>Schl&uuml;ssel generieren</strong>. Klicken Sie nicht auf diese Schaltfl&auml;che, wenn ein neues Kennwort verwendet
+wird.
+Sobald das neue Kennwort eingegeben und auf <strong>OK</strong> oder <strong>Anwenden</strong> geklickt wird, werden die neuen
+Schl&uuml;ssel generiert.
+<em>Neu generierte Schl&uuml;ssel werden erst dann verwendet, nachdem sie gespeichert wurden.</em> 
+</p>
+
+</dd>
+<dt>
+<strong><a name="LTPA_password_description"></a>Schl&uuml;ssel importieren</strong>
+</dt>
+<dd>Gibt an, ob der Server neue LTPA-Schl&uuml;ssel importiert. 
+<p>Wenn SSO (Single Sign-On) unter WebSphere in mehreren WebSphere-Dom&auml;nen (Zellen) verwendet werden soll,
+m&uuml;ssen die LTPA-Schl&uuml;ssel und das Kennwort von den Dom&auml;nen gemeinsam verwendet werden. Die Schaltfl&auml;che
+<strong>Schl&uuml;ssel importieren</strong> kann f&uuml;r den Import der LTPA-Schl&uuml;ssel aus anderen Dom&auml;nen verwendet werden. Die
+LTPA-Schl&uuml;ssel m&uuml;ssen jedoch zuvor aus einer der Zellen in eine Datei exportiert werden.
+Wenn Sie neue LTPA-Schl&uuml;ssel importieren m&ouml;chten, geben Sie das Kennwort und den Namen der Datei
+ein, in der die LTAP-Schl&uuml;ssel gespeichert wurden.
+Klicken Sie auf <strong>Schl&uuml;ssel importieren</strong> und
+<strong><em>nicht</em></strong> auf <strong>OK</strong> oder <strong>Anwenden</strong>.</p>
+
+</dd>
+<dt>
+<strong><a name="LTPA_password_description"></a>Schl&uuml;ssel exportieren
+</strong>
+</dt>
+<dd>Gibt an, ob der Server neue LTPA-Schl&uuml;ssel exportiert.
+<p>Wenn SSO (Single Sign-On) unter WebSphere in mehreren WebSphere-Dom&auml;nen (Zellen) verwendet werden soll,
+m&uuml;ssen die LTPA-Schl&uuml;ssel und das Kennwort von den Dom&auml;nen gemeinsam verwendet werden. Sie k&ouml;nnen auf den Knopf
+<strong>Schl&uuml;ssel exportieren</strong> klicken, um die LTPA-Schl&uuml;ssel in andere Dom&auml;nen zu exportieren. </p>
+
+<p>Wenn Sie die LTPA-Schl&uuml;ssel exportieren m&ouml;chten, m&uuml;ssen Sie sicherstellen, dass das System aktiv ist, die Sicherheit
+aktiviert und LTPA verwendet wird.
+Geben Sie im Feld <strong>Name der Schl&uuml;sseldatei</strong> den Dateinamen ein und klicken Sie dann auf
+<strong>Schl&uuml;ssel exportieren</strong>. Die verschl&uuml;sselten Schl&uuml;ssel werden in der angegebenen Datei gespeichert.
+</p>
+
+</dd>
+<dt>
+<strong><a name="LTPA_password_description"></a>Kennwort</strong>
+</dt>
+<dd>Gibt das Kennwort an, das zum Verschl&uuml;sseln und Entschl&uuml;sseln der LTPA-Schl&uuml;ssel verwendet werden
+soll. Dieses Kennwort muss verwendet werden, wenn diese Schl&uuml;ssel in andere Konfigurationen der
+Administrationsdom&auml;ne des WebSphere Application Server (falls vorhanden)
+importiert werden und wenn SSO f&uuml;r Domino Server konfiguriert wird.
+<p>Wenn die Schl&uuml;ssel generiert oder importiert sind, werden sie zum Verschl&uuml;sseln und
+Entschl&uuml;sseln des LTPA-Token verwendet. Wenn Sie das Kennwort &auml;ndern, werden nach dem Anklicken von
+<strong>OK</strong> oder <strong>Anwenden</strong> automatisch neue LTPA-Schl&uuml;ssel generiert. Die neuen Schl&uuml;ssel werden erst verwendet,
+nachdem Sie sie gespeichert haben.
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LTPA_confirmPassword_description"></a>Kennwort best&auml;tigen</strong>
+</dt>
+<dd>Gibt das best&auml;tigte Kennwort an, das zum Verschl&uuml;sseln und Entschl&uuml;sseln der
+LTPA-Schl&uuml;ssel verwendet werden soll. 
+<p>Dieses Kennwort muss verwendet werden, wenn diese Schl&uuml;ssel in andere Konfigurationen der
+Administrationsdom&auml;ne des WebSphere Application Server (falls vorhanden)
+importiert werden und wenn SSO f&uuml;r Domino Server konfiguriert wird. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LTPA_timeout_description"></a>Zeitlimit</strong>
+</dt>
+<dd>Gibt die Verfallszeit des LTPA-Token in Minuten an.
+Dieses Zeitlimit sollte gr&ouml;&szlig;er sein als das Cache-Zeitlimit, das in der Anzeige "Globale
+Sicherheit" konfiguriert ist.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Integer
+</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Einheiten</td>
+<td align="left" valign="top" class="base">Minuten</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert </td>
+<td align="left" valign="top" class="base">120</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LTPA_keyFilename_description"></a>Name der Schl&uuml;sseldatei</strong>
+</dt>
+<dd>Der Name der Datei, die zum Importieren oder Exportieren von Schl&uuml;sseln verwendet wird. 
+<p>Geben Sie den vollst&auml;ndig qualifizierten Namen der Schl&uuml;sseldatei ein und klicken Sie dann
+auf <strong>Schl&uuml;ssel importieren</strong> oder <strong>Schl&uuml;ssel exportieren</strong>.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Zugeh&ouml;rige Informationen</strong>
+</p>
+<a href="rcon_buttons.html">Kn&ouml;pfe in der Adminstrationskonsole</a>
+<br>
+
+<a href="rcon_pageusage.html">Funktionen auf den Seiten der Administrationskonsole</a>
+<br>
+
+<a href="rcon_scope.html">Geltungsbereichseinstellungen f&uuml;r die Administrationskonsole</a>
+<br>
+
+<a href="rcon_filter.html">Filtereinstellungen f&uuml;r die Administrationskonsole</a>
+<br>
+
+<a href="rcon_preferences.html">Vorgaben f&uuml;r die Administrationskonsole</a>
+<br>
+
+</div>
+</body>
+</html>

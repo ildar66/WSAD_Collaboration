@@ -1,0 +1,103 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Param&egrave;tres de configuration des liaisons de connexion</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_loginbnd"></a>
+<h2>
+<img alt="[Fix Pack 5.0.2 and later]" src="v502.gif" border="0">Param&egrave;tres de configuration des liaisons de connexion</h2>
+
+<p>Cette page permet de configurer les param&egrave;tres de chiffrement
+et de d&eacute;chiffrement.</p>
+
+<p>Le jeton enfichable utilise l'interface JAAS (Authentication and
+Authorization Service) CallBackHandler
+(javax.security.auth.callback.CallBackHandler) pour g&eacute;n&eacute;rer le jeton
+ins&eacute;r&eacute; dans le message. Vous trouverez ci-apr&egrave;s la liste des impl&eacute;mentations de
+CallBack :<dl>
+<dt>
+<strong>com.ibm.wsspi.wssecurity.auth.callback.BinaryTokenCallback</strong>
+</dt>
+<dd>Cette impl&eacute;mentation permet de g&eacute;n&eacute;rer des jetons binaires ins&eacute;r&eacute;s sous la forme de <samp>&lt;wsse:BinarySecurityToken/@ValueType&gt;</samp> dans le message.</dd>
+<dt>
+<strong>javax.security.auth.callback.NameCallback et javax.security.auth.callback.NameCallback</strong>
+</dt>
+<dd>Cette impl&eacute;mentation permet de g&eacute;n&eacute;rer des jetons de nom d'utilisateur ins&eacute;r&eacute;s sous la forme de <samp>&lt;wsse:UsernameToken&gt;</samp> dans
+le message.</dd>
+<dt>
+<strong>com.ibm.wsspi.wssecurity.auth.callback.XMLTokenSenderCallback</strong>
+</dt>
+<dd>Cette impl&eacute;mentation permet de g&eacute;n&eacute;rer des jetons XML (eXtensible Markup Language) et est ins&eacute;r&eacute;e sous
+forme d'&eacute;l&eacute;ment <samp>&lt;SAML: Assertion&gt;</samp> dans le message.</dd>
+<dt>
+<strong>com.ibm.wsspi.wssecurity.auth.callback.PropertyCallback</strong>
+</dt>
+<dd>Cette
+impl&eacute;mentation permet d'obtenir les propri&eacute;t&eacute;s indiqu&eacute;es dans le fichier de liaison.</dd>
+</dl>
+</p>
+
+<p>Pour afficher cette page de la console d'administration, suivez la proc&eacute;dure ci-apr&egrave;s. <ol>
+
+<li>Cliquez sur <strong>Applications &gt; Applications d'entreprise &gt; </strong><em>nom_application</em>. </li>
+
+<li>Dans la section Articles li&eacute;s, cliquez sur <strong>Module Web &gt; </strong><em>nom_fichier_URI</em> &gt; <strong>Services
+Web : Liaisons de s&eacute;curit&eacute; du client</strong>. </li>
+
+<li>Dans la section Liaisons de l'&eacute;metteur de demande, cliquez sur <strong>Editer &gt; Liaison de connexion</strong>.</li>
+
+</ol>
+</p>
+
+<p>Si les informations de chiffrement ne sont pas disponibles,
+s&eacute;lectionnez <strong>Aucune</strong>.</p>
+
+<p>Si les informations de chiffrement sont disponibles, s&eacute;lectionnez
+<strong>Informations de signature d&eacute;di&eacute;es</strong> et indiquez la configuration dans
+les zones suivantes :</p>
+
+<dl>
+<dt>
+<strong><a name="sec_authmeth"></a>M&eacute;thode d'authentification</strong>
+</dt>
+<dd>Indique le nom unique de la m&eacute;thode d'authentification.</dd>
+<dt>
+<strong><a name="sec_cbhand"></a>Gestionnaire de rappels</strong>
+</dt>
+<dd>Indique le nom du gestionnaire de rappels. Ce dernier doit
+impl&eacute;menter l'interface javax.security.auth.callback.CallbackHandler.</dd>
+<dt>
+<strong><a name="sec_userid"></a>ID utilisateur d'authentification de base</strong>
+</dt>
+<dd>Indique le nom de l'utilisateur pour
+l'authentification de base. La m&eacute;thode d'authentification de base permet de d&eacute;finir
+un ID utilisateur et un mot de passe dans le fichier de liaison.</dd>
+<dt>
+<strong><a name="sec_authpass"></a>Mot de passe d'authentification de base</strong>
+</dt>
+<dd>Indique le mot de passe pour l'authentification de base.</dd>
+<dt>
+<strong><a name="sec_uri"></a>URI de type de jeton</strong>
+</dt>
+<dd>D&eacute;finit les URI (Uniform Resource Identifier) pour le type de jeton. Ces informations
+sont ins&eacute;r&eacute;es sous la forme de <samp>&lt;wsse:BinarySecurityToken&gt;/ValueType</samp> pour le jeton XML <samp>&lt;SAML: Assertion&gt;</samp>. </dd>
+<dt>
+<strong><a name="sec_lname"></a>Nom local du type de jeton</strong>
+</dt>
+<dd>Indique le nom local du type de jeton. Ces informations
+sont ins&eacute;r&eacute;es sous la forme de <samp>&lt;wsse:BinarySecurityToken&gt;/ValueType</samp> pour le jeton XML <samp>&lt;SAML: Assertion&gt;</samp>. </dd>
+</dl>
+<div>
+<p>
+<strong>Informations connexes</strong>
+</p>
+<a href="uwbs_wsclientbind.html">Services Web : Collection de liaisons de s&eacute;curit&eacute; du client</a>
+<br>
+
+</div>
+</body>
+</html>

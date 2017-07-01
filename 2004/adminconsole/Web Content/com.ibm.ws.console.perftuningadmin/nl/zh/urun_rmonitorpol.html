@@ -1,0 +1,145 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>监控策略设置</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="urun_rmonitorpol"></a>
+<h2>监控策略设置</h2>
+
+<p>使用此页面查看或更改控制 Node Agent 如何监控和重新启动流程的设置。</p>
+
+<p>要查看此管理控制台页面，单击<strong>服务器 &gt; 应用程序服务器 &gt; </strong><em>server_name</em><strong> &gt; 流程定义 &gt; 监控策略</strong>。</p>
+
+<div>
+<p>
+<strong>&ldquo;配置&rdquo;选项卡</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="MonitoringPolicy_maximumStartupAttempts_description"></a>最大启动尝试次数</strong>
+</dt>
+<dd>指定在放弃之前尝试启动应用程序服务器的最大次数。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">整型</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MonitoringPolicy_pingInterval_description"></a>ping 间隔</strong>
+</dt>
+<dd>指定父进程（如 Node Agent）和它产生的进程（如应用程序服务器）间尝试通信的频率。可根据您重新启动出现故障的服务器的要求来调整此值。降低此值将很快检测到发生的故障；而增大此值可减少 ping 的频率并因此减少系统开销。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">整型</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MonitoringPolicy_pingTimeout_description"></a>ping 超时</strong>
+</dt>
+<dd>当父进程产生子进程时（如当进程管理器产生服务器时），父进程会 ping 子进程以查看是否成功产生子进程。此值指定（在 ping 子进程之后）在假设子进程失败之前，父进程应该等待的秒数。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">整型</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">单位</td>
+<td align="left" valign="top" class="base">秒</td>
+
+</tr>
+
+</table>
+</dd>
+<dt>
+<strong><a name="MonitoringPolicy_autoRestart_description"></a>自动重新启动</strong>
+</dt>
+<dd>指定进程是否在失败的情况下自动重新启动。缺省为自动重新启动进程。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">true</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MonitoringPolicy_nodeRestartState_description"></a>节点启动状态</strong>
+</dt>
+<dd>指定节点完全关闭并重新启动后期待的进程状态。选项为<em>已停止</em>、<em>正在运行</em>和<em>先前</em>。缺省为<em>已停止</em>。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">已停止</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">范围</td>
+<td align="left" valign="top" class="base">有效值为&ldquo;已停止&rdquo;、&ldquo;正在运行&rdquo;或&ldquo;先前&rdquo;。</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>相关信息</strong>
+</p>
+<a href="rcon_buttons.html">管理控制台按钮</a>
+<br>
+
+<a href="rcon_pageusage.html">管理控制台页面功能</a>
+<br>
+
+</div>
+</body>
+</html>

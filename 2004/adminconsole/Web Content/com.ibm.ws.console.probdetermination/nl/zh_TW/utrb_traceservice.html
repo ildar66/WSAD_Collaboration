@@ -1,0 +1,476 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>診斷追蹤服務設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="TraceService_description"></a>
+<h2>診斷追蹤服務設定</h2>
+
+<p>請利用這個頁面來檢視和修改診斷追蹤服務的內容。</p>
+
+<p>如果要檢視這個頁面，請按一下<strong>疑難排解 &gt; 記載和追蹤 &gt; <em>server</em> &gt; 診斷追蹤</strong>。
+</p>
+
+<div>
+<p>
+<strong>「配置」標籤</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="enable_trace_service_description"></a>啟用追蹤</strong>
+</dt>
+<dd>啟用追蹤服務。
+
+<p>如果沒有選取這個選項，就不會在伺服器啟動時，將下列配置內容傳遞給應用程式伺服器追蹤服務。
+</p>
+
+</dd>
+<dt>
+<strong><a name="trace_spec_description"></a>追蹤規格
+</strong>
+</dt>
+<dd>指定追蹤詳細資料。
+<p>請輸入追蹤字串來指定要追蹤的元件、套件或群組。
+追蹤字串必須符合以下所說明特定文法。
+您可以直接輸入追蹤字串，也可以利用圖形追蹤介面來產生它。
+請按一下<strong>修改</strong>來啟動圖形追蹤介面。</p>
+
+<p>如果您從配置標籤啟動圖形追蹤介面，就會顯示一份通用元件、套件和群組的清單。
+這個清單不一定完整。</p>
+
+<p>如果您從執行時期標籤啟動圖形追蹤介面，元件、套件和群組的清單會顯示執行中的伺服器目前所登錄的所有這類元件。
+</p>
+
+<p>追蹤規格的格式為：<pre>&lt;<em>component</em>&gt; = &lt;<em>trace_type</em>&gt;= enabled | disabled</pre> 其中：&lt;<em>component</em>&gt; 是要啟用或停用追蹤的元件，而 &lt;<em>trace_type</em>&gt; 是要啟用或停用的追蹤類型。請以冒號 (:) 區隔多個追蹤規格。</p>
+
+<p>元件會對應於 Java 套件和類別，或對應於 Java 套件的集合。
+使用 * 作為萬用字元，來指出包括指定的元件所包含的所有套件中所有類別的元件。比方說：
+<dl>
+<dt>
+<strong><samp>*</samp></strong>
+</dt>
+<dd>指定在應用程式伺服器中執行的所有可追蹤的程式碼，其中包括 WebSphere Application Server 系統程式碼和自訂程式碼。
+</dd>
+<dt>
+<strong><samp>com.ibm.ws.*</samp></strong>
+</dt>
+<dd>指定套件名稱以 <samp>com.ibm.ws</samp> 開頭的所有類別。</dd>
+<dt>
+<strong><samp>com.ibm.ws.classloader.JarClassLoader</samp></strong>
+</dt>
+<dd>僅指定 JarClassLoader 類別。</dd>
+</dl>
+</p>
+
+<p>如果需要追蹤字串文法的詳細資訊，請參閱 WebSphere Application Server InfoCenter 中的<cite>啟用追蹤</cite> 一文。</p>
+
+<p>
+<b>附註: </b>如果您是從群組和元件清單決定選項，那麼當您在從管理主控台設定追蹤規格時，就會發生錯誤。
+在某些情況下，在一份清單中所選的選項，不會因為從另一份清單加入另一個選項而遺失。
+如果要暫時解決這個問題，請直接在「追蹤規格」輸入欄位中，輸入您所要的追蹤規格。
+</p>
+
+</dd>
+<dt>
+<strong><a name="trace_output_description"></a>追蹤輸出</strong>
+            &nbsp;
+            </dt>
+<dd>指定追蹤輸出應該寫在哪裡。
+
+<p>追蹤輸出可以直接寫到輸出檔，或在執行時期頁面中，利用「傾出」按鈕來根據需求儲存在記憶體並寫入某個檔案中。
+</p>
+
+<p>
+<dl>
+<dt>
+<strong>記憶體緩衝區
+</strong>
+</dt>
+<dd>指定追蹤輸出應該寫入記憶體內循環緩衝區中。
+如果您選取這個選項，您必須指定下列參數：
+<dl>
+<dt>
+<strong>緩衝區大小上限
+</strong>
+</dt>
+<dd>指定緩衝區所能快取的項目數，以千為單位。
+當超出這個數目時，新項目會改寫較舊的項目。
+</dd>
+<dt>
+<strong>傾出檔名稱
+</strong>
+</dt>
+<dd>在傾出記憶體緩衝區時，要將它寫入的檔案名稱。
+您只能從「執行時期」標籤使用這個選項。
+</dd>
+</dl>
+</dd>
+</dl>
+</p>
+
+<p>
+<dl>
+<dt>
+<strong>檔案</strong>
+</dt>
+<dd>指定將追蹤輸出寫入自我管理的日誌檔。
+<p>自我管理的日誌檔會將訊息寫入檔案中，直到到達某個大小準則為止。
+當檔案到達指定的大小時，會暫停記載作業和關閉日誌檔，並將它重新命名。
+新名稱是以檔案的原始名稱為基礎，再加上時間戳記限定元來指出重新命名的時間。
+重新命名完成之後，就會重新開啟有原始名稱的新空白日誌檔，且會回復記載作業。
+在輪替時，不會失去任何訊息，不過，可能會有單一訊息跨越兩個檔案。
+</p>
+</dd>
+</dl>
+</p>
+
+<p>如果您選取這個選項，您必須指定下列參數：
+<dl>
+<dt>
+<strong>檔案大小上限</strong>
+</dt>
+<dd>指定輸出檔所能增長的大小上限 (MB)。
+<p>這個屬性只在選取了「檔案大小」屬性時才有效。
+當檔案到達這個大小時，就會依照上述說明來進行輪替。
+</p>
+</dd>
+<dt>
+<strong>歷程檔數目上限
+</strong>
+</dt>
+<dd>指定要保留的輪替檔案數目上限。
+</dd>
+<dt>
+<strong>檔案名稱</strong>
+</dt>
+<dd>指定追蹤輸出要寫入其中的檔案名稱。
+</dd>
+</dl>
+</p>
+
+</dd>
+<dt>
+<strong><a name="trace_format_description"></a>追蹤輸出格式</strong>
+            &nbsp;
+            </dt>
+<dd>指定追蹤輸出的格式。
+
+<p>您可以指定追蹤輸出的三個層次之一：<dl>
+
+<dt>
+<strong>基礎（相容）</strong>
+</dt>
+<dd>只保留基本追蹤資訊。請選取這個選項來將追蹤輸出所使用的空間量最小化。
+</dd>
+<dt>
+<strong>進階</strong>
+</dt>
+<dd>保留更明確的追蹤資訊。請選取這個選項來查看疑難排解和問題判斷時所用的詳細追蹤資訊。
+</dd>
+<dt>
+<strong>日誌分析器</strong>
+</dt>
+<dd>以相容於日誌分析器工具的格式來保留追蹤資訊。如果您要以追蹤輸出為日誌分析器工具的輸入,請選取這個選項。
+</dd>
+</dl>
+</p>
+
+</dd>
+<dt>
+<strong><a name="trace_runtime_tab"></a>「執行時期」標籤</strong>
+            &nbsp;
+            </dt>
+<dd>指定追蹤輸出的格式。
+
+<dl>
+<dt>
+<strong>儲存追蹤</strong>
+</dt>
+<dd>同時將執行時期標籤中的變更儲存在配置中。
+<p>請選取這個勾選框來同時將執行時期追蹤變更複製到追蹤配置設定中。
+將這些變更儲存到追蹤配置中，會使變更持續存在，即使應用程式重新啟動也是如此。
+</p>
+</dd>
+<dt>
+<strong>追蹤規格
+</strong>
+</dt>
+<dd>指定追蹤詳細資料。<p>請輸入追蹤字串來指定要追蹤的元件、套件或群組。
+追蹤字串必須符合以下所說明特定文法。
+您可以直接輸入追蹤字串，也可以利用圖形追蹤介面來產生它。
+請按一下<strong>修改</strong>來啟動圖形追蹤介面。</p>
+<p>如果您從配置標籤啟動圖形追蹤介面，就會顯示一份通用元件、套件和群組的清單。
+這個清單不一定完整。</p>
+<p>追蹤規格的格式為：<pre>&lt;component&gt; = &lt;trace_type&gt; = enabled | disabled</pre>
+</p>
+<p>其中 &lt;component&gt; 是要啟用或停用追蹤的元件，而 &lt;trace_type&gt; 是要啟用或停用的追蹤類型。請以冒號 (:) 區隔多個追蹤規格。</p>
+<p>元件會對應於 Java 套件和類別，或對應於 Java 套件的集合。
+使用 * 作為萬用字元，來指出包括指定的元件所包含的所有套件中所有類別的元件。例如：
+<dl>
+<dt>
+<strong>*</strong>
+</dt>
+<dd>指定在應用程式伺服器中執行的所有可追蹤的程式碼，其中包括 WebSphere Application Server 系統程式碼和自訂程式碼。
+</dd>
+<dt>
+<strong>com.ibm.ws.*</strong>
+</dt>
+<dd>指定套件名稱以 com.ibm.ws 開頭的所有類別。</dd>
+<dt>
+<strong>com.ibm.ws.classloader.JarClassLoader</strong>
+</dt>
+<dd>僅指定 JarClassLoader 類別。</dd>
+</dl>
+</p>
+<p>如果需要追蹤字串文法的詳細資訊，請參閱 WebSphere Application Server InfoCenter 中的「啟用追蹤」一文。<p>
+<b>附註: </b>如果您是從群組和元件清單決定選項，那麼當您在從管理主控台設定追蹤規格時，就會發生錯誤。
+在某些情況下，在一份清單中所選的選項，不會因為從另一份清單加入另一個選項而遺失。
+如果要暫時解決這個問題，請直接在「追蹤規格」輸入欄位中，輸入您所要的追蹤規格。
+</p>
+</p> 
+</dd>
+</dl>
+
+</dd>
+<dt>
+<strong><a name="trace_output"></a>追蹤輸出</strong>
+            &nbsp;
+            </dt>
+<dd>指定追蹤輸出應該寫在哪裡。
+
+<p>指定追蹤輸出應該寫在哪裡。
+</p>
+
+<p>追蹤輸出可以直接寫到輸出檔，或在執行時期頁面中，利用「傾出」按鈕來根據需求儲存在記憶體並寫入某個檔案中。
+<dl>
+<dt>
+<strong>記憶體緩衝區
+</strong>
+</dt>
+<dd>指定追蹤輸出應該寫入記憶體內循環緩衝區中。
+如果您選取這個選項，您必須指定下列參數：
+<dl>
+
+<dt>
+<strong>緩衝區大小上限
+</strong>
+</dt>
+<dd>指定緩衝區所能快取的項目數，以千為單位。
+當超出這個數目時，新項目會改寫較舊的項目。
+</dd>
+<dt>
+<strong>傾出檔名稱
+</strong>
+</dt>
+<dd>在傾出記憶體緩衝區時，要將它寫入的檔案名稱。
+您只能從執行時期標籤使用這個選項。
+</dd>
+</dl>
+</dd>
+<dt>
+<strong>檔案</strong>
+</dt>
+<dd>指定將追蹤輸出寫入自我管理的日誌檔。
+<p>自我管理的日誌檔會將訊息寫入檔案中，直到到達某個大小準則為止。
+當檔案到達指定的大小時，會暫停記載作業和關閉日誌檔，並將它重新命名。
+新名稱是以檔案的原始名稱為基礎，再加上時間戳記限定元來指出重新命名的時間。
+重新命名完成之後，就會重新開啟有原始名稱的新空白日誌檔，且會回復記載作業。
+在輪替時，不會失去任何訊息，不過，可能會有單一訊息跨越兩個檔案。
+</p> 
+<p>如果您選取這個選項，您必須指定下列參數：
+</p>
+<dl>
+<dt>
+<strong>檔案大小上限</strong>
+</dt>
+<dd>指定輸出檔所能增長的大小上限 (MB)。
+<p>這個屬性只在選取了「檔案大小」屬性時才有效。
+當檔案到達這個大小時，就會依照上述說明來進行輪替。
+</p>
+</dd>
+<dt>
+<strong>歷程檔數目上限
+</strong>
+</dt>
+<dd>指定要保留的輪替檔案數目上限。
+</dd>
+<dt>
+<strong>檔案名稱</strong>
+</dt>
+<dd>指定追蹤輸出要寫入其中的檔案名稱。
+</dd>
+</dl>
+</dd>
+</dl>
+</p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>「執行時期」標籤</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="save_trace_to_config"></a>儲存追蹤</strong>
+</dt>
+<dd>同時將執行時期標籤中的變更儲存在配置中。
+
+<p>請選取這個勾選框來同時將執行時期追蹤變更複製到追蹤配置設定中。
+將這些變更儲存到追蹤配置中，會使變更持續存在，即使應用程式重新啟動也是如此。
+</p>
+
+</dd>
+<dt>
+<strong><a name="trace_spec_description"></a>追蹤規格
+</strong>
+</dt>
+<dd>指定追蹤詳細資料。
+<p>請輸入追蹤字串來指定要追蹤的元件、套件或群組。
+追蹤字串必須符合以下所說明特定文法。
+您可以直接輸入追蹤字串，也可以利用圖形追蹤介面來產生它。
+請按一下<strong>修改</strong>來啟動圖形追蹤介面。</p>
+
+<p>如果您從配置標籤啟動圖形追蹤介面，就會顯示一份通用元件、套件和群組的清單。
+這個清單不一定完整。</p>
+
+<p>如果您從執行時期標籤啟動圖形追蹤介面，元件、套件和群組的清單會顯示執行中的伺服器目前所登錄的所有這類元件。
+</p>
+
+<p>追蹤規格的格式為：<pre>&lt;<em>component</em>&gt; = &lt;<em>trace_type</em>&gt;= enabled | disabled</pre> 其中：&lt;<em>component</em>&gt; 是要啟用或停用追蹤的元件，而 &lt;<em>trace_type</em>&gt; 是要啟用或停用的追蹤類型。請以冒號 (:) 區隔多個追蹤規格。</p>
+
+<p>元件會對應於 Java 套件和類別，或對應於 Java 套件的集合。
+使用 * 作為萬用字元，來指出包括指定的元件所包含的所有套件中所有類別的元件。比方說：
+<dl>
+<dt>
+<strong><samp>*</samp></strong>
+</dt>
+<dd>指定在應用程式伺服器中執行的所有可追蹤的程式碼，其中包括 WebSphere Application Server 系統程式碼和自訂程式碼。
+</dd>
+<dt>
+<strong><samp>com.ibm.ws.*</samp></strong>
+</dt>
+<dd>指定套件名稱以 <samp>com.ibm.ws</samp> 開頭的所有類別。</dd>
+<dt>
+<strong><samp>com.ibm.ws.classloader.JarClassLoader</samp></strong>
+</dt>
+<dd>僅指定 JarClassLoader 類別。</dd>
+</dl>
+</p>
+
+<p>如果需要追蹤字串文法的詳細資訊，請參閱 WebSphere Application Server InfoCenter 中的<cite>啟用追蹤</cite> 一文。</p>
+
+<p>
+<b>附註: </b>如果您是從群組和元件清單決定選項，那麼當您在從管理主控台設定追蹤規格時，就會發生錯誤。
+在某些情況下，在一份清單中所選的選項，不會因為從另一份清單加入另一個選項而遺失。
+如果要暫時解決這個問題，請直接在「追蹤規格」輸入欄位中，輸入您所要的追蹤規格。
+</p>
+
+</dd>
+<dt>
+<strong><a name="trace_output_description"></a>追蹤輸出</strong>
+            &nbsp;
+            </dt>
+<dd>指定追蹤輸出應該寫在哪裡。
+
+<p>追蹤輸出可以直接寫到輸出檔，或在執行時期頁面中，利用「傾出」按鈕來根據需求儲存在記憶體並寫入某個檔案中。
+</p>
+
+<p>
+<dl>
+<dt>
+<strong>記憶體緩衝區
+</strong>
+</dt>
+<dd>指定追蹤輸出應該寫入記憶體內循環緩衝區中。
+如果您選取這個選項，您必須指定下列參數：
+<dl>
+<dt>
+<strong>緩衝區大小上限
+</strong>
+</dt>
+<dd>指定緩衝區所能快取的項目數，以千為單位。
+當超出這個數目時，新項目會改寫較舊的項目。
+</dd>
+<dt>
+<strong>傾出檔名稱
+</strong>
+</dt>
+<dd>在傾出記憶體緩衝區時，要將它寫入的檔案名稱。
+您只能從「執行時期」標籤使用這個選項。
+</dd>
+</dl>
+</dd>
+</dl>
+</p>
+
+<p>
+<dl>
+<dt>
+<strong>檔案</strong>
+</dt>
+<dd>指定將追蹤輸出寫入自我管理的日誌檔。
+<p>自我管理的日誌檔會將訊息寫入檔案中，直到到達某個大小準則為止。
+當檔案到達指定的大小時，會暫停記載作業和關閉日誌檔，並將它重新命名。
+新名稱是以檔案的原始名稱為基礎，再加上時間戳記限定元來指出重新命名的時間。
+重新命名完成之後，就會重新開啟有原始名稱的新空白日誌檔，且會回復記載作業。
+在輪替時，不會失去任何訊息，不過，可能會有單一訊息跨越兩個檔案。
+</p>
+</dd>
+</dl>
+</p>
+
+<p>如果您選取這個選項，您必須指定下列參數：
+<dl>
+<dt>
+<strong>檔案大小上限</strong>
+</dt>
+<dd>指定輸出檔所能增長的大小上限 (MB)。
+<p>這個屬性只在選取了「檔案大小」屬性時才有效。
+當檔案到達這個大小時，就會依照上述說明來進行輪替。
+</p>
+</dd>
+<dt>
+<strong>歷程檔數目上限
+</strong>
+</dt>
+<dd>指定要保留的輪替檔案數目上限。
+</dd>
+<dt>
+<strong>檔案名稱</strong>
+</dt>
+<dd>指定追蹤輸出要寫入其中的檔案名稱。
+</dd>
+</dl>
+</p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>相關資訊</strong>
+</p>
+<a href="rcon_buttons.html">管理主控台按鈕</a>
+<br>
+
+<a href="rcon_scope.html">管理主控台範圍設定</a>
+<br>
+
+<a href="rcon_filter.html">管理主控台過濾器設定</a>
+<br>
+
+<a href="rcon_preferences.html">管理主控台喜好設定</a>
+<br>
+
+<a href="rcon_pageusage.html">管理主控台頁面特性</a>
+<br>
+
+</div>
+</body>
+</html>

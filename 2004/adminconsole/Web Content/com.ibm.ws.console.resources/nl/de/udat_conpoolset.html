@@ -1,0 +1,483 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Einstellungen f&uuml;r Verbindungspool</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="Connection_pool_settings"></a>
+<h2>Einstellungen f&uuml;r Verbindungspool</h2>
+
+<p>Auf dieser Seite k&ouml;nnen Sie Einstellungen f&uuml;r den Verbindungspool konfigurieren.</p>
+
+<p>Diese Seite der Administrationskonsole
+ist vielen Ressourcentypen gemeinsam, beispielsweise
+den JDBC-Datenquellen und den JMS-Verbindungs-Factorys f&uuml;r Warteschlangen.
+Wie Sie diese Seite aufrufen, ist abh&auml;ngig von dem Typ der Ressource. Im allgemeinen
+werden Sie jedoch eine Instanz des Ressourcenproviders ausw&auml;hlen, dann eine Instanz des Ressourcentyps
+und anschlie&szlig;end auf
+<strong>Verbindungspool</strong> klicken.
+Beispiel: Klicken Sie auf <strong>Ressourcen</strong> &gt; <strong>JDBC-Provider</strong> &gt; <strong>Ihr_JDBC-Provider</strong> &gt; <strong>Datenquellen</strong> &gt; <strong>Name_der_Datenquelle</strong> &gt; <strong>Verbindungspool</strong>.</p>
+
+<div>
+<p>
+<strong>Register "Konfiguration"</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="Connectionpool_detail_contextID"></a>Bereich</strong>
+</dt>
+<dd>Gibt die Ebene an, bis zu der diese Ressourcendefinition sichtbar ist - Zelle, Knoten oder Server.
+<p>Ressourcen, wie z. B. JDBC-Provider, Namespace-Bindungen oder gemeinsam
+benutzte Bibliotheken k&ouml;nnen in mehreren Bereichen definiert werden. Dabei &uuml;berschreiben Ressourcen, die in
+spezifischeren Bereichen
+definiert wurden, Ressourcen, die in allgemeineren Bereichen definiert wurden. </p>
+
+<p>Die Merkmale einer Ressource gelten nur f&uuml;r eine bestimmte Serverebene, unabh&auml;ngig vom
+Geltungsbereich einer definierten Ressource.
+Wenn Sie beispielsweise den Geltungsbereich einer Datenquelle auf Zellenebene definieren,
+k&ouml;nnen alle Benutzer in dieser Zelle diese Datenquelle durchsuchen und verwenden.
+Die Einstellungen von Ressourcenmerkmalen gelten jedoch lokal f&uuml;r jeden Server in der Zelle.
+Wenn Sie beispielsweise die <em>maximale Anzahl von Verbindungen</em> mit 10 definieren, kann jeder
+Server in dieser Zelle 10 Verbindungen haben.
+<dl>
+<dt>
+<strong>Zelle</strong>
+</dt>
+<dd>Der allgemeinste Bereich. Ressourcen, die im Zellenbereich definiert werden, sind auf
+allen Knoten und Servern sichtbar, vorausgesetzt, sie wurden nicht &uuml;berschrieben.
+M&ouml;chten Sie Ressourcen anzeigen, die im Zellenbereich definiert wurden, d&uuml;rfen Sie
+keinen Server oder Knotennamen im Formular f&uuml;r die Bereichsauswahl angeben.</dd>
+<dt>
+<strong>Knoten</strong>
+</dt>
+<dd>Der Standardbereich f&uuml;r die meisten Ressourcentypen.  Ressourcen, die im Knotenbereich
+definiert werden, &uuml;berschreiben alle Duplikate im Zellenbereich und sind auf allen Servern, die sich auf
+demselben
+Knoten befinden, sichtbar, vorausgesetzt, sie wurden nicht in einem Serverbereich auf diesem Knoten
+&uuml;berschrieben. M&ouml;chten Sie Ressourcen anzeigen, die in einem Knotenbereich
+definiert
+wurden, d&uuml;rfen Sie keinen Server angeben, sondern m&uuml;ssen einen Knotennamen im Formular f&uuml;r
+die Bereichsauswahl ausw&auml;hlen.</dd>
+<dt>
+<strong>Server</strong>
+</dt>
+<dd>Der spezifischste Bereich f&uuml;r die Definition von Ressourcen.  Ressourcen,
+die im Serverbereich definiert werden, &uuml;berschreiben alle Duplikate von
+Ressourcendefinitionen, die im Zellenbereich oder im &uuml;bergeordneten
+Knotenbereich definiert wurden, und k&ouml;nnen nur von einem spezifischen Server erkannt werden. M&ouml;chten
+Sie Ressourcen anzeigen, die in einem Serverbereich definiert wurden, m&uuml;ssen Sie im
+Formular f&uuml;r die Bereichsauswahl einen Servernamen und einen Knotennamen ausw&auml;hlen.</dd>
+</dl>
+</p>
+
+<p>Wenn Ressourcen erstellt werden, werden sie immer im aktuellen, in der Anzeige ausgew&auml;hlten Bereich
+erstellt. M&ouml;chten Sie Ressourcen in anderen Bereichen anzeigen,
+geben Sie einen anderen Knoten oder Server im Formular f&uuml;r die Bereichsauswahl an.  </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ConnectionPool_connectionTimeout_displayName"></a>Zeitlimit f&uuml;r Verbindungen </strong>
+</dt>
+<dd>Das Intervall in Sekunden, nach dem das Zeitlimit f&uuml;r eine Verbindungsanforderung &uuml;berschritten
+ist und eine ConnectionWaitTimeoutException ausgel&ouml;st wird.
+<p> Die Wartezeit ist erforderlich, wenn der Wert f&uuml;r die <em>Maximalanzahl der
+Verbindungen</em> f&uuml;r einen bestimmten Verbindungspool erreicht wurde. Wenn z. B. das <em>Zeitlimit f&uuml;r
+Verbindungen</em> auf 300 gesetzt und die Maximalanzahl der Verbindungen erreicht wurde, wartet der
+Poolmanager ca. 300 Sekunden lang darauf, dass eine physische Verbindung verf&uuml;gbar wird. Wird in diesem
+Zeitraum <em>keine</em> physische Verbindung verf&uuml;gbar, setzt der Poolmanager eine
+ConnectionWaitTimeoutException ab. Normalerweise ist es nicht sinnvoll, die Methode <em>getConnection()</em>
+zu wiederholen, denn wenn eine l&auml;ngere Wartezeit erforderlich ist, muss das Datenquellenmerkmal
+<em>connectionTimeout</em> h&ouml;her eingestellt werden. Daher sollte der
+Administrator, wenn diese Ausnahmebedingung von der Anwendung abgefangen wird, die geplante Verwendung der Anwendung &uuml;berpr&uuml;fen und den
+Verbindungspool und die Datenbank entsprechend optimieren.</p>
+
+<p>Wenn das Zeitlimit f&uuml;r Verbindungen auf den Wert 0 gesetzt wurde, wartet der Poolmanager, bis eine
+Verbindung zugeordnet werden kann (dies geschieht, wenn die Anzahl der Verbindungen unter den Wert f&uuml;r die
+<em>Maximalanzahl der Verbindungen</em> f&auml;llt). </p>
+
+<p>Wenn die Maximalanzahl der Verbindungen auf 0 gesetzt wird, ist die Anzahl der
+physischen Verbindungen unbegrenzt, und das Zeitlimit f&uuml;r Verbindungen wird
+ignoriert.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Einheiten</td>
+<td align="left" valign="top" class="base">Sekunden</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">180</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">0 bis Maximalwert f&uuml;r int</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ConnectionPool_maxConnections_displayName"></a>Maximalanzahl der Verbindungen </strong>
+</dt>
+<dd>Die maximale Anzahl der physischen Verbindungen, die in diesem Pool erstellt werden k&ouml;nnen. 
+<p>Diese Verbindungen stellen die physischen
+Verbindungen zur Back-End-Ressource dar. Wenn dieser Wert erreicht ist, werden keine neuen physischen
+Verbindungen mehr erstellt, und der Requester wartet, bis eine physische Verbindung, die gegenw&auml;rtig
+verwendet wird, in den Pool zur&uuml;ckgegeben oder die ConnectionWaitTimeoutException ausgel&ouml;st wird. </p>
+
+<p>Wenn z. B. die <em>Maximalanzahl der Verbindungen</em> auf 5 gesetzt wird und f&uuml;nf physische Verbindungen
+verwendet werden, wartet der Poolmanager darauf, dass eine physische Verbindung frei wird. Die Wartezeit
+wird vom <em>Zeitlimit f&uuml;r Verbindungen</em> angegeben. </p>
+
+<p>Wenn die Maximalanzahl der Verbindungen auf 0 eingestellt ist, wird das Zeitlimit f&uuml;r Verbindungen ignoriert.
+</p>
+
+<p>Wenn der Wert f&uuml;r die Gr&ouml;&szlig;e des Verbindungspools unter der maximalen Anzahl von Verbindungen im Webcontainer liegt,
+wird ein besserer Durchsatz erreicht.
+Mit niedrigen Einstellungen, wie z. B. 10 bis 30 Verbindungen, erzielen Sie einen besseren Durchsatz als mit h&ouml;heren
+Einstellungen wie 100 Verbindungen.
+</p>
+
+<p>Wenn mit Klonen gearbeitet wird, gibt es f&uuml;r jeden Klon einen Verbindungspool. Dies muss beim Konfigurieren
+der maximalen Verbindungen der Datenbank ber&uuml;cksichtigt werden. </p>
+
+<p>Ermitteln Sie mit dem Tivoli Performance Viewer die optimale Anzahl von
+Verbindungen im Pool. Falls
+die Anzahl gleichzeitiger Waiter gr&ouml;&szlig;er als 0 ist, die CPU-Auslastung aber noch nicht 100 % erreicht hat,
+k&ouml;nnen Sie den Verbindungspool vergr&ouml;&szlig;ern.
+Ist der Wert f&uuml;r "Percent Used"
+bei normaler Arbeitslast dauerhaft niedrig, sollten Sie eine Reduzierung der Verbindungen im Pool in Erw&auml;gung ziehen. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">10</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">0 bis Maximalwert f&uuml;r int</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ConnectionPool_minConnections_displayName"></a>Mindestanzahl der Verbindungen </strong>
+</dt>
+<dd>Die Mindestanzahl der physischen Verbindungen, die verwaltet werden sollen.
+<p>Solange dieser Wert nicht erreicht ist, l&ouml;scht der Thread f&uuml;r Poolverwaltung keine physischen
+Verbindungen. Dennoch wird nicht versucht, die Anzahl der Verbindungen auf diesen Wert zu erh&ouml;hen. Wenn Sie
+einen Wert f&uuml;r <em>Zeitlimit f&uuml;r veraltete Verbindungen</em> angeben, wird keine Mindestanzahl
+von Verbindungen ber&uuml;cksichtigt. Alle Verbindungen, deren G&uuml;ltigkeit abgelaufen ist, werden gel&ouml;scht. </p>
+
+<p>Ist die <em>Mindestanzahl der Verbindungen</em> z. B. auf 3 eingestellt und wurde eine physische Verbindung
+erstellt, wird diese Verbindung nicht durch den
+Thread f&uuml;r das <em>Zeitlimit f&uuml;r nicht verwendete Verbindungen</em> gel&ouml;scht.
+Der Thread erstellt nicht automatisch zwei zus&auml;tzliche physische Verbindungen &uuml;ber
+dasselbe Token, um den Wert f&uuml;r die Mindestanzahl der Verbindungen zu erreichen.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">1</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">0 bis Maximalwert f&uuml;r int</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ConnectionPool_reapTime_displayName"></a>Bereinigungsintervall </strong>
+</dt>
+<dd>Das Intervall (in Sekunden) zwischen den Ausf&uuml;hrungen des Thread f&uuml;r Poolverwaltung.    
+<p> Wenn das Bereinigungsintervall z. B. auf 60 eingestellt ist, wird der Thread f&uuml;r
+Poolverwaltung alle 60 Sekunden ausgef&uuml;hrt. Das <em>Bereinigungsintervall</em> beeinflusst
+die Genauigkeit des <em>Zeitlimits f&uuml;r nicht verwendete Verbindungen</em> und des
+<em>Zeitlimits f&uuml;r veraltete Verbindungen</em>.  Je kleiner das
+Intervall, desto h&ouml;her die Genauigkeit. Wenn der Thread f&uuml;r Poolverwaltung aktiviert ist, muss der Wert f&uuml;r
+die Bereinigungszeit kleiner sein als die Werte f&uuml;r das
+Zeitlimit f&uuml;r nicht verwendete Verbindungen und das Zeitlimit f&uuml;r veraltete Verbindungen. Wenn der Thread f&uuml;r
+Poolverwaltung ausgef&uuml;hrt wird, werden alle Verbindungen, die l&auml;nger als durch das Zeitlimit f&uuml;r nicht
+verwendete Verbindungen angegeben nicht verwendet wurden, gel&ouml;scht, bis der Wert f&uuml;r die
+<em>Mindestanzahl der Verbindungen</em> erreicht ist.
+Der Thread f&uuml;r Poolverwaltung l&ouml;scht auch alle Verbindungen, die l&auml;nger als durch den Wert f&uuml;r das Zeitlimit
+f&uuml;r veraltete Verbindungen angegeben aktiv waren.</p>
+
+<p> Das Bereinigungsintervall wirkt sich auf die Leistung aus. Kleine Intervalle bedeuten, dass der
+Thread f&uuml;r Poolverwaltung h&auml;ufiger ausgef&uuml;hrt wird und die Leistung verringert.
+ </p>
+
+<p>M&ouml;chten Sie den Thread f&uuml;r Poolverwaltung inaktivieren, m&uuml;ssen Sie das Bereinigungsintervall auf 0
+einstellen bzw. sowohl das Zeitlimit f&uuml;r nicht verwendete Verbindungen als auch das Zeitlimit f&uuml;r veraltete
+Verbindungen auf 0 einstellen. Die empfohlene
+Methode zum Inaktivieren des Thread f&uuml;r Poolverwaltung besteht darin, das Bereinigungsintervall auf den Wert 0
+einzustellen. In diesem Fall werden das Zeitlimit f&uuml;r nicht verwendete Verbindungen und das Zeitlimit f&uuml;r veraltete
+Verbindungen ignoriert. Wenn das Zeitlimit f&uuml;r nicht verwendete Verbindungen und das Zeitlimit f&uuml;r veraltete
+Verbindungen auf 0 eingestellt werden, wird der Thread f&uuml;r Poolverwaltung ausgef&uuml;hrt, es werden
+jedoch nur die physischen Verbindungen gel&ouml;scht, deren Zeitlimit&uuml;berschreitung auf der Grundlage von Zeitlimitwerten ungleich null erfolgt.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Einheiten</td>
+<td align="left" valign="top" class="base">Sekunden</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">180</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">0 bis Maximalwert f&uuml;r int</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ConnectionPool_unusedTimeout_displayName"></a>Zeitlimit f&uuml;r nicht verwendete Verbindungen </strong>
+</dt>
+<dd>Intervall in Sekunden, nach dem eine nicht verwendete oder inaktive Verbindung gel&ouml;scht wird.
+<p> Wenn Sie eine optimale Leistung erzielen m&ouml;chten, stellen Sie das Zeitlimit f&uuml;r nicht verwendete
+Verbindungen h&ouml;her ein als das Zeitlimit f&uuml;r die Bereinigung. Au&szlig;erdem werden nicht verwendete physische
+Verbindungen nur gel&ouml;scht, wenn die aktuelle Anzahl der nicht verwendeten Verbindungen
+die Mindestanzahl der Verbindungen &uuml;bersteigt. Wenn z. B. das Zeitlimit f&uuml;r nicht verwendete Verbindungen auf
+120 eingestellt ist und der Thread f&uuml;r Poolverwaltung aktiviert wurde (Bereinigungsintervall ungleich 0),
+werden alle physischen Verbindungen, die zwei Minuten nicht verwendet wurden, gel&ouml;scht.  Beachten Sie, dass die Genauigkeit dieses Zeitlimits
+und die Leistung vom Bereinigungsintervall beeinflusst werden.
+ Weitere Informationen finden Sie im
+Abschnitt zum Bereinigungsintervall.  </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Einheiten</td>
+<td align="left" valign="top" class="base">Sekunden</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">1800</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">0 bis Maximalwert f&uuml;r int</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ConnectionPool_agedTimeout_displayName"></a>Zeitlimit f&uuml;r veraltete Verbindungen </strong>
+</dt>
+<dd>Intervall in Sekunden, nach dessen Ablauf eine physische Verbindung gel&ouml;scht wird.
+<p> Wird das <em>Zeitlimit f&uuml;r veraltete Verbindungen</em> auf 0 eingestellt, k&ouml;nnen aktive
+physische Verbindungen unbegrenzt im Pool bleiben. Wenn Sie eine optimale Leistung
+erzielen m&ouml;chten, stellen Sie das Zeitlimit f&uuml;r veraltete Verbindungen h&ouml;her ein als das Zeitlimit f&uuml;r die Bereinigung. 
+Wenn das Zeitlimit f&uuml;r veraltete Verbindungen z. B. auf 1200 eingestellt und das Bereinigungsintervall nicht
+0 ist, werden alle physischen Verbindungen, die 1200 Sekunden (20 Minuten) verwendet wurden, aus dem Pool
+gel&ouml;scht. Beachten Sie, dass die Genauigkeit dieses Zeitlimits und die Leistung vom Wert
+des Bereinigungsintervalls beeinflusst werden.
+Weitere Informationen finden Sie im
+Abschnitt zum Bereinigungsintervall.  </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Einheiten</td>
+<td align="left" valign="top" class="base">Sekunden</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">0</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">0 bis Maximalwert f&uuml;r int</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ConnectionPool_purgePolicy_displayName"></a>Policy f&uuml;r L&ouml;schen </strong>
+</dt>
+<dd>  Gibt an, wie Verbindungen gel&ouml;scht werden
+sollen, wenn eine <em>veraltete Verbindung</em> oder ein <em>schwer wiegender
+Verbindungsfehler</em> ermittelt wird. 
+<p>Die g&uuml;ltigen Werte lauten <strong>EntirePool</strong> und <strong>FailingConnectionOnly</strong>.
+F&uuml;r JCA-Datenquellen ist jede Option m&ouml;glich.
+Als Policy f&uuml;r das L&ouml;schen der Datenquellen von WebSphere Version 4.0 wird immer die Einstellung
+<strong>EntirePool</strong> verwendet.
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">EntirePool</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">
+<dl>
+<dt>
+<strong>EntirePool</strong>
+</dt>
+<dd>Alle Verbindungen im Pool sind als veraltet markiert.
+Alle nicht verwendeten Verbindungen werden sofort
+geschlossen. Eine gerade verwendete Verbindung wird geschlossen, und w&auml;hrend der n&auml;chsten Operation f&uuml;r diese
+Verbindung wird eine <em>StaleConnectionException</em> ausgel&ouml;st. Nachfolgende
+<em>getConnection</em>-Anforderungen seitens der Anwendung bewirken, dass neue Verbindungen zur Datenbank
+ge&ouml;ffnet werden. Wenn diese Policy f&uuml;r L&ouml;schen verwendet wird, besteht ein geringes Risiko, dass einige
+Verbindungen im Pool geschlossen werden, obwohl sie nicht veraltet sind. Dies kommt jedoch nur selten
+vor. In den meisten F&auml;llen ist die Einstellung "EntirePool" f&uuml;r Policy f&uuml;r L&ouml;schen die beste
+Wahl. </dd>
+<dt>
+<strong>FailingConnectionOnly</strong>
+</dt>
+<dd>Nur die Verbindung, die die Ausnahmebedingung <em>StaleConnectionException</em> verursachte,
+wird geschlossen.
+Diese Einstellung
+schlie&szlig;t das Risiko, dass g&uuml;ltige Verbindungen unn&ouml;tigerweise geschlossen werden, zwar aus, sie hat aber
+auch zur Folge, dass die Wiederherstellung aus Sicht der Anwendung schwieriger wird. Da nur die
+gegenw&auml;rtig fehlerhafte Verbindung geschlossen wird, ist die Wahrscheinlichkeit, dass die n&auml;chste
+<em>getConnection</em>-Anforderung seitens der Anwendung eine Verbindung aus dem Pool zur&uuml;ckgibt, die ebenfalls
+veraltet ist, relativ hoch. </dd>
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Zugeh&ouml;rige Informationen</strong>
+</p>
+<a href="rcon_buttons.html">Kn&ouml;pfe in der Adminstrationskonsole</a>
+<br>
+
+<a href="rcon_pageusage.html">Funktionen auf den Seiten der Administrationskonsole</a>
+<br>
+
+</div>
+</body>
+</html>

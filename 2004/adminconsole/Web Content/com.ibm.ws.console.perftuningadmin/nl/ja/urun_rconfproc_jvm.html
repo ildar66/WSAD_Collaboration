@@ -1,0 +1,503 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Java 仮想マシン設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="urun_rconfproc_jvm"></a>
+<h2>Java 仮想マシン設定</h2>
+
+<p>このページを使用して、
+アプリケーション・サーバーのプロセスの Java 仮想マシン (JVM) 構成を表示および変更します。</p>
+
+<p>この管理コンソール・ページを表示するには、「<strong>サーバー</strong>」&gt;「<strong>アプリケーション・サーバー</strong>」&gt;「<em>server_name</em>」&gt;「<strong>プロセス定義</strong>」&gt;「<strong>Java 仮想マシン</strong>」をクリックします。</p>
+
+<div>
+<p>
+<strong>「構成」タブ</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="JavaVirtualMachine_classpath_description"></a>クラスパス</strong>
+</dt>
+<dd>Java 仮想マシン・コードがクラスを検索する標準クラスパスを指定します。
+
+<p>各クラスパス・エントリーを表の行に入力してください。
+各エントリーの最後にコロンまたはセミコロンを付け加える必要はありません。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">単位</td>
+<td align="left" valign="top" class="base">クラスパス</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_bootClasspath_description"></a>ブート・クラスパス</strong>
+</dt>
+<dd>JVM コードのブートストラップ・クラスおよびリソースを指定します。
+このオプションは、
+ブートストラップ・クラスおよびリソースをサポートする JVM 命令でのみ使用可能です。
+コロン (:) またはセミコロン (;) (ノードのオペレーティング・システムによって決まる) で複数のパスを分離できます。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_verboseModeClass_description"></a>冗長クラス・ロード</strong>
+</dt>
+<dd>クラス・ロードのために冗長デバッグ出力を使用するかどうかを指定します。
+デフォルトでは、冗長クラス・ロードは使用可能ではありません。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ブール</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">false</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_verboseModeGarbageCollection_description"></a>冗長ガーベッジ・コレクション</strong>
+</dt>
+<dd>ガーベッジ・コレクションの冗長デバッグ出力を使用するかどうかを指定します。
+デフォルトでは、冗長ガーベッジ・コレクションは使用可能ではありません。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ブール</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">false</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_verboseModeJNI_description"></a>冗長 JNI</strong>
+</dt>
+<dd>ネイティブ・メソッドの起動のために冗長デバッグ出力を使用するかどうかを指定します。
+デフォルトでは、
+冗長 Java ネイティブ・インターフェース (JNI) アクティビティーは使用可能ではありません。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ブール</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">false</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_initialHeapSize_description"></a>初期ヒープ・サイズ</strong>
+</dt>
+<dd>JVM コードで使用可能な初期ヒープ・サイズ (メガバイト単位) を指定します。
+
+<p>最小ヒープ・サイズを増やすと、始動時間が短縮されます。ガーベッジ・コレクションの実行回数が減少するため、
+パフォーマンスに 10% の向上が見られます。</p>
+
+<p>一般に、Java ヒープのサイズを増やすと、物理メモリー中にヒープが
+存在しなくなるまでは、スループットが向上します。
+ディスクへのヒープのスワッピングが開始されると、Java パフォーマンスが
+大幅に低下します。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">整数</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">OS/400 の場合は 64 で、それ以外のすべてのプラットフォームの場合は 50 です。</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_maximumHeapSize_description"></a>最大ヒープ・サイズ</strong>
+</dt>
+<dd>JVM コードで使用可能な最大ヒープ・サイズ (メガバイト単位) を指定します。
+
+<p>ヒープ・サイズを増やすと、始動時間が短縮されます。ガーベッジ・コレクションの実行回数が減少するため、
+パフォーマンスに 10% の向上が見られます。 </p>
+
+<p>一般に、Java ヒープのサイズを増やすと、物理メモリー中にヒープが
+存在しなくなるまでは、スループットが向上します。
+ディスクへのヒープのスワッピングが開始されると、Java パフォーマンスが
+大幅に低下します。
+したがって、最大ヒープ・サイズは、物理メモリー内にヒープが
+収まるように小さく設定する必要があります。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">整数</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">OS/400 の場合は 0 で、
+他のすべてのプラットフォームの場合は 256 です。ページングやメモリーからディスクへのスワップアウトを避けるために、値は小さくしておいてください。
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_runHProf_description"></a>HProf の実行</strong>
+</dt>
+<dd>HProf プロファイラー・サポートを使用するかどうかを指定します。
+別のプロファイラーを使用するには、「
+HProf 引き数」の設定を使用してカスタム・プロファイラーの設定を指定します。
+デフォルトでは、HProf プロファイラー・サポートは使用可能ではありません。
+<p>「HProf の実行」プロパティーを true に設定する場合は、「
+HProf 引き数」プロパティーの値としてコマンド行プロファイラー引き数を指定する必要があります。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ブール</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">false</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_hprofArguments_description"></a>HProf 引き数</strong>
+</dt>
+<dd>アプリケーション・サーバー・プロセスを開始する JVM コードに渡すコマンド行プロファイラー引き数を指定します。
+HProf プロファイラー・サポートが使用可能であるときは、引き数を指定できます。
+<p>HProf 引き数が必要になるのは、「
+HProf の実行」プロパティーが true に設定されている場合のみです。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_debugMode_description"></a>デバッグ・モード</strong>
+</dt>
+<dd>JVM をデバッグ・モードで実行するかどうかを指定します。
+デフォルトでは、デバッグ・モード・サポートは使用可能ではありません。
+<p>「デバッグ・モード」プロパティーを true に設定する場合は、「
+Debug Arguments」プロパティーの値としてコマンド行デバッグ引き数を指定する必要があります。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ブール</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">false</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_debugArgs_description"></a>デバッグ引き数</strong>
+</dt>
+<dd>アプリケーション・サーバー・プロセスを開始する JVM コードに渡すコマンド行デバッグ引き数を指定します。
+「デバッグ・モード」が使用可能である場合に、引き数を指定できます。
+<p>デバッグ引き数が必要になるのは、「
+デバッグ・モード」プロパティーが true に設定されている場合のみです。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">単位</td>
+<td align="left" valign="top" class="base">Java コマンド行の引き数</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_genericJvmArguments_description"></a>汎用 JVM 引き数</strong>
+</dt>
+<dd>アプリケーション・サーバー・プロセスを始動する Java 仮想マシン・コードに渡すコマンド行引き数を指定します。
+
+<p>以下のオプションのコマンド行引き数は、「<strong>General JVM Arguments</strong>」フィールドに入力して使用します。<ul>
+
+<li>
+<strong>-Xquickstart:</strong> この値は、デフォルト・モードの場合よりも低い最適化レベルでの初期コンパイルに使用でき、
+後で抽出結果に応じて、デフォルト・モードでの初期コンパイル・レベルに再コンパイルすることができます。クイック・スタートは、
+長時間に渡るスループットよりも、初期段階での適度な速度が重要とされるアプリケーション
+に使用します。例えば、一部のデバッグ・シナリオ、一連のテスト、および実行時間の短いツールなどでは、開始時間を 15-20% の間に増やすことが可能です。<strong>-DCOPT_NQREACHDEF</strong> により、起動時間をさらに 15% 改善することができます。</li>
+
+<li>
+<strong>-Xverify:none:</strong> この値を使用すると、クラスのロード中のクラス検証ステージがスキップされます。
+ジャストインタイム (JIT) コンパイラーを使用可能にして <strong>-Xverify:none</strong> を使用することにより、
+起動時間は 10 から 15% 改善されます。</li>
+
+<li>
+<strong>-Xnoclassgc:</strong> この値を使用すると、クラスのガーベッジ・コレクションを使用不可にすることができるため、
+クラスの再利用率が上がり、パフォーマンスが若干向上します。
+クラスのガーベッジ・コレクションはデフォルトで使用可能になっていますが、
+これは使用可能のままにすることをお勧めします。verbose:gc 構成設定を使用すると、
+ガーベッジ・コレクションをモニターできます。
+これは、verbose:gc の出力に、クラス・ガーベッジ・コレクションの統計が含まれているからです。</li>
+
+<li>
+<strong>-Xgcthreads:</strong> ガーベッジ・コレクションのスレッドは、一度に複数使用することができ、
+これは<em>並列ガーベッジ・コレクション</em>としても知られています。
+この値を「<strong>Generic JVM Arguments</strong>」フィールドに入力する場合は、
+使用マシンに搭載されているプロセッサーの数も入力してください。
+例えば、<samp>-Xgcthreads=</samp><em>number_of_processors</em> とします。
+使用マシンに複数のプロセッサーが搭載されている場合は、
+並列ガーベッジ・コレクションを使用することをお勧めします。この引き数は、IBM Developer
+Kit にのみ適用されます。</li>
+
+<li>
+<strong>-Xnocompactgc:</strong> この値を使用すると、
+コストが最も高いガーベッジ・コレクション操作であるヒープ圧縮が使用不可になります。IBM Developer Kit では圧縮を行わないでください。 ヒープ圧縮を使用不可にすると、それに付随するすべてのオーバーヘッドがなくなります。この値を「<strong>Generic JVM Arguments</strong>」フィールドに入力する場合は、
+使用マシンに搭載されているプロセッサーの数も入力してください。
+例: <samp>-Xnocompactgc=</samp><em>number_of_processors</em>
+</li>
+
+<li>
+<strong>-Xinitsh:</strong> この値を使用すると、クラス・オブジェクトが格納される初期ヒープ・サイズを設定できます。
+クラス・オブジェクトだけではなく、メソッド定義および静的フィールドも格納されます。
+システムのヒープ・サイズに上限はありませんが、初期サイズを設定し、
+システムのヒープ・サイズの拡張 (これには、オペレーティング・システムのメモリー・マネージャーの呼び出しが伴います)
+によるコストが発生しないようにしてください。Websphere 製品にロードされるクラスの数 (約 8,000 クラス)
+およびその平均サイズを知ることにより、適切な初期システム・ヒープ・サイズを算出できます。
+アプリケーションに関する知識がある場合は、それらを計算に含めることができます。</li>
+
+<li>
+<strong>-Xmc:</strong> スレッドのローカル・ヒープ・サイズは、
+特定のスレッドに排他的に割り振られる、ヒープの一部分です。スレッドのローカル・ヒープ・サイズにより、
+スレッドは、オブジェクトを割り振るときに、ヒープ全体をロックする必要がありません。
+ただし、スレッドのローカル・ヒープが満杯の場合は、
+同期化する必要のあるヒープからオブジェクトの割り振りが行われます。パフォーマンスの向上には、
+アプリケーションおよびそのオブジェクトの知識に基づいて
+ローカル・キャッシュ・サイズを適切な値に設定することが重要です。</li>
+
+<li>
+<strong>-Xml:</strong> この値を使用すると、
+ローカル・キャッシュから割り振るオブジェクト・サイズに制限を設定することができます。
+この制限サイズを超えるオブジェクトは、通常のヒープで割り振る必要があります。
+オブジェクトはできるだけ多くローカル・キャッシュから割り振る必要があります。
+ローカル・キャッシュは動的に増えることがないため、割り振っておかないと使い果たされてしまいます。
+非常に大きくなるオブジェクトがあることが分かっている場合は、
+それらのオブジェクトを通常のヒープから割り振ってください。</li>
+
+</ul>
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">単位</td>
+<td align="left" valign="top" class="base">Java コマンド行引き数</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_executableJarFileName_description"></a>実行可能 JAR ファイル名</strong>
+</dt>
+<dd>JVM コードで使用する実行可能な JAR ファイルの絶対パス名を指定します。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">単位</td>
+<td align="left" valign="top" class="base">パス名</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_disableJIT_description"></a>JIT を使用不可にする</strong>
+</dt>
+<dd>JVM コードのジャストインタイム (JIT) コンパイラー・オプションを使用不可にするかどうかを指定します。
+
+<p>JIT コンパイラーを使用不可にしている場合は、スループットが著しく減少します。したがって、
+パフォーマンス上の理由から、JIT は使用可能のままにしてください。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ブール</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">false (JIT は使用可能)</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">推奨</td>
+<td align="left" valign="top" class="base">JIT は使用可能</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_osName_description"></a>オペレーティング・システム名</strong>
+</dt>
+<dd>所定のオペレーティング・システムの JVM 設定を指定します。
+このプロセスは、始動時に、
+ノードのオペレーティング・システムの JVM 設定を使用します。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>関連情報</strong>
+</p>
+<a href="rcon_buttons.html">管理コンソールのボタン</a>
+<br>
+
+<a href="rcon_pageusage.html">管理コンソール・ページのフィーチャー</a>
+<br>
+
+<a href="urun_rproperty.html">カスタム・プロパティー・コレクション</a>
+<br>
+
+</div>
+</body>
+</html>

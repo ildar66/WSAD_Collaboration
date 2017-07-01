@@ -1,0 +1,99 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Web サービス: クライアント・セキュリティーのバインディング・コレクション</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_wsclientbind"></a>
+<h2>
+<img alt="[修正パッケージ 5.0.2 以降]" src="v502.gif" border="0">Web サービス: クライアント・セキュリティーのバインディング・コレクション</h2>
+
+<p>このページを使用して、Web サービス・セキュリティーの、クライアント・サイドのバインディング構成のリストを
+表示します。これらのバインディングは、Web サービスが別の Web サービスのクライアントになっている場合に使用されます。</p>
+
+<p>この管理コンソール・ページを表示するには、以下のステップを実行します。<ol>
+
+<li>「<strong>エンタープライズ・アプリケーション</strong>」&gt;「<em>application_name</em> 」をクリックします。</li>
+
+<li>「Related Items」の下の「<strong>Web モジュール</strong>」&gt;「<em>URI_file_name</em>」&gt;「<strong>Web Services: Client Security Bindings</strong>」をクリックします。
+</li>
+
+</ol>
+</p>
+
+<dl>
+<dt>
+<strong><a name="sec_port"></a>ポート</strong>
+</dt>
+<dd>メッセージの送信およびサーバーからのメッセージの受信に使用するポートを指定します。</dd>
+<dt>
+<strong><a name="sec_websvc"></a>Web サービス</strong>
+</dt>
+<dd>Web サービスの名前を指定します。</dd>
+<dt>
+<strong><a name="sec_req"></a>Request Sender Binding</strong>
+</dt>
+<dd>要求の受信側に要求メッセージを送信するために使用するバインディング構成を指定します。
+<p>「<strong>編集</strong>」をクリックして、要求の送信側の署名情報、暗号化情報、およびログイン・バインディングを構成し、
+鍵ストア内の鍵ロケーターのリストを表示します。</p>
+
+<p>クライアントに対して指定されている、要求の送信側のバインディング情報は、
+サーバーに対して指定されている、要求の受信側のバインディング情報と一致している必要があります。</p>
+
+</dd>
+<dt>
+<strong><a name="sec_resp"></a>Response Receiver Binding</strong>
+</dt>
+<dd>応答の送信側から応答メッセージを受信するために使用するバインディング構成を指定します。
+<p>「<strong>編集</strong>」をクリックして、署名情報と暗号化情報を構成し、トラスト・アンカー、コレクション証明書ストア内の中間証明書、および応答の受信側の鍵ロケーター・オブジェクトのリストを表示します。</p>
+
+<p>クライアントに対して指定されている、応答の送信側のバインディング情報は、
+サーバーに対して指定されている、応答の受信側のバインディング情報と一致している必要があります。</p>
+
+</dd>
+<dt>
+<strong><a name="sec_httpbasicauth"></a>HTTP 基本認証</strong>
+</dt>
+<dd>このポートに対して使用する HTTP トランスポート・レベルの基本認証用の
+ユーザー ID およびパスワードを指定します。メッセージ・レベルのセキュリティーとは別に、
+トランスポート・レベルの認証のセキュリティーを使用可能にできます。
+<p>「<strong>編集</strong>」をクリックして、トランスポート・レベルの認証用の基本認証 ID およびパスワードを構成します。</p>
+
+</dd>
+<dt>
+<strong><a name="sec_httpsslconfig"></a>HTTP SSL Configuration</strong>
+</dt>
+<dd>このポートのトランスポート・レベル SSL セキュリティーを使用可能にし、構成します。メッセージ・レベルのセキュリティーとは別に、
+トランスポート・レベルの SSL セキュリティーを使用可能にできます。
+<p>「<strong>編集</strong>」をクリックして、このポートのトランスポート・レベル HTTP SSL 構成の設定を指定します。</p>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>関連情報</strong>
+</p>
+<a href="uwbs_reqsend.html">要求送信側のバインディング・コレクション</a>
+<br>
+
+<a href="uwbs_resprecvr.html">応答受信側のバインディング・コレクション</a>
+<br>
+
+<a href="uwbs_signinfo.html">署名情報コレクション</a>
+<br>
+
+<a href="uwbs_encrypt.html">暗号化情報コレクション</a>
+<br>
+
+<a href="uwbs_keyl.html">鍵ロケーターのコレクション</a>
+<br>
+
+<a href="uwbs_loginbnd.html">ログイン・バインディング構成の設定</a>
+<br>
+
+</div>
+</body>
+</html>

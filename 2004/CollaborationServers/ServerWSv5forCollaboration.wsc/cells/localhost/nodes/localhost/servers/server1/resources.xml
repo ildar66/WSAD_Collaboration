@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:resources.j2c="http://www.ibm.com/websphere/appserver/schemas/5.0/resources.j2c.xmi" xmlns:resources.jdbc="http://www.ibm.com/websphere/appserver/schemas/5.0/resources.jdbc.xmi" xmlns:resources.jms="http://www.ibm.com/websphere/appserver/schemas/5.0/resources.jms.xmi" xmlns:resources.mail="http://www.ibm.com/websphere/appserver/schemas/5.0/resources.mail.xmi" xmlns:resources.url="http://www.ibm.com/websphere/appserver/schemas/5.0/resources.url.xmi">
+  <resources.jdbc:JDBCProvider xmi:id="JDBCProvider_1" name="Cloudscape JDBC Driver" description="Cloudscape JDBC Provider" implementationClassName="com.ibm.db2j.jdbc.DB2jConnectionPoolDataSource"/>
+  <resources.jms:JMSProvider xmi:id="builtin_jmsprovider" name="WebSphere JMS Provider" description="Built-in WebSphere JMS Provider" externalInitialContextFactory="" externalProviderURL=""/>
+  <resources.jms:JMSProvider xmi:id="builtin_mqprovider" name="WebSphere MQ JMS Provider" description="WebSphere MQ JMS Provider" externalInitialContextFactory="" externalProviderURL="">
+    <classpath>${MQJMS_LIB_ROOT}</classpath>
+    <nativepath>${MQJMS_LIB_ROOT}</nativepath>
+  </resources.jms:JMSProvider>
+  <resources.j2c:J2CResourceAdapter xmi:id="builtin_rra" name="WebSphere Relational Resource Adapter" description="Built-in Relational Resource Adapter for Container Managed Persistence" archivePath="${WAS_LIBS_DIR}/rsadapter.rar">
+    <factories xmi:type="resources.jdbc:CMPConnectorFactory" xmi:id="CMPConnectorFactory_1" name="INFORMIX_CF" authMechanismPreference="BASIC_PASSWORD" authDataAlias="dima" cmpDatasource="DataSource_1">
+      <propertySet xmi:id="J2EEResourcePropertySet_1">
+        <resourceProperties xmi:id="J2EEResourceProperty_1" name="TransactionResourceRegistration" type="java.lang.String" value="dynamic" description="Type of transaction resource registration (enlistment).  Valid values are either &quot;static&quot; (immediate) or &quot;dynamic&quot; (deferred)."/>
+        <resourceProperties xmi:id="J2EEResourceProperty_2" name="InactiveConnectionSupport" type="java.lang.Boolean" value="true" description="Specify whether connection handles support implicit reactivation. (Smart Handle support). Value may be &quot;true&quot; or &quot;false&quot;."/>
+      </propertySet>
+      <mapping xmi:id="MappingModule_1" mappingConfigAlias="DefaultPrincipalMapping" authDataAlias="dima"/>
+    </factories>
+    <factories xmi:type="resources.jdbc:CMPConnectorFactory" xmi:id="CMPConnectorFactory_2" name="ORACLE_CF" authMechanismPreference="BASIC_PASSWORD" authDataAlias="xxnri" cmpDatasource="DataSource_2">
+      <propertySet xmi:id="J2EEResourcePropertySet_3">
+        <resourceProperties xmi:id="J2EEResourceProperty_73" name="TransactionResourceRegistration" type="java.lang.String" value="dynamic" description="Type of transaction resource registration (enlistment).  Valid values are either &quot;static&quot; (immediate) or &quot;dynamic&quot; (deferred)."/>
+        <resourceProperties xmi:id="J2EEResourceProperty_74" name="InactiveConnectionSupport" type="java.lang.Boolean" value="true" description="Specify whether connection handles support implicit reactivation. (Smart Handle support). Value may be &quot;true&quot; or &quot;false&quot;."/>
+      </propertySet>
+      <mapping xmi:id="MappingModule_3" mappingConfigAlias="DefaultPrincipalMapping" authDataAlias="xxnri"/>
+    </factories>
+    <propertySet xmi:id="J2EEResourcePropertySet_8">
+      <resourceProperties xmi:id="J2EEResourceProperty_31" name="TransactionResourceRegistration" type="java.lang.String" value="dynamic" description="Type of transaction resource registration (enlistment).  Valid values are either &quot;static&quot; (immediate) or &quot;dynamic&quot; (deferred)."/>
+      <resourceProperties xmi:id="J2EEResourceProperty_32" name="InactiveConnectionSupport" type="java.lang.Boolean" value="true" description="Specify whether connection handles support implicit reactivation. (Smart Handle support). Value may be &quot;true&quot; or &quot;false&quot;."/>
+    </propertySet>
+  </resources.j2c:J2CResourceAdapter>
+  <resources.mail:MailProvider xmi:id="builtin_mailprovider" name="Built-in Mail Provider" description="The built-in mail provider">
+    <protocolProviders xmi:id="builtin_smtp" protocol="smtp" classname="com.sun.mail.smtp.SMTPTransport" type="TRANSPORT"/>
+    <protocolProviders xmi:id="builtin_pop3" protocol="pop3" classname="com.sun.mail.pop3.POP3Store" type="STORE"/>
+    <protocolProviders xmi:id="builtin_imap" protocol="imap" classname="com.sun.mail.imap.IMAPStore" type="STORE"/>
+  </resources.mail:MailProvider>
+  <resources.jdbc:JDBCProvider xmi:id="JDBCProvider_2" name="Default DB2 JDBC Provider" description="DB2 JDBC Provider" implementationClassName="COM.ibm.db2.jdbc.DB2ConnectionPoolDataSource">
+    <classpath>${DB2_JDBC_DRIVER_PATH}/db2java.zip</classpath>
+  </resources.jdbc:JDBCProvider>
+  <resources.url:URLProvider xmi:id="URLProvider_1" name="Default URL Provider" streamHandlerClassName="unused" protocol="unused"/>
+  <resources.jdbc:JDBCProvider xmi:id="JDBCProvider_3" name="Informix provider" description="Informix JDBC Driver" implementationClassName="com.informix.jdbcx.IfxConnectionPoolDataSource">
+    <classpath>${INFORMIX_JDBC_DRIVER_PATH}/ifxjdbc.jar</classpath>
+    <classpath>${INFORMIX_JDBC_DRIVER_PATH}/ifxjdbcx.jar</classpath>
+    <classpath>c:\informix.jar</classpath>
+    <factories xmi:type="resources.jdbc:DataSource" xmi:id="DataSource_1" name="INFORMIX" jndiName="jdbc/informix" description="INFORMIX JDBC Datasource" category="" authDataAlias="dima" statementCacheSize="10" datasourceHelperClassname="com.ibm.websphere.rsadapter.InformixDataStoreHelper" relationalResourceAdapter="builtin_rra">
+      <propertySet xmi:id="J2EEResourcePropertySet_2">
+        <resourceProperties xmi:id="J2EEResourceProperty_3" name="databaseName" type="java.lang.String" value="july" description="This is a required property. The database name. For example, enter sample to make your Data Source point to sample" required="true"/>
+        <resourceProperties xmi:id="J2EEResourceProperty_4" name="serverName" type="java.lang.String" value="beeinf" description="This is a required property. The name of the Informix instance on the physical machine" required="true"/>
+        <resourceProperties xmi:id="J2EEResourceProperty_5" name="portNumber" type="java.lang.Integer" value="1541" description="This is a required property. The TCP/IP port number of the Informix instance" required="true"/>
+        <resourceProperties xmi:id="J2EEResourceProperty_6" name="ifxIFXHOST" type="java.lang.String" value="192.168.18.201" description="This is a required property. The physical machine name." required="true"/>
+        <resourceProperties xmi:id="J2EEResourceProperty_7" name="informixLockModeWait" type="java.lang.Integer" value="2" description="This is a required property.By default, Informix throws an exception when it cannot acquire a lock, rather than waiting for the current owner of the lock to release it. To modify this behavior, set this property to the number of seconds to wait for a lock. The default is 2 seconds. Any negative value means to wait forever" required="true"/>
+        <resourceProperties xmi:id="J2EEResourceProperty_8" name="roleName" type="java.lang.String" value="" description="The role name."/>
+        <resourceProperties xmi:id="J2EEResourceProperty_9" name="description" type="java.lang.String" value="" description="The description of this Data Source."/>
+        <resourceProperties xmi:id="J2EEResourceProperty_10" name="loginTimeout" type="java.lang.Integer" value="" description="The maximum time to attempt to connect a database. If this value is non-zero, attempt to connect to the database will timeout when this specified value is reached."/>
+        <resourceProperties xmi:id="J2EEResourceProperty_11" name="ifxCPMMaxConnections" type="java.lang.Integer" value="" description="The maximum number of physical connections that the datasource can obtain from the server, excluding those are returned to the server. Default value is -1 which means unlimited connections."/>
+        <resourceProperties xmi:id="J2EEResourceProperty_12" name="ifxCPMMinAgeLimit" type="java.lang.Long" value="" description="The minimum number of the connections kept in the pool has exceeded the age   limit. Default value is 0."/>
+        <resourceProperties xmi:id="J2EEResourceProperty_13" name="ifxCPMMinPoolSize" type="java.lang.Integer" value="" description="The minimum number of connections maintain in the pool. Default value is 0."/>
+        <resourceProperties xmi:id="J2EEResourceProperty_14" name="ifxCPMMaxPoolSize" type="java.lang.Integer" value="" description="The maximum number of connections maintain in the pool. When the pool reaches this size, all connections are returned to the server. The default value is 50."/>
+        <resourceProperties xmi:id="J2EEResourceProperty_15" name="ifxCPMAgeLimit" type="java.lang.Long" value="" description="The time, in seconds, that is specified for a free connection is kept in a free connection pool. The default value is -1, that means the free connections are retained in the free pool until the client terminates."/>
+        <resourceProperties xmi:id="J2EEResourceProperty_16" name="ifxCPMServiceInterval" type="java.lang.Long" value="" description="The pool service frequency, in milliseconds. Default is 50."/>
+        <resourceProperties xmi:id="J2EEResourceProperty_17" name="ifxCPMInitPoolSize" type="java.lang.Integer" value="" description="The initial number of connections to be allocated in a pool when a datasource is first instantiated and the pool is created. Default value is 0."/>
+        <resourceProperties xmi:id="J2EEResourceProperty_18" name="ifxUSE_DTENV" type="java.lang.Boolean" value="" description="The value for the Informix specific variable USE_DTENV."/>
+        <resourceProperties xmi:id="J2EEResourceProperty_19" name="ifxNEWLOCALE" type="java.lang.String" value="" description="The value for the Informix specific variable NEWLOCALE."/>
+        <resourceProperties xmi:id="J2EEResourceProperty_20" name="ifxPSORT_NPROCS" type="java.lang.Boolean" value="" description="The value for the Informix specific variable PSORT_NPROCS."/>
+        <resourceProperties xmi:id="J2EEResourceProperty_21" name="ifxENABLE_TYPE_CACHE" type="java.lang.Boolean" value="" description="The value for the Informix specific variable ENABLE_TYPE_CACHE."/>
+        <resourceProperties xmi:id="J2EEResourceProperty_22" name="ifxINFORMIXOPCACHE" type="java.lang.String" value="" description="The value for the Informix specific variable INFORMIXOPCACHE."/>
+        <resourceProperties xmi:id="J2EEResourceProperty_23" name="ifxLDAP_USER" type="java.lang.String" value="" description="The value for the Informix specific variable LDAP_USER."/>
+        <resourceProperties xmi:id="J2EEResourceProperty_24" name="ifxSQLH_FILE" type="java.lang.String" value="" description="The value for the Informix specific variable SQLH_FILE."/>
+        <resourceProperties xmi:id="J2EEResourceProperty_25" name="ifxDBUPSPACE" type="java.lang.String" value="" description="The value for the Informix specific variable DBUPSPACE ."/>
+        <resourceProperties xmi:id="J2EEResourceProperty_26" name="ifxLDAP_URL" type="java.lang.String" value="" description="The value for the Informix specific variable LDAP_URL."/>
+        <resourceProperties xmi:id="J2EEResourceProperty_27" name="ifxSTMT_CACHE" type="java.lang.String" value="" description="The value for the Informix specific variable STMT_CACHE."/>
+        <resourceProperties xmi:id="J2EEResourceProperty_28" name="ifxSQLH_LOC" type="java.lang.String" value="" description="The value for the Informix specific variable SQLH_LOC."/>
+        <resourceProperties xmi:id="J2EEResourceProperty_29" name="ifxLOBCACHE" type="java.lang.Integer" value="" description="The value for the Informix specific variable LOBCACHE."/>
+        <resourceProperties xmi:id="J2EEResourceProperty_30" name="ifxTRACEFILE" type="java.lang.String" value="" description="The value for the Informix specific variable TRACEFILE."/>
+        <resourceProperties xmi:id="J2EEResourceProperty_33" name="ifxDBANSIWARN" type="java.lang.Boolean" value="" description="The value for the Informix specific variable DBANSTWARN."/>
+        <resourceProperties xmi:id="J2EEResourceProperty_34" name="ifxDBSPACETEMP" type="java.lang.String" value="" description="The value for the Informix specific variable DBSPACETEMP."/>
+        <resourceProperties xmi:id="J2EEResourceProperty_35" name="ifxSECURITY" type="java.lang.String" value="" description="The value for the Informix specific variable SECURITY."/>
+        <resourceProperties xmi:id="J2EEResourceProperty_36" name="ifxPROXY" type="java.lang.String" value="" description="The value for the Informix specific variable PROXY."/>
+        <resourceProperties xmi:id="J2EEResourceProperty_37" name="ifxPLOAD_LO_PATH" type="java.lang.String" value="" description="The value for the Informix specific variable PLOAD_LO_PATH."/>
+        <resourceProperties xmi:id="J2EEResourceProperty_38" name="ifxGL_DATETIME" type="java.lang.String" value="" description="The value for the Informix specific variable GL_DATETIME."/>
+        <resourceProperties xmi:id="J2EEResourceProperty_39" name="ifxSQLH_TYPE" type="java.lang.String" value="" description="The value for the Informix specific variable SQLH_TYPE."/>
+        <resourceProperties xmi:id="J2EEResourceProperty_40" name="ifxGL_DATE" type="java.lang.String" value="" description="The value for the Informix specific variable GL_DATE."/>
+        <resourceProperties xmi:id="J2EEResourceProperty_41" name="ifxCLIENT_LOCALE" type="java.lang.String" value="ru_RU.1251" description="The value for the Informix specific variable CLIENT_LOCALE."/>
+        <resourceProperties xmi:id="J2EEResourceProperty_42" name="ifxOPTCOMPIND" type="java.lang.String" value="" description="The value for the Informix specific variable OPTCOMPIND."/>
+        <resourceProperties xmi:id="J2EEResourceProperty_43" name="ifxDBDATE" type="java.lang.String" value="" description="The value for the Informix specific variable DBDATE."/>
+        <resourceProperties xmi:id="J2EEResourceProperty_44" name="ifxNODEFDAC" type="java.lang.String" value="" description="The value for the Informix specific variable NODEFDAC."/>
+        <resourceProperties xmi:id="J2EEResourceProperty_45" name="ifxIFX_AUTOFREE" type="java.lang.Boolean" value="" description="The value for the Informix specific variable IFX_AUTOFREE."/>
+        <resourceProperties xmi:id="J2EEResourceProperty_46" name="ifxLDAP_PASSWD" type="java.lang.String" value="" description="The value for the Informix specific variable LDAP_PASSWD."/>
+        <resourceProperties xmi:id="J2EEResourceProperty_47" name="ifxIFX_USEPUT" type="java.lang.Boolean" value="" description="The value for the Informix specific variable IFX_USEPUT."/>
+        <resourceProperties xmi:id="J2EEResourceProperty_48" name="ifxDBCENTURY" type="java.lang.String" value="" description="The value for the Informix specific variable DBCENTURY."/>
+        <resourceProperties xmi:id="J2EEResourceProperty_49" name="ifxTRACE" type="java.lang.Integer" value="" description="The value for the Informix specific variable TRACE."/>
+        <resourceProperties xmi:id="J2EEResourceProperty_50" name="ifxNEWCODESET" type="java.lang.String" value="" description="The value for the Informix specific variable NEWCODESET."/>
+        <resourceProperties xmi:id="J2EEResourceProperty_51" name="ifxINFORMIXCONTIME" type="java.lang.Integer" value="" description="The value for the Informix specific variable INFORMIXCONTIME."/>
+        <resourceProperties xmi:id="J2EEResourceProperty_52" name="ifxUSEV5SERVER" type="java.lang.Boolean" value="" description="The value for the Informix specific variable USEV5SERVER."/>
+        <resourceProperties xmi:id="J2EEResourceProperty_53" name="ifxPLCONFIG" type="java.lang.String" value="" description="The value for the Informix specific variable PLCONFIG."/>
+        <resourceProperties xmi:id="J2EEResourceProperty_54" name="ifxDB_LOCALE" type="java.lang.String" value="ru_RU.1251" description="The value for the Informix specific variable DB_LOCALE."/>
+        <resourceProperties xmi:id="J2EEResourceProperty_55" name="ifxOPTOFC" type="java.lang.String" value="" description="The value for the Informix specific variable OPTOFC."/>
+        <resourceProperties xmi:id="J2EEResourceProperty_56" name="ifxPATH" type="java.lang.String" value="" description="The value for the Informix specific variable PATH."/>
+        <resourceProperties xmi:id="J2EEResourceProperty_57" name="ifxLDAP_IFXBASE" type="java.lang.String" value="" description="The value for the Informix specific variable LDAP_IFXBASE."/>
+        <resourceProperties xmi:id="J2EEResourceProperty_58" name="ifxDBTIME" type="java.lang.String" value="" description="The value for the Informix specific variable DBTIME."/>
+        <resourceProperties xmi:id="J2EEResourceProperty_59" name="ifxPDQPRIORITY" type="java.lang.String" value="" description="The value for the Informix specific variable PDQPRIORITY."/>
+        <resourceProperties xmi:id="J2EEResourceProperty_60" name="ifxFET_BUF_SIZE" type="java.lang.Integer" value="" description="The value for the Informix specific variable FET_BUF_SIZE."/>
+        <resourceProperties xmi:id="J2EEResourceProperty_61" name="ifxDBTEMP" type="java.lang.String" value="" description="The value for the Informix specific variable DBTEMP."/>
+        <resourceProperties xmi:id="J2EEResourceProperty_62" name="ifxPROTOCOLTRACE" type="java.lang.Integer" value="" description="The value for the Informix specific variable PROTOCOLTRACE."/>
+        <resourceProperties xmi:id="J2EEResourceProperty_63" name="ifxPROTOCOLTRACEFILE" type="java.lang.String" value="" description="The value for the Informix specific variable PROTOCOLTRACEFILE."/>
+        <resourceProperties xmi:id="J2EEResourceProperty_64" name="ifxDELIMIDENT" type="java.lang.Boolean" value="" description="The value for the Informix specific variable DELIMIDENT."/>
+        <resourceProperties xmi:id="J2EEResourceProperty_65" name="dataSourceName" type="java.lang.String" value="" description="The name of the Data Source."/>
+        <resourceProperties xmi:id="J2EEResourceProperty_66" name="ifxOPT_GOAL" type="java.lang.String" value="" description="The value for the Informix specific variable OPT_GOAL."/>
+        <resourceProperties xmi:id="J2EEResourceProperty_67" name="ifxINFORMIXSTACKSIZE" type="java.lang.Integer" value="" description="The value for the Informix specific variable INFORMIXSTACKSIZE."/>
+        <resourceProperties xmi:id="J2EEResourceProperty_68" name="ifxIFX_DIRECTIVES" type="java.lang.String" value="" description="The value for the Informix specific variable IFX_DIRECTIVES."/>
+        <resourceProperties xmi:id="J2EEResourceProperty_69" name="ifxJDBCTEMP" type="java.lang.String" value="" description="The value for the Informix specific variable JDBCTEMP."/>
+        <resourceProperties xmi:id="J2EEResourceProperty_70" name="ifxINFORMIXCONRETRY" type="java.lang.Integer" value="" description="The value for the Informix specific variable INFORMIXCONRETRY."/>
+        <resourceProperties xmi:id="J2EEResourceProperty_71" name="ifxPSORT_DBTEMP" type="java.lang.String" value="" description="The value for the Informix specific variable PSORT_DBTEMP."/>
+        <resourceProperties xmi:id="J2EEResourceProperty_72" name="enableMultithreadedAccessDetection" type="java.lang.Boolean" value="false" description="Indicates whether or not to detect multithreaded access to a Connection and its corresponding Statements, ResultSets, and MetaDatas."/>
+      </propertySet>
+      <connectionPool xmi:id="ConnectionPool_1" connectionTimeout="1800" maxConnections="10" minConnections="1" reapTime="180" unusedTimeout="1800" agedTimeout="0" purgePolicy="EntirePool"/>
+      <mapping xmi:id="MappingModule_2" mappingConfigAlias="DefaultPrincipalMapping" authDataAlias="dima"/>
+    </factories>
+  </resources.jdbc:JDBCProvider>
+  <resources.jdbc:JDBCProvider xmi:id="JDBCProvider_4" name="Oracle JDBC Provider" description="Oracle JDBC Thin Driver" implementationClassName="oracle.jdbc.pool.OracleConnectionPoolDataSource">
+    <classpath>${ORACLE_JDBC_DRIVER_PATH}/classes12.zip</classpath>
+    <classpath>c:\OracleJDBC\classes12.zip</classpath>
+    <factories xmi:type="resources.jdbc:DataSource" xmi:id="DataSource_2" name="ORACLE" jndiName="jdbc/oracle" description="ORACLE JDBC Datasource" category="" authDataAlias="xxnri" statementCacheSize="10" datasourceHelperClassname="com.ibm.websphere.rsadapter.OracleDataStoreHelper" relationalResourceAdapter="builtin_rra">
+      <propertySet xmi:id="J2EEResourcePropertySet_4">
+        <resourceProperties xmi:id="J2EEResourceProperty_75" name="databaseName" type="java.lang.String" value="VPROD" description="The database name. For example, enter sample to make your Data Source point to sample."/>
+        <resourceProperties xmi:id="J2EEResourceProperty_76" name="URL" type="java.lang.String" value="192.168.181.136" description="This is a required property. The URL indicating the database from which the Data Source will obtain connections, such as 'jdbc:oracle:thin:@localhost:1521:sample'." required="true"/>
+        <resourceProperties xmi:id="J2EEResourceProperty_77" name="driverType" type="java.lang.String" value="thin" description="The type of the driver. The possible values are: thin, oci8."/>
+        <resourceProperties xmi:id="J2EEResourceProperty_78" name="serverName" type="java.lang.String" value="VPROD" description="The name of the server"/>
+        <resourceProperties xmi:id="J2EEResourceProperty_79" name="portNumber" type="java.lang.Integer" value="1521" description="The TCP/IP port number where the jdbc driver resides."/>
+        <resourceProperties xmi:id="J2EEResourceProperty_80" name="networkProtocol" type="java.lang.String" value="" description="Whether to use TCP/IP or IPC or any other protocol."/>
+        <resourceProperties xmi:id="J2EEResourceProperty_81" name="dataSourceName" type="java.lang.String" value="" description="The name of the Data Source."/>
+        <resourceProperties xmi:id="J2EEResourceProperty_82" name="TNSEntryName" type="java.lang.String" value="" description="The entry name which is used for the Oracle OCI driver."/>
+        <resourceProperties xmi:id="J2EEResourceProperty_83" name="loginTimeout" type="java.lang.Integer" value="" description="The maximum time to attempt to connect a database. If this value is non-zero, attempt to connect to the database will timeout when this specified value is reached."/>
+        <resourceProperties xmi:id="J2EEResourceProperty_84" name="description" type="java.lang.String" value="" description="The description of this datasource."/>
+        <resourceProperties xmi:id="J2EEResourceProperty_85" name="enableMultithreadedAccessDetection" type="java.lang.Boolean" value="false" description="Indicates whether or not to detect multithreaded access to a Connection and its corresponding Statements, ResultSets, and MetaDatas."/>
+      </propertySet>
+      <connectionPool xmi:id="ConnectionPool_2" connectionTimeout="1800" maxConnections="10" minConnections="1" reapTime="180" unusedTimeout="1800" agedTimeout="0" purgePolicy="EntirePool"/>
+      <mapping xmi:id="MappingModule_4" mappingConfigAlias="DefaultPrincipalMapping" authDataAlias="xxnri"/>
+    </factories>
+  </resources.jdbc:JDBCProvider>
+  <resources.jdbc:JDBCProvider xmi:id="JDBCProvider_5" name="MSAccess Provider" description="MSAccess Provider JDBC Provider" implementationClassName="sun.jdbc.odbc.JdbcOdbcDriver">
+    <classpath>${User-defined_JDBC_DRIVER_PATH}/db2j.jar</classpath>
+    <factories xmi:type="resources.jdbc:DataSource" xmi:id="DataSource_3" name="msAccess" jndiName="jdbc/msAccess" description="" category="" datasourceHelperClassname="sun.jdbc.odbc.JdbcOdbcDriver" relationalResourceAdapter="builtin_rra">
+      <propertySet xmi:id="J2EEResourcePropertySet_5">
+        <resourceProperties xmi:id="J2EEResourceProperty_86" name="databaseName" type="java.lang.String" value="DBdelibash" description="" required="true"/>
+      </propertySet>
+      <connectionPool xmi:id="ConnectionPool_3" connectionTimeout="1800" maxConnections="10" minConnections="1" reapTime="180" unusedTimeout="1800" agedTimeout="1800" purgePolicy="EntirePool"/>
+    </factories>
+  </resources.jdbc:JDBCProvider>
+</xmi:XMI>

@@ -1,0 +1,192 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>JDBC 提供者設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="Manage_JDBC_Providers_detail"></a>
+<h2>JDBC 提供者設定</h2>
+
+<p>請利用這個頁面來建立或修改 JDBC 提供者設定。</p>
+
+<p>如果要檢視這個管理主控台頁面，請按一下<strong>資源</strong> &gt; <strong>JDBC 提供者</strong> &gt; <em>JDBC_provider</em>。</p>
+
+<div>
+<p>
+<strong>「配置」標籤</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="JDBCProvider_detail_contextID"></a>範圍</strong>
+</dt>
+<dd>指定這個資源定義的層次是可見的 -- Cell、節點或伺服器層次。
+
+<p>JDBC 提供者、名稱空間連結或共用程式庫之類的資源可以定義在多個範圍，定義在較明確範圍的資源會改寫定義在較一般範圍的複本。
+</p>
+
+<p>請注意，不管所定義的資源範圍是什麼，資源的內容只適用於個別的伺服器層次。
+比方說，如果您在 Cell 層次定義資料來源的範圍，則 Cell 中所有的使用者，都可以查閱以及使用這個資料來源，而這個資料來源在該 Cell 中是唯一的。
+但是，資源內容設定對於 Cell 中的每一個伺服器來說，是本端設定。
+比方說，如果您將<em>連線數上限</em>定義為 10，則該 Cell 中的每一個伺服器都可以有多達 10 個連線。
+<dl>
+
+<dt>
+<strong>Cell</strong>
+</dt>
+<dd>最一般的範圍。除非遭到置換，否則，所有節點和伺服器都能看到 Cell 範圍所定義的資源。
+如果要檢視 Cell 範圍中所定義的資源，請不要在範圍選擇表單中指定伺服器或節點名稱。</dd>
+
+<dt>
+<strong>節點</strong>
+</dt>
+<dd>大部分資源類型的預設範圍。定義在節點範圍的資源會置換任何定義在 Cell 範圍的複本，且相同節點中的所有伺服器都能看到它們，除非它們在這個節點的伺服器範圍中遭到置換。
+如果要檢視節點範圍中所定義的資源，請不要指定伺服器，但在範圍選擇表單中選取一個節點名稱。</dd>
+
+<dt>
+<strong>伺服器</strong>
+</dt>
+<dd>定義資源的最特定範圍。
+定義在「伺服器」範圍的資源會置換任何定義在 Cell 範圍或「母節點」範圍的重複資源定義，而且僅特定伺服器能夠看到它們。如果要檢視定義在伺服器範圍中的資源，請在範圍選擇表單中指定伺服器名稱和節點名稱。</dd>
+
+</dl>
+</p>
+
+<p>當建立資源時，始終都會將它們建立畫面中所選取的現行範圍內。
+如果要檢視其他範圍中的資源，請在範圍選擇表單中指定不同的節點或伺服器。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2EEResourceProvider_name_displayName"></a>名稱
+</strong>
+</dt>
+<dd>指定資源提供者的名稱。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2EEResourceProvider_description_displayName"></a>說明
+</strong>
+</dt>
+<dd>指定資源提供者的文字說明。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2EEResourceProvider_classpath_displayName"></a>類別路徑
+</strong>
+</dt>
+<dd>指定共同形成資源提供者類別位置的路徑或 JAR 檔名稱的清單。
+
+<p>例如 <em>D:/SQLLIB/java/db2java.zip</em>。</p>
+
+<p>類別路徑項目是使用 ENTER 鍵來區隔，而且不得含有路徑分隔字元（如 ';' 或 ':'）。
+類別路徑可包含能夠利用變數對映來替代的變數（符號）名稱。
+請檢查驅動程式安裝附註，以取得特定的必要 JAR 檔名稱。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2EEResourceProvider_nativepath_displayName"></a>原生程式庫路徑</strong>
+</dt>
+<dd>指定形成資源提供者原生程式庫之位置的路徑清單。
+<p>原生路徑項目是使用 ENTER 鍵來區隔，而且不得含有路徑分隔字元（如 ';' 或 ':'）。
+原生路徑可包含能夠利用變數對映來替代的變數（符號）名稱。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JDBCProvider_implementationClassName_displayName"></a>實作類別名稱</strong>
+</dt>
+<dd>指定 JDBC 驅動程式實作的 Java 類別名稱。
+
+<p>這個類別可用在上面的「類別路徑」說明中所提到的驅動程式檔案。
+例如 <em>COM.ibm.db2.jdbc.DB2XADataSource</em>。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>相關資訊</strong>
+</p>
+<a href="rcon_buttons.html">管理主控台按鈕</a>
+<br>
+
+<a href="rcon_pageusage.html">管理主控台頁面特性</a>
+<br>
+
+<a href="udat_was4datsor.html">資料來源（第 4 版）</a>
+<br>
+
+<a href="udat_jdbcdatasor.html">資料來源集合</a>
+<br>
+
+</div>
+</body>
+</html>

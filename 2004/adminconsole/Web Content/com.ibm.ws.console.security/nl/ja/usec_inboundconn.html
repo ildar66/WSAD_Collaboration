@@ -1,0 +1,138 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>共通セキュア・インターオペラビリティー・トランスポート・インバウンド設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecinboundconn"></a>
+<h2>共通セキュア・インターオペラビリティー・トランスポート・インバウンド設定</h2>
+
+<p>このページを使用して、どのリスナー・ポートを開き、どの Secure Sockets Layer (SSL) 設定を使用するかを
+指定します。これらの指定によって、クライアントまたはアップストリーム・サーバーが、
+着信要求に対して、どのトランスポートを使用してこのサーバーと通信するかが決定されます。</p>
+
+<p>この管理コンソール・ページを表示するには、「<strong>セキュリティー</strong>」&gt;「<strong>認証プロトコル</strong>」&gt;「<strong>CSI Inbound Transport</strong>」をクリックします。</p>
+
+<div>
+<p>
+<strong>「構成」タブ</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="Transport_i_description"></a>トランスポート</strong>
+</dt>
+<dd>クライアントが、接続されているトランスポートの 1 つを使用して、
+サーバーへの接続を処理するかどうかを指定します。
+<p>サーバーがサポートするインバウンド・トランスポートとして、Secure Sockets Layer (SSL)、TCP/IP、またはその両方を
+使用するように選択できます。「<strong>TCP/IP</strong>」を指定すると、サーバーは TCP/IP のみをサポートし、SSL 接続を受け入れること
+はできません。「<strong>SSL サポート</strong>」を指定すると、このサーバーは TCP/IP 接続または SSL 接続をサポートできます。「<strong>SSL 必須</strong>」を指定すると、このサーバーと通信しているサーバーはすべて SSL を使用する必要があります。</p>
+
+<p>「<strong>SSL サポート</strong>」または「<strong>SSL 必須</strong>」を指定する場合、インバウンド構成にどの SSL 構成設定のセットを使用
+するかを決めます。
+この決定により、このサーバーへのインバウンド接続にどの鍵ファイルとトラスト・ファイルを使用するかが決まります。</p>
+
+<p>デフォルトでは、Common Secure Interoperability バージョン 2 (CSIv2) および Security Authentication Service (SAS) に
+対する SSL ポートは動的に生成されます。アプリケーション・サーバーで SSL ポートを修正する必要がある場合は、「<strong>サーバー</strong>」&gt;「<strong>アプリケーション・サーバー</strong>」&gt;「<em>server_name</em>」&gt;「<strong>エンドポイント</strong>」をクリックします。以下の修正予定のポートを構成します。ポート番号がゼロの場合は、実行時に動的に割り当てら
+れます。<pre class="program">
+<font style="font-family: arial">CSIV2_SSL_MUTUALAUTH_LISTENER_ADDRESS 
+CSIV2_SSL_SERVERAUTH_LISTENER_ADDRESS 
+SAS_SSL_SERVERAUTH_LISTENER_ADDRESS</font>
+</pre>
+</p>
+
+<p>
+<ul>
+
+<li>
+<strong>TCP/IP</strong>: TCP/IP リスナー・ポートのみが開かれ、すべてのインバウンド要求は SSL 保護にはなりません。</li>
+
+<li>
+<strong>SSL サポート</strong>: TCP/IP と SSL リスナー・ポートの両方が開かれ、ほとんどの要求は SSL 経由で着信します。</li>
+
+<li>
+<strong>SSL 必須</strong>: SSL リスナー・ポートのみがオープンされ、すべての要求は SSL 接続で着信します。「<strong>SSL 必須</strong>」を
+選択する場合、アクティブな認証プロトコルとして「<strong>CSI</strong>」も選択する必要があります。「<strong>CSI and SAS</strong>」を選択する
+場合、SAS は特定の要求に対して TCP/IP ソケットをオープンにする必要があります。</li>
+
+</ul>
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト:</td>
+<td align="left" valign="top" class="base">SSL サポート</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲:</td>
+<td align="left" valign="top" class="base">TCP/IP、SSL 必須、SSL サポート</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SSLSettings_csi_i_description"></a>SSL 設定</strong>
+</dt>
+<dd>インバウンド接続用に選択する、事前定義された SSL 設定のリストを指定します。
+これらの設定は、「SSL レパートリー」パネルで構成されます。
+<p></p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型:</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト:</td>
+<td align="left" valign="top" class="base">DefaultSSLSettings</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲:</td>
+<td align="left" valign="top" class="base">「SSL 構成レパートリー」で構成された任意の SSL 設定</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>関連情報</strong>
+</p>
+<a href="rcon_buttons.html">管理コンソールのボタン</a>
+<br>
+
+<a href="rcon_pageusage.html">管理コンソール・ページのフィーチャー</a>
+<br>
+
+<a href="rcon_scope.html">管理コンソールの有効範囲設定</a>
+<br>
+
+<a href="rcon_filter.html">管理コンソールのフィルター設定</a>
+<br>
+
+<a href="rcon_preferences.html">管理コンソールの設定の変更</a>
+<br>
+
+</div>
+</body>
+</html>

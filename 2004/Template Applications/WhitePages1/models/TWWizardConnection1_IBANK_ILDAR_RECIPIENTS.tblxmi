@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RDBSchema:RDBTable xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:RDBSchema="RDBSchema.xmi" xmi:id="RDBTable_1097047311156" name="RECIPIENTS" primaryKey="SQLReference_1097047311156">
+  <database href="models/TWWizardConnection1_IBANK.dbxmi#RDBDatabase_1097047310203"/>
+  <schema href="models/TWWizardConnection1_IBANK_ILDAR.schxmi#RDBSchema_1097047310203"/>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1097047311156" name="ID" allowNull="false" comments="Уникальный идентификатор получателя">
+    <type xmi:type="RDBSchema:SQLCharacterStringType" xmi:id="SQLCharacterStringType_1097047311156" characterSet="800" length="20">
+      <originatingType xmi:type="RDBSchema:SQLCharacterStringType" href="DB2UDBNT_V72_Primitives.xmi#SQLCharacterStringType_1"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1097047311157" name="CLIENT_ID" allowNull="false" comments="Идентификатор клиента">
+    <type xmi:type="RDBSchema:SQLExactNumeric" xmi:id="SQLExactNumeric_1097047311156">
+      <originatingType xmi:type="RDBSchema:SQLExactNumeric" href="DB2UDBNT_V72_Primitives.xmi#SQLExactNumeric_1"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1097047311158" name="INN" allowNull="true" comments="ИНН получателя">
+    <type xmi:type="RDBSchema:SQLCharacterStringType" xmi:id="SQLCharacterStringType_1097047311157" characterSet="800" length="12">
+      <originatingType xmi:type="RDBSchema:SQLCharacterStringType" href="DB2UDBNT_V72_Primitives.xmi#SQLCharacterStringType_3"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1097047311159" name="NAME" allowNull="false" comments="Наименование получателя">
+    <type xmi:type="RDBSchema:SQLCharacterStringType" xmi:id="SQLCharacterStringType_1097047311158" characterSet="800" length="160">
+      <originatingType xmi:type="RDBSchema:SQLCharacterStringType" href="DB2UDBNT_V72_Primitives.xmi#SQLCharacterStringType_3"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1097047311160" name="BIC" allowNull="true" comments="БИК банка получателя">
+    <type xmi:type="RDBSchema:SQLCharacterStringType" xmi:id="SQLCharacterStringType_1097047311159" characterSet="800" length="9">
+      <originatingType xmi:type="RDBSchema:SQLCharacterStringType" href="DB2UDBNT_V72_Primitives.xmi#SQLCharacterStringType_1"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1097047311161" name="BILL" allowNull="true" comments="Счет получателя">
+    <type xmi:type="RDBSchema:SQLCharacterStringType" xmi:id="SQLCharacterStringType_1097047311160" characterSet="800" length="20">
+      <originatingType xmi:type="RDBSchema:SQLCharacterStringType" href="DB2UDBNT_V72_Primitives.xmi#SQLCharacterStringType_3"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1097047311162" name="COMMENTS" allowNull="true" comments="Текст назначения платежа">
+    <type xmi:type="RDBSchema:SQLCharacterStringType" xmi:id="SQLCharacterStringType_1097047311161" characterSet="800" length="210">
+      <originatingType xmi:type="RDBSchema:SQLCharacterStringType" href="DB2UDBNT_V72_Primitives.xmi#SQLCharacterStringType_3"/>
+    </type>
+  </columns>
+  <namedGroup xmi:type="RDBSchema:SQLReference" xmi:id="SQLReference_1097047311156" name="XPKRECIPIENTS" members="RDBColumn_1097047311156" constraint="SQLConstraint_1097047311156"/>
+  <namedGroup xmi:type="RDBSchema:RDBReferenceByKey" xmi:id="RDBReferenceByKey_1097047310391" name="R_8" onDelete="CASCADE" onUpdate="NO ACTION" members="RDBColumn_1097047311157" constraint="SQLConstraint_1097047311157">
+    <target href="models/TWWizardConnection1_IBANK_ILDAR_CLIENTS.tblxmi#SQLReference_1097047310375"/>
+  </namedGroup>
+  <constraints xmi:id="SQLConstraint_1097047311156" name="XPKRECIPIENTS" type="PRIMARYKEY" primaryKey="SQLReference_1097047311156"/>
+  <constraints xmi:id="SQLConstraint_1097047311157" name="R_8" type="FOREIGNKEY" referenceByKey="RDBReferenceByKey_1097047310391"/>
+</RDBSchema:RDBTable>

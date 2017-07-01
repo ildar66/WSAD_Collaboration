@@ -1,0 +1,817 @@
+<form-validation>
+  <formset>
+    <form name="com.ibm.ws.console.servermanagement.EJBContainerDetailForm">
+      <field property="passivationDirectory" depends="required,mask">
+        <arg0 key="EJBContainer.passivationDirectory.displayName"/>
+        <var>
+          <var-name>mask</var-name>
+          <var-value>${path}</var-value>
+        </var>
+      </field>
+      <field property="inactivePoolCleanupInterval" depends="integer,range">
+        <arg0 key="EJBContainer.inactivePoolCleanupInterval.displayName"/>
+        <arg1 name="range" key="${var:min}" resource="false"/>
+        <arg2 name="range" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <var>
+          <var-name>max</var-name>
+          <var-value>2147483647</var-value>
+        </var>
+      </field>
+    </form>
+    <form name="com.ibm.ws.console.servermanagement.EJBCacheDetailForm">
+      <field property="cleanupInterval" depends="integer,range">
+        <arg0 key="EJBCache.cleanupInterval.displayName"/>
+        <arg1 name="range" key="${var:min}" resource="false"/>
+        <arg2 name="range" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <var>
+          <var-name>max</var-name>
+          <var-value>2147483647</var-value>
+        </var>
+      </field>
+      <field property="cacheSize" depends="integer,range">
+        <arg0 key="EJBCache.cacheSize.displayName"/>
+        <arg1 name="range" key="${var:min}" resource="false"/>
+        <arg2 name="range" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <var>
+          <var-name>max</var-name>
+          <var-value>2147483647</var-value>
+        </var>
+      </field>
+    </form>
+    <!-- Transaction Service -->
+    <form name="com.ibm.ws.console.servermanagement.TransactionServiceDetailForm">
+      <field property="totalTranLifetimeTimeout" depends="required,integer,range">
+        <arg0 key="TransactionService.totalTranLifetimeTimeout.displayName"/>
+        <arg1 name="range" key="${var:min}" resource="false"/>
+        <arg2 name="range" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <var>
+          <var-name>max</var-name>
+          <var-value>2147483647</var-value>
+        </var>
+      </field>
+      <field property="clientInactivityTimeout" depends="required,integer,range">
+        <arg0 key="TransactionService.clientInactivityTimeout.displayName"/>
+        <arg1 name="range" key="${var:min}" resource="false"/>
+        <arg2 name="range" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <var>
+          <var-name>max</var-name>
+          <var-value>2147483647</var-value>
+        </var>
+      </field>
+    </form>
+    <!-- Custom Service -->
+    <form name="com.ibm.ws.console.servermanagement.CustomServiceDetailForm">
+      <field property="externalConfigURL" depends="mask">
+        <arg0 key="CustomService.externalConfigURL.displayName"/>
+        <var>
+          <var-name>mask</var-name>
+          <var-value>${URL}</var-value>
+        </var>
+      </field>
+      <field property="classname" depends="required,mask">
+        <arg0 key="CustomService.classname.displayName"/>
+        <var>
+          <var-name>mask</var-name>
+          <var-value>${class_name}</var-value>
+        </var>
+      </field>
+      <field property="displayName" depends="required,mask">
+        <arg0 key="CustomService.displayName.displayName"/>
+        <var>
+          <var-name>mask</var-name>
+          <var-value>${was_name}</var-value>
+        </var>
+      </field>
+      <field property="classpath" depends="required,mask">
+        <arg0 key="CustomService.classpath.displayName"/>
+        <var>
+          <var-name>mask</var-name>
+          <var-value>${path}</var-value>
+        </var>
+      </field>
+    </form>
+      
+    <!-- Debug Service -->
+    <form name="com.ibm.ws.console.servermanagement.DebugServiceDetailForm">
+      <field property="jvmDebugPort" depends="required,integer,range">
+        <arg0 key="DebugService.jvmDebugPort.displayName"/>
+        <arg1 name="range" key="${var:min}" resource="false"/>
+        <arg2 name="range" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>1</var-value>
+        </var>
+        <var>
+          <var-name>max</var-name>
+          <var-value>65536</var-value>
+        </var>
+      </field>
+      <field property="jvmDebugArgs" depends="required">
+        <arg0 key="DebugService.jvmDebugArgs.displayName"/>
+      </field>
+      <field property="BSFDebugPort" depends="required,integer,range">
+        <arg0 key="DebugService.BSFDebugPort.displayName"/>
+        <arg1 name="range" key="${var:min}" resource="false"/>
+        <arg2 name="range" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>1</var-value>
+        </var>
+        <var>
+          <var-name>max</var-name>
+          <var-value>65536</var-value>
+        </var>
+      </field>
+    </form>
+   
+    <!-- Repository Service -->
+    <form name="com.ibm.ws.console.servermanagement.RepositoryServiceDetailForm">
+    </form>
+    <!-- End Repository Service -->
+   
+   
+    <!-- Begin JavaVirtualMachine -->
+    <form name="com.ibm.ws.console.servermanagement.JavaVirtualMachineDetailForm">
+      <field property="classpath" depends="mask">
+        <arg0 key="JavaVirtualMachine.classpath.displayName"/>
+        <var>
+          <var-name>mask</var-name>
+          <var-value>${path}</var-value>
+        </var>
+      </field>
+      <field property="bootClasspath" depends="mask">
+        <arg0 key="JavaVirtualMachine.bootClasspath.displayName"/>
+        <var>
+          <var-name>mask</var-name>
+          <var-value>${path}</var-value>
+        </var>
+      </field>
+      <field property="executableJarFileName" depends="mask">
+        <arg0 key="JavaVirtualMachine.executableJarFileName.displayName"/>
+        <var>
+          <var-name>mask</var-name>
+          <var-value>${path}</var-value>
+        </var>
+      </field>
+      <field property="initialHeapSize" depends="integer,range">
+        <arg0 key="JavaVirtualMachine.initialHeapSize.displayName"/>
+        <arg1 name="range" key="${var:min}" resource="false"/>
+        <arg2 name="range" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <var>
+          <var-name>max</var-name>
+          <var-value>2147483647</var-value>
+        </var>
+      </field>
+      <field depends="integer,range" property="maximumHeapSize">
+        <arg0 key="JavaVirtualMachine.maximumHeapSize.displayName"/>
+        <arg1 key="${var:min}" name="range" resource="false"/>
+        <arg2 key="${var:max}" name="range" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <var>
+          <var-name>max</var-name>
+          <var-value>2147483647</var-value>
+        </var>
+      </field>
+
+    </form>
+    <!-- End JavaVirtualMachine -->
+   
+   
+    <!-- Thread pool -->
+    <form name="com.ibm.ws.console.servermanagement.webcontainer.ThreadPoolDetailForm">
+      <field property="minimumSize" depends="required,integer,range">
+        <arg0 key="ThreadPool.minimumSize.displayName"/>
+        <arg1 name="range" key="${var:min}" resource="false"/>
+        <arg2 name="range" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <var>
+          <var-name>max</var-name>
+          <var-value>2147483647</var-value>
+        </var>
+      </field>
+      <field property="maximumSize" depends="required,integer,range">
+        <arg0 key="ThreadPool.maximumSize.displayName"/>
+        <arg1 name="range" key="${var:min}" resource="false"/>
+        <arg2 name="range" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <var>
+          <var-name>max</var-name>
+          <var-value>2147483647</var-value>
+        </var>
+      </field>
+      <field property="inactivityTimeout" depends="required,integer,range">
+        <arg0 key="ThreadPool.inactivityTimeout.displayName"/>
+        <arg1 name="range" key="${var:min}" resource="false"/>
+        <arg2 name="range" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <var>
+          <var-name>max</var-name>
+          <var-value>2147483647</var-value>
+        </var>
+      </field>
+    </form>
+      
+    <!-- HTTPTransport -->
+    <form name="com.ibm.ws.console.servermanagement.webcontainer.HTTPTransportDetailForm">
+      <field property="host" depends="required,mask">
+        <arg0 key="Transport.host.displayName"/>
+        <var>
+          <var-name>mask</var-name>
+          <var-value>${host}</var-value>
+        </var>
+      </field>
+      <field property="port" depends="required,integer,range">
+        <arg0 key="Transport.port.displayName"/>
+        <arg1 name="range" key="${var:min}" resource="false"/>
+        <arg2 name="range" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>1</var-value>
+        </var>
+        <var>
+          <var-name>max</var-name>
+          <var-value>65535</var-value>
+        </var>
+      </field>
+    </form>
+      
+    <!-- Cookie -->
+    <form name="com.ibm.ws.console.servermanagement.webcontainer.CookieDetailForm">
+      <field property="ageValue" depends="integer,range">
+        <arg0 key="Cookie.maximumAge.displayName"/>
+        <arg1 name="range" key="${var:min}" resource="false"/>
+        <arg2 name="range" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <var>
+          <var-name>max</var-name>
+          <var-value>2147483647</var-value>
+        </var>
+      </field>
+    </form>
+      
+    <!-- SessionManager -->
+    <form name="com.ibm.ws.console.servermanagement.webcontainer.SessionManagerDetailForm">
+      <field property="maxInMemorySessionCount" depends="integer, range">
+        <arg0 key="SessionManager.sessionCount.displayName"/>
+        <arg1 name="range" key="${var:min}" resource="false"/>
+        <arg2 name="range" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <var>
+          <var-name>max</var-name>
+          <var-value>2147483647</var-value>
+        </var>
+      </field>
+      <field property="maxWaitTime" depends="integer, range">
+        <arg0 key="SessionManager.maxWaitTime.displayName"/>
+        <arg1 name="range" key="${var:min}" resource="false"/>
+        <arg2 name="range" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <var>
+          <var-name>max</var-name>
+          <var-value>2147483647</var-value>
+        </var>
+      </field>
+      <field property="invalidationTimeout" depends="integer, range">
+        <arg0 key="SessionManager.sessionTimeout.displayName"/>
+        <arg1 name="range" key="${var:min}" resource="false"/>
+        <arg2 name="range" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>2</var-value>
+        </var>
+        <var>
+          <var-name>max</var-name>
+          <var-value>2147483647</var-value>
+        </var>
+      </field>
+    </form>
+      
+    <!-- Database Settings -->
+    <form name="com.ibm.ws.console.servermanagement.webcontainer.SessionDatabasePersistenceDetailForm">
+      <field property="datasourceJNDIName" depends="required">
+        <arg0 key="SessionDatabasePersistence.datasourceJNDIName.displayName"/>
+      </field>
+      <field depends="mask" property="tableSpaceName">
+        <arg0 key="SessionDatabasePersistence.tableSpaceName.displayName"/>
+        <var>
+          <var-name>mask</var-name>
+          <var-value>${db2_name}</var-value>
+        </var>
+      </field>
+    </form>
+      
+    <!-- Manual Tuning -->
+    <form name="com.ibm.ws.console.servermanagement.webcontainer.TuningParamsDetailForm">
+      <field property="writeInterval" depends="integer,range">
+        <arg0 key="TuningParams.writeFrequency.displayName"/>
+        <arg1 name="range" key="${var:min}" resource="false"/>
+        <arg2 name="range" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <var>
+          <var-name>max</var-name>
+          <var-value>2147483647</var-value>
+        </var>
+      </field>
+      <field property="firstHour" depends="integer,range">
+        <arg0 key="TuningParams.database.first"/>
+        <arg1 name="range" key="${var:min}" resource="false"/>
+        <arg2 name="range" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <var>
+          <var-name>max</var-name>
+          <var-value>23</var-value>
+        </var>
+      </field>
+      <field property="secondHour" depends="integer,range">
+        <arg0 key="TuningParams.database.second"/>
+        <arg1 name="range" key="${var:min}" resource="false"/>
+        <arg2 name="range" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <var>
+          <var-name>max</var-name>
+          <var-value>23</var-value>
+        </var>
+      </field>
+    </form>
+      
+    <!--DRSSettings -->
+    <form name="com.ibm.ws.console.servermanagement.webcontainer.DRSSettingsDetailForm">
+      <field property="connectionPointPort" depends="mask">
+        <arg0 key="DRSSettings.replication.port"/>
+        <var>
+          <var-name>mask</var-name>
+          <var-value>^[0-9,]*$</var-value>
+        </var>
+      </field>
+    </form>
+      
+    <!-- Dynamic Cache DetailForm -->
+      
+   
+
+
+
+
+    <form name="com.ibm.ws.console.servermanagement.dynamiccache.DynamicCacheDetailForm">
+      <field depends="required,integer,range" property="cacheSize">
+        <arg0 key="DynamicCache.cacheSize.displayName"/>
+        <arg1 key="${var:min}" name="range" resource="false"/>
+        <arg2 key="${var:max}" name="range" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>100</var-value>
+        </var>
+        <var>
+          <var-name>max</var-name>
+          <var-value>200000</var-value>
+        </var>
+      </field>
+      <field depends="required,integer,range" property="defaultPriority">
+        <arg0 key="DynamicCache.defaultPriority.displayName"/>
+        <arg1 key="${var:min}" name="range" resource="false"/>
+        <arg2 key="${var:max}" name="range" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>1</var-value>
+        </var>
+        <var>
+          <var-name>max</var-name>
+          <var-value>255</var-value>
+        </var>
+      </field>
+      <field property="hashSize" depends="integer,range">
+        <arg0 key="DynamicCache.diskoffload.hashSize"/>
+        <arg1 name="range" key="${var:min}" resource="false"/>
+        <arg2 name="range" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <var>
+          <var-name>max</var-name>
+          <var-value>2147483647</var-value>
+        </var>
+      </field>
+    </form>
+      	
+      
+    <!-- Dynamic Cache DRSSettings -->
+      
+
+
+
+
+    <form name="com.ibm.ws.console.servermanagement.dynamiccache.DRSSettingsDetailForm">
+      <field property="connectionPointPort" depends="mask">
+        <arg0 key="DRSSettings.replication.port"/>
+        <var>
+          <var-name>mask</var-name>
+          <var-value>^[0-9,]*$</var-value>
+        </var>
+      </field>
+    </form>
+      
+    <!-- Monitoring Policy -->
+      
+
+
+
+
+    <form name="com.ibm.ws.console.servermanagement.MonitoringPolicyDetailForm">
+      <field property="maximumStartupAttempts" depends="required,integer,range">
+        <arg0 key="MonitoringPolicy.maximumStartupAttempts.displayName"/>
+        <arg1 name="range" key="${var:min}" resource="false"/>
+        <arg2 name="range" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <var>
+          <var-name>max</var-name>
+          <var-value>2147483647</var-value>
+        </var>
+      </field>
+      <field property="pingInterval" depends="integer,range">
+        <arg0 key="MonitoringPolicy.pingInterval.displayName"/>
+        <arg1 name="range" key="${var:min}" resource="false"/>
+        <arg2 name="range" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <var>
+          <var-name>max</var-name>
+          <var-value>2147483647</var-value>
+        </var>
+      </field>
+      <field property="pingTimeout" depends="required,integer,range">
+        <arg0 key="MonitoringPolicy.pingTimeout.displayName"/>
+        <arg1 name="range" key="${var:min}" resource="false"/>
+        <arg2 name="range" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <var>
+          <var-name>max</var-name>
+          <var-value>2147483647</var-value>
+        </var>
+      </field>
+    </form>
+      
+    <!-- Property -->
+    
+
+
+
+
+    <form name="com.ibm.ws.console.servermanagement.PropertyDetailForm">
+      <field depends="required,mask" property="name">
+        <arg0 key="Property.name.displayName"/>
+        <var>
+          <var-name>mask</var-name>
+          <var-value>${was_name}</var-value>
+        </var>
+      </field>
+      <field depends="required" property="value">
+        <arg0 key="Property.value.displayName"/>
+      </field>
+    </form>
+      
+    <!-- Begin ListenerPort -->
+   
+
+
+
+
+    <form name="com.ibm.ws.console.servermanagement.ListenerPortDetailForm">
+      <field property="name" depends="required,mask">
+        <arg0 key="Server.name.displayName"/>
+        <var>
+          <var-name>mask</var-name>
+          <var-value>${was_name}</var-value>
+        </var>
+      </field>
+      <field property="connectionFactoryJNDIName" depends="required">
+        <arg0 key="ListenerPort.connectionFactoryJNDIName.displayName"/>
+      </field>
+      <field property="destinationJNDIName" depends="required">
+        <arg0 key="ListenerPort.destinationJNDIName.displayName"/>
+      </field>
+      <field property="maxSessions" depends="integer,range">
+        <arg0 key="ListenerPort.maxSessions.displayName"/>
+        <arg1 name="range" key="${var:min}" resource="false"/>
+        <arg2 name="range" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>1</var-value>
+        </var>
+        <var>
+          <var-name>max</var-name>
+          <var-value>2147483647</var-value>
+        </var>
+      </field>
+      <field property="maxRetries" depends="integer,range">
+        <arg0 key="ListenerPort.maxRetries.displayName"/>
+        <arg1 name="range" key="${var:min}" resource="false"/>
+        <arg2 name="range" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <var>
+          <var-name>max</var-name>
+          <var-value>2147483647</var-value>
+        </var>
+      </field>
+      <field property="maxMessages" depends="integer,range">
+        <arg0 key="ListenerPort.maxMessages.displayName"/>
+        <arg1 name="range" key="${var:min}" resource="false"/>
+        <arg2 name="range" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>1</var-value>
+        </var>
+        <var>
+          <var-name>max</var-name>
+          <var-value>2147483647</var-value>
+        </var>
+      </field>
+    </form>
+    <!-- End ListenerPort -->
+   
+    <!-- BEGIN ObjectRequestBroker -->
+    <form name="com.ibm.ws.console.servermanagement.ObjectRequestBrokerDetailForm">
+      <field property="requestTimeout" depends="required,integer,range">
+        <arg0 key="ObjectRequestBroker.requestTimeout.displayName"/>
+        <arg1 name="range" key="${var:min}" resource="false"/>
+        <arg2 name="range" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <var>
+          <var-name>max</var-name>
+          <var-value>300</var-value>
+        </var>
+      </field>
+      <field property="requestRetriesCount" depends="required,integer,range">
+        <arg0 key="ObjectRequestBroker.requestRetriesCount.displayName"/>
+        <arg1 name="range" key="${var:min}" resource="false"/>
+        <arg2 name="range" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>1</var-value>
+        </var>
+        <var>
+          <var-name>max</var-name>
+          <var-value>10</var-value>
+        </var>
+      </field>
+      <field property="requestRetriesDelay" depends="required,integer,range">
+        <arg0 key="ObjectRequestBroker.requestRetriesDelay.displayName"/>
+        <arg1 name="range" key="${var:min}" resource="false"/>
+        <arg2 name="range" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <var>
+          <var-name>max</var-name>
+          <var-value>60000</var-value>
+        </var>
+      </field>
+      <field property="connectionCacheMaximum" depends="required,integer,range">
+        <arg0 key="ObjectRequestBroker.connectionCacheMaximum.displayName"/>
+        <arg1 name="range" key="${var:min}" resource="false"/>
+        <arg2 name="range" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>10</var-value>
+        </var>
+        <var>
+          <var-name>max</var-name>
+          <var-value>2147483647</var-value>
+        </var>
+      </field>
+      <field property="connectionCacheMinimum" depends="required,integer,range">
+        <arg0 key="ObjectRequestBroker.connectionCacheMinimum.displayName"/>
+        <arg1 name="range" key="${var:min}" resource="false"/>
+        <arg2 name="range" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <var>
+          <var-name>max</var-name>
+          <var-value>2147483647</var-value>
+        </var>
+      </field>
+      <field property="locateRequestTimeout" depends="required,integer,range">
+        <arg0 key="ObjectRequestBroker.locateRequestTimeout.displayName"/>
+        <arg1 name="range" key="${var:min}" resource="false"/>
+        <arg2 name="range" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <var>
+          <var-name>max</var-name>
+          <var-value>300</var-value>
+        </var>
+      </field>
+      <field depends="mask" property="tunnelAgentURL">
+        <arg0 key="ObjectRequestBroker.tunnelAgentURL.displayName"/>
+        <var>
+          <var-name>mask</var-name>
+          <var-value>${URL}</var-value>
+        </var>
+      </field>
+    </form>
+    
+    <!-- END ObjectRequestBroker -->
+
+    <!-- Begin ExtensionMBeanProvider -->
+
+    <form name="com.ibm.ws.console.servermanagement.ExtensionMBeanProviderDetailForm">
+      <field property="classpath" depends="mask">
+        <arg0 key="ExtensionMBeanProvider.classpath.displayName"/>
+        <var>
+          <var-name>mask</var-name>
+          <var-value>${path}</var-value>
+        </var>
+      </field>
+      <field property="name" depends="required,mask">
+        <arg0 key="ExtensionMBeanProvider.name.displayName"/>
+        <var>
+          <var-name>mask</var-name>
+          <var-value>${was_name}</var-value>
+        </var>
+      </field>
+    </form>
+
+    <!-- Begin ProcessDef -->
+    
+
+
+
+
+    <form name="com.ibm.ws.console.servermanagement.ProcessDefDetailForm">
+      <field property="executableName" depends="mask">
+        <arg0 key="ProcessDef.executableName.displayName"/>
+        <var>
+          <var-name>mask</var-name>
+          <var-value>${path}</var-value>
+        </var>
+      </field>
+      <field property="workingDirectory" depends="required,mask">
+        <arg0 key="ProcessDef.workingDirectory.displayName"/>
+        <var>
+          <var-name>mask</var-name>
+          <var-value>${path}</var-value>
+        </var>
+      </field>
+    </form>
+    <!-- End ProcessDef -->
+    
+    <!-- Begin ProcessExecution -->
+    
+
+
+
+
+    <form name="com.ibm.ws.console.servermanagement.ProcessExecutionDetailForm">
+      <field property="processPriority" depends="integer,range">
+        <arg0 key="ProcessExecution.processPriority.displayName"/>
+        <arg1 name="range" key="${var:min}" resource="false"/>
+        <arg2 name="range" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <var>
+          <var-name>max</var-name>
+          <var-value>2147483647</var-value>
+        </var>
+      </field>
+      <field property="runInProcessGroup" depends="integer,range">
+        <arg0 key="ProcessExecution.runInProcessGroup.displayName"/>
+        <arg1 name="range" key="${var:min}" resource="false"/>
+        <arg2 name="range" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <var>
+          <var-name>max</var-name>
+          <var-value>2147483647</var-value>
+        </var>
+      </field>
+      <field property="umask" depends="mask">
+        <arg0 key="ProcessExecution.umask.displayName"/>
+        <var>
+          <var-name>mask</var-name>
+          <var-value>${umask}</var-value>
+        </var>
+      </field>
+    </form>
+    <!-- End ProcessExecution -->
+    
+    <!-- BEGIN EndPoint -->
+    <form name="com.ibm.ws.console.servermanagement.EndPointDetailForm">
+      <field property="host" depends="required">
+        <arg0 key="EndPoint.host.displayName"/>
+      </field>
+      <field property="port" depends="required,integer,range">
+        <arg0 key="EndPoint.port.displayName"/>
+        <arg1 name="range" key="${var:min}" resource="false"/>
+        <arg2 name="range" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>1</var-value>
+        </var>
+        <var>
+          <var-name>max</var-name>
+          <var-value>65536</var-value>
+        </var>
+      </field>
+    </form>
+    <!-- END EndPoint -->
+
+    <!-- BEGIN NamedEndPoint -->
+    <form name="com.ibm.ws.console.servermanagement.NamedEndPointDetailForm">
+      <field property="host" depends="required">
+        <arg0 key="EndPoint.host.displayName"/>
+      </field>
+      <field property="port" depends="required,integer,range">
+        <arg0 key="EndPoint.port.displayName"/>
+        <arg1 name="range" key="${var:min}" resource="false"/>
+        <arg2 name="range" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>1</var-value>
+        </var>
+        <var>
+          <var-name>max</var-name>
+          <var-value>65536</var-value>
+        </var>
+      </field>
+    </form>
+    <!-- END NamedEndPoint -->
+
+  </formset>
+</form-validation>

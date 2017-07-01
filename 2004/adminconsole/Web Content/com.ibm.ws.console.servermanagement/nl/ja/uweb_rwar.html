@@ -1,0 +1,89 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Web モジュール・デプロイメント設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uweb_rwar"></a>
+<h2>Web モジュール・デプロイメント設定</h2>
+
+<p> このページを使用して、Web モジュール・デプロイメントのインスタンスを構成します。
+</p>
+
+<p>この管理コンソール・ページを表示するには、「<strong>アプリケーション</strong>」&gt;「<strong>エンタープライズ・アプリケーション</strong>」&gt;「<em>application_instance</em> 」&gt;「<strong>Web モジュール</strong>」&gt;「<em>Web
+Module_instance</em> 」をクリックします。</p>
+
+<dl>
+<dt>
+<strong><a name="rwar_uri"></a>URI</strong>
+</dt>
+<dd>アプリケーション URL に関しての解決時に、
+ファイル・システム上のモジュール・アーカイブ・コンテンツの場所を指定する URI を指定します。
+モジュールがデプロイ済みアプリケーションまたはエンタープライズ・アーカイブ (EAR) ファイルの一部としてパッケージ化されている場合は、
+この URI は、アプリケーションのデプロイメント記述子にある ModuleRef URI と一致する必要があります。
+</dd>
+<dt>
+<strong><a name="rwar_altdd"></a>代替 DD</strong>
+</dt>
+<dd>モジュールの JAR ファイル内のオリジナルのデプロイメント記述子ファイルの代わりに使用する、代替デプロイメント記述子ファイルのファイル名を指定します。
+
+<p> このファイルは、デプロイメント記述子ファイルの <em>post-assembly</em> バージョンです。オリジナルのデプロイメント記述子ファイルを編集して、
+依存関係とセキュリティー情報を解決することができます。
+代替のデプロイメント記述子の使用を指定すると、
+オリジナルのデプロイメント記述子ファイルは変更されません。
+</p>
+
+<p>
+<em>代替 DD</em> プロパティーの値は、
+モジュールのルート・ディレクトリーに対応するデプロイメント記述子ファイルの絶対パス名でなければなりません。
+原則的に、このファイルは <samp>ALT-INF</samp> ディレクトリーにあります。
+このプロパティーが指定されていない場合は、
+デプロイメント記述子ファイルはモジュールの JAR ファイルから読み取られます。
+</p>
+
+</dd>
+<dt>
+<strong><a name="rwar_wt"></a>開始ウェイト</strong>
+</dt>
+<dd>モジュールを開始する順序を指定します。
+ウェイトが低いモジュールは、ウェイトが高いモジュールよりも先に開始されます。
+</dd>
+<dt>
+<strong><a name="rwar_classloaderMode_description"></a>クラス・ローダー・モード</strong>
+</dt>
+<dd>クラス・ローダーが、クラスをロードする際に、
+最初に親クラス・ローダーを検索するのか、
+あるいはアプリケーション・クラス・ローダーを検索するのかを指定します。JDK クラス・ローダーおよび
+WebSphere クラス・ローダーの標準は PARENT_FIRST です。PARENT_LAST を指定することによって、アプリケーションは、親クラス・ローダーに含まれるクラスをオーバーライドできますが、
+オーバーライドされたクラスとオーバーライドされていないクラスを一緒に使用した場合、
+このアクションにより、ClassCastException または LinkageErrors が発生する可能性があります。
+<p>オプションは PARENT_FIRST と PARENT_LAST です。
+デフォルトでは、クラスをロードする際に、
+親クラス・ローダーを検索してから、アプリケーション・クラス・ローダーを検索します。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">PARENT_FIRST</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</body>
+</html>

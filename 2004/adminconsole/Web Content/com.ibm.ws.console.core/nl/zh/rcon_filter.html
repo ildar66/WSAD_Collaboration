@@ -1,0 +1,38 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>管理控制台过滤器设置</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="rrun_filter"></a>
+<h2>管理控制台过滤器设置</h2>
+
+<p>使用过滤器设置指定如何过滤集合视图中显示的过滤条目。</p>
+
+<p>选择要过滤的列，然后输入过滤标准。</p>
+
+<dl>
+
+<dt>
+<strong>要过滤的列</strong>
+</dt>
+<dd>使用下拉列表选择要过滤的列。当您应用该过滤器时，相应地修改集合表。<p>例如，如果您计划输入过滤应用程序服务器名所遵守的标准，则选择<strong>应用程序服务器</strong>。</p>
+</dd>
+
+<dt>
+<strong>过滤标准</strong>
+</dt>
+<dd>在下拉列表旁的字段中，输入在集合条目的名称中必须找到的字符串，以限定要在该集合表中出现的条目。字符串可以包含 %、* 或 ?
+符号作为通配符。例如，输入 <samp>*App*</samp> 以查找名称中包含字符串 <strong><em>App</em></strong> 的任何应用程序服务器。
+<p>使用 <samp>\</samp> 作为每个字符 <samp>( ) ^ * % { } \ + $</samp> 的前缀，以便执行搜索的正则表达式引擎能正确匹配所提供的搜索标准。例如，要搜索提供程序名中包含
+<strong><em>(XA)</em></strong> 的所有 JDBC 提供程序，如下指定：</p> 
+<pre>*\(XA\)</pre>
+</dd>
+
+</dl>
+
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Valores de Publicar archivos WSDL</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_publishwsdl"></a>
+<h2>
+<img alt="[Fix Pack 5.0.2 y posterior]" src="v502.gif" border="0">Valores de Publicar archivos WSDL</h2>
+
+<p>Utilice esta p&aacute;gina para publicar archivos WSDL (Web Services Description Language).      </p>
+
+<p>Para ver esta p&aacute;gina, pulse <strong>Aplicaciones</strong> &gt;<strong>Aplicaciones de empresa</strong> &gt; <em>instancia_aplicaci&oacute;n</em> &gt; <strong>Publicar
+WSDL</strong>.</p>
+
+<p>Cuando pulsa <strong>Aceptar</strong>, se genera un archivo zip de todos los m&oacute;dulos habilitados para servicios Web de la aplicaci&oacute;n. El nombre del archivo zip publicado es <samp>nombre_aplicaci&oacute;n_WSDLFiles.zip</samp>.
+En el archivo zip publicado, la estructura
+de directorios es <em>nombre_aplicaci&oacute;n/nombre_m&oacute;dulo/[META-INF|WEB-INF]/wsdl/nombre_archivo_wsdl</em>.
+ </p>
+
+<p>En un archivo WSDL publicado, el atributo de ubicaci&oacute;n de una secci&oacute;n
+<samp>soap:address</samp> de servicio contiene el URL mediante el cual se
+accede al servicio Web. Puede especificar en cada m&oacute;dulo la parte del URL que se utilizar&aacute; para
+los servicios Web. Puede acceder a los servicios Web de un m&oacute;dulo mediante un transporte HTTP
+o JMS o mediante ambos. Puede especificar la informaci&oacute;n de URL para ambos tipos de transportes.   </p>
+
+<div>
+<p>
+<strong>Pesta&ntilde;a Configuraci&oacute;n</strong>
+</p>
+<dl>
+<dt>
+<strong>Especifique los prefijos de URL para servicios Web</strong>
+</dt>
+<dd>Especifica el <em>protocolo</em> (ya sea http o https), el
+<em>nombre_sistppal</em>, y el <em>n&uacute;mero_puerto</em> que se
+utilizar&aacute; en el URL. 
+<p>El formato del prefijo de URL es:
+//<em>nombre_sistppal:n&uacute;mero_puerto</em>, por ejemplo,
+http://<em>miSisppal</em>:9045. El URL real que aparece en un archivo WSDL publicado se forma
+a&ntilde;adiendo el prefijo al principio del directorio ra&iacute;z de contexto del m&oacute;dulo y del patr&oacute;n
+de URL del servicio Web, por ejemplo, http://<em>miSistppal</em>:9045/services/<em>miServicio</em>
+.</p>
+
+</dd>
+<dt>
+<strong>Seleccionar prefijo de URL HTTP </strong>
+</dt>
+<dd>Especifica la lista desplegable asociada a una lista por
+omisi&oacute;n de prefijos de URL. Esta lista es la intersecci&oacute;n de un
+conjunto de puertos para el sistema principal virtual del m&oacute;dulo y
+el conjunto de puertos para el servidor de aplicaciones del m&oacute;dulo. Utilice los elementos de esta lista si se accede directamente al servidor de aplicaciones de los servicios Web. 
+<p>Para establecer un prefijo de HTTP, seleccione <strong>Prefijo de URL HTTP</strong> o <strong>Prefijo de URL HTTP personalizado</strong>, introduzca el valor, seleccione el recuadro de selecci&oacute;n de los m&oacute;dulos que van a requerir el uso de prefijos y pulse <strong>Aplicar</strong>. Al pulsar <strong>Aplicar</strong>, se copia la entrada de los campos <strong>Seleccionar prefijo de URL HTTP</strong> o <strong>Prefijo de URL HTTP personalizado</strong>, dependiendo de cu&aacute;l est&eacute; seleccionado,
+en el campo <strong>Prefijo de URL HTTP</strong> de todos los m&oacute;dulos que tengan seleccionado el recuadro de selecci&oacute;n (en la columna que est&aacute; m&aacute;s a la izquierda). El prefijo de HTTP no se aplica a los campos de la columna de prefijos de URL JMS.</p>
+
+</dd>
+<dt>
+<strong>Prefijo de URL HTTP personalizado </strong>
+</dt>
+<dd>
+Especifica el <em>protocolo</em>, el <em>sistema principal</em> y el
+<em>n&uacute;mero de puerto</em> del servicio intermedio, si se accede a los
+servicios Web de un m&oacute;dulo mediante un nodo intermedio, por ejemplo,
+Web Services Gateway o un servidor IHS. 
+<p>Para establecer un prefijo de HTTP, seleccione <strong>Prefijo de URL HTTP</strong> o <strong>Prefijo de URL HTTP personalizado</strong>, introduzca el valor, seleccione el recuadro de selecci&oacute;n de los m&oacute;dulos que van a requerir el uso de prefijos y pulse <strong>Aplicar</strong>. Al pulsar  <strong>Aplicar</strong>, se copia la entrada de los campos <strong>Seleccionar prefijo de URL HTTP</strong> o <strong>Prefijo de URL HTTP personalizado</strong>, dependiendo de cu&aacute;l est&eacute; seleccionado,
+en el campo <strong>Prefijo de URL HTTP</strong> de todos los m&oacute;dulos que tengan seleccionado el recuadro de selecci&oacute;n (en la columna que est&aacute; m&aacute;s a la izquierda). El prefijo de HTTP no se aplica a los campos de la columna de prefijos de URL JMS.</p>
+
+</dd>
+<dt>
+<strong>Prefijo de URL JMS</strong>
+</dt>
+<dd>Especifica la serie de prefijo del URL JMS que se ha de
+utilizar para cada m&oacute;dulo. 
+<p>El prefijo de URL especificado debe contener las propiedades destination y connectionFactory. Asimismo, puede contener otros
+pares propiedad-valor, pero no debe contener la propiedad
+targetService, que el sistema a&ntilde;ade cuando se crean los archivos
+WSDL publicados. El formato del prefijo de URL JMS es
+jms:/[<em>cola&amp;tema</em>]?destination=<em>nombre_jndi_cola_o_tema_destino</em>&amp;connectionFactory=<em>nombre_jndi_f&aacute;brica</em>,
+por ejemplo, jms:/queue?destination=jms/Q1|connectionFactory=jms/QCF. 
+El URL real que aparece en un archivo WSDL publicado se forma a&ntilde;adiendo
+el prefijo al principio del targetService del servicio Web, por
+ejemplo,
+jms:/queue?destination=jms/Q1&amp;connectionFactory=jms/QCF&amp;targetService=StockQuote</p>
+
+</dd>
+</dl>
+</div>
+</body>
+</html>

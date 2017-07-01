@@ -1,0 +1,388 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Einstellungen f&uuml;r Transaktionsservice</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="Transaction_service"></a>
+<h2>Einstellungen f&uuml;r Transaktionsservice</h2>
+
+<p>Auf dieser Seite k&ouml;nnen Sie Einstellungen f&uuml;r den Transaktionsservice &auml;ndern.</p>
+
+<p>Klicken Sie zum Anzeigen dieser Seite der Administrationskonsole auf
+<strong>Server</strong> &gt; <strong>Anwendungsserver</strong> &gt; <em>Servername</em> &gt; <strong>Transaktionsservice</strong>.</p>
+
+<div>
+<p>
+<strong>Register "Konfiguration"</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="TransactionService_transactionLogDirectory_displayName"></a>Verzeichnis des Transaktionsprotokolls</strong>
+</dt>
+<dd>Gibt den Namen eines Verzeichnisses f&uuml;r diesen Server an,
+in dem der Transaktionsservice Protokolldateien f&uuml;r die Wiederherstellung speichert.
+<p>Wird kein Wert in der Serverkonfiguration angegeben, gibt das Transaktionsprotokoll beim Systemstart
+den Verzeichnispfad (<em>Installationsstammverzeichnis</em>)/tranlog/(<em>Servername</em>) an. </p>
+
+<p>Wenn die Anwendung, die im WebSphere-Produkt ausgef&uuml;hrt wird,
+auf mehrere Ressourcen zugreift, speichert das WebSphere-Produkt Transaktionsinformationen,
+um die verteilte Anwendung ordnungsgem&auml;&szlig; koordinieren und verwalten zu k&ouml;nnen.
+Bei einer h&ouml;heren Transaktionslast wirkt sich diese Persistenz aufgrund der Abh&auml;ngigkeit vom Betriebssystem und
+den zugrunde liegenden Speichersystemen nachteilig auf die Leistung des Anwendungsservers aus.
+</p>
+
+<p>Durch das Verschieben der Transaktionsprotokolldateien
+auf eine Speichereinheit mit mehr physischen Plattenlaufwerken oder RAID-Plattenlaufwerken k&ouml;nnen Sie eine Leistungssteigerung
+erzielen.
+Wenn die Protokolldateien in die Dateisysteme auf RAID-Platten verschoben werden, wird die Aufgabe, die Daten auf
+den physischen Datentr&auml;ger zu schreiben, auf mehrere Plattenlaufwerke verteilt.
+Dies verbessert die Parallelit&auml;t der Zugriff und damit die Persistenz der Transaktionsdaten und bietet einen schnelleren
+Zugriff auf diese Daten &uuml;ber die Protokolle.
+Je nach Design der Anwendung und des Speichersubsystems kann eine Leistungssteigerung zwischen
+10 % und 100% erzielt werden. In manchen F&auml;llen ist sogar eine h&ouml;here Leistungssteigerung m&ouml;glich. </p>
+
+<p>Diese Konfigurations&auml;nderung ist nur dann m&ouml;glich,
+wenn die Anwendung verteilte Ressourcen oder XA-Transaktionen verwendet, z. B. wenn in einer Transaktion auf mehrere
+Datenbanken und Ressourcen zugegriffen wird.
+Die Einstellung dieses Merkmals empfiehlt sich, wenn folgende Bedingungen beim Anwendungsserver festzustellen sind:
+<ul>
+
+<li>Die CPU-Auslastung bleibt niedrig, obwohl die Anzahl der Transaktionen zunimmt.</li>
+
+<li>Transaktionen scheitern aufgrund von Zeitlimit&uuml;berschreitungen.</li>
+
+<li>Transaktionen werden r&uuml;ckg&auml;ngig gemacht, weil die Ausnahme <em>Transaktion kann nicht registriert werden</em>
+auftritt. </li>
+
+<li>Der Anwendungsserver blockiert mitten in der Ausf&uuml;hrung einer Operation und erfordert einen Neustart des Servers.
+</li>
+
+<li>Bei der Festplatte, auf der ein Anwendungsserver ausgef&uuml;hrt wird, ist eine h&ouml;here Auslastung zu beobachten.</li>
+
+</ul>
+</p>
+
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">Der Ausgangswert ist das Verzeichnis <em>%WAS_HOME%</em>/tranlog/(<em>Servername</em>)
+mit einer Standardgr&ouml;&szlig;e von 1 MB.</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">
+Empfohlene Einstellung</td>
+<td align="left" valign="top" class="base">Erstellen Sie ein Dateisystem mit mindestens 3 bis 4 Plattenlaufwerken in einer RAID-Konfiguration der Stufe
+0. Anschlie&szlig;end erstellen Sie in diesem Dateisystem das Transaktionsprotokoll mit der Standardgr&ouml;&szlig;e. Wenn
+der Server unter Last ausgef&uuml;hrt wird, &uuml;berpr&uuml;fen Sie Plattenein- und ausgabe.
+Falls die Zeit f&uuml;r Plattenein- und -ausgabe 5 % &uuml;bersteigt, k&ouml;nnen Sie diesen Wert durch Hinzuf&uuml;gen
+weitere physischer Platten senken.
+Ist die Zeit f&uuml;r die Plattenein- und -ausgabe gering, aber die Serverzeit weiterhin hoch, k&ouml;nnen Sie die
+Gr&ouml;&szlig;e der Protokolldateien erh&ouml;hen.
+</td>
+
+</tr>
+
+</table>
+
+
+
+
+</dd>
+<dt>
+<strong><a name="TransactionService_totalTranLifetimeTimeout_displayName"></a>Zeitlimit f&uuml;r Gesamtlebensdauer der Transaktion</strong>
+</dt>
+<dd>Gibt die maximale Dauer (in Sekunden) f&uuml;r Transaktionen in diesem
+Anwendungsserver an. 
+
+<p>Alle Transaktionen, die vor Ablauf dieses Zeitlimits nicht zur Ausf&uuml;hrung angefordert
+werden, werden zur&uuml;ckgesetzt. Ist das Zeitlimit
+auf 0 eingestellt, besteht kein Zeitlimit.</p>
+
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Einheiten</td>
+<td align="left" valign="top" class="base">Sekunden</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">120</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">0 bis 2147483647</td>
+
+</tr>
+
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="TransactionService_clientInactivityTimeout_displayName"></a>Zeitlimit f&uuml;r Clientinaktivit&auml;t</strong>
+</dt>
+<dd>Der maximale Zeitraum (in Sekunden) zwischen den Transaktionsanforderungen eines fernen Client. 
+<p>Wenn der Zeitraum, in dem der Client inaktiv ist, dieses Zeitlimit &uuml;berschreitet, wird die Transaktion
+auf diesem Anwendungsserver zur&uuml;ckgesetzt.
+Ist das Zeitlimit
+auf 0 eingestellt, besteht kein Zeitlimit.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Einheiten</td>
+<td align="left" valign="top" class="base">Sekunden</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">60</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">0 bis 2147483647</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Register "Laufzeit"</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="TransactionService_transactionLogDirectory_displayName"></a>Verzeichnis des Transaktionsprotokolls</strong>
+</dt>
+<dd>Gibt den Namen eines Verzeichnisses f&uuml;r diesen Server an,
+in dem der Transaktionsservice Protokolldateien f&uuml;r die Wiederherstellung speichert.
+<p>Wird kein Wert in der Serverkonfiguration angegeben, gibt das Transaktionsprotokoll beim Systemstart
+den Verzeichnispfad (<em>Installationsstammverzeichnis</em>)/tranlog/(<em>Servername</em>) an. </p>
+
+<p>Wenn die Anwendung, die im WebSphere-Produkt ausgef&uuml;hrt wird,
+auf mehrere Ressourcen zugreift, speichert das WebSphere-Produkt Transaktionsinformationen,
+um die verteilte Anwendung ordnungsgem&auml;&szlig; koordinieren und verwalten zu k&ouml;nnen.
+Bei einer h&ouml;heren Transaktionslast wirkt sich diese Persistenz aufgrund der Abh&auml;ngigkeit vom Betriebssystem und
+den zugrunde liegenden Speichersystemen nachteilig auf die Leistung des Anwendungsservers aus.
+</p>
+
+<p>Durch das Verschieben der Transaktionsprotokolldateien
+auf eine Speichereinheit mit mehr physischen Plattenlaufwerken oder RAID-Plattenlaufwerken k&ouml;nnen Sie eine Leistungssteigerung
+erzielen.
+Wenn die Protokolldateien in die Dateisysteme auf RAID-Platten verschoben werden, wird die Aufgabe, die Daten auf
+den physischen Datentr&auml;ger zu schreiben, auf mehrere Plattenlaufwerke verteilt.
+Dies verbessert die Parallelit&auml;t der Zugriff und damit die Persistenz der Transaktionsdaten und bietet einen schnelleren
+Zugriff auf diese Daten &uuml;ber die Protokolle.
+Je nach Design der Anwendung und des Speichersubsystems kann eine Leistungssteigerung zwischen
+10 % und 100% erzielt werden. In manchen F&auml;llen ist sogar eine h&ouml;here Leistungssteigerung m&ouml;glich. </p>
+
+<p>Diese Konfigurations&auml;nderung ist nur dann m&ouml;glich,
+wenn die Anwendung verteilte Ressourcen oder XA-Transaktionen verwendet, z. B. wenn in einer Transaktion auf mehrere
+Datenbanken und Ressourcen zugegriffen wird.
+Die Einstellung dieses Merkmals empfiehlt sich, wenn folgende Bedingungen beim Anwendungsserver festzustellen sind:
+<ul>
+
+<li>Die CPU-Auslastung bleibt niedrig, obwohl die Anzahl der Transaktionen zunimmt.</li>
+
+<li>Transaktionen scheitern aufgrund von Zeitlimit&uuml;berschreitungen.</li>
+
+<li>Transaktionen werden r&uuml;ckg&auml;ngig gemacht, weil die Ausnahme <em>Transaktion kann nicht registriert werden</em>
+auftritt. </li>
+
+<li>Der Anwendungsserver blockiert mitten in der Ausf&uuml;hrung einer Operation und erfordert einen Neustart des Servers.
+</li>
+
+<li>Bei der Festplatte, auf der ein Anwendungsserver ausgef&uuml;hrt wird, ist eine h&ouml;here Auslastung zu beobachten.</li>
+
+</ul>
+</p>
+
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">Der Ausgangswert ist das Verzeichnis <em>%WAS_HOME%</em>/tranlog/(<em>Servername</em>)
+mit einer Standardgr&ouml;&szlig;e von 1 MB.</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">
+Empfohlene Einstellung</td>
+<td align="left" valign="top" class="base">Erstellen Sie ein Dateisystem mit mindestens 3 bis 4 Plattenlaufwerken in einer RAID-Konfiguration der Stufe
+0. Anschlie&szlig;end erstellen Sie in diesem Dateisystem das Transaktionsprotokoll mit der Standardgr&ouml;&szlig;e. Wenn
+der Server unter Last ausgef&uuml;hrt wird, &uuml;berpr&uuml;fen Sie Plattenein- und ausgabe.
+Falls die Zeit f&uuml;r Plattenein- und -ausgabe 5 % &uuml;bersteigt, k&ouml;nnen Sie diesen Wert durch Hinzuf&uuml;gen
+weitere physischer Platten senken.
+Ist die Zeit f&uuml;r die Plattenein- und -ausgabe gering, aber die Serverzeit weiterhin hoch, k&ouml;nnen Sie die
+Gr&ouml;&szlig;e der Protokolldateien erh&ouml;hen.
+</td>
+
+</tr>
+
+</table>
+
+
+
+
+</dd>
+<dt>
+<strong><a name="TransactionService_totalTranLifetimeTimeout_displayName"></a>Zeitlimit f&uuml;r Gesamtlebensdauer der Transaktion</strong>
+</dt>
+<dd>Gibt die maximale Dauer (in Sekunden) f&uuml;r Transaktionen in diesem
+Anwendungsserver an. 
+
+<p>Alle Transaktionen, die vor Ablauf dieses Zeitlimits nicht zur Ausf&uuml;hrung angefordert
+werden, werden zur&uuml;ckgesetzt. Ist das Zeitlimit
+auf 0 eingestellt, besteht kein Zeitlimit.</p>
+
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Einheiten</td>
+<td align="left" valign="top" class="base">Sekunden</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">120</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">0 bis 2147483647</td>
+
+</tr>
+
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="TransactionService_clientInactivityTimeout_displayName"></a>Zeitlimit f&uuml;r Clientinaktivit&auml;t</strong>
+</dt>
+<dd>Der maximale Zeitraum (in Sekunden) zwischen den Transaktionsanforderungen eines fernen Client. 
+<p>Wenn der Zeitraum, in dem der Client inaktiv ist, dieses Zeitlimit &uuml;berschreitet, wird die Transaktion
+auf diesem Anwendungsserver zur&uuml;ckgesetzt.
+Ist das Zeitlimit
+auf 0 eingestellt, besteht kein Zeitlimit.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Einheiten</td>
+<td align="left" valign="top" class="base">Sekunden</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">60</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">0 bis 2147483647</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Zugeh&ouml;rige Informationen</strong>
+</p>
+<a href="rcon_buttons.html">Kn&ouml;pfe in der Adminstrationskonsole</a>
+<br>
+
+<a href="rcon_pageusage.html">Funktionen auf den Seiten der Administrationskonsole</a>
+<br>
+
+</div>
+</body>
+</html>

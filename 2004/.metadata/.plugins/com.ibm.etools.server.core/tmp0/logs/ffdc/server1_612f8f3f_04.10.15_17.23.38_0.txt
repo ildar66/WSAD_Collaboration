@@ -1,0 +1,133 @@
+------Start of DE processing------ = [04.10.15 17:23:38:391 MSD] , key = javax.management.InstanceAlreadyExistsException com.ibm.ws.management.MBeanFactoryImpl.activateMBean 190
+Exception = javax.management.InstanceAlreadyExistsException
+Source = com.ibm.ws.management.MBeanFactoryImpl.activateMBean
+probeid = 190
+Stack Dump = javax.management.InstanceAlreadyExistsException: JMXcr0053E The MBean " WebSphere:name=Informix provider,process=server1,platform=common,node=localhost,Server=server1,version=5.0,type=JDBCProvider,mbeanIdentifier=cells/localhost/nodes/localhost/servers/server1/resources.xml#JDBCProvider_3,cell=localhost " is already present in the MBeanServer
+	at com.tivoli.jmx.MapAdapter.putMBean(MapAdapter.java:80)
+	at com.tivoli.jmx.Registration.register(Registration.java:125)
+	at com.tivoli.jmx.MBeanServerImpl.registerMBean(MBeanServerImpl.java:965)
+	at com.ibm.ws.management.MBeanFactoryImpl.activateMBean(MBeanFactoryImpl.java:240)
+	at com.ibm.ws.runtime.component.collaborator.J2EEResourceMBean.activate(J2EEResourceMBean.java:56)
+	at com.ibm.ws.runtime.component.collaborator.J2EEResourceMBean.<init>(J2EEResourceMBean.java:37)
+	at com.ibm.ws.runtime.component.collaborator.JDBCResourceMBean.<init>(JDBCResourceMBean.java:32)
+	at com.ibm.ws.runtime.component.binder.DataSourceBinder.activateProviderMBean(DataSourceBinder.java:256)
+	at com.ibm.ws.runtime.component.ResourceMgrImpl.installResourceProvider(ResourceMgrImpl.java:650)
+	at com.ibm.ws.runtime.component.ResourceMgrImpl.installResource(ResourceMgrImpl.java:573)
+	at com.ibm.ws.runtime.component.ResourceMgrImpl.installResources(ResourceMgrImpl.java:533)
+	at com.ibm.ws.runtime.component.ResourceMgrImpl.loadResources(ResourceMgrImpl.java:413)
+	at com.ibm.ws.runtime.component.ResourceMgrImpl.reload(ResourceMgrImpl.java:366)
+	at com.ibm.ws.runtime.component.ApplicationMgrImpl.startApplication(ApplicationMgrImpl.java:453)
+	at com.ibm.ws.runtime.component.ApplicationMgrImpl$ApplicationNotifier.classChanged(ApplicationMgrImpl.java:525)
+	at com.ibm.ws.classloader.ClassLoaderManager.checkAndNotify(ClassLoaderManager.java:356)
+	at com.ibm.ws.classloader.ClassLoaderManager.access$100(ClassLoaderManager.java:31)
+	at com.ibm.ws.classloader.ClassLoaderManager$ReloadTimerTask.run(ClassLoaderManager.java:390)
+	at java.util.TimerThread.mainLoop(Timer.java:445)
+	at java.util.TimerThread.run(Timer.java:395)
+
+Dump of callerThis = 
+Object type = com.ibm.ws.management.MBeanFactoryImpl
+com.ibm.ws.management.MBeanFactoryImpl@7d69cf3c
+
+==> Performing default dump from com.ibm.ws.management.dm.JmxDM  = Fri Oct 15 17:23:38 MSD 2004
+Dump of callerThis = 
+Object type = com.ibm.ws.management.MBeanFactoryImpl
+  class$com$ibm$ws$management$MBeanFactoryImpl = 
+    serialPersistentFields = {}
+    serialVersionUID = 3206093459760846163
+    allPermDomain = null
+    getPDperm = null
+    have_extensions = true
+  loadedSecureMBeanTypes = 
+    PRESENT = java.lang.Object@51748f3c
+    map = java.util.HashMap@56984f3c
+  adminContext = domain
+  adminAppName = admin-authz
+  savedMMInfo = null
+  mbeanTypes = 
+    this$0 = this
+    types = java.util.HashMap@56eccf3c
+    class$java$lang$Object = null
+    size = 29
+    elementData = [Ljava.lang.Object;@126f8f32
+    serialVersionUID = 8683452581122892189
+    modCount = 31
+  repositoryDir = C:/WSAD_Collaboration/CollaborationServers/ServerWSv5forCollaboration.wsc
+  cellName = localhost
+  processName = server1
+  nodeName = localhost
+  serverName = WebSphere
+  descriptorMan = 
+    class$com$ibm$ws$management$descriptor$MBeanDescriptorManager = java.lang.Class@720b8f3c
+    infoCache = java.util.HashMap@56d24f3c
+    descriptorClassLoader = com.ibm.ws.management.descriptor.MBeanDescriptorManager$DescriptorClassLoader@72260f3c
+    tc = com.ibm.ejs.ras.TraceComponent@572fcf3c
+    nls = com.ibm.ejs.ras.TraceNLS@57264f3c
+    resourceBundleName = com.ibm.ws.management.resources.adminservice
+  mBeanServer = 
+    RM_NOTIFICATION_2 = removeNotificationListener[2]
+    RM_NOTIFICATION_1 = removeNotificationListener[1]
+    INSTANTIATE_4 = instantiate[4]
+    INSTANTIATE_3 = instantiate[3]
+    INSTANTIATE_2 = instantiate[2]
+    INSTANTIATE_1 = instantiate[1]
+    DESERIALIZE_3 = deserialize[3]
+    DESERIALIZE_2 = deserialize[2]
+    DESERIALIZE_1 = deserialize[1]
+    CREATE_MBEAN_4 = createMBean[4]
+    CREATE_MBEAN_3 = createMBean[3]
+    CREATE_MBEAN_2 = createMBean[2]
+    CREATE_MBEAN_1 = createMBean[1]
+    ADD_NOTIFICATION_2 = addNotificationListener[2]
+    ADD_NOTIFICATION_1 = addNotificationListener[1]
+    UNREGISTER_MBEAN = unregisterMBean
+    SET_ATTRIBUTES = setAttributes
+    SET_ATTRIBUTE = setAttribute
+    REMOVE_NOTIFICATION_LISTENER = removeNotificationListener
+    REGISTER_MBEAN = registerMBean
+    QUERY_NAMES = queryNames
+    QUERY_MBEANS = queryMBeans
+    IS_REGISTERED = isRegistered
+    IS_INSTANCE_OF = isInstanceOf
+    INVOKE = invoke
+    INSTANTIATE = instantiate
+    GET_OBJECT_INSTANCE = getObjectInstance
+    GET_MBEAN_INFO = getMBeanInfo
+    GET_MBEAN_COUNT = getMBeanCount
+    GET_DEFAULT_DOMAIN = getDefaultDomain
+    GET_ATTRIBUTES = getAttributes
+    GET_ATTRIBUTE = getAttribute
+    DESERIALIZE = deserialize
+    CREATE_MBEAN = createMBean
+    ADD_NOTIFICATION_LISTENER = addNotificationListener
+    MBEAN_SERVER_IMPL = constructor
+    MBEAN_SERVER = MBeanServer
+    serverQuery = com.tivoli.jmx.MBeanServerQuery@673ccf3c
+    notificationRegisterBroker = com.tivoli.jmx.NotificationRegisterBroker@49c8f3d
+    mBeanAccess = com.tivoli.jmx.MBeanAccess@38f80f3d
+    instantiateManager = com.tivoli.jmx.InstantiateManager@3de0cf3d
+    registration = com.tivoli.jmx.Registration@5b0ecf3d
+    defaultDomainName = WebSphere
+    loadManager = com.tivoli.jmx.LoadManager@28d4cf3d
+    delegate = javax.management.MBeanServerDelegate@43d68f3d
+  tc = 
+    ivLogger = null
+    ivResourceBundleName = com.ibm.ws.management.resources.adminservice
+    ivDumpEnabled = false
+    defaultMessageFile = com.ibm.ejs.resources.seriousMessages
+    ivEntryEnabled = false
+    ivEventEnabled = false
+    ivDebugEnabled = false
+    ivName = com.ibm.ws.management.MBeanFactoryImpl
+  nls = 
+    class$com$ibm$ejs$ras$TraceNLS = java.lang.Class@6bbc4f33
+    ivBundleName = com.ibm.ws.management.resources.adminservice
+    svMalformedMessage = No message text associated with key {0} in bundle {1}
+    svNullKeyMessage = Null key passed while using ResourceBundle {0}
+    svBundleNotLoaded = Unable to load ResourceBundle {0}
+    svNullBundleName = Resource Bundle name is null, key = {0}
+    nullKey = null Key
+    tc = com.ibm.ejs.ras.TraceComponent@4dec4f33
+  resourceBundleName = com.ibm.ws.management.resources.adminservice
+
++Data for directive [defaultjmx] obtained. = 
+==> Dump complete for com.ibm.ws.management.dm.JmxDM  = Fri Oct 15 17:23:38 MSD 2004

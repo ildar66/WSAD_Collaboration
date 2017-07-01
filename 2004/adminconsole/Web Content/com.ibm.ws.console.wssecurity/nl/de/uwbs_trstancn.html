@@ -1,0 +1,106 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Konfigurationeinstellungen f&uuml;r Trust Anchor</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_trstancn"></a>
+<h2>
+<img alt="[Fixpack 5.0.2 und h&ouml;her]" src="v502.gif" border="0">Konfigurationeinstellungen f&uuml;r Trust Anchor</h2>
+
+<p>Verwenden Sie diese Seite, um einen Trust Anchor zu konfigurieren. Trust Anchor zeigen
+auf Keystores, die gesicherte Stammzertifikate oder selbst unterzeichnete Zertifikate enthalten. Auf dieser
+Seite k&ouml;nnen Sie einen Namen f&uuml;r den Trust Anchor und die erforderlichen Informationen f&uuml;r den Zugriff
+auf einen Keystore festlegen. Die Anwendungsbindung verwendet diesen Namen, um auf eine vordefinierte
+Trust-Anchor-Definition in der Bindungsdatei (oder den Standardwert) zu verweisen.
+</p>
+
+<p>Gehen Sie zum Anzeigen dieser Seite der Administrationskonsole wie folgt vor:<ol>
+
+<li>Klicken Sie auf <strong>Server &gt; Anwendungsserver &gt; </strong><em>Servername</em>.</li>
+
+<li>Klicken
+Sie unter "Weitere Merkmale" auf <strong>Web
+Services: Standardbindungen f&uuml;r die Sicherheit von Web Services &gt; Trust Anchor &gt; Neu</strong>.</li>
+
+</ol>
+</p>
+
+<dl>
+<dt>
+<strong><a name="sec_trstancname"></a>Name des Trust Anchor
+</strong>
+</dt>
+<dd>Geben Sie den eindeutigen Namen an, den die Anwendungsbindung verwendet, um auf eine vordefinierte
+Trust-Anchor-Definition in der Standardbindung zu verweisen.</dd>
+<dt>
+<strong><a name="sec_keystpass"></a>Kennwort des Keystore
+</strong>
+</dt>
+<dd>Das Kennwort f&uuml;r den Zugriff auf die Keystore-Datei. </dd>
+<dt>
+<strong><a name="sec_keystpath"></a>Pfad des Keystore
+</strong>
+</dt>
+<dd>Das Verzeichnis der Keystore-Datei. 
+<p>Verwenden Sie ${USER_INSTALL_ROOT}, weil dieser Pfad den WAS-Pfad auf Ihrer Maschine angibt. </p>
+
+</dd>
+<dt>
+<strong><a name="sec_keysttype"></a>Typ des Keystore</strong>
+</dt>
+<dd>Der Typ der Keystore-Datei.
+<p>G&uuml;ltige Werte f&uuml;r dieses Feld sind <strong>JKS</strong> und <strong>JCEKS</strong>. <dl>
+
+<dt>
+<strong>JKS</strong>
+</dt>
+<dd>Verwenden Sie diese Option, wenn Sie JCE (Java Cryptography Extensions) nicht verwenden.</dd>
+<dt>
+<strong>JCEKS</strong>
+</dt>
+<dd>Verwenden Sie diese Option, wenn Sie JCE (Java Cryptography Extensions) verwenden. Das Keystore-Format
+JCEKS ist zwar sicherer, wirkt sich aber nachteilig auf die Leistung aus. </dd>
+</dl>
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert </td>
+<td align="left" valign="top" class="base">JKS</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">JKS, JCEKS</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>Zugeh&ouml;rige Informationen</strong>
+</p>
+<a href="uwbs_trstanc.html">Trust Anchor</a>
+<br>
+
+</div>
+</body>
+</html>

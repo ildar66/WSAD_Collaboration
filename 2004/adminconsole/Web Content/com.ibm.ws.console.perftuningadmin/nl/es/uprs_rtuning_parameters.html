@@ -1,0 +1,240 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Valores de par&aacute;metros de ajuste</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="tune_para"></a>
+<h2>Valores de par&aacute;metros de ajuste</h2>
+
+<p>Utilice esta p&aacute;gina para establecer los par&aacute;metro de ajuste para sesiones
+distribuidas.</p>
+
+<p>Para ver esta p&aacute;gina de la consola administrativa, pulse <strong>Servidores</strong> &gt; <strong>Servidores de
+aplicaciones</strong> &gt; <em>nombre_servidor</em> &gt; <strong>Contenedor Web</strong> &gt; <strong>Gesti&oacute;n de sesiones</strong> &gt;
+<strong>Valores de entorno distribuido</strong> &gt; <strong>Par&aacute;metros de ajuste personalizado</strong>.</p>
+
+<div>
+<p>
+<strong>Pesta&ntilde;a Configuraci&oacute;n</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="Tuning_level_description"></a>Nivel de ajuste</strong>
+</dt>
+<dd>Especifica que el recurso de gesti&oacute;n de sesiones proporcione
+varios valores predefinidos que afectan al rendimiento.
+<p>Seleccione uno de estos valores predefinidos o personalice un valor. Para personalizar un valor, seleccione primero uno de los valores
+predefinidos, el que m&aacute;s se acerque al valor que desee, pulse
+<strong>Valores personalizados</strong>, introduzca los cambios y pulse <strong>Aceptar</strong>.</p>
+
+<div>
+<p class="sectiontitle">
+<b>Muy alto (optimizar para el rendimiento)</b>
+</p>
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Frecuencia de escritura </td>
+<td align="left" valign="top" class="base">Basado en la hora</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervalo de escritura </td>
+<td align="left" valign="top" class="base">300 segundos</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Contenido de escritura </td>
+<td align="left" valign="top" class="base">S&oacute;lo atributos actualizados</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Planificaci&oacute;n de limpieza de sesiones</td>
+<td align="left" valign="top" class="base">true</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Primera hora del d&iacute;a por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">0</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Segunda hora del d&iacute;a por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">2</td>
+
+</tr>
+
+</table>
+</div>
+
+<div>
+<p class="sectiontitle">
+<b>Alto</b>
+</p>
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Frecuencia de escritura </td>
+<td align="left" valign="top" class="base">Basado en la hora</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervalo de escritura </td>
+<td align="left" valign="top" class="base">300 segundos</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Contenido de escritura </td>
+<td align="left" valign="top" class="base">Todos los atributos de sesi&oacute;n</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Planificaci&oacute;n de limpieza de sesiones</td>
+<td align="left" valign="top" class="base">false</td>
+
+</tr>
+
+</table>
+</div>
+
+<div>
+<p class="sectiontitle">
+<b>Medio</b>
+</p>
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Frecuencia de escritura </td>
+<td align="left" valign="top" class="base">Finalizaci&oacute;n del servicio de servlet</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Contenido de escritura </td>
+<td align="left" valign="top" class="base">S&oacute;lo atributos actualizados</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Planificaci&oacute;n de limpieza de sesiones</td>
+<td align="left" valign="top" class="base">false</td>
+
+</tr>
+
+</table>
+</div>
+
+<div>
+<p class="sectiontitle">
+<b>Bajo (optimizar para sustituci&oacute;n por anomal&iacute;a)</b>
+</p>
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Frecuencia de escritura </td>
+<td align="left" valign="top" class="base">Finalizaci&oacute;n del servicio de servlet</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Contenido de escritura </td>
+<td align="left" valign="top" class="base">Todos los atributos de sesi&oacute;n</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Planificaci&oacute;n de limpieza de sesiones</td>
+<td align="left" valign="top" class="base">false</td>
+
+</tr>
+
+</table>
+</div>
+
+<div>
+<p class="sectiontitle">
+<b>Valores personalizados</b>
+</p>
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Frecuencia de escritura por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">Basado en la hora</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervalo de escritura por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">10 segundos</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Contenido de escritura por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">Todos los atributos de sesi&oacute;n</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Planificaci&oacute;n de limpieza de sesiones por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">false</td>
+
+</tr>
+
+</table>
+</div>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informaci&oacute;n relacionada</strong>
+</p>
+<a href="rcon_buttons.html">Botones de la consola de administraci&oacute;n</a>
+<br>
+
+<a href="rcon_pageusage.html">Caracter&iacute;sticas de la p&aacute;gina de la consola administrativa</a>
+<br>
+
+<a href="rcon_preferences.html">Valores de preferencias de la consola administrativa</a>
+<br>
+
+<a href="uprs_rtuning_custom.html">Valores personalizados de par&aacute;metros de ajuste</a>
+<br>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,337 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>接聽器埠設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="ListenerPort"></a>
+<h2>接聽器埠設定</h2>
+
+<p>接聽器埠用來簡化 Connection Factory、目的地和部署的訊息驅動 Bean 之間相關的管理。
+</p>
+
+<p>請使用這個畫面來檢視或變更選取的接聽器埠的配置內容。</p>
+
+<p>如果要檢視這個管理主控台頁面，請按一下<strong>伺服器 -&gt; <em>application_server</em> -&gt; 訊息接聽器服務 -&gt; 接聽器埠 -&gt; <em>listener_port</em></strong>
+</p>
+
+<dl>
+<dt>
+<strong><a name="ListenerPort_name"></a>名稱
+</strong>
+</dt>
+<dd>用來識別接聽器埠供管理使用的名稱。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">空值</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ListenerPort_initialState"></a>起始狀態</strong>
+</dt>
+<dd>下次重新啟動應用程式伺服器時，您要接聽器埠呈現的狀態
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">列舉</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">單位</td>
+<td align="left" valign="top" class="base">不適用</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">已啟動</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">
+<dl>
+<dt>
+<strong>已啟動</strong>
+</dt>
+<dd>下次啟動應用程式伺服器時，會自動啟動接聽器埠。
+</dd>
+<dt>
+<strong>已停止</strong>
+</dt>
+<dd>下次啟動應用程式伺服器時，不會自動啟動接聽器埠。
+如果訊息驅動 Bean 要在應用程式伺服器中使用這個接聽器埠，系統管理者必須以手動方式來啟動埠，或選取這個內容的啟動值，再重新啟動應用程式伺服器。
+</dd>
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ListenerPort_description"></a>說明
+</strong>
+</dt>
+<dd>接聽器埠的說明，供 IBM WebSphere Application Server 內的管理作業使用。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">空值</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ListenerPort_connectionFactoryJNDIName"></a>Connection Factory JNDI 名稱</strong>
+</dt>
+<dd>接聽器埠要用的 JMS Connection Factory 的 JNDI 名稱，比方說，<samp>jms/connFactory1</samp>。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">空值</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ListenerPort_destinationJNDIName"></a>目的地 JNDI 名稱</strong>
+</dt>
+<dd>接聽器埠要用之目的地的 JNDI 名稱，比方說，<samp>jms/destn1</samp>。
+
+<p>如果延伸傳訊服務要利用這個接聽器埠來處理延遲回應，這個內容值必須符合傳送者 Bean 所用的輸出埠的 JMS 回應目的地。
+另外，延遲回應無法使用暫時目的地。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">空值</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ListenerPort_maxSessions"></a>階段作業數目上限</strong>
+</dt>
+<dd>指定接聽器用來處理訊息的並行 JMS 伺服器階段作業數目上限。
+
+<p>每個階段作業都對應於單一接聽器執行緒，但不會控制同時處理的訊息數。
+請在執行程序應用程式的機器無法實現可用的容量，且會在執行長程序時產生較少通訊量時，調整這個參數。
+</p>
+
+<p>這個參數有助於增加某層次的並行作業，因此，會在進行訊息接收作業的同步處理部分之前，同時接收訊息。
+在 NetFinity 5500 500 MHz 的 4 向 4GB RAM 系統中，含長執行程序的程序應用程式所呈現的通訊量增加 40%。
+</p>
+
+<p>在管理主控台中進行這項變更的替代方案，是依照下列方式來變更 <samp>server.xml</samp> 檔中在接聽器埠段落下的階段作業數上限值：
+<pre>&lt;listenerPorts xmi:id="ListenerPort_1" name="bpeIntListenerPort" 
+description="Internal Listener Port for Process Choreographer" 
+connectionFactoryJNDIName="jms/bpeCF" destinationJNDIName="jms/bpeIntQueue" 
+<strong>maxSessions="5"</strong> maxRetries="10" maxMessages="1"&gt;
+&lt;stateManagement xmi:id="StateManageable_5" initialState="START"/&gt;
+&lt;/listenerPorts&gt;
+</pre>
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">整數</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">單位</td>
+<td align="left" valign="top" class="base">階段作業</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">1
+</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">1 至 2147483647</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">建議
+</td>
+<td align="left" valign="top" class="base">如果訊息需要並行，也就是同時處理多個訊息，請將這個值設為每個系統處理器 2-4 個階段作業。
+這個值要儘量低，以消除用戶端的 thrashing。如果需要嚴格的訊息次序，請將這個值設為 4，以便永遠會有暫停接收訊息的熱線待命執行緒。
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ListenerPort_maxRetries"></a>重試次數上限</strong>
+</dt>
+<dd>在接聽器停止作業之前，接聽器試圖遞送訊息的次數上限，範圍是 0 至 2147483647。
+
+<p>在接聽器停止作業之前，接聽器試圖將訊息遞送給訊息驅動 Bean 實例的次數上限。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">整數</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">單位</td>
+<td align="left" valign="top" class="base">重試次數</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">0（不重試）</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">0（不重試）至 2147483647</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ListenerPort_maxMessages"></a>訊息上限</strong>
+</dt>
+<dd>接聽器在一個 JMS 伺服器階段作業中所能處理的訊息數目上限。
+<p>當訊息次序不是嚴格需求時，請調整這個參數。
+這個參數用來控制接聽器服務中的並行層次。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">整數</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">單位</td>
+<td align="left" valign="top" class="base">訊息數目</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">1
+</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">1 至 2147483647</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">建議
+</td>
+<td align="left" valign="top" class="base">如果訊息需要並行，也就是同時處理多個訊息，請將這個值設為每個系統處理器 2-4 個階段作業。
+這個值要儘量低，以消除用戶端的 thrashing。如果需要嚴格的訊息次序，請將這個值設為 1。
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</body>
+</html>

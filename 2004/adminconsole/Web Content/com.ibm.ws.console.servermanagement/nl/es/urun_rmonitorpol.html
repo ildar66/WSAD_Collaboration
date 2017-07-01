@@ -1,0 +1,151 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Valores de pol&iacute;tica de supervisi&oacute;n</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="urun_rmonitorpol"></a>
+<h2>Valores de pol&iacute;tica de supervisi&oacute;n</h2>
+
+<p>Utilice esta p&aacute;gina para ver o modificar los valores que controlan c&oacute;mo el agente de nodo supervisa y reinicia un proceso.</p>
+
+<p>Para ver esta p&aacute;gina de la consola administrativa, pulse <strong>Servidores &gt; Servidores de
+aplicaciones &gt; </strong><em>nombre_servidor</em><strong> &gt; Definici&oacute;n de proceso &gt; Pol&iacute;ticas de supervisi&oacute;n</strong>.</p>
+
+<div>
+<p>
+<strong>Pesta&ntilde;a Configuraci&oacute;n</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="MonitoringPolicy_maximumStartupAttempts_description"></a>N&uacute;mero m&aacute;ximo de intentos de arranque</strong>
+</dt>
+<dd>Especifica el n&uacute;mero m&aacute;ximo de intentos de arrancar el servidor de aplicaciones antes de abandonar.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MonitoringPolicy_pingInterval_description"></a>Intervalo de ping</strong>
+</dt>
+<dd>Especifica la frecuencia de los intentos de comunicaci&oacute;n entre el proceso padre, como por ejemplo un agente de nodo, y el proceso que ha generado, como por ejemplo un servidor de
+aplicaciones.
+ Ajuste este valor seg&uacute;n sus requisitos para reiniciar los servidores con
+anomal&iacute;as. Si se reduce el valor, se detectan anomal&iacute;as antes; si se incrementa el valor, se reduce la
+frecuencia del mandato PING y, as&iacute;, se reduce la actividad general del sistema.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MonitoringPolicy_pingTimeout_description"></a>Tiempo de espera de ping</strong>
+</dt>
+<dd>Cuando un proceso padre genera un proceso hijo, como por ejemplo, cuando un gestor de procesos genera un servidor, el proceso padre efect&uacute;a PING en el proceso hijo para comprobar si &eacute;ste se ha generado satisfactoriamente. Este valor especifica el tiempo en segundo que el proceso padre debe esperar (despu&eacute;s de
+efectuar PING en el proceso hijo) antes de asumir que el proceso hijo no ha sido satisfactorio.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unidades</td>
+<td align="left" valign="top" class="base">Segundos</td>
+
+</tr>
+
+</table>
+</dd>
+<dt>
+<strong><a name="MonitoringPolicy_autoRestart_description"></a>Rearranque autom&aacute;tico</strong>
+</dt>
+<dd>Especifica si se debe reiniciar el proceso autom&aacute;ticamente si se produce un error. 
+ El valor por omisi&oacute;n es reiniciar el proceso autom&aacute;ticamente.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">true</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MonitoringPolicy_nodeRestartState_description"></a>Estado de rearranque de nodo</strong>
+</dt>
+<dd>Especifica el estado deseado para el proceso despu&eacute;s de que el nodo se cierre completamente y se reinicie. Las opciones son: <em>DETENIDO</em>, <em>EN EJECUCI&Oacute;N</em>, <em>ANTERIOR</em>.
+ El valor por omisi&oacute;n es <em>DETENIDO</em>.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">DETENIDO</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">Los valores v&aacute;lidos son DETENIDO, EN EJECUCI&Oacute;N o ANTERIOR.</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informaci&oacute;n relacionada</strong>
+</p>
+<a href="rcon_buttons.html">Botones de la consola de administraci&oacute;n</a>
+<br>
+
+<a href="rcon_pageusage.html">Caracter&iacute;sticas de la p&aacute;gina de la consola administrativa</a>
+<br>
+
+</div>
+</body>
+</html>

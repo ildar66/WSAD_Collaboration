@@ -1,0 +1,949 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration//EN"
+                                   "http://jakarta.apache.org/struts/dtds/tiles-config.dtd">
+<tiles-definitions>
+    <definition name="console.menubar.main" path="/secure/layouts/menuBarLayout.jsp">
+        <putList name="menuBarItems">
+            <item classtype="com.ibm.ws.console.core.item.MenuBarItem"
+                link="/secure/content.jsp" value="menu.workspace.home"/>
+            <item classtype="com.ibm.ws.console.core.item.MenuBarItem"
+                link="/syncworkspace.do?syncaction=list" value="menu.save.changes:administrator,configurator"/>
+            <item classtype="com.ibm.ws.console.core.item.MenuBarItem"
+                link="/menuBarCmd.do?forwardName=console.preferences.main" value="menu.preferences"/>
+            <item classtype="com.ibm.ws.console.core.item.MenuBarItem"
+                link="/logoff.do~target=_top" value="menu.logout"/>
+            <item classtype="com.ibm.ws.console.core.item.MenuBarItem"
+                link="secure/help_console.jsp~target=WAS_help" value="menu.help"/>
+        </putList>
+    </definition>
+    <definition name="console.navigator.main" path="/secure/layouts/navigatorLayout.jsp">
+        <put name="rootImage" value="images/Domain.gif"/>
+        <putList name="navigatorList">
+            <item classtype="com.ibm.ws.console.core.item.NavigatorItem"
+                icon="/com.ibm.ws.console.servermanagement/images/onepix.gif:10"
+                link="" tooltip="nav.webSphere.servers" value="servermanagement:root"/>
+            <item classtype="com.ibm.ws.console.core.item.NavigatorItem"
+                icon="/com.ibm.ws.console.servermanagement/images/onepix.gif:10"
+                link="/navigatorCmd.do?forwardName=ApplicationServer.content.main"
+                tooltip="nav.view.ApplicationServer" value="appserver:servermanagement"/>
+            <item classtype="com.ibm.ws.console.core.item.NavigatorItem"
+                icon="/com.ibm.ws.console.appmanagement/images/onepix.gif:20"
+                link="" tooltip="category.application.management" value="appmanagementcategory:root"/>
+            <item classtype="com.ibm.ws.console.core.item.NavigatorItem"
+                icon="/com.ibm.ws.console.appmanagement/images/onepix.gif:10"
+                link="/navigatorCmd.do?forwardName=ApplicationDeployment.content.main"
+                tooltip="task.application.manage" value="managetask:appmanagementcategory"/>
+            <item classtype="com.ibm.ws.console.core.item.NavigatorItem"
+                icon="/com.ibm.ws.console.appmanagement/images/onepix.gif:20"
+                link="/com.ibm.ws.console.appmanagement.action.forwardCmd.do?forwardName=appmanagement.upload~external=false"
+                tooltip="task.application.install:administrator,configurator" value="installtask:appmanagementcategory"/>
+            <item classtype="com.ibm.ws.console.core.item.NavigatorItem"
+                icon="/com.ibm.ws.console.resources/images/onepix.gif:30"
+                link="" tooltip="nav.webSphere.resources" value="resources:root"/>
+            <item classtype="com.ibm.ws.console.core.item.NavigatorItem"
+                icon="/com.ibm.ws.console.resources/images/onepix.gif:10"
+                link="/navigatorCmd.do?forwardName=JDBCProvider.content.main"
+                tooltip="nav.view.jdbc.provider" value="jbdcprovider:resources"/>
+            <item classtype="com.ibm.ws.console.core.item.NavigatorItem"
+                icon="/com.ibm.ws.console.resources/images/onepix.gif:20"
+                link="/navigatorCmd.do?forwardName=JMSProvider.content.main"
+                tooltip="nav.view.jms.provider" value="jmsprovider:resources"/>
+            <item classtype="com.ibm.ws.console.core.item.NavigatorItem"
+                icon="/com.ibm.ws.console.resources/images/onepix.gif:30"
+                link="/navigatorCmd.do?forwardName=WASProvider.config.view"
+                tooltip="nav.view.was.provider" value="wasjmsprovider:resources"/>
+            <item classtype="com.ibm.ws.console.core.item.NavigatorItem"
+                icon="/com.ibm.ws.console.resources/images/onepix.gif:40"
+                link="/navigatorCmd.do?forwardName=MQSeriesProvider.config.view"
+                tooltip="nav.view.mqseries.provider" value="mqjmsprovider:resources"/>
+            <item classtype="com.ibm.ws.console.core.item.NavigatorItem"
+                icon="/com.ibm.ws.console.resources/images/onepix.gif:50"
+                link="/navigatorCmd.do?forwardName=MailProvider.content.main"
+                tooltip="nav.view.mail.provider" value="javamailprovider:resources"/>
+            <item classtype="com.ibm.ws.console.core.item.NavigatorItem"
+                icon="/com.ibm.ws.console.resources/images/onepix.gif:60"
+                link="/navigatorCmd.do?forwardName=ResourceEnvironmentProvider.content.main"
+                tooltip="nav.view.resource.env.provider" value="resourceenvprovider:resources"/>
+            <item classtype="com.ibm.ws.console.core.item.NavigatorItem"
+                icon="/com.ibm.ws.console.resources/images/onepix.gif:70"
+                link="/navigatorCmd.do?forwardName=URLProvider.content.main"
+                tooltip="nav.view.url.provider" value="urlprovider:resources"/>
+            <item classtype="com.ibm.ws.console.core.item.NavigatorItem"
+                icon="/com.ibm.ws.console.resources/images/onepix.gif:80"
+                link="/navigatorCmd.do?forwardName=J2CResourceAdapter.content.main"
+                tooltip="nav.view.j2c.resource.adapter" value="j2cresourceadapter:resources"/>
+            <item classtype="com.ibm.ws.console.core.item.NavigatorItem"
+                icon="/com.ibm.ws.console.security/images/Security.gif:40"
+                link="" tooltip="Security.SecurityCenter.displayName" value="SecurityCenter:root"/>
+            <item classtype="com.ibm.ws.console.core.item.NavigatorItem"
+                icon="/com.ibm.ws.console.security/images/Security.gif:10"
+                link="/navigatorCmd.do?forwardName=Security.config.view"
+                tooltip="Security.displayName" value="security:SecurityCenter"/>
+            <item classtype="com.ibm.ws.console.core.item.NavigatorItem"
+                icon="/com.ibm.ws.console.security/images/SecureSocketLayer.gif:20"
+                link="/navigatorCmd.do?forwardName=SSLConfig.content.main"
+                tooltip="nav.ssl" value="SSLConfigs:SecurityCenter"/>
+            <item classtype="com.ibm.ws.console.core.item.NavigatorItem"
+                icon="/com.ibm.ws.console.security/images/AuthMechanism.gif:30"
+                link="" tooltip="Security.authMechanisms.displayName" value="AuthMechanism:SecurityCenter"/>
+            <item classtype="com.ibm.ws.console.core.item.NavigatorItem"
+                icon="/com.ibm.ws.console.security/images/AuthMechanism.gif:10"
+                link="/navigatorCmd.do?forwardName=LTPA.config.view"
+                tooltip="LTPA.displayName" value="LTPA:AuthMechanism"/>
+            <item classtype="com.ibm.ws.console.core.item.NavigatorItem"
+                icon="/com.ibm.ws.console.security/images/UserRegistry.gif:40"
+                link="" tooltip="Security.userRegistries.displayName" value="UserRegistries:SecurityCenter"/>
+            <item classtype="com.ibm.ws.console.core.item.NavigatorItem"
+                icon="/com.ibm.ws.console.security/images/UserRegistry.gif:10"
+                link="/navigatorCmd.do?forwardName=LocalOSUserRegistry.config.view"
+                tooltip="nav.user.registry.localos" value="LocalOSRegistry:UserRegistries"/>
+            <item classtype="com.ibm.ws.console.core.item.NavigatorItem"
+                icon="/com.ibm.ws.console.security/images/UserRegistry.gif:20"
+                link="/navigatorCmd.do?forwardName=LDAPUserRegistry.config.view"
+                tooltip="nav.user.registry.ldap" value="LDAPRegistry:UserRegistries"/>
+            <item classtype="com.ibm.ws.console.core.item.NavigatorItem"
+                icon="/com.ibm.ws.console.security/images/UserRegistry.gif:30"
+                link="/navigatorCmd.do?forwardName=CustomUserRegistry.config.view"
+                tooltip="nav.user.registry.custom" value="CustomRegistry:UserRegistries"/>
+            <item classtype="com.ibm.ws.console.core.item.NavigatorItem"
+                icon="/com.ibm.ws.console.security/images/Security.gif:50"
+                link="" tooltip="JAASConfiguration.displayName" value="JAASConfig:SecurityCenter"/>
+            <item classtype="com.ibm.ws.console.core.item.NavigatorItem"
+                icon="/com.ibm.ws.console.security/images/Security.gif:10"
+                link="/navigatorCmd.do?forwardName=JAASConfigurationEntry.content.main"
+                tooltip="nav.jaas.application" value="ApplLoginConfig:JAASConfig"/>
+            <item classtype="com.ibm.ws.console.core.item.NavigatorItem"
+                icon="/com.ibm.ws.console.security/images/Security.gif:20"
+                link="/navigatorCmd.do?forwardName=JAASAuthData.content.main"
+                tooltip="nav.jaas.j2c" value="AuthData:JAASConfig"/>
+            <item classtype="com.ibm.ws.console.core.item.NavigatorItem"
+                icon="/com.ibm.ws.console.security/images/Security.gif:60"
+                link="" tooltip="AuthenticationProtocol.displayName" value="AuthenticationProtocol:SecurityCenter"/>
+            <item classtype="com.ibm.ws.console.core.item.NavigatorItem"
+                icon="/com.ibm.ws.console.security/images/Security.gif:10"
+                link="/navigatorCmd.do?forwardName=CSIia.config.view"
+                tooltip="nav.auth.csi.auth.in" value="CSIia:AuthenticationProtocol"/>
+            <item classtype="com.ibm.ws.console.core.item.NavigatorItem"
+                icon="/com.ibm.ws.console.security/images/Security.gif:20"
+                link="/navigatorCmd.do?forwardName=CSIoa.config.view"
+                tooltip="nav.auth.csi.auth.out" value="CSIoa:AuthenticationProtocol"/>
+            <item classtype="com.ibm.ws.console.core.item.NavigatorItem"
+                icon="/com.ibm.ws.console.security/images/Security.gif:30"
+                link="/navigatorCmd.do?forwardName=CSIic.config.view"
+                tooltip="nav.auth.csi.trans.in" value="CSIic:AuthenticationProtocol"/>
+            <item classtype="com.ibm.ws.console.core.item.NavigatorItem"
+                icon="/com.ibm.ws.console.security/images/Security.gif:40"
+                link="/navigatorCmd.do?forwardName=CSIoc.config.view"
+                tooltip="nav.auth.csi.trans.out" value="CSIoc:AuthenticationProtocol"/>
+            <item classtype="com.ibm.ws.console.core.item.NavigatorItem"
+                icon="/com.ibm.ws.console.security/images/Security.gif:50"
+                link="/navigatorCmd.do?forwardName=IBMic.config.view"
+                tooltip="nav.auth.ibm.trans.in" value="IBMic:AuthenticationProtocol"/>
+            <item classtype="com.ibm.ws.console.core.item.NavigatorItem"
+                icon="/com.ibm.ws.console.security/images/Security.gif:60"
+                link="/navigatorCmd.do?forwardName=IBMoc.config.view"
+                tooltip="nav.auth.ibm.trans.out" value="IBMoc:AuthenticationProtocol"/>
+            <item classtype="com.ibm.ws.console.core.item.NavigatorItem"
+                icon=":50" link="" tooltip="nav.Environment.displayName" value="environment:root"/>
+            <item classtype="com.ibm.ws.console.core.item.NavigatorItem"
+                icon="/com.ibm.ws.console.environment/images/onepix.gif:10"
+                link="/navigatorCmd.do?forwardName=plugincfg"
+                tooltip="plugincfg.title" value="plugincfg:environment"/>
+            <item classtype="com.ibm.ws.console.core.item.NavigatorItem"
+                icon="/com.ibm.ws.console.environment/images/onepix.gif:20"
+                link="/navigatorCmd.do?forwardName=VirtualHost.content.main"
+                tooltip="nav.view.virtual.hosts" value="virtualhosts:environment"/>
+            <item classtype="com.ibm.ws.console.core.item.NavigatorItem"
+                icon="/com.ibm.ws.console.environment/images/onepix.gif:30"
+                link="/navigatorCmd.do?forwardName=VariableSubstitutionEntry.content.main"
+                tooltip="nav.view.variable.substitution.entry" value="variableSubstitutionEntry:environment"/>
+            <item classtype="com.ibm.ws.console.core.item.NavigatorItem"
+                icon="/com.ibm.ws.console.environment/images/onepix.gif:40"
+                link="/navigatorCmd.do?forwardName=Library.content.main"
+                tooltip="nav.view.libraries" value="libraries:environment"/>
+            <item classtype="com.ibm.ws.console.core.item.NavigatorItem"
+                icon=":60" link="" tooltip="nav.Naming.displayName" value="naming:environment"/>
+            <item classtype="com.ibm.ws.console.core.item.NavigatorItem"
+                icon="/com.ibm.ws.console.environment/images/onepix.gif:10"
+                link="/navigatorCmd.do?forwardName=NameSpaceBinding.content.main"
+                tooltip="nav.view.name.space.bindings" value="nameSpaceBindings:naming"/>
+            <item classtype="com.ibm.ws.console.core.item.NavigatorItem"
+                icon=":20"
+                link="/navigatorCmd.do?forwardName=console.naming.users.main"
+                tooltip="nav.naming.user.management:administrator" value="managenamingusers:naming"/>
+            <item classtype="com.ibm.ws.console.core.item.NavigatorItem"
+                icon=":30"
+                link="/navigatorCmd.do?forwardName=console.naming.groups.main"
+                tooltip="nav.naming.group.management:administrator" value="managenaminggroups:naming"/>
+            <item classtype="com.ibm.ws.console.core.item.NavigatorItem"
+                icon=":60" link="" tooltip="nav.SystemAdmin.displayName" value="systemadmin:root"/>
+            <item classtype="com.ibm.ws.console.core.item.NavigatorItem"
+                icon=":50"
+                link="/navigatorCmd.do?forwardName=console.users.main"
+                tooltip="nav.user.management:administrator" value="manageusers:systemadmin"/>
+            <item classtype="com.ibm.ws.console.core.item.NavigatorItem"
+                icon=":60"
+                link="/navigatorCmd.do?forwardName=console.groups.main"
+                tooltip="nav.group.management:administrator" value="managegroups:systemadmin"/>
+            <item classtype="com.ibm.ws.console.core.item.NavigatorItem"
+                icon="/com.ibm.ws.console.probdetermination/images/onepix.gif:70"
+                link="" tooltip="category.problem.determination" value="probmanagementcategory:root"/>
+            <item classtype="com.ibm.ws.console.core.item.NavigatorItem"
+                icon="/com.ibm.ws.console.probdetermination/images/onepix.gif:10"
+                link="/navigatorCmd.do?forwardName=Logsandtrace.content.main"
+                tooltip="task.problem.determination" value="probdeterminationtask:probmanagementcategory"/>
+            <item classtype="com.ibm.ws.console.core.item.NavigatorItem"
+                icon="/com.ibm.ws.console.probdetermination/images/onepix.gif:20"
+                link="/navigatorCmd.do?forwardName=configproblems.content.main"
+                tooltip="configproblems.main.label" value="configproblems:probmanagementcategory"/>
+            <item classtype="com.ibm.ws.console.core.item.NavigatorItem"
+                icon="/com.ibm.ws.console.probdetermination/images/onepix.gif:30"
+                link="/navigatorCmd.do?forwardName=PMIRequestMetrics.config.view"
+                tooltip="pmi.main.label" value="pmirm:probmanagementcategory"/>
+        </putList>
+    </definition>
+    <definition name="console.content.main" path="/secure/layouts/homePageLayout.jsp">
+        <putList name="homePageList">
+            <item
+                classtype="org.apache.struts.tiles.beans.SimpleMenuItem"
+                icon="" link="base.home.page" tooltip="" value="1"/>
+        </putList>
+    </definition>
+    <definition name="console.preferences.main" path="/secure/layouts/contentLayout.jsp">
+        <put name="descTitle" value="desc.preferences.title"/>
+        <put name="descImage" value=""/>
+        <put name="descText" value="desc.preferences.text"/>
+        <putList name="contentList">
+            <add value="console.preferences.list"/>
+        </putList>
+    </definition>
+    <definition
+        controllerClass="com.ibm.ws.console.core.controller.PreferenceController"
+        name="console.preferences.list" path="/secure/tiles/preferences.jsp">
+        <put name="parent" value="/secure/console.jsp"/>
+        <putList name="preferences">
+            <item
+                classtype="com.ibm.ws.console.core.item.PreferenceItem"
+                link="label.autorefresh.pref: :desc.autorefresh.pref:true" value="checkbox:System/workspace#auto-refresh:32"/>
+            <item
+                classtype="com.ibm.ws.console.core.item.PreferenceItem"
+                link="label.nodiscardconfirm.pref: :desc.nodiscardconfirm.pref:false" value="checkbox:System/workspace#noDiscardConfirm:32"/>
+            <item
+                classtype="com.ibm.ws.console.core.item.PreferenceItem"
+                link="label.usedefaultscope.pref: :desc.usedefaultscope.pref:false" value="checkbox:System/scope#usedefaultscope:32"/>
+            <item
+                classtype="com.ibm.ws.console.core.item.PreferenceItem"
+                link="label.bannershow.pref: :desc.bannershow.pref:true" value="checkbox:System/workspace#bannerShow:32"/>
+            <item
+                classtype="com.ibm.ws.console.core.item.PreferenceItem"
+                link="label.descriptionsshow.pref: :desc.descriptionsshow.pref:true" value="checkbox:System/workspace#descriptionsShow:32"/>
+        </putList>
+    </definition>
+    <definition name="console.sync.main" path="/secure/layouts/contentLayout.jsp">
+        <put name="descTitle" value="desc.sync.title"/>
+        <put name="descImage" value="images/save.gif"/>
+        <put name="descText" value="desc.sync.text"/>
+        <putList name="contentList">
+            <add value="/secure/tiles/synclist.jsp"/>
+        </putList>
+    </definition>
+    <definition name="console.sync.discard.main" path="/secure/layouts/contentLayout.jsp">
+        <put name="descTitle" value="desc.sync.discard.title"/>
+        <put name="descImage" value="images/save.gif"/>
+        <put name="descText" value="desc.sync.discard.text"/>
+        <putList name="contentList">
+            <add value="/secure/tiles/confirmDiscard.jsp"/>
+        </putList>
+    </definition>
+    <definition name="console.sync.conflict" path="/secure/layouts/contentLayout.jsp">
+        <put name="descTitle" value="desc.sync.conflict.title"/>
+        <put name="descImage" value="images/save.gif"/>
+        <put name="descText" value="desc.sync.conflict.text"/>
+        <putList name="contentList">
+            <add value="/secure/tiles/syncconflict.jsp"/>
+        </putList>
+    </definition>
+    <definition name="console.status.main" path="/secure/layouts/statusTrayLayout.jsp">
+        <put name="refresh" value="60000"/>
+        <putList name="statusPanels">
+            <item
+                classtype="org.apache.struts.tiles.beans.SimpleMenuItem"
+                icon=" : " link=":" value="/com.ibm.ws.console.events/runtime_messages.jsp:60000"/>
+            <item
+                classtype="org.apache.struts.tiles.beans.SimpleMenuItem"
+                icon=" : " link=":" value="/com.ibm.ws.console.probdetermination/config_problems.jsp:60000"/>
+        </putList>
+    </definition>
+    <definition name="quicksearch.main" path="/secure/layouts/quicksearchLayout.jsp">
+        <put name="selectUri" value=""/>
+        <put name="parameterName" value="quickSearchState"/>
+        <put name="collectionForm" value=""/>
+        <put name="searchLabelKey" value="quick.search.label"/>
+        <put name="searchInLabelKey" value="quick.search.search.in.label"/>
+        <put name="searchWithStringLabelKey" value="quick.search.with.string.label"/>
+        <put name="goLabelKey" value="quick.search.go.label"/>
+        <put name="openImage" value="images/lminus.gif"/>
+        <put name="closedImage" value="images/lplus.gif"/>
+        <put name="formAction" value=""/>
+        <put name="formName" value=""/>
+        <put name="formType" value=""/>
+        <putList name="searchList"/>
+    </definition>
+    <definition name="paging.main" path="/secure/layouts/pagingLayout.jsp">
+        <put name="pagingTotalLabelKey" value="paging.total.label"/>
+        <put name="pagingFilteredTotalLabelKey" value="paging.filtered.total.label"/>
+        <put name="pagingPreviousLabelKey" value="paging.previous.label"/>
+        <put name="pagingNextLabelKey" value="paging.next.label"/>
+        <put name="pagingPageLabelKey" value="paging.page.label"/>
+        <put name="pagingOfLabelKey" value="paging.of.label"/>
+        <put name="displayLabelKey" value=""/>
+        <put name="collectionForm" value=""/>
+        <put name="formAction" value=""/>
+        <put name="formName" value=""/>
+        <put name="formType" value=""/>
+    </definition>
+    <definition name="collection.table.main" path="/secure/layouts/collectionTableLayout.jsp">
+        <put name="iterationProperty" value="subsetList"/>
+        <put name="showCheckBoxes" value="true"/>
+        <put name="sortIconLocation" value="right"/>
+        <put name="columnWidth" value="25%"/>
+        <put name="idColumn" value=""/>
+        <put name="statusType" value="unknown"/>
+        <putList name="statusCols"/>
+    </definition>
+    <definition name="detail.config.view" path="/secure/layouts/configboxLayout.jsp">
+        <putList name="list">
+            <add value="detail.title"/>
+            <add value="detail.tabsLayout"/>
+        </putList>
+    </definition>
+    <definition name="detail.title" path="/secure/layouts/detailTitleLayout.jsp">
+        <put name="objectTypeImage" value=""/>
+        <put name="titleKey" value=""/>
+        <put name="collectionLink" value="link to collection view if any"/>
+        <put name="includeLink" value="yes or no"/>
+        <put name="instanceDetails" value="property describing instance"/>
+        <put name="instanceDescription" value="instance description"/>
+    </definition>
+    <definition name="detail.config.tab.view" path="/secure/layouts/configTabLayout.jsp">
+        <putList name="list">
+            <add value="buttons.panel"/>
+            <add value="type.config.general.properties"/>
+        </putList>
+    </definition>
+    <definition name="detail.buttons.panel" path="/secure/layouts/buttonLayout.jsp">
+        <put name="buttonCount" value="2"/>
+        <put name="definitionName" value="type.buttons.panel"/>
+        <putList name="actionList">
+            <item classtype="com.ibm.ws.console.core.item.ActionSetItem"
+                icon="" link="" tooltip="" value="action:uri"/>
+            <item classtype="com.ibm.ws.console.core.item.ActionSetItem"
+                icon="" link="" tooltip="" value="action:uri"/>
+        </putList>
+    </definition>
+    <definition name="detail.config.general.generic.properties" path="/secure/layouts/configGenGenericPropLayout.jsp">
+        <put name="formAction" value=""/>
+        <put name="showButtons" value="true"/>
+        <put name="formName" value=""/>
+        <put name="customJspName" value="custom.jsp"/>
+        <put name="formType" value=""/>
+        <put name="formFocus" value=""/>
+        <put name="readOnlyView" value="no"/>
+        <putList name="attributeList">
+            <!-- value is list of label,attribute name,isrequired,type,description,isReadonly,showdescription,enumValues(optional) and enumDesc(optional) -->
+            <item classtype="com.ibm.ws.console.core.item.PropertyItem"
+                icon="test" link="test" tooltip="test" value=""/>
+        </putList>
+    </definition>
+    <definition name="detail.runtime.general.generic.properties" path="/secure/layouts/runtimeGenGenericPropLayout.jsp">
+        <put name="formAction" value=""/>
+        <put name="showButtons" value="true"/>
+        <put name="showOkButton" value="true"/>
+        <put name="showApplyButton" value="true"/>
+        <put name="showResetButton" value="true"/>
+        <put name="showCancelButton" value="true"/>
+        <put name="formName" value=""/>
+        <put name="customJspName" value="custom.jsp"/>
+        <put name="formType" value=""/>
+        <put name="formFocus" value=""/>
+        <put name="readOnlyView" value="no"/>
+        <putList name="attributeList">
+            <!-- value is list of label,attribute name,isrequired,type,description,isReadonly,showdescription,enumValues(optional) and enumDesc(optional) -->
+            <item classtype="com.ibm.ws.console.core.item.PropertyItem"
+                icon="test" link="test" tooltip="test" value=""/>
+        </putList>
+    </definition>
+    <definition name="detail.config.general.properties" path="/secure/layouts/configGenPropLayout.jsp">
+        <put name="formAction" value=""/>
+        <put name="formName" value=""/>
+        <put name="formType" value=""/>
+        <put name="formFocus" value=""/>
+        <put name="readOnlyView" value="no"/>
+        <putList name="attributeList">
+            <!-- value is list of label,attribute name,isrequired,type,description,isReadonly,showdescription,enumValues(optional) and enumDesc(optional) -->
+            <item classtype="com.ibm.ws.console.core.item.PropertyItem"
+                icon="test" link="test" tooltip="test" value=""/>
+        </putList>
+    </definition>
+    <definition name="detail.config.additional.properties" path="/secure/layouts/addPropLayout.jsp">
+        <putList name="list">
+            <item
+                classtype="org.apache.struts.tiles.beans.SimpleMenuItem"
+                icon="" link="showCollection.do?id="
+                tooltip="description" value="displayname"/>
+        </putList>
+    </definition>
+    <definition name="buttons.panel" path="/secure/layouts/buttonLayout.jsp">
+        <put name="buttonCount" value="2"/>
+        <put name="definitionName" value="VirtualHost.buttons.panel"/>
+        <putList name="actionList">
+            <item classtype="com.ibm.ws.console.core.item.ActionSetItem"
+                icon="" link="" tooltip="" value="action:uri"/>
+            <item classtype="com.ibm.ws.console.core.item.ActionSetItem"
+                icon="" link="" tooltip="" value="action:uri"/>
+        </putList>
+    </definition>
+    <definition
+        controllerClass="com.ibm.ws.console.core.controller.SelectNodeController"
+        name="console.selectnode.main" path="/secure/layouts/contentLayout.jsp">
+        <put name="descTitle" value="node.select.title"/>
+        <put name="descImage" value="pluginId=com.ibm.ws.console.core"/>
+        <put name="descText" value="node.select.text"/>
+        <putList name="contentList">
+            <add value="console.selectnode.paging.extend"/>
+            <add value="console.selectnode.quicksearch.extend"/>
+            <add value="console.select.node"/>
+        </putList>
+    </definition>
+    <definition
+        controllerClass="com.ibm.ws.console.core.controller.SelectServerController"
+        name="console.selectserver.main" path="/secure/layouts/contentLayout.jsp">
+        <put name="descTitle" value="server.select.title"/>
+        <put name="descImage" value="pluginId=com.ibm.ws.console.core"/>
+        <put name="descText" value="server.select.text"/>
+        <putList name="contentList">
+            <add value="console.selectserver.paging.extend"/>
+            <add value="console.selectserver.quicksearch.extend"/>
+            <add value="console.select.server"/>
+        </putList>
+    </definition>
+    <definition name="console.select.node" path="/secure/layouts/genericCollectionLayout.jsp">
+        <put name="iterationName" value="selectNodeForm"/>
+        <put name="iterationProperty" value="subsetList"/>
+        <put name="selectionType" value="single"/>
+        <put name="createButtons" value="true"/>
+        <put name="selectName" value="selectedNode"/>
+        <put name="formAction" value="selectnode.do"/>
+        <put name="formName" value="selectNodeForm"/>
+        <put name="formType" value="com.ibm.ws.console.core.form.NodesCollectionForm"/>
+        <put name="includeButtonTile" value="false"/>
+        <putList name="columnList">
+            <item
+                classtype="com.ibm.ws.console.core.item.CollectionItem"
+                icon="" link="" tooltip="label.node" value="node:sort"/>
+            <item
+                classtype="com.ibm.ws.console.core.item.CollectionItem"
+                icon="" link="" tooltip="label.cell" value="cell:nosort"/>
+        </putList>
+    </definition>
+    <definition name="console.select.server" path="/secure/layouts/genericCollectionLayout.jsp">
+        <put name="iterationName" value="selectServerForm"/>
+        <put name="iterationProperty" value="subsetList"/>
+        <put name="selectionType" value="single"/>
+        <put name="createButtons" value="true"/>
+        <put name="selectName" value="selectedServer"/>
+        <put name="formAction" value="selectserver.do"/>
+        <put name="formName" value="selectServerForm"/>
+        <put name="formType" value="com.ibm.ws.console.core.form.ServersCollectionForm"/>
+        <put name="includeButtonTile" value="false"/>
+        <putList name="columnList">
+            <item
+                classtype="com.ibm.ws.console.core.item.CollectionItem"
+                icon="" link="" tooltip="label.server" value="server:sort"/>
+            <item
+                classtype="com.ibm.ws.console.core.item.CollectionItem"
+                icon="" link="" tooltip="label.node" value="node:nosort"/>
+        </putList>
+    </definition>
+    <definition extends="quicksearch.main" name="console.selectserver.quicksearch.extend">
+        <put name="selectUri" value="selectserver.do?ToggleViewAction=true"/>
+        <put name="collectionForm" value="selectServerForm"/>
+        <put name="formAction" value="selectserver.do"/>
+        <put name="formName" value="selectServerForm"/>
+        <put name="formType" value="com.ibm.ws.console.core.form.ServersCollectionForm"/>
+        <putList name="searchList">
+            <add value="servers.displayName:server"/>
+        </putList>
+    </definition>
+    <definition extends="paging.main" name="console.selectserver.paging.extend">
+        <put name="displayLabelKey" value="servers.displayName"/>
+        <put name="collectionForm" value="selectServerForm"/>
+        <put name="formAction" value="selectserver.do"/>
+        <put name="formName" value="selectServerForm"/>
+        <put name="formType" value="com.ibm.ws.console.core.form.ServersCollectionForm"/>
+    </definition>
+    <definition extends="quicksearch.main" name="console.selectnode.quicksearch.extend">
+        <put name="selectUri" value="selectnode.do?ToggleViewAction=true"/>
+        <put name="collectionForm" value="selectNodeForm"/>
+        <put name="formAction" value="selectnode.do"/>
+        <put name="formName" value="selectNodeForm"/>
+        <put name="formType" value="com.ibm.ws.console.core.form.NodesCollectionForm"/>
+        <putList name="searchList">
+            <add value="nodes.displayName:node"/>
+        </putList>
+    </definition>
+    <definition extends="paging.main" name="console.selectnode.paging.extend">
+        <put name="displayLabelKey" value="nodes.displayName"/>
+        <put name="collectionForm" value="selectNodeForm"/>
+        <put name="formAction" value="selectnode.do"/>
+        <put name="formName" value="selectNodeForm"/>
+        <put name="formType" value="com.ibm.ws.console.core.form.NodesCollectionForm"/>
+    </definition>
+    <definition
+        controllerClass="com.ibm.ws.console.core.controller.ManageUsersController"
+        name="console.users.main" path="/secure/layouts/contentLayout.jsp">
+        <put name="descTitle" value="desc.users.title"/>
+        <put name="descImage" value="pluginId=com.ibm.ws.console.core"/>
+        <put name="descText" value="desc.users.text"/>
+        <putList name="contentList">
+            <add value="console.users.paging.extend"/>
+            <add value="console.users.quicksearch.extend"/>
+            <add value="console.users.list"/>
+        </putList>
+    </definition>
+    <definition extends="quicksearch.main" name="console.users.quicksearch.extend">
+        <put name="selectUri" value="manageusers.do?ToggleViewAction=true"/>
+        <put name="collectionForm" value="manageAdminUsersForm"/>
+        <put name="formAction" value="manageusers.do?type=admin"/>
+        <put name="formName" value="manageAdminUsersForm"/>
+        <put name="formType" value="com.ibm.ws.console.core.form.ManageUsersForm"/>
+        <putList name="searchList">
+            <add value="users.displayName:user"/>
+        </putList>
+    </definition>
+    <definition extends="paging.main" name="console.users.paging.extend">
+        <put name="displayLabelKey" value="users.displayName"/>
+        <put name="collectionForm" value="manageAdminUsersForm"/>
+        <put name="formAction" value="manageusers.do?type=admin"/>
+        <put name="formName" value="manageAdminUsersForm"/>
+        <put name="formType" value="com.ibm.ws.console.core.form.ManageUsersForm"/>
+    </definition>
+    <definition name="console.users.list" path="/secure/layouts/genericCollectionLayout.jsp">
+        <put name="iterationName" value="manageAdminUsersForm"/>
+        <put name="iterationProperty" value="subsetList"/>
+        <put name="selectionType" value="multiple"/>
+        <put name="createButtons" value="false"/>
+        <put name="selectName" value="selectedUsers"/>
+        <put name="formAction" value="manageusers.do?type=admin"/>
+        <put name="formName" value="manageAdminUsersForm"/>
+        <put name="formType" value="com.ibm.ws.console.core.form.ManageUsersForm"/>
+        <put name="includeButtonTile" value="true"/>
+        <put name="buttonCount" value="3"/>
+        <put name="definitionName" value="console.users.list"/>
+        <put name="includeForm" value="no"/>
+        <putList name="columnList">
+            <item
+                classtype="com.ibm.ws.console.core.item.CollectionItem"
+                icon=""
+                link="manageusers.do?action=update&amp;type=admin"
+                tooltip="label.user" value="user:sort"/>
+            <item
+                classtype="com.ibm.ws.console.core.item.CollectionItem"
+                icon="" link="" tooltip="label.role" value="displayRole:sort"/>
+            <item
+                classtype="com.ibm.ws.console.core.item.CollectionItem"
+                icon="" link="" tooltip="label.status" value="status:sort"/>
+        </putList>
+        <putList name="actionList">
+            <item classtype="com.ibm.ws.console.core.item.ActionSetItem"
+                icon="" link="" tooltip="" value="button.logout:manageusers.do?type=admin"/>
+            <item classtype="com.ibm.ws.console.core.item.ActionSetItem"
+                icon="" link="" tooltip="" value="button.add:manageusers.do?type=admin"/>
+            <item classtype="com.ibm.ws.console.core.item.ActionSetItem"
+                icon="" link="" tooltip="" value="button.remove:manageusers.do?type=admin"/>
+        </putList>
+    </definition>
+    <definition name="console.users.detail.main" path="/secure/layouts/configboxLayout.jsp">
+        <putList name="list">
+            <add value="console.users.detail.title"/>
+            <add value="console.users.general.properties"/>
+        </putList>
+    </definition>
+    <definition name="console.users.detail.title" path="/secure/layouts/detailTitleLayout.jsp">
+        <put name="formName" value="userDetailForm"/>
+        <put name="objectTypeImage" value="pluginId=com.ibm.ws.console.core"/>
+        <put name="titleKey" value="label.user"/>
+        <put name="collectionLink" value="forwardCmd.do?forwardName=console.users.main&amp;noChange=true"/>
+        <put name="includeLink" value="yes"/>
+        <put name="instanceDetails" value="user"/>
+        <put name="instanceDescription" value="desc.users.text"/>
+        <put name="displayName" value="label.user"/>
+    </definition>
+    <definition extends="detail.config.general.properties" name="console.users.general.properties">
+        <put name="formAction" value="userdetail.do?type=admin"/>
+        <put name="formName" value="userDetailForm"/>
+        <put name="formType" value="com.ibm.ws.console.resources.UserDetailForm"/>
+        <put name="formFocus" value="user"/>
+        <put name="readOnlyView" value="no"/>
+        <putList name="attributeList">
+            <item classtype="com.ibm.ws.console.core.item.PropertyItem"
+                icon="" link="" tooltip="" value="label.user:user:yes:Text:label.user.desc:no:yes"/>
+            <item classtype="com.ibm.ws.console.core.item.PropertyItem"
+                icon="" link="" tooltip="" value="label.role:role:yes:DynamicSelect:label.role.desc:no:yes:roleValue:roleDesc:0:true"/>
+        </putList>
+    </definition>
+    <definition name="console.users.detail.main.update" path="/secure/layouts/configboxLayout.jsp">
+        <putList name="list">
+            <add value="console.users.detail.title"/>
+            <add value="console.users.general.properties.update"/>
+        </putList>
+    </definition>
+    <definition extends="detail.config.general.properties" name="console.users.general.properties.update">
+        <put name="formAction" value="userdetail.do?type=admin"/>
+        <put name="formName" value="userDetailForm"/>
+        <put name="formType" value="com.ibm.ws.console.resources.UserDetailForm"/>
+        <put name="formFocus" value="user"/>
+        <put name="readOnlyView" value="no"/>
+        <putList name="attributeList">
+            <item classtype="com.ibm.ws.console.core.item.PropertyItem"
+                icon="" link="" tooltip="" value="label.user:user:yes:Text:label.user.desc:yes:yes"/>
+            <item classtype="com.ibm.ws.console.core.item.PropertyItem"
+                icon="" link="" tooltip="" value="label.role:role:yes:DynamicSelect:label.role.desc:no:yes:roleValue:roleDesc:0:true"/>
+        </putList>
+    </definition>
+    <definition
+        controllerClass="com.ibm.ws.console.core.controller.ManageGroupsController"
+        name="console.groups.main" path="/secure/layouts/contentLayout.jsp">
+        <put name="descTitle" value="desc.groups.title"/>
+        <put name="descImage" value="pluginId=com.ibm.ws.console.core"/>
+        <put name="descText" value="desc.groups.text"/>
+        <putList name="contentList">
+            <add value="console.groups.paging.extend"/>
+            <add value="console.groups.quicksearch.extend"/>
+            <add value="console.groups.list"/>
+        </putList>
+    </definition>
+    <definition extends="quicksearch.main" name="console.groups.quicksearch.extend">
+        <put name="selectUri" value="managegroups.do?ToggleViewAction=true"/>
+        <put name="collectionForm" value="manageAdminGroupsForm"/>
+        <put name="formAction" value="managegroups.do?type=admin"/>
+        <put name="formName" value="manageAdminGroupsForm"/>
+        <put name="formType" value="com.ibm.ws.console.core.form.ManageGroupsForm"/>
+        <putList name="searchList">
+            <add value="groups.displayName:group"/>
+        </putList>
+    </definition>
+    <definition extends="paging.main" name="console.groups.paging.extend">
+        <put name="displayLabelKey" value="groups.displayName"/>
+        <put name="collectionForm" value="manageAdminGroupsForm"/>
+        <put name="formAction" value="managegroups.do?type=admin"/>
+        <put name="formName" value="manageAdminGroupsForm"/>
+        <put name="formType" value="com.ibm.ws.console.core.form.ManageGroupsForm"/>
+    </definition>
+    <definition name="console.groups.list" path="/secure/layouts/genericCollectionLayout.jsp">
+        <put name="iterationName" value="manageAdminGroupsForm"/>
+        <put name="iterationProperty" value="subsetList"/>
+        <put name="selectionType" value="multiple"/>
+        <put name="createButtons" value="false"/>
+        <put name="selectName" value="selectedGroups"/>
+        <put name="formAction" value="managegroups.do?type=admin"/>
+        <put name="formName" value="manageAdminGroupsForm"/>
+        <put name="formType" value="com.ibm.ws.console.core.form.ManageGroupsForm"/>
+        <put name="includeButtonTile" value="true"/>
+        <put name="buttonCount" value="2"/>
+        <put name="definitionName" value="console.groups.list"/>
+        <put name="includeForm" value="no"/>
+        <putList name="columnList">
+            <item
+                classtype="com.ibm.ws.console.core.item.CollectionItem"
+                icon=""
+                link="managegroups.do?action=update&amp;type=admin"
+                tooltip="label.group" value="group:sort"/>
+            <item
+                classtype="com.ibm.ws.console.core.item.CollectionItem"
+                icon="" link="" tooltip="label.role" value="displayRole:sort"/>
+        </putList>
+        <putList name="actionList">
+            <item classtype="com.ibm.ws.console.core.item.ActionSetItem"
+                icon="" link="" tooltip="" value="button.add:managegroups.do?type=admin"/>
+            <item classtype="com.ibm.ws.console.core.item.ActionSetItem"
+                icon="" link="" tooltip="" value="button.remove:managegroups.do?type=admin"/>
+        </putList>
+    </definition>
+    <definition name="console.groups.detail.main" path="/secure/layouts/configboxLayout.jsp">
+        <putList name="list">
+            <add value="console.groups.detail.title"/>
+            <add value="console.groups.general.properties"/>
+        </putList>
+    </definition>
+    <definition name="console.groups.detail.title" path="/secure/layouts/detailTitleLayout.jsp">
+        <put name="formName" value="groupDetailForm"/>
+        <put name="objectTypeImage" value="pluginId=com.ibm.ws.console.core"/>
+        <put name="titleKey" value="label.group"/>
+        <put name="collectionLink" value="forwardCmd.do?forwardName=console.groups.main&amp;noChange=true"/>
+        <put name="includeLink" value="yes"/>
+        <put name="instanceDetails" value="group"/>
+        <put name="instanceDescription" value="desc.groups.text"/>
+        <put name="displayName" value="label.group"/>
+    </definition>
+    <definition extends="detail.config.general.properties" name="console.groups.general.properties">
+        <put name="formAction" value="groupdetail.do?type=admin"/>
+        <put name="formName" value="groupDetailForm"/>
+        <put name="formType" value="com.ibm.ws.console.resources.GroupDetailForm"/>
+        <put name="formFocus" value="group"/>
+        <put name="readOnlyView" value="no"/>
+        <putList name="attributeList">
+            <item classtype="com.ibm.ws.console.core.item.PropertyItem"
+                icon="" link="" tooltip="" value="label.group:group:yes:Custom:label.group.desc:no:yes: : :/secure/tiles/groupAddTile.jsp"/>
+            <item classtype="com.ibm.ws.console.core.item.PropertyItem"
+                icon="" link="" tooltip="" value="label.role:role:yes:DynamicSelect:label.role.desc:no:yes:roleValue:roleDesc:0:true"/>
+        </putList>
+    </definition>
+    <definition name="console.groups.detail.main.update" path="/secure/layouts/configboxLayout.jsp">
+        <putList name="list">
+            <add value="console.groups.detail.title"/>
+            <add value="console.groups.general.properties.update"/>
+        </putList>
+    </definition>
+    <definition extends="detail.config.general.properties" name="console.groups.general.properties.update">
+        <put name="formAction" value="groupdetail.do?type=admin"/>
+        <put name="formName" value="groupDetailForm"/>
+        <put name="formType" value="com.ibm.ws.console.resources.GroupDetailForm"/>
+        <put name="formFocus" value="group"/>
+        <put name="readOnlyView" value="no"/>
+        <putList name="attributeList">
+            <item classtype="com.ibm.ws.console.core.item.PropertyItem"
+                icon="" link="" tooltip="" value="label.group:group:yes:Text:label.group.desc:yes:yes"/>
+            <item classtype="com.ibm.ws.console.core.item.PropertyItem"
+                icon="" link="" tooltip="" value="label.role:role:yes:DynamicSelect:label.role.desc:no:yes:roleValue:roleDesc:0:true"/>
+        </putList>
+    </definition>
+    <definition
+        controllerClass="com.ibm.ws.console.core.controller.ManageUsersController"
+        name="console.naming.users.main" path="/secure/layouts/contentLayout.jsp">
+        <put name="descTitle" value="desc.naming.users.title"/>
+        <put name="descImage" value="pluginId=com.ibm.ws.console.core"/>
+        <put name="descText" value="desc.naming.users.text"/>
+        <putList name="contentList">
+            <add value="console.naming.users.paging.extend"/>
+            <add value="console.naming.users.quicksearch.extend"/>
+            <add value="console.naming.users.list"/>
+        </putList>
+    </definition>
+    <definition extends="quicksearch.main" name="console.naming.users.quicksearch.extend">
+        <put name="selectUri" value="managenamingusers.do?ToggleViewAction=true"/>
+        <put name="collectionForm" value="manageNamingUsersForm"/>
+        <put name="formAction" value="managenamingusers.do?type=naming"/>
+        <put name="formName" value="manageNamingUsersForm"/>
+        <put name="formType" value="com.ibm.ws.console.core.form.ManageUsersForm"/>
+        <putList name="searchList">
+            <add value="users.naming.displayName:user"/>
+        </putList>
+    </definition>
+    <definition extends="paging.main" name="console.naming.users.paging.extend">
+        <put name="displayLabelKey" value="users.naming.displayName"/>
+        <put name="collectionForm" value="manageNamingUsersForm"/>
+        <put name="formAction" value="managenamingusers.do?type=naming"/>
+        <put name="formName" value="manageNamingUsersForm"/>
+        <put name="formType" value="com.ibm.ws.console.core.form.ManageUsersForm"/>
+    </definition>
+    <definition name="console.naming.users.list" path="/secure/layouts/genericCollectionLayout.jsp">
+        <put name="iterationName" value="manageNamingUsersForm"/>
+        <put name="iterationProperty" value="subsetList"/>
+        <put name="selectionType" value="multiple"/>
+        <put name="createButtons" value="false"/>
+        <put name="selectName" value="selectedUsers"/>
+        <put name="formAction" value="managenamingusers.do?type=naming"/>
+        <put name="formName" value="manageNamingUsersForm"/>
+        <put name="formType" value="com.ibm.ws.console.core.form.ManageUsersForm"/>
+        <put name="includeButtonTile" value="true"/>
+        <put name="buttonCount" value="2"/>
+        <put name="definitionName" value="console.naming.users.list"/>
+        <put name="includeForm" value="no"/>
+        <putList name="columnList">
+            <item
+                classtype="com.ibm.ws.console.core.item.CollectionItem"
+                icon=""
+                link="managenamingusers.do?action=update&amp;type=naming"
+                tooltip="label.user" value="user:sort"/>
+            <item
+                classtype="com.ibm.ws.console.core.item.CollectionItem"
+                icon="" link="" tooltip="label.role" value="displayRole:sort"/>
+        </putList>
+        <putList name="actionList">
+            <item classtype="com.ibm.ws.console.core.item.ActionSetItem"
+                icon="" link="" tooltip="" value="button.add:managenamingusers.do?type=naming"/>
+            <item classtype="com.ibm.ws.console.core.item.ActionSetItem"
+                icon="" link="" tooltip="" value="button.remove:managenamingusers.do?type=naming"/>
+        </putList>
+    </definition>
+    <definition name="console.naming.users.detail.main" path="/secure/layouts/configboxLayout.jsp">
+        <putList name="list">
+            <add value="console.naming.users.detail.title"/>
+            <add value="console.naming.users.general.properties"/>
+        </putList>
+    </definition>
+    <definition name="console.naming.users.detail.title" path="/secure/layouts/detailTitleLayout.jsp">
+        <put name="formName" value="userDetailForm"/>
+        <put name="objectTypeImage" value="pluginId=com.ibm.ws.console.core"/>
+        <put name="titleKey" value="label.user"/>
+        <put name="collectionLink" value="forwardCmd.do?forwardName=console.naming.users.main&amp;noChange=true"/>
+        <put name="includeLink" value="yes"/>
+        <put name="instanceDetails" value="user"/>
+        <put name="instanceDescription" value="desc.naming.users.text"/>
+        <put name="displayName" value="label.user"/>
+    </definition>
+    <definition extends="detail.config.general.properties" name="console.naming.users.general.properties">
+        <put name="formAction" value="naminguserdetail.do?type=naming"/>
+        <put name="formName" value="userDetailForm"/>
+        <put name="formType" value="com.ibm.ws.console.resources.UserDetailForm"/>
+        <put name="formFocus" value="user"/>
+        <put name="readOnlyView" value="no"/>
+        <putList name="attributeList">
+            <item classtype="com.ibm.ws.console.core.item.PropertyItem"
+                icon="" link="" tooltip="" value="label.user:user:yes:Text:label.user.desc:no:yes"/>
+            <item classtype="com.ibm.ws.console.core.item.PropertyItem"
+                icon="" link="" tooltip="" value="label.role:role:yes:DynamicSelect:label.role.desc:no:yes:namingRoleValue:namingRoleDesc:0:true"/>
+        </putList>
+    </definition>
+    <definition name="console.naming.users.detail.main.update" path="/secure/layouts/configboxLayout.jsp">
+        <putList name="list">
+            <add value="console.naming.users.detail.title"/>
+            <add value="console.naming.users.general.properties.update"/>
+        </putList>
+    </definition>
+    <definition extends="detail.config.general.properties" name="console.naming.users.general.properties.update">
+        <put name="formAction" value="naminguserdetail.do?type=naming"/>
+        <put name="formName" value="userDetailForm"/>
+        <put name="formType" value="com.ibm.ws.console.resources.UserDetailForm"/>
+        <put name="formFocus" value="user"/>
+        <put name="readOnlyView" value="no"/>
+        <putList name="attributeList">
+            <item classtype="com.ibm.ws.console.core.item.PropertyItem"
+                icon="" link="" tooltip="" value="label.user:user:yes:Text:label.user.desc:yes:yes"/>
+            <item classtype="com.ibm.ws.console.core.item.PropertyItem"
+                icon="" link="" tooltip="" value="label.role:role:yes:DynamicSelect:label.role.desc:no:yes:namingRoleValue:namingRoleDesc:0:true"/>
+        </putList>
+    </definition>
+    <definition
+        controllerClass="com.ibm.ws.console.core.controller.ManageGroupsController"
+        name="console.naming.groups.main" path="/secure/layouts/contentLayout.jsp">
+        <put name="descTitle" value="desc.naming.groups.title"/>
+        <put name="descImage" value="pluginId=com.ibm.ws.console.core"/>
+        <put name="descText" value="desc.naming.groups.text"/>
+        <putList name="contentList">
+            <add value="console.naming.groups.paging.extend"/>
+            <add value="console.naming.groups.quicksearch.extend"/>
+            <add value="console.naming.groups.list"/>
+        </putList>
+    </definition>
+    <definition extends="quicksearch.main" name="console.naming.groups.quicksearch.extend">
+        <put name="selectUri" value="managenaminggroups.do?ToggleViewAction=true"/>
+        <put name="collectionForm" value="manageNamingGroupsForm"/>
+        <put name="formAction" value="managenaminggroups.do?type=naming"/>
+        <put name="formName" value="manageNamingGroupsForm"/>
+        <put name="formType" value="com.ibm.ws.console.core.form.ManageGroupsForm"/>
+        <putList name="searchList">
+            <add value="groups.displayName:group"/>
+        </putList>
+    </definition>
+    <definition extends="paging.main" name="console.naming.groups.paging.extend">
+        <put name="displayLabelKey" value="groups.naming.displayName"/>
+        <put name="collectionForm" value="manageNamingGroupsForm"/>
+        <put name="formAction" value="managenaminggroups.do?type=naming"/>
+        <put name="formName" value="manageNamingGroupsForm"/>
+        <put name="formType" value="com.ibm.ws.console.core.form.ManageGroupsForm"/>
+    </definition>
+    <definition name="console.naming.groups.list" path="/secure/layouts/genericCollectionLayout.jsp">
+        <put name="iterationName" value="manageNamingGroupsForm"/>
+        <put name="iterationProperty" value="subsetList"/>
+        <put name="selectionType" value="multiple"/>
+        <put name="createButtons" value="false"/>
+        <put name="selectName" value="selectedGroups"/>
+        <put name="formAction" value="managenaminggroups.do?type=naming"/>
+        <put name="formName" value="manageNamingGroupsForm"/>
+        <put name="formType" value="com.ibm.ws.console.core.form.ManageGroupsForm"/>
+        <put name="includeButtonTile" value="true"/>
+        <put name="buttonCount" value="2"/>
+        <put name="definitionName" value="console.naming.groups.list"/>
+        <put name="includeForm" value="no"/>
+        <putList name="columnList">
+            <item
+                classtype="com.ibm.ws.console.core.item.CollectionItem"
+                icon=""
+                link="managenaminggroups.do?action=update&amp;type=naming"
+                tooltip="label.group" value="group:sort"/>
+            <item
+                classtype="com.ibm.ws.console.core.item.CollectionItem"
+                icon="" link="" tooltip="label.role" value="displayRole:sort"/>
+        </putList>
+        <putList name="actionList">
+            <item classtype="com.ibm.ws.console.core.item.ActionSetItem"
+                icon="" link="" tooltip="" value="button.add:managenaminggroups.do?type=naming"/>
+            <item classtype="com.ibm.ws.console.core.item.ActionSetItem"
+                icon="" link="" tooltip="" value="button.remove:managenaminggroups.do?type=naming"/>
+        </putList>
+    </definition>
+    <definition name="console.naming.groups.detail.main" path="/secure/layouts/configboxLayout.jsp">
+        <putList name="list">
+            <add value="console.naming.groups.detail.title"/>
+            <add value="console.naming.groups.general.properties"/>
+        </putList>
+    </definition>
+    <definition name="console.naming.groups.detail.title" path="/secure/layouts/detailTitleLayout.jsp">
+        <put name="formName" value="groupDetailForm"/>
+        <put name="objectTypeImage" value="pluginId=com.ibm.ws.console.core"/>
+        <put name="titleKey" value="label.group"/>
+        <put name="collectionLink" value="forwardCmd.do?forwardName=console.naming.groups.main&amp;noChange=true"/>
+        <put name="includeLink" value="yes"/>
+        <put name="instanceDetails" value="group"/>
+        <put name="instanceDescription" value="desc.naming.groups.text"/>
+        <put name="displayName" value="label.group"/>
+    </definition>
+    <definition extends="detail.config.general.properties" name="console.naming.groups.general.properties">
+        <put name="formAction" value="naminggroupdetail.do?type=naming"/>
+        <put name="formName" value="groupDetailForm"/>
+        <put name="formType" value="com.ibm.ws.console.resources.GroupDetailForm"/>
+        <put name="formFocus" value="group"/>
+        <put name="readOnlyView" value="no"/>
+        <putList name="attributeList">
+            <item classtype="com.ibm.ws.console.core.item.PropertyItem"
+                icon="" link="" tooltip="" value="label.group:group:yes:Custom:label.group.desc:no:yes: : :/secure/tiles/groupAddTile.jsp"/>
+            <item classtype="com.ibm.ws.console.core.item.PropertyItem"
+                icon="" link="" tooltip="" value="label.role:role:yes:DynamicSelect:label.role.desc:no:yes:namingRoleValue:namingRoleDesc:0:true"/>
+        </putList>
+    </definition>
+    <definition name="console.naming.groups.detail.main.update" path="/secure/layouts/configboxLayout.jsp">
+        <putList name="list">
+            <add value="console.naming.groups.detail.title"/>
+            <add value="console.naming.groups.general.properties.update"/>
+        </putList>
+    </definition>
+    <definition extends="detail.config.general.properties" name="console.naming.groups.general.properties.update">
+        <put name="formAction" value="naminggroupdetail.do?type=naming"/>
+        <put name="formName" value="groupDetailForm"/>
+        <put name="formType" value="com.ibm.ws.console.resources.GroupDetailForm"/>
+        <put name="formFocus" value="group"/>
+        <put name="readOnlyView" value="no"/>
+        <putList name="attributeList">
+            <item classtype="com.ibm.ws.console.core.item.PropertyItem"
+                icon="" link="" tooltip="" value="label.group:group:yes:Text:label.group.desc:yes:yes"/>
+            <item classtype="com.ibm.ws.console.core.item.PropertyItem"
+                icon="" link="" tooltip="" value="label.role:role:yes:DynamicSelect:label.role.desc:no:yes:namingRoleValue:namingRoleDesc:0:true"/>
+        </putList>
+    </definition>
+    <definition
+        controllerClass="com.ibm.ws.console.core.core.BrowseRemoteController"
+        name="remote.node.browse" path="/secure/layouts/BrowseNodePanel.jsp">
+        <put name="titleKey" value="browse.remote.title"/>
+        <put name="descKey" value="click.node.name.to.browse"/>
+        <put name="select" value="multi"/>
+        <put name="fileExt" value="*"/>
+        <put name="backTo" value="console.content.main"/>
+        <put name="nodeBrowse" value="remote.node.browse"/>
+    </definition>
+    <definition name="remote.file.browse" path="/secure/layouts/BrowseFilePanel.jsp">
+        <put name="titleKey" value="browse.remote.title"/>
+        <put name="descKey" value="browse.remote.description"/>
+    </definition>
+</tiles-definitions>

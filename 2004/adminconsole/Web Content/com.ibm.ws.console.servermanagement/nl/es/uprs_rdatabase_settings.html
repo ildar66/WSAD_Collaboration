@@ -1,0 +1,100 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Valores de base de datos</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="database_settings"></a>
+<h2>Valores de base de datos</h2>
+
+<p>Utilice esta p&aacute;gina para especificar los valores del soporte de sesi&oacute;n de base de datos.</p>
+
+<p>Para ver esta p&aacute;gina de la consola administrativa, pulse
+<strong>Servidores</strong> &gt; <strong>Servidores de aplicaciones</strong> &gt;
+<em>nombre_servidor</em> &gt; <strong>Contenedor Web</strong> &gt; <strong>Gesti&oacute;n de
+sesiones</strong> &gt; <strong>Valores de entorno distribuido</strong> &gt;
+<strong>Base de datos</strong>.</p>
+
+<div>
+<p>
+<strong>Pesta&ntilde;a Configuraci&oacute;n</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="SessionDatabasePersistence_datasourceJNDIName_description"></a>Nombre JNDI de origen de datos</strong>
+</dt>
+<dd>Especifica la descripci&oacute;n del origen de datos.
+<p>El nombre JNDI del origen de datos no habilitado para XA desde donde la gesti&oacute;n de
+sesiones obtiene las conexiones de base de datos.   Por ejemplo, si el nombre JNDI del origen de datos es "jdbc/sessions", especifique
+"jdbc/sessions."  El origen de datos representa una
+agrupaci&oacute;n de conexiones de bases de datos y una configuraci&oacute;n para dicha
+agrupaci&oacute;n (como el tama&ntilde;o de la agrupaci&oacute;n). El origen de datos ya debe existir como un recurso configurado en el entorno. </p>
+
+</dd>
+<dt>
+<strong><a name="SessionDatabasePersistence_userId_description"></a>ID de usuario</strong>
+            &nbsp;
+            </dt>
+<dd>Especifica el ID de usuario para el acceso a bases de datos</dd>
+<dt>
+<strong><a name="SessionDatabasePersistence_password_description"></a>Contrase&ntilde;a</strong>
+            &nbsp;
+            </dt>
+<dd>Especifica la contrase&ntilde;a para el acceso a bases de datos</dd>
+<dt>
+<strong><a name="SessionDatabasePersistence_password2_description"></a>Confirmar contrase&ntilde;a</strong>
+            &nbsp;
+            </dt>
+<dd>Especifica la contrase&ntilde;a una segunda vez para confirmar que se entr&oacute; correctamente.</dd>
+<dt>
+<strong><a name="SessionDatabasePersistence_db2RowSize_description"></a>Tama&ntilde;o de fila de DB2</strong>
+            &nbsp;
+            </dt>
+<dd>Especifica el tama&ntilde;o de p&aacute;gina del espacio de tablas configurado para la tabla de
+sesiones, si utiliza una base de datos DB2. Los valores posibles son 4, 8, 16 y 32 kilobytes
+(K).   El tama&ntilde;o de fila por omisi&oacute;n es 4K.
+<p>El tama&ntilde;o de fila por omisi&oacute;n es 4K. En DB2, puede actualizarse en un valor superior.
+Esto puede mejorar el rendimiento de la base de datos en algunos entornos.  Cuando este valor es distinto de 4, debe
+especificar el Nombre de espacio de tablas que va a utilizar. Para p&aacute;ginas de 4 K, el Nombre de espacio de tablas es opcional. </p>
+
+</dd>
+<dt>
+<strong><a name="SessionDatabasePersistence_tableSpaceName_description"></a>Nombre de espacio de tablas</strong>
+            &nbsp;
+            </dt>
+<dd>Especifica el espacio de tablas que se va a utilizar para la tabla de sesiones. 
+<p>Este valor es necesario cuando el tama&ntilde;o de p&aacute;gina de DB2 es distinto de 4K.</p>
+
+</dd>
+<dt>
+<strong><a name="TuningParams_usingRowSchema_description"></a>Utilizar sesiones de varias filas  </strong>
+</dt>
+<dd>Especifica que debe ubicarse cada instancia de los datos de la aplicaci&oacute;n en una
+fila por separado en la base de datos, permitiendo que en cada sesi&oacute;n se almacenen
+grandes cantidades de datos. Con ello puede obtenerse un mejor rendimiento en determinados
+ejemplos de uso. Si la utilizaci&oacute;n del esquema de varias filas no est&aacute; habilitado. se pueden ubicar
+instancias de datos de aplicaci&oacute;n en la misma fila.</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informaci&oacute;n relacionada</strong>
+</p>
+<a href="rcon_buttons.html">Botones de la consola de administraci&oacute;n</a>
+<br>
+
+<a href="rcon_pageusage.html">Caracter&iacute;sticas de la p&aacute;gina de la consola administrativa</a>
+<br>
+
+<a href="rcon_filter.html">Valores de filtro de la consola administrativa</a>
+<br>
+
+<a href="rcon_preferences.html">Valores de preferencias de la consola administrativa</a>
+<br>
+
+</div>
+</body>
+</html>

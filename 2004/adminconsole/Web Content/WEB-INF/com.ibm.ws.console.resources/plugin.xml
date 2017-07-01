@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin id="com.ibm.ws.console.resources" 
+        name="resources" 
+        version="1.0.0" 
+        provider-name="IBM Corp. - WebSphere Server Group"
+        embedded="true"
+        context-root="resources">  
+   
+<requires>
+    <import plugin="com.ibm.ws.console.core"/>
+</requires>
+
+<extension point="com.ibm.ws.console.core.navigatorTask">
+    <tasks>
+        <categoryDefinition id="resources" parent="root" icon="images/onepix.gif" label="nav.webSphere.resources" weight="30"/>
+        <task id="jbdcprovider" icon="images/onepix.gif" label="nav.view.jdbc.provider" view="JDBCProvider.content.main" external="false" weight="10">
+            <category id="resources"/>
+        </task>
+        <task id="jmsprovider" icon="images/onepix.gif" label="nav.view.jms.provider" view="JMSProvider.content.main" external="false" weight="20">
+            <category id="resources"/>
+        </task>
+        <task id="wasjmsprovider" icon="images/onepix.gif" label="nav.view.was.provider" view="WASProvider.config.view" external="false" weight="30">
+            <category id="resources"/>
+        </task>
+        <task id="mqjmsprovider" icon="images/onepix.gif" label="nav.view.mqseries.provider" view="MQSeriesProvider.config.view" external="false" weight="40">
+            <category id="resources"/>
+        </task>
+        <task id="javamailprovider" icon="images/onepix.gif" label="nav.view.mail.provider" view="MailProvider.content.main" external="false" weight="50">
+            <category id="resources"/>
+        </task>
+        <task id="resourceenvprovider" icon="images/onepix.gif" label="nav.view.resource.env.provider" view="ResourceEnvironmentProvider.content.main" external="false" weight="60">
+            <category id="resources"/>
+        </task>
+        <task id="urlprovider" icon="images/onepix.gif" label="nav.view.url.provider" view="URLProvider.content.main" external="false" weight="70">
+            <category id="resources"/>
+        </task>
+        <task id="j2cresourceadapter" icon="images/onepix.gif" label="nav.view.j2c.resource.adapter" view="J2CResourceAdapter.content.main" external="false" weight="80">
+            <category id="resources"/>
+        </task>
+   </tasks>    
+</extension>   
+
+<extension point="com.ibm.ws.console.core.help">
+  <toc file="toc.xml" primary="true" />
+</extension>
+
+</plugin>
+

@@ -1,0 +1,107 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Einstellungen der Benutzer-Registry des lokalen Betriebssystems</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecrpseclos"></a>
+<h2>Einstellungen der Benutzer-Registry des lokalen Betriebssystems</h2>
+
+<p>Auf dieser Seite k&ouml;nnen Sie die Einstellungen der Benutzer-Registry des
+lokalen Betriebssystems konfigurieren.</p>
+
+<p>Klicken Sie zum Anzeigen dieser Seite der Administrationskonsole auf
+<strong>Sicherheit</strong> &gt; <strong>Benutzer-Registrys</strong> &gt; <strong>LocalOS</strong>. </p>
+
+<div>
+<p>
+<strong>Register "Konfiguration"</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="UserRegistry_serverId_description"></a>Benutzer-ID des Servers</strong>
+</dt>
+<dd>Gibt eine g&uuml;ltige ID in der Registry des lokalen Betriebssystems an.
+<p>Diese ID ist die ID des Sicherheitsservers, die nur f&uuml;r die Sicherheitseinrichtung des WebSphere
+Application Server verwendet und nicht dem Systemprozess zugeordnet wird, der den Server ausf&uuml;hrt. Der Server ruft die Registry des
+lokalen Betriebssystems auf, um Berechtigungsinformationen zu Benutzern zu authentifizieren und abzurufen,
+indem er die nativen APIs in dieser bestimmten Registry aufruft. Der Zugriff auf native APIs ist
+normalerweise auf Benutzer beschr&auml;nkt, die spezielle Berechtigungen haben (z. B. <strong>root</strong> auf UNIX-Systemen
+und <strong>Einsetzen als Teil des Betriebssystems</strong> auf Windows-Systemen). Die
+Prozess-ID (nicht die ID des Sicherheitsservers), unter der der WebSphere Application Server ausgef&uuml;hrt wird,
+muss, um die Sicherheitseinrichtung auf dem Anwendungsserver verwenden zu k&ouml;nnen,
+ausreichende Berechtigungen zum Aufrufen der System-APIs besitzen.
+Die Sonderberechtigung bedeutet, dass der Prozess, der
+WebSphere Application Server ausf&uuml;hrt, auf Windows-Systemen zur Gruppe <strong>Administratoren</strong> geh&ouml;rt und die Berechtigung
+<strong>Einsetzen als Teil des Betriebssystems</strong> hat und auf UNIX-Systemen <strong>root</strong> ist oder Root-Berechtigung hat.</p>
+
+<p>Wenn Sie die System-Registry von Windows verwenden, darf diese ID nicht mit dem
+Namen der Windows-Maschine &uuml;bereinstimmen.
+Windows-Systeme behandeln den Einheitennamen <strong>bob</strong> wie einen
+Account des Benutzers <strong>bob</strong>. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Einheiten</td>
+<td align="left" valign="top" class="base">Alphanumerische Zeichen</td>
+
+</tr>
+
+</table>
+
+
+</dd>
+<dt>
+<strong><a name="UserRegistry_serverPassword_description"></a> Benutzerkennwort des Servers</strong>
+</dt>
+<dd>Gibt eine g&uuml;ltiges Kennwort f&uuml;r die ID in der Registry des lokalen Betriebssystems an.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+<p></p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Zugeh&ouml;rige Informationen</strong>
+</p>
+<a href="rcon_buttons.html">Kn&ouml;pfe in der Adminstrationskonsole</a>
+<br>
+
+<a href="rcon_pageusage.html">Funktionen auf den Seiten der Administrationskonsole</a>
+<br>
+
+<a href="rcon_scope.html">Geltungsbereichseinstellungen f&uuml;r die Administrationskonsole</a>
+<br>
+
+<a href="rcon_filter.html">Filtereinstellungen f&uuml;r die Administrationskonsole</a>
+<br>
+
+<a href="rcon_preferences.html">Vorgaben f&uuml;r die Administrationskonsole</a>
+<br>
+
+</div>
+</body>
+</html>

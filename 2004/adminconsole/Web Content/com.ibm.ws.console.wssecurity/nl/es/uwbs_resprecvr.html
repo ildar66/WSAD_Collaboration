@@ -1,0 +1,76 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Colecci&oacute;n de enlaces del receptor de respuestas</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_resprecvr"></a>
+<h2>
+<img alt="[Fix Pack 5.0.2 y posterior]" src="v502.gif" border="0">Colecci&oacute;n de enlaces del receptor de respuestas</h2>
+
+<p>Utilice esta p&aacute;gina para especificar la configuraci&oacute;n de enlaces
+para mensajes del receptor de respuestas para Web Services Security.</p>
+
+<p>Para ver esta p&aacute;gina de la consola administrativa, realice los pasos siguientes:<ol>
+
+<li>Pulse <strong>Aplicaciones &gt; Aplicaciones de empresa &gt;
+</strong><em>nombre_aplicaci&oacute;n</em>.</li>
+
+<li>En Elementos relacionados, pulse <strong>M&oacute;dulos Web</strong> &gt; <em>nombre_archivo_URI</em>&gt; <strong>Servicios Web: Enlaces de seguridad del servidor</strong>.</li>
+
+<li>En Enlace del remitente de respuestas, pulse <strong>Editar</strong>.</li>
+
+</ol>
+</p>
+
+<dl>
+<dt>
+<strong><a name="sec_signing"></a>Informaci&oacute;n de firmas</strong>
+</dt>
+<dd>Especifica la configuraci&oacute;n para los par&aacute;metros de firma. La informaci&oacute;n de firma se utiliza para firmar y validar las partes de un mensaje, incluido el texto y la indicaci&oacute;n de la hora.
+<p>Tambi&eacute;n puede utilizar estos par&aacute;metros para la validaci&oacute;n de
+certificados X.509 cuando el <em>M&eacute;todo de autenticaci&oacute;n</em> es <samp>IDAssertion</samp>
+y el <em>Tipo de ID</em> es <samp>X509Certificate</samp> en la configuraci&oacute;n a nivel de
+servidor. En estos casos, debe rellenar &uacute;nicamente los campos de <em>V&iacute;a de acceso de certificados</em>.
+</p>
+
+</dd>
+<dt>
+<strong><a name="sec_encrypt"></a>Informaci&oacute;n de cifrado</strong>
+</dt>
+<dd>Especifica la configuraci&oacute;n para los par&aacute;metros de cifrado y descifrado.
+La informaci&oacute;n de cifrado se utiliza para cifrar y descifrar las diferentes partes de un mensaje, incluido el s&iacute;mbolo de nombre de usuario y el texto.</dd>
+<dt>
+<strong><a name="sec_trustancdescr"></a>Anclas de confianza</strong>
+</dt>
+<dd>Especifica una lista de objetos de almac&eacute;n de claves que
+contienen los certificados ra&iacute;z de confianza, que son autofirmados o emitidos por una autoridad
+certificadora.
+<p>La autoridad certificadora autentica a un usuario y emite un certificado.
+Una vez emitido el certificado, los objetos de almac&eacute;n de claves, que
+contienen estos certificados, utilice el certificado para validar la
+v&iacute;a de acceso de certificados o la cadena de certificados de los
+s&iacute;mbolos de seguridad con formato X.509 recibidos.</p>
+
+</dd>
+<dt>
+<strong><a name="sec_collcert"></a>Almac&eacute;n de certificados de colecciones</strong>
+</dt>
+<dd>Especifica una lista de archivos de certificados intermedios que no son de confianza.
+<p>El almac&eacute;n de certificados de colecciones contiene una cadena de
+certificados intermedios que no son de confianza. La API CertPath
+intenta validar estos certificados, que est&aacute;n basados en el ancla de
+confianza.</p>
+
+</dd>
+<dt>
+<strong><a name="sec_keyldesc"></a>Localizadores de claves</strong>
+</dt>
+<dd>Especifica una lista de objetos de localizador de claves que recuperan las claves para la signatura digital y el cifrado desde un archivo de almac&eacute;n de claves o un dep&oacute;sito.
+El localizador de claves correlaciona un nombre o nombre l&oacute;gico con un alias o correlaciona una identidad autenticada con una clave. Este nombre l&oacute;gico se utiliza para localizar una clave en una implementaci&oacute;n de localizador de claves.</dd>
+</dl>
+</body>
+</html>

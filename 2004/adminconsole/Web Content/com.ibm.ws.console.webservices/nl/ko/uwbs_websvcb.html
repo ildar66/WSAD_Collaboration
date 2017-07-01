@@ -1,0 +1,252 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>웹 서비스: 웹 서비스 보안 콜렉션을 위한 기본 바인딩</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_websvcb"></a>
+<h2>
+<img alt="[릴리스 5.1 이상]" src="v51.gif" border="0">웹 서비스: 웹 서비스 보안 콜렉션을 위한 기본 바인딩</h2>
+
+<p>
+이 페이지를 참조하여 서버 레벨에서 nonce에 대한 설정을 구성하고 신뢰 앵커, 콜렉션 인증 저장,
+키 위치 지정자, 신뢰 ID 평가자 및 로그인 맵핑에 대한 기본 바인딩을 관리할 수 있습니다.
+</p>
+
+<p>관리 콘솔 페이지를 보려면, <strong>서버 &gt; Application
+Servers &gt; </strong><em>server_name</em>을 클릭하십시오. 추가 등록 정보 아래에서 <strong>웹 서비스: 웹 서비스 보안을 위한 기본 바인딩</strong>을
+클릭하십시오. </p>
+
+<p>웹 서비스 보안을 위한 기본 바인딩 정의를 시작하기 전에 웹 서비스 문서를
+읽으십시오. </p>
+
+<p>서버 바인딩을 정의하려면, 다음 단계를 완료하십시오. <ol>
+
+<li>
+<strong>응용프로그램 &gt; 엔터프라이즈 응용프로그램 &gt; </strong><em>application_name</em>을 클릭하십시오. </li>
+
+<li>관련 항목 아래에서 <strong>웹 모듈 &gt; </strong><em>URI_file_name</em><strong>&gt; 웹 서비스:
+서버 보안 바인딩</strong>을 클릭하십시오.
+</li>
+
+</ol>
+</p>
+
+<p>클라이언트 바인딩을 정의하려면, 다음 단계를 완료하십시오. <ol>
+
+<li>
+<strong>응용프로그램 &gt; 엔터프라이즈 응용프로그램 &gt; </strong><em>application_name</em>을 클릭하십시오. </li>
+
+<li>관련 항목 아래에서, <strong>웹 모듈 &gt; </strong><em>URI_file_name</em><strong>&gt;
+웹 서비스: 클라이언트 보안 바인딩</strong>을 클릭하십시오. </li>
+
+</ol>
+</p>
+
+<p>
+<img alt="[릴리스 5.1 이상]" src="v51.gif" border="0"><em>Nonce</em>는 사용자 이름 토큰의 반복적 무단 침입을 중지하기 위해 메시지에
+삽입된 고유 암호화 번호입니다. 기본 WebSphere Application Server 환경에서는 서버 레벨의
+<strong>Nonce 캐시 제한시간</strong>, <strong>Nonce 최대 유효 기간</strong> 및 <strong>Nonce
+Clock Skew</strong> 필드에 값을 지정해야 합니다. 
+</p>
+
+<p> 기본 바인딩 구성은 재사용 가능한 바인딩 정보가 정의되는
+중심 위치를 제공합니다. 응용프로그램 바인딩 파일은
+기본 바인딩 구성에 포함된 정보를 참조할 수 있습니다. </p>
+
+<dl>
+<dt>
+<strong><a name="sec_noncecachetimeout"></a>Nonce 캐시 제한시간</strong>
+            &nbsp;
+            <img alt="[릴리스 5.1 이상]" src="v51.gif" border="0"></dt>
+<dd>서버에서 캐시되는 nonce의 제한시간 값을 지정합니다.
+Nonce는 무작위로 생성된 값입니다. 
+<p>
+<strong>Nonce 캐시 제한시간</strong> 필드에 최소 300초를 지정해야 합니다.
+그러나, 값을 지정하지 않으면, 기본값은 600초입니다. </p>
+
+<p>
+<strong>Nonce 캐시 제한시간</strong> 필드는 기본 WebSphere Application Server 환경에서 필수적입니다.</p>
+
+<p>Nonce 캐시 제한시간 값을 변경할 경우,
+변경사항을 적용하려면, WebSphere Application Server를 다시 시작해야 합니다. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">기본값</td>
+<td align="left" valign="top" class="base">600초</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">최소</td>
+<td align="left" valign="top" class="base">300초</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="sec_noncemaxage"></a>Nonce 최대 유효 기간</strong>
+            &nbsp;
+            <img alt="[릴리스 5.1 이상]" src="v51.gif" border="0"></dt>
+<dd>Nonce 시간 소인이 만기되는 기본 시간(초 단위)을
+지정합니다. Nonce는 무작위로 생성된 값입니다. 
+<p>
+<strong>Nonce 최대 유효 기간</strong> 필드에 최소 300초를 지정해야 합니다.
+그러나 최대값은 서버 레벨에서 <strong>Nonce 캐시 제한시간</strong> 필드에 지정한 초 수를 초과할 수 없습니다.
+값을 지정하지 않으면, 기본값은 300초입니다. 이 서버 레벨 <strong>Nonce
+최대 유효 기간</strong> 필드에 설정된 값은 <strong>보안 &gt; 웹 서비스
+&gt; 등록 정보</strong>를 클릭하여 액세스할 수 있는 셀 레벨에 설정된 <strong>Nonce 최대 유효 기간</strong> 값을
+초과해서는 안됩니다. </p>
+
+<p>
+<strong>Nonce 최대 유효 기간</strong> 필드는 기본 WebSphere Application
+Server 환경에서 필수적입니다.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">기본값</td>
+<td align="left" valign="top" class="base">300초</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">범위</td>
+<td align="left" valign="top" class="base">300에서 <strong>Nonce 캐시 제한시간</strong>초까지</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="sec_nonceclockskew"></a>Nonce Clock Skew</strong>
+            &nbsp;
+            <img alt="[릴리스 5.1 이상]" src="v51.gif" border="0"></dt>
+<dd>WebSphere Application Server가 메시지의 경과 시간을 점검할 때 고려할
+기본 Clock Skew 값을 초 단위로 지정합니다. Nonce는 무작위로 생성된 값입니다. 
+<p>
+<strong>Nonce Clock Skew</strong> 필드에 최소 300초를 지정해야 합니다.
+그러나 최대값은 <strong>Nonce 최대 유효 기간</strong> 필드에 지정한 초 수를 초과할 수 없습니다.
+값을 지정하지 않으면,If you do not specify
+기본값은 0초입니다. </p>
+
+<p>
+<strong>Nonce Clock Skew</strong> 필드는 기본 WebSphere Application Server 환경에서 필수적입니다.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">기본값</td>
+<td align="left" valign="top" class="base">0초</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">범위</td>
+<td align="left" valign="top" class="base">0에서 <strong>Nonce 최대 유효 기간</strong>초까지</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="sec_trustancdescr"></a>신뢰 앵커</strong>
+            &nbsp;
+            <img alt="[픽스팩 5.0.2 이상]" src="v502.gif" border="0"></dt>
+<dd>인증 기관에서 발생했거나 자체 서명한 신뢰 있는 루트 인증이
+포함된 키 저장 오브젝트의 목록을 지정합니다. 
+<p>인증 기관은 사용자를 인증하고 인증을 발행합니다.
+인증이 발행된 후, 이들 인증이 포함된 키 저장 오브젝트는
+X.509 형식의 수신 보안 토큰의 인증 경로 또는 인증 체인 유효성 검증을 위해
+인증을 사용합니다. </p>
+
+</dd>
+<dt>
+<strong><a name="sec_collcert"></a>콜렉션 인증 저장</strong>
+            &nbsp;
+            <img alt="[픽스팩 5.0.2 이상]" src="v502.gif" border="0"></dt>
+<dd>신뢰 없는 중간 인증 파일의 목록을 지정합니다. 
+<p>콜렉션 인증 저장은 신뢰 없는 중간 인증의 체인을 포함합니다.
+CertPath API는 신뢰 앵커를 기반으로 하는 이들 인증의 유효성을
+검증하려 시도합니다. </p>
+
+</dd>
+<dt>
+<strong><a name="sec_keyldesc"></a>키 위치 지정자</strong>
+            &nbsp;
+            <img alt="[픽스팩 5.0.2 이상]" src="v502.gif" border="0"></dt>
+<dd>키 저장 파일 또는 저장소에서 디지털 서명과 암호화를 위한 키를 검색하는
+키 위치 지정자 오브젝트의 목록을 지정합니다.
+키 위치 지정자는 이름 또는 논리 이름을 별명에 맵핑하고, 인증된 ID를
+키에 맵핑합니다. 이 논리 이름은 키 위치 지정자 구현에서 키를 찾는 데
+사용됩니다. </dd>
+<dt>
+<strong><a name="sec_trstiddesc"></a>신뢰 ID 평가자</strong>
+            &nbsp;
+            <img alt="[픽스팩 5.0.2 이상]" src="v502.gif" border="0"></dt>
+<dd>ID 확정 권한 또는 메시지 송신자를 신뢰할지 여부를 판별하는
+신뢰 ID 평가자의 목록을 지정합니다. 
+<p>신뢰 ID 평가자는 한 서버에서 다른 서버로 추가 ID를 인증하는 데
+사용됩니다. 예를 들어, 클라이언트는 인증을 위해 사용자 A의 ID를
+서버 1에 전송합니다. 서버 1은 서버 2에 다운스트림을 호출하고
+사용자 A의 ID를 확정하며 서버 1의 사용자 ID 및 암호를 포함합니다. 서버 2는
+해당 사용자 ID와 암호를 인증하고 TrustedIDEvaluator 구현에 기반한 신뢰를 검사하여,
+서버 1에 대한 신뢰를 얻으려 시도합니다. 인증 프로세스 및 신뢰 검사에 성공하는 경우,
+서버 2는 서버 1이 사용자 A를 인증한 것을 신뢰하고 요청을 호출하기 위해 서버 2에서
+사용자 A에 대한 신임을 작성합니다. </p>
+
+</dd>
+<dt>
+<strong><a name="sec_logmapdesc"></a>로그인 맵핑</strong>
+            &nbsp;
+            <img alt="[픽스팩 5.0.2 이상]" src="v502.gif" border="0"></dt>
+<dd>수신 메시지 내 토큰의 유효성을 검증하기 위한 구성 목록을
+지정합니다. 
+<p>로그인 맵핑은 인증 메소드를 JAAS(Java Authentication and Authorization Service)
+구성에 맵핑합니다. </p>
+
+<p>JAAS를 구성하려면, 관리 콘솔에서 <strong>보안 &gt; JAAS 구성</strong>을
+클릭하십시오. </p>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>관련 정보</strong>
+</p>
+<a href="uwbs_trstanc.html">신뢰 앵커 콜렉션</a>
+<br>
+
+<a href="uwbs_colcertst.html">콜렉션 인증 저장 콜렉션</a>
+<br>
+
+<a href="uwbs_keyl.html">키 위치 지정자 콜렉션</a>
+<br>
+
+<a href="uwbs_trstide.html">신뢰 ID 평가자 콜렉션</a>
+<br>
+
+<a href="uwbs_logmap.html">로그인 맵핑 콜렉션</a>
+<br>
+
+<a href="uwbs_logmapn.html">로그인 맵핑 구성 설정</a>
+<br>
+
+</div>
+</body>
+</html>

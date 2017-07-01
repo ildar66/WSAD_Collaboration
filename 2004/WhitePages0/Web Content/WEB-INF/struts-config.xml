@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+     <!DOCTYPE struts-config PUBLIC
+       "-//Apache Software Foundation//DTD Struts Configuration 1.0//EN"
+        "http://jakarta.apache.org/struts/dtds/struts-config_1_0.dtd ">
+
+<!--**************************************************************-->
+<!--                                                              -->
+<!-- This code is generated automatically by IBM WebSphere Studio -->
+<!--                                                              -->
+<!--**************************************************************-->
+<struts-config>		
+
+<form-beans> 
+  <form-bean    name="SearchCriteriaForm"
+                type="WhitePages0.SearchCriteriaForm"/>
+  <form-bean    name="SearchContentForm"
+                type="WhitePages0.SearchContentForm"/>
+  <form-bean    name="DetailsForm"
+                type="WhitePages0.DetailsForm"/>
+</form-beans> 
+<global-forwards>
+    <forward name="InitializeSearchAction" path="/InitializeSearchAction.do"/>
+</global-forwards>
+<action-mappings>
+  <action  path="/SearchCriteriaAction"
+           type="WhitePages0.SearchCriteriaAction"
+           name="SearchCriteriaForm">
+       <forward name="Submit" path="/SearchByPositionAction.do?action=Submit" redirect="false"/>
+       <forward name="Submit0" path="/SearchByLastNameAction.do?action=Submit0" redirect="false"/>
+       <forward name="Submit1" path="/SearchByCityAction.do?action=Submit1" redirect="false"/>
+  </action>
+  <action  path="/SearchContentAction"
+           type="WhitePages0.SearchContentAction"
+           name="SearchContentForm">
+       <forward name="SearchContentSubmit" path="/FillDetailsAction.do?action=SearchContentSubmit" redirect="false"/>
+  </action>
+  <action  path="/DetailsAction"
+           type="WhitePages0.DetailsAction"
+           name="DetailsForm">
+  </action>
+  <action  path="/FillDetailsAction"
+         type="WhitePages0.FillDetailsAction">
+         <forward name="OK" path="/Details.jsp" redirect="false"/>
+         <forward name="Error" path="/Search.jsp" redirect="false"/>
+  </action>
+  <action  path="/InitializeSearchAction"
+         type="WhitePages0.InitializeSearchAction">
+         <forward name="InitializeSearchOK" path="/Search.jsp" redirect="false"/>
+         <forward name="InitializeSearchError" path="/FatalError.jsp" redirect="false"/>
+  </action>
+  <action  path="/SearchByLastNameAction"
+         type="WhitePages0.SearchByLastNameAction">
+         <forward name="SearchByLastNameOK" path="/Search.jsp" redirect="false"/>
+         <forward name="SearchByLastNameError" path="/InitializeSearchAction.do" redirect="false"/>
+  </action>
+  <action  path="/SearchByPositionAction"
+         type="WhitePages0.SearchByPositionAction">
+         <forward name="SearchByPositionOK" path="/Search.jsp" redirect="false"/>
+         <forward name="SearchByPositionError" path="/InitializeSearchAction.do" redirect="false"/>
+  </action>
+  <action  path="/SearchByCityAction"
+         type="WhitePages0.SearchByCityAction">
+         <forward name="SearchByCityOK" path="/Search.jsp" redirect="false"/>
+         <forward name="SearchByCityError" path="/InitializeSearchAction.do" redirect="false"/>
+  </action>
+</action-mappings>
+</struts-config>

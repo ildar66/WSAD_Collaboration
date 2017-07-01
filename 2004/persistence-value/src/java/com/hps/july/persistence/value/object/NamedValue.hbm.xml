@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://dtdserver/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.hps.july.persistence.value.object">
+
+	<class name="NamedValue" table="namedvalues">
+		<id name="id" column="id">
+			<generator class="assigned"/>
+		</id>
+		<property name="stringValue" column="charvalue" type="string"/>
+		<property name="intValue" column="intvalue" type="integer"/>
+		<property name="decimalValue" column="decimalvalue" type="big_decimal"/>
+        <property name="dateValue" column="datevalue" type="timestamp"/>
+        <property name="note" column="note" type="string"/>
+    </class>
+
+</hibernate-mapping>

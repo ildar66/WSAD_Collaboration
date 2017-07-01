@@ -1,0 +1,130 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>EJB コンテナー設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uejbecnt"></a>
+<h2>EJB コンテナー設定</h2>
+
+<p>このページを使用して、特定の EJB コンテナーの構成および管理を行います。
+</p>
+
+<p>この管理コンソール・ページを表示するには、「<strong>サーバー</strong>」<strong>&gt;</strong>「<strong>アプリケーション・サーバー</strong>」<strong>&gt;</strong>「<em>serverName</em>」<strong>&gt;</strong>「<strong>EJB コンテナー</strong>」をクリックします。</p>
+
+<div>
+<p>
+<strong>「構成」タブ</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="EJBContainer_passivationDirectory_description"></a>非活性化ディレクトリー</strong>
+</dt>
+<dd>コンテナーによって、非活性化した Stateful Session Bean の永続状態が保管されるディレクトリーを指定します。
+
+<p>Bean は、アクティブな Bean インスタンスの数がコンテナー構成で指定したキャッシュ・サイズより大きくなったときに非活性化されます。
+Stateful Bean が非活性化される場合、コンテナーは、Bean インスタンスを非活性化ディレクトリー内のファイルへと
+シリアライズし、そのインスタンスを Bean キャッシュから廃棄します。
+その後、その非活性化 Bean インスタンスに要求があると、
+コンテナーは、非活性化ディレクトリーから Bean インスタンスを検索し、それをデシリアライズして、
+キャッシュに戻し、要求を Bean インスタンスにディスパッチします。
+これらのステップのどれかが失敗すると (例えば、Bean インスタンスが
+非活性化ディレクトリーにもはや存在しない場合)、メソッドの起動も失敗します。</p>
+
+</dd>
+<dt>
+<strong><a name="EJBContainer_inactivePoolCleanupInterval_description"></a>Inactive pool cleanup interval</strong>
+</dt>
+<dd>コンテナーが、使用可能な Bean インスタンスのプールを検査して、メモリー使用量削減のためにインスタンスの一部を削除できるかどうかを決定する間隔を指定します。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">整数</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">単位</td>
+<td align="left" valign="top" class="base">ミリ秒</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">0 より大</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="EJBContainer_defaultDatasourceJNDIName_description"></a>Default datasource JNDI name</strong>
+</dt>
+<dd>アプリケーションのデプロイ時にデータ・ソースが指定されていない場合に使用するデータ・ソースの JNDI 名を指定します。
+この設定は、EJB 2.x に準拠する CMP Bean には適用できません。
+<p>サーブレットおよび Enterprise Bean は、<em>データ・ソース</em> を使用してこれらの接続を取得します。コンテナーの構成時に、コンテナーにデフォルトのデータ・ソースを指定することができます。
+このデータ・ソースは、
+コンテナー管理パーシスタンス (CMP) を使用するコンテナー内にインストールされている、
+すべての Entity Bean が使用するデフォルトのデータ・ソースとなります。</p>
+
+<p>コンテナーのデフォルトのデータ・ソースは保護されています。このデータ・ソースを指定するときには、データ・ソースにアクセスするためのユーザー ID とパスワードを提供しなければなりません。</p>
+
+<p>コンテナー内のそれぞれの CMP Entity Bean のデータ・ソースが、その構成内で指定されている場合には、デフォルトのデータ・ソースの指定はオプションになります。
+デフォルトのデータ・ソースが指定されておらず、CMP Entity Bean がその Bean 用のデータ・ソースを指定されずにそのコンテナー内にインストールされている場合、アプリケーションは、その CMP Entity Bean を使用することはできません。</p>
+
+</dd>
+<dt>
+<strong><a name="StateManageable_initialState_description"></a>初期状態</strong>
+</dt>
+<dd>サーバーを最初に始動するときに要求される実行状態を指定します。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">開始済み</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">有効値は、「<samp>開始済み</samp>」および「<samp>停止中</samp>」です。</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>関連情報</strong>
+</p>
+<a href="rcon_buttons.html">管理コンソールのボタン</a>
+<br>
+
+<a href="uejb_rcash.html">EJB キャッシュ設定</a>
+<br>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin id="com.ibm.ws.console.appmanagement"
+        name="appmanagement"
+        version="1.0.0"
+        provider-name="IBM Corp. - WebSphere Server Group"
+        embedded="true"
+        context-root="appmanagement">  
+
+<requires>
+    <import plugin="com.ibm.ws.console.core"/>
+</requires>
+
+<extension point="com.ibm.ws.console.core.navigatorTask">
+    <tasks>
+        <categoryDefinition id="appmanagementcategory" parent="root" icon="images/onepix.gif" label="category.application.management" weight="20"/>
+        <task id="managetask" icon="images/onepix.gif" label="task.application.manage" view="ApplicationDeployment.content.main" external="false" weight="10">
+            <category id="appmanagementcategory"/>
+        </task>
+        <task id="installtask" icon="images/onepix.gif" label="task.application.install" link="/com.ibm.ws.console.appmanagement.action.forwardCmd.do?forwardName=appmanagement.upload" external="false" role="administrator,configurator" weight="20">
+            <category id="appmanagementcategory"/>
+        </task>
+    </tasks>
+</extension>
+
+<extension point="com.ibm.ws.console.core.help">
+  <toc file="toc.xml" primary="true" />
+</extension>
+
+</plugin>
+

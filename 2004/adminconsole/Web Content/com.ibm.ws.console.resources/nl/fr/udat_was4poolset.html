@@ -1,0 +1,385 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Param&egrave;tres du pool de connexions (version 4)</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="Connection_poolV4_settings"></a>
+<h2>Param&egrave;tres du pool de connexions (version 4)</h2>
+
+<p>Utilisez cette page pour cr&eacute;er un pool de connexions pour une source de donn&eacute;es version 4.0.</p>
+
+<p>Pour afficher cette page de la console d'administration, cliquez sur <strong>Ressources</strong> &gt; <strong>Fournisseurs JDBC</strong>
+&gt; <em>fournisseur_JDBC</em> &gt; <strong>Sources de donn&eacute;es (version 4.0)</strong> &gt; <em>source_donn&eacute;es</em> &gt; <strong>Pool de
+connexions</strong>.</p>
+
+<div>
+<p>
+<strong>Onglet Configuration</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="WAS40ConnectionPool_detail_contextID"></a>Port&eacute;e</strong>
+</dt>
+<dd>Indique &agrave; quel niveau cette d&eacute;finition de ressource est visible :
+cellule, noeud ou serveur.
+<p>Des ressources telles que les fournisseurs JDBC, les liaisons d'espace de noms et les
+biblioth&egrave;ques partag&eacute;es peuvent &ecirc;tre d&eacute;finies &agrave; plusieurs niveaux. Dans ce cas, pour une ressource donn&eacute;e, la d&eacute;finition
+figurant au niveau le plus sp&eacute;cifique (par exemple, le serveur) l'emporte sur l'&eacute;ventuelle d&eacute;finition homologue figurant &agrave; un
+niveau plus g&eacute;n&eacute;ral (par exemple, la cellule).</p>
+
+<p>Notez que quelle que soit la port&eacute;e d'une ressource d&eacute;finie, les propri&eacute;t&eacute;s de cette
+ressource s'appliquent uniquement au niveau d'un serveur individuel. Par exemple, si vous
+d&eacute;finissez la port&eacute;e d'une source de donn&eacute;es au niveau cellule, tous les utilisateurs de
+cette cellule peuvent rechercher et utiliser cette source de donn&eacute;es, laquelle est unique
+au sein de cette cellule. Cependant, les param&egrave;tres de propri&eacute;t&eacute; de la ressource sont locaux &agrave; chaque serveur de la cellule. Par exemple, si vous attribuez la valeur 10
+&agrave; la propri&eacute;t&eacute; <em>Nombre maximal de connexions</em>, chaque serveur de cette cellule pourra
+avoir 10 connexions.<dl>
+
+<dt>
+<strong>Cellule</strong>
+</dt>
+<dd>Niveau de port&eacute;e le plus g&eacute;n&eacute;ral.  Les ressources d&eacute;finies au niveau cellule
+sont visibles depuis tous les noeuds et serveurs de cette cellule, sauf si elles sont red&eacute;finies
+&agrave; un niveau inf&eacute;rieur. Pour visualiser les ressources d&eacute;finies au niveau cellule, ne sp&eacute;cifiez pas
+de nom de serveur ni de nom de noeud dans le formulaire de s&eacute;lection de port&eacute;e.</dd>
+
+<dt>
+<strong>Noeud</strong>
+</dt>
+<dd>Port&eacute;e par d&eacute;faut de la plupart des types de ressources.  Les ressources d&eacute;finies
+au niveau noeud l'emportent sur les &eacute;ventuelles d&eacute;finitions homologues figurant au niveau cellule
+et sont visibles depuis tous les serveurs du noeud consid&eacute;r&eacute;, sauf si elles sont red&eacute;finies &agrave; un niveau
+serveur sur ce noeud. Pour visualiser les ressources d&eacute;finies au niveau d'un noeud, ne sp&eacute;cifiez pas de
+serveur dans le formulaire de s&eacute;lection de port&eacute;e ; sp&eacute;cifiez simplement le nom du noeud concern&eacute;.</dd>
+
+<dt>
+<strong>Serveur</strong>
+</dt>
+<dd>Niveau de port&eacute;e le plus sp&eacute;cifique pour la d&eacute;finition des ressources.  Les ressources
+d&eacute;finies au niveau d'un serveur l'emportent sur les &eacute;ventuelles d&eacute;finitions homologues apparaissant au niveau
+de la cellule parente ou du noeud parent ; elles sont visibles uniquement
+depuis ce serveur. Pour visualiser les ressources d&eacute;finies au niveau d'un serveur, sp&eacute;cifiez le nom de ce
+serveur ainsi que celui de son noeud parent dans le formulaire de s&eacute;lection de port&eacute;e.</dd>
+
+</dl>
+</p>
+
+<p>Lorsque des ressources sont cr&eacute;&eacute;es, elles le sont toujours dans la port&eacute;e en cours,
+c'est-&agrave;-dire celle qui est s&eacute;lectionn&eacute;e dans le formulaire.   Pour afficher les ressources d'autres port&eacute;es, sp&eacute;cifiez un noeud ou un serveur
+diff&eacute;rent dans le formulaire de s&eacute;lection de port&eacute;e.  </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">String (cha&icirc;ne)</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WAS40ConnectionPool_minimumPoolSize_description"></a>Taille minimale du pool </strong>
+</dt>
+<dd>Nombre minimal de connexions &agrave; maintenir dans le pool.  
+<p>La taille minimale du pool peut
+affecter les performances d'une application.  Les pools de petite taille n&eacute;cessitent moins de temps syst&egrave;me
+lorsque la demande est faible car le nombre de connexions maintenues ouvertes &agrave; la base de donn&eacute;es est
+restreint.  Lorsque la demande augmente, les premi&egrave;res applications ont un temps de r&eacute;ponse plus long,
+car de nouvelles connexions doivent &ecirc;tre cr&eacute;&eacute;es si toutes celles du pool sont d&eacute;j&agrave; utilis&eacute;es.  </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Integer (entier)</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">1</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Plage de valeurs</td>
+<td align="left" valign="top" class="base">Tout nombre entier positif.</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WAS40ConnectionPool_maximumPoolSize_description"></a>Taille maximale du pool </strong>
+</dt>
+<dd>Nombre maximal de connexions &agrave; maintenir dans le pool. 
+<p> Si le nombre maximal de
+connexions est atteint et que toutes les connexions sont utilis&eacute;es, les demandes de connexion
+suppl&eacute;mentaires peuvent attendre pendant la dur&eacute;e sp&eacute;cifi&eacute;e par la propri&eacute;t&eacute; D&eacute;lai d'expiration de connexion. La taille maximale du pool peut
+affecter les performances d'une application.  Les pools de grande taille
+n&eacute;cessitent plus de temps syst&egrave;me lorsque la demande est &eacute;lev&eacute;e, car davantage
+de connexions &agrave; la base de donn&eacute;es sont ouvertes en p&eacute;riode de forte
+charge.
+ Ces connexions persistent jusqu'&agrave; ce qu'elles soient mises au repos.  A l'inverse, si vous limitez trop la
+taille du pool, les demandes de connexion risquent de souffrir de d&eacute;lais d'attente
+trop longs en p&eacute;riode de forte charge, conduisant &agrave; des erreurs dues au d&eacute;passement du d&eacute;lai
+d'expiration de connexion.  Assurez-vous que la base de donn&eacute;es peut faire face au nombre maximal
+de connexions configur&eacute; dans le serveur d'applications, en plus de l'&eacute;ventuelle charge qu'elle doit
+traiter en dehors du serveur d'applications.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Integer (entier)</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">10</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Plage de valeurs</td>
+<td align="left" valign="top" class="base">Tout nombre entier positif.</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WAS40ConnectionPool_connectionTimeout_description"></a>D&eacute;lai d'expiration de connexion </strong>
+</dt>
+<dd> Dur&eacute;e maximale, en secondes, pendant laquelle une application peut attendre
+une connexion du pool avant de renoncer et de lancer une exception ConnectionWaitTimeoutException.
+<p>Si la valeur de ce param&egrave;tre est 0, le d&eacute;lai d'expiration de connexion est d&eacute;sactiv&eacute;.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Integer (entier)</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&eacute;s</td>
+<td align="left" valign="top" class="base">Secondes</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">180</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Plage de valeurs</td>
+<td align="left" valign="top" class="base">Tout nombre entier positif.</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WAS40ConnectionPool_idleTimeout_description"></a>D&eacute;lai d'inactivit&eacute; </strong>
+</dt>
+<dd>Dur&eacute;e maximale, en secondes, durant laquelle une connexion inactive (non allou&eacute;e) peut rester dans le pool
+avant d'&ecirc;tre supprim&eacute;e pour lib&eacute;rer des ressources. 
+<p>Les connexions inactives doivent &ecirc;tre supprim&eacute;es du pool, car le fait de les garder ouvertes
+peut entra&icirc;ner des probl&egrave;mes de m&eacute;moire dans la base de donn&eacute;es.  Cependant, toutes les connexions ne sont pas
+supprim&eacute;es du pool, m&ecirc;me si leur anciennet&eacute; d&eacute;passe la valeur du param&egrave;tre
+D&eacute;lai d'inactivit&eacute;.
+ C'est le cas si la suppression d'une connexion ferait passer la taille du pool
+en dessous de la valeur minimale configur&eacute;e.  Si la valeur de ce param&egrave;tre est 0, le d&eacute;lai d'inactivit&eacute; est d&eacute;sactiv&eacute;.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Integer (entier)</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&eacute;s</td>
+<td align="left" valign="top" class="base">Secondes</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">1800</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Plage de valeurs</td>
+<td align="left" valign="top" class="base">Tout nombre entier positif.</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WAS40ConnectionPool_orphanTimeout_description"></a>D&eacute;lai d'expiration des connexions orphelines </strong>
+</dt>
+<dd>Nombre maximum de secondes durant lesquelles une application peut d&eacute;tenir une connexion sans
+l'utiliser avant que la connexion ne soit renvoy&eacute;e au pool. 
+<p>Si aucune activit&eacute; n'est enregistr&eacute;e sur une connexion allou&eacute;e depuis plus longtemps que la dur&eacute;e
+d&eacute;finie par le param&egrave;tre D&eacute;lai d'expiration des connexions orphelines, la connexion
+est marqu&eacute;e comme orpheline.  Au terme d'une autre p&eacute;riode &eacute;gale au d&eacute;lai d'expiration des connexions orphelines, si la connexion
+ne pr&eacute;sente toujours pas d'activit&eacute;, elle est restitu&eacute;e au
+pool.  Si l'application tente d'utiliser de nouveau cette connexion, elle re&ccedil;oit
+une exception StaleConnectionException.  Les connexions enr&ocirc;l&eacute;es dans une transaction ne sont pas d&eacute;clar&eacute;es
+orphelines.  Si la valeur de ce param&egrave;tre est 0, le d&eacute;lai d'expiration des connexions orphelines est d&eacute;sactiv&eacute;. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Integer (entier)</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&eacute;s</td>
+<td align="left" valign="top" class="base">Secondes</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">1800</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Plage de valeurs</td>
+<td align="left" valign="top" class="base">Tout nombre entier positif.</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WAS40ConnectionPool_statementCacheSize_description"></a>Taille de la cache d'instructions </strong>
+</dt>
+<dd> Nombre d'instructions pr&eacute;par&eacute;es &agrave; maintenir en cache par connexion.
+<p>Si vous ne voulez pas que des entr&eacute;es soient &eacute;limin&eacute;es de la cache faute de place,
+la talle la plus &eacute;lev&eacute;e &agrave; adopter est d&eacute;termin&eacute;e de la mani&egrave;re suivante : pour chaque application
+qui utilise cette source de donn&eacute;es sur un serveur sp&eacute;cifique, faites le total
+du nombre d'instructions pr&eacute;par&eacute;es uniques (d&eacute;termin&eacute; par la
+cha&icirc;ne <em>sql</em>, le mode d'acc&egrave;s concurrent et le type de d&eacute;filement, ou "scroll type"). Cette
+valeur repr&eacute;sente le nombre maximal d'instructions pr&eacute;par&eacute;es
+qui peuvent &ecirc;tre plac&eacute;es en cache sur une
+connexion donn&eacute;e au cours de l'utilisation du serveur. Si vous l'attribuez &agrave; la taille de la
+cache, aucune donn&eacute;e n'est jamais supprim&eacute;e de la cache. Les performances sont optimis&eacute;es. Toutefois, la disponibilit&eacute; limit&eacute;e
+des ressources ne permet pas toujours
+d'optimiser ainsi la taille de la cache.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Integer (entier)</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">10</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Plage de valeurs</td>
+<td align="left" valign="top" class="base">Tout nombre entier positif.</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WAS40ConnectionPool_disableAutoConnectionCleanup_description"></a>Nettoyage automatique des connexions  </strong>
+</dt>
+<dd>Indique si le processus de mise en pool des connexions ferme automatiquement
+les connexions de cette source de donn&eacute;es &agrave; la fin d'une transaction. 
+<p> La valeur par d&eacute;faut est <em>false</em>, ce qui signifie que lorsqu'une transaction s'ach&egrave;ve, WebSphere Application Server ferme la connexion et la restitue au pool.  Toute tentative d'utilisation
+de la connexion une fois la transaction termin&eacute;e entra&icirc;ne une exception StaleConnectionException,
+car la connexion est ferm&eacute;e et a &eacute;t&eacute; restitu&eacute;e au pool.  Ce m&eacute;canisme garantit que les connexions
+ne sont pas conserv&eacute;es ind&eacute;finiment par l'application.  Si la valeur de ce param&egrave;tre est
+<em>true</em>, la connexion n'est pas restitu&eacute;e au pool &agrave; la fin
+d'une transaction.  Dans ce cas, l'application doit restituer la connexion au pool en appelant <em>close()</em>.  Si l'application ne ferme pas la connexion, le pool peut venir &agrave; manquer de connexions pour d'autres applications.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Case &agrave; cocher</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">False (d&eacute;s&eacute;lectionn&eacute;)</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informations connexes</strong>
+</p>
+<a href="rcon_buttons.html">Boutons de la console administrative</a>
+<br>
+
+<a href="rcon_pageusage.html">Caract&eacute;ristiques de la page de la console d'administration</a>
+<br>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,173 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>自訂內容的 Secure Socket Layer 設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecrassl"></a>
+<h2>自訂內容的 Secure Socket Layer 設定</h2>
+
+<p>請利用這個頁面來配置已定義的別名之其他 Secure Socket Layer (SSL) 設定。
+</p>
+
+<p>如果要檢視這個管理主控台頁面，請按一下<strong>安全</strong> &gt; <strong>SSL</strong> &gt; <em>alias_name</em> &gt; <strong>自訂內容</strong>。</p>
+
+<div>
+<p>
+<strong>「配置」標籤</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="field_name"></a>自訂內容</strong>
+</dt>
+<dd>指定可用來配置 <samp>com.ibm.ssl.protocol</samp> 管理介面中所無法使用的其他 SSL 設定的名稱值配對。
+<p>這是所用的 SSL 通訊協定（包括它的版本）。可能的值有 SSL、SSLv2、SSLv3、TLS 或 TLSv1。
+預設值 SSL 能往回相容於其他 SSL 通訊協定。
+</p>
+
+<dl>
+
+<dt>
+<strong>com.ibm.ssl.keyStoreProvider</strong>
+</dt>
+<dd>這是要用的金鑰儲存庫提供者的名稱。請指定 <samp>java.security</samp> 檔所列出且擁有金鑰儲存庫實作的安全提供者之一。預設值是 IBMJCE。
+</dd>
+
+<dt>
+<strong>com.ibm.ssl.keyManager</strong>
+</dt>
+<dd>這是要用的金鑰管理演算法的名稱。請指定 <samp>java.security</samp> 檔列出的安全提供者之一所實作的任何金鑰管理演算法。預設值是 IbmX509。
+</dd>
+
+<dt>
+<strong>com.ibm.ssl.trustStoreProvider</strong>
+</dt>
+<dd>這是要用的信任儲存庫提供者的名稱。請指定 <samp>java.security</samp> 檔所列出且擁有信任儲存庫實作的安全提供者之一。預設值是 IBMJCE。
+</dd>
+
+<dt>
+<strong>com.ibm.ssl.trustManager</strong>
+</dt>
+<dd>這是要用的信任管理演算法的名稱。請指定 <samp>java.security</samp> 檔列出的安全提供者之一所實作的任何信任管理演算法。預設值是 IbmX509。
+</dd>
+
+<dt>
+<strong>com.ibm.ssl.trustStoreType</strong>
+</dt>
+<dd>信任儲存庫檔的格式類型。可能的值有 JKS、PKCS12、JCEK。
+預設值是 JKS。
+</dd>
+
+<dt>
+<strong>com.ibm.ssl.enabledCipherSuites</strong>
+</dt>
+<dd>這是要啟用的密碼組合清單。依預設，不會設定這個項目，所用的密碼組合集由安全層次（高、中或低）來決定。
+密碼組合是 SSL 連線所用的密碼演算法的組合。
+請輸入用空格分隔的下列任何密碼組合的清單：
+<ul>
+
+<li>SSL_RSA_WITH_RC4_128_MD5 
+</li>
+
+<li>SSL_RSA_WITH_RC4_128_SHA 
+</li>
+
+<li>SSL_RSA_WITH_DES_CBC_SHA
+</li>
+
+<li>SSL_RSA_WITH_3DES_EDE_CBC_SHA
+</li>
+
+<li>SSL_DHE_RSA_WITH_DES_CBC_SHA
+</li>
+
+<li>SSL_DHE_RSA_WITH_3DES_EDE_CBC_SHA
+</li>
+
+<li>SSL_DHE_DSS_WITH_DES_CBC_SHA
+</li>
+
+<li>SSL_DHE_DSS_WITH_3DES_EDE_CBC_SHA
+</li>
+
+<li>SSL_RSA_EXPORT_WITH_RC4_40_MD5 </li>
+
+<li>SSL_RSA_EXPORT_WITH_DES40_CBC_SHA </li>
+
+<li>SSL_RSA_EXPORT_WITH_RC2_CBC_40_MD5</li>
+
+<li>SSL_DHE_RSA_EXPORT_WITH_DES40_CBC_SHA </li>
+
+<li>SSL_DHE_DSS_EXPORT_WITH_DES40_CBC_SHA </li>
+
+<li>SSL_RSA_WITH_NULL_MD5 </li>
+
+<li>SSL_RSA_WITH_NULL_SHA </li>
+
+<li>SSL_DH_anon_WITH_RC4_128_MD5
+</li>
+
+<li>SSL_DH_anon_WITH_DES_CBC_SHA
+</li>
+
+<li>SSL_DH_anon_WITH_3DES_EDE_CBC_SHA
+</li>
+
+<li>SSL_DH_anon_EXPORT_WITH_RC4_40_MD5
+</li>
+
+<li>SSL_DH_anon_EXPORT_WITH_DES40_CBC_SHA</li>
+
+</ul>
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型：</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+</table>
+</dd>
+
+</dl>
+
+</dd>
+<dt>
+<strong><a name="SecureSocketLayer_cryptoHardware_description"></a>加密記號</strong>
+</dt>
+<dd>指定 SSL 支援之加密記號的相關資訊。
+
+<p>加密記號是含有內建金鑰儲存庫實作的硬體或軟體裝置。
+請記下在支援的加密裝置之文件中找到的下列欄位確實的值。
+</p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>相關資訊</strong>
+</p>
+<a href="rcon_buttons.html">管理主控台按鈕</a>
+<br>
+
+<a href="rcon_pageusage.html">管理主控台頁面特性</a>
+<br>
+
+<a href="rcon_scope.html">管理主控台範圍設定</a>
+<br>
+
+<a href="rcon_filter.html">管理主控台過濾器設定</a>
+<br>
+
+<a href="rcon_preferences.html">管理主控台喜好設定</a>
+<br>
+
+</div>
+</body>
+</html>

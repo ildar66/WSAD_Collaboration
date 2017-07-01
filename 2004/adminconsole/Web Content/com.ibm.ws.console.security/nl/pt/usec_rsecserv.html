@@ -1,0 +1,247 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Server-level security settings</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecrsecserv"></a>
+<h2>Server-level security settings</h2>
+
+<p>Use this page to enable server level security and specify other
+server level security configurations.</p>
+
+<p>To view this administrative console page, click <strong>Servers</strong> &gt; <strong>Application
+Servers</strong> &gt; <em>server_name</em> &gt; <strong>Server Security</strong> &gt; <strong>Server Level
+Security</strong>.</p>
+
+<div>
+<p>
+<strong>Configuration tab</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="SecurityS_enabled_description"></a>Enabled </strong>
+</dt>
+<dd>Use this flag to disable or re-enable security for this application
+server while global security is enabled. Server security is enabled by default
+when global security is enabled. You cannot enable security on an application
+server while global security is disabled. Administrative (administrative console
+and wsadmin) and naming security remain enabled while
+global security is enabled regardless of the status of this flag.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">Disable</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecurityS_enforceJava2Security_description"></a>Enforce Java 2 Security</strong>
+</dt>
+<dd> Specifies that the server enforces Java 2 Security permission
+checking at the server level. When unchecked, Java 2 server level security
+manager is not installed and all Java 2 Security permission checking is disabled
+at the server level.  
+<p>If your application policy file is not set up correctly, see <a href="tsec_waspolicyfile.html">Configuring was.policy</a> for information on how to configure
+an application policy file.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">Disabled</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range</td>
+<td align="left" valign="top" class="base">Enabled or Disabled</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecurityS_useDomainQualifiedUserNames_description"></a>Use Domain Qualified User IDs</strong>
+</dt>
+<dd>Specifies whether user IDs returned by getUserPrincipal()-like
+calls are qualified with the server level security domain within which they
+reside. 
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">Disabled</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range</td>
+<td align="left" valign="top" class="base">Enable or Disable</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecurityS_cacheTimeout_description"></a>Cache Timeout </strong>
+</dt>
+<dd>Specifies the timeout value for server level security cache in
+seconds. 
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Units</td>
+<td align="left" valign="top" class="base">Seconds</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">600</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range</td>
+<td align="left" valign="top" class="base">Greater than 30 seconds.  Avoid setting cache timeout value to 30
+seconds or less.</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecurityS_issuePermissionWarning_description"></a>Issue Permission Warning</strong>
+</dt>
+<dd>Specifies whether a warning is issued during application installation
+when an application requires a Java 2 permission that normally should not
+be granted to an application.
+<p>WebSphere Application Server provides support for policy file management.
+There are a number of policy files included in WebSphere Application Server.
+Some of these policy files are static and some of them are dynamic. Dynamic
+policy is a template of permissions for a particular type of resource. In
+dynamic policy files, the code bases are evaluated at run time using configuration
+data. You can add or remove permissions, as needed, for each code base. However,
+do not add, remove, or modify the existing code bases. The real code base
+is dynamically created from the configuration and run-time data.  The <samp>filter.policy</samp> file
+contains a list of permissions that an application should not have according
+to the J2EE 1.3 Specification. For more information on permissions, see the
+Java 2 Security Policy Management article in the InfoCenter.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">Enabled</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range</td>
+<td align="left" valign="top" class="base">Enable or Disable</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecurityS_activeProtocol_description"></a>Active Protocol </strong>
+</dt>
+<dd>Specifies the active server level security authentication protocol
+when server level security is enabled. 
+<p>You can use an Object Management Group (OMG) protocol called Common Secure
+Interoperability Version 2 (CSIv2) for more vendor interoperability and additional
+features. If all servers in your entire security domain are Version 5.0 servers,
+it is best to specify <strong>CSI</strong> as your protocol. If
+some servers are Version 3.x or Version 4.x servers, it is best to specify <strong>CSI
+and SAS</strong>. However, by specifying <strong>CSI and SAS</strong>, you now have two interceptors
+invoking each request. However, by specifying <strong>CSI and
+zSAS</strong>, you now have two interceptors invoking each request.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">CSI and SAS</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range</td>
+<td align="left" valign="top" class="base">CSI, CSI and SAS  </td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+</body>
+</html>

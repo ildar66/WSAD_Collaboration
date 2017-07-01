@@ -1,0 +1,187 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>カスタム・プロパティーに対する Secure Sockets Layer の設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecrassl"></a>
+<h2>カスタム・プロパティーに対する Secure Sockets Layer の設定</h2>
+
+<p>このページを使用して、定義済みのエイリアスのために Secure Sockets Layer  (SSL) の追加設定を構成します。</p>
+
+<p>この管理コンソール・ページを表示するには、「<strong>セキュリティー</strong>」&gt;「<strong>SSL</strong>」&gt;「<em>alias_name</em>」&gt;「<strong>カスタム・プロパティー</strong>」をクリックします。</p>
+
+<div>
+<p>
+<strong>「構成」タブ</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="field_name"></a>カスタム・プロパティー</strong>
+</dt>
+<dd>管理インターフェース <samp>com.ibm.ssl.protocol</samp> で使用可能な SSL 設定以外の SSL 設定を
+追加構成するときに使用できる、名前と値のペアを指定します。
+<p>これは、使用する SSL プロトコル (およびそのバージョン) です。
+指定可能な値は、SSL、SSLv2、SSLv3、TLS、または TLSv1 です。
+デフォルト値は SSL で、他の SSL プロトコルとの後方互換性があります。
+</p>
+
+<dl>
+
+<dt>
+<strong>com.ibm.ssl.keyStoreProvider</strong>
+</dt>
+<dd>使用する鍵ストア・プロバイダーの名前。
+鍵ストアがインプリメントされている <samp>java.security</samp> ファイルにリストされている、
+セキュリティー・プロバイダーの 1 つを指定します。デフォルト値は IBMJCE です。
+</dd>
+
+<dt>
+<strong>com.ibm.ssl.keyManager</strong>
+</dt>
+<dd>使用する鍵管理アルゴリズムの名前。
+<samp>java.security</samp> ファイルにリストされているセキュリティー・プロバイダー
+の 1 つがインプリメントする鍵管理アルゴリズムを指定します。デフォルト値は IbmX509 です。
+</dd>
+
+<dt>
+<strong>com.ibm.ssl.trustStoreProvider</strong>
+</dt>
+<dd>使用するトラストストア・プロバイダーの名前。
+鍵ストアがインプリメントされている <samp>java.security</samp> ファイルにリストされている、セキュリティー・プロバイダーの 1 つを指定します。デフォルト値は IBMJCE です。
+</dd>
+
+<dt>
+<strong>com.ibm.ssl.trustManager</strong>
+</dt>
+<dd>使用するトラスト管理アルゴリズムの名前。
+<samp>java.security</samp> ファイルにリストされているセキュリティー・プロバイダー
+の 1 つがインプリメントするトラスト管理アルゴリズムを指定します。デフォルト値は IbmX509 です。
+</dd>
+
+<dt>
+<strong>com.ibm.ssl.trustStoreType</strong>
+</dt>
+<dd>トラストストア・ファイルのタイプまたは形式。指定可能な値は、JKS、PKCS12、および JCEK です。
+デフォルト値は JKS です。
+</dd>
+
+<dt>
+<strong>com.ibm.ssl.enabledCipherSuites</strong>
+</dt>
+<dd>使用可能にする暗号スイートのリスト。
+デフォルトでは、これは設定されていません。使用される暗号スイートの設定は、セキュリティー・レベル (高、中間、または低) の
+値によって決まります。暗号スイートは、SSL 接続に使用される暗号アルゴリズムの組み合わせです。
+以下の暗号スイートのうちの任意のものをスペースで区切ったリストを入力してください。<ul>
+
+<li>SSL_RSA_WITH_RC4_128_MD5
+</li>
+
+<li>SSL_RSA_WITH_RC4_128_SHA
+</li>
+
+<li>SSL_RSA_WITH_DES_CBC_SHA
+</li>
+
+<li>SSL_RSA_WITH_3DES_EDE_CBC_SHA
+</li>
+
+<li>SSL_DHE_RSA_WITH_DES_CBC_SHA
+</li>
+
+<li>SSL_DHE_RSA_WITH_3DES_EDE_CBC_SHA
+</li>
+
+<li>SSL_DHE_DSS_WITH_DES_CBC_SHA
+</li>
+
+<li>SSL_DHE_DSS_WITH_3DES_EDE_CBC_SHA
+</li>
+
+<li>SSL_RSA_EXPORT_WITH_RC4_40_MD5
+</li>
+
+<li>SSL_RSA_EXPORT_WITH_DES40_CBC_SHA
+</li>
+
+<li>SSL_RSA_EXPORT_WITH_RC2_CBC_40_MD5
+</li>
+
+<li>SSL_DHE_RSA_EXPORT_WITH_DES40_CBC_SHA
+</li>
+
+<li>SSL_DHE_DSS_EXPORT_WITH_DES40_CBC_SHA
+</li>
+
+<li>SSL_RSA_WITH_NULL_MD5
+</li>
+
+<li>SSL_RSA_WITH_NULL_SHA
+</li>
+
+<li>SSL_DH_anon_WITH_RC4_128_MD5</li>
+
+<li>SSL_DH_anon_WITH_DES_CBC_SHA
+</li>
+
+<li>SSL_DH_anon_WITH_3DES_EDE_CBC_SHA
+</li>
+
+<li>SSL_DH_anon_EXPORT_WITH_RC4_40_MD5
+</li>
+
+<li>SSL_DH_anon_EXPORT_WITH_DES40_CBC_SHA</li>
+
+</ul>
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型:</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+</dd>
+
+</dl>
+
+</dd>
+<dt>
+<strong><a name="SecureSocketLayer_cryptoHardware_description"></a>暗号トークン</strong>
+</dt>
+<dd>SSL サポートに関連する暗号トークンについての情報を指定します。
+
+<p>暗号トークンは、鍵ストア・インプリメンテーションが標準装備されている、
+ハードウェアまたはソフトウェア・デバイスです。サポートされる暗号デバイスの資料に従い、以下のフィールドに指定する正確な値を記述してください。
+</p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>関連情報</strong>
+</p>
+<a href="rcon_buttons.html">管理コンソールのボタン</a>
+<br>
+
+<a href="rcon_pageusage.html">管理コンソール・ページのフィーチャー</a>
+<br>
+
+<a href="rcon_scope.html">管理コンソールの有効範囲設定</a>
+<br>
+
+<a href="rcon_filter.html">管理コンソールのフィルター設定</a>
+<br>
+
+<a href="rcon_preferences.html">管理コンソールの設定の変更</a>
+<br>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Einstellungen f&uuml;r &Uuml;berwachungs-Policy</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="urun_rmonitorpol"></a>
+<h2>Einstellungen f&uuml;r &Uuml;berwachungs-Policy</h2>
+
+<p>Auf dieser Seite k&ouml;nnen Sie die Einstellungen, mit denen der Knotenagent einen Prozess &uuml;berwacht
+und erneut startet, anzeigen oder
+&auml;ndern.</p>
+
+<p>Klicken Sie, um diese Seite der Administrationskonsole anzuzeigen, auf <strong>Server &gt; Anwendungsserver
+&gt; </strong><em>Servername</em><strong> &gt; Prozessdefinition &gt; &Uuml;berwachungs-Policy</strong>.</p>
+
+<div>
+<p>
+<strong>Register "Konfiguration"</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="MonitoringPolicy_maximumStartupAttempts_description"></a>Maximalanzahl der Startversuche </strong>
+</dt>
+<dd>Mit dieser Option legen Sie fest, wie oft h&ouml;chstens versucht werden
+soll, den Anwendungsserver zu starten.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MonitoringPolicy_pingInterval_description"></a>Intervall f&uuml;r Befehl 'ping'</strong>
+</dt>
+<dd>Gibt das Intervall an, in dem versucht wird, eine Verbindung zwischen dem
+&uuml;bergeordneten Prozess (z. B. dem Knotenagenten) und dem von ihm erzeugten Prozess,
+z. B. einem Anwendungsserver, herzustellen.
+ Passen Sie diesen Wert entsprechend Ihren Voraussetzungen f&uuml;r
+den Neustart fehlerhafter Server an. Wird der Wert herabgesetzt,
+werden Fehler eher erkannt. Wird der Wert heraufgesetzt, vergr&ouml;&szlig;ert
+sich das Intervall zwischen den Ping-Versuchen,
+und der Systemaufwand wird reduziert.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MonitoringPolicy_pingTimeout_description"></a>Zeitlimit f&uuml;r Befehl 'ping'</strong>
+</dt>
+<dd>Wenn ein &uuml;bergeordneter Prozess einen untergeordneten Prozess erzeugt, z. B. wenn ein Prozessmanager
+einen Server aufruft, setzt der &uuml;bergeordnete Prozess den Befehl "ping" an den untergeordneten
+Prozess ab, um zu pr&uuml;fen, ob
+der untergeordnete Prozess erfolgreich erzeugt wurde. Dieser Wert gibt die Wartezeit des &uuml;bergeordneten Prozesses
+nach dem Absetzen des Befehls "ping" an den untergeordneten Prozess an (in Sekunden). Nach Ablauf dieser
+Wartezeit wird davon ausgegangen, dass der untergeordnete Prozess fehlerhaft ist.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Einheiten</td>
+<td align="left" valign="top" class="base">Sekunden</td>
+
+</tr>
+
+</table>
+</dd>
+<dt>
+<strong><a name="MonitoringPolicy_autoRestart_description"></a>Automatischer Neustart</strong>
+</dt>
+<dd>Gibt an, ob im Falle eines Fehlers ein automatischer Neustart des Prozesses durchgef&uuml;hrt werden soll.
+Der Standardwert sieht vor, einen automatischen Neustart des Prozesses durchzuf&uuml;hren.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Boolescher Wert</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">true</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MonitoringPolicy_nodeRestartState_description"></a>Status f&uuml;r Neustart des Knotens</strong>
+</dt>
+<dd>Gibt den gew&uuml;nschten Status f&uuml;r den Prozess an, nachdem der Knoten vollst&auml;ndig
+heruntergefahren und erneut gestartet wurde. Die Optionen lauten wie
+folgt: <em>GESTOPPT</em>, <em>AKTIV</em>, <em>VORHERIG</em>. Der Standardwert ist
+<em>GESTOPPT</em>.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">GESTOPPT</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">Die g&uuml;ltigen Werte sind GESTOPPT, AKTIV, VORHERIG. </td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Zugeh&ouml;rige Informationen</strong>
+</p>
+<a href="rcon_buttons.html">Kn&ouml;pfe in der Adminstrationskonsole</a>
+<br>
+
+<a href="rcon_pageusage.html">Funktionen auf den Seiten der Administrationskonsole</a>
+<br>
+
+</div>
+</body>
+</html>

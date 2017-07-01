@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+   "http://dtdserver/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.hps.july.rts.object.notificationlist" >
+    <class name="NotificationItem" table="rts_notificationlist"  >
+        <id name="id" column="id" type="integer">
+            <generator class="native"/>
+        </id>
+
+        <property name="requestId" column="requestid" type="string" not-null="true"/>
+        <many-to-one name="owner"
+            column="owner"
+            class="com.hps.april.auth.object.Person"
+            insert="false" update="false" not-null="true" lazy="false" />
+        <property name="ownerId" column="owner" not-null="true"/>
+        <many-to-one name="recipient"
+            column="recipient"
+            class="com.hps.april.auth.object.Person"
+            insert="false" update="false" not-null="true" lazy="false" />
+        <property name="recipientId" column="recipient" not-null="true"/>
+
+    </class>
+</hibernate-mapping>

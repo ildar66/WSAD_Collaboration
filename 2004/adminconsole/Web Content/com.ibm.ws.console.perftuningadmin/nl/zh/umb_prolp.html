@@ -1,0 +1,309 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>侦听器端口设置</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="ListenerPort"></a>
+<h2>侦听器端口设置</h2>
+
+<p>侦听器端口用于简化连接工厂、目标和部署的消息驱动 bean 之间关联的管理。</p>
+
+<p>使用此面板查看或更改所选侦听器端口的配置属性。</p>
+
+<p>要查看此管理控制台页面，单击<strong>服务器 -&gt; <em>application_server</em>-&gt;
+消息侦听器服务 -&gt; 侦听器端口 -&gt; <em>listener_port</em></strong>
+</p>
+
+<dl>
+<dt>
+<strong><a name="ListenerPort_name"></a>名称</strong>
+</dt>
+<dd>为了管理目的用于标识侦听器端口的名称。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">空</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ListenerPort_initialState"></a>初始状态</strong>
+</dt>
+<dd>当应用程序服务器下一次重新启动时，您要侦听器端口所处的执行状态。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">枚举</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">单位</td>
+<td align="left" valign="top" class="base">不适用</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">已启动</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">范围</td>
+<td align="left" valign="top" class="base">
+<dl>
+<dt>
+<strong>已启动</strong>
+</dt>
+<dd>当应用程序服务器下一次启动时，自动启动侦听器端口。</dd>
+<dt>
+<strong>已停止</strong>
+</dt>
+<dd>当应用程序服务器下一次启动时，不自动启动侦听器端口。如果消息驱动 bean 将在应用程序服务器上使用此侦听器端口，则系统管理员必须手工启动此端口，或者选择此属性的&ldquo;已启动&rdquo;值，然后重新启动应用程序服务器。
+</dd>
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ListenerPort_description"></a>描述</strong>
+</dt>
+<dd>在 IBM WebSphere Application Server 中出于管理目的，对侦听器端口的描述。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">空</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ListenerPort_connectionFactoryJNDIName"></a>连接工厂 JNDI 名称</strong>
+</dt>
+<dd>侦听器端口所使用 JMS 连接工厂的 JNDI 名称；例如，<samp>jms/connFactory1</samp>。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">空</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ListenerPort_destinationJNDIName"></a>目标 JNDI 名称</strong>
+</dt>
+<dd>侦听器端口所使用目标的 JNDI 名称；例如，<samp>jms/destn1</samp>。
+<p>如果扩展消息传递服务使用此侦听器端口处理迟响应，则此属性的值必须匹配发送程序 bean 所使用输出端口上的 JMS 响应目标。而且不能为迟响应使用临时目录。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">空</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ListenerPort_maxSessions"></a>最大会话数</strong>
+</dt>
+<dd>指定侦听器用于处理消息的并发 JMS 服务器会话的最大个数。
+<p>每个会话相应于单个侦听器线程，但是不控制并发处理的消息数。运行流程应用程序的机器不实现可用容量并且运行长流程时生成更少的吞吐量时，调整此参数。</p>
+
+<p>此参数有助于添加一些并发级别，以便在发生接收消息的同步部分前，并发接收消息。在 NetFinity 5500 500 MHz，4 向，4GB RAM 系统上长运行流程时，流程应用程序中发
+现吞吐量增加 40%。</p>
+
+<p>在管理控制台中进行此更改的替代方法是更改侦听器端口节下的 <samp>server.xml</samp> 文件中的最大会话值，如下所示：<pre>&lt;listenerPorts xmi:id="ListenerPort_1" name="bpeIntListenerPort" 
+description="Internal Listener Port for Process Choreographer" 
+connectionFactoryJNDIName="jms/bpeCF" destinationJNDIName="jms/bpeIntQueue" 
+<strong>maxSessions="5"</strong> maxRetries="10" maxMessages="1"&gt;
+&lt;stateManagement xmi:id="StateManageable_5" initialState="START"/&gt;
+&lt;/listenerPorts&gt;</pre>
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">整型</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">单位</td>
+<td align="left" valign="top" class="base">会话</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">1</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">范围</td>
+<td align="left" valign="top" class="base">1 到 2147483647</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">建议</td>
+<td align="left" valign="top" class="base">如果期望消息并发，即多个消息同时处理，则将此值设置为每个系统处理器 2-4 个会话。使此值保持尽可能的低，以便消除客户机系统颠簸。如果期望严格消息订单，将此值设置为 4，所以总是存在线程等待处于热状态，在接收消息时受到阻拦。</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ListenerPort_maxRetries"></a>最大重试数</strong>
+</dt>
+<dd>在侦听器停止前，侦听器尝试发送消息的最大次数（在范围 0 到 2147483647 中）。
+<p>在侦听器停止前，侦听器尝试发送消息到消息驱动 bean 实例的最大次数。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">整型</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">单位</td>
+<td align="left" valign="top" class="base">重试数</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">0（不重试）</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">范围</td>
+<td align="left" valign="top" class="base">0（不重试）到 2147483647</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ListenerPort_maxMessages"></a>最大消息数</strong>
+</dt>
+<dd>侦听器在一个 JMS 服务器会话中可处理的最大消息数。
+<p>当消息订单不是严格要求时，调整此参数。此参数控制侦听器服务中的并发级别。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">整型</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">单位</td>
+<td align="left" valign="top" class="base">消息数</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">1</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">范围</td>
+<td align="left" valign="top" class="base">1 到 2147483647</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">建议</td>
+<td align="left" valign="top" class="base">如果期望消息并发，即多个消息同时处理，则将此值设置为每个系统处理器 2-4 个会话。使此值保持尽可能的低，以便消除客户机系统颠簸。如果期望严格消息订单，将此值设置为 1。</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</body>
+</html>

@@ -1,0 +1,194 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>类属 JMS 连接工厂设置</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="GenericJMSConnectionFactory"></a>
+<h2>类属 JMS 连接工厂设置</h2>
+
+<p>使用此面板查看或更改所选 JMS 连接工厂的配置属性，以与关联的 JMS 提供程序一起使用。这些配置属性控制如何创建到关联 JMS 目标的连接。</p>
+
+<p>JMS 连接工厂用于创建到 JMS 目标的连接。JMS 连接工厂由关联的 JMS 提供程序创建。一般 JMS 提供程序（不同于嵌入式 WebSphere JMS 提供程序或 WebSphere MQ JMS 提供程序）的 JMS 连接工厂具有下列属性：</p>
+
+<p>要查看此管理控制台页面，单击<strong>资源 -&gt; 一般 JMS 提供程序 -&gt; <em>provider_name</em> -&gt; JMS 连接工厂 -&gt; <em>connection_factory</em></strong>
+</p>
+
+<dl>
+<dt>
+<strong><a name="GenericJMSConnectionFactory_Name"></a>名称</strong>
+</dt>
+<dd>在 IBM WebSphere Application Server 中出于管理目的，用于标识 JMS 连接工厂的名称。此名称在关联的 JMS 提供程序中必须是唯一的。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="GenericJMSConnectionFactory_type"></a>类型</strong>
+</dt>
+<dd>此连接工厂是用于创建 JMS 队列目标，还是 JMS 主题目标。
+<p>选择以下选项之一：<dl>
+
+<dt>
+<strong>队列</strong>
+</dt>
+<dd>点到点消息传递的 JMS 队列连接工厂。</dd>
+
+<dt>
+<strong>主题</strong>
+</dt>
+<dd>发布／预订消息传递的 JMS 主题连接工厂。</dd>
+
+</dl>
+</p>
+
+</dd>
+<dt>
+<strong><a name="GenericJMSConnectionFactory_externaljndiName"></a>JNDI 名称</strong>
+</dt>
+<dd>用于将连接工厂绑定到应用程序服务器的名称空间的 JNDI 名称。<p>按约定，使用全限定 JNDI 名称；例如，格式为 jms/<em>Name</em>，其中 <em>Name</em> 是资源的逻辑名称。</p>
+<p>该名称用于链接平台绑定信息。绑定使模块部署描述符定义的资源与由平台绑定到 JNDI 的实际（物理）资源相关联。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+</dd>
+<dt>
+<strong><a name="GenericJMSConnectionFactory_description"></a>描述</strong>
+</dt>
+<dd>在 IBM WebSphere Application Server 中出于管理目的，对连接工厂的描述。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">空</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="category"></a>类别</strong>
+</dt>
+<dd>为了您的 IBM WebSphere Application Server 管理记录，用于分类或分组此连接工厂的类别。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="AuthDataAlias"></a>组件管理的认证别名</strong>
+</dt>
+<dd>此别名指定用于认证连接到 JMS 提供程序的用户标识和密码，以进行应用程序管理的认证。
+<p>此属性提供已定义给 WebSphere Application Server 的 J2C 认证数据条目别名的列表。您可以选择数据条目别名，用它来认证创建的到 JMS 提供程序的新连接。</p>
+
+<p>如果您为 WebSphere Application Server 启用了全局安全性，那么请选择别名，该别名指定用于认证创建的到 JMS 提供程序的新连接的用户标识和密码。此别名的使用取决于资源认证（res-auth）设置，它在应用程序组件的部署描述符的连接工厂资源引用中声明。</p>
+
+<p>
+<b>注: </b>长于 12 个字符的用户标识不能用于具有嵌入式 WebSphere JMS 提供程序的认证。例如，缺省 Windows NT 用户标识 <strong>Administrator</strong> 对于与嵌入式 WebSphere 消息传递一起使用是无效的，因为它包含 13 个字符。
+因此，WebSphere JMS 提供程序连接工厂的认证别名必须指定不多于 12 个字符的用户标识。</p>
+
+</dd>
+<dt>
+<strong><a name="mappingAuthDataAlias"></a>容器管理的认证别名</strong>
+</dt>
+<dd>此别名指定用于认证连接到 JMS 提供程序的用户标识和密码，以进行容器管理的认证。
+<p>此属性提供已定义给 WebSphere Application Server 的 J2C 认证数据条目别名的列表。您可以选择数据条目别名，用它来认证创建的到 JMS 提供程序的新连接。</p>
+
+<p>如果您为 WebSphere Application Server 启用了全局安全性，那么请选择别名，该别名指定用于认证创建的到 JMS 提供程序的新连接的用户标识和密码。此别名的使用取决于资源认证（res-auth）设置，它在应用程序组件的部署描述符的连接工厂资源引用中声明。</p>
+
+<p>
+<b>注: </b>长于 12 个字符的用户标识不能用于具有嵌入式 WebSphere JMS 提供程序的认证。例如，缺省 Windows NT 用户标识 <strong>Administrator</strong> 对于与嵌入式 WebSphere 消息传递一起使用是无效的，因为它包含 13 个字符。
+因此，WebSphere JMS 提供程序连接工厂的认证别名必须指定不多于 12 个字符的用户标识。</p>
+
+</dd>
+<dt>
+<strong><a name="GenericJMSConnectionFactory_type"></a>启用 XA</strong>
+</dt>
+<dd>指定连接工厂是用于消息的 XA 还是非 XA 坐标，并控制应用程序服务器是否使用 XA QCF/TCF。如果同一事务中未使用多个资源，则启用 XA。<p>如果您设置此属性为 <samp>NON_XA</samp>，JMS 会话仍参与事务中，但使用资源管理器本地事务调用（session.commit 和 session.rollback）而不是 XA 调用。这可以改进性能。然而，这意味着在 WebSphere Application Server 中仅单个资源能参与事务。在 WebSphere Application Server Enterprise 中，最后参与者支持使一个非 XA 资源与其它有 XA 能力的资源一起参与。</p>
+<p>对于 <strong>Port</strong> 属性设置为 <samp>DIRECT</samp> 的 WebSphere 主题连接工厂，此属性不适用，且总是采用值 <samp>NON_XA</samp>。
+</p>
+<table cellpadding="1">
+<tr>
+<th align="left" valign="top" class="base" style="background-color:#dedede">数据类型</th><td align="left" valign="top" class="base">枚举</td>
+</tr>
+<tr>
+<th align="left" valign="top" class="base" style="background-color:#dedede">单位</th><td align="left" valign="top" class="base">不适用</td>
+</tr>
+<tr>
+<th align="left" valign="top" class="base" style="background-color:#dedede">缺省</th><td align="left" valign="top" class="base">启用 XA</td>
+</tr>
+<tr>
+<th align="left" valign="top" class="base" style="background-color:#dedede">范围</th><td align="left" valign="top" class="base">
+<dl>
+<dt>
+<strong>XA</strong>
+</dt>
+<dd>此连接工厂用于消息的 XA 坐标</dd>
+<dt>
+<strong>NON_XA</strong>
+</dt>
+<dd>此连接工厂用于消息的非 XA 坐标</dd>
+</dl>
+</td>
+<tr>
+<th align="left" valign="top" class="base" style="background-color:#dedede">建议</th><td align="left" valign="top" class="base">当接收的消息队列或主题仅是事务中的资源时，不要启用 XA。
+当涉及其它资源（包含其它队列或主题）时，启用 XA。</td>
+</tr>
+</tr>
+</table>
+</dd>
+<dt>
+<strong><a name="ConnectionFactory_connectionPool"></a>连接池</strong>
+</dt>
+<dd>指定连接池设置的可选集合。<p>连接池属性对于所有 J2C 连接器是公共的。</p>
+<p>应用程序服务器将连接和会话与 JMS 提供程序合用，以改进性能。这独立于任何 WebSphere MQ 连接池。您需要为您的应用程序正确地配置连接和会话池属性，否则您也许不能获取想要的连接和会话行为。</p>
+<p>如果对 JMS 资源的并发服务器端访问超出缺省值，则更改连接池的大小。在每个队列或主题基础上设置连接池的大小。请参阅下表，以获得详细信息。</p>
+
+</dd>
+<dt>
+<strong><a name="ConnectionFactory_sessionPool"></a>会话池</strong>
+</dt>
+<dd>会话池设置的可选集合。
+<p>此链接提供对所有 J2C 连接器共有的可选连接池属性的面板。</p>
+
+<p>应用程序服务器将连接和会话与 JMS 提供程序合用，以改进性能。这独立于任何 WebSphere MQ 连接池。您需要为您的应用程序正确地配置连接和会话池属性，否则您也许不能获取想要的连接和会话行为。</p>
+
+</dd>
+</dl>
+</body>
+</html>

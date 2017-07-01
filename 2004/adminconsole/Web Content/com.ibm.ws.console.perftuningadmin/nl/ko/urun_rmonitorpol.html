@@ -1,0 +1,154 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>모니터링 정책 설정</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="urun_rmonitorpol"></a>
+<h2>모니터링 정책 설정</h2>
+
+<p>이 페이지를 참조하여 Node Agent가 프로세스를
+모니터하고 다시 시작하는 방법을 제어하는 설정을 보거나 변경하십시오.</p>
+
+<p>이 관리 콘솔 페이지를 보려면 <strong>서버 &gt; Application
+ Servers &gt; </strong><em>server_name</em><strong> &gt; 프로세스 정의 &gt; 모니터링
+ 정책</strong>을 클릭하십시오.</p>
+
+<div>
+<p>
+<strong>구성 탭</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="MonitoringPolicy_maximumStartupAttempts_description"></a>시작 시도의 최대 수</strong>
+</dt>
+<dd>포기하기 전에 Application Server 시작 시도의 최대 수. 
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">정수</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MonitoringPolicy_pingInterval_description"></a>핑 간격</strong>
+</dt>
+<dd>Node Agent와 같은 상위 프로세스와 Application Server와 같은
+생성된 프로세스 간 통신 시도 빈도를 지정하십시오.
+ 실패한 서버를 다시 시작하는 데 필요한 요구조건에 따라 이 값을
+    조정하십시오.
+    값을 줄이면 장애를 그만큼 빨리 감지할 수 있지만, 값을 늘리면, Ping 빈도가
+    줄어들어 시스템 오버헤드도 감소됩니다.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">정수</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MonitoringPolicy_pingTimeout_description"></a>핑 제한시간</strong>
+</dt>
+<dd>프로세스 관리자가 서버를 만들 때처럼 상위 프로세스가 하위 프로세스를 만들 때, 상위 프로세스는 하위 프로세스를 Ping하여 하위 프로세스가 성공적으로 만들어졌는지 확인합니다. 이 값은 하위 프로세스를 Ping한 다음 하위 프로세스가 실패했다고 가정할 때까지 상위 프로세스가 대기해야 시간(단위: 초)을 지정합니다.
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">정수</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">
+단위</td>
+<td align="left" valign="top" class="base">초</td>
+
+</tr>
+
+</table>
+</dd>
+<dt>
+<strong><a name="MonitoringPolicy_autoRestart_description"></a>자동 다시 시작</strong>
+</dt>
+<dd>프로세스가 실패시 자동으로 다시 시작하는지 여부를 지정합니다. 
+ 기본값으로 프로세스가 자동으로 다시 시작합니다. 
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">부울</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">기본값</td>
+<td align="left" valign="top" class="base">true</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MonitoringPolicy_nodeRestartState_description"></a>노드 다시 시작 상태</strong>
+</dt>
+<dd>노드가 완전히 종료하고 다시 시작한 후, 프로세스에 대한 희망 상태를 지정합니다. 옵션은 <em>STOPPED</em>, <em>RUNNING</em>, <em>PREVIOUS</em>입니다. 기본값은 <em>STOPPED</em>입니다.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">문자열</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">기본값</td>
+<td align="left" valign="top" class="base">STOPPED</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">범위</td>
+<td align="left" valign="top" class="base">유효한 값은 STOPPED, RUNNING, 또는 PREVIOUS입니다.</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>관련 정보</strong>
+</p>
+<a href="rcon_buttons.html">관리 콘솔 단추</a>
+<br>
+
+<a href="rcon_pageusage.html">관리 콘솔 페이지 기능</a>
+<br>
+
+</div>
+</body>
+</html>

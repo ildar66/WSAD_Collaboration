@@ -1,0 +1,824 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Param&egrave;tres de rubrique MQ WebSphere</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="MQTopic"></a>
+<h2>Param&egrave;tres de rubrique MQ WebSphere</h2>
+
+<p>Utilisez cet &eacute;cran pour afficher ou modifier les propri&eacute;t&eacute;s de
+configuration de la destination de rubrique s&eacute;lectionn&eacute;e pour
+une utilisation avec le fournisseur WebSphere MQ JMS.</p>
+
+<p>Une destination de rubrique permet de configurer les propri&eacute;t&eacute;s d'une rubrique JMS du
+fournisseur JMS associ&eacute;. Les connexions &agrave; la rubrique sont cr&eacute;&eacute;es par la fabrique de
+connexions de rubrique associ&eacute;e. Une rubrique destin&eacute;e au fournisseur WebSphere MQ JMS est dot&eacute;e des propri&eacute;t&eacute;s suivantes :<p>
+<b>Important: </b>
+<ul>
+
+<li>Les valeurs de propri&eacute;t&eacute; que vous sp&eacute;cifiez doivent correspondre
+aux valeurs que vous avez sp&eacute;cifi&eacute;es lors de la configuration des
+ressources WebSphere MQ JMS. Pour plus d'informations sur la configuration des ressources
+WebSphere MQ JMS, reportez-vous au document <cite>Using Java</cite> de WebSphere MQ.</li>
+
+<li>Dans WebSphere MQ, les noms peuvent comporter un maximum de 48 caract&egrave;res, &agrave;
+l'exception des canaux dont la longueur maximum est de 20 caract&egrave;res.</li>
+
+</ul>
+</p>
+</p>
+
+<p>Pour afficher cette page de la console d'administration, cliquez
+sur <strong>Ressources-&gt; Fournisseur WebSphere MQ JMS-&gt; (Dans la
+sous-fen&ecirc;tre de contenu, sous les propri&eacute;t&eacute;s additionnelles)
+Destinations de rubrique WebSphere MQ-&gt;
+<em>nom_destination</em></strong>
+</p>
+
+<dl>
+<dt>
+<strong><a name="MQTopic_name"></a>Nom</strong>
+</dt>
+<dd>Nom sous lequel cette file d'attente est connue pour l'administration d'IBM WebSphere
+Application Server.<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+</table>
+</dd>
+<dt>
+<strong><a name="MQTopic_jndiName"></a>Nom JNDI</strong>
+</dt>
+<dd>Nom JNDI utilis&eacute; pour lier la rubrique &agrave; l'espace nom du serveur d'applications.<p>Par convention, utilisez le nom JNDI complet, par exemple sous la forme jms/<em>Nom</em>, <em>Nom</em>
+correspondant au nom logique de la ressource.</p>
+<p>Ce nom est utilis&eacute; pour lier les informations relatives &agrave; la
+liaison des plateformes. La liaison associe les ressources d&eacute;finies dans le descripteur de d&eacute;ploiement du
+module aux ressources r&eacute;elles (physiques) li&eacute;es sous JNDI par la plateforme.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+</table>
+</dd>
+<dt>
+<strong><a name="MQTopic_description"></a>Description</strong>
+</dt>
+<dd>Description de la rubrique dans le cadre de l'administration d'IBM WebSphere Application
+Server.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopic_category"></a>Cat&eacute;gorie</strong>
+</dt>
+<dd>Cat&eacute;gorie utilis&eacute;e pour classer ou grouper cette rubrique dans le cadre de
+l'administration d'IBM WebSphere Application Server.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopic_persistence"></a>Persistance</strong>
+</dt>
+<dd>Indique si tous les messages envoy&eacute;s vers la destination sont
+persistants, non-persistants ou ont leur persistance d&eacute;finie par
+l'application
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Enum&eacute;ration</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&eacute;</td>
+<td align="left" valign="top" class="base">Non applicable</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">APPLICATION_DEFINED</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Plage</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>Application d&eacute;finie</strong>
+</dt>
+<dd>La persistance pour les messages de cette destination
+est d&eacute;finie par l'application qui les placent dans la file.</dd>
+
+<dt>
+<strong>File d'attente d&eacute;finie</strong>
+</dt>
+<dd>[Destination WebSphere MQ uniquement] La persistance des messages de cette destination est d&eacute;finie par les propri&eacute;t&eacute;s de d&eacute;finition de la file d'attente WebSphere MQ.</dd>
+
+<dt>
+<strong>Persistant</strong>
+</dt>
+<dd>Les messages de cette destination sont persistants.</dd>
+
+<dt>
+<strong>Non persistant</strong>
+</dt>
+<dd>Les messages de cette destination ne sont pas persistants.</dd>
+
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopic_priority"></a>Priorit&eacute;</strong>
+</dt>
+<dd>Indique si la priorit&eacute; du message de cette destination
+est d&eacute;finie par l'application ou par la propri&eacute;t&eacute; <strong>Priorit&eacute; sp&eacute;cifi&eacute;e</strong>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Enum&eacute;ration</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&eacute;</td>
+<td align="left" valign="top" class="base">Non applicable</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">APPLICATION_DEFINED</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Plage</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>Application d&eacute;finie</strong>
+</dt>
+<dd>La priorit&eacute; des messages de cette destination est
+d&eacute;finie par l'application qui les place sur cette destination.</dd>
+
+<dt>
+<strong>File d'attente d&eacute;finie</strong>
+</dt>
+<dd>[Destination WebSphere MQ uniquement] La persistance des messages de cette destination est d&eacute;finie par les propri&eacute;t&eacute;s de d&eacute;finition de la file d'attente WebSphere MQ.</dd>
+
+<dt>
+<strong>Sp&eacute;cifi&eacute;</strong>
+</dt>
+<dd>La priorit&eacute; des messages de cette destination est d&eacute;finie par la propri&eacute;t&eacute;
+<strong>Priorit&eacute; sp&eacute;cifi&eacute;e</strong>.<em>Si vous s&eacute;lectionnez cette option, vous devez d&eacute;finir une priorit&eacute; pour la propri&eacute;t&eacute; <strong>Priorit&eacute; sp&eacute;cifi&eacute;e</strong>.</em>
+</dd>
+
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopic_specifiedPriority"></a>Priorit&eacute; sp&eacute;cifi&eacute;e</strong>
+</dt>
+<dd>Si la propri&eacute;t&eacute; <strong>Priorit&eacute;</strong> a la valeur
+<samp>Sp&eacute;cifi&eacute;e</samp>, saisissez ici la priorit&eacute; des messages de cette file d'attente, de 0
+(la plus faible) &agrave; 9 (la plus &eacute;lev&eacute;e)
+<p>Si la propri&eacute;t&eacute; <strong>Priorit&eacute;</strong> a la valeur <samp>Sp&eacute;cifi&eacute;e</samp>, les messages envoy&eacute;s dans
+cette file d'attente ont le niveau de priorit&eacute; indiqu&eacute; par cette propri&eacute;t&eacute;.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Entier</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&eacute;</td>
+<td align="left" valign="top" class="base">Niveau de priorit&eacute; des messages</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Plage</td>
+<td align="left" valign="top" class="base">0 (priorit&eacute; la plus faible) &agrave; 9 (priorit&eacute; la plus &eacute;lev&eacute;e)</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopic_expiry"></a>Expiration</strong>
+</dt>
+<dd>Indique si le d&eacute;lai d'expiration de cette file d'attente est d&eacute;finie par l'application ou la propri&eacute;t&eacute; <strong>Expiration sp&eacute;cifi&eacute;e</strong> ou si les messages figurant dans la file d'attente n'expirent jamais (ont un d&eacute;lai d'expiration illimit&eacute;)
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Enum&eacute;ration</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&eacute;</td>
+<td align="left" valign="top" class="base">Non applicable</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">APPLICATION_DEFINED</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Plage</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>Application d&eacute;finie</strong>
+</dt>
+<dd>Le d&eacute;lai d'expiration pour les messages de cette file est d&eacute;fini par l'application qui les placent sur la file.</dd>
+
+<dt>
+<strong>Sp&eacute;cifi&eacute;</strong>
+</dt>
+<dd>Le d&eacute;lai d'expiration des messages de cette file d'attente est d&eacute;fini par la propri&eacute;t&eacute; <strong>Expiration sp&eacute;cifi&eacute;e</strong>. <em>Si vous s&eacute;lectionnez cette option, vous devez d&eacute;finir un d&eacute;lai d'expiration dans la propri&eacute;t&eacute; <strong>Expiration sp&eacute;cifi&eacute;e</strong>.</em>
+</dd>
+
+<dt>
+<strong>Illimit&eacute;</strong>
+</dt>
+<dd>Les messages sur cette file d'attente n'ont pas de d&eacute;lai
+d'expiration, par cons&eacute;quent les messages ne sont jamais supprim&eacute;s.</dd>
+
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopic_specifiedExpiry"></a>Expiration sp&eacute;cifi&eacute;e</strong>
+</dt>
+<dd>Si la propri&eacute;t&eacute; du <strong>d&eacute;lai d'expiration</strong> a pour valeur
+<samp>Sp&eacute;cifi&eacute;e</samp>, saisissez ici le d&eacute;lai en millisecondes (sup&eacute;rieur &agrave; 0) &agrave; l'&eacute;ch&eacute;ance duquel les messages figurant dans cette file d'attente expirent
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Entier</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&eacute;</td>
+<td align="left" valign="top" class="base">Millisecondes</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Plage</td>
+<td align="left" valign="top" class="base">Sup&eacute;rieur ou &eacute;gal &agrave; 0
+<ul>
+
+<li>0 indique que les messages n'arrivent jamais &agrave; expiration.</li> 
+
+<li>Les autres valeurs sont des nombres entiers indiquant le nombre de millisecondes</li>
+
+</ul>
+
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopic_baseTopicName"></a>Nom rubrique de base</strong>
+</dt>
+<dd>Le nom de la rubrique vers laquelle des messages sont envoy&eacute;s.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Plage</td>
+<td align="left" valign="top" class="base">D&eacute;pend de la fonction Broker utilis&eacute;e. Pour plus de d&eacute;tails, reportez-vous &agrave; la
+documentation de la fonction Broker, telle que la biblioth&egrave;que <cite>WebSphere MQ Event
+Broker</cite> sur le site <img border="0" alt="Vous ne pouvez acc&eacute;der &agrave; la cible que si cette rubrique est li&eacute;e au Web" src="web.gif">&nbsp;&nbsp;               
+   <a target="_blank" href="http://www-3.ibm.com/software/ts/mqseries/library/manualsa/manuals/wsmqebv21.html"><strong>http://www-3.ibm.com/software/ts/mqseries/library/manualsa/manuals/wsmqebv21.html</strong></a>
+.</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopic_CCSID"></a>CCSID</strong>
+</dt>
+<dd>L'ID de jeu de caract&egrave;res cod&eacute;s &agrave; utiliser avec le gestionnaire de files d'attente WebSphere MQ.
+<p>Cet ID de jeu de caract&egrave;res cod&eacute;s (CCSID) doit figurer parmi les CCSID pris
+en charge par WebSphere MQ.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&eacute;</td>
+<td align="left" valign="top" class="base">Entier</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Plage</td>
+<td align="left" valign="top" class="base">1 &agrave; 65535</td>
+
+</tr>
+
+</table>
+
+<p>Pour plus d'informations sur les CCSID pris en charge et sur la conversion des donn&eacute;es d'un message d'un jeu de caract&egrave;res cod&eacute;s &agrave; un autre, reportez-vous aux documents <cite>WebSphere MQ System Administration</cite>
+et <cite>WebSphere MQ Application Programming Reference</cite>.
+Ces documents sont disponibles dans les pages Web de la messagerie WebSphere MQ multiplateforme et sp&eacute;cifique &agrave; chaque plateforme (Par exemple, &agrave; l'adresse <img border="0" alt="Vous ne pouvez acc&eacute;der &agrave; la cible que si cette rubrique est li&eacute;e au Web" src="web.gif">&nbsp;&nbsp;               
+   <a target="_blank" href="http://www-3.ibm.com/software/ts/mqseries/library/manualsa/manuals/crosslatest.html.html"><strong>http://www-3.ibm.com/software/ts/mqseries/library/manualsa/manuals/platspecific.html</strong></a>
+),
+aupr&egrave;s d'<img border="0" alt="Vous ne pouvez acc&eacute;der &agrave; la cible que si cette rubrique est li&eacute;e au Web" src="web.gif">&nbsp;&nbsp;               
+   <a target="_blank" href="http://www.elink.ibmlink.ibm.com/public/applications/publications/cgibin/pbi.cgi"><strong>IBM Publications Center</strong></a>
+ ou
+dans le kit de collection WebSphere MQ, SK2T-0730.</p>
+</dd>
+<dt>
+<strong><a name="MQTopic_useNativeEncoding"></a>Utiliser le codage natif</strong>
+</dt>
+<dd>Cochez cette case pour indiquer que la destination de la
+file d'attente doit utiliser l'encodage natif (valeurs d'encodage
+appropri&eacute;es pour la plateforme Java).
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Enum&eacute;ration</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&eacute;</td>
+<td align="left" valign="top" class="base">Non applicable</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">Effac&eacute;</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Plage</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>Effac&eacute;</strong>
+</dt>
+<dd>Le codage natif n'est pas utilis&eacute;, vous
+devez donc sp&eacute;cifier les propri&eacute;t&eacute;s ci-dessous pour le codage
+d'entiers, d&eacute;cimal et de virgule flottante.</dd>
+
+<dt>
+<strong>S&eacute;lectionn&eacute;</strong>
+</dt>
+<dd>Le codage natif est  utilis&eacute; (pour fournir les valeurs de codage
+appropri&eacute;es pour la plateforme Java).</dd>
+
+</dl>
+<p>Pour plus d'informations sur les propri&eacute;t&eacute;s de codage, reportez-vous au document WebSphere MQ <cite>Using Java</cite>.</p>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopic_integerEncoding"></a>Codage des entiers</strong>
+</dt>
+<dd>Si le codage natif n'est pas activ&eacute;, sp&eacute;cifiez si le codage d'entiers est
+normal ou invers&eacute;.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Enum&eacute;ration</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&eacute;</td>
+<td align="left" valign="top" class="base">Non applicable</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">NORMAL</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Plage</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>NORMAL</strong>
+</dt>
+<dd>Le codage d'entiers normal est utilis&eacute;.</dd>
+
+<dt>
+<strong>INVERSE</strong>
+</dt>
+<dd>Le codage d'entiers invers&eacute; est utilis&eacute;.</dd>
+
+</dl>
+<p>Pour plus d'informations sur les propri&eacute;t&eacute;s de codage, reportez-vous au document WebSphere MQ <cite>Using Java</cite>.</p>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopic_decimalEncoding"></a>Codage d&eacute;cimal</strong>
+</dt>
+<dd>Si le codage natif n'est pas activ&eacute;, sp&eacute;cifiez si le codage d&eacute;cimal est
+normal ou invers&eacute;.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Enum&eacute;ration</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&eacute;</td>
+<td align="left" valign="top" class="base">Non applicable</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">NORMAL</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Plage</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>NORMAL</strong>
+</dt>
+<dd>Le codage d&eacute;cimal normal est utilis&eacute;.</dd>
+
+<dt>
+<strong>INVERSE</strong>
+</dt>
+<dd>Le codage d&eacute;cimal invers&eacute; est utilis&eacute;.</dd>
+
+</dl>
+<p>Pour plus d'informations sur les propri&eacute;t&eacute;s de codage, reportez-vous au document WebSphere MQ <cite>Using Java</cite>.</p>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopic_floatingPointEncoding"></a>Codage de virgule flottante</strong>
+</dt>
+<dd>Si le codage natif n'est pas activ&eacute;, sp&eacute;cifiez si le type de codage en virgule flottante.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Enum&eacute;ration</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&eacute;</td>
+<td align="left" valign="top" class="base">Non applicable</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">IEEENORMAL</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Plage</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>IEEENORMAL</strong>
+</dt>
+<dd>Le codage de virgule flottante normal IEEE est utilis&eacute;.</dd>
+
+<dt>
+<strong>IEEEREVERSED</strong>
+</dt>
+<dd>Le codage de virgule flottante invers&eacute; IEEE est utilis&eacute;.</dd>
+
+<dt>
+<strong>S390</strong>
+</dt>
+<dd>Le codage de virgule flottante S390 est utilis&eacute;.</dd>
+
+</dl>
+<p>Pour plus d'informations sur les propri&eacute;t&eacute;s de codage, reportez-vous au document WebSphere MQ <cite>Using Java</cite>.</p>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopic_targetClient"></a>Type de client cible</strong>
+</dt>
+<dd>Indique s'il s'agit d'une application de destination conforme &agrave; JMS ou d'une application WebSphere MQ traditionnelle.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Enum&eacute;ration</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&eacute;</td>
+<td align="left" valign="top" class="base">Non applicable</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">MQ</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Plage</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>MQ</strong>
+</dt>
+<dd>La cible est une application WebSphere MQ traditionnelle, non-JMS.</dd>
+
+<dt>
+<strong>JMS</strong>
+</dt>
+<dd>La cible est une application compatible avec JMS.</dd>
+
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopic_brokerDurSubQueue"></a>File courtier ab dur</strong>
+</dt>
+<dd>Nom de la file de courtier de laquelle des messages d'abonnement durables sont
+extraits.
+<p>Nom de la file de courtier de laquelle des messages d'abonnement durables sont
+extraits. L'abonn&eacute; sp&eacute;cifie le nom de la file d'attente lorsqu'il s'inscrit pour un abonnement.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&eacute;</td>
+<td align="left" valign="top" class="base">Caract&egrave;res ASCII En_US</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Plage</td>
+<td align="left" valign="top" class="base">Caract&egrave;res ASCII 1 &agrave; 48</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopic_brokerDurCCSubQueue"></a>File courtier ab dur CC</strong>
+</dt>
+<dd>Nom de la file de courtier de laquelle des messages d'abonnement durables sont
+extraits pour un ConnectionConsumer. Cette propri&eacute;t&eacute; s'applique uniquement au conteneur
+Web.
+<p>Nom de la file de courtier de laquelle des messages d'abonnement durables sont
+extraits pour un ConnectionConsumer. Cette propri&eacute;t&eacute; s'applique uniquement au conteneur
+Web.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&eacute;</td>
+<td align="left" valign="top" class="base">Caract&egrave;res ASCII En_US</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Plage</td>
+<td align="left" valign="top" class="base">Caract&egrave;res ASCII 1 &agrave; 48</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</body>
+</html>

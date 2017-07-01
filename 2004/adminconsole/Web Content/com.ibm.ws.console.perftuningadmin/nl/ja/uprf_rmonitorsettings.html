@@ -1,0 +1,74 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>パフォーマンス・モニター・サービス設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uprf_rmonitorsettings"></a>
+<h2>パフォーマンス・モニター・サービス設定</h2>
+
+<p>このページを使用して、パフォーマンス・モニターの設定値を指定します。
+ここで設定するのは、パフォーマンス・モニターの使用可能化、PMI モジュールの選択、
+モニター・レベルの設定などです。
+</p>
+
+<p>この管理コンソール・ページを表示するには、「
+<strong>サーバー</strong>」&gt;「<strong>アプリケーション・サーバー</strong>」&gt;「<em>server</em>」&gt;「<strong>パフォーマンス・モニター</strong>」をクリックします。</p>
+
+<div>
+<p>
+<strong>「構成」タブ</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="PMIService_enabled_description"></a>開始</strong>
+</dt>
+<dd>アプリケーション・サーバーが、指定されたサービスを開始しようとするかどうかを指定します。
+パフォーマンス・モニター・サービスが使用不可であるときに、
+アプリケーション・サーバーを始動する場合、
+このサービスを使用可能にするためにサーバーを再始動する必要があります。
+</dd>
+<dt>
+<strong><a name="PMIService_initialSpecLevel_description"></a>Initial specification level</strong>
+</dt>
+<dd>モジュール・レベルなど、サーバー内のすべてのコンポーネントの
+Performance Monitoring Infrastructure (PMI) 仕様レベルを保管する、PMI ストリングを指定します。
+<p>「<em>なし</em>」、「<em>標準</em>」、または「<em>カスタム</em>」チェック・ボックスを選択して、
+PMI 仕様レベルを設定します。
+「<em>なし</em>」を選択すると、すべての PMI モジュールが「<em>なし</em>」のレベルに設定されます。
+「<em>標準</em>」を選択すると、すべての PMI モジュールが「<em>高</em>」に設定され、
+メソッド・レベルのデータおよび JVMPI データ以外のすべての PMI データが使用可能になります。
+「カスタム」を選択すると、個々の PMI モジュールのレベルを変更できます。
+レベルは N、L、M、H、または X (なし、低、中間、高、および 最大) に設定できます。
+<strong>注</strong> モジュール名は変更しないでください。</p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>「ランタイム」タブ</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="PMIService_specification_description"></a>仕様</strong>
+</dt>
+<dd>設定済みの PMI モジュールおよびモニター・レベルを指定します。
+
+<p>「<em>なし</em>」、「<em>標準</em>」、または「<em>カスタム</em>」チェック・ボックスを選択して、
+PMI 仕様レベルを設定します。
+「<em>なし</em>」を選択すると、すべての PMI モジュールが「<em>なし</em>」のレベルに設定されます。
+「<em>標準</em>」を選択すると、すべての PMI モジュールが「<em>高</em>」に設定され、
+メソッド・レベルのデータおよび JVMPI データ以外のすべての PMI データが使用可能になります。
+「カスタム」を選択すると、個々の PMI モジュールのレベルを変更できます。
+レベルは N、L、M、H、または X (なし、低、中間、高、および 最大) に設定できます。
+<strong>注</strong> モジュール名は変更しないでください。</p>
+
+</dd>
+</dl>
+</div>
+</body>
+</html>

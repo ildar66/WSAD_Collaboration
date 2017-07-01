@@ -1,0 +1,518 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>WebSphere 주제 연결 팩토리 설정</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="WASTopicConnectionFactory"></a>
+<h2>WebSphere 주제 연결 팩토리 설정</h2>
+
+<p>임베드된 WebSphere JMS 프로바이더에서 사용할 선택된 주제 연결 팩토리의 구성 등록 정보를 보거나 변경하려면
+이 패널을 사용하십시오. 이 구성 등록 정보는 연관된 JMS 주제 목적지에 대한 연결을 작성하는 방법을 제어합니다.
+</p>
+
+<p>주제 연결 팩토리는 주제 목적지에 대한 JMS 연결을 작성하는 데 사용됩니다.
+주제 연결 팩토리는 연관된 JMS 프로바이더에 의해 작성됩니다. 임베드된 WebSphere JMS 프로바이더의
+주제 연결 팩토리는 다음 등록 정보를 갖습니다.</p>
+
+<p>이 관리 콘솔 페이지를 보려면 <strong>자원-&gt; WebSphere JMS 프로바이더-&gt; (내용 분할창의 추가 등록 정보 아래) WebSphere 주제 연결 팩토리-&gt; <em>connection_factory</em></strong>를 클릭하십시오. </p>
+
+<dl>
+<dt>
+<strong><a name="WASTopicConnectionFactory_jndiName"></a>JNDI 이름</strong>
+</dt>
+<dd>주제 연결 팩토리를 Application Server의 네임 스페이스에
+바인드하는 데 사용되는 JNDI 이름.
+
+<p>규칙에 따라, 완전한 JNDI 이름을
+사용하십시오(예: jms/<em>Name</em> 양식). 여기서
+<em>Name</em>은 자원의 논리 이름입니다.</p>
+
+<p>이 이름은 플랫폼의 바인딩 정보를 연결하는 데 사용됩니다.
+바인딩은 모듈 전개 설명자에서 정의한 자원을
+플랫폼에서 JNDI에 바인드한 실제(물리적) 자원에 연관시킵니다.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">문자열</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>구성 탭</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="WASTopicConnectionFactory_contextId"></a>범위</strong>
+</dt>
+<dd>이 자원 정의가 표시될 수 있는 레벨(셀, 노드 또는 서버 레벨)을 지정합니다. 
+<p>JMS 프로바이더, 네임 스페이스 바인딩 또는 공유 라이브러리와 같은 자원은 일반적인 범위에서 정의된 중복을 대체하는, 좀 더 특정한 범위에서 정의된 자원을 가지는 다중 범위에서 정의될 수 있습니다.</p>
+
+<p>정의된 자원의 범위에 관계 없이, 자원의 등록 정보는
+개별 서버 레벨에서만 적용됩니다. 예를 들어 셀 레벨에서
+데이터소스의 범위를 정의하는 경우, 해당 셀의 모든 사용자는
+해당 데이터소스(셀 내에서 고유함)를 찾아보고 사용할 수 있습니다. 그러나
+자원 등록 정보 설정은 셀 내 각 서버에 로컬입니다. 예를 들어,
+<strong>최대 연결 수</strong>를 10으로 설정하면 해당 셀 내의 각 서버가 10개의 연결을 가질 수 있습니다. <dl>
+<dt>
+<strong>셀</strong>
+</dt>
+<dd>가장 일반적인 범위. 셀 범위에서 정의된 자원은 대체되지 않는 한
+모든 노드 및 서버에서 표시 가능합니다.
+셀 범위에서 정의되는 자원을 보려면 범위 선택사항 양식에서
+서버 또는 노드 이름을 지정하지 마십시오. </dd>
+<dt>
+<strong>Node</strong>
+</dt>
+<dd>대부분의 자원 유형에 대한 기본 범위. 노드 범위에서 정의된 자원은
+셀 범위에서 정의된 임의의 중복을 대체하고 해당 노드의 서버 범위에서 대체되지 않는
+한 동일한 노드의 모든 서버에 표시 가능합니다. 노드 범위에서 정의되는 자원을 보려면 서버를 지정하지
+말고 범위 선택사항 양식에서 노드 이름을 선택하십시오. </dd>
+<dt>
+<strong>서버</strong>
+</dt>
+<dd>자원 정의에 대한 가장 특정한 범위. 서버 범위에서 정의되는
+자원은 셀 범위 및 상위 노드 범위에서 정의되는 모든 중복 자원 정의를
+대체하고 특정 서버에서만 볼 수 있습니다. 서버 범위에서 정의되는 자원을
+보려면 범위 선택사항 양식에서 서버 이름뿐 아니라 노드 이름을 선택하십시오. </dd>
+</dl>
+</p>
+
+<p>자원이 작성되면, 항상 패널에서 선택된 현재 범위로 작성됩니다. 다른 범위에서 자원을 보려면 범위 선택사항 양식에
+다른 노드 또는 서버를 지정하십시오. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">문자열</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASTopicConnectionFactory_name"></a>이름</strong>
+</dt>
+<dd>IBM WebSphere Application Server 내에서 관리를 위한 대기열 연결 팩토리의 이름.
+이 이름은 WebSphere 관리 도메인의 JMS 연결 팩토리 내에서 고유해야 합니다.
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">문자열</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">기본값</td>
+<td align="left" valign="top" class="base">널</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASTopicConnectionFactory_description"></a>설명
+</strong>
+</dt>
+<dd>IBM WebSphere Application Server 내에서 관리를 위한 이 주제 연결 팩토리에 대한 설명.
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">문자열</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">기본값</td>
+<td align="left" valign="top" class="base">널</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASTopicConnectionFactory_category"></a>카테고리</strong>
+</dt>
+<dd>IBM WebSphere Application Server 관리 레코드에 대해 이
+주제 연결 팩토리를 분류하거나 그룹화하는 데 사용되는 카테고리
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">문자열</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASTopicConnectionFactory_node"></a>Node</strong>
+</dt>
+<dd>이 연결 팩토리에 대해 JMS 서버에서 실행되는 관리 노드의 WebSphere 노드 이름.
+이 팩토리에서 작성한 연결은 해당 JMS 서버로 연결됩니다.
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">기본값</td>
+<td align="left" valign="top" class="base">널</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">범위</td>
+<td align="left" valign="top" class="base">WebSphere 관리 도메인의 노드 풀다운 목록</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASTopicConnectionFactory_port"></a>포트</strong>
+</dt>
+<dd>연결이 JMS 서버에 연결하는 데 사용하는 두 포트 중
+하나. 대기열 포트는 완전한 기능의 JMS 공개/등록 지원용이고,
+직접 포트는 비지속, 비트랜잭션, 임시 등록 전용입니다.
+<p>
+<b>참고: </b>메시지 구동 Bean은 공개/등록 지원에 직접 리스너 포트를 사용할
+수 없습니다. 그러므로 <samp>직접</samp>으로 설정된 <strong>포트</strong>를 사용하여 구성된 주제 연결 팩토리는 메시지 구동 Bean에 사용할 수 없습니다. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">
+단위</td>
+<td align="left" valign="top" class="base">적용되지 않음</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">기본값</td>
+<td align="left" valign="top" class="base">대기열</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">범위</td>
+<td align="left" valign="top" class="base">
+<dl>
+<dt>
+<strong>대기열</strong>
+</dt>
+<dd>완전한 기능의 JMS 규격 공개/등록 지원에
+사용되는 리스너 포트.</dd>
+<dt>
+<strong>직접</strong>
+</dt>
+<dd>공개/등록 지원을 위해 직접 TCP/IP 연결(비트랜잭션,
+비지속 및 임시 등록에만 해당)에 사용되는 리스너 포트.</dd>
+</dl>
+<p>이 포트의 TCP/IP 포트 번호는
+WebSphere 내부 JMS 서버에 정의되어 있습니다.</p>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="AuthDataAlias"></a>구성요소 관리 인증 별명</strong>
+</dt>
+<dd>이 별명은 응용프로그램 관리 인증을 위해 JMS 프로바이더에 대한 연결을
+인증하는 데 사용할 사용자 ID 및 암호를 지정합니다.
+<p>이 등록 정보는 WebSphere Application Server에 정의된 J2C
+인증 데이터 항목 별명의 목록을 제공합니다. JMS 프로바이더에 대한
+새 연결 작성을 인증하는 데 사용할 수 있는 데이터 항목 별명을
+선택할 수 있습니다.</p>
+
+<p>WebSphere Application Server에 대한 글로벌 보안을 사용 가능하게
+한 경우, JMS 프로바이더에 대한 새 연결 작성을 인증하는 데 사용하는 사용자
+ID 및 암호를 지정하는 별명을 선택하십시오. 이 별명의 사용은 응용프로그램 구성요소의
+전개 설명자의 연결 팩토리 자원 참조에 선언된 자원 인증(res-auth) 설정에 의존합니다.</p>
+
+<p>
+<b>참고: </b>임베드된 WebSphere JMS 프로바이더의 인증에는 12자보다 긴 사용자
+ID를 사용할 수 없습니다. 예를 들어, 기본 Windows NT 사용자
+ID의 경우, <strong>Administrator</strong>는 13자이기 때문에 임베드된 WebSphere
+메시지 전달의 인증에 유효하지 않습니다.
+따라서 WebSphere JMS
+프로바이더 연결 팩토리에 대한 인증 별명은 12자
+이하의 사용자 ID를 지정해야 합니다.</p>
+
+</dd>
+<dt>
+<strong><a name="mappingAuthDataAlias"></a>컨테이너 관리 인증 별명</strong>
+</dt>
+<dd>이 별명은 컨테이너 관리 인증을 위해 JMS 프로바이더에 대한 연결을
+인증하는 데 사용할 사용자 ID 및 암호를 지정합니다.
+<p>이 등록 정보는 WebSphere Application Server에 정의된 J2C
+인증 데이터 항목 별명의 목록을 제공합니다. JMS 프로바이더에 대한
+새 연결 작성을 인증하는 데 사용할 수 있는 데이터 항목 별명을
+선택할 수 있습니다.</p>
+
+<p>WebSphere Application Server에 대한 글로벌 보안을 사용 가능하게
+한 경우, JMS 프로바이더에 대한 새 연결 작성을 인증하는 데 사용하는 사용자
+ID 및 암호를 지정하는 별명을 선택하십시오. 이 별명의 사용은 응용프로그램 구성요소의
+전개 설명자의 연결 팩토리 자원 참조에 선언된 자원 인증(res-auth) 설정에 의존합니다.</p>
+
+<p>
+<b>참고: </b>임베드된 WebSphere JMS 프로바이더의 인증에는 12자보다 긴 사용자
+ID를 사용할 수 없습니다. 예를 들어, 기본 Windows NT 사용자
+ID의 경우, <strong>Administrator</strong>는 13자이기 때문에 임베드된 WebSphere
+메시지 전달의 인증에 유효하지 않습니다.
+따라서 WebSphere JMS
+프로바이더 연결 팩토리에 대한 인증 별명은 12자
+이하의 사용자 ID를 지정해야 합니다.</p>
+
+</dd>
+<dt>
+<strong><a name="WASTopicConnectionFactory_mappingConfigAlias"></a>맵핑 구성 별명</strong>
+</dt>
+<dd>사용자가 <strong>보안</strong> <strong>JAAS 구성</strong> <strong>응용프로그램 로그인 구성</strong> 목록에서 선택할 수 있게 합니다.
+
+<p>
+<strong>DefaultPrincipalMapping</strong>
+ JAAS 구성은 인증 별명을 사용자 ID 및 암호에 맵핑합니다. 
+ 다른 맵핑 구성을 정의하고 사용할 수도 있습니다. 
+맵핑 구성에 대한 자세한 정보를 보려면 <a href="usec_jaas.html">Java 인증 및 권한 서비스 구성 항목 설정</a>을 참조하십시오. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">선택 목록</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASTopicConnectionFactory_cloneSupport"></a>복제 지원</strong>
+</dt>
+<dd>복제 지원이 주제 복제본 사이의 동일한 내구성 등록을
+허용하게 하려면 이 선택란을 선택하십시오.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">기본값</td>
+<td align="left" valign="top" class="base">지우기</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">범위</td>
+<td align="left" valign="top" class="base">
+<dl>
+<dt>
+<strong>선택됨</strong>
+</dt>
+<dd>복제본 지원이 사용 가능합니다. </dd>
+<dt>
+<strong>지우기</strong>
+</dt>
+<dd>복제본 지원이 사용 불가능합니다. </dd>
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+<p>이 등록 정보 값을 지정하면 <strong>클라이언트 ID</strong> 등록 정보 값도 지정해야 합니다.</p>
+
+</dd>
+<dt>
+<strong><a name="WASTopicConnectionFactory_clientID"></a>클라이언트 ID</strong>
+</dt>
+<dd>대기열 관리자에 연결할 때 사용하는 JMS 클라이언트 ID
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">문자열</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">범위</td>
+<td align="left" valign="top" class="base">올바른 JMS 클라이언트 ID</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASTopicConnectionFactory_type"></a>XA 사용 가능</strong>
+</dt>
+<dd>연결 팩토리가 메시지를 XA로, 또는 비XA로 조합할 때 필요한지를 지정하고, Application Server가 XA QCF/TCF를 사용하는지를 제어합니다. 같은 트랜잭션에 여러 자원을 사용하지 않는다면 XA를 사용하십시오.
+<p>비XA로 조합할 경우 이 등록 정보를 지우면, 트랜잭션에서 JMS 세션을 계속해서 사용할 수는 있지만 XA 호출 대신 자원 관리자 로컬 트랜잭션 호출(session.commit 및 session.rollback)을 사용합니다. 이로써 성능이 향상될 수 있습니다.
+그러나 이는 WebSphere Application Server에서 트랜잭션 내 단일 자원만을 사용할 수 있음을 의미합니다.
+WebSphere Application Server의 경우, 마지막 참여 지원을 사용하면 기타
+XA 사용 가능 자원과 함께 하나의 XA가 아닌 자원을 사용할 수 있습니다.</p>
+
+<p>
+<strong>포트</strong> 등록 정보가 <samp>DIRECT</samp>로 설정된 WebSphere 주제 연결 팩토리의 경우,
+이 등록 정보는 적용되지 않으며 값은 항상 비XA 조합입니다. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">선택란</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">기본값</td>
+<td align="left" valign="top" class="base">선택(XA 조합에 대해 사용 가능)</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">범위</td>
+<td align="left" valign="top" class="base">
+<dl>
+<dt>
+<strong>선택됨</strong>
+</dt>
+<dd>연결 팩토리가 메시지의 XA 조합에 사용 가능합니다. </dd>
+<dt>
+<strong>지우기</strong>
+</dt>
+<dd>연결 팩토리가 메시지의 XA 조합에 사용 가능하지 않습니다. </dd>
+</dl>
+</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">권장</td>
+<td align="left" valign="top" class="base">메시지 대기열이나 수신한 주제가 트랜잭션 내에서 유일한 자원일 때는 XA 조합을 사용하지 마십시오.
+기타 대기열이나 주제를 포함하여 기타 자원이 연관된 경우에는 XA 조합을 사용하십시오.</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASTopicConnectionFactory_connectionPool"></a>연결 풀</strong>
+</dt>
+<dd>선택적 연결 풀 설정 세트를 지정합니다.
+
+<p>연결 풀 등록 정보는 J2C 커넥터 모두에 공통입니다.</p>
+
+<p>Application Server은 JMS 프로바이더와의 연결 및 세션을 풀하여
+성능을 향상시킵니다. 응용프로그램에 적합하게 연결 및 세션 풀
+등록 정보를 구성해야 합니다. 그렇지 않은 경우, 원하는
+연결 및 세션 작동을 가져올 수 없습니다. </p>
+
+<p>JMS 자원으로 동시에 액세스하는 서버 수가 기본값을 초과하면 연결 풀 크기를 변경하십시오. 연결풀 크기는 대기열 또는 주제를 기초로 설정합니다. 자세한 내용은 다음 테이블을 참조하십시오.</p>
+
+</dd>
+<dt>
+<strong><a name="WASTopicConnectionFactory_sessionPool"></a>세션 풀</strong>
+</dt>
+<dd>선택적 세션 풀 설정 세트.
+
+<p>이 링크는 모든 J2C 커넥터에
+공통인, 선택적 연결 풀 등록 정보의
+패널을 제공합니다.</p>
+
+<p>Application Server은 JMS 프로바이더와의 연결 및 세션을 풀하여
+성능을 향상시킵니다. 응용프로그램에 적합하게 연결 및 세션 풀
+등록 정보를 구성해야 합니다. 그렇지 않은 경우, 원하는
+연결 및 세션 작동을 가져올 수 없습니다. </p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>관련 정보</strong>
+</p>
+<a href="rcon_buttons.html">관리 콘솔 단추</a>
+<br>
+
+<a href="rcon_scope.html">관리 콘솔 범위 설정</a>
+<br>
+
+<a href="udat_conpoolset.html">연결 풀 설정</a>
+<br>
+
+<a href="umj_sesspoolset.html">세션 풀 설정</a>
+<br>
+
+<a href="usec_j2cauthdata.html">Java 2 커넥터 인증 데이터 항목 설정</a>
+<br>
+
+</div>
+</body>
+</html>

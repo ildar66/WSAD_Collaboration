@@ -1,0 +1,69 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Dynamic cache service settings</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="udyn_rcachesettings"></a>
+<h2>Dynamic cache service settings</h2>
+
+<p>Use this page to configure and manage the dynamic cache service
+settings.</p>
+
+<p>To view this administrative console page, click <strong>Servers</strong> &gt; <strong>Application
+Servers</strong> &gt; <em>server </em> &gt; <strong>Dynamic Cache Service</strong>.</p>
+
+<div>
+<p>
+<strong>Configuration tab</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="DynamicCache__startup_description"></a>Startup state</strong>
+</dt>
+<dd>Specifies whether the dynamic cache is enabled.</dd>
+<dt>
+<strong><a name="DynamicCache_cacheSize_description"></a>Cache size</strong>
+</dt>
+<dd>Specifies a positive integer as the value for the maximum number
+of entries the cache holds. 
+<p>Enter the cache size value in this field between the range of 100 through
+200,000.</p>
+
+</dd>
+<dt>
+<strong><a name="DynamicCache_defaultPriority_description"></a>Default priority</strong>
+</dt>
+<dd>Specifies the default priority for cache entries, determining how
+long an entry stays in a full cache. 
+<table border="1" cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base">Default</td>
+<td align="left" valign="top" class="base">1</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="DynamicCache_enableDiskOffload_description"></a>Disk offload</strong>
+</dt>
+<dd>Specifies whether disk offload is enabled.
+<p>By default, the dynamic cache maintains the number of entries configured
+in memory.  If new entries are created while the cache is full, the priorities
+configured for each cache entry and a least recently used algorithm, are used
+to remove entries from the cache.  As an alternative, you can configure disk
+offload, and rather than remove the entries from memory, have them copied
+onto the file system (the location is configurable) for later.</p>
+
+</dd>
+</dl>
+</div>
+</body>
+</html>

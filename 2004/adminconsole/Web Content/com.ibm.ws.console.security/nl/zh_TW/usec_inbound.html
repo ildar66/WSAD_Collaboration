@@ -1,0 +1,220 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Common Secure Interoperability 入埠鑑別設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecinbound"></a>
+<h2>Common Secure Interoperability 入埠鑑別設定</h2>
+
+<p>請利用這個頁面來指定伺服器支援用戶端存取其資源的特性。</p>
+
+<p>如果要檢視這個管理主控台頁面，請按一下<strong>安全</strong> &gt; <strong>鑑別通訊協定</strong> &gt; <strong>CSI 離埠鑑別</strong>。</p>
+
+<p>CSI 入埠鑑別設定用來配置送入要求或傳輸所含的鑑別資訊類型。
+</p>
+
+<p>鑑別特性包括三個鑑別層次，它們可以同時使用：<ul>
+
+<li>
+<strong>傳輸層</strong>。傳輸層是最低層，可包含 Secure Socket Layer (SSL) 用戶端憑證，作為身分識別使用。</li>
+
+<li>
+<strong>訊息層</strong>。訊息層可包含使用者 ID 和密碼，或可設定期限的通過鑑別的記號。</li>
+
+<li>
+<strong>屬性層</strong>。屬性層可包含本身是來自上游伺服器的身分且已通過鑑別的身分記號。
+身分識別層的優先順序最高，接著是訊息層，再接著是傳輸層。
+如果用戶端三層全部傳送，就只會使用身分識別層。
+只有在 SSL 用戶端憑證是要求期間所提供的唯一資訊時，才會使用 SSL 用戶端憑證作為身分識別。
+用戶端會從名稱空間中選出 IOR，而且從標示的元件中讀取這些值，來判斷伺服器在安全方面的需求為何。
+</li>
+
+</ul>  
+</p>
+
+<div>
+<p>
+<strong>「配置」標籤</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="BasicAuthentication_i_description"></a>基本鑑別</strong>
+</dt>
+<dd>指定在訊息層進行基本鑑別。
+<p>基本鑑別（使用者 ID 和密碼）在訊息層進行。
+這類型的鑑別通常包括將用戶端的使用者 ID 和密碼，傳送給伺服器來進行鑑別。
+如果憑證類型是可轉遞的（如小型認證機構 (LTPA)），這也包括委派已通過鑑別的認證所提供的認證記號。
+如果選了伺服器的<strong>基本鑑別</strong>，請同時指定使用者 ID 和密碼鑑別以及記號型鑑別。
+</p>
+
+<p>當您選取<strong>基本鑑別</strong>，您需要決定它是<strong>必要</strong>或<strong>支援</strong>。
+選取<strong>必要</strong>表示只有配置成透過訊息層來接受這個伺服器鑑別的用戶端能夠在伺服器呼叫要求。
+如果選取「支援」，表示這個伺服器接受<strong>基本鑑別</strong>。
+不過，也有可能進行其他鑑別方法（如果已經配置的話），而且接受匿名要求。
+如果選取<strong>絕不</strong>，表示伺服器不會配置成接受任何用戶端的訊息層鑑別。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型：</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ClientCertificateAuthentication_i_description"></a>用戶端憑證鑑別</strong>
+</dt>
+<dd>指定在方法要求期間，當建立用戶端和伺服器之間的起始連線時進行鑑別。
+
+<p>在傳輸層中，會進行 Secure Socket Layer (SSL) 用戶端憑證鑑別。
+在訊息層中，會執行基本鑑別（使用者 ID 和密碼）。
+用戶端憑證鑑別的執行效果一般比訊息層鑑別還要好，但需要某些其他設定步驟。
+這些額外的步驟還包括確定伺服器有它所連接的每個用戶端的簽章者憑證。
+如果用戶端使用「憑證管理中心」(CA) 來建立它的個人憑證，則在 SSL 信任檔的伺服器簽章者區段中，您只需要 CA 的主要憑證。
+當憑證接受輕裝備目錄存取通訊協定 (LDAP) 使用者登錄的鑑別時，會根據配置 LDAP 時所指定的過濾器來對映識別名稱 (DN)。
+當憑證接受本端 OS 使用者登錄的鑑別時，憑證中的 DN 的第一個屬性（通常是共用名稱），會對映至登錄中的使用者 ID。
+只有在沒有提供其他鑑別層次給伺服器時，才會使用用戶端憑證所提供的身分。
+</p>
+
+<p>如果您選取<strong>用戶端憑證鑑別</strong>，您需要決定它是<strong>必要</strong>或<strong>支援</strong>。
+當選取<strong>必要</strong>時，只有配置成透過 SSL 用戶端憑證來接受這個伺服器鑑別的用戶端能夠在伺服器呼叫要求。
+如果您選取<strong>支援</strong>，那麼這個伺服器會接受 SSL 用戶端憑證鑑別，不過，也可能會使用其他鑑別的方法（如果已經配置的話），而且接受匿名要求。
+如果選取<strong>絕不</strong>，則表示伺服器不會配置成接受任何用戶端的用戶端憑證鑑別。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="IdentityAssertion_i_description"></a>身分確認</strong>
+</dt>
+<dd>指定身分確認是在下游 EJB 呼叫期間，從一個伺服器至另一個伺服器來確認身分的方法。
+
+<p>身分確認是在屬性層執行的，只在伺服器中才適用。
+在伺服器中判定的主體是根據優先順序規則而定。
+如果執行身分確認，一律從屬性衍生身分。
+如果是執行不含身分確認的基本鑑別，一律從訊息層衍生身分。
+最後，如果在沒有基本鑑別或身分確認的情況下執行 SSL 用戶端憑證鑑別，就會從傳輸層衍生身分。
+</p>
+
+<p>確認的身分就是 Enterprise Bean 的執行模式所決定的呼叫認證。
+如果執行模式是<strong>用戶端</strong>，身分就是用戶端的身分。
+如果執行模式是<strong>系統</strong>，身分就是伺服器的身分。
+如果執行模式是<strong>指定</strong>，則身分就是指定的身分。
+接收端伺服器會接收身分識別記號中的身分，也會接收用戶端鑑別記號中的傳送端伺服器身分。
+接收端伺服器會利用<strong>授信伺服器 ID</strong> 輸入框來驗證傳送端伺服器的身分是不是授信身分。
+輸入以逗號分隔的主體名稱清單，如 <samp>serverid1、serverid2、serverid3</samp>。</p>
+
+<p>當接受 LocalOS 使用者登錄的鑑別時，所有身分記號類型都會對映至作用中的使用者登錄之使用者 ID 欄位。
+如果是 <samp>ITTPrincipal</samp> 身分識別記號，這會與使用者 ID 欄位進行一對一的對映。
+針對 <samp>ITTDistinguishedName</samp> 身分識別記號，第一個等號
+的值會對映至使用者 ID 欄位。
+如果是 <samp>ITTCertChain</samp> 身分識別記號，則識別名稱第一個等號的值，會對映至使用者 ID 欄位。
+</p>
+
+<p>在接受 LDAP 使用者登錄的鑑別時，LDAP 過濾器會決定 <samp>ITTCertChain</samp> 和 <samp>ITTDistinguishedName</samp> 類型的身分要如何對映至登錄。
+如果記號類型是 <samp>ITTPrincipal</samp>，主體就會對映至 LDAP 登錄中的 UID 欄位。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型：</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="IdentityAssertionLayer_trustedServers_description"></a>具公信力的伺服器使用者 ID</strong>
+</dt>
+<dd>指定一份以逗號分隔的使用者 ID 清單，這些使用者 ID 具有公信力，可以執行這個伺服器的身分確認。
+
+<p>請利用這份清單來快速判斷伺服器可不可信。
+即使伺服器在清單中，傳送端伺服器仍必須接受接收端伺服器的鑑別，傳送端伺服器的身分記號才會被接受。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="StatefulSession_description"></a>Stateful 階段作業</strong>
+</dt>
+<dd>指定 Stateful 階段作業，通常是為了增進效能。
+
+<p>用戶端與伺服器之間的第一次聯絡必須充分地加以鑑別。
+不過，含有效階段作業的所有後續聯絡會重複使用安全資訊。
+用戶端會傳遞環境定義 ID 給伺服器，來查閱階段作業。
+
+環境定義 ID 將局限為連線，如此將保證唯一性。
+每當安全階段作業無效時，如果啟用鑑別重試（這是預設值）的話，用戶端安全攔截程式會使用戶端階段作業失效，且會在使用者不知不覺的情況下重新提出要求。
+如果階段作業不在伺服器中（伺服器失敗且回復作業），就可能發生這個情況。
+如果停用這個值時，每一個方法呼叫都必須重新鑑別。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>相關資訊</strong>
+</p>
+<a href="rcon_buttons.html">管理主控台按鈕</a>
+<br>
+
+<a href="rcon_pageusage.html">管理主控台頁面特性</a>
+<br>
+
+<a href="rcon_scope.html">管理主控台範圍設定</a>
+<br>
+
+<a href="rcon_filter.html">管理主控台過濾器設定</a>
+<br>
+
+<a href="rcon_preferences.html">管理主控台喜好設定</a>
+<br>
+
+</div>
+</body>
+</html>

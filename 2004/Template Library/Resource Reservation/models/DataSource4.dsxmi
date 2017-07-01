@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<core:DataSource xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:core="core.xmi" xmlns:RDBSchema="RDBSchema.xmi" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmi:id="DataSource_1035277448876" id="DataSourceImpl_2220.0" version="1" name="Reservations" description="">
+  <DataDomainMapping xmi:type="core:RDBDomainMapping" xmi:id="RDBDomainMapping_1035277482194" id="RDBDomainMappingImpl_2258.0" version="1">
+    <DataSourceMappings xmi:type="core:RDBDataSourceMapping" xmi:id="RDBDataSourceMapping_1035277482194" id="RDBDataSourceMappingImpl_2264.0" version="1">
+      <FieldMappings xmi:type="core:RDBFieldMapping" xmi:id="RDBFieldMapping_1035277482194" id="RDBFieldMappingImpl_2289.0" version="1" PersistentField="PersistentField_1035277482194">
+        <RDBColumn href="models/TWWizardConnection1_RESOURCE_RESERVATIONS_APP_RESERVATIONS.tblxmi#RDBColumn_1035814917035"/>
+      </FieldMappings>
+      <FieldMappings xmi:type="core:RDBFieldMapping" xmi:id="RDBFieldMapping_1" version="1" PersistentField="PersistentField_1035277482195">
+        <RDBColumn href="models/TWWizardConnection1_RESOURCE_RESERVATIONS_APP_RESERVATIONS.tblxmi#RDBColumn_1035814917025"/>
+      </FieldMappings>
+      <FieldMappings xmi:type="core:RDBFieldMapping" xmi:id="RDBFieldMapping_2" version="1" PersistentField="PersistentField_1035277482196">
+        <RDBColumn href="models/TWWizardConnection1_RESOURCE_RESERVATIONS_APP_RESERVATIONS.tblxmi#RDBColumn_1035814917026"/>
+      </FieldMappings>
+      <FieldMappings xmi:type="core:RDBFieldMapping" xmi:id="RDBFieldMapping_3" version="1" PersistentField="PersistentField_1035277482204">
+        <RDBColumn href="models/TWWizardConnection1_RESOURCE_RESERVATIONS_APP_RESERVATIONS.tblxmi#RDBColumn_1035814917027"/>
+      </FieldMappings>
+      <RDBTable href="models/TWWizardConnection1_RESOURCE_RESERVATIONS_APP_RESERVATIONS.tblxmi#RDBTable_1035814917025"/>
+    </DataSourceMappings>
+    <RDBDatabase href="models/TWWizardConnection1_RESOURCE_RESERVATIONS.dbxmi#RDBDatabase_1035814916885"/>
+  </DataDomainMapping>
+  <Fields xmi:type="core:PersistentField" xmi:id="PersistentField_1035277482195" id="PersistentFieldImpl_2260.0" version="1" name="resource_name" FieldMapping="RDBFieldMapping_1">
+    <CoreTypeDescriptor href="ResourceReservations.prjxmi#CoreTypeDescriptor_8"/>
+    <FieldDescriptor xmi:type="core:AlphanumFieldDescriptor" xmi:id="AlphanumFieldDescriptor_1" version="1" length="20">
+      <initialValue xsi:nil="true"/>
+      <CoreTypeDescriptor href="ResourceReservations.prjxmi#CoreTypeDescriptor_8"/>
+    </FieldDescriptor>
+  </Fields>
+  <Fields xmi:type="core:PersistentField" xmi:id="PersistentField_1035277482196" id="PersistentFieldImpl_2267.0" version="1" name="date" FieldMapping="RDBFieldMapping_2">
+    <CoreTypeDescriptor href="ResourceReservations.prjxmi#CoreTypeDescriptor_3"/>
+    <FieldDescriptor xmi:type="core:DateFieldDescriptor" xmi:id="DateFieldDescriptor_1" version="1">
+      <initialValue xsi:nil="true"/>
+      <CoreTypeDescriptor href="ResourceReservations.prjxmi#CoreTypeDescriptor_3"/>
+    </FieldDescriptor>
+  </Fields>
+  <Fields xmi:type="core:PersistentField" xmi:id="PersistentField_1035277482204" id="PersistentFieldImpl_2275.0" version="1" name="time" FieldMapping="RDBFieldMapping_3">
+    <CoreTypeDescriptor href="ResourceReservations.prjxmi#CoreTypeDescriptor_9"/>
+    <FieldDescriptor xmi:type="core:TimeFieldDescriptor" xmi:id="TimeFieldDescriptor_1" version="1">
+      <initialValue xsi:nil="true"/>
+      <CoreTypeDescriptor href="ResourceReservations.prjxmi#CoreTypeDescriptor_9"/>
+    </FieldDescriptor>
+  </Fields>
+  <Fields xmi:type="core:PersistentField" xmi:id="PersistentField_1035277482194" id="PersistentFieldImpl_2285.0" version="1" name="owner" FieldMapping="RDBFieldMapping_1035277482194">
+    <CoreTypeDescriptor href="ResourceReservations.prjxmi#CoreTypeDescriptor_8"/>
+    <FieldDescriptor xmi:type="core:AlphanumFieldDescriptor" xmi:id="AlphanumFieldDescriptor_1035277482205" id="AlphanumFieldDescriptorImpl_2290.0" version="1" length="20">
+      <initialValue xsi:nil="true"/>
+      <CoreTypeDescriptor href="ResourceReservations.prjxmi#CoreTypeDescriptor_8"/>
+    </FieldDescriptor>
+  </Fields>
+  <DomainActionDescriptors xmi:id="DomainActionDescriptor_1" version="1" name="Create" description="Performs a Create">
+    <ActionMapping xmi:type="core:SQLStatementMapping" xmi:id="SQLStatementMapping_1" version="1" SQLStatement="INSERT INTO APP.RESERVATIONS (OWNER,RESOURCE_NAME,DAY_ENTRY,TIME_ENTRY) VALUES (:owner,:resource_name,:date,:time)"/>
+  </DomainActionDescriptors>
+  <DomainActionDescriptors xmi:id="DomainActionDescriptor_2" version="1" name="Update" description="Performs a Update">
+    <ActionMapping xmi:type="core:SQLStatementMapping" xmi:id="SQLStatementMapping_2" version="1" SQLStatement=" UPDATE APP.RESERVATIONS SET OWNER = :owner,  WHERE APP.RESERVATIONS.RESOURCE_NAME = :resource_name AND APP.RESERVATIONS.DATE = :date AND APP.RESERVATIONS.TIME = :time"/>
+  </DomainActionDescriptors>
+  <DomainActionDescriptors xmi:id="DomainActionDescriptor_3" version="1" name="Delete" description="Performs a Delete">
+    <ActionMapping xmi:type="core:SQLStatementMapping" xmi:id="SQLStatementMapping_3" version="1" SQLStatement="DELETE FROM APP.RESERVATIONS WHERE APP.RESERVATIONS.RESOURCE_NAME = :resource_name AND APP.RESERVATIONS.DATE = :date AND APP.RESERVATIONS.TIME = :time"/>
+  </DomainActionDescriptors>
+  <DomainActionDescriptors xmi:id="DomainActionDescriptor_4" version="1" name="Select All" description="Performs a Select All">
+    <ActionMapping xmi:type="core:SQLStatementMapping" xmi:id="SQLStatementMapping_4" version="1" SQLStatement="SELECT * FROM APP.RESERVATIONS"/>
+  </DomainActionDescriptors>
+  <DomainActionDescriptors xmi:id="DomainActionDescriptor_5" version="1" name="Read" description="Performs a Read">
+    <returnedValue xmi:type="core:CoreTypeDescriptor" href="ResourceReservations.prjxmi#CoreTypeDescriptor_4"/>
+    <ActionMapping xmi:type="core:SQLStatementMapping" xmi:id="SQLStatementMapping_5" version="1" SQLStatement="SELECT * FROM APP.RESERVATIONS WHERE APP.RESERVATIONS.RESOURCE_NAME = :resource_name AND APP.RESERVATIONS.DAY_ENTRY = :date AND APP.RESERVATIONS.TIME_ENTRY = :time"/>
+  </DomainActionDescriptors>
+  <DomainActionDescriptors xmi:id="DomainActionDescriptor_6" version="1" name="Search" description="Performs a Search">
+    <returnedValue xmi:type="core:CoreTypeDescriptor" href="ResourceReservations.prjxmi#CoreTypeDescriptor_4"/>
+    <parameters xmi:id="ParameterType_1" version="1">
+      <type xmi:type="core:CoreTypeDescriptor" href="ResourceReservations.prjxmi#CoreTypeDescriptor_11"/>
+    </parameters>
+    <parameters xmi:id="ParameterType_2" version="1">
+      <type xmi:type="core:CoreTypeDescriptor" href="ResourceReservations.prjxmi#CoreTypeDescriptor_8"/>
+    </parameters>
+  </DomainActionDescriptors>
+  <DomainActionDescriptors xmi:id="DomainActionDescriptor_7" version="1" name="Read By Field" description="Performs a Read By Field">
+    <returnedValue xmi:type="core:CoreTypeDescriptor" href="ResourceReservations.prjxmi#CoreTypeDescriptor_4"/>
+    <parameters xmi:id="ParameterType_3" version="1">
+      <type xmi:type="core:CoreTypeDescriptor" href="ResourceReservations.prjxmi#CoreTypeDescriptor_11"/>
+    </parameters>
+  </DomainActionDescriptors>
+  <KeyFields xmi:id="KeyField_1" id="KeyFieldImpl_1.0" version="1" PersistentField="PersistentField_1035277482195"/>
+  <KeyFields xmi:id="KeyField_2" id="KeyFieldImpl_2.0" version="1" PersistentField="PersistentField_1035277482196"/>
+  <KeyFields xmi:id="KeyField_3" id="KeyFieldImpl_3.0" version="1" PersistentField="PersistentField_1035277482204"/>
+  <DataSourceTypeDescriptor xmi:id="DataSourceTypeDescriptor_1035277448896" id="DataSourceTypeDescriptorImpl_2221.0" version="1"/>
+</core:DataSource>

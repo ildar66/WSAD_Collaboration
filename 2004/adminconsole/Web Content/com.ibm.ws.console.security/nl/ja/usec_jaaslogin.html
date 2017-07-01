@@ -1,0 +1,107 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Java Authentication Authorization Service のログイン・モジュール設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecjaaslogin"></a>
+<h2>Java Authentication Authorization Service のログイン・モジュール設定</h2>
+
+<p>このページを使用して、Java Authentication
+Authorization Service (JAAS) ログイン構成のログイン・モジュールを定義します。</p>
+
+<p>この管理ページを表示するには、「<strong>セキュリティー</strong>」&gt;「<strong>JAAS 構成</strong>」&gt;「<strong>Application Logins</strong>」&gt;「<em>alias_name</em>」&gt;「<strong>JAAS ログイン・モジュール</strong>」をクリックします。</p>
+
+<div>
+<p>
+<strong>「構成」タブ</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="JAASLoginModule_moduleClassName_description"></a>モジュール・クラス名</strong>
+</dt>
+<dd>指定されたログイン・モジュールのクラス名を指定します。
+<p>WebSphere 製品によって定義されたデフォルトのログイン・モジュールは、プロキシー LoginModule クラス
+の com.ibm.ws.security.common.auth.module.WSLoginModuleProxy を使用します。
+このプロキシー・クラスは、スレッド・コンテキスト・クラス・ローダーとともに WebSphere ログイン・モジュールをロードし、
+<em>実際の</em> ログイン・モジュール・インプリメンテーションにすべてのオペレーションを委任します。
+実際のログイン・モジュール・インプリメンテーションは、オプション構成における代行オプションとして指定されます。
+Developer Kit のアプリケーション・クラス・ローダーには、WebSphere 製品のクラス・ローダーの可視性がないため、
+プロキシー・クラスが必要です。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型:</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JAASLoginModule_authenticationStrategy_description"></a>認証ストラテジー</strong>
+</dt>
+<dd>認証がログイン・モジュールのスタックを下に進むときの認証の動作を指定します。
+<p>JAAS 認証プロバイダーは、認証ストラテジーを提供します。JAAS では、認証ストラテジーは LoginModule インターフェースを介してインプリメントされます。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型:</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト:</td>
+<td align="left" valign="top" class="base">必要</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲:</td>
+<td align="left" valign="top" class="base">必須、必要、十分、およびオプション</td>
+
+</tr>
+
+</table>
+
+<p>「<strong>Options Additional Properties</strong>」で追加のオプションを指定します。
+これらの名前と値のペアは、初期化中にログイン・モジュールに渡されます。
+これは、ログイン・モジュールに情報を渡すために使用するメカニズムの 1 つです。
+</p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>関連情報</strong>
+</p>
+<a href="rcon_buttons.html">管理コンソールのボタン</a>
+<br>
+
+<a href="rcon_pageusage.html">管理コンソール・ページのフィーチャー</a>
+<br>
+
+<a href="rcon_scope.html">管理コンソールの有効範囲設定</a>
+<br>
+
+<a href="rcon_filter.html">管理コンソールのフィルター設定</a>
+<br>
+
+<a href="rcon_preferences.html">管理コンソールの設定の変更</a>
+<br>
+
+</div>
+</body>
+</html>

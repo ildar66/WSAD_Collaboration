@@ -1,0 +1,102 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Login bindings configuration settings</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_loginbnd"></a>
+<h2>Login bindings configuration settings</h2>
+
+<p>Use this page to configure the encryption and decryption parameters.</p>
+
+<p>The pluggable token uses the Java Authentication and Authorization Service
+(JAAS) CallBackHandler (javax.security.auth.callback.CallBackHandler) interface
+to generate the token that is inserted into the message. The following list
+describes the CallBack support implementations:<dl>
+<dt>
+<strong>com.ibm.wsspi.wssecurity.auth.callback.BinaryTokenCallback</strong>
+</dt>
+<dd>This implementation is used for generating binary tokens inserted as <samp>&lt;wsse:BinarySecurityToken/@ValueType&gt;</samp> in
+the message.</dd>
+<dt>
+<strong>javax.security.auth.callback.NameCallback and javax.security.auth.callback.NameCallback</strong>
+</dt>
+<dd>This implementation is used for generating user name tokens inserted as <samp>&lt;wsse:UsernameToken&gt;</samp> in
+the message.</dd>
+<dt>
+<strong>com.ibm.wsspi.wssecurity.auth.callback.XMLTokenSenderCallback</strong>
+</dt>
+<dd>This implementation is used to generate eXtensible Markup Language (XML)
+tokens and is inserted as the <samp>&lt;SAML: Assertion&gt;</samp> element in the
+message.</dd>
+<dt>
+<strong>com.ibm.wsspi.wssecurity.auth.callback.PropertyCallback</strong>
+</dt>
+<dd>This implementation is used to obtain properties specified in the binding
+file.</dd>
+</dl>
+</p>
+
+<p>To view this administrative console page, complete the following steps: <ol>
+
+<li>Click <strong>Applications &gt; Enterprise Applications &gt; </strong><em>application_name</em>. </li>
+
+<li>Under Related Items, click <strong>Web Module &gt; </strong><em>URI_file_name</em> &gt; <strong>Web
+Services: Client Security Bindings </strong>. </li>
+
+<li>Under Request Sender Bindings, click <strong>Edit &gt; Login Binding</strong>.</li>
+
+</ol>
+</p>
+
+<p>If the encryption information is not available, select <strong>None</strong>.</p>
+
+<p>If the encryption information is available, select <strong>Dedicated Login Binding</strong> and
+specify the configuration in the following fields:</p>
+
+<dl>
+<dt>
+<strong><a name="sec_authmeth"></a>Authentication Method</strong>
+</dt>
+<dd>Specifies the unique name for the authentication method.</dd>
+<dt>
+<strong><a name="sec_cbhand"></a>Callback Handler</strong>
+</dt>
+<dd>Specifies the name of the callback handler.The callback handler
+must implement the javax.security.auth.callback.CallbackHandler interface.</dd>
+<dt>
+<strong><a name="sec_userid"></a>Basic Auth User ID</strong>
+</dt>
+<dd>Specifies the user name for basic authentication. The Basic Auth
+authentication method provides the capability to define a user ID and password
+in the binding file.</dd>
+<dt>
+<strong><a name="sec_authpass"></a>Basic Auth Password</strong>
+</dt>
+<dd>Specifies the password for basic authentication.</dd>
+<dt>
+<strong><a name="sec_uri"></a>Token Type URI</strong>
+</dt>
+<dd>Specifies the Uniform Resource Identifiers (URI) for the token
+type. This information is inserted as <samp>&lt;wsse:BinarySecurityToken&gt;/ValueType</samp> for
+the XML token <samp>&lt;SAML: Assertion&gt;</samp>. </dd>
+<dt>
+<strong><a name="sec_lname"></a>Token Type Local Name</strong>
+</dt>
+<dd>Specifies the local name for the token type. This information is
+inserted as <samp>&lt;wsse:BinarySecurityToken&gt;/ValueType</samp> for the XML token <samp>&lt;SAML:
+Assertion&gt;</samp>.</dd>
+</dl>
+<div>
+<p>
+<strong>Related information</strong>
+</p>
+<a href="uwbs_wsclientbind.html">Web Services: client security bindings collection</a>
+<br>
+
+</div>
+</body>
+</html>

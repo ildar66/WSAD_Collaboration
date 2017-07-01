@@ -1,0 +1,114 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Param&egrave;tres du module de connexion JAAS (Java Authentication and Authorization Service)</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecjaaslogin"></a>
+<h2>Param&egrave;tres du module de connexion JAAS (Java Authentication and Authorization Service)</h2>
+
+<p>Cette page permet de d&eacute;finir le module de connexion pour
+une configuration de connexion JAAS.</p>
+
+<p>Pour afficher cette page de la console d'administration, cliquez sur <strong>S&eacute;curit&eacute;</strong> &gt; &gt; <strong>Configuration JAAS</strong> &gt; <strong>Connexions de l'application</strong> &gt; <em>nom_alias</em> &gt; <strong>Modules de connexion JAAS</strong>.</p>
+
+<div>
+<p>
+<strong>Onglet Configuration</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="JAASLoginModule_moduleClassName_description"></a>Nom de classe du module</strong>
+</dt>
+<dd>Indique le nom de classe d'un module de connexion sp&eacute;cifique.
+<p>Les modules de connexion par d&eacute;faut d&eacute;finis par le produit WebSphere
+utilisent une classe LoginModule de proxy, com.ibm.ws.security.common.auth.module.WSLoginModuleProxy.
+Cette classe de proxy charge le module de connexion WebSphere avec le
+chargeur de classe de contexte d'unit&eacute; d'ex&eacute;cution et d&eacute;l&egrave;gue toutes
+les op&eacute;rations &agrave; l'impl&eacute;mentation du module de connexion <em>real</em>. L'impl&eacute;mentation du module de connexion real est indiqu&eacute;e en tant
+qu'option d&eacute;l&eacute;gu&eacute;e dans la configuration des options. La classe de
+proxy est n&eacute;cessaire car les chargeurs de classes de l'application
+Developer Kit n'ont pas connaissance des chargeurs de
+classes du produit WebSphere.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es :</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JAASLoginModule_authenticationStrategy_description"></a>Strat&eacute;gie d'authentification</strong>
+</dt>
+<dd>Indique le comportement de l'authentification &agrave; mesure que
+l'authentification s'effectue sur la pile des modules de connexion.
+<p>Un fournisseur d'authentification JAAS fournit la strat&eacute;gie
+d'authentification. Dans JAAS, les strat&eacute;gies
+d'authentification sont impl&eacute;ment&eacute;es via l'interface du module de
+connexion. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es :</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut :</td>
+<td align="left" valign="top" class="base">Obligatoire</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Port&eacute;e :</td>
+<td align="left" valign="top" class="base">Obligatoire, Requise, Suffisante et Facultative</td>
+
+</tr>
+
+</table>
+
+<p>Sp&eacute;cifiez des options suppl&eacute;mentaires dans <strong>Propri&eacute;t&eacute;s
+suppl&eacute;mentaires des options</strong>. Ces paires nom/valeur
+sont transmises aux modules de connexion lors de l'initialisation.
+Il s'agit de l'un des m&eacute;canismes utilis&eacute;s pour transmettre les
+informations aux modules de connexion.</p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informations connexes</strong>
+</p>
+<a href="rcon_buttons.html">Boutons de la console administrative</a>
+<br>
+
+<a href="rcon_pageusage.html">Caract&eacute;ristiques de la page de la console d'administration</a>
+<br>
+
+<a href="rcon_scope.html">Param&egrave;tres de la port&eacute;e de la console administrative</a>
+<br>
+
+<a href="rcon_filter.html">Param&egrave;tres de filtrage de la console administrative</a>
+<br>
+
+<a href="rcon_preferences.html">Param&egrave;tres des pr&eacute;f&eacute;rences de la console administrative</a>
+<br>
+
+</div>
+</body>
+</html>

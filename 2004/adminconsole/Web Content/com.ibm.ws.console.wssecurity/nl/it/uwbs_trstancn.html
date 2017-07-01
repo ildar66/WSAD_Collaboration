@@ -1,0 +1,97 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Impostazioni di configurazione ancoraggio sicuro</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_trstancn"></a>
+<h2>
+<img alt="[Fix Pack 5.0.2 e successive]" src="v502.gif" border="0">Impostazioni di configurazione ancoraggio sicuro</h2>
+
+<p>Utilizzare queste informazioni per configurare un ancoraggio sicuro. Gli ancoraggi sicuri indicano i file di memorizzazione delle chiavi che contengono una root sicura o certificati autofirmati.
+Tali informazioni consentono di specificare un nome per l'ancoraggio sicuro e i dati necessari per accedere a un file di memorizzazione delle chiavi. Il collegamento dell'applicazione utilizza questo nome per indicare una definizione predefinita di ancoraggio sicuro nel file di collegamento (o nel collegamento predefinito).</p>
+
+<p>Per visualizzare questa pagina della console di gestione, completare le seguenti operazioni:<ol>
+
+<li>Fare clic su <strong>Server &gt; Server delle applicazioni &gt; </strong><em>nome_server</em>.</li>
+
+<li>In Ulteriori propriet&agrave;,
+fare clic su <strong>Servizi Web: collegamenti predefiniti per la sicurezza dei servizi Web (WS-Security, Web Services Security) &gt; Ancoraggi sicuri &gt; Nuovo</strong>.</li>
+
+</ol>
+</p>
+
+<dl>
+<dt>
+<strong><a name="sec_trstancname"></a>Nome ancoraggio sicuro   </strong>
+</dt>
+<dd>Specifica il nome univoco utilizzato dal collegamento dell'applicazione per indicare una definizione predefinita di ancoraggio sicuro nel collegamento predefinito.</dd>
+<dt>
+<strong><a name="sec_keystpass"></a>Password del file di memorizzazione delle chiavi </strong>
+</dt>
+<dd>Specifica la password necessaria per accedere al file di memorizzazione delle chiavi.</dd>
+<dt>
+<strong><a name="sec_keystpath"></a>Percorso del file di memorizzazione delle chiavi </strong>
+</dt>
+<dd>Specifica l'ubicazione del file di memorizzazione delle chiavi.
+<p>Utilizzare ${USER_INSTALL_ROOT} nel momento in cui questo percorso si espande al percorso di WebSphere Application sulla propria macchina.</p>
+
+</dd>
+<dt>
+<strong><a name="sec_keysttype"></a>Tipo di file di memorizzazione delle chiavi</strong>
+</dt>
+<dd>Specifica il tipo di file di memorizzazione delle chiavi.
+<p>Il valore di questo campo &egrave; <strong>JKS</strong> o <strong>JCEKS</strong>.<dl>
+
+<dt>
+<strong>JKS</strong>
+</dt>
+<dd>Specificare questa opzione se non si sta utilizzando JCE (Java Cryptography
+Extensions).</dd>
+<dt>
+<strong>JCEKS</strong>
+</dt>
+<dd>Specificare questa opzione se si sta utilizzando JCE (Java Cryptography Extensions). Sebbene il formato del file di memorizzazione delle chiavi JCEKS sia pi&ugrave; sicuro, riduce le prestazioni.</dd>
+</dl>
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">JKS</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo</td>
+<td align="left" valign="top" class="base">JKS, JCEKS</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>Informazioni correlate</strong>
+</p>
+<a href="uwbs_trstanc.html">Raccolta ancoraggi sicuri</a>
+<br>
+
+</div>
+</body>
+</html>

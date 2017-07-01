@@ -1,0 +1,66 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Cookie 设置</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="cook_set"></a>
+<h2>Cookie 设置</h2>
+
+<p>使用此页面配置会话管理的 cookie 设置。</p>
+
+<p>要查看此管理控制台页面，单击<strong>服务器</strong> &gt; <strong>应用程序服务器</strong> &gt; <em>server_name</em> &gt; <strong>Web 容器</strong> &gt; <strong>会话管理</strong> &gt; <strong>启用 Cookie</strong>。</p>
+
+<div>
+<p>
+<strong>&ldquo;配置&rdquo;选项卡</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="Cookie_name_description"></a>Cookie 名称</strong>
+</dt>
+<dd>指定会话管理 cookie 的唯一的名称。servlet 规范要求名称 JSESSIONID。然而为了灵活起见，可以配置此值。</dd>
+<dt>
+<strong><a name="Cookie_secure_description"></a>安全 cookie</strong>
+</dt>
+<dd>指定会话 cookie 包括安全字段。启用功能部件仅限制 cookie 到 HTTPS 会话的交换。</dd>
+<dt>
+<strong><a name="Cookie_domain_description"></a>Cookie 域</strong>
+</dt>
+<dd>指定会话跟踪 cookie 的域字段。此值控制浏览器是否发送 cookie 到特定的服务器。例如，如果您指定特定域，则发送会话 cookie 到该域中的主机。缺省域是服务器。</dd>
+<dt>
+<strong><a name="Cookie_path_description"></a>Cookie 路径</strong>
+</dt>
+<dd>指定 cookie 发送到路径中指定的 URL。
+指定表示服务器上路径的任何字符串。&ldquo;/&rdquo;表明根目录。指定限定 cookie 发送到的路径的值。
+通过限制路径，您阻止 cookie 转至服务器上的某些 URL。如果您指定根目录，则发送 cookie 而不管它访问给定服务器上的什么路径。</dd>
+<dt>
+<strong><a name="Cookie_maximum_age"></a>Cookie 最长寿命</strong>
+</dt>
+<dd>指定 cookie 在客户机浏览器上存活的时间量。指定 cookie 仅在当前浏览器会话时存活或指定为最长寿命。如果您选择了最长寿命选项，则以秒指定寿命。
+此值与 Cookie 规范中描述的&ldquo;存活时间&rdquo;（TTL）值相应。
+
+<p>缺省为当前浏览器会话，其等价于设置值为 -1。</p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>相关信息</strong>
+</p>
+<a href="rcon_buttons.html">管理控制台按钮</a>
+<br>
+
+<a href="rcon_pageusage.html">管理控制台页面功能</a>
+<br>
+
+<a href="rcon_preferences.html">管理控制台首选项设置</a>
+<br>
+
+</div>
+</body>
+</html>

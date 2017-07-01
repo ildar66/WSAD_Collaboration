@@ -1,0 +1,73 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Configurazione di nonce per il livello della cella</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="twbs_confnoncecell"></a>
+<h2>
+<img alt="[Release 5.1 e successive]" src="v51.gif" border="0">Configurazione di nonce per il livello della cella</h2>
+
+
+<div> In questa attivit&agrave; viene descritto come configurare nonce per il livello della cella utilizzando la console di gestione di
+WebSphere Application Server. Il valore nonce
+pu&ograve; essere configurato ai livelli applicazione, server e cella. Tuttavia &egrave; necessario considerare l'ordine di precedenza. La seguente tabella mostra tale ordine:<ol>
+
+<li>Livello applicazione</li>
+
+<li>Livello server</li>
+
+<li>Livello cella</li>
+
+</ol>Se nonce viene configurato ai livelli applicazione e server, i valori specificati per il livello applicazione hanno la precedenza su quelli specificati per il livello server. Allo stesso modo, i valori specificati per il livello applicazione hanno la precedenza su quelli del livello server e cella. In WebSphere Application Server Network Deployment, per utilizzare nonce in maniera corretta, sono obbligatori i campi <strong>Timeout cache Nonce</strong>, <strong>Durata massima Nonce</strong> e <strong>Orologio non sincronizzato Nonce</strong>. Tuttavia, questi campi diventano facoltativi al livello server. Completare le seguenti operazioni per configurare nonce al livello cella:</div>
+
+<div>
+<p class="sectiontitle">Fasi di questa attivit&agrave;</p>
+<ol>
+
+<li>Collegarsi alla console di gestione digitando http://localhost:9090/admin nel browser Web, a meno che il numero di porta non sia stato modificato.</li>
+
+<li>Fare clic su <strong>Server &gt; Server delle applicazioni &gt; </strong><strong>server1</strong>.
+</li>
+
+<li>In Ulteriori propriet&agrave;, fare clic su <strong>Servizi Web: collegamenti predefiniti per la sicurezza dei
+servizi Web (WS-Security, Web Services Security)</strong>. </li>
+
+<li>Specificare un valore in secondi per il campo <strong>Timeout cache Nonce</strong>.
+<div>Il valore specificato per il campo <strong>Timeout cache Nonce</strong> indica l'intervallo di tempo in cui nonce rimane memorizzato nella cache prima di essere eliminato. &Egrave; necessario specificare un minimo di 300 secondi. Tuttavia, se non viene specificato un valore, il valore predefinito &egrave; di 600 secondi. Questo campo &egrave; facoltativo al livello server ma &egrave; obbligatorio al livello cella.</div>
+</li>
+
+<li>Specificare un valore in secondi per il campo <strong>Durata massima Nonce</strong>.
+<div>Il valore specificato nel campo <strong>Durata massima Nonce</strong> indica la durata della validit&agrave; di nonce. &Egrave; necessario specificare almeno 300 secondi, ma il valore non pu&ograve; superare il numero di secondi indicato nel campo <strong>Timeout cache Nonce</strong> nella fase precedente. Se non viene specificato alcun valore, il valore predefinito &egrave; di 600 secondi. In un ambiente WebSphere Application Server
+Network Deployment, ambiente WebSphere Application Server for z/OS, se si specifica un valore al livello server per il campo <strong>Timeout cache Nonce</strong>, questo non pu&ograve; superare il valore specificato per il livello cella del campo <strong>Timeout cache Nonce</strong>. Questo campo &egrave; facoltativo al livello server ma &egrave; obbligatorio al livello cella </div>
+</li>
+
+<li>Specificare un valore in secondi per il campo <strong>Orologio non sincronizzato
+Nonce</strong>.
+<div>Il valore specificato per il campo <strong>Orologio non sincronizzato Nonce</strong> indica l'intervallo di tempo in secondi da considerare quando il destinatario del messaggio
+verifica se il valore &egrave; recente o meno. Impostando questo valore, considerare le seguenti informazioni:<ul>
+
+<li>La differenza di ora tra il mittente e il destinatario del messaggio nel caso in cui gli orologi non siano sincronizzati.</li>
+
+<li>Il tempo necessario per codificare e trasmettere il messaggio.</li>
+
+<li>Il tempo necessario per superare la congestione di rete.</li>
+
+</ul>&Egrave; necessario specificare almeno 0 secondi per questo campo. Tuttavia, il valore massimo non pu&ograve; superare il numero di secondi indicato nel campo <strong>Durata
+massima Nonce</strong>. Se non viene specificato alcun valore, quello predefinito
+&egrave; di 0 secondi.
+Questo campo &egrave; facoltativo al livello server ma &egrave; obbligatorio al livello cella.</div>
+
+</li>
+
+<li>Riavviare il server.<div>Se si modifica il valore <strong>Timeout cache Nonce</strong> e non si riavvia il server, quest'ultimo non riconosce la modifica.</div>
+</li>
+
+</ol>
+</div>
+
+</body>
+</html>

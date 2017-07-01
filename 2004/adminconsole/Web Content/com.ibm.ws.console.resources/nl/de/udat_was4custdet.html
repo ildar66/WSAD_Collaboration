@@ -1,0 +1,188 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Einstellungen f&uuml;r benutzerdefinierte Merkmale (Version 4)</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="WAS40_Custom_property_detail"></a>
+<h2>Einstellungen f&uuml;r benutzerdefinierte Merkmale (Version 4)</h2>
+
+<p>Auf dieser Seite k&ouml;nnen Sie Merkmale f&uuml;r eine Datenquelle der Version 4.0 hinzuf&uuml;gen.</p>
+
+<p>Klicken Sie, um diese Seite der Administrationskonsole anzuzeigen, auf <strong>Ressourcen</strong> &gt;
+<strong>JDBC-Provider</strong> &gt; <em>JDBC-Provider</em> &gt; <strong>Datenquellen (Version 4)</strong> &gt;
+<em>Datenquelle</em> &gt; <strong>Benutzerdefinierte Merkmale</strong> &gt; <em>Benutzerdefiniertes_Merkmal</em> . </p>
+
+<div>
+<p>
+<strong>Register "Konfiguration"</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="J2EEResourceProperty_detail_contextID"></a>Bereich</strong>
+</dt>
+<dd>Gibt die Ebene an, bis zu der diese Ressourcendefinition sichtbar ist - Zelle, Knoten oder Server.
+<p>Ressourcen, wie z. B. JDBC-Provider, Namespace-Bindungen oder gemeinsam
+benutzte Bibliotheken k&ouml;nnen in mehreren Bereichen definiert werden. Dabei &uuml;berschreiben Ressourcen, die in
+spezifischeren Bereichen
+definiert wurden, Ressourcen, die in allgemeineren Bereichen definiert wurden. </p>
+
+<p>Die Merkmale einer Ressource gelten nur f&uuml;r eine bestimmte Serverebene, unabh&auml;ngig vom
+Geltungsbereich einer definierten Ressource.
+Wenn Sie beispielsweise den Geltungsbereich einer Datenquelle auf Zellenebene definieren,
+k&ouml;nnen alle Benutzer in dieser Zelle diese Datenquelle durchsuchen und verwenden.
+Die Einstellungen von Ressourcenmerkmalen gelten jedoch lokal f&uuml;r jeden Server in der Zelle.
+Wenn Sie beispielsweise die <em>maximale Anzahl von Verbindungen</em> mit 10 definieren, kann jeder
+Server in dieser Zelle 10 Verbindungen haben.
+<dl>
+
+<dt>
+<strong>Zelle</strong>
+</dt>
+<dd>Der allgemeinste Bereich. Ressourcen, die im Zellenbereich definiert werden, sind auf
+allen Knoten und Servern sichtbar, vorausgesetzt, sie wurden nicht &uuml;berschrieben.
+M&ouml;chten Sie Ressourcen anzeigen, die im Zellenbereich definiert wurden, d&uuml;rfen Sie
+keinen Server oder Knotennamen im Formular f&uuml;r die Bereichsauswahl angeben.</dd>
+
+<dt>
+<strong>Knoten</strong>
+</dt>
+<dd>Der Standardbereich f&uuml;r die meisten Ressourcentypen.  Ressourcen, die im Knotenbereich
+definiert werden, &uuml;berschreiben alle Duplikate im Zellenbereich und sind auf allen Servern, die sich auf
+demselben
+Knoten befinden, sichtbar, vorausgesetzt, sie wurden nicht in einem Serverbereich auf diesem Knoten
+&uuml;berschrieben. M&ouml;chten Sie Ressourcen anzeigen, die in einem Knotenbereich
+definiert
+wurden, d&uuml;rfen Sie keinen Server angeben, sondern m&uuml;ssen einen Knotennamen im Formular f&uuml;r
+die Bereichsauswahl ausw&auml;hlen.</dd>
+
+<dt>
+<strong>Server</strong>
+</dt>
+<dd>Der spezifischste Bereich f&uuml;r die Definition von Ressourcen.  Ressourcen,
+die im Serverbereich definiert werden, &uuml;berschreiben alle Duplikate von
+Ressourcendefinitionen, die im Zellenbereich oder im &uuml;bergeordneten
+Knotenbereich definiert wurden, und k&ouml;nnen nur von einem spezifischen Server erkannt werden. M&ouml;chten
+Sie Ressourcen anzeigen, die in einem Serverbereich definiert wurden, m&uuml;ssen Sie im
+Formular f&uuml;r die Bereichsauswahl einen Servernamen und einen Knotennamen ausw&auml;hlen.</dd>
+
+</dl>
+</p>
+
+<p>Wenn Ressourcen erstellt werden, werden sie immer im aktuellen, in der Anzeige ausgew&auml;hlten Bereich
+erstellt. M&ouml;chten Sie Ressourcen in anderen Bereichen anzeigen,
+geben Sie einen anderen Knoten oder Server im Formular f&uuml;r die Bereichsauswahl an.  </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2EEResourceProperty_required_description"></a>Erforderlich</strong>
+</dt>
+<dd>Gibt Merkmale an, die f&uuml;r diese Ressource erforderlich sind. 
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2EEResourceProperty_name_displayName"></a>Name </strong>
+</dt>
+<dd>Der Name, der diesem Merkmal zugeordnet ist (PortNumber, ConnectionURL etc). 
+<p>Vergewissern Sie sich, dass f&uuml;r die Datenquelle die set-Methode dieses Merkmals angegeben ist.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2EEResourceProperty_value_displayName"></a>Wert</strong>
+</dt>
+<dd>Der Wert, der diesem Merkmal in der Merkmalgruppe zugeordnet ist. 
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2EEResourceProperty_description_displayName"></a>Beschreibung</strong>
+</dt>
+<dd>Text zur Beschreibung von Grenzwerten bzw. klar definierten Werten f&uuml;r dieses Merkmal. 
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2EEResourceProperty_type_displayName"></a>Typ</strong>
+</dt>
+<dd>Gibt den vollst&auml;ndig qualifizierten Java-Typ dieses Merkmals (java.lang.Integer,
+java.lang.Byte) an. 
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Zugeh&ouml;rige Informationen</strong>
+</p>
+<a href="rcon_buttons.html">Kn&ouml;pfe in der Adminstrationskonsole</a>
+<br>
+
+<a href="rcon_pageusage.html">Funktionen auf den Seiten der Administrationskonsole</a>
+<br>
+
+</div>
+</body>
+</html>

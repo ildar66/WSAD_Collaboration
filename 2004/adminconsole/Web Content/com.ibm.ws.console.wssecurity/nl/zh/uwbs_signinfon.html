@@ -1,0 +1,112 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>标记信息配置设置</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_signinfon"></a>
+<h2>
+<img alt="[Fix Pack 5.0.2 and later]" src="v502.gif" border="0">标记信息配置设置</h2>
+
+<p>使用此页面配置新签名参数。</p>
+
+<p>此页面上所列出签名方法、摘要方法和规范方法的规范位于标题为&ldquo;XMLSignature Syntax and Specification: W3C Recommendation 12 Feb 2002&rdquo;的 W3C 文档中。</p>
+
+<p>要查看此管理控制台页面，单击<strong>企业应用程序 &gt; </strong><em>application_name</em>。在&ldquo;相关项&rdquo;下，单击 <strong>Web 模块 &gt; </strong><em>URI_file_name</em> <strong>&gt; Web 服务：服务器安全性绑定</strong>。在&ldquo;请求接收程序绑定&rdquo;列中，单击<strong>编辑 &gt; 签名信息 &gt; 新建</strong>。</p>
+
+<p>单击<strong>新建</strong>创建一个签名参数。</p>
+
+<p>单击<strong>删除</strong>删除一个签名参数。</p>
+
+<dl>
+<dt>
+<strong><a name="sec_sigmeth"></a>签名方法</strong>
+</dt>
+<dd>指定签名方法的算法 URI。此方法包含使用 base64 编码的数字签名的实际值。
+<p>支持下列算法：<ul>
+
+<li>
+<samp>http://www.w3.org/2000/09/xmldsig#rsa-sha1</samp>
+</li>
+
+<li>
+<samp>http://www.w3.org/2000/09/xmldsig#dsa-sha1</samp>
+</li>
+
+</ul>
+</p>
+
+</dd>
+<dt>
+<strong><a name="sec_digestmeth"></a>摘要方法</strong>
+</dt>
+<dd>指定摘要方法的算法 URI。
+<p>支持 <samp>http://www.w3.org/2000/09/xmldsig#sha1</samp> 算法。</p>
+
+</dd>
+<dt>
+<strong><a name="sec_cancmeth"></a>规范方法</strong>
+</dt>
+<dd>指定规范方法的算法 URI。
+<p>支持下列算法：<ul>
+
+<li>
+<samp>http://www.w3.org/2001/10/xml-exc-c14n#</samp>
+</li>
+
+<li>
+<samp>http://www.w3.org/2001/10/xml-exc-c14n#WithComments</samp>
+</li>
+
+<li>
+<samp>http://www.w3.org/TR/2001/REC-xml-c14n-20010315</samp>
+</li>
+
+<li>
+<samp>http://www.w3.org/TR/2001/REC-xml-c14n-20010315#WithComments</samp>
+</li>
+
+</ul>
+</p>
+
+</dd>
+<dt>
+<strong><a name="sec_signk"></a>签名密钥</strong>
+</dt>
+<dd>指定用于签名的密钥信息。这些字段在接收程序方配置忽略。
+<p>如果您指定<strong>密钥名</strong>和<strong>密钥定位器引用</strong>，为&ldquo;证书路径&rdquo;选择<strong>无</strong>。</p>
+
+</dd>
+<dt>
+<strong><a name="sec_certpath"></a>证书路径</strong>
+</dt>
+<dd> 指定证书路径验证的设置。当您选择<strong>信任任何</strong>时，跳过此验证，并信任所有进入证书。这些字段在发送程序方配置忽略。
+<p>如果您单击<strong>信任任何</strong>，或选择<strong>认证锚</strong>和<strong>证书存储</strong>，则为前一字段中的&ldquo;签名密钥&rdquo;选择<strong>无</strong>。</p>
+
+<p>
+<strong>信任锚</strong>
+</p>
+
+<p>通过单击<strong>服务器 &gt; 应用程序服务器 &gt; </strong><em>server_name</em> 指定可用于信任锚的选择。在&ldquo;其它属性&rdquo;下，单击 <strong>Web 服务：Web 服务安全性的缺省绑定 &gt; 信任锚</strong>。</p>
+
+<p>
+<strong>证书存储</strong>
+</p>
+
+<p>通过单击<strong>服务器 &gt; 应用程序服务器 &gt; </strong><em>server_name</em> 指定可用于集合存储的选择。在&ldquo;相关项&rdquo;下，单击 <strong>Web 服务：Web 服务安全性的缺省绑定 &gt; 集合证书存储</strong>。</p>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>相关信息</strong>
+</p>
+<a href="uwbs_signinfo.html">签名信息集合</a>
+<br>
+
+</div>
+</body>
+</html>

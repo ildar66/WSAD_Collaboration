@@ -1,0 +1,353 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>웹 서비스 서버 전개 설명자 보기</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_vwsdd"></a>
+<h2>
+<img alt="[픽스팩 5.0.2 이상]" src="v502.gif" border="0">웹 서비스 서버 전개 설명자 보기</h2>
+
+<p>이 페이지를 참조하여 서버 전개 설명자 설정을 보십시오. </p>
+
+<p>이 관리 콘솔 페이지를 보려면, 다음 단계를 완료하십시오. <ol>
+
+<li>
+<strong>응용프로그램 &gt; 엔터프라이즈 응용프로그램 &gt; </strong><em>application_name</em>을 클릭하십시오. </li>
+
+<li>관련 항목 아래에서 <strong>웹 모듈</strong> &gt; <em>URI_file_name</em> &gt; <strong>
+웹 서비스 서버 전개 설명자 보기</strong>를 클릭하십시오. </li>
+
+</ol>
+</p>
+
+<p>WebSphere Application Server에는 응용프로그램 레벨 및 서버 레벨의 두 가지 바인딩 레벨이
+있습니다. WebSphere Application
+Server Network Deployment에는 응용프로그램 레벨, 서버 레벨 및 셀 레벨의
+세 가지 바인딩 레벨이 있습니다. 다음 구현 설명의
+정보는 응용프로그램 레벨 바인딩을 구성하는 방법을
+표시합니다. 기본값인 서버 레벨 바인딩을
+구성하려면, 다음 단계를 완료하십시오. <ol>
+
+<li>
+<strong>서버 &gt; Application Servers &gt; </strong><em>server_name</em>을 클릭하십시오. </li>
+
+<li>관련 항목 아래에서 <strong>웹 서비스:
+웹 서비스 보안을 위한 기본 바인딩</strong>을 클릭하십시오. </li>
+
+</ol>셀 레벨
+바인딩을 구성하려면, <strong>보안 &gt; 웹 서비스</strong>를 클릭하십시오.
+ <ul>
+
+<li>
+<a href="#digsign">요청 디지털 서명 검증</a>
+</li>
+
+<li>
+<a href="#reqdecrypt">요청 암호 해독</a>
+</li>
+
+<li>
+<a href="#basicauth">BasicAuth 인증</a>
+</li>
+
+<li>
+<a href="#idassert">ID 확정 인증</a>
+</li>
+
+<li>
+<a href="#idasserttrust">TrustMode가 Signature인 ID
+확정 인증</a>
+</li>
+
+<li>
+<a href="#respsign">응답 서명</a>
+</li>
+
+<li>
+<a href="#respencr">응답 암호화</a>
+</li>
+
+</ul>
+</p>
+
+<div>
+<a name="digsign"></a>
+<p class="sectiontitle">
+<b>요청 디지털 서명 검증</b>
+</p>
+<p>무결정 제한조건(필수 서명)이
+정의되어 있는 경우, 바인딩 파일에 서명 정보를 구성했는지
+검증하십시오. </p>
+<p>서명 매개변수를 구성하려면, 다음 단계를 완료하십시오. <ol>
+
+<li>
+<strong>응용프로그램 &gt; 엔터프라이즈 응용프로그램 &gt; </strong><em>application_name</em>을 클릭하십시오. </li>
+
+<li>관련 항목 아래에서 <strong>웹 모듈 &gt;
+</strong><em>URI_file_name</em> &gt; <strong>웹 서비스: 서버 보안 바인딩</strong>을 클릭하십시오.
+</li>
+
+<li>요청 수신자 바인딩 열에서 <strong>편집 &gt; 서명 정보</strong>를
+클릭하십시오. </li>
+
+</ol>
+</p>
+<p>신뢰 앵커를 구성하려면, 다음을 완료하십시오. <ol>
+
+<li>
+<strong>서버 &gt; Application Servers &gt; </strong><em>server_name</em>을 클릭하십시오. </li>
+
+<li>추가 등록 정보 아래에서 <strong>웹 서비스: 웹 서비스 보안을 위한
+기본 바인딩 &gt; 신뢰 앵커</strong>를 클릭하십시오. </li>
+
+</ol>
+</p>
+<p>콜렉션 인증 저장을 구성하려면, 다음 단계를
+완료하십시오. <ol>
+
+<li>
+<strong>서버 &gt; Application Servers &gt; </strong><em>server_name</em>을 클릭하십시오. </li>
+
+<li>관련 항목 아래에서
+<strong>웹 서비스: 웹 서비스 보안을 위한 기본 바인딩 &gt; 콜렉션 인증 저장</strong>을
+클릭하십시오. </li>
+
+</ol>
+</p>
+<p>키 위치 지정자를 구성하려면, 다음 단계를 완료하십시오. <ol>
+
+<li>
+<strong>서버 &gt; Application Servers &gt; </strong><em>server_name</em>을 클릭하십시오. </li>
+
+<li>추가 등록 정보
+아래에서 <strong>웹 서비스: 웹 서비스 보안을 위한 기본 바인딩 &gt; 키 위치 지정자</strong>를
+클릭하십시오. </li>
+
+</ol>
+</p>
+</div>
+
+<div>
+<a name="reqdecrypt"></a>
+<p class="sectiontitle">
+<b>요청 암호 해독</b>
+</p>
+<p>신뢰성 제한조건(암호화)이
+지정되는 경우, 암호화 정보가 정의되어 있는지
+검증하십시오. </p>
+<p>암호화 정보 매개변수를 구성하려면, 다음 단계를
+완료하십시오. <ol>
+
+<li>
+<strong>엔터프라이즈 응용프로그램 &gt; </strong><em>application_name</em>을 클릭하십시오. </li>
+
+<li>관련 항목 아래에서 <strong>웹 모듈</strong>을
+클릭하십시오. </li>
+
+<li>추가 등록 정보 아래에서 <strong>웹 서비스: 서버 보안 바인딩</strong>을
+클릭하십시오. 요청 수신자 바인딩에서 <strong>편집 &gt; 암호화 정보</strong>를
+클릭하십시오. </li>
+
+</ol>
+</p>
+<p>키 위치 지정자를 구성하려면, 다음 단계를 완료하십시오. <ol>
+
+<li>
+<strong>서버 &gt; Application Servers &gt; </strong><em>server_name</em>을 클릭하십시오. </li>
+
+<li>추가 등록 정보
+아래에서 <strong>웹 서비스: 웹 서비스 보안을 위한 기본 바인딩 &gt; 키 위치 지정자</strong>를
+클릭하십시오. </li>
+
+</ol>
+</p>
+</div>
+
+<div>
+<a name="basicauth"></a>
+<p class="sectiontitle">
+<b>BasicAuth 인증</b>
+</p>
+<p>BasicAuth가 필수 보안 토큰으로 구성되어 있는 경우,
+바인딩 파일에 CallbackHandler를 지정하여 기본 인증 데이터를
+수집하십시오. 다음은
+콜백 지원 구현의 목록입니다. <dl>
+<dt>
+<strong>com.ibm.wsspi.wssecurity.auth.callback.GuiPromptCallbackHandler</strong>
+</dt>
+<dd>구현은 인터페이스에서 BasicAuth 정보(사용자 이름 및 암호)를 입력하라는
+프롬프트를 표시합니다. </dd>
+<dt>
+<strong>com.ibm.wsspi.wssecurity.auth.callback.NonPromptCallbackHandler</strong>
+</dt>
+<dd>이 구현은
+바인딩 파일에서 BasicAuth 정보를 읽습니다. </dd>
+<dt>
+<strong>com.ibm.wsspi.wssecurity.auth.callback.StdPromptCallbackHandler</strong>
+</dt>
+<dd>이 구현은 표준 입력(stdin) 프롬프트를 사용하여 사용자 이름 및 암호를 입력하라는 프롬프트를 표시합니다. </dd>
+</dl>
+</p>
+<p>로그인 맵핑 정보를 구성하려면, 다음 단계를 완료하십시오. <ol>
+
+<li>
+<strong>서버 &gt; Application Servers &gt; </strong><em>server_name</em>을 클릭하십시오. </li>
+
+<li>추가 등록 정보 아래에서 <strong>웹 서비스: 웹 서비스 보안을 위한 기본 바인딩 &gt;
+로그인 맵핑</strong>을 클릭하십시오. </li>
+
+</ol>
+</p>
+</div>
+
+<div>
+<a name="idassert"></a>
+<p class="sectiontitle">
+<b>TrustMode가 BasicAuth인 ID
+확정 인증</b>
+</p>
+<p>com.ibm.wsspi.wssecurity.auth.callback.NonPromptCallbackHandler
+구현으로 바인딩 파일에서 로그인 바인딩을
+구성하십시오.
+다운스트림 서버의 TrustedIDEvaluator가 신뢰하는
+BasicAuth 사용자 ID 및 암호를 지정하십시오. </p>
+<p>로그인 맵핑 정보를 구성하려면, 다음 단계를 완료하십시오. <ol>
+
+<li>
+<strong>서버 &gt; Application Servers &gt; </strong><em>server_name</em>을 클릭하십시오. </li>
+
+<li>추가 등록 정보 아래에서 <strong>웹 서비스: 웹 서비스 보안을 위한 기본 바인딩 &gt;
+로그인 맵핑</strong>을 클릭하십시오. </li>
+
+</ol>
+</p>
+</div>
+
+<div>
+<a name="idasserttrust"></a>
+<p class="sectiontitle">
+<b>TrustMode가 Signature인 ID
+확정 인증</b>
+</p>
+<p>키 위치 지정자를 가리키는 단일 키로 바인딩 파일에서
+서명 정보를 구성하십시오. 키 위치 지정자는 다운스트림 서버에서 신뢰하는
+X.509 인증을 포함합니다. </p>
+<p>로그인 맵핑 정보를 구성하려면, 다음 단계를 완료하십시오. <ol>
+
+<li>
+<strong>서버 &gt; Application Servers &gt; </strong><em>server_name</em>을 클릭하십시오. </li>
+
+<li>추가 등록 정보 아래에서 <strong>웹 서비스: 웹 서비스 보안을 위한 기본 바인딩 &gt;
+로그인 맵핑</strong>을 클릭하십시오. </li>
+
+</ol>
+</p>
+<p>
+<samp>WSLogin</samp>은
+JAAS(Java Authentication and Authorization Service)에서 사용되는 로그인 구성의
+이름입니다. JAAS를 구성하려면 <strong>보안 &gt; JAAS 구성 &gt; 응용프로그램 로그인</strong>을
+클릭하십시오. </p>
+<p>바인딩의 <samp>&lt;TrustedIDEvaluatorRef&gt;</samp> 태그 값은
+<samp>&lt;TrustedIDEvaluator&gt;</samp> 이름의 값과 일치해야 합니다. </p>
+<p>신뢰 ID 평가자를
+구성하려면, 다음 단계를 완료하십시오. <ol>
+
+<li>
+<strong>서버 &gt; Application Servers &gt; </strong><em>server_name</em>을 클릭하십시오. </li>
+
+<li>추가 서비스 아래에서 <strong>웹 서비스: 웹 서비스 보안을 위한 기본 바인딩 &gt;
+신뢰 ID 평가자</strong>를 클릭하십시오. </li>
+
+</ol>
+</p>
+</div>
+
+<div>
+<a name="respsign"></a>
+<p class="sectiontitle">
+<b>응답 서명</b>
+</p>
+<p>무결성 제한조건(디지털 서명)이
+정의되어 있는 경우, 바인딩 파일에서 서명 정보를 구성했는지
+검증하십시오. </p>
+<p>서명 정보를 지정하려면,
+다음 단계를 완료하십시오. <ol>
+
+<li>
+<strong>응용프로그램 &gt; 엔터프라이즈 응용프로그램 &gt; </strong><em>application_name</em>을 클릭하십시오. </li>
+
+<li>관련 항목 아래에서 <strong>웹 모듈 &gt; </strong><em>URI_file_name</em> <strong>&gt; 웹 서비스:
+서버 보안 바인딩</strong>을 클릭하십시오.
+</li>
+
+<li>요청 수신자 바인딩 열에서 <strong>편집 &gt; 서명 정보</strong>를
+클릭하십시오. </li>
+
+</ol>
+</p>
+<p>키 위치 지정자를 구성하려면, 다음 단계를 완료하십시오. <ol>
+
+<li>
+<strong>서버 &gt; Application Servers &gt; </strong><em>server_name</em>을 클릭하십시오. </li>
+
+<li>추가 등록 정보
+아래에서 <strong>웹 서비스: 웹 서비스 보안을 위한 기본 바인딩 &gt; 키 위치 지정자</strong>를
+클릭하십시오. </li>
+
+</ol>
+</p>
+</div>
+
+<div>
+<a name="respencr"></a>
+<p class="sectiontitle">
+<b>응답 암호화</b>
+</p>
+<p>신뢰성 제한조건(암호화)이
+지정되는 경우, 암호화 정보가 정의되어 있는지
+검증하십시오. </p>
+<p>암호화 정보를 지정하려면, 다음 단계를 완료하십시오. <ol>
+
+<li>
+<strong>엔터프라이즈 응용프로그램 &gt; </strong><em>application_name</em>을 클릭하십시오. </li>
+
+<li>관련 항목 아래에서 <strong>웹 모듈</strong>을 클릭하십시오. </li>
+
+<li>추가 등록 정보 아래에서 <strong>웹 서비스: 서버 보안 바인딩</strong>을
+클릭하십시오. </li>
+
+<li>요청 수신자 바인딩에서 <strong>편집 &gt; 암호화 정보</strong>를
+클릭하십시오. </li>
+
+</ol>
+</p>
+<p>키 위치 지정자를 구성하려면, 다음 단계를 완료하십시오. <ol>
+
+<li>
+<strong>서버 &gt; Application Servers &gt; </strong><em>server_name</em>을 클릭하십시오. </li>
+
+<li>추가 등록 정보
+아래에서 <strong>웹 서비스: 웹 서비스 보안을 위한 기본 바인딩 &gt; 키 위치 지정자</strong>를
+클릭하십시오. </li>
+
+</ol>
+</p>
+</div>
+
+<div>
+<p>
+<strong>관련 정보</strong>
+</p>
+<a href="uwbs_websvcb.html">웹 서비스: 웹 서비스 보안 콜렉션을 위한 기본 바인딩</a>
+<br>
+
+<a href="uwbs_vwcdd.html">웹 서비스 클라이언트 전개 설명자 보기 </a>
+<br>
+
+</div>
+</body>
+</html>

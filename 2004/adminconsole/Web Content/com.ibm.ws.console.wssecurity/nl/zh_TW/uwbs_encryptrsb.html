@@ -1,0 +1,179 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>加密資訊配置設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_encryptrsb"></a>
+<h2>
+<img alt="[5.1 版和更新版本]" src="v51.gif" border="0">加密資訊配置設定</h2>
+
+<p>請利用這個頁面來配置加密和解密參數。</p>
+
+<p>這個頁面列出的簽章方法、摘要方法和標準化方法之規格都在全球資訊網協會 (W3C) 文件中，
+文件標題為 <em>XML Encryption Syntax and Processing: W3C Recommendation 10 Dec 2002</em>。</p>
+
+<p>如果要檢視這個管理主控台頁面，請完成下列步驟：
+<ol>
+
+<li>按一下<strong>應用程式 &gt; 企業應用程式 &gt; </strong><em>application_name</em>。</li>
+
+<li>在「相關項目」之下，按一下 <strong>Web 模組 &gt; </strong><em>URI_file_name</em> &gt; <strong>Web 服務：伺服器安全連結</strong>。
+</li>
+
+<li>在「回應傳送端連結」之下，按一下<strong>編輯 &gt; 加密資訊</strong>。</li>
+
+<li>如果沒有可用的加密資訊，請選取<strong>無</strong>。</li>
+
+<li>如果有可用的加密資訊，請選取<strong>專用加密資訊</strong>。
+</li>
+
+</ol>
+</p>
+
+<p></p>
+
+<p>之後，在下列欄位中指定配置：</p>
+
+<dl>
+<dt>
+<strong><a name="sec_name"></a>加密資訊名稱</strong>
+</dt>
+<dd>指定加密資訊的名稱。</dd>
+<dt>
+<strong><a name="sec_klr"></a>金鑰定位器參照</strong>
+</dt>
+<dd>指定用來參照金鑰定位器的名稱。
+<p>如果要指定金鑰定位器參照，請按一下<strong>伺服器 &gt; 應用程式伺服器 &gt; </strong><em>server_name</em>。
+在「其他內容」之下，按一下 <strong>Web 服務：Web 服務安全的預設連結 &gt; 金鑰定位器</strong>。</p>
+
+</dd>
+<dt>
+<strong><a name="sec_ekn"></a>加密金鑰名稱</strong>
+</dt>
+<dd>指定加密金鑰名稱，指定的金鑰定位器會將它解析成實際的金鑰。
+</dd>
+<dt>
+<strong><a name="sec_eka"></a>金鑰加密演算法</strong>
+</dt>
+<dd>指定金鑰加密方法的演算法 URI。
+<p>以下是支援的演算法：<ul>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#rsa-1_5</samp>
+</li>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#kw-tripledes</samp>
+</li>
+
+</ul>
+</p>
+
+<p>以下是其他支援的演算法：
+<ul>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#kw-aes128</samp>
+</li>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#kw-aes256</samp>
+</li>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#kw-aes192</samp>
+</li>
+
+</ul>
+</p>
+
+<p>依預設，Java Cryptography Extension (JCE) 會檢附強度有限的密碼。
+如果要使用 192 位元和 256 位元的進階加密標準 (AES) 加密演算法，您必須套用無限適用範圍的原則檔。
+在下載這些原則檔之前，請先備份現有的原則檔（在 jre/lib/security/ 目錄中的 local_policy.jar 和 US_export_policy.jar），
+再改寫它們，以預防稍後需要還原原始檔案。
+如果要下載原則檔，請完成下列其中一組步驟：
+<ul>
+
+<li>如果是使用 IBM Developer Kit Java 1.4.1 技術版的 WebSphere Application Server 平台（包括 AIX、Linux 和 Windows 平台），
+您可以完成下列步驟來取得無限適用範圍的原則檔：
+<ul>
+
+<li>移至下列網站：http://www.ibm.com/developerworks/java/jdk/security/index.html </li>
+
+<li>按一下<strong>原則檔</strong>。<p>這時會將 unrestrict.jar 檔下載至您的機器中。</p>
+</li>
+
+</ul>
+</li>
+
+<li>如果是使用以 Sun 為基礎的 Java Development Kit (JDK) 1.4.1 版的 WebSphere Application Server 平台（包括 Solaris 環境和 HP-UX 平台），
+您可以完成下列步驟來取得無限適用範圍的原則檔：
+<ul>
+
+<li>移至下列網站：http://java.sun.com/j2se/1.4.1/download.html</li>
+
+<li>移至網頁底端，按一下「Java Cryptography Extension (JCE) 無限適用範圍原則檔 1.4.1」旁的「下載」。
+這時會將 jce_policy-1_4_1.zip  檔下載至您的機器中。</li>
+
+</ul>
+</li>
+
+</ul>在遵循這幾組步驟之後，JVM jre/lib/security/ 目錄中會有兩個 Java 保存檔 (JAR)。
+</p>
+
+</dd>
+<dt>
+<strong><a name="sec_dea"></a>資料加密演算法</strong>
+</dt>
+<dd>指定資料加密方法的演算法統一資源識別碼 (URI)。
+
+<p>以下是支援的演算法：<ul>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#tripledes-cbc</samp>
+</li>
+
+</ul>
+</p>
+
+<p>以下是其他支援的演算法：
+<ul>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#aes128-cbc</samp>
+</li>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#aes256-cbc</samp>
+</li>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#aes192-cbc</samp>
+</li>
+
+</ul>
+</p>
+
+<p>依預設，JCE 會檢附強度有限的密碼。
+如果要使用 192 位元和 256 位元的 AES 加密演算法，您必須套用無限適用範圍的原則檔。
+</p>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>相關資訊</strong>
+</p>
+<a href="uwbs_encrypt.html">加密資訊集合</a>
+<br>
+
+<a href="uwbs_keyl.html">金鑰定位器集合</a>
+<br>
+
+</div>
+</body>
+</html>

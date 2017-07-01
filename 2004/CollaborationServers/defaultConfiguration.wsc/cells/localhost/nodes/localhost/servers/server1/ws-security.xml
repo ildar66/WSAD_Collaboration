@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<com.ibm.etools.webservice.wssecurity:WSSecurity xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:com.ibm.etools.webservice.wssecurity="http://www.ibm.com/websphere/appserver/schemas/5.0.2/wssecurity.xmi" xmi:id="WSSecurity_1051247395627">
+  <certStoreList xmi:id="CertStoreList_1051247395637">
+    <collectionCertStores xmi:id="CollectionCertStore_1051247395637" provider="IBMCertPath" name="SampleCollectionCertStore">
+      <x509Certificates xmi:id="X509Certificate_1051247395637" path="${USER_INSTALL_ROOT}/etc/ws-security/samples/intca2.cer"/>
+    </collectionCertStores>
+  </certStoreList>
+  <trustAnchors xmi:id="TrustAnchor_1051247395637" name="SampleClientTrustAnchor">
+    <keyStore xmi:id="KeyStore_1051247395637" storepass="{xor}PDM2OjEr" path="${USER_INSTALL_ROOT}/etc/ws-security/samples/dsig-sender.ks" type="JKS"/>
+  </trustAnchors>
+  <trustAnchors xmi:id="TrustAnchor_1051247395638" name="SampleServerTrustAnchor">
+    <keyStore xmi:id="KeyStore_1051247395638" storepass="{xor}LDotKTot" path="${USER_INSTALL_ROOT}/etc/ws-security/samples/dsig-receiver.ks" type="JKS"/>
+  </trustAnchors>
+  <keyLocators xmi:id="KeyLocator_1051247395637" name="SampleClientSignerKey" classname="com.ibm.wsspi.wssecurity.config.KeyStoreKeyLocator">
+    <keyStore xmi:id="KeyStore_1051247395639" storepass="{xor}PDM2OjEr" path="${USER_INSTALL_ROOT}/etc/ws-security/samples/dsig-sender.ks" type="JKS"/>
+    <keys xmi:id="Key_1051247395637" alias="soaprequester" keypass="{xor}PDM2OjEr" name="clientsignerkey"/>
+  </keyLocators>
+  <keyLocators xmi:id="KeyLocator_1051247395638" name="SampleServerSignerKey" classname="com.ibm.wsspi.wssecurity.config.KeyStoreKeyLocator">
+    <keyStore xmi:id="KeyStore_1051247395640" storepass="{xor}LDotKTot" path="${USER_INSTALL_ROOT}/etc/ws-security/samples/dsig-receiver.ks" type="JKS"/>
+    <keys xmi:id="Key_1051247395638" alias="soapprovider" keypass="{xor}LDotKTot" name="serversignerkey"/>
+  </keyLocators>
+  <keyLocators xmi:id="KeyLocator_1051247395639" name="SampleSenderEncryptionKeyLocator" classname="com.ibm.wsspi.wssecurity.config.KeyStoreKeyLocator">
+    <keyStore xmi:id="KeyStore_1051247395641" storepass="{xor}LCswLTovPiws" path="${USER_INSTALL_ROOT}/etc/ws-security/samples/enc-sender.jceks" type="JCEKS"/>
+    <keys xmi:id="Key_1051247395639" alias="Group1" keypass="{xor}NDomLz4sLA==" name="CN=Group1"/>
+  </keyLocators>
+  <keyLocators xmi:id="KeyLocator_1051247395640" name="SampleReceiverEncryptionKeyLocator" classname="com.ibm.wsspi.wssecurity.config.KeyStoreKeyLocator">
+    <keyStore xmi:id="KeyStore_1051247395642" storepass="{xor}LCswLTovPiws" path="${USER_INSTALL_ROOT}/etc/ws-security/samples/enc-receiver.jceks" type="JCEKS"/>
+    <keys xmi:id="Key_1051247395640" alias="Group1" keypass="{xor}NDomLz4sLA==" name="CN=Group1"/>
+  </keyLocators>
+  <keyLocators xmi:id="KeyLocator_1051247395641" name="SampleResponseSenderEncryptionKeyLocator" classname="com.ibm.wsspi.wssecurity.config.WSIdKeyStoreMapKeyLocator">
+    <properties xmi:id="Property_1051247395637" name="id_1" value="was"/>
+    <properties xmi:id="Property_1051247395638" name="mappedName_1" value="CN=Alice, O=IBM, C=US"/>
+    <properties xmi:id="Property_1051247395639" name="default" value="CN=Alice, O=IBM, C=US"/>
+    <keyStore xmi:id="KeyStore_1051247395643" storepass="{xor}LCswLTovPiws" path="${USER_INSTALL_ROOT}/etc/ws-security/samples/enc-receiver.jceks" type="JCEKS"/>
+    <keys xmi:id="Key_1051247395647" alias="Group1" keypass="{xor}NDomLz4sLA==" name="CN=Group1"/>
+  </keyLocators>
+  <trustedIDEvaluators xmi:id="TrustedIDEvaluator_1051247395647" classname="com.ibm.wsspi.wssecurity.id.TrustedIDEvaluatorImpl" name="SampleTrustedIDEvaluator"/>
+  <loginMappings xmi:id="LoginMapping_1051247395647" authMethod="BasicAuth" configName="WSLogin">
+    <callbackHandlerFactory xmi:id="CallbackHandlerFactory_1051247395647" classname="com.ibm.wsspi.wssecurity.auth.callback.WSCallbackHandlerFactoryImpl"/>
+  </loginMappings>
+  <loginMappings xmi:id="LoginMapping_1051247395648" authMethod="Signature" configName="system.wssecurity.Signature">
+    <callbackHandlerFactory xmi:id="CallbackHandlerFactory_1051247395648" classname="com.ibm.wsspi.wssecurity.auth.callback.WSCallbackHandlerFactoryImpl"/>
+  </loginMappings>
+  <loginMappings xmi:id="LoginMapping_1051247395649" authMethod="IDAssertion" configName="system.wssecurity.IDAssertion">
+    <callbackHandlerFactory xmi:id="CallbackHandlerFactory_1051247395649" classname="com.ibm.wsspi.wssecurity.auth.callback.WSCallbackHandlerFactoryImpl"/>
+  </loginMappings>
+  <loginMappings xmi:id="LoginMapping_1051247395650" authMethod="LTPA" configName="WSLogin">
+    <callbackHandlerFactory xmi:id="CallbackHandlerFactory_1051247395650" classname="com.ibm.wsspi.wssecurity.auth.callback.WSCallbackHandlerFactoryImpl"/>
+    <tokenValueType xmi:id="TokenValueType_1051247395647" uri="http://www.ibm.com/websphere/appserver/tokentype/5.0.2" localName="LTPA"/>
+  </loginMappings>
+  <properties xmi:id="Property_1057972161460" name="com.ibm.ws.wssecurity.config.token.BasicAuth.Nonce.cacheTimeout" value="600"/>
+  <properties xmi:id="Property_1057972161461" name="com.ibm.ws.wssecurity.config.token.BasicAuth.Nonce.maxAge" value="300"/>
+  <properties xmi:id="Property_1057972161462" name="com.ibm.ws.wssecurity.config.token.BasicAuth.Nonce.clockSkew" value="0"/>
+</com.ibm.etools.webservice.wssecurity:WSSecurity>

@@ -1,0 +1,222 @@
+------Start of DE processing------ = [05.05.21 15:01:36:266 MSD] , key = java.net.SocketException com.ibm.ws.webcontainer.servlet.ServletManager.doService 382
+Exception = java.net.SocketException
+Source = com.ibm.ws.webcontainer.servlet.ServletManager.doService
+probeid = 382
+Stack Dump = java.net.SocketException: Connection reset by peer: socket write error
+	at java.net.SocketOutputStream.socketWrite0(Native Method)
+	at java.net.SocketOutputStream.socketWrite(SocketOutputStream.java:112)
+	at java.net.SocketOutputStream.write(SocketOutputStream.java:156)
+	at com.ibm.ws.io.Stream.write(Stream.java:26)
+	at com.ibm.ws.io.WriteStream.flushMyBuf(WriteStream.java:145)
+	at com.ibm.ws.io.WriteStream.flush(WriteStream.java:137)
+	at com.ibm.ws.http.ResponseStream.flush(ResponseStream.java:303)
+	at com.ibm.ws.io.WriteStream.flush(WriteStream.java:139)
+	at com.ibm.ws.webcontainer.http.HttpConnection.flush(HttpConnection.java:379)
+	at com.ibm.ws.webcontainer.srp.SRPConnection.flush(SRPConnection.java:242)
+	at com.ibm.ws.webcontainer.srt.SRTOutputStream.flush(SRTOutputStream.java:46)
+	at com.ibm.ws.webcontainer.srt.BufferedServletOutputStream.flushBytes(BufferedServletOutputStream.java:357)
+	at com.ibm.ws.webcontainer.srt.BufferedServletOutputStream.flush(BufferedServletOutputStream.java:334)
+	at com.ibm.ws.webcontainer.srt.BufferedServletOutputStream.flushBuffer(BufferedServletOutputStream.java:488)
+	at com.ibm.ws.webcontainer.srt.SRTServletResponse.flushBuffer(SRTServletResponse.java:1053)
+	at com.ibm.ws.webcontainer.webapp.WebAppRequestDispatcher.handleWebAppDispatch(WebAppRequestDispatcher.java:994)
+	at com.ibm.ws.webcontainer.webapp.WebAppRequestDispatcher.dispatch(WebAppRequestDispatcher.java:564)
+	at com.ibm.ws.webcontainer.webapp.WebAppRequestDispatcher.forward(WebAppRequestDispatcher.java:200)
+	at com.ibm.faces.context.MultipartExternalContextImpl.dispatch(MultipartExternalContextImpl.java:320)
+	at com.sun.faces.application.ViewHandlerImpl.renderView(ViewHandlerImpl.java:142)
+	at com.sun.faces.lifecycle.RenderResponsePhase.execute(RenderResponsePhase.java:87)
+	at com.sun.faces.lifecycle.LifecycleImpl.phase(LifecycleImpl.java:200)
+	at com.sun.faces.lifecycle.LifecycleImpl.render(LifecycleImpl.java:117)
+	at javax.faces.webapp.FacesServlet.service(FacesServlet.java:198)
+	at com.ibm.ws.webcontainer.servlet.StrictServletInstance.doService(StrictServletInstance.java:110)
+	at com.ibm.ws.webcontainer.servlet.StrictLifecycleServlet._service(StrictLifecycleServlet.java:174)
+	at com.ibm.ws.webcontainer.servlet.IdleServletState.service(StrictLifecycleServlet.java:313)
+	at com.ibm.ws.webcontainer.servlet.StrictLifecycleServlet.service(StrictLifecycleServlet.java:116)
+	at com.ibm.ws.webcontainer.servlet.ServletInstance.service(ServletInstance.java:283)
+	at com.ibm.ws.webcontainer.servlet.ValidServletReferenceState.dispatch(ValidServletReferenceState.java:42)
+	at com.ibm.ws.webcontainer.servlet.ServletInstanceReference.dispatch(ServletInstanceReference.java:40)
+	at com.ibm.ws.webcontainer.webapp.WebAppRequestDispatcher.handleWebAppDispatch(WebAppRequestDispatcher.java:983)
+	at com.ibm.ws.webcontainer.webapp.WebAppRequestDispatcher.dispatch(WebAppRequestDispatcher.java:564)
+	at com.ibm.ws.webcontainer.webapp.WebAppRequestDispatcher.forward(WebAppRequestDispatcher.java:200)
+	at com.ibm.ws.webcontainer.srt.WebAppInvoker.doForward(WebAppInvoker.java:119)
+	at com.ibm.ws.webcontainer.srt.WebAppInvoker.handleInvocationHook(WebAppInvoker.java:276)
+	at com.ibm.ws.webcontainer.cache.invocation.CachedInvocation.handleInvocation(CachedInvocation.java:71)
+	at com.ibm.ws.webcontainer.srp.ServletRequestProcessor.dispatchByURI(ServletRequestProcessor.java:182)
+	at com.ibm.ws.webcontainer.oselistener.OSEListenerDispatcher.service(OSEListener.java:334)
+	at com.ibm.ws.webcontainer.http.HttpConnection.handleRequest(HttpConnection.java:56)
+	at com.ibm.ws.http.HttpConnection.readAndHandleRequest(HttpConnection.java:618)
+	at com.ibm.ws.http.HttpConnection.run(HttpConnection.java:443)
+	at com.ibm.ws.util.ThreadPool$Worker.run(ThreadPool.java:672)
+
+Dump of callerThis = 
+Object type = com.ibm.ws.webcontainer.servlet.StrictServletInstance
+com.ibm.ws.webcontainer.servlet.StrictServletInstance@3d064dab
+
+Exception = java.net.SocketException
+Source = com.ibm.ws.webcontainer.servlet.ServletManager.doService
+probeid = 382
+Dump of callerThis = 
+Object type = com.ibm.ws.webcontainer.servlet.StrictServletInstance
+  class$com$ibm$ws$webcontainer$servlet$StrictServletInstance = 
+    class$java$lang$Class = 
+      class$java$lang$Class = this.class$com$ibm$ws$webcontainer$servlet$StrictServletInstance.class$java$lang$Class
+      initted = true
+      reflectionFactory = this.class$com$ibm$ws$webcontainer$servlet$StrictServletInstance.reflectionFactory
+      serialPersistentFields = this.class$com$ibm$ws$webcontainer$servlet$StrictServletInstance.serialPersistentFields
+      serialVersionUID = 3206093459760846163
+      declaredPublicMethods = null
+      declaredPublicFields = null
+      publicConstructors = null
+      declaredConstructors = null
+      publicMethods = null
+      declaredMethods = null
+      publicFields = null
+      declaredFields = java.lang.ref.SoftReference@71a1cdb8
+      useCaches = true
+      allPermDomain = this.class$com$ibm$ws$webcontainer$servlet$StrictServletInstance.allPermDomain
+      getPDperm = null
+      newInstanceCallerCache = null
+      cachedConstructor = null
+      have_extensions = true
+    initted = true
+    reflectionFactory = 
+      class$sun$reflect$ConstructorAccessorImpl = java.lang.Class@21becd2f
+      class$java$lang$Class = this.class$com$ibm$ws$webcontainer$servlet$StrictServletInstance.class$java$lang$Class
+      inflationThreshold = 5
+      noInflation = false
+      langReflectAccess = java.lang.reflect.ReflectAccess@345e8dac
+      soleInstance = this.class$com$ibm$ws$webcontainer$servlet$StrictServletInstance.reflectionFactory
+      reflectionFactoryAccessPerm = java.lang.RuntimePermission@3ed5cdac
+      useUnsafeFieldAccessors = true
+      initted = true
+    serialPersistentFields = {}
+    serialVersionUID = 3206093459760846163
+    declaredPublicMethods = null
+    declaredPublicFields = null
+    publicConstructors = null
+    declaredConstructors = null
+    publicMethods = null
+    declaredMethods = null
+    publicFields = null
+    declaredFields = 
+      timestamp = 22
+      clock = 22
+      pending = null
+      lock = java.lang.ref.Reference$Lock@4bb38dad
+      processing = null
+      next = null
+      queue = java.lang.ref.ReferenceQueue$Null@3ede4dac
+      referent = [Ljava.lang.reflect.Field;@6c3cdb5
+    useCaches = true
+    allPermDomain = 
+      staticPermissions = true
+      permissions = java.security.Permissions@26854da9
+      principals = {}
+      classloader = null
+      codesource = null
+    getPDperm = null
+    newInstanceCallerCache = null
+    cachedConstructor = null
+    have_extensions = true
+  _servicingCount = 0
+  _servletClassname = javax.faces.webapp.FacesServlet
+  _servletName = Faces Servlet
+  _servlet = 
+    servletConfig = this._config
+    lifecycle = 
+      class$com$sun$faces$lifecycle$LifecycleImpl = java.lang.Class@5cc0dae
+      response = com.sun.faces.lifecycle.RenderResponsePhase@37f94db4
+      phases = [Lcom.sun.faces.lifecycle.Phase;@940cdbb
+      listeners = java.util.ArrayList@943cdbb
+      log = com.ibm.ws.commons.logging.TrLog@9588dbb
+    facesContextFactory = com.ibm.faces.context.MultipartFacesContextFactoryImpl@60778dbe
+    application = 
+      class$com$sun$faces$application$ApplicationImpl = java.lang.Class@46a8dae
+      defaultRenderKitId = null
+      defaultLocale = null
+      supportedLocales = null
+      responseRendered = true
+      messageBundle = null
+      wildcardMatchList = java.util.TreeSet@6a3bcdb4
+      caseList = java.util.ArrayList@2a0b0da8
+      caseListMap = java.util.HashMap@6a374db4
+      managedBeanFactoriesMap = java.util.HashMap@6a4b4db4
+      validatorMap = java.util.HashMap@6a4f4db4
+      converterTypeMap = java.util.HashMap@6a434db4
+      converterIdMap = java.util.HashMap@6a474db4
+      componentMap = java.util.HashMap@6a5b4db4
+      valueBindingMap = java.util.HashMap@6a5f4db4
+      stateManager = com.sun.faces.application.StateManagerImpl@98d8da8
+      viewHandler = com.sun.faces.application.ViewHandlerImpl@626d4da8
+      variableResolver = com.ibm.faces.application.SuperVariableResolver@5a8ecda8
+      propertyResolver = com.ibm.faces.application.SuperPropertyResolver@35508daf
+      navigationHandler = com.sun.faces.application.NavigationHandlerImpl@425cdaf
+      actionListener = com.sun.faces.application.ActionListenerImpl@7f58daf
+      log = com.ibm.ws.commons.logging.TrLog@6a570db4
+    LIFECYCLE_ID_ATTR = javax.faces.LIFECYCLE_ID
+    CONFIG_FILES_ATTR = javax.faces.CONFIG_FILES
+  tc = 
+    ivLogger = null
+    ivResourceBundleName = com.ibm.ejs.resources.seriousMessages
+    ivDumpEnabled = false
+    defaultMessageFile = com.ibm.ejs.resources.seriousMessages
+    ivEntryEnabled = false
+    ivEventEnabled = false
+    ivDebugEnabled = false
+    ivName = com.ibm.ws.webcontainer.servlet.StrictServletInstance
+  syncObject = java.lang.Object@3d06cdab
+  servicingCount = 1
+  _implementsSTM = false
+  _config = 
+    _servletName = Faces Servlet
+    _initParams = 
+      hexDigit[16] = {0123456789ABCDEF}
+      whiteSpaceChars =  	
+
+      specialSaveChars = =: 	
+#!
+      strictKeyValueSeparators = =:
+      keyValueSeparators = =: 	
+
+      defaults = null
+      serialVersionUID = 4112578634029874840
+      class$java$util$Hashtable$Entry = java.lang.Class@27334d2f
+      emptyIterator = java.util.Hashtable$EmptyIterator@3ef00dac
+      emptyEnumerator = java.util.Hashtable$EmptyEnumerator@3ef18dac
+      ENTRIES = 2
+      VALUES = 1
+      KEYS = 0
+      values = null
+      entrySet = null
+      keySet = null
+      modCount = 0
+      loadFactor = 0.75
+      threshold = 8
+      count = 0
+      table = [Ljava.util.Hashtable$Entry;@3ea3cdab
+    _servletContext = com.ibm.ws.webcontainer.webapp.WebApp@3de04da1
+  _unavailableUntil = -1
+  _servicingState = 
+    _instance = this._servicingState
+  _state = 
+    _instance = this._state
+  PERMANENTLY_UNAVAILABLE_FOR_SERVICE_STATE = 
+    _instance = this.PERMANENTLY_UNAVAILABLE_FOR_SERVICE_STATE
+  UNAVAILABLE_FOR_SERVICE_STATE = 
+    _instance = this.UNAVAILABLE_FOR_SERVICE_STATE
+  AVAILABLE_FOR_SERVICE_STATE = this._servicingState
+  ERROR_STATE = 
+    _instance = this.ERROR_STATE
+  DESTROYED_STATE = 
+    _instance = this.DESTROYED_STATE
+  DESTROYING_STATE = 
+    _instance = this.DESTROYING_STATE
+  STM_SERVICING_STATE = 
+    _instance = this.STM_SERVICING_STATE
+  SERVICING_STATE = this._state
+  IDLE_STATE = 
+    _instance = this.IDLE_STATE
+  INITIALIZING_STATE = 
+    _instance = this.PRE_INITIALIZED_STATE
+  PRE_INITIALIZED_STATE = 
+    _instance = this.PRE_INITIALIZED_STATE
+

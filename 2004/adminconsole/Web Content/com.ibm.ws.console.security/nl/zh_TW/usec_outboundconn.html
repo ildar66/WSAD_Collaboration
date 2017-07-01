@@ -1,0 +1,131 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Common Secure Interoperability 傳輸離埠設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecoutboundconn"></a>
+<h2>Common Secure Interoperability 傳輸離埠設定</h2>
+
+<p>請利用這個頁面來指定在與離埠要求的下游伺服器通訊時，這個伺服器要使用哪些傳輸和 Secure Socket Layer (SSL) 設定。
+</p>
+
+<p>如果要檢視這個管理主控台頁面，請按一下<strong>安全 &gt; 鑑別通訊協定 &gt; CSI 離埠傳輸</strong>。
+</p>
+
+<div>
+<p>
+<strong>「配置」標籤</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="Transport_o_description"></a>傳輸</strong>
+</dt>
+<dd>指定用戶端程序要不要利用伺服器所連接的傳輸，來連接伺服器。
+
+<p>您可以選擇利用 <strong>SSL</strong>、<strong>TCP/IP</strong> 或<strong>兩者</strong>來作為伺服器支援的離埠傳輸。
+如果您指定 <strong>TCPIP</strong>，伺服器只會支援 TCP/IP，無法起始 SSL 連線來連接下游伺服器。
+如果您指定<strong>支援 SSL</strong>，這個伺服器可以起始 TCP/IP 或 SSL 連線。
+如果您指定<strong>需要 SSL</strong>，這個伺服器必須利用 SSL 來起始通往下游伺服器的連線。
+當您指定 SSL 時，必須決定離埠配置要使用哪一組 SSL 配置設定。
+這個決定會確定和下游伺服器之離埠連線所要使用的金鑰檔和信任檔。
+比方說，我們設想下列情況：<dl>
+
+<dt>
+<strong>TCP/IP</strong>
+</dt>
+<dd>這個伺服器只會開啟 TCP/IP 連線來連接下游伺服器。</dd>
+
+<dt>
+<strong>支援 SSL</strong>
+</dt>
+<dd>這個伺服器會開啟 SSL 連線來連接任何支援 SSL 連線的下游伺服器，開啟 TCP/IP 連線來連接任何不支援 SSL 連線的下游伺服器。
+</dd>
+
+<dt>
+<strong>需要 SSL</strong>
+</dt>
+<dd>這個伺服器只會開啟 SSL 連線來連接下游伺服器。</dd>
+
+</dl>
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值：</td>
+<td align="left" valign="top" class="base">支援 SSL</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍：</td>
+<td align="left" valign="top" class="base">TCP/IP、需要 SSL、支援 SSL</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SSLSettings_ibm_o_description"></a>SSL 設定</strong>
+</dt>
+<dd>指定離埠連線預定 SSL 設定的清單。
+這些設定是在「SSL 配置儲存庫」畫面中配置的。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型：</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值：</td>
+<td align="left" valign="top" class="base">DefaultSSLSettings</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍：</td>
+<td align="left" valign="top" class="base">「SSL 配置儲存庫」畫面中所配置的任何 SSL 設定
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>相關資訊</strong>
+</p>
+<a href="rcon_buttons.html">管理主控台按鈕</a>
+<br>
+
+<a href="rcon_pageusage.html">管理主控台頁面特性</a>
+<br>
+
+<a href="rcon_scope.html">管理主控台範圍設定</a>
+<br>
+
+<a href="rcon_filter.html">管理主控台過濾器設定</a>
+<br>
+
+<a href="rcon_preferences.html">管理主控台喜好設定</a>
+<br>
+
+</div>
+</body>
+</html>

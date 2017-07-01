@@ -1,0 +1,182 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>자원 환경 항목 설정</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="Resource_env_entry"></a>
+<h2>자원 환경 항목 설정</h2>
+
+<p>이 페이지에서 자원 환경 항목을 설정하십시오. 이 항목은
+일부 응용프로그램의 전개 설명자에 있는
+resource-environment-reference의 바인딩 대상인 환경 자원의 구성을 정의합니다.</p>
+
+<p>이 관리 콘솔 페이지를 보려면 <strong>자원</strong> &gt;<strong>자원 환경 프로바이더</strong>
+&gt; <em>resource_environment_provider</em> &gt; <strong>자원 환경 항목</strong> &gt;
+<em>resource_environment_entry</em>를 클릭하십시오.</p>
+
+<div>
+<p>
+<strong>구성 탭</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="ResourceEnvEntry_detail_contextID"></a>범위</strong>
+</dt>
+<dd>이 자원 정의가 표시될 수 있는 레벨(셀, 노드 또는 서버 레벨)을 지정합니다. 
+<p>JDBC 프로바이더, 네임 스페이스 바인딩 또는 공유 라이브러리와 같은 자원은 일반적인 범위에서 정의된 중복을 대체하는, 좀 더 특정한 범위에서 정의된 자원을 가지는 다중 범위에서 정의될 수 있습니다.</p>
+
+<p>정의된 자원의 범위에 관계 없이, 자원의 등록 정보는
+개별 서버 레벨에서만 적용됩니다. 예를 들어 셀 레벨에서
+데이터소스의 범위를 정의하는 경우, 해당 셀의 모든 사용자는
+해당 데이터소스(셀 내에서 고유함)를 찾아보고 사용할 수 있습니다. 그러나
+자원 등록 정보 설정은 셀 내 각 서버에 로컬입니다. 예를
+들어 <em>최대 연결 수</em>를 10으로 정의하는 경우, 해당 셀 내 각 서버는
+13개의 연결을 가질 수 있습니다.<dl>
+
+<dt>
+<strong>셀</strong>
+</dt>
+<dd>가장 일반적인 범위. 셀 범위에서 정의된 자원은 대체되지 않는 한
+모든 노드 및 서버에서 표시 가능합니다.
+셀 범위에서 정의되는 자원을 보려면 범위 선택사항 양식에서
+서버 또는 노드 이름을 지정하지 마십시오. </dd>
+
+<dt>
+<strong>Node</strong>
+</dt>
+<dd>대부분의 자원 유형에 대한 기본 범위. 노드 범위에서 정의된 자원은
+셀 범위에서 정의된 임의의 중복을 대체하고 해당 노드의 서버 범위에서 대체되지 않는
+한 동일한 노드의 모든 서버에 표시 가능합니다. 노드 범위에서 정의되는 자원을 보려면 서버를 지정하지
+말고 범위 선택사항 양식에서 노드 이름을 선택하십시오. </dd>
+
+<dt>
+<strong>서버</strong>
+</dt>
+<dd>자원 정의에 대한 가장 특정한 범위. 서버 범위에서 정의되는
+자원은 셀 범위 및 상위 노드 범위에서 정의되는 모든 중복 자원 정의를
+대체하고 특정 서버에서만 볼 수 있습니다. 서버 범위에서 정의되는 자원을
+보려면 범위 선택사항 양식에서 서버 이름뿐 아니라 노드 이름을 선택하십시오. </dd>
+
+</dl>
+</p>
+
+<p>자원이 작성되면, 항상 패널에서 선택된 현재 범위로 작성됩니다. 다른 범위에서 자원을 보려면 범위 선택사항 양식에
+다른 노드 또는 서버를 지정하십시오. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">문자열</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ResourceEnvEntry_name_description"></a>이름</strong>
+</dt>
+<dd>자원의 표시 이름을 지정합니다.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">문자열</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ResourceEnvEntry_jndiname_description"></a>JNDI 이름</strong>
+</dt>
+<dd>네이밍 서브컨텍스트를 포함하는 자원에 대한 JNDI 이름을 지정합니다.
+<p>이 이름은 모듈의 전개 설명자로 정의된 자원에 대한 플랫폼의 바인딩 정보와
+플랫폼에서 JNDI에 바인드한 실제 자원간의 연계로서 사용됩니다.
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">문자열</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ResourceEnvEntry_Description_description"></a>설명
+</strong>
+</dt>
+<dd>자원에 대한 텍스트 설명을 지정합니다.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">문자열</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ResourceEnvEntry_Category_description"></a>카테고리</strong>
+</dt>
+<dd>자원을 분류 또는 그룹화하는 데 사용할 수 있는 카테고리 문자열을 지정합니다.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">문자열</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="Referenceable_displayName"></a>참조 가능한 프로바이더들</strong>
+</dt>
+<dd>원하는 자원의 유형 및 리턴될 유형의 클래스 이름에 대한 클래스
+인스턴스로 네임 스페이스에 정보를 변환하는 팩토리의 factoryClassname을 유지하는 참조 가능한 프로바이더들을 지정합니다.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">드롭 다운 메뉴</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>관련 정보</strong>
+</p>
+<a href="rcon_buttons.html">관리 콘솔 단추</a>
+<br>
+
+<a href="rcon_pageusage.html">관리 콘솔 페이지 기능</a>
+<br>
+
+</div>
+</body>
+</html>

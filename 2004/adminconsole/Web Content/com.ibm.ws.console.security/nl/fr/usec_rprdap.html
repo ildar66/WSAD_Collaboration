@@ -1,0 +1,283 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Param&egrave;tres LTPA (Lightweight Directory Access Protocol)</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecrprdap"></a>
+<h2>
+<img alt="[Release 5.1 and later]" src="v51.gif" border="0">Param&egrave;tres LTPA (Lightweight Directory Access Protocol)</h2>
+
+<p>Cette page permet de configurer les param&egrave;tres LTPA
+(Lightweight Directory Access Protocol) lorsque les utilisateurs et
+les groupes se trouvent dans un annuaire LDAP externe.</p>
+
+<p>Pour afficher cette page de la console d'administration, cliquez
+sur <strong>S&eacute;curit&eacute;</strong> &gt; <strong>Registres d'utilisateurs</strong> &gt;
+<strong>LDAP</strong>.</p>
+
+<p>Lorsque la s&eacute;curit&eacute; est activ&eacute;e et que certaines propri&eacute;t&eacute;s sont
+modifi&eacute;es, acc&eacute;dez au panneau <strong>S&eacute;curit&eacute; globale</strong> et cliquez sur
+<strong>Valider</strong> pour valider les modifications.</p>
+
+<div>
+<p>
+<strong>Onglet Configuration</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="UserRegistry_serverId_description"></a>ID utilisateur administrateur</strong>
+</dt>
+<dd>Indique l'ID utilisateur sous lequel s'ex&eacute;cute le serveur
+pour les besoins de s&eacute;curit&eacute;.
+<p>Bien que cet ID ne soit pas l'ID utilisateur de l'administrateur
+LDAP, indiquez une entr&eacute;e valide dans le r&eacute;pertoire LDAP sous le nom
+distinctif de base.</p>
+
+</dd>
+<dt>
+<strong><a name="UserRegistry_serverPassword_description"></a>Mot de passe administrateur </strong>
+</dt>
+<dd>Indique le mot de passe correspondant &agrave; l'ID de serveur de
+s&eacute;curit&eacute;.</dd>
+<dt>
+<strong><a name="LDAPUserRegistry_type_description"></a>Type</strong>
+</dt>
+<dd>Indique le type de serveur LDAP auquel vous vous connectez.
+<p>
+<img alt="[5.0 only]" src="v50x.gif" border="0"><img alt="[Fix Pack 5.0.1]" src="v501x.gif" border="0"><img alt="[Fix Pack 5.0.2]" src="v502x.gif" border="0">Le type est utilis&eacute; pour pr&eacute;charger les propri&eacute;t&eacute;s LDAP par
+d&eacute;faut.
+Les utilisateurs d'IBM Directory Server
+peuvent choisir <samp>IBM_Directory_Server</samp> ou <samp>SecureWay</samp> en tant que type d'annuaire. Utilisez
+le type de r&eacute;pertoire <samp>IBM_ Directory_server</samp> pour de meilleures
+performances. Les utilisateurs d'iPlanet Directory Server peuvent choisir iPlanet Directory Server ou NetScape en tant que type d'annuaire. 
+Pour de meilleures performances, utilisez le type de r&eacute;pertoire iPlanet Directory
+Server apr&egrave;s la configuration d'iPlanet afin d'utiliser le <samp>r&ocirc;le</samp>
+<samp>(nsRole)</samp> comme m&eacute;thode de regroupement.</p>
+
+<p>
+<img alt="[Release 5.1 and later]" src="v51.gif" border="0"> IBM
+SecureWay Directory Server n'est pas pris en charge.. </p>
+
+<p>Pour obtenir une liste des serveurs LDAP pris en charge, reportez-vous &agrave; l'article "Services d'annuaire pris en charge"
+de la documentation.</p>
+
+</dd>
+<dt>
+<strong><a name="LDAPUserRegistry_host_description"></a>H&ocirc;te</strong>
+</dt>
+<dd>Indique l'ID h&ocirc;te (adresse IP ou nom DNS) du serveur LDAP.</dd>
+<dt>
+<strong><a name="LDAPUserRegistry_port_description"></a>Port</strong>
+</dt>
+<dd>Indique le port d'h&ocirc;te du serveur LDAP.
+<p>Si plusieurs serveurs WebSphere Application Server sont install&eacute;s et
+configur&eacute;s afin d'&ecirc;tre ex&eacute;cut&eacute;s dans le m&ecirc;me domaine SSO (single signon
+domain) ou si WebSphere Application Server interagit avec une version
+pr&eacute;c&eacute;dente de WebSphere Application Server, il est alors important que le
+num&eacute;ro de port corresponde &agrave; toutes les configurations. Par exemple, si
+le port LDAP est explicitement indiqu&eacute; avec la valeur <strong>389</strong> dans une
+configuration de version 4.0.x et qu'un serveur WebSphere Application
+Server version 5 est ex&eacute;cut&eacute; conjointement &agrave; un serveur de la version
+4.0.x, v&eacute;rifiez alors que le port <strong>389</strong> est indiqu&eacute; explicitement
+pour le serveur de la version 5. <table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut :</td>
+<td align="left" valign="top" class="base">389</td>
+
+</tr>
+
+</table>
+<p>
+<b>Important: </b>Si le port, incluant le num&eacute;ro de port par d&eacute;faut,
+est indiqu&eacute; explicitement dans une configuration de serveur, v&eacute;rifiez
+alors qu'il est indiqu&eacute; explicitement dans les configurations de tous les
+serveurs.</p>
+</p>
+
+</dd>
+<dt>
+<strong><a name="LDAPUserRegistry_baseDN_description"></a>Nom distinctif de base</strong>
+</dt>
+<dd>Indique le nom distinctif de base du service d'annuaire, d&eacute;finissant le
+point de d&eacute;part des recherches LDAP du service d'annuaire. 
+<p>Par exemple, pour un utilisateur dot&eacute; du nom distinctif (DN) cn=John
+Doe ou=Rochester, o=IBM, c=US, vous pouvez indiquer le nom distinctif
+de base sous la forme : ou=Rochester, o=IBM, c=us  o=IBM, c=us  c=us
+(avec le suffixe c=us).  Dans le cadre des autorisations, les majuscules et
+les minuscules sont prises en compte dans cette zone. Par cons&eacute;quent, lors
+de la r&eacute;ception d'un jeton (par exemple, d'une autre cellule ou de
+Domino), le nom distinctif de base sur le serveur doit correspondre &agrave;
+celui de l'autre cellule ou de Domino. Si vous ne voulez pas prendre en
+compte les majuscules et les minuscules pour l'autorisation, activez la
+zone <strong>Ignorer maj/min</strong>.
+ Cette zone est obligatoire pour tous les r&eacute;pertoires LDAP &agrave;
+l'exception de Domino Directory, o&ugrave; elle est facultative.</p>
+
+</dd>
+<dt>
+<strong><a name="LDAPUserRegistry_bindDN_description"></a>Nom distinctif de liaison</strong>
+</dt>
+<dd>Indique le nom distinctif du serveur d'applications &agrave;
+utiliser lors de l'association au service d'annuaire.
+<p>Si aucun nom n'est sp&eacute;cifi&eacute; ici, la liaison sera anonyme. Pour des
+exemples de noms distinctifs, reportez-vous &agrave; la description de la
+zone Nom distinctif de base.</p>
+
+</dd>
+<dt>
+<strong><a name="LDAPUserRegistry_bindPassword_description"></a>Mot de passe de liaison</strong>
+</dt>
+<dd>Indique le mot de passe devant &ecirc;tre utilis&eacute; sur le serveur
+d'applications lors de la liaison au service d'annuaire.</dd>
+<dt>
+<strong><a name="LDAPUserRegistry_searchTimeout_description"></a>D&eacute;lai d'expiration de la recherche</strong>
+</dt>
+<dd>Indique la valeur en secondes du d&eacute;lai de r&eacute;ponse d'un
+serveur LDAP avant l'annulation d'une demande.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut :</td>
+<td align="left" valign="top" class="base">120</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LDAPUserRegistry_reuseConnection_description"></a>R&eacute;utiliser la connexion</strong>
+</dt>
+<dd>Indique si le serveur doit utiliser &agrave; nouveau la connexion
+LDAP.
+D&eacute;s&eacute;lectionnez cette case &agrave; cocher uniquement dans les rares cas o&ugrave; un routeur est
+utilis&eacute; pour diffuser les demandes &agrave; plusieurs serveurs LDAP et que le
+routeur ne prend pas en charge l'affinit&eacute;. 
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut :</td>
+<td align="left" valign="top" class="base">Activ&eacute;e</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Port&eacute;e :</td>
+<td align="left" valign="top" class="base">Activ&eacute;e ou D&eacute;sactiv&eacute;e</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LDAPUserRegistry_ignoreCase_description"></a>Ignorer maj/min</strong>
+</dt>
+<dd>Indique qu'une v&eacute;rification sans prise en compte des
+majuscules et des minuscules est effectu&eacute;e.
+<p>Cette zone est requise lorsqu'IBM Directory
+Server est s&eacute;lectionn&eacute; en tant que serveur d'annuaire LDAP. </p>
+
+<p>
+<img alt="[Release 5.1 and later]" src="v51.gif" border="0">Cette zone est requise lorsque Sun ONE Directory
+Server est s&eacute;lectionn&eacute; en tant que serveur d'annuaire LDAP. Pour plus d'informations,
+reportez-vous &agrave; la rubrique "Utilisation de serveurs d'annuaire sp&eacute;cifiques en tant que
+serveur LDAP" de la documentation.</p>
+
+<p>Dans le cas contraire, cette zone est facultative et peut &ecirc;tre activ&eacute;e lorsqu'une
+v&eacute;rification des droits avec respect des majuscules et des minuscules est requise. 
+Utilisez par exemple cette zone lorsque les certificats et le contenu de ces certificats
+ne correspondent pas &agrave; la casse de l'entr&eacute;e du serveur LDAP. Vous pouvez activer la zone <strong>Ignorer
+maj/min</strong> lors de l'utilisation de SSO (single signon) entre WebSphere Application Server et Lotus Domino.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut :</td>
+<td align="left" valign="top" class="base">D&eacute;sactiv&eacute;e</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Port&eacute;e :</td>
+<td align="left" valign="top" class="base">Activ&eacute;e ou D&eacute;sactiv&eacute;e</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LDAPUserRegistry_sslEnabled_description"></a>SSL activ&eacute;</strong>
+</dt>
+<dd> Indique si les communication s&eacute;curis&eacute;es sont activ&eacute;es sur le
+serveur LDAP. Si tel est le cas, les param&egrave;tres SSL (Secure Sockets Layer)
+sont utilis&eacute;s s'ils sont sp&eacute;cifi&eacute;s.</dd>
+<dt>
+<strong><a name="LDAPUserRegistry_sslConfig_description"></a>Configuration SSL</strong>
+</dt>
+<dd>Sp&eacute;cifie la configuration SSL &agrave; utiliser pour la connexion
+LDAP. Cette configuration est utilis&eacute;e uniquement lorsque SSL est activ&eacute;
+pour LDAP.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut : </td>
+<td align="left" valign="top" class="base">Param&egrave;tres SSL par d&eacute;faut</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LDAPUserRegistry_enableTAM_description"></a>Utiliser Tivoli Access Manager pour les r&egrave;gles de compte</strong>
+</dt>
+<dd>Cette option permet d'indiquer que Tivoli Access Manager est utilis&eacute; pour
+l'authentification afin de faire respecter les r&egrave;gles des comptes et des mots de passe. 
+Vous devez avoir install&eacute; Tivoli Access Manager auparavant.
+<p>Ne s&eacute;lectionnez cette option que si un serveur Tivoli Access Manager Server
+est install&eacute; et configur&eacute; pour &ecirc;tre utilis&eacute; par WebSphere Application Server. Le serveur d'annuaire LDAP
+utilis&eacute; par le serveur Tivoli Access Manager doit &ecirc;tre le m&ecirc;me que celui utilis&eacute; par WebSphere Application Server.</p>
+
+<p>
+<b>Important: </b>Si vous s&eacute;lectionnez cette option, IBM SecureWay Directory
+Server n'est pas pris en charge comme serveur d'annuaire LDAP.</p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informations connexes</strong>
+</p>
+<a href="rcon_buttons.html">Boutons de la console administrative</a>
+<br>
+
+<a href="rcon_pageusage.html">Caract&eacute;ristiques de la page de la console d'administration</a>
+<br>
+
+<a href="rcon_scope.html">Param&egrave;tres de la port&eacute;e de la console administrative</a>
+<br>
+
+<a href="rcon_filter.html">Param&egrave;tres de filtrage de la console administrative</a>
+<br>
+
+<a href="rcon_preferences.html">Param&egrave;tres des pr&eacute;f&eacute;rences de la console administrative</a>
+<br>
+
+</div>
+</body>
+</html>

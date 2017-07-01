@@ -1,0 +1,147 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>調整參數自訂設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="tune_para_custom"></a>
+<h2>調整參數自訂設定</h2>
+
+<p>請利用這個頁面來自訂分散式階段作業的調整參數。</p>
+
+<p>如果要檢視這個管理主控台頁面，請按一下<strong>伺服器</strong> &gt; <strong>應用程式伺服器</strong> &gt; <em>server_name</em> &gt; <strong>Web 儲存區</strong> &gt; <strong>階段作業管理</strong> &gt; <strong>分散式環境設定</strong> &gt; <strong>自訂調整參數</strong> &gt; <strong>自訂設定</strong>。</p>
+
+<div>
+<p>
+<strong>「配置」標籤</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="TuningParams_writeFrequency_description"></a>寫入頻率</strong>
+</dt>
+<dd>指定階段作業寫入持續儲存庫的時機。
+<p></p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Servlet 服務結束</td>
+<td align="left" valign="top" class="base">階段作業在 Servlet 執行完成之後，寫入資料庫或另一個 WebSphere Application Server 實例。
+</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">手動更新</td>
+<td align="left" valign="top" class="base">必須執行 IBMSession 物件的程式化同步作業，才能將階段作業資料寫入資料庫或另一個 WebSphere Application Server 實例中。
+</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">以時間為基礎</td>
+<td align="left" valign="top" class="base">以指定的寫入間隔值為基礎，將階段作業資料寫入資料庫或另一個 WebSphere Application Server 實例。
+預設值：10 秒</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="TuningParams_writeContents_description"></a>寫入內容</strong>
+</dt>
+<dd>指定只有更新的屬性寫入外部位置，或不論有沒有變更過，所有階段作業屬性都要寫入外部位置。
+外部位置可以是資料庫或另一個應用程式伺服器實例。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">僅更新的屬性</td>
+<td align="left" valign="top" class="base">只將更新的屬性寫入持續儲存庫中。</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">所有階段作業屬性</td>
+<td align="left" valign="top" class="base">所有屬性都寫入持續儲存庫中。</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="TuningParams_scheduleInvalidation_description"></a>排定階段作業清除時程表
+</strong>
+</dt>
+<dd> 指定從資料庫或另一個應用程式伺服器實例中清除無效的階段作業的時間。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">指定分散式階段作業清除時程表</td>
+<td align="left" valign="top" class="base">啟用排定的失效程序來從外部位置中清除失效的 HTTP 階段作業。
+請啟用這個選項來減少使 HTTP 階段作業保持作用中，所需要的資料庫或另一個應用程式伺服器實例的更新次數。
+當沒有啟用這個選項時，失效程序會每隔幾分鐘執行一次，以移除失效的 HTTP 階段作業。
+<p>當啟用這個選項時，請指定一天中的兩小時，讓程序清除外部位置中的失效階段作業。
+請指定應用程式伺服器中活動最少的時間。
+外部位置可以是資料庫或另一個應用程式伺服器實例。
+</p>
+</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">一日的第一次 (0 - 23)</td>
+<td align="left" valign="top" class="base">表示從外部位置清除無效階段作業的第一小時（格林威治標準時間，GMT）。
+請將這個值指定為 0-23 的正整數。
+這個值只在啟用了排程失效時才有效。
+</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">一日的第二次 (0 - 23)</td>
+<td align="left" valign="top" class="base">表示從外部位置清除無效階段作業的第二小時（格林威治標準時間，GMT）。
+請將這個值指定為 0-23 的正整數。
+這個值只在啟用了排程失效時才有效。
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>相關資訊</strong>
+</p>
+<a href="rcon_buttons.html">管理主控台按鈕</a>
+<br>
+
+<a href="rcon_pageusage.html">管理主控台頁面特性</a>
+<br>
+
+<a href="rcon_preferences.html">管理主控台喜好設定</a>
+<br>
+
+<a href="uprs_rtuning_parameters.html">調整參數設定</a>
+<br>
+
+</div>
+</body>
+</html>

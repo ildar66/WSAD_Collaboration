@@ -1,0 +1,351 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Einstellungen f&uuml;r Listener-Port</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="ListenerPort"></a>
+<h2>Einstellungen f&uuml;r Listener-Port</h2>
+
+<p>Ein Listener-Port wird verwendet, um die
+Verwaltung der
+Zuordnung zwischen einer Verbindungs-Factory, einem Topic und einer
+implementierten (Deployment) nachrichtengesteuerten Bean zu vereinfachen.</p>
+
+<p>Verwenden
+Sie diese Anzeige, um die Konfigurationsmerkmale des ausgew&auml;hlten
+Listener-Ports anzuzeigen oder zu &auml;ndern.</p>
+
+<p>Klicken Sie zum Anzeigen dieser Seite der Administrationskonsole auf
+<strong>Server-&gt; <em>Anwendungsserver</em>-&gt;
+Nachrichten-Listener-Service-&gt; Listener-Ports-&gt; <em>Listener-Port</em></strong>.</p>
+
+<dl>
+<dt>
+<strong><a name="ListenerPort_name"></a>Name</strong>
+</dt>
+<dd>Der Name, mit dem der Listener-Port f&uuml;r die Administration bezeichnet wird.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">Keiner</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ListenerPort_initialState"></a>Ausgangsstatus</strong>
+</dt>
+<dd>Der Status, in dem der Listener-Port sich befinden soll,
+wenn der Anwendungsserver beim n&auml;chsten Mal erneut gestartet wird.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Einheiten</td>
+<td align="left" valign="top" class="base">Nicht anwendbar</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">Gestartet</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">
+<dl>
+<dt>
+<strong>Gestartet</strong>
+</dt>
+<dd>Wenn der Anwendungsserver beim n&auml;chsten Mal gestartet
+wird, wird der Listener-Port automatisch gestartet.</dd>
+<dt>
+<strong>Gestoppt</strong>
+</dt>
+<dd>Wenn der Anwendungsserver beim n&auml;chsten Mal gestartet
+wird, wird der Listener-Port nicht automatisch gestartet. Wenn nachrichtengesteuerte Beans diesen
+Listener-Port auf dem Anwendungsserver verwenden sollen, muss der Systemadministrator den Port manuell
+starten oder den Wert "Gestartet" dieses Merkmals ausw&auml;hlen und den
+Anwendungsserver anschlie&szlig;end erneut starten.
+</dd>
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ListenerPort_description"></a>Beschreibung</strong>
+</dt>
+<dd>Eine Beschreibung des Listener-Port f&uuml;r die Administration in IBM WebSphere Application Server.
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">Keiner</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ListenerPort_connectionFactoryJNDIName"></a>JNDI-Name der Verbindungs-Factory</strong>
+</dt>
+<dd>Der JNDI-Name f&uuml;r die JMS-Verbindungs-Factory, der vom
+Listener-Port verwendet werden soll, z. B. <samp>jms/connFactory1</samp>.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">Keiner</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ListenerPort_destinationJNDIName"></a>JNDI-Name des Zieladresse</strong>
+</dt>
+<dd>Der JNDI-Name f&uuml;r die vom Listener-Port
+zu verwendende Zieladresse, z. B. <samp>jms/destn1</samp>.
+<p>Wenn der Service f&uuml;r Extended Messaging diesen Listener-Port verwenden soll, um versp&auml;tete Antworten zu
+verarbeiten, muss der Wert dieses Merkmals mit der Zieladresse der
+JMS-Antwort am Ausgangs-Port, der von der
+Sender-Bean verwendet wurde, &uuml;bereinstimmen. Die Verwendung eines tempor&auml;ren Verzeichnisses f&uuml;r versp&auml;tete
+Antworten ist nicht m&ouml;glich. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">Keiner</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ListenerPort_maxSessions"></a>Maximalanzahl der Sitzungen</strong>
+</dt>
+<dd>Gibt die maximale Anzahl gleichzeitig ausf&uuml;hrbarer JMS-Serversitzungen an, die ein Listener
+f&uuml;r die Verarbeitung von Nachrichten verwenden kann. 
+<p>Jede Sitzung entspricht einem Listener-Thread, steuert aber die nicht Anzahl gleichzeitig verarbeiteter
+Nachrichten. Passen Sie diesen Parameter an, wenn die Maschine, auf der die Prozessanwendung ausgef&uuml;hrt wird,
+die verf&uuml;gbare Kapazit&auml;t nicht erkennt und durch Ausf&uuml;hrung langer Prozesse weniger Durchsatz erzielt.
+</p>
+
+<p>Mit diesem Parameter k&ouml;nnen Sie eine gewisse Unterst&uuml;tzung f&uuml;r gemeinsamen Zugriff
+hinzuf&uuml;gen, damit Nachrichten gleichzeitig empfangen werden k&ouml;nnen, bevor der synchronisierte Teil
+des Nachrichtenempfangs erfolgt.
+In einer Prozessanwendung mit lang andauernden Prozessen auf einem System des Typs
+NetFinity 5500 (500 MHz, 4-Weg, 4 GB RAM) kann eine Durchsatzsteigerung von 40 % erzielt werden.</p>
+
+<p>Anstatt diese &Auml;nderung in der Administrationskonsole vorzunehmen, k&ouml;nnen Sie die maximale Anzahl Sitzungen
+in der Datei <samp>server.xml</samp> in der Zeilengruppe f&uuml;r die Listener-Ports &auml;ndern:
+<pre>&lt;listenerPorts xmi:id="ListenerPort_1" name="bpeIntListenerPort"
+description="Internal Listener Port for Process Choreographer" 
+connectionFactoryJNDIName="jms/bpeCF" destinationJNDIName="jms/bpeIntQueue" 
+<strong>maxSessions="5"</strong> maxRetries="10" maxMessages="1"&gt;
+&lt;stateManagement xmi:id="StateManageable_5" initialState="START"/&gt;
+&lt;/listenerPorts&gt;</pre>
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Einheiten</td>
+<td align="left" valign="top" class="base">Sitzungen</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">1</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">1 bis 2147483647</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">
+Empfohlene Einstellung</td>
+<td align="left" valign="top" class="base">Wenn mehrere Nachrichten gleichzeitig verarbeitet werden, sollten Sie den Wert auf 2 bis 4 Sitzungen pro Systemprozessor
+setzen. Verwenden Sie m&ouml;glichst niedrige Werte, damit die Clients nicht &uuml;berlastet werden. Soll die Nachrichtenreihenfolge
+strikt eingehalten werden, setzen Sie den Wert auf 4, damit sich immer ein Thread in einem aktiv wartenden Zustand
+befindet und damit ausschlie&szlig;lich f&uuml;r den Empfang der Nachricht bereit ist.
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ListenerPort_maxRetries"></a>Maximalanzahl der Wiederholungen</strong>
+</dt>
+<dd>Gibt an, wie oft der Listener versucht, eine Nachricht
+abzusetzen, bevor er gestoppt wird. Die zul&auml;ssigen Werte
+liegen im Bereich von 0 bis 2147483647.
+<p>Gibt an, wie oft der Listener versucht, eine Nachricht
+an eine nachrichtengesteuerte Bean-Instanz abzusetzen, bevor der
+Listener gestoppt wird.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Einheiten</td>
+<td align="left" valign="top" class="base">Wiederholungsversuche</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">0 (keine Wiederholungen)</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">0 (keine Wiederholungen) bis 2147483647</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ListenerPort_maxMessages"></a>Maximalanzahl der Nachrichten</strong>
+</dt>
+<dd>Die maximale Anzahl an Nachrichten, die der Listener in einer JMS-Serversitzung verarbeiten kann.
+
+<p>Passen Sie diesen Parameter an, wenn die Reihenfolge der Nachrichten keine strikte Anforderung ist. Dieser
+Parameter steuert die Ebene des gemeinsamen Zugriffs im Listener-Service.
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Einheiten</td>
+<td align="left" valign="top" class="base">Anzahl der Nachrichten</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">1</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">1 bis 2147483647</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">
+Empfohlene Einstellung</td>
+<td align="left" valign="top" class="base">Wenn mehrere Nachrichten gleichzeitig verarbeitet werden, sollten Sie den Wert auf 2 bis 4 Sitzungen pro Systemprozessor
+setzen. Verwenden Sie m&ouml;glichst niedrige Werte, damit die Clients nicht &uuml;berlastet werden. Falls
+Sie eine strikte Nachrichtenreihenfolge w&uuml;nschen, setzen Sie den Wert auf 1. </td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</body>
+</html>

@@ -1,0 +1,492 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>WebSphere Topic Connection Factory 設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="WASTopicConnectionFactory"></a>
+<h2>WebSphere Topic Connection Factory 設定</h2>
+
+<p>請使用這個畫面來檢視或變更選取要搭配內嵌 WebSphere JMS Provider 使用之 Topic Connection Factory 的配置內容。這些配置內容會控制如何建立連線來通往相關聯的 JMS Topic Destination。</p>
+
+<p>Topic Connection Factory 用來建立通往 Topic Destination 的 JMS 連線。
+Topic Connection Factory 是相關聯的 JMS 提供者所建立的。
+內嵌 WebSphere JMS Provider 的 Topic Connection Factory 有下列內容。
+</p>
+
+<p>如果要檢視這個管理主控台頁面，請按一下<strong>資源 -&gt; WebSphere JMS Provider-&gt;（在內容窗格的「其他內容」下）WebSphere Topic Connection Factory -&gt; <em>connection_factory</em></strong>
+</p>
+
+<dl>
+<dt>
+<strong><a name="WASTopicConnectionFactory_jndiName"></a>JNDI 名稱</strong>
+</dt>
+<dd>將 Topic Connection Factory 連結至應用程式伺服器名稱空間時所用的 JNDI 名稱。
+<p>請依照慣例使用完整的 JNDI 名稱；比方說，在 jms/<em>Name</em> 格式中，<em>Name</em> 是資源的邏輯名稱。
+</p>
+
+<p>這個名稱用來鏈結平台的連結資訊。
+連結會將模組部署描述子所定義的資源關聯到由平台連結至 JNDI 內的實際（實體）資源。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>「配置」標籤</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="WASTopicConnectionFactory_contextId"></a>範圍</strong>
+</dt>
+<dd>指定這個資源定義的層次是可見的 -- Cell、節點或伺服器層次。
+
+<p>JMS 提供者、名稱空間連結或共用程式庫之類的資源可以定義在多個範圍，定義在較明確範圍的資源會改寫定義在較一般範圍的複本。
+</p>
+
+<p>請注意，不管所定義的資源範圍是什麼，資源的內容只適用於個別的伺服器層次。
+比方說，如果您在 Cell 層次定義資料來源的範圍，則 Cell 中所有的使用者，都可以查閱以及使用這個資料來源，而這個資料來源在該 Cell 中是唯一的。
+但是，資源內容設定對於 Cell 中的每一個伺服器來說，是本端設定。
+比方說，如果您將<strong>連線數目上限</strong>設定為 10，則該 Cell 中的每一個伺服器都可以有多達 10 個連線。<dl>
+<dt>
+<strong>Cell</strong>
+</dt>
+<dd>最一般的範圍。除非遭到置換，否則，所有節點和伺服器都能看到 Cell 範圍所定義的資源。
+如果要檢視 Cell 範圍中所定義的資源，請不要在範圍選擇表單中指定伺服器或節點名稱。</dd>
+<dt>
+<strong>節點</strong>
+</dt>
+<dd>大部分資源類型的預設範圍。定義在節點範圍的資源會置換任何定義在 Cell 範圍的複本，且相同節點中的所有伺服器都能看到它們，除非它們在這個節點的伺服器範圍中遭到置換。
+如果要檢視節點範圍中所定義的資源，請不要指定伺服器，但在範圍選擇表單中選取一個節點名稱。</dd>
+<dt>
+<strong>伺服器</strong>
+</dt>
+<dd>定義資源的最特定範圍。
+定義在「伺服器」範圍的資源會置換任何定義在 Cell 範圍或「母節點」範圍的重複資源定義，
+而且僅特定伺服器能夠看到它們。如果要檢視定義在伺服器範圍中的資源，請在範圍選擇表單中指定伺服器名稱和節點名稱。</dd>
+</dl>
+</p>
+
+<p>當建立資源時，始終都會將它們建立畫面中所選取的現行範圍內。
+如果要檢視其他範圍中的資源，請在範圍選擇表單中指定不同的節點或伺服器。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASTopicConnectionFactory_name"></a>名稱
+</strong>
+</dt>
+<dd>用來識別這個 Queue Connection Factory，供 IBM WebSphere Application Server 內管理作業使用的名稱。在跨越 WebSphere 管理領域的 JMS Connection Factory 內，這個名稱必須是唯一的。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">空值</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASTopicConnectionFactory_description"></a>說明
+</strong>
+</dt>
+<dd>這個 Topic Connection Factory 的說明，供 IBM WebSphere Application Server 內管理作業使用。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">空值</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASTopicConnectionFactory_category"></a>種類</strong>
+</dt>
+<dd>就您的 IBM WebSphere Application Server 管理記錄，用來分類或分組這個 Topic Connection Factory 的種類。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASTopicConnectionFactory_node"></a>節點</strong>
+</dt>
+<dd>JMS 伺服器為了這個 Connection Factory 而執行於其中之管理節點的 WebSphere 節點名稱。
+這個 Factory 所建立的連線會連接至該 JMS 伺服器。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">列舉</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">空值</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">WebSphere 管理領域中的下拉節點清單。
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASTopicConnectionFactory_port"></a>埠
+</strong>
+</dt>
+<dd>連線將使用哪一個埠來連接到「JMS 伺服器」。
+QUEUED 埠是全功能的 JMS 發佈/訂閱支援，DIRECT 埠僅適用於非持續性、非交易式、不可延續的訂閱。
+<p>
+<b>附註: </b>訊息驅動 Bean 無法對發佈/訂閱支援使用直接接聽器埠。
+因此，任何將<strong>埠</strong>設成<samp>直接</samp>來配置的 Topic Connection Factory 都無法與訊息驅動 Bean 一起使用。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">列舉</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">單位</td>
+<td align="left" valign="top" class="base">不適用</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">QUEUED</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">
+<dl>
+<dt>
+<strong>QUEUED</strong>
+</dt>
+<dd>全功能 JMS 標準「發佈/訂閱」支援所用的接聽器埠。</dd>
+<dt>
+<strong>DIRECT</strong>
+</dt>
+<dd>「發佈/訂閱」支援的直接 TCP/IP 連線（限非交易式、非持續性及不可延續的訂閱）所用的接聽器埠。</dd>
+</dl>
+<p>這些埠的 TCP/IP 埠號定義在 WebSphere 內部 JMS 伺服器中。</p>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="AuthDataAlias"></a>內容管理鑑別別名</strong>
+</dt>
+<dd>這個別名指定使用者 ID 和密碼以便針對應用程式管理鑑別來鑑別 JMS 提供者的連線。
+<p>這個內容提供已定義給 WebSphere Application Server 的 J2C 鑑別資料項目別名清單。您可以選取一個資料項目別名來鑑別到 JMS 提供者的新連線。
+</p>
+
+<p>如果您已啟用 WebSphere Application Server 廣域安全，請選取一個指定使用者 ID 和密碼的別名來鑑別到 JMS 提供者的新連線。
+這個別名的使用，是根據應用程式元件部署描述子的 Connection Factory 資源參照中所宣告的資源鑑別 (res-auth) 設定而定。
+</p>
+
+<p>
+<b>附註: </b>使用者 ID 若超過 12 字元就無法與內嵌的 WebSphere JMS Provider 一起用於鑑別。
+比方說，預設的 Windows NT 使用者 ID <strong>Administrator</strong> 就無效，內嵌的 WebSphere 傳訊不能用它，因為它包含 13 個字元。
+因此，WebSphere JMS Provider  Connection Factory 的鑑別別名必須指定少於 12 個字元的使用者 ID。</p>
+
+</dd>
+<dt>
+<strong><a name="mappingAuthDataAlias"></a>儲存區管理鑑別別名</strong>
+</dt>
+<dd>這個別名指定使用者 ID 和密碼以便針對儲存區管理來鑑別 JMS 提供者的連線。
+<p>這個內容提供已定義給 WebSphere Application Server 的 J2C 鑑別資料項目別名清單。您可以選取一個資料項目別名來鑑別到 JMS 提供者的新連線。
+</p>
+
+<p>如果您已啟用 WebSphere Application Server 廣域安全，請選取一個指定使用者 ID 和密碼的別名來鑑別到 JMS 提供者的新連線。
+這個別名的使用，是根據應用程式元件部署描述子的 Connection Factory 資源參照中所宣告的資源鑑別 (res-auth) 設定而定。
+</p>
+
+<p>
+<b>附註: </b>使用者 ID 若超過 12 字元就無法與內嵌的 WebSphere JMS Provider 一起用於鑑別。
+比方說，預設的 Windows NT 使用者 ID <strong>Administrator</strong> 就無效，內嵌的 WebSphere 傳訊不能用它，因為它包含 13 個字元。
+因此，WebSphere JMS Provider  Connection Factory 的鑑別別名必須指定少於 12 個字元的使用者 ID。</p>
+
+</dd>
+<dt>
+<strong><a name="WASTopicConnectionFactory_mappingConfigAlias"></a>對映配置別名</strong>
+</dt>
+<dd>可讓使用者從<strong>安全</strong> &gt; <strong>JAAS 配置</strong> &gt; <strong>應用程式登入配置</strong>清單中選取。
+<p>
+<strong>DefaultPrincipalMapping</strong> JAAS 配置會將鑑別別名對映至使用者 ID 和密碼。您可以定義和使用其他對映配置。如果需要對映配置的詳細資訊，請參閱 <a href="usec_jaas.html">Java 鑑別和授權服務配置項目設定</a>。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">挑選清單</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASTopicConnectionFactory_cloneSupport"></a>複本支援</strong>
+</dt>
+<dd>請選取這個勾選框來啟用複本支援，讓相同的延續性訂閱能夠跨越不同的主題複本。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">列舉</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">已清除
+</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">
+<dl>
+<dt>
+<strong>已選取</strong>
+</dt>
+<dd>啟用複本支援。</dd>
+<dt>
+<strong>已清除
+</strong>
+</dt>
+<dd>停用複本支援。</dd>
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+<p>如果您選取這個內容，您也必須指定<strong>用戶端 ID</strong> 內容值。
+</p>
+
+</dd>
+<dt>
+<strong><a name="WASTopicConnectionFactory_clientID"></a>用戶端 ID</strong>
+</dt>
+<dd>通往佇列管理程式的連線所用的 JMS 用戶端 ID。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">有效的 JMS 用戶端 ID</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASTopicConnectionFactory_type"></a>已啟用 XA</strong>
+</dt>
+<dd>指定 Connection Factory 要用在訊息的 XA 或非 XA 協調上，以及控制應用程式伺服器要不要使用 XA QCF/TCF。
+如果不會在相同交易中使用多重資源，請啟用 XA。
+
+<p>如果您清除這個勾選框內容（針對非 XA 協調），JMS 階段作業仍會列在交易中，但它會使用資源管理程式本端交易呼叫（session.commit 和 session.rollback），而不是 XA 呼叫。
+此舉可以提升效能。
+但是，這也表示只有一個資源可以列在 WebSphere Application Server 的交易中。
+WebSphere Application Server Enterprise 中的最後一個參與者支援，可讓您將一個非 XA 資源與其他 XA 相容資源列在一起。
+</p>
+
+<p>如果 WebSphere Topic Connection Factory 將 <strong>Port</strong> 內容設為 <samp>DIRECT</samp>，便不會套用這個內容，而且一律會沿用非 XA 協調。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">勾選框</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">已選取（已啟用 XA 協調）</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">
+<dl>
+<dt>
+<strong>已選取</strong>
+</dt>
+<dd>Connection Factory 已啟用訊息的 XA 協調
+</dd>
+<dt>
+<strong>已清除
+</strong>
+</dt>
+<dd>Connection Factory 未啟用訊息的 XA 協調</dd>
+</dl>
+</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">建議
+</td>
+<td align="left" valign="top" class="base">當收到的訊息佇列或主題是交易中的唯一資源時，請勿啟用 XA 協調。
+當涉及包括其他佇列或主題在內的其他資源時，請啟用 XA 協調。
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASTopicConnectionFactory_connectionPool"></a>連線儲存池</strong>
+</dt>
+<dd>指定一組選用的連線儲存池設定。
+
+<p>所有 J2C 連接器會共用連線儲存池內容。
+</p>
+
+<p>應用程式伺服器會將連線和階段作業與 JMS 提供者置於儲存池中，來提高效能。
+您必須針對您的應用程式，來配置連線和階段作業儲存池內容，否則可能不會得到您所要的連線和階段作業行為。
+</p>
+
+<p>如果 JMS 資源的並行伺服器端存取作業超出預設值，請變更連線儲存池的大小。連線儲存池大小是以個別佇列或主題為基礎來設定的。
+請參閱下表，以取得詳細資料。</p>
+
+</dd>
+<dt>
+<strong><a name="WASTopicConnectionFactory_sessionPool"></a>階段作業儲存池</strong>
+</dt>
+<dd>一組選用的階段作業儲存池設定。
+
+<p>這個鏈結提供鏈結至所有 J2C 連接器共用的選用連線儲存池內容的畫面。</p>
+
+<p>應用程式伺服器會將連線和階段作業與 JMS 提供者置於儲存池中，來提高效能。
+您必須針對您的應用程式，來配置連線和階段作業儲存池內容，否則可能不會得到您所要的連線和階段作業行為。
+</p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>相關資訊</strong>
+</p>
+<a href="rcon_buttons.html">管理主控台按鈕</a>
+<br>
+
+<a href="rcon_scope.html">管理主控台範圍設定</a>
+<br>
+
+<a href="udat_conpoolset.html">連線儲存池設定</a>
+<br>
+
+<a href="umj_sesspoolset.html">階段作業儲存池設定</a>
+<br>
+
+<a href="usec_j2cauthdata.html">Java 2 連接器鑑別資料項目設定</a>
+<br>
+
+</div>
+</body>
+</html>

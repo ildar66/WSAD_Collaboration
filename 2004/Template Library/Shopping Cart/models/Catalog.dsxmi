@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<core:DataSource xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:core="core.xmi" xmlns:RDBSchema="RDBSchema.xmi" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmi:id="DataSource_2" version="1" name="Catalog" description="Displays the Cart">
+  <DataDomainMapping xmi:type="core:RDBDomainMapping" xmi:id="RDBDomainMapping_1" version="1">
+    <DataSourceMappings xmi:type="core:RDBDataSourceMapping" xmi:id="RDBDataSourceMapping_1" version="1">
+      <FieldMappings xmi:type="core:RDBFieldMapping" xmi:id="RDBFieldMapping_1" version="1" PersistentField="PersistentField_1">
+        <RDBColumn href="models\SHOPPING_APP_PCATALOG.tblxmi#RDBColumn_1"/>
+      </FieldMappings>
+      <FieldMappings xmi:type="core:RDBFieldMapping" xmi:id="RDBFieldMapping_4" version="1" PersistentField="PersistentField_4">
+        <RDBColumn href="models\SHOPPING_APP_PCATALOG.tblxmi#RDBColumn_4"/>
+      </FieldMappings>
+      <FieldMappings xmi:type="core:RDBFieldMapping" xmi:id="RDBFieldMapping_5" version="1" PersistentField="PersistentField_5">
+        <RDBColumn href="models\SHOPPING_APP_PCATALOG.tblxmi#RDBColumn_5"/>
+      </FieldMappings>
+      <RDBTable href="models\SHOPPING_APP_PCATALOG.tblxmi#RDBTable_1"/>
+    </DataSourceMappings>
+    <RDBDatabase href="models\SHOPPING.dbxmi#RDBDatabase_1"/>
+  </DataDomainMapping>
+  <Fields xmi:type="core:PersistentField" xmi:id="PersistentField_1" version="1" name="product_name" FieldMapping="RDBFieldMapping_1">
+    <CoreTypeDescriptor href="Shopping Cart.prjxmi#CoreTypeDescriptor_8"/>
+    <FieldDescriptor xmi:type="core:AlphanumFieldDescriptor" xmi:id="AlphanumFieldDescriptor_1" version="1" length="50">
+      <initialValue xsi:nil="true"/>
+      <CoreTypeDescriptor href="Shopping Cart.prjxmi#CoreTypeDescriptor_8"/>
+    </FieldDescriptor>
+  </Fields>
+
+  <Fields xmi:type="core:PersistentField" xmi:id="PersistentField_4" version="1" name="cost" FieldMapping="RDBFieldMapping_4">
+    <CoreTypeDescriptor href="Shopping Cart.prjxmi#CoreTypeDescriptor_5"/>
+    <FieldDescriptor xmi:type="core:NumFieldDescriptor" xmi:id="NumFieldDescriptor_1" version="1">
+      <CoreTypeDescriptor href="Shopping Cart.prjxmi#CoreTypeDescriptor_5"/>
+    </FieldDescriptor>
+  </Fields>
+  <Fields xmi:type="core:PersistentField" xmi:id="PersistentField_5" version="1" name="category" FieldMapping="RDBFieldMapping_5">
+    <CoreTypeDescriptor href="Shopping Cart.prjxmi#CoreTypeDescriptor_8"/>
+    <FieldDescriptor xmi:type="core:AlphanumFieldDescriptor" xmi:id="AlphanumFieldDescriptor_4" version="1" length="10">
+      <initialValue xsi:nil="true"/>
+      <CoreTypeDescriptor href="Shopping Cart.prjxmi#CoreTypeDescriptor_8"/>
+    </FieldDescriptor>
+  </Fields>
+
+  <DomainActionDescriptors xmi:id="DomainActionDescriptor_1" version="1" name="Create" description="Performs a Create">
+    <ActionMapping xmi:type="core:SQLStatementMapping" xmi:id="SQLStatementMapping_1" version="1" SQLStatement="INSERT INTO APP.CATALOG (PRODUCT_NAME,SUPPLIER,DESCRIPTION,COST,CATEGORY,EXPIRY_DATE,PICTURE) VALUES (:product_name,:supplier,:description,:cost,:category,:expiry_date,:picture)"/>
+  </DomainActionDescriptors>
+  <DomainActionDescriptors xmi:id="DomainActionDescriptor_2" version="1" name="Update" description="Performs a Update">
+    <ActionMapping xmi:type="core:SQLStatementMapping" xmi:id="SQLStatementMapping_2" version="1" SQLStatement="UPDATE APP.CATALOG SET(SUPPLIER,DESCRIPTION,COST,CATEGORY,EXPIRY_DATE,PICTURE) = (:supplier,:description,:cost,:category,:expiry_date,:picture) WHERE APP.CATALOG.PRODUCT_NAME = :product_name"/>
+  </DomainActionDescriptors>
+  <DomainActionDescriptors xmi:id="DomainActionDescriptor_3" version="1" name="Delete" description="Performs a Delete">
+    <ActionMapping xmi:type="core:SQLStatementMapping" xmi:id="SQLStatementMapping_3" version="1" SQLStatement="DELETE FROM APP.CATALOG WHERE APP.CATALOG.PRODUCT_NAME = :product_name"/>
+  </DomainActionDescriptors>
+  <DomainActionDescriptors xmi:id="DomainActionDescriptor_4" version="1" name="Select All" description="Performs a Select All">
+    <ActionMapping xmi:type="core:SQLStatementMapping" xmi:id="SQLStatementMapping_4" version="1" SQLStatement="SELECT * FROM APP.CATALOG"/>
+  </DomainActionDescriptors>
+  <DomainActionDescriptors xmi:id="DomainActionDescriptor_5" version="1" name="Read" description="Performs a Read">
+    <returnedValue xmi:type="core:CoreTypeDescriptor" href="Shopping Cart.prjxmi#CoreTypeDescriptor_4"/>
+    <ActionMapping xmi:type="core:SQLStatementMapping" xmi:id="SQLStatementMapping_5" version="1" SQLStatement="SELECT * FROM APP.CATALOG WHERE APP.CATALOG.PRODUCT_NAME = :product_name"/>
+  </DomainActionDescriptors>
+  <DomainActionDescriptors xmi:id="DomainActionDescriptor_6" version="1" name="Search" description="Performs a Search">
+    <returnedValue xmi:type="core:CoreTypeDescriptor" href="Shopping Cart.prjxmi#CoreTypeDescriptor_4"/>
+    <parameters xmi:id="ParameterType_1" version="1">
+      <type xmi:type="core:CoreTypeDescriptor" href="Shopping Cart.prjxmi#CoreTypeDescriptor_11"/>
+    </parameters>
+    <parameters xmi:id="ParameterType_2" version="1">
+      <type xmi:type="core:CoreTypeDescriptor" href="Shopping Cart.prjxmi#CoreTypeDescriptor_8"/>
+    </parameters>
+  </DomainActionDescriptors>
+  <DomainActionDescriptors xmi:id="DomainActionDescriptor_7" version="1" name="Read By Field" description="Performs a Read By Field">
+    <returnedValue xmi:type="core:CoreTypeDescriptor" href="Shopping Cart.prjxmi#CoreTypeDescriptor_4"/>
+    <parameters xmi:id="ParameterType_3" version="1">
+      <type xmi:type="core:CoreTypeDescriptor" href="Shopping Cart.prjxmi#CoreTypeDescriptor_11"/>
+    </parameters>
+  </DomainActionDescriptors>
+  <KeyFields xmi:id="product_name" version="1" PersistentField="PersistentField_1"/>
+  <DataSourceTypeDescriptor xmi:id="DataSourceTypeDescriptor_1" version="1"/>
+</core:DataSource>

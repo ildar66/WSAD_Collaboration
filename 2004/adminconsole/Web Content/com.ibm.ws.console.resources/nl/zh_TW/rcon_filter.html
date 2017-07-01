@@ -1,0 +1,43 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>管理主控台過濾器設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="rrun_filter"></a>
+<h2>管理主控台過濾器設定</h2>
+
+<p>請利用過濾器設定來指定如何過濾集合視圖中所顯示的項目。
+</p>
+
+<p>請選取要過濾的直欄，再輸入過濾準則。
+</p>
+
+<dl>
+
+<dt>
+<strong>要過濾的直欄
+</strong>
+</dt>
+<dd>請利用下拉清單來選取要過濾的直欄。
+當您套用過濾器時，會據此修改集合表。
+<p>比方說，如果您要輸入用來過濾應用程式伺服器名稱的準則，請選取<strong>應用程式伺服器</strong>。
+</p>
+</dd>
+
+<dt>
+<strong>過濾準則</strong>
+</dt>
+<dd>請在下拉清單旁的欄位中，輸入必須在集合項目名稱中找到的字串，以限定集合表所要顯示的項目。
+這個字串可包含 %, * 或 ? 符號來作為萬用字元。
+比方說，輸入 <samp>*App*</samp> 會找到名稱中含有 <strong><em>App</em></strong> 字中的任何應用程式伺服器。<p>將 <samp>( ) ^ * % { } \ + $</samp> 每個字元偕同 <samp>\</samp> 放在前頭，以便正規表示式引擎正確地執行搜尋來符合所提供的搜尋準則。比方說，如果要針對所有 JDBC 提供者搜尋含 <strong><em>(XA)</em></strong> 的提供者名稱，請指定如下：</p> 
+<pre>*\(XA\)</pre>
+</dd>
+
+</dl>
+
+</body>
+</html>

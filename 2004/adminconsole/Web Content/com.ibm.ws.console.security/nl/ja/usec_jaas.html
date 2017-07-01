@@ -1,0 +1,127 @@
+﻿<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Java Authentication and Authorization service の構成エントリー設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecjaas"></a>
+<h2>
+<img alt="[修正パッケージ 5.0.1 以降]" src="v501.gif" border="0">Java Authentication and Authorization service の構成エントリー設定</h2>
+
+<p>このページを使用して、Enterprise Bean、Java Server Pages (JSP) ファイル、
+サーブレット、リソース・アダプターなど、
+使用するアプリケーション・コードの Java Authentication and Authorization Service (JAAS) ログイン構成のリストを指定します。</p>
+
+<p>この管理コンソール・ページを表示するには、「<strong>セキュリティー</strong>」&gt;「<strong>JAAS 構成</strong>」&gt;「<strong>Application Login Configuration</strong>」をクリックします。</p>
+
+<p>WebSphere Application Server セキュリティー・ランタイムの認証のための追加のログイン・モジュールの定義を開始する前に、
+インフォセンターの JAAS 資料を読むことを強くお勧めします。 アプリケーションの追加のログイン構成を定義できます。
+しかし、WebSphere Application Server LoginModule (<samp>com.ibm.ws.security.common.auth.module.WSLoginModuleImpl</samp>) を使用しない場合、
+あるいは LoginModule が WebSphere Application Server によって認識される信任状を作成しない場合、
+WebSphere Application Server セキュリティー・ランタイムは、リソース・アクセスの許可検査に、
+これらのログイン構成の認証済みの対象を使用できません。</p>
+
+<p>
+<p>
+<img alt="[修正パッケージ 5.0.1 以降]" src="v501.gif" border="0"><b>注: </b>認証に Java Authentication and Authorization Service (JAAS) を
+使用する Java クライアント・プログラムは、JAAS 構成ファイルを指定して起動する
+必要があります。WebSphere 製品には、デフォルトの JAAS 構成ファイル wsjaas_client.conf が付属しています。このファイルは、&lt;install_root&gt;/properties ディレクトリーにあります。この構成ファイルは、<em>/&lt;install_root&gt;/bin/launchClient.bat</em> ファイルに、<strong>set JAAS_LOGIN_CONFIG=-Djava.security.auth.login.config=%WAS_HOME%&yen;properties&yen;wsjaas_client.conf</strong> として設定されています。
+<p>Java クライアント・プログラムの起動に launchClient.bat ファイルを使用しない場合は、
+適切な JAAS 構成ファイルに <em>-Djava.security.auth.login.config</em> フラグを付けて、Java 仮想マシンに必ず渡すようにしてください。 </p>
+</p>
+</p>
+
+<dl>
+<dt>
+<strong>ClientContainer</strong>
+</dt>
+<dd>クライアント・コンテナー・アプリケーションが使用するログイン構成を指定します。
+この構成は、クライアント・コンテナーのデプロイメント記述子に定義された CallbackHandler API を使用します。
+<p>ClientContainer は、WebSphere Application Server のデフォルトのログイン構成です。このデフォルトを除去すると、
+それを使用するその他のアプリケーションに障害が発生するため、除去しないでください。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト:</td>
+<td align="left" valign="top" class="base">ClientContainer</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong>DefaultPrincipalMapping</strong>
+</dt>
+<dd>ユーザーを「<strong>J2C 認証データ・エントリー</strong>」に定義されたプリンシパルにマップするために Java 2 コネクターが使用するログイン構成を指定します。
+<p>DefaultPrincipalMapping は、WebSphere Application Server のデフォルトのログイン構成です。このデフォルトを除去すると、それを使用するその他のアプリケーションに障害が発生するため、除去しないでください。DefaultPrincipalMapping ログイン構成は、
+WebSphere Application Server セキュリティー・ランタイムのユーザーを認証します。
+このログイン構成から WebSphere Application Server リソースにアクセスするための許可検査として戻された、
+認証済みの対象からの信任状を使用します。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト:</td>
+<td align="left" valign="top" class="base">ClientContainer</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong>WSLogin</strong>
+</dt>
+<dd>すべてのアプリケーションが、
+WebSphere Application Server セキュリティー・ランタイムの認証を実行するために、WSLogin 構成を使用できるかどうかを指定します。
+<p>ただし、このログイン構成は、
+クライアント・コンテナーのデプロイメント記述子で定義されている CallbackHandler を受け入れません。
+この機能を使用するには、ClientContainer ログイン構成を使用します。</p>
+
+<p>WSLogin は、WebSphere Application Server のデフォルトのログイン構成です。このデフォルトを除去すると、それを使用するその他のアプリケーションに障害が発生するため、除去しないでください。このログイン構成は、WebSphere Application Server セキュリティー・ランタイムの
+ユーザーを認証します。
+このログイン構成から WebSphere Application Server リソースにアクセスするための許可検査として戻された、
+認証済みの対象からの信任状を使用します。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト:</td>
+<td align="left" valign="top" class="base">ClientContainer</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>関連情報</strong>
+</p>
+<a href="rcon_buttons.html">管理コンソールのボタン</a>
+<br>
+
+<a href="rcon_pageusage.html">管理コンソール・ページのフィーチャー</a>
+<br>
+
+<a href="rcon_scope.html">管理コンソールの有効範囲設定</a>
+<br>
+
+<a href="rcon_filter.html">管理コンソールのフィルター設定</a>
+<br>
+
+<a href="rcon_preferences.html">管理コンソールの設定の変更</a>
+<br>
+
+</div>
+</body>
+</html>

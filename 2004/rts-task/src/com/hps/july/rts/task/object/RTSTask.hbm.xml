@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+   "http://dtdserver/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.hps.july.rts.task.object" >
+
+	   <class name="RTSTask" table="rts_tasks">
+           <id name="id" column="id">
+               <generator class="native"/>
+           </id>
+
+           <property name="status" column="status" type="string"/>
+           <property name="taskType" column="tasktype" type="integer" update="false"/>
+           <property name="requestNumber" column="requestnumber" type="string" update="false"/>
+           <property name="requestId" column="requestid" type="integer" update="false"/>
+           <property name="requestType" column="requesttype" type="string" update="false"/>
+           <property name="created" column="created" type="timestamp" insert="false" update="false" />
+           <property name="lastSending" column="lastSending" type="timestamp" insert="false" />
+           <property name="host" column="host" type="string" update="false"/>
+       </class>
+
+</hibernate-mapping>

@@ -1,0 +1,80 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Web container settings</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uweb_rcont"></a>
+<h2>Web container settings</h2>
+
+<p>Use this  page to configure the container settings.
+<p>Access this page by traversing the following path in the administrative  console:</p>
+
+<pre>
+<strong>Servers</strong> &gt; <strong>Application Servers</strong> &gt; <em>server_instance</em> &gt; <strong>Web container</strong>
+</pre>
+ 
+</p>
+
+<p> 
+<strong>Configuration - General Properties</strong> 
+</p>
+
+<dl>
+<dt>
+<strong><a name="rcont_default"></a>Default virtual host</strong>
+</dt>
+<dd>Specifies a virtual host is a configuration enabling a  single host machine
+to resemble multiple host machines.  Resources associated with one virtual
+host cannot share data with  resources associated with another virtual host,
+even if the virtual hosts share  the same physical machine. 
+<p>Select a virtual host option:</p>
+
+<dl>
+
+<dt>
+<strong><strong>Default Host</strong></strong>
+</dt>
+<dd>The product  provides a default virtual
+host with some common aliases,  such as the machine IP address, short host
+name, and fully qualified host name.  The alias comprises the first part of
+the path for accessing a resource such as a servlet.  For example, it is <samp>localhost:9080</samp>
+in the request <samp>http://localhost:9080/myServlet</samp>.</dd>
+
+<dt>
+<strong><strong>Admin Host</strong></strong>
+</dt>
+<dd>This is another name for the application server;
+also known as <em>server1</em> in the base installation.  
+This process supports the use of the administrative console.
+</dd>
+
+</dl>
+</dd>
+<dt>
+<strong><a name="rcont_cache"></a>Servlet caching</strong>
+</dt>
+<dd>Specifies that if a servlet is invoked once and it generates output to be cached,
+ a cache entry is created containing not only the output, but also side effects of the invocation. 
+These side effects can include calls to other servlets or Java Server Pages (JSP) files,
+ as well as metadata about the entry, including timeout and entry priority information. 
+ 
+<p></p>
+
+<dl>
+
+<dt>
+<strong><strong>Enable servlet caching</strong></strong>
+</dt>
+<dd> Check  this box  to enable 
+servlet caching.</dd>
+
+</dl>
+
+</dd>
+</dl>
+</body>
+</html>

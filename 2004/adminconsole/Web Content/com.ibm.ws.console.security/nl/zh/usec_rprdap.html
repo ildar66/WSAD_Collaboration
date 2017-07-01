@@ -1,0 +1,215 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>轻量级目录访问协议设置</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecrprdap"></a>
+<h2>
+<img alt="[Release 5.1 and later]" src="v51.gif" border="0">轻量级目录访问协议设置</h2>
+
+<p>使用此页面配置当用户和组驻留在外部 LDAP 目录中时使用的轻量级目录访问协议（LDAP）设置。</p>
+
+<p>要查看此管理控制台页面，单击<strong>安全性</strong> &gt; <strong>用户注册表</strong> &gt; <strong>LDAP</strong>。</p>
+
+<p>当启用了安全性并且更改任何这些属性时，请转至<strong>全局安全性</strong>面板并单击<strong>应用</strong>来确认更改。</p>
+
+<div>
+<p>
+<strong>&ldquo;配置&rdquo;选项卡</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="UserRegistry_serverId_description"></a>服务器用户标识</strong>
+</dt>
+<dd>指定为安全起见用于运行服务器的用户标识。
+<p>尽管此标识不是 LDAP 管理员用户标识，在 LDAP 目录中指定有效条目，其位于基本专有名称下。</p>
+
+</dd>
+<dt>
+<strong><a name="UserRegistry_serverPassword_description"></a>服务器用户密码</strong>
+</dt>
+<dd>指定与安全性服务器标识相应的密码。</dd>
+<dt>
+<strong><a name="LDAPUserRegistry_type_description"></a>类型</strong>
+</dt>
+<dd>指定您连接到的 LDAP 服务器的类型。
+<p>
+<img alt="[5.0 only]" src="v50x.gif" border="0"><img alt="[Fix Pack 5.0.1]" src="v501x.gif" border="0"><img alt="[Fix Pack 5.0.2]" src="v502x.gif" border="0">类型用于预装入缺省 LDAP 属性。IBM Directory Server 用户可以选择 <samp>IBM_Directory_Server</samp> 或 <samp>SecureWay</samp> 作为目录类型。使用 <samp>IBM_ Directory_server</samp> 目录类型，以获得更好的性能。
+iPlanet Directory Server 的用户可以选择 iPlanet Directory Server 或 NetScape 作为目录类型。在配置 iPlanet 使用 <samp>role</samp> <samp>(nsRole)</samp> 作为分组方法后，使用 iPlanet Directory Server 目录类型，以获得更好性能。</p>
+
+<p>
+<img alt="[Release 5.1 and later]" src="v51.gif" border="0">不支持 IBM
+SecureWay Directory Server。。</p>
+
+<p>对于受支持的 LDAP 服务器列表，请参阅文档中&ldquo;受支持的目录服务&rdquo;。</p>
+
+</dd>
+<dt>
+<strong><a name="LDAPUserRegistry_host_description"></a>主机</strong>
+</dt>
+<dd>指定 LDAP 服务器的主机标识（IP 地址或域名系统（DNS）名）。</dd>
+<dt>
+<strong><a name="LDAPUserRegistry_port_description"></a>端口</strong>
+</dt>
+<dd>指定 LDAP 服务器的主机端口。
+<p>如果安装并配置多个在相同单次注册域中运行的 WebSphere Application server，或如果 WebSphere Application Server 将与前一个版本的 WebSphere Application Server 进行互操作，则端口号匹配所有配置很重要。例如，如果在 V4.0.x 配置中，LDAP 端口明确指定为 <strong>389</strong>，并且 WebSphere Application Server V5 将与 V4.0.x 服务器互操作，则验证为 V5 服务器明确指定端口 <strong>389</strong>。<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省：</td>
+<td align="left" valign="top" class="base">389</td>
+
+</tr>
+
+</table>
+<p>
+<b>注: </b>如果在一个服务器配置中明确指定了端口（包含缺省端口号），则验证在所有服务器配置中都明确指定此端口。</p>
+</p>
+
+</dd>
+<dt>
+<strong><a name="LDAPUserRegistry_baseDN_description"></a>基本专有名称</strong>
+</dt>
+<dd>指定目录服务的基本专有名称，该基本专有名称表明用于目录服务中 LDAP 搜索的起始点。
+<p>例如，对于带 cn=John Doe，ou=Rochester，o=IBM，c=US 的专有名称（DN）的用户，您可以将基本 DN 指定为（假设后缀为 c=us）：ou=Rochester，o=IBM，c=us  o=IBM，c=us  c=us。出于授权目的，此字段是区分大小写的。这暗示如果接收令牌（例如，从另一个单元或 Domino），则服务器中的基本 DN 必须完全匹配另一个单元或 Domino 的基本 DN。如果不为授权考虑区分大小写，那么启用<strong>忽略大小写</strong>字段。此字段是除 Domino Directory 以外的所有 LDAP 目录必需的，但对于 Domino Directory 它是可选的。</p>
+
+</dd>
+<dt>
+<strong><a name="LDAPUserRegistry_bindDN_description"></a>绑定专有名称</strong>
+</dt>
+<dd>指定应用程序服务器绑定到目录服务时使用的专有名称。
+<p>如果未指定名称，则应用程序服务器匿名绑定。请参阅&ldquo;基本专有名称&rdquo;字段描述以获取专有名称的示例。</p>
+
+</dd>
+<dt>
+<strong><a name="LDAPUserRegistry_bindPassword_description"></a>绑定密码</strong>
+</dt>
+<dd>指定应用程序服务器在绑定到目录服务时使用的密码。</dd>
+<dt>
+<strong><a name="LDAPUserRegistry_searchTimeout_description"></a>搜索超时</strong>
+</dt>
+<dd>指定异常终止请求前 LDAP 服务器要响应的超时值（以秒为单位）。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省：</td>
+<td align="left" valign="top" class="base">120</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LDAPUserRegistry_reuseConnection_description"></a>重用连接</strong>
+</dt>
+<dd>指定服务器是否应该重用 LDAP 连接。仅在很少情况下才清除该选项，这些情况为使用一个路由器来发送请求到多个 LDAP 服务器，并且该路由器不支持亲缘关系。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省：</td>
+<td align="left" valign="top" class="base">启用的</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">范围：</td>
+<td align="left" valign="top" class="base">启用的或禁用的</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LDAPUserRegistry_ignoreCase_description"></a>忽略大小写</strong>
+</dt>
+<dd>指定执行不区分大小写的授权检查。
+<p>当选择 IBM Directory Server 作为 LDAP Directory Server 时此字段是必需的。</p>
+
+<p>
+<img alt="[Release 5.1 and later]" src="v51.gif" border="0">当选择 Sun ONE Directory Server 作为 LDAP Directory Server 时此字段是必需的。要获取更多的信息，请参阅文档中的&ldquo;使用特定目录服务器作为 LDAP 服务器&rdquo;。</p>
+
+<p>否则，此字段是可选的并且在需要区分大小写授权检查时启用。例如，当证书和证书内容与 LDAP 服务器中条目的大小写不匹配时使用此字段。当您在 WebSphere Application Server 和 Lotus Domino 之间使用单次注册（SSO）时，可以启用<strong>忽略大小写</strong>字段。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省：</td>
+<td align="left" valign="top" class="base">禁用的</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">范围：</td>
+<td align="left" valign="top" class="base">启用的或禁用的</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LDAPUserRegistry_sslEnabled_description"></a>启用 SSL</strong>
+</dt>
+<dd> 指定是否启用到 LDAP 服务器的安全套接字通信。启用时，如果已指定，则使用 LDAP 安全套接字层（SSL）设置。</dd>
+<dt>
+<strong><a name="LDAPUserRegistry_sslConfig_description"></a>SSL 配置</strong>
+</dt>
+<dd>指定用于 LDAP 连接的安全套接字层配置。仅当启用了 LDAP 的 SSL 时才会使用此配置。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省：</td>
+<td align="left" valign="top" class="base">DefaultSSLSettings</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LDAPUserRegistry_enableTAM_description"></a>使用 Tivoli 访问管理器用于帐户策略</strong>
+</dt>
+<dd>选择此选项表明 Tivoli 访问管理器用于认证以执行密码和帐户策略。此选项需要您先前已安装了 Tivoli 访问管理器。
+<p>不要选择此选项除非您已安装了 Tivoli 访问管理器服务器并将其配置为由 WebSphere Application Server 使用。Tivoli 访问管理器使用的 LDAP 目录服务器必须与 WebSphere Application Server 使用的 LDAP 目录服务器一样。</p>
+
+<p>
+<b>注: </b>当您选择此选项时，不将 IBM SecureWay Directory
+Server 作为 LDAP 目录服务器支持。</p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>相关信息</strong>
+</p>
+<a href="rcon_buttons.html">管理控制台按钮</a>
+<br>
+
+<a href="rcon_pageusage.html">管理控制台页面功能</a>
+<br>
+
+<a href="rcon_scope.html">管理控制台作用域设置</a>
+<br>
+
+<a href="rcon_filter.html">管理控制台过滤器设置</a>
+<br>
+
+<a href="rcon_preferences.html">管理控制台首选项设置</a>
+<br>
+
+</div>
+</body>
+</html>

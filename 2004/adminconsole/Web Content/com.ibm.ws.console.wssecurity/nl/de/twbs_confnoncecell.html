@@ -1,0 +1,121 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Nonce f&uuml;r die Zellenebene konfigurieren</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="twbs_confnoncecell"></a>
+<h2>
+<img alt="[Release 5.1 und h&ouml;her]" src="v51.gif" border="0">Nonce f&uuml;r die Zellenebene konfigurieren</h2>
+
+
+<div>Diese Task
+enth&auml;lt Anweisungen zum Konfigurieren von Nonce f&uuml;r die Zellenebene
+mit der Administrationskonsole von
+WebSphere Application Server.
+Sie k&ouml;nnen Nonce auf Anwendungsebene, Serverebene und Zellenebene konfigurieren.
+Allerdings m&uuml;ssen Sie die Priorit&auml;tsreihenfolge beachten.
+Die folgende Liste zeigt die Priorit&auml;tsreihenfolge:<ol>
+
+<li>Anwendungsebene</li>
+
+<li>Serverebene</li>
+
+<li>Zellenebene</li>
+
+</ol>Wenn Sie Nonce auf der Anwendungsebene und auf der Serverebene konfigurieren,
+haben die auf Anwendungsebene angegebenen Werte Priorit&auml;t vor den Werten, die auf Serverebene
+angegeben wurden.
+In &auml;hnlicher Weise haben die auf Anwendungsebene angegebenen Werte Priorit&auml;t vor den
+auf Serverebene und auf Zellenebene angegebenen Werten.
+In WebSphere Application Server Network Deployment m&uuml;ssen die Felder
+<strong>Cache-Zeitlimit f&uuml;r Nonce</strong>, <strong>Maximale Nonce-Dauer</strong> und <strong>Zeitliche Abweichung f&uuml;r Nonce</strong> festgelegt werden,
+damit Nonce effektiv verwendet werden kann.
+Diese Felder sind auf der Serverebene jedoch optional. F&uuml;hren Sie die folgenden Schritte aus,
+um Nonce auf der Zellenebene zu konfigurieren:
+</div>
+
+<div>
+<p class="sectiontitle">Schritte f&uuml;r diese Task</p>
+<ol>
+
+<li>Stellen Sie eine Verbindung zur Administrationskonsole her.
+Geben Sie dazu im Webbrowser
+http://localhost:9090/admin ein, sofern Sie die Port-Nummer nicht ge&auml;ndert haben.
+
+</li>
+
+<li>Klicken Sie auf <strong>Server &gt; Anwendungsserver &gt; </strong><strong>server1</strong>.
+</li>
+
+<li>Klicken Sie unter "Weitere Merkmale"
+auf <strong>Web Services: Standardbindungen f&uuml;r die Sicherheit von Web Services</strong>.</li>
+
+<li>Geben Sie f&uuml;r das Feld <strong>Cache-Zeitlimit f&uuml;r Nonce</strong> einen Wert in Sekunden an.
+<div>Der f&uuml;r das Feld <strong>Cache-Zeitlimit f&uuml;r Nonce</strong> angegebene Wert legt fest, wie lange
+Nonce zwischengespeichert bleibt, bevor es gel&ouml;scht wird.
+Sie m&uuml;ssen mindestens ein Zeitlimit von 300 Sekunden angeben.
+Wenn Sie keinen Wert angeben, wird der Standardwert 600 verwendet.
+Dieses Feld ist auf Serverebene optional, auf Zellenebene muss es jedoch
+festgelegt werden.
+</div>
+</li>
+
+<li>Geben Sie f&uuml;r das Feld
+<strong>Maximale Nonce-Dauer</strong> einen Wert in Sekunden an.
+<div>Der f&uuml;r das Feld <strong>Maximale Nonce-Dauer</strong> angegebene Wert legt fest, wie lange
+Nonce g&uuml;ltig ist.
+Sie m&uuml;ssen mindestens 300 Sekunden angeben. Der angegebene Wert darf
+jedoch die Anzahl Sekunden, die Sie im vorherigen Schritt f&uuml;r das Feld
+<strong>Cache-Zeitlimit f&uuml;r Nonce</strong> angegeben haben, nicht &uuml;berschreiten.
+Wenn Sie keinen Wert angeben, wird der Standardwert 600 verwendet.
+Wenn Sie in einer Umgebung mit WebSphere Application Server
+Network Deployment oder einer Umgebung mit WebSphere Application Server f&uuml;r z/OS
+einen Wert auf Serverebene f&uuml;r das Feld
+<strong>Cache-Zeitlimit f&uuml;r Nonce</strong> angeben, darf dieser Wert den f&uuml;r das Feld
+<strong>Cache-Zeitlimit f&uuml;r Nonce</strong> auf Zellenebene angegebenen Wert nicht &uuml;berschreiten.
+Dieses Feld ist auf Serverebene optional, auf Zellenebene muss es jedoch
+festgelegt werden.
+</div>
+</li>
+
+<li>Geben Sie f&uuml;r das Feld
+<strong>Zeitliche Abweichung f&uuml;r Nonce</strong> einen Wert in Sekunden an.
+<div>Der f&uuml;r <strong>Zeitliche Abweichung f&uuml;r Nonce</strong> angegebene Wert legt die Zeit in Sekunden fest,
+die ber&uuml;cksichtigt werden muss, wenn der Nachrichtenempf&auml;nger die Aktualit&auml;t des Werts &uuml;berpr&uuml;ft.
+Beachten Sie die folgenden Informationen, wenn Sie diesen Wert festlegen:
+<ul>
+
+<li>Den Zeitunterschied zwischen Nachrichtensender und Nachrichtenempf&auml;nger, falls die Uhren
+nicht synchronisiert sind.</li>
+
+<li>Die Zeit, die zum Verschl&uuml;sseln und &Uuml;bertragen der Nachricht ben&ouml;tigt wird.
+</li>
+
+<li>Die Zeit, die im Fall einer Netz&uuml;berlastung zus&auml;tzlich
+erforderlich ist.
+</li>
+
+</ul>Sie m&uuml;ssen in diesem Feld mindestens 0 Sekunden angeben.
+Allerdings darf der Maximalwert die im Feld
+<strong>Maximale Nonce-Dauer</strong> angegebene Anzahl Sekunden nicht &uuml;berschreiten.
+Wenn Sie keinen Wert angeben, wird der Standardwert 0 verwendet.
+Dieses Feld ist auf Serverebene optional, auf Zellenebene muss es jedoch
+festgelegt werden.
+</div>
+
+</li>
+
+<li>Starten Sie den Server erneut. <div>Falls Sie den Wert <strong>Cache-Zeitlimit f&uuml;r Nonce</strong>
+&auml;ndern und den Server nicht erneut starten, wird die &Auml;nderung vom Server nicht erkannt.
+</div>
+</li>
+
+</ol>
+</div>
+
+</body>
+</html>

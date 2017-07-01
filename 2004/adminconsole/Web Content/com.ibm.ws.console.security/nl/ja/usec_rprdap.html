@@ -1,0 +1,247 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Lightweight Directory Access Protocol (LDAP) 設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecrprdap"></a>
+<h2>
+<img alt="[リリース 5.1 以降]" src="v51.gif" border="0">Lightweight Directory Access Protocol (LDAP) 設定</h2>
+
+<p>ユーザーおよびグループが外部 Lightweight Directory Access Protocol (LDAP) ディレクトリーに
+置かれている場合に、このページを使用して LDAP 設定を構成します。</p>
+
+<p>この管理コンソール・ページを表示するには、「
+<strong>セキュリティー</strong>」&gt;「<strong>ユーザー・レジストリー</strong>」&gt;「<strong>LDAP</strong>」をクリックします。</p>
+
+<p>セキュリティーが使用可能になっていて、これらのプロパティーのいずれかが変更
+されている場合は、「<strong>グローバル・セキュリティー</strong>」パネルに移動し、「
+<strong>適用</strong>」をクリックして、変更を確認します。
+</p>
+
+<div>
+<p>
+<strong>「構成」タブ</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="UserRegistry_serverId_description"></a>サーバー・ユーザー ID</strong>
+</dt>
+<dd>サーバーの実行に使用する、セキュリティーを目的としたユーザー ID を指定します。
+
+<p>この ID は LDAP 管理者のユーザー ID ではありませんが、LDAP ディレクトリー内の
+基本識別名の下にある有効なエントリーを指定します。</p>
+
+</dd>
+<dt>
+<strong><a name="UserRegistry_serverPassword_description"></a>サーバー・ユーザー・パスワード</strong>
+</dt>
+<dd>セキュリティー・サーバー ID に対応するパスワードを指定します。</dd>
+<dt>
+<strong><a name="LDAPUserRegistry_type_description"></a>型</strong>
+</dt>
+<dd>接続する LDAP サーバーのタイプを指定します。
+<p>
+<img alt="[5.0 のみ]" src="v50x.gif" border="0"><img alt="[修正パッケージ 5.0.1]" src="v501x.gif" border="0"><img alt="[修正パッケージ 5.0.2]" src="v502x.gif" border="0">このタイプは、デフォルトの LDAP プロパティーをプリロードするために使用されます。
+IBM Directory Server のユーザーは、ディレクトリー・タイプ
+として <samp>IBM_Directory_Server</samp> または <samp>SecureWay</samp> を選択することができます。
+より良いパフォーマンスのために <samp>IBM_ Directory_server</samp> ディレクトリー・タイプを使用します。iPlanet Directory Server のユーザーは、ディレクトリー・タイプ
+として iPlanet Directory Server または NetScape を選択することができます。
+グループ化メソッドとして <samp>role</samp> <samp>(nsRole)</samp> を使用するために iPlanet を構成した後には、より良いパフォーマンスを得るために iPlanet Directory Server ディレクトリー・タイプを使用します。</p>
+
+<p>
+<img alt="[リリース 5.1 以降]" src="v51.gif" border="0"> IBM SecureWay Directory Server は、サポートされません。</p>
+
+<p>サポートされる LDAP サーバーのリストについては、資料中の『サポートされるディレクトリー・サービス』を参照してください。</p>
+
+</dd>
+<dt>
+<strong><a name="LDAPUserRegistry_host_description"></a>ホスト</strong>
+</dt>
+<dd>LDAP サーバーのホスト ID (IP アドレスまたは domain name system (DNS) 名) を指定します。</dd>
+<dt>
+<strong><a name="LDAPUserRegistry_port_description"></a>ポート</strong>
+</dt>
+<dd>LDAP サーバーのホスト・ポートを指定します。
+<p>複数の WebSphere Application Server をインストールして、同一のシングル・サインオンのドメインで実行するように
+構成する場合、あるいは WebSphere Application Server と以前のバージョンの WebSphere Application Server を
+相互運用する場合は、すべての構成でポート番号が一致していることが重要です。例えば、LDAP ポートをバージョン 4.0.x 構成で
+明示的に <strong>389</strong> と指定し、WebSphere Application Server バージョン 5 とバージョン 4.0.x のサーバー
+を相互運用する場合は、バージョン 5 のサーバーでポート番号 <strong>389</strong> が明示的に指定されていることを検証します。<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト:</td>
+<td align="left" valign="top" class="base">389</td>
+
+</tr>
+
+</table>
+<p>
+<b>注: </b>1 つのサーバー構成でポート (デフォルトのポート番号を含みます) を明示的に指定した場合は、
+すべてのサーバー構成でポート番号が明示的に指定されていることを検証します。</p>
+</p>
+
+</dd>
+<dt>
+<strong><a name="LDAPUserRegistry_baseDN_description"></a>基本識別名</strong>
+</dt>
+<dd>ディレクトリー・サービスの基本識別名を指定します。
+これは、ディレクトリー・サービスの LDAP 検索の開始点を表します。
+
+<p>例えば、cn=John Doe、ou=Rochester、o=IBM、c=US という識別名 (DN) のユーザーの場合、
+基本 DN として ou=Rochester、o=IBM、c=us または o=IBM、c=us または c=us のいずれかを
+指定することができます (c=us というサフィックスを想定しています)。
+許可を目的として、このフィールドでは大文字小文字の区別が行われます。つまり、(例えば、別のセルまたは Domino から)
+トークンを受け取った場合、サーバー内の基本 DN が別のセルまたは Domino から受け取った基本 DN と正確に一致する必要があります。 
+許可の際に大文字小文字の区別を考慮する必要がない場合は、「<strong>Ignore Case</strong>」フィールドを使用可能にしてください。
+このフィールドは、Domino ディレクトリー以外のすべての LDAP ディレクトリーで必須です (Domino ディレクトリー
+ではオプションです)。
+</p>
+
+</dd>
+<dt>
+<strong><a name="LDAPUserRegistry_bindDN_description"></a>バインド識別名</strong>
+</dt>
+<dd>アプリケーション・サーバーがディレクトリー・サービスにバインドするために使用する識別名を指定します。
+
+<p>名前を指定しない場合、アプリケーション・サーバーは匿名でバインドされます。
+識別名の例については、「基本識別名」フィールドの説明を参照してください。</p>
+
+</dd>
+<dt>
+<strong><a name="LDAPUserRegistry_bindPassword_description"></a>バインド・パスワード</strong>
+</dt>
+<dd>アプリケーション・サーバーがディレクトリー・サービスにバインドするために使用するパスワードを指定します。
+</dd>
+<dt>
+<strong><a name="LDAPUserRegistry_searchTimeout_description"></a>検索タイムアウト</strong>
+</dt>
+<dd>要求を打ち切るまで LDAP サーバーが応答する期間のタイムアウト値を秒単位で指定します。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト:</td>
+<td align="left" valign="top" class="base">120</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LDAPUserRegistry_reuseConnection_description"></a>接続の再利用</strong>
+</dt>
+<dd>サーバーが LDAP 接続を再利用するかどうかを指定します。
+このオプションをクリアするのは、要求を複数の LDAP サーバーに分配するためにルーターが使用されているとき、およびルーターが
+類縁性をサポートしないという、ごくまれな状況に限られます。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト:</td>
+<td align="left" valign="top" class="base">使用可能</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲:</td>
+<td align="left" valign="top" class="base">使用可能または使用不可</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LDAPUserRegistry_ignoreCase_description"></a>大文字小文字を区別しない</strong>
+</dt>
+<dd>許可検査で大文字小文字を区別しないよう指定します。
+<p>このフィールドは、IBM Directory Server が LDAP ディレクトリー・サーバーとして選択されている場合には必須です。</p>
+
+<p>
+<img alt="[リリース 5.1 以降]" src="v51.gif" border="0">このフィールドは、Sun ONE Directory Server が LDAP ディレクトリー・サーバーとして選択されている場合には必須です。詳しくは、資料中の『特定のディレクトリー・サーバーの LDAP サーバーとしての使用』を参照してください。</p>
+
+<p>それ以外の場合には、このフィールドはオプションであり、許可検査で大文字小文字の区別が必要な場合に使用可能にすることができます。例えば、証明書および証明書の内容の大文字小文字が LDAP サーバーのエントリーと一致しない場合に、このフィールドを使用します。WebSphere Application Server と Lotus Domino 間で single signon (SSO) を使用している場合に、「<strong>Ignore Case</strong>」フィールドを使用可能にすることができます。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト:</td>
+<td align="left" valign="top" class="base">使用不可</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲:</td>
+<td align="left" valign="top" class="base">使用可能または使用不可</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LDAPUserRegistry_sslEnabled_description"></a>SSL 使用可能</strong>
+</dt>
+<dd> LDAP サーバーに対してセキュア・ソケット通信を使用可能にするかどうかを指定します。
+使用可能にすると、LDAP Secure Sockets Layer (SSL) の設定値が指定されている場合には、その設定値が使用されます。</dd>
+<dt>
+<strong><a name="LDAPUserRegistry_sslConfig_description"></a>SSL 構成</strong>
+</dt>
+<dd>LDAP 接続で使用する Secure Sockets Layer 構成を指定します。
+この構成は、LDAP で SSL が使用可能になっている場合にのみ使用されます。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト:</td>
+<td align="left" valign="top" class="base">DefaultSSLSettings</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LDAPUserRegistry_enableTAM_description"></a>Use Tivoli Access Manager for Account Policies</strong>
+</dt>
+<dd>Tivoli Access Manager を使用してパスワードおよびアカウント・ポリシーを受け入れるための認証を行うよう指示する場合、このオプションを選択します。このオプションを使用するには、事前に Tivoli Access Manager がインストールされている必要があります。
+<p>Tivoli Access Manager Server がインストールされ、WebSphere Application Server で使用するよう構成されていない場合、このオプションは選択しないでください。Tivoli Access Manager が使用する LDAP ディレクトリー・サーバーは、WebSphere Application Server が使用する LDAP ディレクトリー・サーバーと同じである必要があります。</p>
+
+<p>
+<b>注: </b>このオプションを選択する場合、IBM SecureWay Directory Server は、LDAP ディレクトリー・サーバーとしてサポートされません。</p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>関連情報</strong>
+</p>
+<a href="rcon_buttons.html">管理コンソールのボタン</a>
+<br>
+
+<a href="rcon_pageusage.html">管理コンソール・ページのフィーチャー</a>
+<br>
+
+<a href="rcon_scope.html">管理コンソールの有効範囲設定</a>
+<br>
+
+<a href="rcon_filter.html">管理コンソールのフィルター設定</a>
+<br>
+
+<a href="rcon_preferences.html">管理コンソールの設定の変更</a>
+<br>
+
+</div>
+</body>
+</html>

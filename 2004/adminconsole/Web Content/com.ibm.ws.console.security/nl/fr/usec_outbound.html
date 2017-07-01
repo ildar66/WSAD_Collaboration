@@ -1,0 +1,216 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Param&egrave;tres d'authentification des communications sortantes CSI
+(Common Secure Interoperability)</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecoutbound"></a>
+<h2>
+<img alt="[Fix Pack 5.0.1 and later]" src="v501.gif" border="0">Param&egrave;tres d'authentification des communications sortantes CSI
+(Common Secure Interoperability)</h2>
+
+<p>Cette page permet de d&eacute;finir les fonctionnalit&eacute;s prises en
+charge par un serveur lorsque ce dernier est client d'un autre serveur
+en aval.</p>
+
+<p>Pour afficher cette page de la console d'administration, cliquez sur
+<strong>S&eacute;curit&eacute; &gt; Protocole d'authentification &gt; Authentification des
+communications sortantes CSI</strong>.</p>
+
+<p>Les fonctions d'authentification incluent trois couches
+d'authentification qui peuvent &ecirc;tre utilis&eacute;es simultan&eacute;ment :  <dl>
+<dt>
+<strong>Couche de transports</strong>
+</dt>
+<dd>La couche de transport, couche
+inf&eacute;rieure, peut contenir un certificat client SSL (Secure Sockets Layer)
+en tant qu'identit&eacute;.</dd>
+<dt>
+<strong>Couche de messages</strong>
+</dt>
+<dd>La couche messages peut contenir un ID
+utilisateur et un mot de passe ou un jeton d'authentification.</dd>
+<dt>
+<strong>Couche attributs</strong>
+</dt>
+<dd>La couche attributs peut contenir un jeton
+d'identit&eacute;, qui est une identit&eacute; provenant d'un serveur en amont qui est
+d&eacute;j&agrave; authentifi&eacute;. La couche des attributs poss&egrave;de la priorit&eacute; la plus &eacute;lev&eacute;e, suivie de la
+couche de message, puis enfin, de la couche de transport. Si ce serveur envoie les trois couches, seule celle
+des attributs est utilis&eacute;e par le serveur en aval. Le certificat client
+SSL peut uniquement &ecirc;tre employ&eacute; comme identit&eacute; s'il
+s'agit de la seule information pr&eacute;sent&eacute;e lors de la demande sortante.</dd>
+</dl>  
+</p>
+
+<div>
+<p>
+<strong>Onglet Configuration</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="BasicAuthentication_o_description"></a>Authentification de base</strong>
+</dt>
+<dd>Indique s'il est n&eacute;cessaire d'envoyer un ID utilisateur
+et un mot de passe du client au serveur pour authentification.
+<p>Ce type d'authentification se produit sur la couche messages. L'authentification de
+base requiert &eacute;galement la d&eacute;l&eacute;gation d'un jeton d'un justificatif d&eacute;j&agrave; authentifi&eacute;, &agrave;
+condition que ce justificatif soit acheminable, ce qui est par exemple le cas des
+justificatifs LTPA (Lightweight Third Party Authentication). L'authentification
+de base fait r&eacute;f&eacute;rence &agrave; toute authentification effectu&eacute;e sur la
+couche messages et indique l'authentification par ID utilisateur et
+mot de passe ainsi que l'authentification par jeton.</p>
+
+<p>La s&eacute;lection de l'option <strong>Authentification de base</strong>
+permet de d&eacute;terminer si l'authentification est requise ou prise en charge. Si
+vous s&eacute;lectionnez <strong>Requise</strong>, lorsque le serveur communique avec les
+serveurs en aval, ces derniers doivent prendre en charge
+l'authentification de base pour que la connexion puisse &ecirc;tre &eacute;tablie. Lorsque
+vous s&eacute;lectionnez <strong>Prise en charge</strong>, ce serveur peut ou ne pas
+effectuer l'authentification de base sur un serveur en aval.
+D'autres m&eacute;thodes d'authentification peuvent &ecirc;tre utilis&eacute;es si elles
+sont configur&eacute;es. Si vous choisissez <strong>Jamais</strong>, ce
+serveur n'envoie jamais de jeton de couche messages &agrave; un serveur en aval. Si le serveur en aval requiert une authentification de base, la connexion
+n'est pas &eacute;tablie.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es :</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ClientCertificateAuthentication_o_description"></a>Authentification par certificat client</strong>
+</dt>
+<dd>Indique si un certificat client du fichier du magasin de cl&eacute;s configur&eacute; est
+utilis&eacute; pour l'authentification sur le serveur lorsque la connexion SSL est &eacute;tablie entre
+ce serveur et un serveur en aval (&agrave; condition que le serveur en aval prenne en charge les
+authentifications par certificat client).
+<p>En g&eacute;n&eacute;ral l'authentification par certificat client permet d'obtenir de meilleures performances que l'authentification par couche messages, mais elle requiert des &eacute;tapes de configuration suppl&eacute;mentaires. Ces &eacute;tapes suppl&eacute;mentaires permettent notamment de v&eacute;rifier que ce
+serveur dispose d'un certificat personnel et que le serveur en amont
+poss&egrave;de le certificat signataire de ce serveur.</p>
+
+<p>Si vous s&eacute;lectionnez l'authentification par certificat client,
+choisissez si elle est requise ou prise en charge.  Si vous choisissez <strong>Requise</strong>, ce serveur ne peut se connecter qu'aux serveurs en aval pour lesquels l'authentification par certificat client est &eacute;galement configur&eacute;e. Si vous choisissez <strong>Prise en charge</strong>, ce serveur proc&egrave;de &agrave;
+l'authentification par certificat client pour tous les serveurs en aval,
+mais il peut ne pas l'utiliser si le serveur en aval ne la prend pas en
+charge. Si vous choisissez<strong>Jamais</strong>, ce client ne proc&egrave;de pas &agrave; l'authentification par certificat client pour les serveurs en aval.
+Cette restriction permet d'interdire l'acc&egrave;s aux serveurs en aval
+qui requi&egrave;rent une authentification par certificat client.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es :</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="IdentityAssertion_o_description"></a>V&eacute;rification d'identit&eacute;</strong>
+</dt>
+<dd>Indique s'il est n&eacute;cessaire de v&eacute;rifier les identit&eacute;s d'un
+serveur par rapport &agrave; un autre lors de l'appel d'un
+bean enterprise en aval. 
+<p>L'identit&eacute; v&eacute;rifi&eacute;e constitue le justificatif d'appel d&eacute;termin&eacute; par le
+mode d'ex&eacute;cution pour le bean enterprise. Si le mode
+d'ex&eacute;cution est <strong>Client</strong>, l'identit&eacute; correspond &agrave;
+l'identit&eacute; du client. Si le mode d'ex&eacute;cution est <strong>Syst&egrave;me</strong>,
+l'identit&eacute; correspond &agrave; l'identit&eacute; du serveur. Si le mode
+d'ex&eacute;cution est <strong>Sp&eacute;cifi&eacute;</strong>, l'identit&eacute; correspond &agrave; l'identit&eacute;
+indiqu&eacute;e. Le serveur r&eacute;cepteur re&ccedil;oit l'identit&eacute; dans un jeton
+d'identit&eacute;, ainsi que celle du serveur &eacute;metteur dans un
+jeton d'authentification client.  Le serveur r&eacute;cepteur valide l'identit&eacute; du
+serveur &eacute;metteur afin de garantir une identit&eacute; digne de confiance.</p>
+
+<p>Lorsque vous sp&eacute;cifiez la v&eacute;rification d'identit&eacute; dans le volet <strong>Authentification sortante CSIv2</strong>,
+vous devez &eacute;galement s&eacute;lectionnez l'authentification &eacute;l&eacute;mentaire telle que g&eacute;r&eacute;e ou exig&eacute;e
+par ce volet. Cette op&eacute;ration permet de soumettre l'identit&eacute; du serveur, ainsi que le jeton d'identit&eacute;,de sorte que le serveur r&eacute;cepteur puisse <em>se fier</em> au serveur &eacute;metteur. Sans sp&eacute;cifier l'authentification &eacute;l&eacute;mentaire telle que g&eacute;r&eacute;e ou exig&eacute;e, la confiance n'est pas &eacute;tablie, et la v&eacute;rification d'identit&eacute; &eacute;choue. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es :</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="StatefulSession_description"></a>Sessions avec &eacute;tat </strong>
+</dt>
+<dd>Indique s'il est n&eacute;cessaire d'utiliser &agrave; nouveau les
+informations de s&eacute;curit&eacute; lors de l'authentification.
+Cette option est g&eacute;n&eacute;ralement utilis&eacute;e pour am&eacute;liorer les performances.
+<p>Le premier contact entre un client et un serveur doit &ecirc;tre
+totalement authentifi&eacute;.
+Toutefois, tous les contacts suivants avec des sessions valides
+r&eacute;utilisent les informations de s&eacute;curit&eacute;.
+Le client
+transmet un ID de contexte au serveur, cet ID permet de rechercher la
+session. L'ID de contexte est sectoris&eacute; &agrave; la connexion, garantissant
+son unicit&eacute;. Chaque fois que la session de s&eacute;curit&eacute; n'est pas valide, si
+les nouvelles tentatives d'authentification sont autoris&eacute;es (cette option
+est activ&eacute;e par d&eacute;faut), l'intercepteur c&ocirc;t&eacute; client annule la session c&ocirc;t&eacute;
+client et soumet &agrave; nouveau la demande automatiquement.
+Par exemple, si
+la session n'existe pas sur le serveur, ce dernier &eacute;choue et reprend son
+activit&eacute;.</p>
+
+<p>Lorsque cette valeur est
+d&eacute;sactiv&eacute;e, tous les appels de m&eacute;thode doivent &ecirc;tre &agrave; nouveau
+authentifi&eacute;s.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es :</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informations connexes</strong>
+</p>
+<a href="rcon_buttons.html">Boutons de la console administrative</a>
+<br>
+
+<a href="rcon_pageusage.html">Caract&eacute;ristiques de la page de la console d'administration</a>
+<br>
+
+<a href="rcon_scope.html">Param&egrave;tres de la port&eacute;e de la console administrative</a>
+<br>
+
+<a href="rcon_filter.html">Param&egrave;tres de filtrage de la console administrative</a>
+<br>
+
+<a href="rcon_preferences.html">Param&egrave;tres des pr&eacute;f&eacute;rences de la console administrative</a>
+<br>
+
+</div>
+</body>
+</html>

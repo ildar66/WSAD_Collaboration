@@ -1,0 +1,94 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>應用程式用戶端組合設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="ucli_rclientmod"></a>
+<h2>應用程式用戶端組合設定</h2>
+
+<p>請利用這個頁面來指定 J2EE 應用程式用戶端的組合內容。</p>
+<dl>
+<dt>
+<strong><a name="file_name"></a>檔案名稱（必要，字串）</strong>
+</dt>
+<dd>相對於企業保存檔 (EAR) 的最上層來指定應用程式用戶端模組的檔案名稱。
+
+<p>如果這是獨立式模組，檔案名稱就是保存檔的完整路徑名稱。</p>
+
+</dd>
+<dt>
+<strong><a name="alternative_DD"></a>替代 DD</strong>
+</dt>
+<dd>指定用來取代模組 Java 保存檔 (JAR) 中的原始部署描述子檔之替代部署描述子檔名稱。
+
+<p>這個檔案是部署描述子檔的後組合版本。
+（您可以編輯原始部署描述子檔來解析相依關係和安全資訊。
+引導使用替代的部署描述子，可讓您將原始部署描述子檔保持不變）。
+替代 DD 內容的值必須是相對於模組根目錄的部署描述子檔完整路徑名稱。
+依照慣例，檔案會在 <samp>ALT-INF</samp> 目錄中。
+如果沒有指定這個內容的話，會直接讀取模組 JAR 檔中的部署描述子檔。
+</p>
+
+</dd>
+<dt>
+<strong><a name="classpath"></a>類別路徑</strong>
+</dt>
+<dd>指定不在應用程式用戶端 JAR 檔內的相依程式碼所在的完整類別路徑。
+
+<p>請相對於 EAR 檔的根目錄來指定值，各個值之間，用空格分開。硬碟中的參照檔案或目錄的絕對值會被忽略。
+如果要指定不在 JAR 檔內，但在 EAR 檔的根目錄之中的類別，請使用句點和正斜線 (./)。
+請考量下列範例目錄結構，其中的 myapp.ear 檔含有名稱為 <samp>client.jar</samp> 的應用程式用戶端 JAR 檔。
+其他類別在 <samp>class1.jar</samp> 和 <samp>class2.zip</samp> 檔中。
+不會套裝在 JAR 檔中，而是在 EAR 檔 <samp>myapp.ear/client.jar
+myapp.ear/class1.jar myapp.ear/class2.zip myapp.ear/xyz.class</samp> 的根目錄之中。
+請指定 class1.jar class2.zip ./ 作為類別路徑內容的值。（只指定 <samp>.class</samp> 檔目錄的名稱。）
+</p>
+
+</dd>
+<dt>
+<strong><a name="display_name"></a>顯示名稱（必要，字串）
+</strong>
+</dt>
+<dd>指定 GUI 所要顯示的短名稱。
+<p></p>
+
+</dd>
+<dt>
+<strong><a name="small_icon"></a>小圖示</strong>
+</dt>
+<dd>指定含有小影像（16x16 像素）的 JPEG 或 GIF 檔。
+
+<p>影像是 GUI 中代表應用程式用戶端的圖示。
+</p>
+
+</dd>
+<dt>
+<strong><a name="large_icon"></a>大圖示</strong>
+</dt>
+<dd>指定含有大影像（32x32 像素）的 JPEG 或 GIF 檔。
+
+<p>影像是 GUI 中代表應用程式用戶端的圖示</p>
+
+</dd>
+<dt>
+<strong><a name="description"></a>說明
+</strong>
+</dt>
+<dd>包含說明這個應用程式用戶端的文字。
+<p></p>
+
+</dd>
+<dt>
+<strong><a name="main_class"></a>主要類別（必要，字串）</strong>
+</dt>
+<dd>指定這個應用程式用戶端之主要類別的完整路徑名稱。
+<p></p>
+
+</dd>
+</dl>
+</body>
+</html>

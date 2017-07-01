@@ -1,0 +1,439 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Param&egrave;tres SSL (Secure Sockets Layer)</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecssl"></a>
+<h2>Param&egrave;tres SSL (Secure Sockets Layer)</h2>
+
+<p>Cette page permet de configurer les param&egrave;tres SSL (Secure
+Sockets Layer) du serveur.</p>
+
+<p>Pour afficher cette page de la console d'administration, cliquez sur <strong>S&eacute;curit&eacute; &gt; SSL &gt; </strong><em>nom_alias</em>.</p>
+
+
+
+
+<div>
+<p>
+<strong>Onglet Configuration</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="Security_defaultSSLSettings_description"></a>Alias</strong>
+</dt>
+<dd>Indique le nom du param&egrave;tre SSL sp&eacute;cifique
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es :</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecureSocketLayer_keyFileName_description"></a>Nom du fichier de cl&eacute;s</strong>
+</dt>
+<dd>Indique le
+chemin complet du fichier de cl&eacute;s SSL qui contient les cl&eacute;s
+publiques et les cl&eacute;s priv&eacute;es.
+
+
+<p>Vous pouvez cr&eacute;er un fichier
+de cl&eacute;s SSL avec l'utilitaire de gestion de cl&eacute;s ou ce fichier peut
+correspondre &agrave; un disponible mat&eacute;riel disponible. Dans les deux cas, cette
+option indique la source des certificats personnels et des certificats
+signataires sauf si un fichier des tiers dignes de confiance est indiqu&eacute;. Les
+fichiers de cl&eacute;s SSL par d&eacute;faut, <samp>DummyClientKeyFile.jks</samp> et <samp>DummyServerKeyFile.jks</samp>,
+contiennent un certificat de test personnel auto-sign&eacute; arrivant &agrave; expiration
+le 17 mars 2005.
+Le certificat de test est con&ccedil;u pour &ecirc;tre utilis&eacute; dans un environnement de test. Les fichiers
+de cl&eacute;s SSL par d&eacute;faut ne doivent jamais &ecirc;tre utilis&eacute;s dans un environnement de
+production &eacute;tant donn&eacute; que les cl&eacute;s priv&eacute;es sont identiques sur toutes les installations
+de WebSphere Application Server.
+Pour obtenir plus d'informations sur la cr&eacute;ation et
+la gestion de certificats num&eacute;riques dans le domaine WebSphere Application Server,
+reportez-vous &agrave; l'article Gestion des certificats de l'InfoCenter.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es :</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecureSocketLayer_keyFilePassword_description"></a>Mot de passe du fichier de cl&eacute;s</strong>
+</dt>
+<dd>Indique le mot de passe permettant d'acc&eacute;der au fichier de cl&eacute;s SSL.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es :</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecureSocketLayer_keyFileFormat_description"></a>Format du fichier de cl&eacute;s </strong>
+</dt>
+<dd>Indique le format du fichier de cl&eacute;s SSL.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es :</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut :</td>
+<td align="left" valign="top" class="base">JKS</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Port&eacute;e :</td>
+<td align="left" valign="top" class="base">JKS, JCEK, PKCS12</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecureSocketLayer_trustFileName_description"></a>Nom du fichier des tiers dignes de confiance  </strong>
+</dt>
+<dd>Indique le chemin complet d'un fichier des tiers dignes de
+confiance contenant les cl&eacute;s publiques.
+
+<p>Vous pouvez cr&eacute;er un fichier
+de tiers dignes de confiance &agrave; l'aide de l'utilitaire de gestion des
+cl&eacute;s inclus dans le r&eacute;pertoire WebSphere <em>bin</em>.
+L'utilisation de l'utilitaire de gestion des cl&eacute;s &agrave; partir de GSKit
+(Global Security Kit), autre impl&eacute;mentation SSL, ne fonctionne pas avec
+l'impl&eacute;mentation JSSE (Java Secure Socket Extension). </p>
+
+<p>Contrairement au fichier de cl&eacute;s SSL, aucun certificat personnel
+n'est r&eacute;f&eacute;renc&eacute; ; seuls les certificats signataires sont extraits. Les
+fichiers des tiers digne de confiance, <samp>DummyClientTrustFile.jks</samp>
+et <samp>DummyServerTrustFile.jks</samp>, contiennent plusieurs cl&eacute;s publique
+de test en tant que certificats signataires pouvant arriver &agrave; expiration.
+La cl&eacute; publique des certificats de test WebSphere
+Application Server Version 4.0 arrive &agrave; expiration le 15 janvier 2004 et
+la cl&eacute; publique des certificats de test WebSphere Application
+Server Version 5 et le client CORBA C++ WebSphere
+Application Server arrive &agrave; expiration le 17 mars 2005. Le certificat de test est con&ccedil;u pour &ecirc;tre utilis&eacute; dans un environnement de test. </p>
+
+<p>Si aucun fichier des tiers dignes de confiance n'est sp&eacute;cifi&eacute;,
+mais que le fichier de cl&eacute;s SSL est sp&eacute;cifi&eacute;, ce dernier doit alors
+&ecirc;tre utilis&eacute; pour l'extraction des
+certificats signataires et des certificats personnels.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es :</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecureSocketLayer_trustFilePassword_description"></a>Mot de passe du fichier des tiers dignes de confiance </strong>
+</dt>
+<dd>Indique le mot de passe permettant d'acc&eacute;der au fichier
+digne de confiance SSL.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es :</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecureSocketLayer_trustFileFormat_description"></a>Format du fichier des tiers dignes de confiance </strong>
+</dt>
+<dd>Indique le format du fichier des tiers dignes de confiance SSL.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es :</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut :</td>
+<td align="left" valign="top" class="base">JKS</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Port&eacute;e :</td>
+<td align="left" valign="top" class="base">JKS, JCEK, PKCS12</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecureSocketLayer_clientAuthentication_description"></a>Authentification des clients</strong>
+</dt>
+<dd>Indique si un certificat doit &ecirc;tre demand&eacute; au client &agrave; des
+fins d'authentification lors de la r&eacute;alisation d'une connexion.
+<p>Cet attribut est valide
+uniquement lorsqu'il est utilis&eacute; par le transport HTTP du conteneur Web. Lorsque
+vous effectuez l'authentification client avec le protocole Internet IIOP
+pour les demandes EJB, vous devez cliquer sur <strong>S&eacute;curit&eacute;</strong> &gt; <strong>Protocole d'authentification</strong> &gt; <strong>Transport des communications entrantes CSIv2</strong> ou <strong>Authentification des communications sortantes CSIv2</strong> dans la sous-fen&ecirc;tre de gauche de la console d'administration. Cliquez sur l'option d'<strong>authentification par
+certificat client SSL</strong> pour l'activer pour ces demandes.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es :</td>
+<td align="left" valign="top" class="base">Bool&eacute;en</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut :</td>
+<td align="left" valign="top" class="base">D&eacute;sactiv&eacute;e</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Port&eacute;e :</td>
+<td align="left" valign="top" class="base">Activ&eacute;e ou D&eacute;sactiv&eacute;e</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecureSocketLayer_securityLevel_description"></a>Niveau de s&eacute;curit&eacute;</strong>
+</dt>
+<dd>Indique si le serveur effectue une s&eacute;lection &agrave; partir
+d'un ensemble pr&eacute;configur&eacute; de niveaux de s&eacute;curit&eacute;.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es :</td>
+<td align="left" valign="top" class="base">Les valeurs valides sont <strong>Bas</strong>, <strong>Moyen</strong> ou
+<strong>Haut</strong>.<ul>
+
+<li>BAS indique uniquement les signatures num&eacute;riques (pas de
+chiffrement)</li>
+
+<li>MOYEN indique uniquement les chiffrements &agrave; cl&eacute; 40 bits (inclut
+la signature num&eacute;rique)</li>
+
+<li>HAUT indique uniquement les chiffrements &agrave; cl&eacute; 128 bits (inclut
+la signature num&eacute;rique).</li>
+
+</ul>
+<p>Pour indiquer tous les codes de chiffrement ou une plage particuli&egrave;re, vous
+pouvez d&eacute;finir la propri&eacute;t&eacute; <strong>com.ibm.ssl.enabledCipherSuites</strong>. </p>
+<p>Reportez-vous &agrave; la
+documentation SSL dans l'InfoCenter.</p>
+</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut :</td>
+<td align="left" valign="top" class="base">Haut</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Port&eacute;e :</td>
+<td align="left" valign="top" class="base">Bas, Moyen ou Haut</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SSLConfig_cipherSuites_description"></a>Algorithme de cryptographie</strong>
+</dt>
+<dd>Indique la liste des algorithmes de cryptographie pris en
+charge pouvant &ecirc;tre s&eacute;lectionn&eacute;s et utilis&eacute;s lors d'un &eacute;tablissement de
+liaison SSL. Si vous s&eacute;lectionnez individuellement des algorithmes de
+cryptographie, ceux-ci remplaceront ceux que vous avez d&eacute;finis dans la
+zone Niveau de s&eacute;curit&eacute;. 
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es :</td>
+<td align="left" valign="top" class="base"> </td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut :</td>
+<td align="left" valign="top" class="base"></td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Port&eacute;e :</td>
+<td align="left" valign="top" class="base"></td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecureSocketLayer_enableCryptoHardwareSupport_description"></a>Jeton de chiffrement</strong>
+</dt>
+<dd>Indique si le serveur active ou d&eacute;sactive le mat&eacute;riel de
+cryptographie et le support logiciel.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es :</td>
+<td align="left" valign="top" class="base">Bool&eacute;en</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut :</td>
+<td align="left" valign="top" class="base">D&eacute;sactiv&eacute;e</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Port&eacute;e :</td>
+<td align="left" valign="top" class="base">Activ&eacute;e ou D&eacute;sactiv&eacute;e</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SystemSecureSocketLayer_provider"></a>Fournisseur</strong>
+            &nbsp;
+            <img alt="[Fix Pack 5.0.2 and later]" src="v502.gif" border="0"></dt>
+<dd>Fait r&eacute;f&eacute;rence &agrave; un package fournissant une impl&eacute;mentation concr&egrave;te d'un sous-ensemble des aspects cryptographiques de l'API de Java Security. 
+<p> Si vous
+s&eacute;lectionnez le premier bouton, choisissez un fournisseur dans le menu. WebSphere Application Server propose les fournisseurs pr&eacute;d&eacute;finis suivants :
+<strong>IBMJSSE</strong> et <strong>IBMJSSEFIPS</strong>. <strong>IBMJSSEFIPS</strong> est la version agr&eacute;&eacute;e
+FIPS du fournisseur IBMJSSE. Si vous s&eacute;lectionnez le second bouton, saisissez
+un fournisseur personnalis&eacute;.
+Dans le cas d'un fournisseur personnalis&eacute;, vous devez d'abord saisir
+l'algorithme de cryptographie via <strong>Propri&eacute;t&eacute;s personnalis&eacute;e</strong> sous Propri&eacute;t&eacute;s suppl&eacute;mentaires.
+Les algorithmes de cryptographie et les valeurs de protocole d&eacute;pendent du fournisseur.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Entier </td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">100</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Plage</td>
+<td align="left" valign="top" class="base">1 &agrave; 86400</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SystemSecureSocketLayer_protocol"></a>Protocole</strong>
+            &nbsp;
+            <img alt="[Fix Pack 5.0.2 and later]" src="v502.gif" border="0"></dt>
+<dd>Sp&eacute;cifie le protocole SSL utilis&eacute;.
+<p>Si vous utilisez un JSSE agr&eacute;&eacute; FIPS tel que IBMJSSEFIPS,
+vous devez s&eacute;lectionner un protocole TLS. Etant donn&eacute; que les fournisseurs JSSE agr&eacute;&eacute;s FIPS
+ne sont pas r&eacute;trocompatibles, un serveur qui utilise le protocole TLS ne peut communiquer avec un client qui utilise un protocole SSL.</p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informations connexes</strong>
+</p>
+<a href="rcon_buttons.html">Boutons de la console administrative</a>
+<br>
+
+<a href="rcon_pageusage.html">Caract&eacute;ristiques de la page de la console d'administration</a>
+<br>
+
+<a href="rcon_scope.html">Param&egrave;tres de la port&eacute;e de la console administrative</a>
+<br>
+
+<a href="rcon_filter.html">Param&egrave;tres de filtrage de la console administrative</a>
+<br>
+
+<a href="rcon_preferences.html">Param&egrave;tres des pr&eacute;f&eacute;rences de la console administrative</a>
+<br>
+
+<a href="usec_rassl.html">Param&egrave;tres SSL (Secure Sockets Layer) des propri&eacute;t&eacute;s personnalis&eacute;es</a>
+<br>
+
+</div>
+</body>
+</html>

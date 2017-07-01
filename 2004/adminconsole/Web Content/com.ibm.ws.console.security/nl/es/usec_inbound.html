@@ -1,0 +1,222 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Valores de autenticaci&oacute;n de entrada CSI (Common Secure Interoperability)</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecinbound"></a>
+<h2>Valores de autenticaci&oacute;n de entrada CSI (Common Secure Interoperability)</h2>
+
+<p>Utilice esta p&aacute;gina para especificar las caracter&iacute;sticas que
+soporta un servidor para un cliente que est&eacute; accediendo a sus recursos.</p>
+
+<p>Para ver esta p&aacute;gina de la consola administrativa, pulse
+<strong>Seguridad</strong> &gt; <strong>Protocolo de autenticaci&oacute;n</strong> &gt;
+<strong>Autenticaci&oacute;n de entrada CSI</strong>.</p>
+
+<p>Los valores de autenticaci&oacute;n de entrada CSI sirven para configurar el
+tipo de informaci&oacute;n de autenticaci&oacute;n contenida en un transporte o petici&oacute;n
+de entrada.</p>
+
+<p>Las caracter&iacute;sticas de autenticaci&oacute;n incluyen tres capas de
+autenticaci&oacute;n, que se pueden utilizar de forma simult&aacute;nea:  <ul>
+
+<li>
+<strong>Capa de transporte</strong>. La capa de transporte, que es la capa
+inferior, puede contener como identidad un certificado de cliente SSL
+(Secure Sockets Layer).</li>
+
+<li>
+<strong>Capa de mensajes</strong>. La capa de mensajes puede contener un ID de usuario y una contrase&ntilde;a o un s&iacute;mbolo autenticado que caduque.</li>
+
+<li>
+<strong>Capa de atributos</strong>. La capa de atributos puede contener un
+s&iacute;mbolo de identidad, que es una identidad de un servidor en sentido
+ascendente que ya est&aacute; autenticado.
+La capa de identidad tiene la
+prioridad m&aacute;s alta seguida de la capa de mensajes y, a continuaci&oacute;n, de
+la capa de transporte. Si un cliente env&iacute;a las tres, solamente se utilizar&aacute; la capa de identidad. 
+El &uacute;nico modo de utilizar el certificado de cliente SSL como identidad es si se trata de la
+&uacute;nica informaci&oacute;n que se presenta durante la petici&oacute;n. El cliente toma la IOR del espacio de nombres y lee los valores del componente con distintivo para determinar qu&eacute; necesita el servidor en cuanto a seguridad. </li>
+
+</ul>  
+</p>
+
+<div>
+<p>
+<strong>Pesta&ntilde;a Configuraci&oacute;n</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="BasicAuthentication_i_description"></a>Autenticaci&oacute;n b&aacute;sica </strong>
+</dt>
+<dd>Especifica que la autenticaci&oacute;n b&aacute;sica se produce en la capa de mensajes.
+<p>En la capa de mensajes, se realiza la autenticaci&oacute;n b&aacute;sica (ID de usuario/contrase&ntilde;a). Este
+tipo de autenticaci&oacute;n consiste, generalmente, en enviar un ID de usuario y una contrase&ntilde;a del
+cliente al servidor para autenticarlos.  Esto implica tambi&eacute;n delegar un s&iacute;mbolo de credencial desde una credencial ya autenticada, siempre que se pueda enviar ese tipo de credencial (por ejemplo, LTPA (Lightweight Third Party Authentication)). Si <strong>Autenticaci&oacute;n b&aacute;sica</strong> est&aacute; seleccionada
+para el servidor, especifique tanto la autenticaci&oacute;n de ID de usuario y
+contrase&ntilde;a como la autenticaci&oacute;n basada en s&iacute;mbolos.</p>
+
+<p>Cuando seleccione <strong>Autenticaci&oacute;n b&aacute;sica</strong>, debe decidir si es <strong>Necesaria</strong> o <strong>Soportada</strong>.  Si selecciona <strong>Necesaria</strong>, s&oacute;lo
+tienen permiso para invocar peticiones en el servidor los clientes que
+est&eacute;n configurados para autenticarse en este servidor a trav&eacute;s de la capa
+de mensajes. Si selecciona soportada, se indica que este servidor acepta la <strong>Autenticaci&oacute;n b&aacute;sica</strong>. No obstante, se pueden utilizar otros m&eacute;todos de autenticaci&oacute;n si est&aacute;n configurados y se aceptan las peticiones an&oacute;nimas.
+Si selecciona <strong>Nunca</strong>, este servidor no estar&aacute; configurado para aceptar la autenticaci&oacute;n de capa de mensajes de ning&uacute;n cliente.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos:</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ClientCertificateAuthentication_i_description"></a>Autenticaci&oacute;n de certificados de cliente</strong>
+</dt>
+<dd>Especifica que la autenticaci&oacute;n se efect&uacute;a cuando se realiza la conexi&oacute;n inicial
+entre el cliente y el servidor durante una petici&oacute;n de m&eacute;todo.
+<p>En la capa de transporte, se lleva a cabo la autenticaci&oacute;n de
+certificado de cliente SSL (Secure Sockets Layer). En la capa de mensajes,
+se realiza la autenticaci&oacute;n b&aacute;sica (ID de usuario/contrase&ntilde;a). La
+autenticaci&oacute;n de certificados de cliente normalmente funciona mejor que la
+autenticaci&oacute;n de capa de mensajes, aunque requiere algunos pasos de
+configuraci&oacute;n adicionales.
+Estos pasos adicionales conllevan asegurarse de
+que el servidor disponga del certificado de firmante de cada cliente al
+que est&eacute; conectado. Si el cliente utiliza una autoridad certificadora (CA) para crear el certificado personal, s&oacute;lo se necesita el certificado ra&iacute;z de la CA de la secci&oacute;n de firma del servidor del archivo de confianza SSL. Cuando el certificado se autentica en un
+registro de usuarios LDAP (Lightweight Directory Access Protocol), el
+nombre distinguido (DN) se correlaciona seg&uacute;n el filtro especificado al
+configurar LDAP. Cuando el certificado se autentica en un Registro de
+usuario de sistema operativo local, el primer atributo del DN del
+certificado (normalmente el nombre com&uacute;n) se correlaciona con el ID de
+usuario del registro. La identidad de los certificados de cliente s&oacute;lo se utiliza si no se presenta ninguna
+otra capa de autenticaci&oacute;n al servidor.</p>
+
+<p>Cuando seleccione <strong>Autenticaci&oacute;n de certificados de cliente</strong>, debe decidir si es <strong>Necesaria</strong> o <strong>Soportada</strong>. Si selecciona <strong>Necesaria</strong>, s&oacute;lo tienen permiso para invocar peticiones en el servidor los clientes que est&eacute;n configurados para autenticarse en este servidor a trav&eacute;s de certificados de cliente SSL. Si selecciona <strong>Soportada</strong>, este servidor acepta la autenticaci&oacute;n de certificados de cliente SSL, aunque se pueden utilizar otros m&eacute;todos de autenticaci&oacute;n (si est&aacute;n configurados) y se aceptar&aacute;n peticiones an&oacute;nimas. Si selecciona <strong>Nunca</strong>, este servidor no estar&aacute; configurado para aceptar la autenticaci&oacute;n de certificados de cliente de ning&uacute;n cliente.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="IdentityAssertion_i_description"></a>Comprobaci&oacute;n de identidad</strong>
+</dt>
+<dd>Especifica que la confirmaci&oacute;n de identidad es una forma de confirmar las
+identidades de un servidor a otro durante una invocaci&oacute;n de EJB en sentido descendente.
+<p>La confirmaci&oacute;n de identidad se efect&uacute;a en la capa de atributos y s&oacute;lo se puede aplicar en servidores. El principal determinado en el servidor se basa en las reglas de precedencia. Si se realiza la confirmaci&oacute;n de identidad, la identidad siempre se deriva del atributo. Si se realiza la autenticaci&oacute;n b&aacute;sica sin la confirmaci&oacute;n de identidad, la identidad
+siempre se deriva de la capa de mensajes. Por &uacute;ltimo, si se realiza la
+autenticaci&oacute;n de certificados de cliente SSL sin la autenticaci&oacute;n b&aacute;sica
+ni la confirmaci&oacute;n de identidad, la identidad se deriva de la capa de transporte.</p>
+
+<p>La identidad confirmada es la credencial de invocaci&oacute;n que determina la modalidad RunAs para el enterprise bean. Si la modalidad RunAs es <strong>Cliente</strong>, la identidad es la identidad del cliente. Si la modalidad RunAs es <strong>Sistema</strong>, la identidad es la identidad del servidor.  Si
+la modalidad RunAs es <strong>Especificada</strong>, la identidad es la que est&aacute; especificada. El servidor receptor recibe la identidad en un s&iacute;mbolo de identidad, y tambi&eacute;n recibe la identidad del servidor emisor en un s&iacute;mbolo de autenticaci&oacute;n de cliente. El servidor receptor valida la identidad del
+servidor emisor como una identidad de confianza mediante el recuadro de
+entrada <strong>ID de servidor de confianza</strong>. Entre una lista de nombres de principal
+separados por comas, por ejemplo <samp>IDservidor1, IDservidor2, IDservidor3</samp>.</p>
+
+<p>Al autenticarse en un registro de usuario LocalOS, todos los tipos de s&iacute;mbolos de identidad
+se correlacionan con el campo de ID de usuario del registro de usuario activo. Para un s&iacute;mbolo de identidad <samp>ITTPrincipal</samp>, se correlaciona de uno en uno con los campos de ID de usuario. Para un s&iacute;mbolo de identidad <samp>ITTDistinguishedName</samp>, el valor del primer signo igual se correlaciona con el campo del ID de usuario.
+Para un s&iacute;mbolo de identidad
+<samp>ITTCertChain</samp>, el valor del primer signo igual del nombre distinguido se correlaciona
+con el campo de ID de usuario.</p>
+
+<p>Al autenticarse en un registro de usuarios LDAP, los filtros LDAP determinan c&oacute;mo se correlaciona una identidad de tipo <samp>ITTCertChain</samp> y <samp>ITTDistinguishedName</samp> con el registro. Si el tipo de s&iacute;mbolo es <samp>ITTPrincipal</samp>, el principal se correlaciona con el campo UID del registro LDAP.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos:</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="IdentityAssertionLayer_trustedServers_description"></a>ID de usuario en los que el servidor conf&iacute;a</strong>
+</dt>
+<dd>Especifica una lista separada por comas de los ID de usuario del servidor a los que se
+conf&iacute;a la confirmaci&oacute;n de identidad de este servidor.
+<p>Utilice esta lista para decidir si se trata de un servidor de
+confianza. Incluso si el
+servidor est&aacute; en la lista, el servidor emisor deber&aacute; autenticarse con el servidor receptor
+para poder aceptar el s&iacute;mbolo de identidad del servidor receptor.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="StatefulSession_description"></a>Sesiones con estado</strong>
+</dt>
+<dd>Especifica las sesiones con estado, que se utilizan principalmente para mejorar el rendimiento.
+<p>El primer contacto entre un cliente y un servidor debe autenticarse completamente.
+Sin embargo, todos los dem&aacute;s contactos con sesiones
+v&aacute;lidas, vuelven a utilizar la informaci&oacute;n de seguridad.
+El cliente pasa un ID de contexto al servidor y el ID se utiliza para buscar la sesi&oacute;n. El ID de contexto tiene el &aacute;mbito de la conexi&oacute;n, lo cual garantiza la exclusividad. Cuando la sesi&oacute;n de seguridad no es
+v&aacute;lida y el reintento de autenticaci&oacute;n est&aacute; habilitado (por omisi&oacute;n), el
+interceptor de seguridad del cliente invalida la sesi&oacute;n del cliente y
+vuelve a someter la petici&oacute;n sin que el usuario lo sepa. Esto puede producirse si la sesi&oacute;n no existe en el servidor (el servidor ha fallado y ha reanudado la operaci&oacute;n). Cuando se inhabilita este valor, cada una de las invocaciones de m&eacute;todo deben reautenticarse.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informaci&oacute;n relacionada</strong>
+</p>
+<a href="rcon_buttons.html">Botones de la consola de administraci&oacute;n</a>
+<br>
+
+<a href="rcon_pageusage.html">Caracter&iacute;sticas de la p&aacute;gina de la consola administrativa</a>
+<br>
+
+<a href="rcon_scope.html">Valores de &aacute;mbito de la consola administrativa</a>
+<br>
+
+<a href="rcon_filter.html">Valores de filtro de la consola administrativa</a>
+<br>
+
+<a href="rcon_preferences.html">Valores de preferencias de la consola administrativa</a>
+<br>
+
+</div>
+</body>
+</html>

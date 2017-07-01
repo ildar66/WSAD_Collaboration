@@ -1,0 +1,177 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>登录映射配置设置</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_logmapn"></a>
+<h2>
+<img alt="[Release 5.1 and later]" src="v51.gif" border="0">登录映射配置设置</h2>
+
+<p>使用此页面指定用于验证进入消息内安全性令牌的 Java 认证和授权服务（JAAS）登录配置设置。</p>
+
+<p>要查看此管理控制台页面，完成以下步骤：<ol>
+
+<li>单击<strong>服务器 &gt; 应用程序服务器 &gt; </strong><em>server_name</em>。</li>
+
+<li>在&ldquo;其它属性&rdquo;下，单击 <strong>Web 服务：Web 服务安全性的缺省绑定 &gt; 登录映射 &gt; 新建</strong>。</li>
+
+</ol>
+</p>
+
+<dl>
+<dt>
+<strong><a name="sec_logmapauth"></a>认证方法</strong>
+</dt>
+<dd>指定认证方法。
+<p>您可使用任何字符串，但是字符串必须与服务级别配置中的元素相匹配。下列字是保留的且有特殊含义：<dl>
+
+<dt>
+<strong>BasicAuth</strong>
+</dt>
+<dd>使用用户名和密码</dd>
+<dt>
+<strong>IDAssertion</strong>
+</dt>
+<dd>仅使用用户名，但需要使用 TrustedIDEvaluator 在接收服务器上建立附加的信任</dd>
+<dt>
+<strong>Signature</strong>
+</dt>
+<dd>使用签署程序的专有名称（DN）。</dd>
+<dt>
+<strong>LTPA</strong>
+</dt>
+<dd>验证令牌</dd>
+</dl>
+</p>
+
+</dd>
+<dt>
+<strong><a name="sec_jaas"></a>JAAS 配置名</strong>
+</dt>
+<dd>指定 Java 认证和授权服务（JAAS）配置的名称。
+<p>使用管理控制台，通过单击<strong>安全性 &gt; JAAS 配置 &gt; 应用程序</strong>指定 JAAS 配置。</p>
+
+</dd>
+<dt>
+<strong><a name="sec_class"></a>回调处理程序工厂类名</strong>
+</dt>
+<dd>指定 CallbackHandler 类的工厂名。
+<p>您必须在该字段中实现 <samp>com.ibm.wsspi.wssecurity.auth.callback.CallbackHandlerFactory</samp> 类。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省：</td>
+<td align="left" valign="top" class="base">com.ibm.wsspi.wssecurity.auth.callback.CallbackHandlerFactory</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="sec_tokenuri"></a>令牌类型 URI</strong>
+</dt>
+<dd>指定名称空间统一资源标识（URI），它表示接受的安全性令牌的类型。
+<p>如果接受二进制安全性令牌，此值表示元素中的 ValueType 属性。值类型元素标识安全性令牌及其名称空间的类型。如果接受可扩展标记语言（XML）令牌，此值表示 XML 令牌的顶级元素名称。</p>
+
+<p>如果先前在<strong>认证方法</strong>字段中指定了保留字，则忽略此字段。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型：</td>
+<td align="left" valign="top" class="base">除了非 ASCII 字符外的 Unicode 字符，但是包含井号（#）、百分号（%）和方括号（[ ]）。</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="sec_tokenlname"></a>令牌类型本地名</strong>
+</dt>
+<dd>指定安全性令牌类型的本地名，例如 X509v3。
+<p>如果接受二进制安全性令牌，此值表示元素中的 ValueType 属性。ValueType 属性标识安全性令牌及其名称空间的类型。如果接受可扩展标记语言（XML）令牌，此值表示 XML 令牌的顶级元素名称。</p>
+
+<p>如果先前在<strong>认证方法</strong>字段中指定了保留字，则忽略此字段。</p>
+
+</dd>
+<dt>
+<strong><a name="sec_lognoncemaxage"></a>现时标志最大寿命</strong>
+            &nbsp;
+            <img alt="[Release 5.1 and later]" src="v51.gif" border="0"></dt>
+<dd>指定现时标志时间戳记到期之前的时间（以秒计）。现时标志是随机生成的值。
+<p>您必须为<strong>现时标志最大寿命</strong>字段指定最小 300 秒的值。然而，最大值不能超过在服务器级别或单元级别的<strong>现时标志高速缓存超时</strong>字段中指定的秒数。您可通过单击<strong>服务器 &gt; 应用程序服务器  &gt; </strong><em>server_name</em> 指定服务器级别的<strong>现时标志最大寿命</strong>值。在&ldquo;其它属性&rdquo;下，单击 <strong>Web 服务：Web 服务安全性的缺省绑定</strong>。您可以通过单击<strong>安全性 &gt; Web 服务 &gt; 属性</strong>指定单元级别的<strong>现时标志最大寿命</strong>值。</p>
+
+<p>
+<strong>重要注意事项：</strong>此面板上的<strong>现时标志最大寿命</strong>字段是可选的，且仅当指定 BasicAuth 认证方法时才有效。如果您指定另一种认证方法并尝试为该字段指定值，会显示以下错误消息且您必须除去指定的值：<samp>除 BasicAuth 之外的认证方法不支持现时标志。</samp>如果您指定 BasicAuth，但没有为<strong>现时标志最大寿命</strong>字段指定值，Web 服务安全性运行时在服务器级别上搜索<strong>现时标志最大寿命</strong>值。如果没有在服务器级别上找到值，则运行时搜索单元级别。如果没有在服务器级别或单元级别上找到值，则缺省值为 300 秒。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省值</td>
+<td align="left" valign="top" class="base">300 秒</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">范围</td>
+<td align="left" valign="top" class="base">300 到<strong>现时标志高速缓存超时</strong>秒数</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="sec_lognonceclockskew"></a>现时标志时钟偏移</strong>
+            &nbsp;
+            <img alt="[Release 5.1 and later]" src="v51.gif" border="0"></dt>
+<dd>指定当 WebSphere Application Server 检查消息新鲜度时要考虑的时钟偏移值（以秒计）。现时标志是随机生成的值。
+<p>您必须为<strong>现时标志时钟偏移</strong>字段指定最小 0 秒的值。然而，最大值不能超过在此&ldquo;登录映射&rdquo;面板上的<strong>现时标志最大寿命</strong>中指定的秒数。</p>
+
+<p>
+<strong>重要注意事项：</strong>此面板上的<strong>现时标志时钟偏移</strong>字段是可选的，且仅当指定 BasicAuth 认证方法时才有效。如果您指定另一种认证方法并尝试为该字段指定值，会显示以下错误消息且您必须除去指定的值：<samp>除 BasicAuth 之外的认证方法不支持现时标志。</samp>如果您指定 BasicAuth，但没有为<strong>现时标志时钟偏移</strong>字段指定值，Web 服务安全性运行时在服务器级别上搜索<strong>现时标志时钟偏移</strong>值。如果没有在服务器级别上找到值，则运行时搜索单元级别。如果没有在服务器级别或单元级别上找到值，则缺省值为 0 秒。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省值</td>
+<td align="left" valign="top" class="base">0 秒</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">范围</td>
+<td align="left" valign="top" class="base">0 到<strong>现时标志最大寿命</strong>秒数</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>相关信息</strong>
+</p>
+<a href="uwbs_logmap.html">登录映射集合</a>
+<br>
+
+<a href="uwbs_noncecellprop.html">现时标志单元级别属性</a>
+<br>
+
+</div>
+</body>
+</html>

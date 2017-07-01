@@ -1,0 +1,437 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Transaction service settings</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="Transaction_service"></a>
+<h2>Transaction service settings</h2>
+
+<p>Use this page to modify transaction service settings.</p>
+
+<p>To view this administrative console page, click <strong>Servers</strong> &gt; <strong>Application
+Servers</strong> &gt; <em>server</em> &gt; <strong>Transaction Service</strong>.</p>
+
+<div>
+<p>
+<strong>Configuration tab</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="TransactionService_transactionLogDirectory_displayName"></a>Transaction log directory</strong>
+</dt>
+<dd> Specifies the name
+of a directory for this server where the transaction service stores log files
+for recovery.
+<p>A blank value in the server configuration
+is expanded by the transaction log at startup as the directory (<em>install_root</em>)/tranlog/(<em>server_name</em>).</p>
+
+<p>When the application running on
+the WebSphere product accesses more than one resource, the WebSphere product
+stores transaction information to properly coordinate and manage the distributed
+transaction. In a higher transaction load, this persistence slows down performance
+of the application server due to its dependency on the operating system and
+the underlying storage systems.</p>
+
+<p>To achieve better performance,
+move the transaction log files to a storage device with more physical disk
+drives, or preferably RAID disk drives. When the log files are moved to the
+file systems on the raided disks, the task of writing data to the physical
+media is shared across the multiple disk drives. This allows more concurrent
+access to persist transaction information and faster access to that data from
+the logs. Depending upon the design of the application and storage subsystem,
+performance gains can range from 10% to 100%, or even more in some cases. </p>
+
+<p>This change is applicable only
+to the configuration where the application uses distributed resources or XA
+transactions, for example, multiple databases and resources are accessed within
+a single transaction. Consider setting this property when the application
+server shows one or more of following signs:  <ul>
+
+<li>CPU utilization remains low despite an increase in transactions</li>
+
+<li>Transactions fail with several time outs</li>
+
+<li>Transaction rollbacks occur with <em>unable to enlist transaction</em> exception</li>
+
+<li>Application server hangs in middle of a run and requires the server to
+be restarted</li>
+
+<li>The disk on which an application server is running shows higher utilization</li>
+
+</ul>
+</p>
+
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">Initial value is the <em>%WAS_HOME%</em>/tranlog/(<em>server_name</em>)
+directory and a default size of 1MB. </td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Recommended</td>
+<td align="left" valign="top" class="base">Create a file system with at least 3-4 disk drives raided together
+in a RAID-0 configuration. Then, create the transaction log on this file system
+with the default size. When the server is running under load, check the disk
+input and output. If disk input and output time is more then 5%, consider
+adding more physical disks to lower the value. If disk input and output is
+low, but the server is still high, consider increasing the size of the log
+files. </td>
+
+</tr>
+
+</table>
+
+
+
+
+</dd>
+<dt>
+<strong><a name="TransactionService_totalTranLifetimeTimeout_displayName"></a>Total transaction lifetime timeout </strong>
+</dt>
+<dd>Specifies the maximum
+duration, in seconds, for transactions on this application server.  
+
+<p>Any transaction that is not requested
+to complete before this time-out is rolled back. If set to 0, there is no
+time-out limit.</p>
+
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Units</td>
+<td align="left" valign="top" class="base">Seconds</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">120</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range</td>
+<td align="left" valign="top" class="base">0 to 2 147 483 647</td>
+
+</tr>
+
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="TransactionService_clientInactivityTimeout_displayName"></a>Client inactivity timeout  </strong>
+</dt>
+<dd>Specifies the maximum duration, in seconds, between transactional
+requests from a remote client. 
+<p>Any period of client inactivity that exceeds this timeout results in the
+transaction rolling back in this application server. If set to 0, there is
+no timeout limit.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Units</td>
+<td align="left" valign="top" class="base">Seconds</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">60</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range</td>
+<td align="left" valign="top" class="base">0 to 2 147 483 647</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="TransactionService_enableLoggingForHeuristicReporting_displayName"></a>Enable logging for heuristic reporting</strong>
+</dt>
+<dd>Select this property to enable the application server to log "about
+to commit one-phase resource" events from transactions that involve a one-phase
+commit resource and two-phase commit resources.
+<p>This property enables logging for heuristic reporting. If applications
+are configured to allow one-phase commit resources to participate in two-phase
+commit transactions, reporting of heuristic outcomes that occur at application
+server failure requires extra information to be written to the transaction
+log. If enabled, one additional log write is performed for any transaction
+that involves both one- and two-phase commit resources. No additional records
+are written for transactions that do not involve a one-phase commit resource. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">Cleared</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range</td>
+<td align="left" valign="top" class="base">
+<dl>
+<dt>
+<strong>Cleared</strong>
+</dt>
+<dd>The application server does not log "about to commit one-phase resource"
+events from transactions that involve a one-phase commit resource and two-phase
+commit resources.</dd>
+<dt>
+<strong>Selected</strong>
+</dt>
+<dd>The application server does log "about to commit one-phase resource" events
+from transactions that involve a one-phase commit resource and two-phase commit
+resources.</dd>
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Runtime tab</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="TransactionService_transactionLogDirectory_displayName"></a>Transaction log directory</strong>
+</dt>
+<dd> Specifies the name
+of a directory for this server where the transaction service stores log files
+for recovery.
+<p>A blank value in the server configuration
+is expanded by the transaction log at startup as the directory (<em>install_root</em>)/tranlog/(<em>server_name</em>).</p>
+
+<p>When the application running on
+the WebSphere product accesses more than one resource, the WebSphere product
+stores transaction information to properly coordinate and manage the distributed
+transaction. In a higher transaction load, this persistence slows down performance
+of the application server due to its dependency on the operating system and
+the underlying storage systems.</p>
+
+<p>To achieve better performance,
+move the transaction log files to a storage device with more physical disk
+drives, or preferably RAID disk drives. When the log files are moved to the
+file systems on the raided disks, the task of writing data to the physical
+media is shared across the multiple disk drives. This allows more concurrent
+access to persist transaction information and faster access to that data from
+the logs. Depending upon the design of the application and storage subsystem,
+performance gains can range from 10% to 100%, or even more in some cases. </p>
+
+<p>This change is applicable only
+to the configuration where the application uses distributed resources or XA
+transactions, for example, multiple databases and resources are accessed within
+a single transaction. Consider setting this property when the application
+server shows one or more of following signs:  <ul>
+
+<li>CPU utilization remains low despite an increase in transactions</li>
+
+<li>Transactions fail with several time outs</li>
+
+<li>Transaction rollbacks occur with <em>unable to enlist transaction</em> exception</li>
+
+<li>Application server hangs in middle of a run and requires the server to
+be restarted</li>
+
+<li>The disk on which an application server is running shows higher utilization</li>
+
+</ul>
+</p>
+
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">Initial value is the <em>%WAS_HOME%</em>/tranlog/(<em>server_name</em>)
+directory and a default size of 1MB. </td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Recommended</td>
+<td align="left" valign="top" class="base">Create a file system with at least 3-4 disk drives raided together
+in a RAID-0 configuration. Then, create the transaction log on this file system
+with the default size. When the server is running under load, check the disk
+input and output. If disk input and output time is more then 5%, consider
+adding more physical disks to lower the value. If disk input and output is
+low, but the server is still high, consider increasing the size of the log
+files. </td>
+
+</tr>
+
+</table>
+
+
+
+
+</dd>
+<dt>
+<strong><a name="TransactionService_totalTranLifetimeTimeout_displayName"></a>Total transaction lifetime timeout </strong>
+</dt>
+<dd>Specifies the maximum
+duration, in seconds, for transactions on this application server.  
+
+<p>Any transaction that is not requested
+to complete before this time-out is rolled back. If set to 0, there is no
+time-out limit.</p>
+
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Units</td>
+<td align="left" valign="top" class="base">Seconds</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">120</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range</td>
+<td align="left" valign="top" class="base">0 to 2 147 483 647</td>
+
+</tr>
+
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="TransactionService_clientInactivityTimeout_displayName"></a>Client inactivity timeout  </strong>
+</dt>
+<dd>Specifies the maximum duration, in seconds, between transactional
+requests from a remote client. 
+<p>Any period of client inactivity that exceeds this timeout results in the
+transaction rolling back in this application server. If set to 0, there is
+no timeout limit.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Units</td>
+<td align="left" valign="top" class="base">Seconds</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">60</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range</td>
+<td align="left" valign="top" class="base">0 to 2 147 483 647</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Related information</strong>
+</p>
+<a href="rcon_buttons.html">Administrative console buttons</a>
+<br>
+
+<a href="rcon_pageusage.html">Administrative console page features</a>
+<br>
+
+</div>
+</body>
+</html>

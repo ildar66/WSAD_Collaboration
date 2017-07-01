@@ -1,0 +1,334 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Impostazioni della porta listener</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="ListenerPort"></a>
+<h2>Impostazioni della porta listener</h2>
+
+<p>Una porta listener viene utilizzata per semplificare la gestione dell'associazione
+tra una produzione connessioni, una destinazione e un bean distribuito basato sui messaggi.</p>
+
+<p>Utilizzare questo pannello per visualizzare o modificare le propriet&agrave; di configurazione della porta listener selezionata.</p>
+
+<p>Per visualizzare questa pagina della console di gestione, fare clic su <strong>Server-&gt; <em>server_applicazioni</em>-&gt;
+Servizio listener dei messaggi-&gt; Porte listener-&gt; <em>porta_listener</em></strong>
+</p>
+
+<dl>
+<dt>
+<strong><a name="ListenerPort_name"></a>Nome</strong>
+</dt>
+<dd>Il nome con cui &egrave; nota la porta listener per scopi amministrativi.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">Nullo</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ListenerPort_initialState"></a>Stato iniziale</strong>
+</dt>
+<dd>Lo stato che si desidera per la porta listener al successivo riavvio del server delle applicazioni
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&agrave;</td>
+<td align="left" valign="top" class="base">Non applicabile</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">Avviato</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo</td>
+<td align="left" valign="top" class="base">
+<dl>
+<dt>
+<strong>Avviato</strong>
+</dt>
+<dd>Quando il server delle applicazioni viene successivamente riavviato, la porta listener viene avviata automaticamente.</dd>
+<dt>
+<strong>Arrestato</strong>
+</dt>
+<dd>Quando il server delle applicazioni viene successivamente avviato, la porta listener non viene avviata automaticamente. Se i bean basati sui messaggi utilizzano questa porta listener sul server delle
+applicazioni, l'amministratore di sistema deve avviare la porta manualmente o selezionare
+il valore AVVIATO di questa propriet&agrave;, quindi deve riavviare il server delle
+applicazioni.</dd>
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ListenerPort_description"></a>Descrizione</strong>
+</dt>
+<dd>Una descrizione della porta listener, per scopi di gestione all'interno di IBM WebSphere
+Application Server.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">Nullo</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ListenerPort_connectionFactoryJNDIName"></a>Nome JNDI produzione connessioni</strong>
+</dt>
+<dd>Il nome JNDI per la produzione connessioni JMS che la porta listener deve utilizzare; ad
+esempio, <samp>jms/connFactory1</samp>.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">Nullo</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ListenerPort_destinationJNDIName"></a>Nome JNDI destinazione</strong>
+</dt>
+<dd>Il nome JNDI per la destinazione che la porta listener deve utilizzare;
+ad esempio, <samp>jms/destn1</samp>.
+<p>Se il servizio Extended messaging utilizza questa porta listener per gestire le
+risposte ritardate, il valore di questa propriet&agrave; deve corrispondere alla destinazione
+della risposta JMS sulla porta output utilizzata dal bean di invio. Inoltre non &egrave;
+possibile utilizzare una destinazione temporanea per le risposte ritardate.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">Nullo</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ListenerPort_maxSessions"></a>Numero massimo di sessioni</strong>
+</dt>
+<dd>Specifica il numero massimo di sessioni simultanee del server JMS utilizzate da un
+listener per elaborare i messaggi. 
+<p>Ciascuna sessione corrisponde a un unico thread listener ma non controlla il numero di
+messaggi elaborati contemporaneamente. Regolare questo parametro quando la macchina su cui &egrave;
+in esecuzione l'applicazione del processo non realizza la funzione disponibile e produce una
+velocit&agrave; di trasmissione minore durante i processi di lunga durata. </p>
+
+<p>Questo parametro consente di aggiungere qualche livello di simultaneit&agrave; in modo che i
+messaggi vengano ricevuti contemporaneamente prima della parte sincronizzata della ricezione
+dei messaggi. Un aumento del 40% nella velocit&agrave; di trasmissione si verifica in un'applicazione
+con processi di lunga durata su un sistema NetFinity 5500 500 MHz, a 4 vie, 4GB RAM. </p>
+
+<p>In alternativa, invece di eseguire questa modifica nella console di gestione, &egrave; possibile
+modificare il valore di sessioni massime nel file <samp>server.xml</samp> nella sezione delle
+porte listener come riportato di seguito:<pre>&lt;listenerPorts xmi:id="ListenerPort_1"
+name="bpeIntListenerPort" 
+description="Internal Listener Port for Process Choreographer" 
+connectionFactoryJNDIName="jms/bpeCF" destinationJNDIName="jms/bpeIntQueue" 
+<strong>maxSessions="5"</strong> maxRetries="10" maxMessages="1"&gt;
+&lt;stateManagement xmi:id="StateManageable_5" initialState="START"/&gt;
+&lt;/listenerPorts&gt;</pre>
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Numero intero</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&agrave;</td>
+<td align="left" valign="top" class="base">Sessioni</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">1 </td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo</td>
+<td align="left" valign="top" class="base">Da 1 a 2147483647</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Consigliato</td>
+<td align="left" valign="top" class="base">Per consentire l'elaborazione simultanea di pi&ugrave; messaggi, impostare il valore su 2-4
+sessioni per processore di sistema. Mantenere il valore il pi&ugrave; basso possibile per eliminare
+sovraccarichi sui client. Se si desidera un ordine rigido di messaggi, impostare il valore su
+4 per avere sempre un thread in uno stato di attesa che viene bloccato alla ricezione del
+messaggio. </td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ListenerPort_maxRetries"></a>Numero massimo di tentativi</strong>
+</dt>
+<dd>Numero massimo di volte in cui il listener tenta di consegnare un messaggio prima di arrestarsi, nell'intervallo compreso tra 0 e 2147483647.
+<p>Numero massimo di volte in cui il listener tenta di consegnare un messaggio a una istanza bean basata sui messaggi prima di arrestarsi.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Numero intero</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&agrave;</td>
+<td align="left" valign="top" class="base">Numero tentativi</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">0 (nessun tentativo)</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo</td>
+<td align="left" valign="top" class="base">Da 0 (nessun tentativo) a 2147483647</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ListenerPort_maxMessages"></a>Numero massimo di messaggi</strong>
+</dt>
+<dd>Il numero massimo di messaggi che il listener pu&ograve; elaborare in una sessione del server JMS.
+<p>Regolare questo parametro quando l'ordine messaggi non &egrave; un requisito necessario. Questo
+parametro controlla il livello di simultaneit&agrave; nel servizio listener. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Numero intero</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&agrave;</td>
+<td align="left" valign="top" class="base">Numero di messaggi</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">1</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo</td>
+<td align="left" valign="top" class="base">Da 1 a 2147483647</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Consigliato</td>
+<td align="left" valign="top" class="base">Per consentire l'elaborazione simultanea di pi&ugrave; messaggi, impostare il valore su 2-4
+sessioni per processore di sistema. Mantenere il valore il pi&ugrave; basso possibile per eliminare
+sovraccarichi sui client. Se si desidera un ordine messaggi rigido, impostare il valore su 1. </td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</body>
+</html>

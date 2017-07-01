@@ -1,0 +1,315 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>J2C 연결 팩토리 설정</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="J2C_connection_factory"></a>
+<h2>J2C 연결 팩토리 설정</h2>
+
+<p>이 페이지를 참조하여 연결 팩토리에 대한 설정을 지정하십시오.</p>
+
+<p>이 관리 콘솔 페이지를 보려면 <strong>자원</strong> &gt; <strong>자원 어댑터</strong> &gt; <em>resource_adapter</em> &gt; <strong>J2C 연결 팩토리</strong> &gt; <em>connection_factory</em>를
+클릭하십시오. </p>
+
+<div>
+<p>
+<strong>구성 탭</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="J2CConnectionfactory_detail_contextID"></a>범위</strong>
+</dt>
+<dd>이 자원 정의가 표시될 수 있는 레벨(셀, 노드 또는 서버 레벨)을 지정합니다. 
+<p>JDBC 프로바이더, 네임 스페이스 바인딩 또는 공유 라이브러리와 같은 자원은 일반적인 범위에서 정의된 중복을 대체하는, 좀 더 특정한 범위에서 정의된 자원을 가지는 다중 범위에서 정의될 수 있습니다.</p>
+
+<p>정의된 자원의 범위에 관계 없이, 자원의 등록 정보는
+개별 서버 레벨에서만 적용됩니다. 예를 들어 셀 레벨에서
+데이터소스의 범위를 정의하는 경우, 해당 셀의 모든 사용자는
+해당 데이터소스(셀 내에서 고유함)를 찾아보고 사용할 수 있습니다. 그러나
+자원 등록 정보 설정은 셀 내 각 서버에 로컬입니다. 예를
+들어 <em>최대 연결 수</em>를 10으로 정의하는 경우, 해당 셀 내 각 서버는
+13개의 연결을 가질 수 있습니다.<dl>
+
+<dt>
+<strong>셀</strong>
+</dt>
+<dd>가장 일반적인 범위. 셀 범위에서 정의된 자원은 대체되지 않는 한
+모든 노드 및 서버에서 표시 가능합니다.
+셀 범위에서 정의되는 자원을 보려면 범위 선택사항 양식에서
+서버 또는 노드 이름을 지정하지 마십시오. </dd>
+
+<dt>
+<strong>Node</strong>
+</dt>
+<dd>대부분의 자원 유형에 대한 기본 범위. 노드 범위에서 정의된 자원은
+셀 범위에서 정의된 임의의 중복을 대체하고 해당 노드의 서버 범위에서 대체되지 않는
+한 동일한 노드의 모든 서버에 표시 가능합니다. 노드 범위에서 정의되는 자원을 보려면 서버를 지정하지
+말고 범위 선택사항 양식에서 노드 이름을 선택하십시오. </dd>
+
+<dt>
+<strong>서버</strong>
+</dt>
+<dd>자원 정의에 대한 가장 특정한 범위. 서버 범위에서 정의되는
+자원은 셀 범위 및 상위 노드 범위에서 정의되는 모든 중복 자원 정의를
+대체하고 특정 서버에서만 볼 수 있습니다. 서버 범위에서 정의되는 자원을
+보려면 범위 선택사항 양식에서 서버 이름뿐 아니라 노드 이름을 선택하십시오. </dd>
+
+</dl>
+</p>
+
+<p>자원이 작성되면, 항상 패널에서 선택된 현재 범위로 작성됩니다. 다른 범위에서 자원을 보려면 범위 선택사항 양식에
+다른 노드 또는 서버를 지정하십시오. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">문자열</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2CConnectionFactory_displayName"></a>이름</strong>
+</dt>
+<dd>연결 팩토리 표시 이름의 목록을 지정하십시오.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">문자열</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2CConnectionFactory_jndiName_displayName"></a>JNDI 이름</strong>
+</dt>
+<dd>이 연결 팩토리의 JNDI 이름을 지정합니다.
+<p>예를 들어, 이름은 <em>eis/myECIConnection</em>일 수 있습니다.</p>
+
+<p>이 값을 설정한 후, 이를 저장하고 서버를 다시 시작하십시오. <em>dumpNameSpace</em>를
+실행할 때 이 문자열을 볼 수 있습니다. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">문자열</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">기본값</td>
+<td align="left" valign="top" class="base">eis/<em>display name</em></td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2CConnectionFactory_description_displayName"></a>설명
+</strong>
+</dt>
+<dd>이 연결 팩토리의 텍스트 설명을 지정합니다.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">문자열</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2CConnectionFactory_category_displayName"></a>카테고리</strong>
+</dt>
+<dd>이 연결 팩토리를 분류하거나 그룹화하는 데 사용할 수 있는 문자열을 지정합니다.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">문자열</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2CConnectionFactory_authMechanismPreference_displayName"></a>인증 환경 설정</strong>
+</dt>
+<dd>연결 팩토리에 대해 정의된 인증 메커니즘를 지정하십시오.
+<p>이 설정은 대응되는 자원 어댑터에 대해 정의된 어떤 인증 메커니즘이 이 연결 팩토리에
+적용되는지 지정합니다. 자원 어댑터의 기능에 따른 일반적인 값은
+<em>KERBEROS</em>, <em>BASIC_PASSWORD</em> 및 <em>None</em>입니다.  </p>
+
+<p>None이 선택된 경우 응용프로그램 구성요소가 인증을 관리합니다
+(&lt;res-auth&gt;Application&lt;/res-auth&gt;). 이 경우,
+사용자 ID 및 암호가 다음 중 하나입니다. <ul>
+
+<li>구성요소 관리 인증 별명</li>
+
+<li>UserName, 암호 사용자 정의 등록 정보</li>
+
+<li>getConnection 메소드에서 전달된 문자열</li>
+
+</ul>
+</p>
+
+<p>예를 들어 두 인증 메커니즘 항목이 <em>ra.xml</em> 문서에서 자원 어댑터에 정의된 경우: <ul>
+
+<li>&lt;authentication-mechanism-type&gt;BasicPassword&lt;/authentication-mechanism-type&gt;</li>
+
+<li>&lt;authentication-mechanism-type&gt;Kerbv5&lt;/authentication-mechanism-type&gt;</li>
+
+</ul>인증 환경 설정은 컨테이너 관리 인증에 대해 사용하는 메커니즘을 지정합니다. 자원 어댑터에서 지원하지 않는 메커니즘이
+선택된 경우 서버를 시작하는 동안 예외가 발생합니다.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">선택 목록</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">기본값</td>
+<td align="left" valign="top" class="base">BASIC_PASSWORD </td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2CConnectionFactory_authDataAlias_displayName"></a>구성요소 관리 인증 별명</strong>
+</dt>
+<dd>자원으로의 구성요소 관리 사인온을 위한 인증 데이터를 참조하십시오.
+<strong>보안</strong> &gt; <strong>JAAS 구성</strong> &gt; <strong>J2C 인증 데이터</strong>에서 정의한
+별명 중에서 선택하십시오.
+<p>선택 목록에 표시되지 않은 새 별명을 정의하는 방법.<ul>
+
+<li>
+<strong>적용</strong>을 클릭하여 관련 항목을 표시합니다.</li>
+
+<li>
+<strong>J2C 인증 데이터 항목</strong>을 클릭합니다.</li>
+
+<li>별명을 정의합니다.</li>
+
+<li>
+<em>J2C 인증 데이터 항목</em> 페이지의 맨 위에서 연결 팩토리를 클릭하여 연결 팩토리 페이지로 리턴합니다.</li>
+
+<li>별명을 선택합니다. </li>
+
+</ul> 
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">선택 목록</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2CConnectionFactory_mappingModule_authDataAlias_displayName"></a>컨테이너 관리 인증 별명</strong>
+</dt>
+<dd>자원에 대한 컨테이너 관리 사인온의 인증 데이터(사용자 ID 및
+암호로 변환된 문자열 경로)를 지정합니다. 
+<strong>보안</strong> &gt; <strong>JAAS 구성</strong> &gt; <strong>J2C 인증 데이터</strong>에서 정의한
+별명 중에서 선택하십시오.
+<p>선택 목록에 표시되지 않은 새 별명을 정의하는 방법.<ul>
+
+<li>
+<strong>적용</strong>을 클릭하여 관련 항목을 표시합니다.</li>
+
+<li>
+<strong>J2C 인증 데이터 항목</strong>을 클릭합니다.</li>
+
+<li>별명을 정의합니다.</li>
+
+<li>
+<em>J2C 인증 데이터 항목</em> 페이지의 맨 위에서 연결 팩토리를 클릭하여 연결 팩토리 페이지로 리턴합니다.</li>
+
+<li>별명을 선택합니다. </li>
+
+</ul> 
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">선택 목록</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2C_mappingConfigAlias"></a>맵핑 구성 별명</strong>
+</dt>
+<dd>사용자가 <strong>보안</strong> &gt; <strong>JAAS 구성</strong> &gt; <strong>응용프로그램 로그인 구성</strong>
+목록에서 선택하도록 합니다.
+
+<p>
+<strong>DefaultPrincipalMapping</strong>
+ JAAS 구성은 인증 별명을 사용자 ID 및 암호에 맵핑합니다. 
+ 다른 맵핑 구성을 정의하고 사용할 수도 있습니다. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">선택 목록</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>관련 정보</strong>
+</p>
+<a href="rcon_buttons.html">관리 콘솔 단추</a>
+<br>
+
+<a href="rcon_pageusage.html">관리 콘솔 페이지 기능</a>
+<br>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>동적 캐시 서비스 설정</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="udyn_rcachesettings"></a>
+<h2>동적 캐시 서비스 설정</h2>
+
+<p>이 페이지를 참조하여 동적 캐시 서비스 설정을
+구성하고 관리하십시오.</p>
+
+<p>이 관리 콘솔 페이지를 보려면 <strong>서버</strong> &gt; <strong>Application Server</strong>
+&gt; <em>server</em> &gt; <strong>동적 캐시 서비스</strong>를 클릭하십시오.</p>
+
+<div>
+<p>
+<strong>구성 탭</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="DynamicCache__startup_description"></a>시작 상태</strong>
+</dt>
+<dd>동적 캐시의 사용 가능 여부를 지정합니다.</dd>
+<dt>
+<strong><a name="DynamicCache_cacheSize_description"></a>캐시 크기</strong>
+</dt>
+<dd>캐시가 보유하는 최대 항목 수 값에 양의 정수를 지정합니다. 
+<p>이 필드에 100 - 200,000 범위의 캐시 크기값을 입력하십시오. </p>
+
+</dd>
+<dt>
+<strong><a name="DynamicCache_defaultPriority_description"></a>기본 우선순위</strong>
+</dt>
+<dd>항목이 꽉 찬 캐시에 머무는 기간을 판별하는 캐시 항목에 대한 기본 우선순위를 지정합니다. 
+<table border="1" cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base">기본값</td>
+<td align="left" valign="top" class="base">1</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="DynamicCache_enableDiskOffload_description"></a>디스크 오프로드</strong>
+</dt>
+<dd>디스크 오프로드의 사용 가능 여부를 지정합니다.
+<p>기본적으로 동적 캐시는 메모리에 구성되는 항목 수를 유지보수합니다. 캐시가 가득 찬 상태에서
+새 항목이 작성되는 경우 각 캐시 항목에 대해 구성되는 우선순위와 최소한 최근에 사용되는 알고리즘이
+캐시에서 항목을 제거하는 데 사용됩니다. 또는 디스크 오프로드를 구성하여
+메모리에서 항목을 제거하는 대신 나중에 사용하도록 파일 시스템(위치는 구성 가능)에 복사할 수 있습니다.</p>
+
+</dd>
+</dl>
+</div>
+</body>
+</html>

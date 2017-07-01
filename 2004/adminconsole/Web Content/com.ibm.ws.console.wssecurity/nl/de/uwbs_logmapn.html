@@ -1,0 +1,223 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Konfigurationseinstellungen f&uuml;r die Anmeldezuordnung</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_logmapn"></a>
+<h2>
+<img alt="[Release 5.1 und h&ouml;her]" src="v51.gif" border="0">Konfigurationseinstellungen f&uuml;r die Anmeldezuordnung</h2>
+
+<p>Verwenden Sie diese Seite, um die Einstellungen f&uuml;r die JAAS-Anmeldekonfiguration anzugeben, die zum Validieren
+der Sicherheits-Token in eingehenden Nachrichten verwendet werden soll. </p>
+
+<p>Gehen Sie zum Anzeigen dieser Seite der Administrationskonsole wie folgt vor:<ol>
+
+<li>Klicken Sie auf <strong>Server &gt; Anwendungsserver &gt; </strong><em>Servername</em>.</li>
+
+<li>Klicken
+Sie unter "Weitere Merkmale" auf <strong>Web
+Services: Standardbindungen f&uuml;r die Sicherheit von Web &gt; Anmeldezuordnungen &gt; Neu</strong>.</li>
+
+</ol>
+</p>
+
+<dl>
+<dt>
+<strong><a name="sec_logmapauth"></a>Authentifizierungsmethode</strong>
+</dt>
+<dd>Die Methode f&uuml;r die Authentifizierung. 
+<p>Sie k&ouml;nnen jede Zeichenfolge verwenden, aber die Zeichenfolge muss dem Element in der Konfiguration
+auf Serviceebene entsprechen. Die folgenden W&ouml;rter sind reserviert und haben Sonderbedeutungen:
+<dl>
+
+<dt>
+<strong>BasicAuth</strong>
+</dt>
+<dd>Es wird ein Benutzername und ein Kennwort verwendet.</dd>
+<dt>
+<strong>IDAssertion</strong>
+</dt>
+<dd>Es wird nur ein Benutzername verwendet, aber beim Empfangsserver muss durch einen TrustedIDevaluator eine zus&auml;tzliche Vertrauensebene
+eingerichtet werden.</dd>
+<dt>
+<strong>Signature</strong>
+</dt>
+<dd>Es wird der definierte Name (DN, Distinguished Name) des Unterzeichners verwendet.</dd>
+<dt>
+<strong>LTPA</strong>
+</dt>
+<dd>Token validieren</dd>
+</dl>
+</p>
+
+</dd>
+<dt>
+<strong><a name="sec_jaas"></a>Name der JAAS-Konfiguration</strong>
+</dt>
+<dd>Der Name der JAAS-Konfiguration (Java Authentication and Authorization
+Service). 
+<p>Geben Sie Ihre JAAS-Konfigurationen in der Administrationskonsole an. Klicken Sie dazu auf
+<strong>Sicherheit &gt; JAAS-Konfiguration &gt; Anwendung</strong>.</p>
+
+</dd>
+<dt>
+<strong><a name="sec_class"></a>Klassenname der Callback-Handler-Factory</strong>
+</dt>
+<dd>Der Name der Factory f&uuml;r die CallbackHandler-Klasse.
+<p>Sie m&uuml;ssen in diesem Feld die Klasse <samp>com.ibm.wsspi.wssecurity.auth.callback.CallbackHandlerFactory</samp> implementieren.
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">com.ibm.wsspi.wssecurity.auth.callback.CallbackHandlerFactory</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="sec_tokenuri"></a>URI des Token-Typs</strong>
+</dt>
+<dd>Der Namespace-URI, der den Typ der akzeptierten Sicherheits-Token angibt. 
+<p>Wenn bin&auml;re Sicherheits-Token akzeptiert werden, muss der Wert das Attribut
+ValueType im Element enthalten. Das Element ValueType gibt den Typ des Sicherheits-Token und dessen Namespace an. Wenn XML-Token (eXtensible Markup Language) akzeptiert werden, gibt der Wert den Namen des
+Elements der h&ouml;chsten ebene des XML-Token an.
+</p>
+
+<p>Falls im Feld <strong>Authentifizierungsmethode</strong> eines der reservierten W&ouml;rter angegeben wurde, wird dieses Feld ignoriert.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Unicode-Zeichen au&szlig;er Nicht-ASCII-Zeichen, aber einschlie&szlig;lich des Nummernzeichens
+(#), des Prozentzeichens (%) und der eckigen Klammern ([ ]).</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="sec_tokenlname"></a>Lokaler Name des Token-Typs</strong>
+</dt>
+<dd>Der lokale Name f&uuml;r den Typ des Sicherheits-Token, z. B.
+X509v3.
+<p>Wenn bin&auml;re Sicherheits-Token akzeptiert werden, muss der Wert das Attribut
+ValueType im Element enthalten. Das Attribut ValueType gibt den Typ des Sicherheits-Token und dessen
+Namespace an. Wenn XML-Token (eXtensible Markup Language) akzeptiert werden, gibt der Wert den Namen des
+Elements der h&ouml;chsten ebene des XML-Token an.
+</p>
+
+<p>Falls im Feld <strong>Authentifizierungsmethode</strong> eines der reservierten W&ouml;rter angegeben wurde, wird dieses Feld ignoriert.</p>
+
+</dd>
+<dt>
+<strong><a name="sec_lognoncemaxage"></a>Maximale Nonce-Dauer</strong>
+            &nbsp;
+            <img alt="[Release 5.1 und h&ouml;her]" src="v51.gif" border="0"></dt>
+<dd>Verfallsdatum f&uuml;r Nonce-Zeitmarke. Nonce ist ein generierter Zufallswert.
+<p>Sie m&uuml;ssen im Feld <strong>Maximale Nonce-Dauer</strong> einen Mindestwert von 300 Sekunden angeben.
+Der Maximalwert darf jedoch nicht das auf Server- oder Zellenebene angegebene <strong>Cache-Zeitlimit f&uuml;r Nonce</strong> &uuml;berschreiten. Zum Festlegen des Wertes f&uuml;r die <strong>maximale Nonce-Dauer</strong> auf Serverebene
+klicken Sie auf <strong>Server &gt; Anwendungsserver &gt; </strong><em>Servername</em>.
+Klicken Sie unter "Weitere Merkmale" auf <strong>Web Services: Standardbindungen f&uuml;r Web-Services-Sicherheit</strong>.
+Zum Festleegn des Wertes f&uuml;r die <strong>maximale Nonce-Dauer</strong> auf Zellenebene klicken Sie auf
+<strong>Sicherheit &gt; Web Services &gt; Merkmale</strong>. </p>
+
+<p>
+<strong>Wichtige Information:</strong> Das Feld <strong>Maximale Nonce-Dauer</strong> in dieser Anzeige ist optional
+und nur g&uuml;ltig, wenn als Authentifizierungsmethode BasicAuth definiert ist.
+Wenn Sie eine andere Authentifizierungsmethode angeben und versuchen, in diesem Feld einen Wert festzulegen, wird die
+folgende Fehlernachricht angezeigt: <samp>Nonce wird nur f&uuml;r die Authentifizierungsmethode
+BasicAuth unterst&uuml;tzt.</samp> In diesem Fall m&uuml;ssen Sie den angegebenen Wert entfernen. Falls
+Sie BasicAuth angeben, aber im Feld <strong>Maximale Nonce-Dauer</strong> keinen
+Wert festlegen, sucht die Laufzeit der Web-Services-Sicherheit einen Wert f&uuml;r die <strong>maximale Nonce-Dauer</strong> auf
+Serverebene. Sollte auf Serverebene kein Wert definiert sein, sucht die Laufzeit den Wert auf Zellenebene.
+Wird weder auf Server- noch auf Zellenebene ein Wert gefunden, wird der Standardwert von 300 Sekunden verwendet.
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert
+</td>
+<td align="left" valign="top" class="base">300 Sekunden</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">300 Sekunden bis Sekunden des <strong>Cache-Zeitlimits f&uuml;r Nonce</strong> </td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="sec_lognonceclockskew"></a>Zeitliche Abweichung f&uuml;r Nonce</strong>
+            &nbsp;
+            <img alt="[Release 5.1 und h&ouml;her]" src="v51.gif" border="0"></dt>
+<dd>Gibt die zeitliche Abweichung an, die WebSphere Application Server ber&uuml;cksichtigen muss, wenn die Aktualit&auml;t der Nachricht gepr&uuml;ft wird. Nonce ist ein generierter Zufallswert.
+<p>Sie m&uuml;ssen im Feld <strong>Zeitliche Abweichung f&uuml;r Nonce</strong> einen Mindestwert von 0 Sekunden angeben.
+Der Maximalwert darf jedoch nicht die Anzahl der in der Anzeige "Anmeldezuordnungen" im Feld <strong>Maximale Nonce-Dauer</strong> angegebenen Sekunden
+&uuml;berschreiten. </p>
+
+<p>
+<strong>Wichtige Information:</strong> Das Feld <strong>Zeitliche Abweichung f&uuml;r Nonce</strong> in dieser Anzeige ist optional
+und nur g&uuml;ltig, wenn als Authentifizierungsmethode BasicAuth definiert ist.
+Wenn Sie eine andere Authentifizierungsmethode angeben und versuchen, in diesem Feld einen Wert festzulegen, wird die
+folgende Fehlernachricht angezeigt: <samp>Nonce wird nur f&uuml;r die Authentifizierungsmethode
+BasicAuth unterst&uuml;tzt.</samp> In diesem Fall m&uuml;ssen Sie den angegebenen Wert entfernen. Falls
+Sie BasicAuth angeben, aber im Feld <strong>Zeitliche Abweichung f&uuml;r Nonce</strong> keinen
+Wert festlegen, sucht die Laufzeit der Web-Services-Sicherheit einen Wert f&uuml;r die <strong>zeitliche Abweichung f&uuml;r Nonce</strong> auf
+Serverebene. Sollte auf Serverebene kein Wert definiert sein, sucht die Laufzeit den Wert auf Zellenebene.
+Wird weder auf Server- noch auf Zellenebene ein Wert gefunden, wird der Standardwert von 0 Sekunden verwendet.
+
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert
+</td>
+<td align="left" valign="top" class="base">0 Sekunden</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">0 Sekunden bis <strong>Maximale Nonce-Dauer</strong> </td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>Zugeh&ouml;rige Informationen</strong>
+</p>
+<a href="uwbs_logmap.html">Anmeldezuordnungen</a>
+<br>
+
+<a href="uwbs_noncecellprop.html">Nonce-Merkmale auf Zellenebene</a>
+<br>
+
+</div>
+</body>
+</html>

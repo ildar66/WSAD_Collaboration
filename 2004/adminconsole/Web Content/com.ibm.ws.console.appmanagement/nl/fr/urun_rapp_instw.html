@@ -1,0 +1,335 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Param&egrave;tres de pr&eacute;paration &agrave; l'installation de l'application</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="urun_rapp_instw"></a>
+<h2>Param&egrave;tres de pr&eacute;paration &agrave; l'installation de l'application</h2>
+
+<p>Cette page permet d'installer une application (fichier EAR) ou un module (fichier JAR ou WAR).</p>
+
+<p>Pour afficher la page de la console d'administration, s&eacute;lectionnez
+<strong>Applications &gt; Installation d'une nouvelle application</strong>.</p>
+
+<p>Suivez les &eacute;tapes d&eacute;crites dans cette page pour installer une
+application ou un module. Vous devez au moins ex&eacute;cuter la premi&egrave;re &eacute;tape, puis ult&eacute;rieurement
+la totalit&eacute; des &eacute;tapes suivantes ou seulement certaines d'entre
+elles, selon que vous installez une application, un module EJB ou un
+module Web.</p>
+
+<dl>
+<dt>
+<strong><a name="app_deploy_path"></a>Chemin</strong>
+</dt>
+<dd>Indique le chemin d'acc&egrave;s complet au fichier .ear, .jar,
+ou .war pour l'application d'entreprise.
+<p>Utilisez <strong>Chemin d'acc&egrave;s local</strong> si les fichiers d'application
+et du navigateur se trouvent sur la m&ecirc;me machine (que le serveur soit
+ou non &eacute;galement sur cette m&ecirc;me machine).</p>
+
+<p>Utilisez <strong>Chemin d'acc&egrave;s au serveur</strong> si le fichier
+d'application r&eacute;side sur un noeud du contexte de cellule actuel. Vous
+pouvez parcourir le syst&egrave;me de fichiers complet d'un noeud si l'agent
+de noeud ou le gestionnaire de d&eacute;ploiement est en cours d'ex&eacute;cution
+sur le noeud s&eacute;lectionn&eacute;. 
+ Seuls les fichiers .ear, .jar ou .war
+apparaissent pendant l'exploration. </p>
+
+<p>Lors de l'installation de l'application, les fichiers de
+l'application sont t&eacute;l&eacute;charg&eacute;s d'un poste client ex&eacute;cutant un
+navigateur vers le poste serveur ex&eacute;cutant la console
+d'administration afin d'y &ecirc;tre d&eacute;ploy&eacute;s. Dans de tels cas, le
+navigateur Web ex&eacute;cutant la console d'administration est utilis&eacute; pour
+s&eacute;lectionner les modules EAR, WAR ou JAR &agrave; t&eacute;l&eacute;charger sur la machine
+serveur.</p>
+
+<p>Toutefois, dans certains cas, les fichiers d'application se
+trouvent dans le syst&egrave;me de fichiers d'un noeud d'une cellule. Pour
+que le serveur d'applications installe ces fichiers, utilisez
+l'option <strong>Chemin d'acc&egrave;s au serveur</strong>.</p>
+
+<p>Vous pouvez &eacute;galement utiliser cette option pour sp&eacute;cifier un
+fichier d'application r&eacute;sidant d&eacute;j&agrave; sur la machine ex&eacute;cutant le
+serveur d'applications. Par exemple, sous Windows NT, la valeur de la
+zone peut &ecirc;tre <samp>C:\WebSphere\AppServer\installableApps\test.ear</samp>.
+ Si vous installez un module WAR autonome, vous devez &eacute;galement indiquer la racine du contexte.</p>
+
+</dd>
+<dt>
+<strong><a name="app_deploy_contextRoot"></a>Racine du contexte</strong>
+</dt>
+<dd>Sp&eacute;cifie la racine du contexte de l'application Web (WAR).
+<p>Cette zone est utilis&eacute;e uniquement pour installer un fichier WAR autonome.
+ La racine du contexte est combin&eacute;e avec le mappage de
+servlet d&eacute;fini (&agrave; partir du fichier WAR) pour composer l'URL compl&egrave;te
+que les utilisateurs saisissent pour acc&eacute;der au servlet. Par exemple,
+si la racine du contexte est /gettingstarted et que le mappage du
+servlet est MaSession, l'URL est
+<samp>http://host:port/gettingstarted/MaSession</samp>.</p>
+
+</dd>
+<dt>
+<strong><a name="app_deploy_genDefBindings"></a>G&eacute;n&eacute;rer des liaisons par d&eacute;faut</strong>
+</dt>
+<dd>Indique si des liaisons doivent &ecirc;tre g&eacute;n&eacute;r&eacute;es par d&eacute;faut. si vous s&eacute;lectionnez la case, toute liaison incompl&egrave;te dans
+l'application est remplie avec les valeurs par d&eacute;faut. Les liaisons
+existantes ne sont pas modifi&eacute;es.
+<p>En choisissant cette option, vous pouvez passer directement &agrave;
+l'&eacute;tape R&eacute;sum&eacute; et installer l'application si aucune des &eacute;tapes n'est
+marqu&eacute;e d'un ast&eacute;risque (*) de couleur rouge. Ce dernier indique que
+l'&eacute;tape comporte des donn&eacute;es incompl&egrave;tes et qu'une valeur valide doit
+lui &ecirc;tre affect&eacute;e. Dans le panneau R&eacute;sum&eacute;, v&eacute;rifiez la cellule, le
+noeud et le serveur sur lequel l'application va &ecirc;tre install&eacute;e.</p>
+
+<p>Les liaisons sont g&eacute;n&eacute;r&eacute;es comme suit :</p>
+
+<ul>
+
+<li>Les noms JNDI d'EJB g&eacute;n&eacute;r&eacute;s ont la forme suivante :
+<em>pr&eacute;fixe</em>/<em>nom-ejb</em>.
+ Le pr&eacute;fixe par d&eacute;faut
+est <samp>ejb</samp>, mais peut &ecirc;tre remplac&eacute;. Le <em>nom-ejb</em> est
+celui sp&eacute;cifi&eacute; dans la balise <samp>&lt;ejb-name&gt;</samp> des
+descripteurs de d&eacute;ploiement.</li>
+
+<li>Les r&eacute;f&eacute;rences d'EJB sont li&eacute;es comme suit : si &lt;ejb-link&gt;
+est trouv&eacute;, cette balise est respect&eacute;e. Sinon, si un bean enterprise
+unique est d&eacute;tect&eacute; avec une interface home correspondante (ou local home) comme bean r&eacute;f&eacute;renc&eacute;,
+la r&eacute;f&eacute;rence est r&eacute;solue automatiquement.</li>
+
+<li>Les liaisons des r&eacute;f&eacute;rences de ressources sont d&eacute;riv&eacute;es de la balise &lt;res-ref-name&gt;.
+ Pour cette action, il est suppos&eacute; que le nom java:comp/env est
+identique au nom JNDI global de la ressource.</li>
+
+<li>Les liaisons de fabrique de connexions (pour les fichiers JAR EJB
+2.0) sont g&eacute;n&eacute;r&eacute;es en fonction du nom JNDI et des informations d'autorisation
+fournies. Cette action provoque la d&eacute;finition par d&eacute;faut des param&egrave;tres de fabrique de connexions
+pour chaque fichier JAR EJB 2.0 dans l'application en cours d'installation. Aucune liaison de fabrique de connexions au niveau bean n'est g&eacute;n&eacute;r&eacute;e.</li>
+
+<li>Les liaisons de fabrique de source de donn&eacute;es (pour les fichiers
+JAR EJB 1.1) sont g&eacute;n&eacute;r&eacute;es en fonction du nom JNDI et des options de
+mot de passe du nom d'utilisateur de la source de donn&eacute;es. Vous
+obtenez ainsi des param&egrave;tres de source de donn&eacute;es par d&eacute;faut pour
+chaque fichier JAR EJB. Aucune liaison de source de donn&eacute;es n'est
+g&eacute;n&eacute;r&eacute;e au niveau du bean.</li>
+
+<li>Les ports d'&eacute;coute MDB (Message Driven Bean) sont d&eacute;riv&eacute;s de la
+balise MDB &lt;ejb-name&gt; &agrave; laquelle la cha&icirc;ne
+ <samp>Port</samp> est ajout&eacute;e.</li>
+
+<li>Pour les fichiers .war, la valeur <samp>h&ocirc;te_d&eacute;faut</samp> est d&eacute;finie.</li>
+
+</ul>
+
+<p>La strat&eacute;gie par d&eacute;faut est suffisante pour la plupart des
+applications ou au moins pour la plupart des liaisons de la plupart
+des applications. Toutefois, elle ne fonctionne pas si :</p>
+
+<ul>
+
+<li>Vous devez explicitement contr&ocirc;ler les noms JNDI globaux d'un ou
+de plusieurs fichiers EJB.</li>
+
+<li>Vous avez besoin d'un contr&ocirc;le plus pr&eacute;cis des liaisons de
+source de donn&eacute;es pour les CMP. Autrement dit, vous avez plusieurs
+sources de donn&eacute;es et avez besoin de plusieurs sources de donn&eacute;es
+globales.</li>
+
+<li>Vous devez mapper les r&eacute;f&eacute;rences de ressources vers les noms JNDI
+de ressource globale diff&eacute;rents du nom java:comp/env.</li>
+
+</ul>
+
+<p>Dans de tels cas, vous pouvez modifier le comportement avec un
+document XML (strat&eacute;gie personnalis&eacute;e). Utilisez la zone <strong>Fichier
+de liaisons sp&eacute;cifique</strong> pour sp&eacute;cifier une strat&eacute;gie personnalis&eacute;e
+et reportez-vous &agrave; l'aide sur la zone pour obtenir des exemples.</p>
+
+</dd>
+<dt>
+<strong><a name="app_deploy_prefixes"></a>Pr&eacute;fixes</strong>
+</dt>
+<dd>Sp&eacute;cifie les pr&eacute;fixes &agrave; utiliser pour les noms JNDI g&eacute;n&eacute;r&eacute;s.
+
+</dd>
+<dt>
+<strong><a name="app_deploy_override"></a>Remplacer</strong>
+</dt>
+<dd>Indique si les liaisons existantes doivent &ecirc;tre
+ou non remplac&eacute;es.
+<p>Si cette case est coch&eacute;e, les liaisons existantes sont remplac&eacute;es
+par celles qui sont g&eacute;n&eacute;r&eacute;es.</p>
+
+</dd>
+<dt>
+<strong><a name="app_deploy_ejbCmpBindings"></a>Liaisons CMP EJB 1.1</strong>
+</dt>
+<dd>Sp&eacute;cifie le nom JNDI de la source de donn&eacute;es par d&eacute;faut.
+<p>Si le bouton d'option <strong>Liaisons par d&eacute;faut des CMP EJB 1.1</strong>
+est s&eacute;lectionn&eacute;, indiquez le nom JNDI de la source de donn&eacute;es par
+d&eacute;faut devant &ecirc;tre utilis&eacute;e avec les beans CMP 1.1. Sp&eacute;cifiez
+&eacute;galement l'ID utilisateur et le mot de passe pour cette
+source de donn&eacute;es par d&eacute;faut.</p>
+
+</dd>
+<dt>
+<strong><a name="app_deploy_connFacBindings"></a>Liaisons de la fabrique de connexions</strong>
+</dt>
+<dd>Sp&eacute;cifie le nom JNDI de la source de donn&eacute;es par d&eacute;faut.
+<p>Si le bouton d'option <strong>Liaisons de la fabrique de connexions par
+d&eacute;faut</strong> est s&eacute;lectionn&eacute;, indiquez le nom JNDI de la source de
+donn&eacute;es par d&eacute;faut devant &ecirc;tre utilis&eacute;e avec les liaisons.
+ Indiquez
+&eacute;galement l'autorisation de ressource.</p>
+
+</dd>
+<dt>
+<strong><a name="app_deploy_virtualHost"></a>H&ocirc;te virtuel</strong>
+</dt>
+<dd>Indique l'h&ocirc;te virtuel des modules WAR.
+
+</dd>
+<dt>
+<strong><a name="app_deploy_specificBindingsFile"></a>Fichier de liaisons sp&eacute;cifiques</strong>
+</dt>
+<dd>Indique un fichier de liaisons qui remplace la liaison par
+d&eacute;faut.
+<p>Modifiez le comportement de la liaison par d&eacute;faut &agrave; l'aide d'un
+document XML (strat&eacute;gie personnalis&eacute;e <em>aka</em>). Les strat&eacute;gies
+personnalis&eacute;es &eacute;tendent la strat&eacute;gie par  d&eacute;faut de telle sorte que
+vous n'avez qu'&agrave; personnaliser les zones o&ugrave; cette derni&egrave;re est insuffisante.
+ Autrement dit, vous n'avez qu'&agrave; d&eacute;crire comment vous souhaitez
+modifier les liaisons g&eacute;n&eacute;r&eacute;es par la strat&eacute;gie par d&eacute;faut. Il ne
+vous est pas n&eacute;cessaire de d&eacute;finir les liaisons pour l'application
+enti&egrave;re. </p>
+
+<p>Ci-dessous figurent de courts exemples de la proc&eacute;dure de
+remplacement de divers aspects du g&eacute;n&eacute;rateur de liaisons par d&eacute;faut.</p>
+
+<p>
+<strong>Contr&ocirc;le d'un nom JNDI d'EJB</strong> 
+</p>
+
+<pre>&lt;?xml version="1.0"?&gt;
+&lt;!DOCTYPE dfltbndngs SYSTEM "dfltbndngs.dtd"&gt;
+&lt;dfltbndngs&gt;
+  &lt;module-bindings&gt;
+    &lt;ejb-jar-binding&gt;
+      &lt;jar-name&gt;helloEjb.jar&lt;/jar-name&gt;
+&lt;!-- ce nom doit correspondre au nom de module du fichier .ear --&gt;
+      &lt;ejb-bindings&gt;
+        &lt;ejb-binding&gt;
+         &lt;ejb-name&gt;HelloEjb&lt;/ejb-name&gt;
+&lt;!-- ceci doit correspondre &agrave; l'entr&eacute;e &lt;ejb-name&gt; du DD de jar d'EJB --&gt;
+         &lt;jndi-name&gt;com/acme/ejb/HelloHome&lt;/jndi-name&gt;
+        &lt;/ejb-binding&gt;
+      &lt;/ejb-bindings&gt;
+    &lt;/ejb-jar-binding&gt;
+  &lt;/module-bindings&gt;
+&lt;/dfltbndngs&gt;</pre>
+
+<p> 
+<strong>D&eacute;finition de liaison de fabrique de connexions pour un fichier JAR EJB</strong> 
+</p>
+
+<pre>&lt;!DOCTYPE dfltbndngs SYSTEM "dfltbndngs.dtd"&gt;
+&lt;dfltbndngs&gt;
+  &lt;module-bindings&gt;
+    &lt;ejb-jar-binding&gt;
+      &lt;jar-name&gt;yourEjb20.jar&lt;/jar-name&gt;
+      &lt;connection-factory&gt;
+        &lt;jndi-name&gt;eis/jdbc/YourData_CMP&lt;/jndi-name&gt;
+        &lt;res-auth&gt;Container&lt;/res-auth&gt;
+      &lt;/connection-factory&gt;
+    &lt;/ejb-jar-binding&gt;
+  &lt;/module-bindings&gt;
+&lt;/dfltbndngs&gt;</pre>
+
+<p> 
+<strong>D&eacute;finition de la liaison de fabrique de connexion pour un fichier EJB</strong> 
+</p>
+
+<pre>&lt;?xml version="1.0"&gt;
+&lt;!DOCTYPE dfltbndngs SYSTEM "dfltbndngs.dtd"&gt;
+&lt;dfltbndngs&gt;
+  &lt;module-bindings&gt;
+    &lt;ejb-jar-binding&gt;
+      &lt;jar-name&gt;yourEjb20.jar&lt;/jar-name&gt;
+      &lt;ejb-bindings&gt;
+        &lt;ejb-binding&gt;
+          &lt;ejb-name&gt;YourCmp20&lt;/ejb-name&gt;
+&lt;!-- ceci correspond &agrave; la balise ejb-name dans le descripteur de d&eacute;ploiement --&gt;
+          &lt;connection-factory&gt;
+           &lt;jndi-name&gt;eis/jdbc/YourData_CMP&lt;/jndi-name&gt;
+           &lt;res-auth&gt;PerConnFact&lt;/res-auth&gt;
+          &lt;/connection-factory&gt;
+        &lt;/ejb-binding&gt;
+      &lt;/ejb-bindings&gt;
+    &lt;/ejb-jar-binding&gt;
+ &lt;/module-bindings&gt;
+&lt;/dfltbndngs&gt;</pre>
+
+<p> 
+<strong>Remplacement d'une liaison de r&eacute;f&eacute;rence de ressource &agrave; partir d'un
+fichier WAR, JAR EJB ou d'un fichier JAR client J2EE</strong> 
+</p>
+
+<p>Ci-apr&egrave;s figure un exemple de code de remplacement d'une liaison
+de r&eacute;f&eacute;rence de ressource &agrave; partir d'un fichier WAR.
+ Utilisez un code
+similaire pour remplacer une liaison de r&eacute;f&eacute;rence de ressource &agrave;
+partir d'un fichier JAR EJB ou d'un fichier JAR client J2EE.</p>
+
+<pre>&lt;?xml version="1.0"?&gt;
+&lt;!DOCTYPE dfltbndngs SYSTEM "dfltbndngs.dtd"&gt;
+&lt;dfltbndngs&gt;
+  &lt;module-bindings&gt;
+    &lt;war-binding&gt;
+      &lt;jar-name&gt;hello.war&lt;/jar-name&gt;
+      &lt;resource-ref-bindings&gt;
+        &lt;resource-ref-binding&gt;
+          &lt;!-- ce qui suit doit correspondre &agrave; la r&eacute;f&eacute;rence de ressource dans le DD --&gt;
+          &lt;resource-ref-name&gt;jdbc/MyDataSrc&lt;/resource-ref-name&gt;
+          &lt;jndi-name&gt;war/override/dataSource&lt;/jndi-name&gt;
+        &lt;/resource-ref-binding&gt;
+      &lt;/resource-ref-bindings&gt;
+    &lt;/war-binding&gt;
+  &lt;/module-bindings&gt;
+&lt;/dfltbndngs&gt;</pre>
+
+<p> 
+<strong>Remplacement des ports d'&eacute;coute JMS MDB</strong> 
+</p>
+
+<pre>&lt;?xml version="1.0"?&gt;
+&lt;!DOCTYPE dfltbndngs SYSTEM "dfltbndngs.dtd"&gt;
+&lt;dfltbndngs&gt;
+  &lt;module-bindings&gt;
+    &lt;ejb-jar-binding&gt;
+      &lt;jar-name&gt;YourEjbJar.jar&lt;/jar-name&gt;
+      &lt;ejb-bindings&gt;
+        &lt;ejb-binding&gt;
+          &lt;ejb-name&gt;YourMDB&lt;/ejb-name&gt;
+          &lt;listener-port&gt;yourMdbListPort&lt;/listener-port&gt;
+        &lt;/ejb-binding&gt;
+      &lt;/ejb-bindings&gt;
+    &lt;/ejb-jar-binding&gt;
+  &lt;/module-bindings&gt;
+&lt;/dfltbndngs&gt;</pre>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>Informations connexes</strong>
+</p>
+<a href="rcon_buttons.html">Boutons de la console administrative</a>
+<br>
+
+</div>
+</body>
+</html>

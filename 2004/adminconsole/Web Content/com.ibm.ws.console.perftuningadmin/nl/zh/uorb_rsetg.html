@@ -1,0 +1,389 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>管理控制台中的对象请求代理服务设置</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uorbsetg"></a>
+<h2>管理控制台中的对象请求代理服务设置</h2>
+
+<p>使用此页面配置 Java 对象请求代理（ORB）服务。</p>
+
+<p>要查看此管理控制台页面，单击<strong>服务器</strong> <strong>&gt;</strong> <strong>应用程序服务器</strong> <strong>&gt;</strong> <em>服务器名</em> <strong>&gt;</strong> <strong>ORB 服务</strong>。</p>
+
+<p>有几个设置可用于控制内部对象请求代理（ORB）处理。在应用程序包含企业 bean 的情况下，您可使用这些设置改进应用程序性能。您可为缺省服务器或在管理域中配置的任何应用程序服务器更改这些设置。</p>
+
+<div>
+<p>
+<strong>&ldquo;配置&rdquo;选项卡</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="ObjectRequestBroker_requestTimeout_description"></a>请求超时</strong>
+            &nbsp;
+            </dt>
+<dd>指定请求消息超时前等待的秒数。
+<p>对于使用命令行脚本编制，此系统属性的全名为 com.ibm.CORBA.RequestTimeout。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">int</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">单位</td>
+<td align="left" valign="top" class="base">秒</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">180</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">范围</td>
+<td align="left" valign="top" class="base">0 到 300</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ObjectRequestBroker_requestRetriesCount_description"></a>请求重试计数</strong>
+            &nbsp;
+            </dt>
+<dd>指定服务器发生故障时 ORB 尝试发送请求的次数。重试有时会启用从瞬时网络故障的恢复。
+<p>对于使用命令行脚本编制，此系统属性的全名为 com.ibm.CORBA.requestRetriesCount。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">int</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">1</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">范围</td>
+<td align="left" valign="top" class="base">1 到 10</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ObjectRequestBroker_requestRetriesDelay_description"></a>请求重试延迟</strong>
+            &nbsp;
+            </dt>
+<dd>指定请求重试之间的毫秒数。
+<p>对于使用命令行脚本编制，此系统属性的全名为 com.ibm.CORBA.requestRetriesDelay。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">int</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">单位</td>
+<td align="left" valign="top" class="base">毫秒</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">0</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">范围</td>
+<td align="left" valign="top" class="base">0 到 60</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ObjectRequestBroker_connectionCacheMaximum_description"></a>连接高速缓存最大值</strong>
+            &nbsp;
+            </dt>
+<dd>指定允许占用服务的连接高速缓存的最大连接数。如果存在很多并发客户机连接到服务器端 ORB，可增加次参数以支持多个 1000 个客户机的重负载。
+<p>对于使用命令行脚本编制，此系统属性的全名为 com.ibm.CORBA.MaxOpenConnections。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">整型</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">单位</td>
+<td align="left" valign="top" class="base">连接</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">240</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ObjectRequestBroker_connectionCacheMinimum_description"></a>连接高速缓存最小值</strong>
+            &nbsp;
+            </dt>
+<dd>指定允许占用服务的连接高速缓存的最小连接数。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">整型</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">单位</td>
+<td align="left" valign="top" class="base">连接</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">100</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ObjectRequestBroker_commTraceEnabled_description"></a>ORB 跟踪</strong>
+            &nbsp;
+            </dt>
+<dd>启用 ORB GIOP 消息的跟踪。
+<p>这个设置影响两个系统属性：com.ibm.CORBA.Debug 和 com.ibm.CORBA.CommTrace。如果您通过命令行脚本编制设置这些属性，则您必须设置两个都为<samp>真</samp>以启用跟踪 GIOP 消息。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">不启用（<samp>假</samp>）</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ObjectRequestBroker_locateRequestTimeout_description"></a>定位请求超时</strong>
+            &nbsp;
+            </dt>
+<dd>指定请求定位消息超时前等待的秒数。
+<p>对于使用命令行脚本编制，此系统属性的全名为 com.ibm.CORBA.LocateRequestTimeout。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">int</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">单位</td>
+<td align="left" valign="top" class="base">秒</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">180</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">范围</td>
+<td align="left" valign="top" class="base">0 到 300</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ObjectRequestBroker_forceTunnel_description"></a>强制通道</strong>
+            &nbsp;
+            </dt>
+<dd>控制客户机 ORB 如何尝试使用 HTTP 通道穿越。
+<p>对于直接访问，此属性的全名为 com.ibm.CORBA.ForceTunnel。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base"><samp>NEVER</samp></td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">范围</td>
+<td align="left" valign="top" class="base">有效值是<samp>总是</samp>、<samp>从不</samp>或<samp>请求时</samp>。</td>
+
+</tr>
+
+</table>
+
+<p>关于有效值的其它信息如下所示：<dl>
+
+<dt>
+<strong>总是</strong>
+</dt>
+<dd>不尝试 TCP 连接，立即使用 HTTP 隧道穿越。</dd>
+
+<dt>
+<strong>从不</strong>
+</dt>
+<dd>禁用 HTTP 隧道穿越。如果 TCP 连接失败，则抛出 CORBA 系统异常（COMM_FAILURE）。</dd>
+
+<dt>
+<strong>请求时</strong>
+</dt>
+<dd>TCP 连接失败时使用 HTTP 通道穿越。</dd>
+
+</dl>
+</p>
+
+</dd>
+<dt>
+<strong><a name="ObjectRequestBroker_tunnelAgentURL_description"></a>隧道代理程序 URL</strong>
+            &nbsp;
+            </dt>
+<dd>用于支持 HTTP 通道穿越的 servlet 的 URL。
+<p>必须是正确格式的 URL，如 <samp>http://w3.mycorp.com:81/servlet/com.ibm.CORBA.services.IIOPTunnelServlet</samp> 或，对于 applet，<samp>http://applethost:port/servlet/com.ibm.CORBA.services.IIOPTunnelServlet</samp>。
+如果设置了 <strong>HTTP 隧道穿越</strong>，此字段是必需的。</p>
+
+<p>对于使用命令行脚本编制，此系统属性的全名为 com.ibm.CORBA.TunnelAgentURL。</p>
+
+</dd>
+<dt>
+<strong><a name="ObjectRequestBroker_noLocalCopies_description"></a>按引用传递</strong>
+            &nbsp;
+            </dt>
+<dd>指定 ORB 如何传递参数。如果已启用，ORB 通过引用而不是值传递参数，这避免了制作对象副本。如果您未启用按引用传递，完成每个远程方法调用前参数可复制到堆栈，这可能是昂贵的。
+<p>如果 EJB 客户机和 EJB 服务器安装在相同的 WebSphere Application Server 实例上，客户机和服务器使用远程接口，启用按引用传递可以改进性能多达 50%。仅当非原语对象类型作为参数传递时，按引用传递才有助于性能。因此，整型和浮点总是复制，无论调用模型是什么。</p>
+
+<p>启用此属性要特别注意，因为可能发生意外行为。如果对象引用由远程方法修改，则调用者可能更改。</p>
+
+<p>对于使用命令行脚本编制，此系统属性的全名为 com.ibm.CORBA.iiop.noLocalCopies。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">未启用（false）</td>
+
+</tr>
+
+</table>
+
+<p>此选项对于带有远程接口的企业 bean 的使用违反 EJB 规范 V2.0（请参阅 5.4 节）。不复制传递到 EJB 方法或 EJB 起始对象方法的对象引用，并且可能导致破坏。</p>
+
+<p>考虑以下示例：<pre>Iterator iterator = collection.iterator();
+MyPrimaryKey pk = new MyPrimaryKey();
+while (iterator.hasNext()) {
+   pk.id = (String) iterator.next();
+   MyEJB myEJB = myEJBHome.findByPrimaryKey(pk);
+}</pre>
+</p>
+
+<p>本示例中，对相同 MyPrimaryKey 对象的引用每次都传递到有不同标识值的 WebSphere Application Server。<samp>启用</samp>按引用传递运行此代码导致应用程序服务器内的问题，这是因为多个企业 bean 正在引用相同的 MyPrimaryKey 对象。要避免发生此问题，当启用按引用传递时设置系统属性 com.ibm.websphere.ejbcontainer.allowPrimaryKeyMutation 为 <samp>true</samp>。将按引用传递设置为 <samp>true</samp> 导致 EJB 容器制作 PrimaryKeycauses 对象的本地副本。但结果是会丢失一小部分按引用传递的设置的性能优势。</p>
+
+<p>作为一般规则，作为参数传递到企业 bean 方法或 EJB 起始对象方法的对象引用的任何应用程序代码必须仔细检查，以确定传递该对象引用是否会导致损失数据完整性或其它问题。</p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>相关信息</strong>
+</p>
+<a href="rcon_buttons.html">管理控制台按钮</a>
+<br>
+
+<a href="uejb_rthrd.html">线程池设置</a>
+<br>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Java 인증 권한 서비스 로그인 모듈 설정</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecjaaslogin"></a>
+<h2>Java 인증 권한 서비스 로그인 모듈 설정</h2>
+
+<p>이 페이지를 참조하여 JAAS(Java Authentication Authorization
+Service) 로그인 구성의 로그인 모듈을 정의하십시오.</p>
+
+<p>이 관리 페이지를 보려면 <strong>보안</strong> &gt; <strong>JAAS 구성</strong> &gt; <strong>응용프로그램
+로그인</strong> &gt; <em>alias_name</em> &gt; <strong>JAAS 로그인 모듈</strong>을 클릭하십시오.</p>
+
+<div>
+<p>
+<strong>구성 탭</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="JAASLoginModule_moduleClassName_description"></a>모듈 클래스 이름</strong>
+</dt>
+<dd>해당 로그인 모듈의 클래스 이름을 지정합니다.
+<p>WebSphere 제품에서 정의하는 기본 로그인 모듈은 프록시 LoginModule 클래스,
+com.ibm.ws.security.common.auth.module.WSLoginModuleProxy를 사용합니다.
+이 프록시 클래스는 스레드 컨텍스트 클래스 로더를 사용하여 WebSphere
+로그인 모듈를 로드하며 모든 조작을 <em>실제</em> 로그인 모듈 구현에
+위임합니다. 실제 로그인 모듈 구현은
+옵션 구성에서 전달 옵션으로 지정됩니다. 개발자 킷 응용프로그램
+클래스 로더는 WebSphere 제품 클래스 로더를 볼 수 없으므로 프록시
+클래스가 필요합니다.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형:</td>
+<td align="left" valign="top" class="base">문자열</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JAASLoginModule_authenticationStrategy_description"></a>인증 계획</strong>
+</dt>
+<dd>인증이 로그인 모듈의 스택 아래로 진행하면서 인증 작동을 지정합니다.
+<p>JAAS 인증 프로바이더는 인증 전략을 제공합니다. JAAS에서 인증 계획은
+LoginModule 인터페이스를 통해 구현됩니다.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형:</td>
+<td align="left" valign="top" class="base">문자열</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">기본값:</td>
+<td align="left" valign="top" class="base">필요</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">범위:</td>
+<td align="left" valign="top" class="base">필수, 전제 조건, 충분 조건 및 선택적</td>
+
+</tr>
+
+</table>
+
+<p>
+<strong>옵션 추가 등록 정보</strong>에서 추가 옵션을 지정하십시오.이름 및 값 쌍이
+초기화 동안 로그인 모듈에 전달됩니다.
+이것은 로그인 모듈에 정보를 전달하는 데 사용되는 메커니즘 중 하나입니다.
+</p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>관련 정보</strong>
+</p>
+<a href="rcon_buttons.html">관리 콘솔 단추</a>
+<br>
+
+<a href="rcon_pageusage.html">관리 콘솔 페이지 기능</a>
+<br>
+
+<a href="rcon_scope.html">관리 콘솔 범위 설정</a>
+<br>
+
+<a href="rcon_filter.html">관리 콘솔 필터 설정</a>
+<br>
+
+<a href="rcon_preferences.html">관리 콘솔 환경 설정</a>
+<br>
+
+</div>
+</body>
+</html>

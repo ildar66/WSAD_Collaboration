@@ -1,0 +1,383 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>安全套接字层设置</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecssl"></a>
+<h2>安全套接字层设置</h2>
+
+<p>使用此页面配置服务器的安全套接字层（SSL）设置。</p>
+
+<p>要查看此管理控制台页面，单击<strong>安全性&gt; SSL &gt; </strong><em>alias_name</em>。</p>
+
+
+
+
+<div>
+<p>
+<strong>&ldquo;配置&rdquo;选项卡</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="Security_defaultSSLSettings_description"></a>别名</strong>
+</dt>
+<dd>指定特定 SSL 设置的名称
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型：</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecureSocketLayer_keyFileName_description"></a>密钥文件名</strong>
+</dt>
+<dd>指定到包含公用密钥及专用密钥的 SSL 密钥文件的全限定路径。
+
+
+<p>您可以使用密钥管理实用程序创建 SSL 密钥文件，或者此文件可以与硬件设备相对应（如果有一个可用设备的话）。无论在哪种情况下，此选项都表明了个人证书以及签署者证书的源，除非指定信任文件。缺省 SSL 密钥文件 <samp>DummyClientKeyFile.jks</samp> 或 <samp>DummyServerKeyFile.jks</samp> 包含 2005 年 3 月 17 日到期的自签署个人测试证书。测试证书仅用于测试环境。缺省 SSL 密钥文件决不应该在生产环境中使用，因为在所有 WebSphere Application Server 安装上，专用密钥都是相同的。请参阅信息中心的管理证书一文，以获取关于创建和管理您的 WebSphere Application Server 域的数字证书的信息。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型：</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecureSocketLayer_keyFilePassword_description"></a>密钥文件密码</strong>
+</dt>
+<dd>指定用于访问 SSL 密钥文件的密码。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型：</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecureSocketLayer_keyFileFormat_description"></a>密钥文件格式
+</strong>
+</dt>
+<dd>指定 SSL 密钥文件的格式。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型：</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省：</td>
+<td align="left" valign="top" class="base">JKS</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">范围：</td>
+<td align="left" valign="top" class="base">JKS、JCEK、PKCS12</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecureSocketLayer_trustFileName_description"></a>信任文件名
+</strong>
+</dt>
+<dd>指定到包含公用密钥的信任文件的全限定路径。
+
+
+<p>您可以使用 WebSphere <em>bin</em> 目录中包含的密钥管理实用程序来创建信任文件。从 Global Security Kit（GSKit）（另一个 SSL 实现）使用密钥管理实用程序不能与 Java 安全套接字扩展（JSSE）实现一起工作。</p>
+
+<p>与 SSL 密钥文件不同，它不引用个人证书；仅检索签署者证书。缺省 SSL 信任文件 <samp>DummyClientTrustFile.jks</samp> 和 <samp>DummyServerTrustFile.jks</samp> 包含多个测试公用密钥，作为可到期的签署者证书。WebSphere Application Server V4.0 测试证书的公用密钥于 2004 年 1 月 15 日到期，WebSphere Application Server V5 测试证书和 WebSphere Application Server CORBA C++ 客户机的公用密钥于 2005 年 3 月 17 日到期。测试证书仅用于测试环境。</p>
+
+<p>如果未指定信任文件，但指定了 SSL 密钥文件，则 SSL 密钥文件将用于检索签署者证书和个人证书。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型：</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecureSocketLayer_trustFilePassword_description"></a>信任文件密码
+</strong>
+</dt>
+<dd>指定用于访问 SSL 信任文件的密码。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型：</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecureSocketLayer_trustFileFormat_description"></a>信任文件格式</strong>
+</dt>
+<dd>指定 SSL 信任文件的格式。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型：</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省：</td>
+<td align="left" valign="top" class="base">JKS</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">范围：</td>
+<td align="left" valign="top" class="base">JKS、JCEK、PKCS12</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecureSocketLayer_clientAuthentication_description"></a>客户机认证</strong>
+</dt>
+<dd>连接时指定是否为认证从客户机请求证书。
+<p>仅当 Web 容器 HTTP 传输使用此属性时，它才有效。 使用因特网 ORB 间协议（IIOP）（对 EJB 请求）执行客户机认证时，您必须在管理控制台左边的导航窗格中单击<strong>安全性</strong> &gt; <strong>认证协议</strong> &gt; <strong>CSIv2 入站</strong>或<strong>出站认证</strong>。单击 <strong>SSL 客户机证书认证</strong>，为这些请求启用它。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型：</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省：</td>
+<td align="left" valign="top" class="base">禁用的</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">范围：</td>
+<td align="left" valign="top" class="base">启用的或禁用的</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecureSocketLayer_securityLevel_description"></a>安全级别</strong>
+</dt>
+<dd>指定服务器是否在安全性级别的预配置集中选择。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型：</td>
+<td align="left" valign="top" class="base">有效值包含 <strong>Low</strong>、<strong>Medium</strong> 或 <strong>High</strong>。<ul>
+
+<li>LOW 仅指定数字签名密码（未加密）</li>
+
+<li>MEDIUM 仅指定 40 位密码（包含数字签名）</li>
+
+<li>HIGH 仅指定 128 位密码（包含数字签名）。</li>
+
+</ul>
+<p>要指定所有密码或任何特定范围，您可以设置属性 <strong>com.ibm.ssl.enabledCipherSuites</strong>。</p>
+<p>请参阅信息中心中的 SSL 文档。</p>
+</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省：</td>
+<td align="left" valign="top" class="base">高</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">范围：</td>
+<td align="left" valign="top" class="base">Low、Medium 或 High</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SSLConfig_cipherSuites_description"></a>密码套件</strong>
+</dt>
+<dd>指定支持的密码套件列表，您可以从中选择在 SSL 握手期间使用的密码套件。如果您在此处个别地选择密码套件，那么您覆盖那些在&ldquo;安全性级别&rdquo;字段中设置的密码套件。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型：</td>
+<td align="left" valign="top" class="base"> </td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省：</td>
+<td align="left" valign="top" class="base"></td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">范围：</td>
+<td align="left" valign="top" class="base"></td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecureSocketLayer_enableCryptoHardwareSupport_description"></a>加密令牌</strong>
+</dt>
+<dd>指定服务器是启用还是禁用加密硬件和软件支持。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型：</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省：</td>
+<td align="left" valign="top" class="base">禁用的</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">范围：</td>
+<td align="left" valign="top" class="base">启用的或禁用的</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SystemSecureSocketLayer_provider"></a>提供程序</strong>
+            &nbsp;
+            <img alt="[Fix Pack 5.0.2 and later]" src="v502.gif" border="0"></dt>
+<dd>是指提供 Java 安全性 API 的密码术方面的子集的具体实现的软件包。
+<p> 如果您选择第一个按钮，则从菜单选择提供程序。WebSphere Application Server 具有下列预定义的提供程序：<strong>IBMJSSE</strong> 和 <strong>IBMJSSEFIPS</strong>。<strong>IBMJSSEFIPS</strong> 是联邦信息处理标准（FIPS）核准版本的 IBMJSSE 提供程序。如果您选择第二个按钮，则输入定制提供程序。
+对于定制提供程序，您首先必须在&ldquo;其它属性&rdquo;下通过<strong>定制属性</strong>输入 Cipher Suites。Cipher Suites 和协议值取决于提供程序。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">整型</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">100</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">范围</td>
+<td align="left" valign="top" class="base">1 到 86400</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SystemSecureSocketLayer_protocol"></a>协议</strong>
+            &nbsp;
+            <img alt="[Fix Pack 5.0.2 and later]" src="v502.gif" border="0"></dt>
+<dd>指定使用的 SSL 协议。
+<p>如果您使用 FIPS 核准的 JSSE（如 IBMJSSEFIPS），您必须选择 TLS 协议。因为 FIPS 核准的 JSSE 不是向后兼容的，所以使用 TLS 协议的服务器无法与使用 SSL 协议的客户机进行通信。</p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>相关信息</strong>
+</p>
+<a href="rcon_buttons.html">管理控制台按钮</a>
+<br>
+
+<a href="rcon_pageusage.html">管理控制台页面功能</a>
+<br>
+
+<a href="rcon_scope.html">管理控制台作用域设置</a>
+<br>
+
+<a href="rcon_filter.html">管理控制台过滤器设置</a>
+<br>
+
+<a href="rcon_preferences.html">管理控制台首选项设置</a>
+<br>
+
+<a href="usec_rassl.html">定制属性的安全套接字层设置</a>
+<br>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,314 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>엔터프라이즈 응용프로그램 설정</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="urun_rapp_inst"></a>
+<h2>엔터프라이즈 응용프로그램 설정</h2>
+
+<p>이 페이지를 참조하여 엔터프라이즈 응용프로그램을 구성하십시오.</p>
+
+<p>이 관리 콘솔 페이지를 보려면 <strong>응용프로그램 &gt; 엔터프라이즈 응용프로그램&gt;
+</strong><em>application_name</em>을 클릭하십시오.</p>
+
+<div>
+<p>
+<strong>구성 탭</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="ApplicationDeployment_name_description"></a>이름</strong>
+</dt>
+<dd>응용프로그램에 대한 논리 이름을 지정합니다.  응용프로그램
+이름은 셀 내에서 고유해야 하며 오브젝트 이름에서 허용되지 않는 문자를 포함할
+수 없습니다.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">문자열</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationDeployment_startingWeight_description"></a>시작 가중치</strong>
+</dt>
+<dd>서버가 시작할 때 응용프로그램을 시작할 순서를 지정합니다. 가장 낮은 시작 비중이 있는 응용프로그램이 먼저 시작합니다.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">정수</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">기본값</td>
+<td align="left" valign="top" class="base">1</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">범위</td>
+<td align="left" valign="top" class="base">0 - 100</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationDeployment_binariesURL_description"></a>응용프로그램 아카이브</strong>
+</dt>
+<dd>응용프로그램 EAR 파일을 설치할 디렉토리를 지정합니다.
+ 기본값은 APP_INSTALL_ROOT/ <em>cell_name</em>의 값입니다. 여기서 APP_INSTALL_ROOT 변수는
+<em>install_root</em>/installedApps;(예:
+ C:\WebSphere\AppServer\installedApps\<em>cell_name</em>)입니다. 
+<p>절대 경로를 지정하거나 pathmap 변수(예: ${MY_APPS})를 사용할 수 있습니다.
+ , 어떤 설치에나현재 셀 이름을 선언하는
+WebSphere Application Server 변수 ${CELL}은 pathmap 변수 내에 있을 수도
+있습니다(예: ${MY_APP}/${CELL}.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">문자열</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">
+단위</td>
+<td align="left" valign="top" class="base">전체 경로 이름</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationDeployment_useMetadataFromBinaries_description"></a>2진의 메타데이터 사용</strong>
+</dt>
+<dd>Application Server가 응용프로그램 전개 문서, deployment.xml 파일(기본값)
+ 또는 엔터프라이즈 응용프로그램의 EAR 파일에 있는 바인딩, 확장자 및 전개 설명자를 사용할지
+ 여부를 지정합니다.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">부울</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">기본값</td>
+<td align="left" valign="top" class="base">true</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationDeployment_enableDistribution_description"></a>분배 사용 가능</strong>
+</dt>
+<dd>WebSphere Application Server가 설치 목적지에서 응용프로그램 아카이브를 펼치거나
+삭제하는지 여부를 지정합니다. 기본값은 응용프로그램 분배를 사용 가능하게 하는 것입니다.
+ 설치된 응용프로그램에 대한 응용프로그램 아카이브는 지정된 디렉토리로
+펼쳐집니다. 2진은 또한 구성 변경사항 설치 제거 및 저장 시
+삭제됩니다. 이 옵션을 사용 불가능하게 하는 경우, 응용프로그램이
+실행되는 모든 노드의 목적지 디렉토리에 응용프로그램 아카이브가 올바르게
+펼쳐졌는지 확인해야 합니다.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">부울</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">기본값</td>
+<td align="left" valign="top" class="base">true</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationDeployment_classloaderMode_description"></a>클래스 로더 모드</strong>
+</dt>
+<dd>클래스를 로드하기 위해 클래스 로더가 첫 번째로 상위 클래스 로더 또는
+응용프로그램 클래스 로더에서 검색하는지 여부를 지정합니다. JDK 클래스 로더 및
+WebSphere Application Server 클래스 로더에 대한 표준은 PARENT_FIRST입니다.
+PARENT_LAST를 지정하면
+응용프로그램이 상위 클래스 로더에 들어 있는 클래스를 대체할 수 있지만 이 조치는
+대체 클래스와 비 대체 클래스를 혼합하여 사용한 경우 ClassCastException 또는
+LinkageErrors를 유발할 수 있습니다.
+<p>옵션은 PARENT_FIRST 및 PARENT_LAST입니다.기본값은 클래스를 로드하기 위해
+ 응용프로그램 클래스 로더를 검색하기 전에 상위 클래스 로더에서 검색하는 것입니다.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">문자열</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">기본값</td>
+<td align="left" valign="top" class="base">PARENT_FIRST</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationDeployment_warClassloaderPolicy_description"></a>WAR 클래스 로더 정책</strong>
+</dt>
+<dd>이 응용프로그램의 모든 WAR 파일을 로드하기 위해 단일 클래스 로더를 사용할지
+아니면 각 WAR 파일에 대해 상이한 클래스 로더를 사용할지 여부를 지정합니다.
+<p>옵션은 APPLICATION 및 MODULE입니다. 기본값은 별도의 클래스 로더를 사용하여 각 WAR 파일을 로드하는 것입니다.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">문자열</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">기본값</td>
+<td align="left" valign="top" class="base">MODULE</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationDeployment_createMBeansForResource"></a>자원에 대한 MBean 작성</strong>
+</dt>
+<dd>다양한 자원(Servlet 또는 JSP 파일)에 대한 MBean 파일을 응용프로그램에 작성 여부를 저정합니다.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">부울</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">기본값</td>
+<td align="left" valign="top" class="base">true</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationDeployment_enableClassReloading"></a>재로드 사용 가능</strong>
+</dt>
+<dd>응용프로그램 파일이 갱신될 때 클래스 재로드 사용 가능 여부를 지정합니다.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">부울</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">기본값</td>
+<td align="left" valign="top" class="base">true</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationDeployment_reloadInterval"></a>재로드 간격</strong>
+</dt>
+<dd>갱신된 파일에 대한 응용프로그램 파일 시스템 스캔 시간(초)을 지정합니다. 기본값은 EAR 파일의
+IBM 확장(META-INF/ibm-application-ext.xmi) 파일 내 재로드 간격 속성 값입니다. 이 설정은
+클래스 재로드를 사용할 수 있는 경우에만 유효합니다.
+<p>여기서 지정한 재로드 간격은 EAR 파일의 각 모듈에 대한 IBM 확장에서
+지정한 값을 대체합니다. 이 값은 다시 EAR 파일 내 응용프로그램에 대한 IBM
+확장에서 지정한 재로드 간격을 대체합니다. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">정수</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">
+단위</td>
+<td align="left" valign="top" class="base">초</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>관련 정보</strong>
+</p>
+<a href="rcon_buttons.html">관리 콘솔 단추</a>
+<br>
+
+<a href="rcon_pageusage.html">관리 콘솔 페이지 기능</a>
+<br>
+
+<a href="udat_nestjcaconfac.html">커넥터 모듈 콜렉션</a>
+<br>
+
+<a href="ucws_rlibref.html">라이브러리 참조 콜렉션</a>
+<br>
+
+<a href="uweb_rwebmc.html">웹 모듈 설정</a>
+<br>
+
+</div>
+</body>
+</html>

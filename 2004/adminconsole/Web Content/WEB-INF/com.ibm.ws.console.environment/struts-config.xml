@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.0//EN"
+                               "http://jakarta.apache.org/struts/dtds/struts-config_1_0.dtd">
+<struts-config>
+    <form-beans>
+        <form-bean name="com.ibm.ws.console.environment.VirtualHostCollectionForm" type="com.ibm.ws.console.environment.virtualhost.VirtualHostCollectionForm"/>
+        <form-bean name="com.ibm.ws.console.environment.VirtualHostDetailForm" type="com.ibm.ws.console.environment.virtualhost.VirtualHostDetailForm"/>
+        <form-bean name="com.ibm.ws.console.environment.MimeEntryCollectionForm" type="com.ibm.ws.console.environment.virtualhost.MimeEntryCollectionForm"/>
+        <form-bean name="com.ibm.ws.console.environment.MimeEntryDetailForm" type="com.ibm.ws.console.environment.virtualhost.MimeEntryDetailForm"/>
+        <form-bean name="com.ibm.ws.console.environment.HostAliasCollectionForm" type="com.ibm.ws.console.environment.virtualhost.HostAliasCollectionForm"/>
+        <form-bean name="com.ibm.ws.console.environment.HostAliasDetailForm" type="com.ibm.ws.console.environment.virtualhost.HostAliasDetailForm"/>
+        <form-bean name="com.ibm.ws.console.environment.VariableSubstitutionEntryCollectionForm" type="com.ibm.ws.console.environment.variables.VariableSubstitutionEntryCollectionForm"/>
+        <form-bean name="com.ibm.ws.console.environment.VariableSubstitutionEntryDetailForm" type="com.ibm.ws.console.environment.variables.VariableSubstitutionEntryDetailForm"/>
+        <form-bean name="com.ibm.ws.console.environment.NameSpaceBindingCollectionForm" type="com.ibm.ws.console.environment.namebindings.NameSpaceBindingCollectionForm"/>
+        <form-bean name="com.ibm.ws.console.environment.CORBAObjectNameSpaceBindingDetailForm" type="com.ibm.ws.console.environment.namebindings.CORBAObjectNameSpaceBindingDetailForm"/>
+        <form-bean name="com.ibm.ws.console.environment.EjbNameSpaceBindingDetailForm" type="com.ibm.ws.console.environment.namebindings.EjbNameSpaceBindingDetailForm"/>
+        <form-bean name="com.ibm.ws.console.environment.IndirectLookupNameSpaceBindingDetailForm" type="com.ibm.ws.console.environment.namebindings.IndirectLookupNameSpaceBindingDetailForm"/>
+        <form-bean name="com.ibm.ws.console.environment.StringNameSpaceBindingDetailForm" type="com.ibm.ws.console.environment.namebindings.StringNameSpaceBindingDetailForm"/>
+        <form-bean name="com.ibm.ws.console.environment.LibraryCollectionForm" type="com.ibm.ws.console.environment.libraries.LibraryCollectionForm"/>
+        <form-bean name="com.ibm.ws.console.environment.LibraryDetailForm" type="com.ibm.ws.console.environment.libraries.LibraryDetailForm"/>
+        
+        <form-bean name="com.ibm.ws.console.environment.CellDetailForm" type="com.ibm.ws.console.environment.topology.CellDetailForm"/>
+        <form-bean name="com.ibm.ws.console.environment.NodeCollectionForm" type="com.ibm.ws.console.environment.topology.NodeCollectionForm"/>
+        <form-bean name="com.ibm.ws.console.environment.NodeDetailForm" type="com.ibm.ws.console.environment.topology.NodeDetailForm"/>
+        <form-bean name="com.ibm.ws.console.environment.AddNodeForm" type="com.ibm.ws.console.environment.topology.AddNodeForm"/>        
+        <form-bean name="com.ibm.ws.console.environment.PluginCfgForm" type="com.ibm.ws.console.environment.plugincfg.PluginCfgForm"/>
+        <form-bean name="com.ibm.ws.console.environment.ClassloaderCollectionForm" type="com.ibm.ws.console.environment.classloader.ClassloaderCollectionForm"/>
+        <form-bean name="com.ibm.ws.console.environment.ClassloaderDetailForm" type="com.ibm.ws.console.environment.classloader.ClassloaderDetailForm"/>
+    </form-beans>
+    <global-forwards>
+        <forward name="NameSpaceBinding.new.step1"          path="NameSpaceBinding.new.step1"/>
+        <forward name="NameSpaceBinding.new.step2.ejb"      path="NameSpaceBinding.new.step2.ejb"/>
+        <forward name="NameSpaceBinding.new.step2.corba"    path="NameSpaceBinding.new.step2.corba"/>
+        <forward name="NameSpaceBinding.new.step2.indirect" path="NameSpaceBinding.new.step2.indirect"/>
+        <forward name="NameSpaceBinding.new.step2.string"   path="NameSpaceBinding.new.step2.string"/>
+        <forward name="NameSpaceBinding.new.step3"          path="NameSpaceBinding.new.step3"/>
+        <forward name="NameSpaceBinding.new.cancel"         path="NameSpaceBinding.content.main"/>
+        <forward name="NameSpaceBinding.content.main"       path="com.ibm.ws.console.environment.forwardCmd.do?forwardName=NameSpaceBinding.content.main"/>
+    </global-forwards>
+    <action-mappings>
+
+        <action name="NameSpaceBindingBindingTypeForm"
+                path="/nameSpaceBindingBindingType"
+                type="com.ibm.ws.console.environment.namebindings.wizard.NameSpaceBindingBindingTypeAction"/>
+
+        <action name="NameSpaceBindingBasicPropertiesEjbForm"
+                path="/nameSpaceBindingBasicPropertiesEjb"
+                type="com.ibm.ws.console.environment.namebindings.wizard.NameSpaceBindingBasicPropertiesEjbAction"/>
+
+        <action name="NameSpaceBindingBasicPropertiesCorbaForm"
+                path="/nameSpaceBindingBasicPropertiesCorba"
+                type="com.ibm.ws.console.environment.namebindings.wizard.NameSpaceBindingBasicPropertiesCorbaAction"/>
+
+        <action name="NameSpaceBindingBasicPropertiesIndirectForm"
+                path="/nameSpaceBindingBasicPropertiesIndirect"
+                type="com.ibm.ws.console.environment.namebindings.wizard.NameSpaceBindingBasicPropertiesIndirectAction"/>
+
+        <action name="NameSpaceBindingBasicPropertiesStringForm"
+                path="/nameSpaceBindingBasicPropertiesString"
+                type="com.ibm.ws.console.environment.namebindings.wizard.NameSpaceBindingBasicPropertiesStringAction"/>
+
+        <action name="NameSpaceBindingSummaryForm"
+                path="/nameSpaceBindingSummary"
+                type="com.ibm.ws.console.environment.namebindings.wizard.NameSpaceBindingSummaryAction"/>
+
+        <action name="com.ibm.ws.console.environment.PluginCfgForm" path="/pluginCfg" type="com.ibm.ws.console.environment.plugincfg.PluginCfgAction">
+          <forward name="success" path="plugincfg"/>
+        </action>
+
+        <action path="/com.ibm.ws.console.environment.forwardCmd" 
+                type="com.ibm.ws.console.core.action.ForwardAction">
+           <forward name="VirtualHost.content.main" path="VirtualHost.content.main"/>
+           <forward name="MimeEntry.content.main" path="MimeEntry.content.main"/>
+           <forward name="HostAlias.content.main" path="HostAlias.content.main"/>
+           <forward name="VariableSubstitutionEntry.content.main" path="VariableSubstitutionEntry.content.main"/>
+           <forward name="NameSpaceBinding.content.main" path="NameSpaceBinding.content.main"/>
+           <forward name="CORBAObjectNameSpaceBinding.config.view" path="CORBAObjectNameSpaceBinding.config.view"/>
+           <forward name="EjbNameSpaceBinding.config.view" path="EjbNameSpaceBinding.config.view"/>
+           <forward name="IndirectLookupNameSpaceBinding.config.view" path="IndirectLookupNameSpaceBinding.config.view"/>
+           <forward name="StringNameSpaceBinding.config.view" path="StringNameSpaceBinding.config.view"/>
+           <forward name="NameSpaceBinding.content.main" path="NameSpaceBinding.content.main"/>
+           
+           <forward name="ForeignCell.content.main" path="ForeignCell.content.main"/>
+           <forward name="Property.content.main" path="Property.content.main"/>
+           <forward name="Library.content.main" path="Library.content.main"/>
+           <forward name="Node.content.main" path="Node.content.main"/>            
+           <forward name="Classloader.content.main" path="Classloader.content.main"/>
+     </action>
+
+	
+	<action name="com.ibm.ws.console.environment.VirtualHostCollectionForm"
+                path="/virtualHostCollection"
+                type="com.ibm.ws.console.environment.virtualhost.VirtualHostCollectionAction">
+            <forward name="success" path="VirtualHost.config.view"/>
+            <forward name="virtualHostCollection" path="VirtualHost.content.main"/>
+        </action>
+        <action name="com.ibm.ws.console.environment.VirtualHostDetailForm"
+                path="/virtualHostDetail" 
+                input="VirtualHost.config.view"
+                type="com.ibm.ws.console.environment.virtualhost.VirtualHostDetailAction">
+            <forward name="error" path="VirtualHost.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.environment.forwardCmd.do?forwardName=VirtualHost.content.main"/>
+        </action>
+        <action name="com.ibm.ws.console.environment.MimeEntryCollectionForm"
+                path="/mimeEntryCollection"
+                type="com.ibm.ws.console.environment.virtualhost.MimeEntryCollectionAction">
+            <forward name="success" path="MimeEntry.config.view"/>
+            <forward name="mimeEntryCollection" path="MimeEntry.content.main"/>
+        </action>
+        <action name="com.ibm.ws.console.environment.MimeEntryDetailForm" 
+                path="/mimeEntryDetail" 
+                input="MimeEntry.config.view"
+                type="com.ibm.ws.console.environment.virtualhost.MimeEntryDetailAction">
+            <forward name="error" path="MimeEntry.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.environment.forwardCmd.do?forwardName=MimeEntry.content.main"/>
+        </action>
+
+        <action name="com.ibm.ws.console.environment.HostAliasCollectionForm"
+                path="/hostAliasCollection"
+                type="com.ibm.ws.console.environment.virtualhost.HostAliasCollectionAction">
+            <forward name="success" path="HostAlias.config.view"/>
+            <forward name="hostAliasCollection" path="HostAlias.content.main"/>
+        </action>
+        <action name="com.ibm.ws.console.environment.HostAliasDetailForm"
+                path="/hostAliasDetail"
+                type="com.ibm.ws.console.environment.virtualhost.HostAliasDetailAction"
+                input="HostAlias.config.view">
+            <forward name="error" path="HostAlias.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.environment.forwardCmd.do?forwardName=HostAlias.content.main"/>
+        </action>
+
+        <action
+            name="com.ibm.ws.console.environment.VariableSubstitutionEntryCollectionForm"
+            path="/variableSubstitutionEntryCollection" type="com.ibm.ws.console.environment.variables.VariableSubstitutionEntryCollectionAction">
+            <forward name="success" path="VariableSubstitutionEntry.config.view"/>
+            <forward name="variableSubstitutionEntryCollection" path="VariableSubstitutionEntry.content.main"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.environment.VariableSubstitutionEntryDetailForm"
+            path="/variableSubstitutionEntryDetail" type="com.ibm.ws.console.environment.variables.VariableSubstitutionEntryDetailAction" input="VariableSubstitutionEntry.config.view">
+            <forward name="error" path="VariableSubstitutionEntry.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.environment.forwardCmd.do?forwardName=VariableSubstitutionEntry.content.main"/>
+        </action>
+
+
+        <action input="NameSpaceBinding.content.main"
+            name="com.ibm.ws.console.environment.NameSpaceBindingCollectionForm"
+            path="/nameSpaceBindingCollection" type="com.ibm.ws.console.environment.namebindings.NameSpaceBindingCollectionAction">
+            <forward name="CORBAObjectNameSpaceBinding.config.view" path="CORBAObjectNameSpaceBinding.config.view"/>
+            <forward name="EjbNameSpaceBinding.config.view" path="EjbNameSpaceBinding.config.view"/>
+            <forward name="IndirectLookupNameSpaceBinding.config.view" path="IndirectLookupNameSpaceBinding.config.view"/>
+            <forward name="StringNameSpaceBinding.config.view" path="StringNameSpaceBinding.config.view"/>
+            <forward name="nameSpaceBindingCollection" path="NameSpaceBinding.content.main"/>
+            <forward name="NameSpaceBinding.new.wizard.steps" path="NameSpaceBinding.new.wizard.steps"/>
+        </action>
+
+        <action
+            name="com.ibm.ws.console.environment.CORBAObjectNameSpaceBindingDetailForm"
+            path="/cORBAObjectNameSpaceBindingDetail" type="com.ibm.ws.console.environment.namebindings.CORBAObjectNameSpaceBindingDetailAction" input="CORBAObjectNameSpaceBinding.config.view">
+            <forward name="error" path="CORBAObjectNameSpaceBinding.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.environment.forwardCmd.do?forwardName=NameSpaceBinding.content.main"/>
+        </action>
+
+        <action
+            name="com.ibm.ws.console.environment.EjbNameSpaceBindingDetailForm"
+            path="/ejbNameSpaceBindingDetail" type="com.ibm.ws.console.environment.namebindings.EjbNameSpaceBindingDetailAction" input="EjbNameSpaceBinding.config.view">
+            <forward name="error" path="EjbNameSpaceBinding.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.environment.forwardCmd.do?forwardName=NameSpaceBinding.content.main"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.environment.IndirectLookupNameSpaceBindingDetailForm"
+            path="/indirectLookupNameSpaceBindingDetail" type="com.ibm.ws.console.environment.namebindings.IndirectLookupNameSpaceBindingDetailAction" input="IndirectLookupNameSpaceBinding.config.view">
+            <forward name="error" path="IndirectLookupNameSpaceBinding.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.environment.forwardCmd.do?forwardName=NameSpaceBinding.content.main"/>
+        </action>
+
+        <action
+            name="com.ibm.ws.console.environment.StringNameSpaceBindingDetailForm"
+            path="/stringNameSpaceBindingDetail" type="com.ibm.ws.console.environment.namebindings.StringNameSpaceBindingDetailAction" input="StringNameSpaceBinding.config.view">
+            <forward name="error" path="StringNameSpaceBinding.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.environment.forwardCmd.do?forwardName=NameSpaceBinding.content.main"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.environment.CellDetailForm"
+            path="/cellDetail" type="com.ibm.ws.console.environment.topology.CellDetailAction" input="Cell.config.view">
+            <forward name="error" path="Cell.config.view"/>
+            <forward name="success" path="navigatorCmd.do?forwardName=Cell.config.view"/>
+        </action>
+        
+        <action
+            name="com.ibm.ws.console.environment.NodeDetailForm"
+            path="/nodeDetail" type="com.ibm.ws.console.environment.topology.NodeDetailAction" input="Node.config.view">
+            <forward name="error" path="Node.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.environment.forwardCmd.do?forwardName=Node.content.main"/>
+        </action>
+        
+        <action
+            name="com.ibm.ws.console.environment.NodeCollectionForm"
+            path="/nodeCollection" type="com.ibm.ws.console.environment.topology.NodeCollectionAction">
+            <forward name="success" path="Node.config.view"/>
+            <forward name="nodeCollection" path="Node.content.main"/>
+            <forward name="add.node.wizard" path="add.node.wizard"/>
+            <forward name="remove.node.confirmation" path="remove.node.confirmation"/>
+            <forward name="foreignCellCollection" path="Node.content.main"/>
+        </action>
+
+        <action name="com.ibm.ws.console.environment.AddNodeForm"
+                path="/addNode" type="com.ibm.ws.console.environment.topology.AddNodeAction">
+                <forward name="success" path="add.node.listener"/>
+                <forward name="error" path="add.node.wizard"/>
+                <forward name="cancel" path="Node.content.main"/>
+        </action>
+                
+        <action name="com.ibm.ws.console.environment.NodeCollectionForm" path="/removeNode" type="com.ibm.ws.console.environment.topology.NodeCollectionAction">
+                <forward name="success" path="Node.content.main"/>
+                <forward name="nodeCollection" path="Node.content.main"/>
+            <forward name="add.node.wizard" path="add.node.wizard"/>
+            <forward name="remove.node.confirmation" path="remove.node.confirmation"/>
+        </action>
+                
+        <action name="com.ibm.ws.console.environment.LibraryCollectionForm"
+                path="/libraryCollection"
+                type="com.ibm.ws.console.environment.libraries.LibraryCollectionAction">
+            <forward name="success" path="Library.config.view"/>
+            <forward name="libraryCollection" path="Library.content.main"/>
+        </action>
+        <action name="com.ibm.ws.console.environment.LibraryDetailForm"
+                path="/libraryDetail" 
+                input="Library.config.view"
+                type="com.ibm.ws.console.environment.libraries.LibraryDetailAction">
+            <forward name="error" path="Library.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.environment.forwardCmd.do?forwardName=Library.content.main"/>
+        </action>
+
+        <action
+            name="com.ibm.ws.console.environment.ClassloaderCollectionForm"
+            path="/classloaderCollection" type="com.ibm.ws.console.environment.classloader.ClassloaderCollectionAction">
+            <forward name="failure" path="/error.jsp"/>
+            <forward name="success" path="Classloader.config.view"/>
+            <forward name="success1" path="Classloader.config.view1"/>
+            <forward name="classloaderCollection" path="Classloader.content.main"/>
+        </action>
+
+        <action
+            name="com.ibm.ws.console.environment.ClassloaderDetailForm"
+            path="/classloaderDetail" type="com.ibm.ws.console.environment.classloader.ClassloaderDetailAction" input="Classloader.config.view">
+            <forward name="error" path="Classloader.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.environment.forwardCmd.do?forwardName=Classloader.content.main"/>
+        </action>
+
+    </action-mappings>
+</struts-config>

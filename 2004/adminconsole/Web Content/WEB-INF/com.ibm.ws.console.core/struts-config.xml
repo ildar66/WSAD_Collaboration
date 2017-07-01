@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.0//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_0.dtd">
+
+<struts-config>
+  <form-beans>
+    <form-bean name="BrowseRemoteForm"
+               type="com.ibm.ws.console.core.form.BrowseRemoteForm"/>
+    <form-bean name="logonForm"
+               type="com.ibm.ws.console.core.form.LogonForm"/>
+    <form-bean name="PreferenceForm"
+               type="com.ibm.ws.console.core.form.PreferencesForm"/>
+    <form-bean name="errorForm" 
+               type="com.ibm.ws.console.core.form.ErrorForm"/>
+    <form-bean name="contextScopeForm" 
+               type="com.ibm.ws.console.core.form.ContextScopeForm"/>
+    <form-bean name="selectNodeForm" 
+               type="com.ibm.ws.console.core.form.NodesCollectionForm"/>
+    <form-bean name="selectServerForm" 
+               type="com.ibm.ws.console.core.form.ServersCollectionForm"/>
+    <form-bean name="manageAdminUsersForm" 
+               type="com.ibm.ws.console.core.form.ManageUsersForm"/>
+    <form-bean name="manageNamingUsersForm" 
+               type="com.ibm.ws.console.core.form.ManageUsersForm"/>
+    <form-bean name="userDetailForm" 
+               type="com.ibm.ws.console.core.form.UserDetailForm"/>
+    <form-bean name="manageAdminGroupsForm" 
+               type="com.ibm.ws.console.core.form.ManageGroupsForm"/>
+    <form-bean name="manageNamingGroupsForm" 
+               type="com.ibm.ws.console.core.form.ManageGroupsForm"/>
+    <form-bean name="groupDetailForm" 
+               type="com.ibm.ws.console.core.form.GroupDetailForm"/>
+    <form-bean name="helpSearchForm"
+               type="com.ibm.ws.console.core.help.HelpSearchForm"/>
+  </form-beans>
+  <global-forwards>
+  	<forward name="console.content.main" path="console.content.main"/>
+	<forward name="console.selectnode.main" path="console.selectnode.main"/>
+        <forward name="console.selectserver.main" path="console.selectserver.main"/>
+        <forward name="sessioninvalid" path="/unsecure/sessionInvalid.jsp"/>
+		<forward name="sessioninvalidsecure" path="/securecleanup"/>
+  </global-forwards>
+  <action-mappings>
+    <action name="errorForm" path="/error" type="com.ibm.ws.console.core.action.ErrorAction">
+        <forward name="success" path="/error.jsp"/>
+        <forward name="failure" path="/error.jsp"/>
+    </action>
+    <action name="helpSearchForm" path="/helpSearch" type="com.ibm.ws.console.core.help.HelpSearchAction">
+        <forward name="success" path="secure/help_search.jsp"/>
+    </action>
+    <action path="/navigatorCmd"
+            type="com.ibm.ws.console.core.action.NavigatorAction">
+        <forward name="console.users.main" path="console.users.main"/>
+        <forward name="console.groups.main" path="console.groups.main"/>
+        <forward name="console.naming.users.main" path="console.naming.users.main"/>
+        <forward name="console.naming.groups.main" path="console.naming.groups.main"/>
+    </action>
+    <action path="/menuBarCmd"
+            type="com.ibm.ws.console.core.action.MenuBarAction">
+        <forward name="console.preferences.main" path="console.preferences.main"/>
+        <forward name="toggleDescriptions" path="/secure/banner.jsp"/>
+    </action>
+    <action path="/secure/logon" 
+            type="com.ibm.ws.console.core.action.LogonAction"
+            name="logonForm"
+            input="secure/logon.jsp"
+            validate="true">
+        <forward name="success" path="secure/console.jsp"/>
+        <forward name="userExists" path="secure/loginConflict.jsp"/>
+        <forward name="changesFound" path="secure/changesFound.jsp"/>
+        <forward name="wait" path="secure/logon.jsp"/>
+        <forward name="continue" path="secure/logon.jsp"/>
+        <forward name="logonError" path="secure/logon.jsp"/>
+    </action>
+    <action path="/secure/securelogon" 
+            type="com.ibm.ws.console.core.action.LogonAction">
+        <forward name="success" path="/secure/console.jsp"/>
+        <forward name="userExists" path="secure/loginConflict.jsp"/>
+        <forward name="changesFound" path="secure/changesFound.jsp"/>
+        <forward name="wait" path="/logon.jsp"/>
+        <forward name="continue" path="/logon.jsp"/>
+        <forward name="logonError" path="secure/logon.jsp"/>
+    </action>
+    <action path="/statusTray"
+            type="com.ibm.ws.console.core.action.StatusAction">
+        <forward name="forwardName" path="console.status.main"/>
+    </action>
+    <action path="/toolbar" 
+            type="com.ibm.ws.console.core.action.ToolbarAction">
+        <forward name="external"    path="/admin"/>
+    </action>
+    <action path="/logoff" 
+            type="com.ibm.ws.console.core.action.LogoffAction">
+        <forward name="modsfound"    path="/syncworkspace.do?syncaction=list&#38;logoff=true"/>
+        <forward name="success"    path="/secure/logon.jsp"/>
+		<forward name="secure" path="ibm_security_logout?logoutExitPage=//admin/logon.jsp"/>
+    </action>
+    <action name="PreferenceForm" path="/preferenceAction" type="com.ibm.ws.console.core.action.PreferenceAction">
+        <forward name="success" path="console.status.main"/>
+    </action>
+    <action path="/syncworkspace"
+            type="com.ibm.ws.console.core.action.SyncWorkSpaceAction">
+        <forward name="list" path="console.sync.main"/>
+        <forward name="conflict" path="console.sync.conflict"/>
+        <forward name="success" path="console.content.main"/>
+        <forward name="confirmdiscard" path="console.sync.discard.main"/>
+        <forward name="logoff"    path="/logoff.do?nocheck=true"/>
+    </action>
+    <action path="/selectscope"
+            name="contextScopeForm"
+            type="com.ibm.ws.console.core.action.ContextScopeAction">
+        <forward name="browseNodes" path="console.selectnode.main"/>
+        <forward name="browseServers" path="console.selectserver.main"/>
+    </action>
+    <action path="/selectserver"
+            name="selectServerForm"
+            type="com.ibm.ws.console.core.action.ServerSelectionAction">
+        <forward name="success" path="console.selectserver.main"/>
+    </action>
+    <action path="/selectnode"
+            name="selectNodeForm"
+            type="com.ibm.ws.console.core.action.NodeSelectionAction">
+        <forward name="success" path="console.selectnode.main"/>
+    </action>
+    <action path="/manageusers"
+            name="manageAdminUsersForm"
+            type="com.ibm.ws.console.core.action.ManageUsersAction">
+        <forward name="success" path="console.users.main"/>
+        <forward name="edit" path="console.users.detail.main.update"/>
+        <forward name="add" path="console.users.detail.main"/>
+        <forward name="logoff" path="/logoff.do"/>
+    </action>
+    <action path="/userdetail"
+            name="userDetailForm"
+            type="com.ibm.ws.console.core.action.UserDetailAction">
+        <forward name="success" path="console.users.main"/>
+        <forward name="edit" path="console.users.detail.main.update"/>
+        <forward name="add" path="console.users.detail.main"/>
+    </action>
+    <action path="/managegroups"
+            name="manageAdminGroupsForm"
+            type="com.ibm.ws.console.core.action.ManageGroupsAction">
+        <forward name="success" path="console.groups.main"/>
+        <forward name="edit" path="console.groups.detail.main.update"/>
+        <forward name="add" path="console.groups.detail.main"/>
+    </action>
+    <action path="/groupdetail"
+            name="groupDetailForm"
+            type="com.ibm.ws.console.core.action.GroupDetailAction">
+        <forward name="success" path="console.groups.main"/>
+        <forward name="edit" path="console.groups.detail.main.update"/>
+        <forward name="add" path="console.groups.detail.main"/>
+    </action>
+    <action path="/managenamingusers"
+            name="manageNamingUsersForm"
+            type="com.ibm.ws.console.core.action.ManageUsersAction">
+        <forward name="success" path="console.naming.users.main"/>
+        <forward name="edit" path="console.naming.users.detail.main.update"/>
+        <forward name="add" path="console.naming.users.detail.main"/>
+    </action>
+    <action path="/naminguserdetail"
+            name="userDetailForm"
+            type="com.ibm.ws.console.core.action.UserDetailAction">
+        <forward name="success" path="console.naming.users.main"/>
+        <forward name="edit" path="console.naming.users.detail.main.update"/>
+        <forward name="add" path="console.naming.users.detail.main"/>
+    </action>
+    <action path="/managenaminggroups"
+            name="manageNamingGroupsForm"
+            type="com.ibm.ws.console.core.action.ManageGroupsAction">
+        <forward name="success" path="console.naming.groups.main"/>
+        <forward name="edit" path="console.naming.groups.detail.main.update"/>
+        <forward name="add" path="console.naming.groups.detail.main"/>
+    </action>
+    <action path="/naminggroupdetail"
+            name="groupDetailForm"
+            type="com.ibm.ws.console.core.action.GroupDetailAction">
+        <forward name="success" path="console.naming.groups.main"/>
+        <forward name="edit" path="console.naming.groups.detail.main.update"/>
+        <forward name="add" path="console.naming.groups.detail.main"/>
+    </action>
+
+  <action name="BrowseRemoteForm" path="/browseRemoteNodes" type="com.ibm.ws.console.core.action.BrowseRemoteNodesAction">
+        <forward name="remote.node.browse" path="remote.node.browse"/>
+        <forward name="filebrowse" path="remote.file.browse"/>
+  </action>
+      
+  </action-mappings>
+
+</struts-config>

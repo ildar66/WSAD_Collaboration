@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+    <!-- RTS MAIL Service -->
+    <bean id="july.rts.mail.mailService" parent="july.txProxyTemplate">
+        <property name="proxyInterfaces"
+            value="com.hps.july.rts.mail.service.RTSMailService"/>
+        <property name="target">
+            <bean class="com.hps.july.rts.mail.service.impl.RTSMailServiceImpl">
+            	<property name="authService" ref="july.rts.auth.RTSAuthService"/>
+            	<property name="mailService" ref="july.mail.mailService"/>
+            	<property name="notificationService" ref="july.rts.service.notification"/>
+            	<property name="operatorService" ref="july.rts.service.operatorService"/>
+            	<property name="namedValueService" ref="july.persistence.value.NamedValueService"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="july.rts.mail.reglamentMailService" parent="july.txProxyTemplate">
+        <property name="proxyInterfaces"
+            value="com.hps.july.rts.mail.service.RTSReglamentMailService"/>
+        <property name="target">
+            <bean class="com.hps.july.rts.mail.service.impl.RTSReglamentMailServiceImpl">
+            	<property name="authService" ref="july.rts.auth.RTSAuthService"/>
+            	<property name="mailService" ref="july.mail.mailService"/>
+            	<property name="notificationService" ref="july.rts.service.notification"/>
+            	<property name="operatorService" ref="july.rts.service.operatorService"/>
+            	<property name="namedValueService" ref="july.persistence.value.NamedValueService"/>
+            </bean>
+        </property>
+    </bean>
+
+
+</beans>

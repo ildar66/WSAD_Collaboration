@@ -1,0 +1,239 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Impostazioni di autenticazione in entrata di interoperabilit&agrave; comune sicura (CSI, Common Secure Interoperability)</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecinbound"></a>
+<h2>Impostazioni di autenticazione in entrata di interoperabilit&agrave; comune sicura (CSI, Common Secure Interoperability)</h2>
+
+<p>Utilizzare questa pagina per specificare le funzioni supportate da un server per un client che deve accedere alle relative risorse.</p>
+
+<p>Per visualizzare questa pagina della console di gestione, fare clic su <strong>Sicurezza</strong> &gt;
+<strong>Protocollo di autenticazione</strong> &gt; <strong>Autenticazione in entrata CSI</strong>.</p>
+
+<p>Le impostazioni di autenticazione CSI in entrata servono a configurare il tipo di
+informazioni di autenticazione contenute in
+una richiesta o trasporto in entrata.</p>
+
+<p>Le funzioni di autenticazione comprendono tre livelli di autenticazione, che possono
+essere utilizzati contemporaneamente:  <ul>
+
+<li>
+<strong>Livello di trasporto</strong>. Il livello di trasporto, quello pi&ugrave; basso, potrebbe
+contenere, come identit&agrave;, un certificato client SSL (Secure Sockets Layer).</li>
+
+<li>
+<strong>Livello di messaggio</strong>. Il livello di messaggio pu&ograve; contenere un ID utente e
+password o un token autenticato con scadenza.</li>
+
+<li>
+<strong>Livello di attributo</strong>. Il livello di attributo pu&ograve; contenere un token di
+identit&agrave; che rappresenta un'identit&agrave; proveniente da un server
+upstream ed &egrave; gi&agrave; autenticato.
+Il livello di identit&agrave; ha la priorit&agrave; pi&ugrave; alta ed &egrave; seguito dal livello di messaggio e,
+quindi, da quello di trasporto. Se un client li invia tutti e tre, viene utilizzato solo
+il livello di identit&agrave;. Il certificato client SSL viene utilizzato come identit&agrave;, solo se
+questo rappresenta le uniche informazioni fornite durante la richiesta. Il client
+recupera lo IOR dallo spazio nome e legge i valori dal componente contrassegnato con
+tag per determinare ci&ograve; di cui ha bisogno il server, relativamente alla sicurezza. </li>
+
+</ul>  
+</p>
+
+<div>
+<p>
+<strong>Scheda Configurazione</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="BasicAuthentication_i_description"></a>Autenticazione base </strong>
+</dt>
+<dd>Specifica che l'autenticazione di base si verifica sul livello del messaggio.
+<p>Nel livello del messaggio viene eseguita l'autenticazione di base (ID utente e password). Questo tipo di autenticazione, generalmente, implica l'invio di un ID utente e della
+password dal client al server per l'autenticazione.  Inoltre, ci&ograve; coinvolge la delega di un
+token della credenziale da una credenziale gi&agrave; autenticata, nel caso in cui tale tipo di
+credenziale sia inoltrabile (ad esempio, LTPA, Lightweight Third Party Authentication). Se l'<strong>Autenticazione base</strong> viene selezionata per il server, specificare
+l'autenticazione dell'ID utente e password e l'autenticazione basata sul token.</p>
+
+<p>Quando viene selezionata <strong>Autenticazione base</strong>, &egrave; necessario decidere se &egrave;
+<strong>Obbligatoria</strong> o <strong>Supportata</strong>.  La selezione di <strong>Obbligatoria</strong>,
+indica che solo i client, configurati per l'autenticazione su questo server tramite il
+livello di messaggio, potranno richiamare le richieste sul server. L'opzione Supportata
+indica che questo server accetta l'<strong>Autenticazione base</strong>. Tuttavia, possono
+verificarsi altri metodi di autenticazione, se configurati, e vengono accettate
+richieste anonime.
+La selezione di <strong>Mai</strong> indica che il server non &egrave; configurato
+per accettare l'autenticazione del livello del messaggio da nessun client.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati:</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ClientCertificateAuthentication_i_description"></a>Autenticazione certificato client</strong>
+</dt>
+<dd>Indica che l'autenticazione si verifica quando la connessione iniziale
+viene
+effettuata tra il client e il server durante una richiesta di metodo.
+<p>Nel livello di trasporto si verifica l'autenticazione del certificato client SSL
+(Secure Sockets Layer). Nel livello del messaggio viene eseguita l'Autenticazione base
+(ID utente e password). L'autenticazione del certificato client, solitamente, funziona meglio
+dell'autenticazione del livello del messaggio, ma richiede delle fasi aggiuntive di
+impostazione.
+Queste fasi aggiuntive riguardano anche la verifica che il server possieda il
+certificato del firmatario di ciascun client al quale &egrave; connesso. Se il client utilizza
+un'autorit&agrave; di certificazione (CA) per creare il certificato
+personale, sar&agrave; necessario solo il certificato root della CA, nella
+sezione firmatario del server del file sicuro SSL. Se il certificato viene autenticato su un
+registro utenti LDAP (Lightweight Directory Access Protocol), il DN (Distinguished Name) viene mappato in base al filtro specificato durante la
+configurazione LDAP. Se il certificato viene autenticato su un registro utenti OS locale,
+il primo attributo del DN nel certificato (normalmente CN, Common Name) viene mappato sull'ID utente nel registro. L'identit&agrave; derivante dai certificati client viene utilizzata qualora non vi
+fossero altri livelli di autenticazione presenti sul server.</p>
+
+<p>Quando viene selezionata <strong>Autenticazione certificato client</strong>, &egrave; necessario
+decidere se &egrave; <strong>Obbligatoria</strong> o <strong>Supportata</strong>. Quando viene selezionata
+<strong>Obbligatoria</strong>, solo i client configurati per l'autenticazione su questo server,
+tramite i certificati client SSL, possono richiamare le richieste sul server. Quando
+viene selezionata <strong>Supportata</strong>, questo server accetta l'autenticazione del
+certificato client SSL, tuttavia, possono verificarsi altri metodi di autenticazione (se
+configurati) e vengono accettate richieste anonime. Quando viene selezionato <strong>Mai</strong>,
+questo server non viene configurato per accettare l'autenticazione del certificato
+client dai client.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="IdentityAssertion_i_description"></a>Asserzione d'identit&agrave;</strong>
+</dt>
+<dd>Specifica che l'Asserzione di identit&agrave; &egrave; un modo per asserire le identit&agrave; da un
+server ad un
+altro durante un richiamo EJB downstream.
+<p>L'asserzione di identit&agrave; viene eseguita al livello di attributo ed &egrave; applicabile
+solo ai server. Il principal determinato sul server si basa su regole di
+precedenza. Se viene eseguita l'asserzione di identit&agrave;, l'identit&agrave; deriva sempre dall'attributo. Se l'autenticazione base viene eseguita senza l'asserzione di identit&agrave;,
+l'identit&agrave; deriva sempre dal livello del messaggio. Infine, se l'autenticazione del certificato client SSL viene eseguita senza l'autenticazione di base o l'asserzione di identit&agrave;, l'identit&agrave; deriva dal livello di trasporto.</p>
+
+<p>L'identit&agrave; asserita &egrave; la credenziale di richiamo, determinata dalla modalit&agrave; RunAs per
+il bean enterprise. Se la modalit&agrave; RunAs &egrave; <strong>Client</strong>, l'identit&agrave; &egrave; quella del client. Se la modalit&agrave; RunAs &egrave; <strong>Sistema</strong>, l'identit&agrave; &egrave; quella del server.  Se la modalit&agrave; RunAs &egrave; <strong>Specificata</strong>, l'identit&agrave; &egrave; quella indicata. Il server ricevente riceve
+l'identit&agrave; in un token di identit&agrave; e anche l'identit&agrave; del server trasmittente in un token
+di autenticazione client. Il server ricevente convalida l'identit&agrave; del server
+trasmittente come identit&agrave; sicura, tramite la casella di immissione <strong>ID server sicuro</strong>. Immettere un elenco di nomi principal separati da virgole, ad esempio,
+<samp>serverid1, serverid2, serverid3</samp>.</p>
+
+<p>Durante l'autenticazione eseguita su un registro utenti LocalOS, tutti i tipi di
+token di identit&agrave; sono mappati con il campo ID utente del registro utenti attivo. Per un token di identit&agrave; <samp>ITTPrincipal</samp>, la mappatura con i campi ID utente avviene in base alla relazione uno-a-uno. Per un token di identit&agrave; <samp>ITTDistinguishedName</samp>, il valore dal
+primo segno di uguale viene mappato sul campo ID utente.
+Per un token di identit&agrave; <samp>ITTCertChain</samp>, il valore dal primo segno di uguale del
+DN (Distinguished Name) viene mappato sul campo ID utente.</p>
+
+<p>Durante l'autenticazione di un registro utenti LDAP, i filtri LDAP determinano come
+un'identit&agrave; di tipo <samp>ITTCertChain</samp> e <samp>ITTDistinguishedName</samp> viene mappata
+sul registro. Se il tipo di token &egrave; <samp>ITTPrincipal</samp>, il principal viene
+mappato sul campo UID nel registro LDAP.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati:</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="IdentityAssertionLayer_trustedServers_description"></a>ID utenti server sicuri</strong>
+</dt>
+<dd>Specifica un elenco, separato da virgole, di ID utenti del server sicuri per
+eseguire l'asserzione di identit&agrave; su tale server.
+<p>Utilizzare questo elenco per stabilire rapidamente se un server &egrave; sicuro o meno. Anche se il
+server &egrave; sull'elenco, il server trasmittente deve essere autenticato con quello ricevente
+per poter accettare il token di identit&agrave; del server trasmittente.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="StatefulSession_description"></a>Sessioni stateful</strong>
+</dt>
+<dd>Specifica le sessioni stateful, utilizzate per migliorare le prestazioni.
+<p>Il primo contatto tra un client e il server deve essere autenticato completamente.
+Tuttavia, tutti i contatti successivi con sessioni valide, riutilizzano le informazioni sulla sicurezza.
+Il client invia un ID di contesto al server
+e l'ID viene utilizzato per ricercare la sessione. L'ID di contesto si trova nell'ambito della connessione e ci&ograve; garantisce l'univocit&agrave;. Se la sessione di sicurezza non &egrave; valida, e se il nuovo tentativo di autenticazione
+&egrave; abilitato (impostazione predefinita), l'intercettatore di sicurezza lato client annulla la
+convalida della sessione lato client e inoltra nuovamente la richiesta senza che l'utente ne
+venga informato. Ci&ograve; potrebbe verificarsi se la sessione non &egrave;
+presente sul server (il server non ha completato con successo l'operazione e riprende
+quest'ultima). Quando questo valore viene disabilitato, tutte le chiamate ai metodi devono
+essere nuovamente autenticate.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informazioni correlate</strong>
+</p>
+<a href="rcon_buttons.html">Pulsanti della console di gestione</a>
+<br>
+
+<a href="rcon_pageusage.html">Funzioni della pagina della console di gestione</a>
+<br>
+
+<a href="rcon_scope.html">Impostazioni ambito della console di gestione</a>
+<br>
+
+<a href="rcon_filter.html">Impostazioni di filtro della console di gestione</a>
+<br>
+
+<a href="rcon_preferences.html">Impostazioni delle preferenze della console di gestione</a>
+<br>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>웹 컨테이너 설정</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uweb_rcont"></a>
+<h2>웹 컨테이너 설정</h2>
+
+<p>이 페이지를 참조하여 컨테이너 설정을 구성하십시오.<p>관리 콘솔에서 다음 경로를 통해 이 페이지에 액세스하십시오.</p>
+
+<pre>
+<strong>서버</strong> &gt; <strong>Application Servers</strong> &gt; <em>server_instance</em> &gt; <strong>웹 컨테이너</strong>
+</pre>
+ 
+</p>
+
+<p> 
+<strong>구성 - 일반 등록 정보</strong>
+
+</p>
+
+<dl>
+<dt>
+<strong><a name="rcont_default"></a>기본 가상 호스트</strong>
+</dt>
+<dd>가상 호스트는 단일 호스트 시스템이 여러 호스트 시스템을 닮을 수 있게 하는 구성을 지정합니다.
+가상 호스트가 동일한 물리적 시스템을 공유하더라도
+한 가상 호스트와 연관된 자원은 다른 가상 호스트와 연관된 자원과 데이터를 공유할 수 없습니다.
+
+<p>가상 호스트 옵션을 선택하십시오.</p>
+
+<dl>
+
+<dt>
+<strong><strong>기본 호스트</strong></strong>
+</dt>
+<dd>제품은 시스템의 IP 주소, 축약형 호스트 이름 및
+완전한 호스트 이름과 같은 일부 공통적인 별명으로 기본 가상 호스트를 제공합니다.
+별명은 자원(예: Servlet)에 액세스하는 경로의 첫 번째 부분을 구성합니다.
+예를 들어, 요청 <samp>http://localhost:9080/myServlet</samp>에 있는
+<samp>localhost:9080</samp>입니다.</dd>
+
+<dt>
+<strong><strong>관리 호스트</strong></strong>
+</dt>
+<dd>이는 Application Server에 대한 또다른 이름입니다. 또한, 기본 설치에서 <em>server1</em>로 알려져 있습니다.
+이 프로세스는 관리 콘솔의 사용을 지원합니다.
+</dd>
+
+</dl>
+</dd>
+<dt>
+<strong><a name="rcont_cache"></a>Servlet 캐싱</strong>
+</dt>
+<dd>일단 Servlet이 호출되고 캐시된 출력을 생성하는 경우, 캐시 항목은 출력 뿐 아니라 호출의 부작용까지 포함하여 생성됨을 지정합니다.
+이 부작용은 기타 Servlet 또는 JSP(Java Server Page) 파일에 호출을 포함할 수 있을 뿐 아니라 제한시간 및 항목 우선순위 정보를 포함하는 항목에 대한 메타데이터 또한 포함합니다.
+<p></p>
+
+<dl>
+
+<dt>
+<strong><strong>Servlet 캐싱을 사용 가능하게 합니다.</strong></strong>
+</dt>
+<dd> 이 박스를 확인하여 Servlet 캐싱을 사용 가능하게 합니다.</dd>
+
+</dl>
+
+</dd>
+</dl>
+</body>
+</html>

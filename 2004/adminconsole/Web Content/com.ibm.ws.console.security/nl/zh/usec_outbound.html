@@ -1,0 +1,143 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>公共安全互操作性出站认证设置</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecoutbound"></a>
+<h2>
+<img alt="[Fix Pack 5.0.1 and later]" src="v501.gif" border="0">公共安全互操作性出站认证设置</h2>
+
+<p>使用此页面指定当作为客户机操作另一个下行服务器时，服务器支持的功能部件。</p>
+
+<p>要查看此管理控制台页面，单击<strong>安全性 &gt; 认证协议 &gt; CSI 出站认证</strong>。</p>
+
+<p>认证功能部件包含您可同步使用的三层认证：<dl>
+<dt>
+<strong>传输层</strong>
+</dt>
+<dd>最底层的传输层可以包含作为身份的安全套接字层（SSL）客户机证书。</dd>
+<dt>
+<strong>消息层</strong>
+</dt>
+<dd>消息层可以包含用户标识和密码或认证令牌。</dd>
+<dt>
+<strong>属性层</strong>
+</dt>
+<dd>属性层可以包含身份令牌，它来自已认证的上行服务器。属性层根据消息层和随后的传输层具有最高优先级。如果此服务器发送全部三层，则下行服务器仅使用属性层。使用 SSL 客户机证书作为身份的唯一方法是如果出站请求期间才显示信息。</dd>
+</dl>  
+</p>
+
+<div>
+<p>
+<strong>&ldquo;配置&rdquo;选项卡</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="BasicAuthentication_o_description"></a>基本认证</strong>
+</dt>
+<dd>指定是否从客户机向服务器发送用户标识和密码以进行认证。
+<p>此认证类型发生在消息层上。&ldquo;基本认证&rdquo;也涉及委托提供凭证类型的已认证凭证的凭证令牌是可转发的（例如，轻量级第三方认证（LTPA））。&ldquo;基本认证&rdquo;引用任何一个消息层上的认证，并表明用户标识和密码以及基于令牌的认证。</p>
+
+<p>选择<strong>基本认证</strong>确定它是必需的还是受支持的。选择<strong>必需的</strong>表明服务器何时出站到下行服务器，下行服务器必须支持此服务器连接的基本认证。选择<strong>支持的</strong>表明此服务器可以执行也可以不执行到下行服务器的基本认证。如果已配置,可发生其它认证方法。选择<strong>从不</strong>，表明此服务器从不会向下行服务器发送消息层令牌出站。如果下行服务器要求&ldquo;基本认证&rdquo;，则不尝试连接。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型：</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ClientCertificateAuthentication_o_description"></a>客户机证书认证</strong>
+</dt>
+<dd>指定当在此服务器和下行服务器之间进行 SSL 连接时（倘若下行服务器支持客户机证书认证的话），已配置密钥存储文件的客户机证书是否用于认证到服务器。
+<p>通常，客户机证书认证具有的性能比消息层认证高，但是需要一些附加的设置步骤。这些附加的步骤包含验证此服务器拥有个人证书，并且下行服务器拥有此服务器的签署者证书。</p>
+
+<p>如果您选择客户机证书认证，确定它是必需的，还是支持的。选择<strong>必需的</strong>表明此服务器仅可以用也已配置的客户机证书认证连接到下行服务器。选择<strong>支持的</strong>表明此服务器用任何下行服务器执行&ldquo;客户机证书认证&rdquo;，但可以不使用&ldquo;客户机证书认证&rdquo;是取决于下行服务器是否支持该证书。选择<strong>从不</strong>表明此客户机不执行到任何下行服务器的&ldquo;客户机证书认证&rdquo;。该限制阻止所有到要求&ldquo;客户机证书认证&rdquo;的下行服务器的访问。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型：</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="IdentityAssertion_o_description"></a>身份声明</strong>
+</dt>
+<dd>指定身份是否从一台服务器到声明另一台服务器（在下行企业 bean 调用期间）。
+<p>声明的身份是由企业 bean 的 RunAs 方式确定的调用凭证。如果 RunAs 方式是<strong>客户机</strong>，则身份是客户机身份。如果 RunAs 方式是<strong>系统</strong>，则身份是服务器身份。如果 RunAs 方式是<strong>指定的</strong>，则身份是指定的身份。接收服务器接收身份令牌中的身份，同时也接收客户机认证令牌中发送的服务器身份。接收服务器确认发送服务器的身份以确保可信的身份。</p>
+
+<p>在&ldquo;CSIv2 认证出站&rdquo;面板上指定身份声明时，您还必须选择 <strong>CSIv2 认证出站</strong>面板上支持或需要的基本认证。此操作允许与身份令牌一起提交服务器身份，因此接收服务器可以<em>信任</em>发送服务器。在不指定支持或需要的基本认证的情况下，不建立信任并且身份声明失败。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型：</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="StatefulSession_description"></a>有状态的会话</strong>
+</dt>
+<dd>指定是否在认证期间重用安全性信息。此选项通常用于增加性能。
+<p>客户机和服务器之间的第一次联系必须完全认证。然而，带有有效会话的所有后继联系重用安全性信息。客户机向服务器传递上下文标识，并且该标识用于查找会话。上下文标识作用于保证唯一性的连接。只要安全性会话无效，而且如果启用了安全性重试（缺省情况下为启用），则客户机端安全性拦截器使客户机端会话失效，并且透明地重新提交请求。例如，如果服务器上不存在会话；服务器失败并恢复操作。</p>
+
+<p>当禁用此值时，每个方法调用必须重新认证。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型：</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>相关信息</strong>
+</p>
+<a href="rcon_buttons.html">管理控制台按钮</a>
+<br>
+
+<a href="rcon_pageusage.html">管理控制台页面功能</a>
+<br>
+
+<a href="rcon_scope.html">管理控制台作用域设置</a>
+<br>
+
+<a href="rcon_filter.html">管理控制台过滤器设置</a>
+<br>
+
+<a href="rcon_preferences.html">管理控制台首选项设置</a>
+<br>
+
+</div>
+</body>
+</html>

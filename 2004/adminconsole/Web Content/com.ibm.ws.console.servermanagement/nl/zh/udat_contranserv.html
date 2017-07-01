@@ -1,0 +1,315 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>事务服务设置</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="Transaction_service"></a>
+<h2>事务服务设置</h2>
+
+<p>使用此页面修改事务服务设置。</p>
+
+<p>要查看此管理控制台页面，单击<strong>服务器</strong> &gt; <strong>应用程序服务器</strong> &gt; <em>server</em> &gt; <strong>事务服务</strong>。</p>
+
+<div>
+<p>
+<strong>&ldquo;配置&rdquo;选项卡</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="TransactionService_transactionLogDirectory_displayName"></a>事务日志目录</strong>
+</dt>
+<dd>为此服务器（在此服务器上，事务服务存储用于恢复的日志文件）指定目录名。
+<p>启动时，事务日志将服务器配置中的空值展开为目录 (<em>install_root</em>)/tranlog/(<em>server_name</em>)。</p>
+
+<p>当 WebSphere 产品上运行的应用程序访问多个资源时，WebSphere 产品存储事务信息，以正确协调和管理分布式事务。在高事务负载的情况下，此持久性减慢应用程序服务器的性能，这是由于性能取决于操作系统和下层存储系统。</p>
+
+<p>要实现良好的性能，将事务日志文件移动到带有更多物理磁盘驱动器，或更适宜是 RAID 磁盘驱动器的存储设备。当日志文件移动到 raid 磁盘上的文件系统时，将数据写入物理介质的任务是跨多个磁盘驱动器共享的。这允许对持久事务信息的更多并发访问，以及对来自日志的数据的更快速访问。根据应用程序和存储子系统的设计，获得的性能在范围 10% 到 100% 之间，或者在一些情况中甚至更多。</p>
+
+<p>此更改仅适用于应用程序使用分布式资源或 XA 事务的配置，例如，在单个事务中访问多个数据库和资源。当应用程序服务器显示一个或多个以下标志时，考虑设置此属性：<ul>
+
+<li>尽管事务的增加，但是 CPU 利用率仍然很低</li>
+
+<li>事务失败，带有多个超时</li>
+
+<li>发生事务回滚，带有<em>无法加入事务列表</em>异常</li>
+
+<li>应用程序服务器在运行中间挂起，并要求服务器重新启动</li>
+
+<li>运行应用程序服务器的磁盘显示较高的利用率</li>
+
+</ul>
+</p>
+
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">初始值为 <em>%WAS_HOME%</em>/tranlog/(<em>server_name</em>) 目录，缺省大小为 1MB。</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">建议</td>
+<td align="left" valign="top" class="base">创建一个文件系统，带有至少 3-4 个磁盘驱动器，它们在 RAID-0 配置中 raid 在一起。然后，在此文件系统上创建事务日志，具有缺省大小。当服务器在负载下运行时，检查磁盘输入和输出。如果磁盘输入和输出时间大于 5%，考虑添加更多物理磁盘，以降低此值。如果磁盘输入和输出很低，但是服务器仍然很高，则考虑增加日志文件的大小。</td>
+
+</tr>
+
+</table>
+
+
+
+
+</dd>
+<dt>
+<strong><a name="TransactionService_totalTranLifetimeTimeout_displayName"></a>事务生命周期超时总计</strong>
+</dt>
+<dd>指定这个应用程序服务器上的事务的最大持续时间（以秒为单位）。  
+
+<p>回滚此超时前不要求完成的任何事务。如果设置为 0，没有超时限制。</p>
+
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">整型</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">单位</td>
+<td align="left" valign="top" class="base">秒</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">120</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">范围</td>
+<td align="left" valign="top" class="base">0 到 2 147 483 647</td>
+
+</tr>
+
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="TransactionService_clientInactivityTimeout_displayName"></a>客户机不活动超时</strong>
+</dt>
+<dd>指定远程客户机事务请求之间的最大持续时间（以秒为单位）。
+<p>任何客户机不活动的周期超出这个超时将导致事务在这个应用程序服务器中回滚。如果设置为 0，则没有超时限制。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">整型</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">单位</td>
+<td align="left" valign="top" class="base">秒</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">60</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">范围</td>
+<td align="left" valign="top" class="base">0 到 2 147 483 647</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>&ldquo;运行时&rdquo;选项卡</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="TransactionService_transactionLogDirectory_displayName"></a>事务日志目录</strong>
+</dt>
+<dd>为此服务器（在此服务器上，事务服务存储用于恢复的日志文件）指定目录名。
+<p>启动时，事务日志将服务器配置中的空值展开为目录 (<em>install_root</em>)/tranlog/(<em>server_name</em>)。</p>
+
+<p>当 WebSphere 产品上运行的应用程序访问多个资源时，WebSphere 产品存储事务信息，以正确协调和管理分布式事务。在高事务负载的情况下，此持久性减慢应用程序服务器的性能，这是由于性能取决于操作系统和下层存储系统。</p>
+
+<p>要实现良好的性能，将事务日志文件移动到带有更多物理磁盘驱动器，或更适宜是 RAID 磁盘驱动器的存储设备。当日志文件移动到 raid 磁盘上的文件系统时，将数据写入物理介质的任务是跨多个磁盘驱动器共享的。这允许对持久事务信息的更多并发访问，以及对来自日志的数据的更快速访问。根据应用程序和存储子系统的设计，获得的性能在范围 10% 到 100% 之间，或者在一些情况中甚至更多。</p>
+
+<p>此更改仅适用于应用程序使用分布式资源或 XA 事务的配置，例如，在单个事务中访问多个数据库和资源。当应用程序服务器显示一个或多个以下标志时，考虑设置此属性：<ul>
+
+<li>尽管事务的增加，但是 CPU 利用率仍然很低</li>
+
+<li>事务失败，带有多个超时</li>
+
+<li>发生事务回滚，带有<em>无法加入事务列表</em>异常</li>
+
+<li>应用程序服务器在运行中间挂起，并要求服务器重新启动</li>
+
+<li>运行应用程序服务器的磁盘显示较高的利用率</li>
+
+</ul>
+</p>
+
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">初始值为 <em>%WAS_HOME%</em>/tranlog/(<em>server_name</em>) 目录，缺省大小为 1MB。</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">建议</td>
+<td align="left" valign="top" class="base">创建一个文件系统，带有至少 3-4 个磁盘驱动器，它们在 RAID-0 配置中 raid 在一起。然后，在此文件系统上创建事务日志，具有缺省大小。当服务器在负载下运行时，检查磁盘输入和输出。如果磁盘输入和输出时间大于 5%，考虑添加更多物理磁盘，以降低此值。如果磁盘输入和输出很低，但是服务器仍然很高，则考虑增加日志文件的大小。</td>
+
+</tr>
+
+</table>
+
+
+
+
+</dd>
+<dt>
+<strong><a name="TransactionService_totalTranLifetimeTimeout_displayName"></a>事务生命周期超时总计</strong>
+</dt>
+<dd>指定这个应用程序服务器上的事务的最大持续时间（以秒为单位）。  
+
+<p>回滚此超时前不要求完成的任何事务。如果设置为 0，没有超时限制。</p>
+
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">整型</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">单位</td>
+<td align="left" valign="top" class="base">秒</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">120</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">范围</td>
+<td align="left" valign="top" class="base">0 到 2 147 483 647</td>
+
+</tr>
+
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="TransactionService_clientInactivityTimeout_displayName"></a>客户机不活动超时</strong>
+</dt>
+<dd>指定远程客户机事务请求之间的最大持续时间（以秒为单位）。
+<p>任何客户机不活动的周期超出这个超时将导致事务在这个应用程序服务器中回滚。如果设置为 0，则没有超时限制。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">整型</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">单位</td>
+<td align="left" valign="top" class="base">秒</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">60</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">范围</td>
+<td align="left" valign="top" class="base">0 到 2 147 483 647</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>相关信息</strong>
+</p>
+<a href="rcon_buttons.html">管理控制台按钮</a>
+<br>
+
+<a href="rcon_pageusage.html">管理控制台页面功能</a>
+<br>
+
+</div>
+</body>
+</html>

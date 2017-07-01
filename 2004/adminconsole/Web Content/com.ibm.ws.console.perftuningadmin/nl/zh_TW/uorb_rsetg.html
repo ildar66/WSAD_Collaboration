@@ -1,0 +1,429 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>管理主控台中的 Object Request Broker 服務設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uorbsetg"></a>
+<h2>管理主控台中的 Object Request Broker 服務設定</h2>
+
+<p>請利用這個頁面來配置 Java Object Request Broker (ORB) 服務。</p>
+
+<p>如果要檢視這個管理主控台頁面，請按一下<strong>伺服器</strong> <strong>&gt;</strong> <strong>應用程式伺服器</strong> <strong>&gt;</strong> <em>serverName</em> <strong>&gt;</strong> <strong>ORB 服務</strong>。
+</p>
+
+<p>您可以利用好幾種設定，來控制內部的 Object Request Broker (ORB) 處理程序。
+如果應用程式含有 Enterprise Bean 的話，您可以利用這些設定來改進應用程式效能。
+您可以為了預設伺服器或管理領域中所配置的任何應用程式伺服器而變更這些設定。
+</p>
+
+<div>
+<p>
+<strong>「配置」標籤</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="ObjectRequestBroker_requestTimeout_description"></a>要求逾時</strong>
+            &nbsp;
+            </dt>
+<dd>指定要求訊息逾時之前的等待秒數。
+<p>如果要在指令行 Scripting 中使用，這個系統內容的完整名稱就是 com.ibm.CORBA.RequestTimeout。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">int</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">單位</td>
+<td align="left" valign="top" class="base">秒</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">180</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">0 至 300</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ObjectRequestBroker_requestRetriesCount_description"></a>要求重試次數
+</strong>
+            &nbsp;
+            </dt>
+<dd>指定在伺服器失敗時，ORB 試圖傳送要求的次數。重試有時會使暫時性網路復原失敗。
+
+<p>如果要在指令行 Scripting 中使用，這個系統內容的完整名稱就是 com.ibm.CORBA.requestRetriesCount。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">int</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">1
+</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">1 至 10</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ObjectRequestBroker_requestRetriesDelay_description"></a>要求重試延遲</strong>
+            &nbsp;
+            </dt>
+<dd>指定要求重試之間的毫秒數。
+<p>如果要在指令行 Scripting 中使用，這個系統內容的完整名稱就是 com.ibm.CORBA.requestRetriesDelay。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">int</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">單位</td>
+<td align="left" valign="top" class="base">毫秒</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">0</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">0 至 60</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ObjectRequestBroker_connectionCacheMaximum_description"></a>連線快取上限</strong>
+            &nbsp;
+            </dt>
+<dd>指定允許占用服務的連線快取記憶體之連線數目上限。
+如果有許多用戶端同時連接至伺服器端 ORB，您可以增加這個參數來支援最多 1000 個用戶端的繁重負荷。
+
+<p>如果要在指令行 Scripting 中使用，這個系統內容的完整名稱就是 com.ibm.CORBA.MaxOpenConnections。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">整數</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">單位</td>
+<td align="left" valign="top" class="base">連線</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">240</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ObjectRequestBroker_connectionCacheMinimum_description"></a>連線快取下限</strong>
+            &nbsp;
+            </dt>
+<dd>指定允許占用服務的連線快取記憶體之連線數目下限。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">整數</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">單位</td>
+<td align="left" valign="top" class="base">連線</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">100</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ObjectRequestBroker_commTraceEnabled_description"></a>ORB 追蹤</strong>
+            &nbsp;
+            </dt>
+<dd>啟用 ORB GIOP 訊息的追蹤。
+<p>這個設定會影響兩個系統內容：com.ibm.CORBA.Debug 和 com.ibm.CORBA.CommTrace。
+如果您利用指令行 Scripting 來設定這些內容，您必須將這兩者都設成 <samp>true</samp>，才能啟用 GIOP 訊息的追蹤。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">未啟用 (<samp>false</samp>)</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ObjectRequestBroker_locateRequestTimeout_description"></a>尋找要求逾時</strong>
+            &nbsp;
+            </dt>
+<dd>指定 LocateRequest 訊息逾時之前的等待秒數。
+<p>如果要在指令行 Scripting 中使用，這個系統內容的完整名稱就是 com.ibm.CORBA.LocateRequestTimeout。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">int</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">單位</td>
+<td align="left" valign="top" class="base">秒</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">180</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">0 至 300</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ObjectRequestBroker_forceTunnel_description"></a>強制通道作業</strong>
+            &nbsp;
+            </dt>
+<dd>控制用戶端 ORB 如何嘗試使用 HTTP 通道作業。
+<p>如果要直接存取，這個內容的完整名稱就是 com.ibm.CORBA.ForceTunnel。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base"><samp>NEVER</samp></td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">有效值如下：<samp>ALWAYS</samp>、<samp>NEVER</samp> 或 <samp>WHENREQUIRED</samp>。</td>
+
+</tr>
+
+</table>
+
+<p>以下是有效值的其他相關資訊：
+<dl>
+
+<dt>
+<strong>ALWAYS</strong>
+</dt>
+<dd>立即使用 HTTP 通道作業，不先嘗試 TCP 連線。
+</dd>
+
+<dt>
+<strong>NEVER</strong>
+</dt>
+<dd>停用 HTTP 通道作業。
+如果 TCP 連線失敗，會擲出 CORBA 系統異常狀況 (COMM_FAILURE)。
+</dd>
+
+<dt>
+<strong>WHENREQUIRED</strong>
+</dt>
+<dd>在 TCP 連線失敗時使用 HTTP 通道作業。
+</dd>
+
+</dl>
+</p>
+
+</dd>
+<dt>
+<strong><a name="ObjectRequestBroker_tunnelAgentURL_description"></a>通道代理程式 URL</strong>
+            &nbsp;
+            </dt>
+<dd>指定用來支援 HTTP 通道作業的 Servlet 之 URL。
+<p>這必須是格式正確的 URL，如 <samp>http://w3.mycorp.com:81/servlet/com.ibm.CORBA.services.IIOPTunnelServlet</samp>，或 Applet 的 <samp>http://applethost:port/servlet/com.ibm.CORBA.services.IIOPTunnelServlet</samp>。
+如果設定 <strong>HTTP 通道作業</strong>的話，這是一個必要的欄位。
+</p>
+
+<p>如果要在指令行 Scripting 中使用，這個系統內容的完整名稱就是 com.ibm.CORBA.TunnelAgentURL。
+</p>
+
+</dd>
+<dt>
+<strong><a name="ObjectRequestBroker_noLocalCopies_description"></a>依參照傳遞</strong>
+            &nbsp;
+            </dt>
+<dd>指定 ORB 如何傳遞參數。
+如果啟用的話，ORB 會依參照傳遞，而不是依值傳遞，不會複製物件。
+如果您沒有啟用依參照傳遞，在發出每個遠端方法呼叫之前，會先將參數複製到堆疊中，成本比較高。
+
+<p>如果 EJB 用戶端和 EJB 伺服器是安裝在相同 WebSphere Application Server 實例中，且用戶端和伺服器使用遠端介面，啟用依參照傳遞可以改進效能達 50%。
+只有在以參數來傳遞非基本物件類型時，依參照傳遞才能改進效能。
+因此，不論呼叫模型為何，一律會複製 int 和 float。
+</p>
+
+<p>啟用這個內容要很小心，因為有可能發生非預期的行為。
+如果遠端方法修改了物件參照，呼叫端可能會變更。</p>
+
+<p>如果要在指令行 Scripting 中使用，這個系統內容的完整名稱就是 com.ibm.CORBA.iiop.noLocalCopies。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">未啟用 (false)</td>
+
+</tr>
+
+</table>
+
+<p>將 Enterprise Bean 的這個選項與遠端介面一起使用，會違反 EJB Specification, 2.0 版（請參閱 5.4 節）。
+傳遞給 EJB 方法或 EJB Home 方法的物件參照不會複製，有可能毀損。
+</p>
+
+<p>請考慮採用下例：
+<pre>Iterator iterator = collection.iterator();
+MyPrimaryKey pk = new MyPrimaryKey();
+while (iterator.hasNext()) {
+   pk.id = (String) iterator.next();
+   MyEJB myEJB = myEJBHome.findByPrimaryKey(pk);
+}</pre>
+</p>
+
+<p>在這個範例中，每次都利用不同的 ID 值，將指向相同 MyPrimaryKey 物件的參照傳入 WebSphere Application Server。
+如果您在<samp>已啟用</samp>依參照傳遞的情況下執行這個程式碼，就會因為多個 Enterprise Bean 參照相同 MyPrimaryKey 物件，而在應用程式伺服器內發生問題。
+如果要避免這個問題，請在啟用依參照傳遞時，將系統內容 com.ibm.websphere.ejbcontainer.allowPrimaryKeyMutation 設為 <samp>true</samp>。
+將「依參照傳遞」設為 <samp>true</samp> 會使 EJB 儲存區建立 PrimaryKey 物件的本端複本。
+不過，這會局部喪失設定「依參照傳遞」的效能優點。
+</p>
+
+<p>一般而言，您必須詳細檢查將物件參照當作參數來傳給 Enterprise Bean 方法或 EJB Home 方法的任何應用程式碼，以瞭解傳遞這個物件參照會不會造成資料整合性問題或其他問題。
+</p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>相關資訊</strong>
+</p>
+<a href="rcon_buttons.html">管理主控台按鈕</a>
+<br>
+
+<a href="uejb_rthrd.html">執行緒儲存池設定</a>
+<br>
+
+</div>
+</body>
+</html>

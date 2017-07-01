@@ -1,0 +1,114 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Impostazioni del modulo login JAAS</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecjaaslogin"></a>
+<h2>Impostazioni del modulo login JAAS</h2>
+
+<p>Utilizzare questa pagina per definire il modulo login di una configurazione
+login JAAS (Java Authentication Authorization Service).</p>
+
+<p>Per visualizzare questa pagina di gestione, fare clic su <strong>Sicurezza</strong> &gt;
+<strong>Configurazione JAAS</strong> &gt; <strong>Login applicazione</strong> &gt; <em>nome_alias</em> &gt;
+<strong>Moduli login JAAS</strong>.</p>
+
+<div>
+<p>
+<strong>Scheda Configurazione</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="JAASLoginModule_moduleClassName_description"></a>Nome classe del modulo</strong>
+</dt>
+<dd>Specifica il nome classe del modulo login.
+<p>I moduli login predefiniti, definiti dal prodotto WebSphere, utilizzano una classe
+LoginModule proxy, com.ibm.ws.security.common.auth.module.WSLoginModuleProxy.
+Questa classe proxy carica il modulo login WebSphere con il programma di caricamento
+classi di contesto thread e delega tutte le operazioni all'implementazione del
+modulo login <em>reale</em>. Quest'ultima viene specificata come opzione di delega nella
+configurazione delle opzioni. La classe proxy &egrave; necessaria perch&eacute; i programmi di
+caricamento classi delle applicazioni Developer Kit non possono visualizzare i programmi
+di
+caricamento classi del prodotto WebSphere.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati:</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JAASLoginModule_authenticationStrategy_description"></a>Strategia autenticazione</strong>
+</dt>
+<dd>Specifica il funzionamento dell'autenticazione mentre
+quest'ultima avanza nello stack dei
+moduli login.
+<p>Un provider di autenticazione JAAS fornisce la strategia di autenticazione. In
+JAAS, una strategia di autenticazione viene implementata tramite l'interfaccia LoginModule. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati:</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito:</td>
+<td align="left" valign="top" class="base">Necessario</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo:</td>
+<td align="left" valign="top" class="base">Obbligatorio, Richiesto, Sufficiente e Facoltativo</td>
+
+</tr>
+
+</table>
+
+<p>Specificare ulteriori opzioni in <strong>Ulteriori propriet&agrave; opzioni</strong>. Queste coppie
+di nomi e valori vengono inviate ai moduli login durante l'inizializzazione.
+Questo &egrave; uno dei meccanismi utilizzati per inviare informazioni ai
+moduli di login.</p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informazioni correlate</strong>
+</p>
+<a href="rcon_buttons.html">Pulsanti della console di gestione</a>
+<br>
+
+<a href="rcon_pageusage.html">Funzioni della pagina della console di gestione</a>
+<br>
+
+<a href="rcon_scope.html">Impostazioni ambito della console di gestione</a>
+<br>
+
+<a href="rcon_filter.html">Impostazioni di filtro della console di gestione</a>
+<br>
+
+<a href="rcon_preferences.html">Impostazioni delle preferenze della console di gestione</a>
+<br>
+
+</div>
+</body>
+</html>

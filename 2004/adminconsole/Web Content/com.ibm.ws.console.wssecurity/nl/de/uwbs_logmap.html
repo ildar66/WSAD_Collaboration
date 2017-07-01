@@ -1,0 +1,106 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Anmeldezuordnungen</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_logmap"></a>
+<h2>
+<img alt="[Fixpack 5.0.2 und h&ouml;her]" src="v502.gif" border="0">Anmeldezuordnungen</h2>
+
+<p>Verwenden Sie diese Seite, um eine Liste von Konfigurationen f&uuml;r die Validierung
+von Sicherheits-Token in eingehenden Nachrichten anzuzeigen. Anmeldezuordnungen ordnen eine Authentifizierungsmethode
+zu einer JAAS-Anmeldekonfiguration (Java Authentication and Authorization Service) f&uuml;r die Validierung des Sicherheits-Token
+zu. Es sind vier Authentifizierungsmethoden in WebSphere Application Server vordefiniert:
+BasicAuth, Signature, IDAssertion und LTPA.</p>
+
+<p>Gehen Sie zum Anzeigen dieser Seite der Administrationskonsole wie folgt vor:<ol>
+
+<li>Klicken Sie auf <strong>Server &gt; Anwendungsserver</strong><em>Servername</em>. </li>
+
+<li>Klicken Sie unter "Weitere Merkmale"
+auf <strong>Web Services: Standardbindungen f&uuml;r die Sicherheit von Web Services &gt; Anmeldezuordnungen</strong>.</li>
+
+</ol>
+</p>
+
+<p>Klicken Sie auf <strong>Neu</strong>, um eine Anmeldezuordnung zu erstellen. </p>
+
+<p>Klicken Sie auf <strong>L&ouml;schen</strong>, um eine Anmeldezuordnung zu l&ouml;schen.</p>
+
+<p>Wenn Sie auf <strong>Laufzeit aktualisieren</strong> klicken, wird die Laufzeit der Web-Services-Sicherheit
+mit den Informationen der Standardbindung aktualisiert, die in der zuvor gespeicherten Datei <samp>ws-security.xml</samp> enthalten sind.
+Wenn Sie in dieser Anzeige die Authentifizierungsmethode, den JAAS-Konfigurationsnamen (Java Authentication and Authorization Service)
+und den Klassennamen der Callback-Handler-Factory angeben, m&uuml;ssen Sie die folgenden Schritte ausf&uuml;hren:
+</p>
+
+<p>Klicken Sie oben in der Administrationskonsole auf <strong>Speichern</strong>. Nachdem Sie auf <strong>Speichern</strong> geklickt haben, erscheint die Hauptanzeige der Administrationskonsole.
+</p>
+
+<p>Kehren Sie in die Anzeige "Anmeldezuordnungen" zur&uuml;ck und klicken Sie auf <strong>Laufzeit aktualisieren</strong>. </p>
+
+<p>
+<b>Anmerkung: </b>Wenn Sie auf <strong>Laufzeit aktualisieren</strong> klicken,
+werden die an den anderen Webservices vorgenommenen Konfigurations&auml;nderungen auch in der Sicherheitslaufzeit von
+Web Services aktualisiert.
+</p>
+
+<dl>
+<dt>
+<strong><a name="sec_authmeth"></a>Authentifizierungsmethode</strong>
+</dt>
+<dd>Die f&uuml;r die Validierung der Sicherheits-Token zu verwendende Authentifizierungsmethode. 
+<p>Die folgenden Authentifizierungsmethoden sind verf&uuml;gbar:<dl>
+<dt>
+<strong>BasicAuth</strong>
+</dt>
+<dd>Bei der Basisauthentifizierung sind im Sicherheits-Token eine Benutzer-ID und ein Kennwort enthalten. Die
+Informationen im Token werden vom Empfangsserver authentifiziert und zum Erstellen eines Berechtigungsnachweises
+verwendet. </dd>
+<dt>
+<strong>Signature</strong>
+</dt>
+<dd>Wenn "Signature" als Authentifizierungsmethode definiert ist, wird ein X.509-Zertifikat als Sicherheits-Token gesendet.
+F&uuml;r LDAP-Registrys wird der definierte Name (DN) einem Berechtigungsnachweis
+zugeordnet, der auf den Filtereinstellungen f&uuml;r LDAP-Zertifikate basiert. Bei LocalOS-Registrys wird das erste
+Attribut des Zertifikats, in der Regel der allgemeine Name (CN, Common Name) direkt einer Benutzer-ID in der Registry
+zugeordnet. </dd>
+<dt>
+<strong>IDAssertion</strong>
+</dt>
+<dd>Bei der Identit&auml;tszusicherung wird eine als vertrauensw&uuml;rdig eingestufte Identit&auml;t (ID) einem
+WebSphere-Berechtigungsnachweis zugeordnet. Bei dieser Authentifizierungsmethode enth&auml;lt das Sicherheits-Token
+nur einen Benutzernamen. Ein weiteres Token ist aus Vertrauensgr&uuml;nden in der Nachricht enthalten. Sobald
+das zus&auml;tzliche Token als vertrauensw&uuml;rdig eingestuft wurde, wird der Benutzername im IDAssertion-Token
+einem Berechtigungsnachweis zugeordnet. </dd>
+<dt>
+<strong>LTPA</strong>
+</dt>
+<dd>Lightweight Third Party Authentication (LTPA) validiert LTPA-Token.</dd>
+</dl>
+</p>
+
+</dd>
+<dt>
+<strong><a name="sec_jaasconfg"></a>Name der JAAS-Konfiguration</strong>
+</dt>
+<dd>Der Name der JAAS-Konfiguration (Java Authentication and Authorization
+Service). </dd>
+<dt>
+<strong><a name="sec_classname"></a>Klassenname der Callback-Handler-Factory</strong>
+</dt>
+<dd>Der Name der Factory f&uuml;r die CallbackHandler-Klasse.</dd>
+</dl>
+<div>
+<p>
+<strong>Zugeh&ouml;rige Informationen</strong>
+</p>
+<a href="uwbs_logmapn.html">Konfigurationseinstellungen f&uuml;r die Anmeldezuordnung</a>
+<br>
+
+</div>
+</body>
+</html>

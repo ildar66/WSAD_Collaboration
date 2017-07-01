@@ -1,0 +1,245 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>一般 JMS 接続ファクトリー設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="GenericJMSConnectionFactory"></a>
+<h2>一般 JMS 接続ファクトリー設定</h2>
+
+<p>このパネルを使用して、関連する JMS プロバイダーで使用する
+選択済みの JMS 接続ファクトリーの構成プロパティーを表示または変更します。
+これらの構成プロパティーは、関連する JMS 宛先への接続を作成する方法を制御します。
+</p>
+
+<p>JMS 接続ファクトリーは、JMS 宛先への接続を作成するために使用されます。
+JMS 接続ファクトリーは、関連する JMS プロバイダーによって作成されます。
+一般 JMS プロバイダー (組み込み WebSphere JMS プロバイダーまたは WebSphere MQ JMS プロバイダー以外) の JMS 接続ファクトリーには、
+以下のプロパティーがあります。
+</p>
+
+<p>この管理コンソール・ページを表示するには、「
+<strong>リソース</strong>」-&gt;「<strong>一般 JMS プロバイダー</strong>」-&gt;「<strong><em>provider_name</em></strong>」-&gt;「<strong>JMS 接続ファクトリー</strong>」-&gt;「<strong><em>connection_factory</em></strong>」をクリックします。</p>
+
+<dl>
+<dt>
+<strong><a name="GenericJMSConnectionFactory_Name"></a>名前</strong>
+</dt>
+<dd>IBM WebSphere Application Server 内で、この JMS 接続ファクトリーを管理目的で使用する際の名前。
+この名前は、関連のある JMS プロバイダー内で固有でなければなりません。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="GenericJMSConnectionFactory_type"></a>型</strong>
+</dt>
+<dd>この接続ファクトリーで JMS キュー宛先を作成するか、JMS トピック宛先を作成するかを指定します。
+
+<p>以下のオプションのいずれかを選択します。
+<dl>
+
+<dt>
+<strong>キュー</strong>
+</dt>
+<dd>point-to-point メッセージングを行うための JMS キュー接続ファクトリー。</dd>
+
+<dt>
+<strong>トピック</strong>
+</dt>
+<dd>Publish/Subscribe メッセージングを行うための JMS トピック接続ファクトリー。</dd>
+
+</dl>
+</p>
+
+</dd>
+<dt>
+<strong><a name="GenericJMSConnectionFactory_externaljndiName"></a>JNDI 名</strong>
+</dt>
+<dd>接続ファクトリーをアプリケーション・サーバーのネーム・スペースにバインドする際に使用される JNDI 名。
+<p>規則として、完全修飾の JNDI 名を使用します。
+例えば、jms/<em>Name</em> の形式です。
+ここで、<em>Name</em> は、リソースの論理名です。</p>
+<p>この名前は、プラットフォームのバインディング情報をリンクするために使用します。
+バインディングにより、モジュールのデプロイメント記述子で定義されているリソースと、
+プラットフォーム別に JNDI にバインドされている実際の (物理的な) リソースとの関連付けが行われます。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+</dd>
+<dt>
+<strong><a name="GenericJMSConnectionFactory_description"></a>説明</strong>
+</dt>
+<dd>IBM WebSphere Application Server 内で管理目的で使用する、この接続ファクトリーの説明。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="category"></a>カテゴリー</strong>
+</dt>
+<dd>IBM WebSphere Application Server 管理レコード用に、この接続ファクトリーを分類またはグループ化する際に使用されるカテゴリー。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="AuthDataAlias"></a>コンポーネント管理認証エイリアス</strong>
+</dt>
+<dd>このエイリアスは、アプリケーション管理認証のための JMS プロバイダーへの接続を認証するのに使用するユーザー ID とパスワードを指定します。
+
+<p>このプロパティーでは、WebSphere Application Server に定義されている J2C 認証データ・エントリー・エイリアスのリストを提供します。
+使用するデータ・エントリー・エイリアスを選択して、
+JMS プロバイダーへの新規接続を確立するための認証を受けることができます。
+</p>
+
+<p>WebSphere Application Server に対するグローバル・セキュリティーを使用可能にしている場合は、
+JMS プロバイダーへの新規接続の確立の認証を受けるために使用するユーザー ID とパスワードを指定するエイリアスを選択します。
+このエイリアスの使い方は、アプリケーション・コンポーネントのデプロイメント記述子の接続ファクトリー・リソース参照で宣言されているリソース認証 (res-auth) の設定によって異なります。</p>
+
+<p>
+<b>注: </b>12 文字より長いユーザー ID は、
+組み込み WebSphere JMS プロバイダーによる認証には使用できません。
+例えば、デフォルトの Windows NT のユーザー ID <strong>Administrator</strong> は、
+13 文字なので、組み込み WebSphere メッセージングでは使用できません。
+したがって、WebSphere JMS プロバイダー接続ファクトリー用の認証エイリアスでは、
+12 文字以下のユーザー ID を指定する必要があります。</p>
+
+</dd>
+<dt>
+<strong><a name="mappingAuthDataAlias"></a>コンテナー管理認証エイリアス</strong>
+</dt>
+<dd>このエイリアスは、
+コンテナー管理認証のための JMS プロバイダーへの接続認証に使用するユーザー ID とパスワードを指定します。
+
+<p>このプロパティーでは、WebSphere Application Server に定義されている J2C 認証データ・エントリー・エイリアスのリストを提供します。
+使用するデータ・エントリー・エイリアスを選択して、
+JMS プロバイダーへの新規接続を確立するための認証を受けることができます。
+</p>
+
+<p>WebSphere Application Server に対するグローバル・セキュリティーを使用可能にしている場合は、
+JMS プロバイダーへの新規接続の確立の認証を受けるために使用するユーザー ID とパスワードを指定するエイリアスを選択します。
+このエイリアスの使い方は、アプリケーション・コンポーネントのデプロイメント記述子の接続ファクトリー・リソース参照で宣言されているリソース認証 (res-auth) の設定によって異なります。</p>
+
+<p>
+<b>注: </b>12 文字より長いユーザー ID は、
+組み込み WebSphere JMS プロバイダーによる認証には使用できません。
+例えば、デフォルトの Windows NT のユーザー ID <strong>Administrator</strong> は、
+13 文字なので、組み込み WebSphere メッセージングでは使用できません。
+したがって、WebSphere JMS プロバイダー接続ファクトリー用の認証エイリアスでは、
+12 文字以下のユーザー ID を指定する必要があります。</p>
+
+</dd>
+<dt>
+<strong><a name="GenericJMSConnectionFactory_type"></a>XA 使用可能</strong>
+</dt>
+<dd>接続ファクトリーが、メッセージの XA 調整のためのものか、非 XA 調整のためのものかを指定し、アプリケーション・サーバーが XA QCF/TCF を使用するかどうかを制御します。
+同一のトランザクションで複数のリソースが使用されていない場合は、XA を使用可能にしてください。<p>このプロパティーを <samp>NON_XA</samp> に設定すると、JMS セッションはトランザクションには参加していますが、XA 呼び出しではなく、リソース・マネージャーのローカル・トランザクション呼び出し (session.commit および session.rollback) を使用します。
+これによって、パフォーマンスを向上できます。ただし、WebSphere Application Server のトランザクションに参加させることができるリソースは、1 つだけになります。WebSphere Application Server Enterprise では、最終参加者サポートを使用することにより、1 つの非 XA リソースをその他の XA 可能リソースとともに参加させることができます。
+</p>
+<p>「<strong>ポート</strong>」プロパティーが「<samp>DIRECT</samp>」に設定されている WebSphere トピック接続ファクトリーの場合、このプロパティーは適用されず、常に値「<samp>NON_XA</samp>」を採用します。</p>
+<table cellpadding="1">
+<tr>
+<th align="left" valign="top" class="base" style="background-color:#dedede">データ型</th><td align="left" valign="top" class="base">列挙型</td>
+</tr>
+<tr>
+<th align="left" valign="top" class="base" style="background-color:#dedede">単位</th><td align="left" valign="top" class="base">該当なし</td>
+</tr>
+<tr>
+<th align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</th><td align="left" valign="top" class="base">XA 使用可能</td>
+</tr>
+<tr>
+<th align="left" valign="top" class="base" style="background-color:#dedede">範囲</th><td align="left" valign="top" class="base">
+<dl>
+<dt>
+<strong>XA</strong>
+</dt>
+<dd>接続ファクトリーは、メッセージの XA 調整用です。</dd>
+<dt>
+<strong>NON_XA</strong>
+</dt>
+<dd>接続ファクトリーは、メッセージの非 XA 調整用です。</dd>
+</dl>
+</td>
+<tr>
+<th align="left" valign="top" class="base" style="background-color:#dedede">推奨</th><td align="left" valign="top" class="base">メッセージ・キューまたは受信されたトピックがトランザクションの唯一のリソースである場合は、XA を使用可能にしないでください。
+他のキューまたは他のトピックなど、他のリソースが関係している場合は、XA を使用可能にしてください。</td>
+</tr>
+</tr>
+</table>
+</dd>
+<dt>
+<strong><a name="ConnectionFactory_connectionPool"></a>接続プール</strong>
+</dt>
+<dd>接続プールの設定のオプショナル・セットを指定します。<p>接続プール・プロパティーは、すべての J2C コネクターに共通です。</p>
+<p>アプリケーション・サーバーは、JMS プロバイダーとの接続とセッションをプールすることで、
+パフォーマンスを向上させます。
+これは、WebSphere MQ 接続プールとは無関係です。
+アプリケーションの接続とセッションのプール・プロパティーを適切に構成する必要があります。
+構成が適切でないと、接続とセッションが正しく動作しない場合があります。</p>
+<p>JMS リソースへのサーバー・サイド・アクセスが並行して行われ、それがデフォルト値を超える場合は、接続プールのサイズを変更してください。接続プールのサイズは、キューごと、あるいはトピックごとに設定されます。詳しくは、次の表を参照してください。</p>
+
+</dd>
+<dt>
+<strong><a name="ConnectionFactory_sessionPool"></a>セッション・プール</strong>
+</dt>
+<dd>セッション・プール設定のオプションのセット。
+
+<p>このリンクは、すべての J2C コネクターに共通の、オプションの接続プール・
+プロパティーのパネルを提供します。
+</p>
+
+<p>アプリケーション・サーバーは、JMS プロバイダーとの接続とセッションをプールすることで、
+パフォーマンスを向上させます。
+これは、WebSphere MQ 接続プールとは無関係です。
+アプリケーションの接続とセッションのプール・プロパティーを適切に構成する必要があります。
+構成が適切でないと、接続とセッションが正しく動作しない場合があります。</p>
+
+</dd>
+</dl>
+</body>
+</html>

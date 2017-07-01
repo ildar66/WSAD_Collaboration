@@ -1,0 +1,91 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>要求受信側のバインディング・コレクション</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_reqrecvr"></a>
+<h2>
+<img alt="[修正パッケージ 5.0.2 以降]" src="v502.gif" border="0">要求受信側のバインディング・コレクション</h2>
+
+<p>このページを使用して、Web サービス・セキュリティー要求メッセージを受信するための
+バインディング構成を指定します。</p>
+
+<p>この管理コンソール・ページを表示するには、以下のステップを実行します。<ol>
+
+<li>「<strong>アプリケーション</strong>」&gt;「<strong>エンタープライズ・アプリケーション</strong>」&gt;「<em>application_name</em> 」をクリックします。</li>
+
+<li>「Related Items」の下の「<strong>Web モジュール</strong>」&gt;「<em>URI_file_name</em>」&gt;「<strong>Web Services: Server Security Bindings</strong>」をクリックします。
+</li>
+
+<li>「Request Receiver Binding」の下の「<strong>編集</strong>」をクリックします。</li>
+
+</ol>
+</p>
+
+<dl>
+<dt>
+<strong><a name="sec_signing"></a>Signing Information</strong>
+</dt>
+<dd>署名パラメーターの構成を指定します。署名情報は、本文、タイム・スタンプ、およびユーザー名トークンを含むメッセージの各部の署名、および検証に使用されます。
+<p>サーバー・レベルの構成において、「認証メソッド」が IDAssertion、「ID タイプ」が X509Certificate になっている場合には、
+これらのパラメーターを X.509 証明書検証にも使用できます。そのような場合には、「<strong>Certificate
+Path</strong>」フィールドにのみ入力する必要があります。</p>
+
+</dd>
+<dt>
+<strong><a name="sec_encrypt"></a>Encryption Information</strong>
+</dt>
+<dd>暗号化パラメーターおよび暗号化解除パラメーターの構成を指定します。
+この構成は、本文とユーザー名トークンを含むメッセージの各部を暗号化および暗号化解除するために使用します。</dd>
+<dt>
+<strong><a name="sec_trustancdescr"></a>Trust Anchors</strong>
+</dt>
+<dd>認証局 (CA) が発行したトラステッド・ルート証明書を含む鍵ストア・オブジェクトのリストを指定します。
+<p>認証局は、ユーザーを認証し、証明書を発行します。
+CertPath API はその証明書を使用して、着信する X.509 形式のセキュリティー・トークン、または自己署名されているトラステッド証明書の証明書チェーンを検証します。</p>
+
+</dd>
+<dt>
+<strong><a name="sec_collcert"></a>Collection Certificate Store</strong>
+</dt>
+<dd>信頼されていない中間証明書ファイルのリストを指定します。
+<p>コレクション証明書ストアには、信頼されていない、中間証明書のチェーンが含まれています。CertPath API は、トラスト・アンカーに基づいているこれらの証明書を検証します。</p>
+
+</dd>
+<dt>
+<strong><a name="sec_keyldesc"></a>Key Locators</strong>
+</dt>
+<dd>ディジタル署名および暗号化のための鍵を、鍵ストア・ファイルまたはリポジトリーから取り出す鍵ロケーター・オブジェクトのリストを指定します。
+鍵ロケーターは、名前または論理名をエイリアスにマップするか、認証済みの識別を鍵にマップします。この論理名は、
+鍵ロケーターのインプリメンテーションに鍵を配置するために使用されます。</dd>
+<dt>
+<strong><a name="sec_trstiddesc"></a>Trusted ID Evaluators</strong>
+</dt>
+<dd>識別表明権限を信頼するのか、メッセージの送信側を信頼するのかを決定する、トラステッド ID エバリュエーターのリストを指定します。
+<p>トラステッド ID エバリュエーターは、あるサーバーから別のサーバーに追加された ID を認証するために使用されます。例えば、あるクライアントが、認証を行うためにユーザー A の識別をサーバー 1 に送信したとします。サーバー 1 は、ダウンストリームでサーバー 2 を呼び出し、ユーザー A の ID を表明し、サーバー 1 のユーザー ID とパスワードを組み込みます。サーバー 2 は、そのユーザー ID とパスワードを認証し、TrustedIDEvaluator のインプリメンテーションに基づく信頼をチェックすることにより、サーバー 1 との信頼を確立しようとします。認証プロセスと信頼チェックが正常に行われると、サーバー 2 は、サーバー 1 で認証済みのユーザー A を信頼し、ユーザー A がサーバー 2 で要求を起動するための信任状が作成されます。</p>
+
+</dd>
+<dt>
+<strong><a name="sec_logmapdesc"></a>Login Mappings</strong>
+</dt>
+<dd>着信メッセージ内のトークンを検証するための構成のリストを指定します。
+<p>ログイン・マッピングは、認証メソッドを Java Authentication and Authorization Service (JAAS) 構成にマップします。</p>
+
+<p>JAAS を構成するには、管理コンソールを使用して、「<strong>セキュリティー</strong>」&gt;「<strong>JAAS Configuration</strong>」をクリックします。</p>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>関連情報</strong>
+</p>
+<a href="uwbs_encrypt.html">暗号化情報コレクション</a>
+<br>
+
+</div>
+</body>
+</html>

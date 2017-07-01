@@ -1,0 +1,410 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Param&egrave;tres de fabrique de connexions de files d'attente WebSphere</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="WASQueueConnectionFactory"></a>
+<h2>Param&egrave;tres de fabrique de connexions de files d'attente WebSphere</h2>
+
+<p>Utilisez cet &eacute;cran pour afficher ou modifier les propri&eacute;t&eacute;s de
+configuration de la fabrique de connexions de file d'attente s&eacute;lectionn&eacute;e
+pour une utilisation avec le fournisseur JMS WebSphere int&eacute;gr&eacute;, install&eacute;
+avec WebSphere Application Server. Ces propri&eacute;t&eacute;s de
+configuration contr&ocirc;lent le mode de cr&eacute;ation des connexions vers la
+destination de file d'attente JMS associ&eacute;e.</p>
+
+<p>Une fabrique de connexions de files d'attente est utilis&eacute;e pour cr&eacute;er des
+connexions JMS vers des destinations de file d'attente.
+La fabrique de
+connexions de file d'attente est cr&eacute;&eacute;e par le fournisseur JMS WebSphere int&eacute;gr&eacute;.
+Une fabrique de connexions de file d'attente du fournisseur JMS WebSphere
+est dot&eacute;e des propri&eacute;t&eacute;s suivantes :</p>
+
+<p>Pour afficher cette page de la console d'administration, cliquez
+sur <strong>Ressources-&gt; Fournisseur WebSphere JMS-&gt; (Dans la
+sous-fen&ecirc;tre de contenu, sous les propri&eacute;t&eacute;s additionnelles)
+Fabriques de connexions de file d'attente WebSphere-&gt;
+<strong>fabrique_connexions</strong></strong>
+</p>
+
+<div>
+<p>
+<strong>Onglet Configuration</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="WASQueueConnectionFactory_contextId"></a>Port&eacute;e</strong>
+</dt>
+<dd>Indique &agrave; quel niveau cette d&eacute;finition de ressource est visible :
+cellule, noeud ou serveur.
+<p>Des ressources telles que les fournisseurs JMS, les liaisons d'espace de noms et les biblioth&egrave;ques partag&eacute;es
+peuvent &ecirc;tre d&eacute;finies &agrave; plusieurs niveaux. Dans ce cas, pour une ressource donn&eacute;e, la d&eacute;finition figurant au
+niveau le plus sp&eacute;cifique (par exemple, le serveur) l'emporte sur l'&eacute;ventuelle d&eacute;finition homologue figurant &agrave;
+un niveau plus g&eacute;n&eacute;ral (par exemple, la cellule). </p>
+
+<p>Notez que quelle que soit la port&eacute;e d'une ressource d&eacute;finie, les propri&eacute;t&eacute;s de cette
+ressource s'appliquent uniquement au niveau d'un serveur individuel. Par exemple, si vous
+d&eacute;finissez la port&eacute;e d'une source de donn&eacute;es au niveau cellule, tous les utilisateurs de
+cette cellule peuvent rechercher et utiliser cette source de donn&eacute;es, laquelle est unique
+au sein de cette cellule. Cependant, les propri&eacute;t&eacute;s de la ressource sont locales
+&agrave; chaque serveur de la cellule. Par exemple, si vous attribuez la valeur 10
+&agrave; la propri&eacute;t&eacute; <strong>Nombre maximal de connexions</strong>, chaque serveur de cette cellule pourra
+avoir 10 connexions.<dl>
+<dt>
+<strong>Cellule</strong>
+</dt>
+<dd>Niveau de port&eacute;e le plus g&eacute;n&eacute;ral. Les ressources d&eacute;finies au niveau cellule
+sont visibles depuis tous les noeuds et serveurs de cette cellule, sauf si elles sont red&eacute;finies
+&agrave; un niveau inf&eacute;rieur. Pour visualiser les ressources d&eacute;finies au niveau cellule, ne sp&eacute;cifiez pas
+de nom de serveur ni de nom de noeud dans le formulaire de s&eacute;lection de port&eacute;e.</dd>
+<dt>
+<strong>Noeud</strong>
+</dt>
+<dd>Port&eacute;e par d&eacute;faut de la plupart des types de ressources. Les ressources d&eacute;finies
+au niveau noeud l'emportent sur les &eacute;ventuelles d&eacute;finitions homologues figurant au niveau cellule
+et sont visibles depuis tous les serveurs du noeud consid&eacute;r&eacute;, sauf si elles sont red&eacute;finies &agrave; un niveau
+serveur sur ce noeud. Pour visualiser les ressources d&eacute;finies au niveau d'un noeud, ne sp&eacute;cifiez pas de
+serveur dans le formulaire de s&eacute;lection de port&eacute;e ; sp&eacute;cifiez simplement le nom du noeud concern&eacute;.</dd>
+<dt>
+<strong>Serveur</strong>
+</dt>
+<dd>Niveau de port&eacute;e le plus sp&eacute;cifique pour la d&eacute;finition des ressources. Les ressources
+d&eacute;finies au niveau d'un serveur l'emportent sur les &eacute;ventuelles d&eacute;finitions homologues apparaissant au niveau
+de la cellule parente ou du noeud parent ; elles sont visibles uniquement
+depuis ce serveur. Pour visualiser les ressources d&eacute;finies au niveau d'un serveur, sp&eacute;cifiez le nom de ce
+serveur ainsi que celui de son noeud parent dans le formulaire de s&eacute;lection de port&eacute;e.</dd>
+</dl>
+</p>
+
+<p>Lorsque des ressources sont cr&eacute;&eacute;es, elles le sont toujours dans la port&eacute;e en cours,
+c'est-&agrave;-dire celle qui est s&eacute;lectionn&eacute;e dans le formulaire. Pour afficher les ressources d'autres port&eacute;es,
+sp&eacute;cifiez un noeud ou un serveur diff&eacute;rent dans le formulaire de s&eacute;lection de port&eacute;e.  </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASQueueConnectionFactory_name"></a>Nom</strong>
+</dt>
+<dd>Nom sous lequel cette fabrique de connexions de files d'attente est connue pour
+l'administration d'IBM WebSphere Application Server. Ce nom doit &ecirc;tre unique parmi les fabriques de connexions JMS du domaine administratif WebSphere.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASQueueConnectionFactory_jndiName"></a>Nom JNDI</strong>
+</dt>
+<dd>Nom JNDI utilis&eacute; pour lier la fabrique de connexions &agrave; l'espace nom du serveur
+d'applications.
+<p>Par convention, utilisez le nom JNDI complet, par exemple sous la forme jms/<em>Nom</em>, <em>Nom</em>
+correspondant au nom logique de la ressource.</p>
+
+<p>Ce nom est utilis&eacute; pour lier les informations relatives &agrave; la
+liaison des plateformes. La liaison associe les ressources d&eacute;finies dans le descripteur de d&eacute;ploiement du
+module aux ressources r&eacute;elles (physiques) li&eacute;es sous JNDI par la plateforme.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASQueueConnectionFactory_description"></a>Description</strong>
+</dt>
+<dd>Description de cette fabrique de connexions dans IBM WebSphere Application Server &agrave; des
+fins d'administration.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASQueueConnectionFactory_category"></a>Cat&eacute;gorie</strong>
+</dt>
+<dd>Cat&eacute;gorie utilis&eacute;e pour classer ou grouper cette fabrique de connexions dans le cadre
+de l'administration d'IBM WebSphere Application Server.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASQueueConnectionFactory_AuthDataAlias"></a>Alias d'authentification g&eacute;r&eacute; par composant</strong>
+</dt>
+<dd>Cet alias sp&eacute;cifie un ID utilisateur et un mot de passe &agrave; utiliser pour authentifier la connexion &agrave; un fournisseur JMS pour l'authentification g&eacute;r&eacute;e par l'application.
+<p>Cette propri&eacute;t&eacute; fournit la liste des alias des entr&eacute;es de donn&eacute;es d'authentification
+J2C d&eacute;finis pour WebSphere Application Server. Vous pouvez s&eacute;lectionner un alias d'entr&eacute;e de donn&eacute;es pour authentifier la cr&eacute;ation d'une connexion au fournisseur JMS.</p>
+
+<p>Si vous avez activ&eacute; la s&eacute;curit&eacute; globale de WebSphere Application Server, s&eacute;lectionnez l'alias qui sp&eacute;cifie l'ID  utilisateur et le mot de passe utilis&eacute;s pour authentifier la cr&eacute;ation d'une connexion au fournisseur JMS. L'utilisation de cet alias d&eacute;pend du param&eacute;trage de l'authentification de la ressource
+(res-auth) d&eacute;clar&eacute; dans la r&eacute;f&eacute;rence de ressource de la fabrique de connexions des
+descripteurs de d&eacute;ploiement du composant d'application.</p>
+
+<p>
+<b>Important: </b>Les ID utilisateur de plus de 12 caract&egrave;res ne peuvent pas &ecirc;tre utilis&eacute;s pour l'authentification avec le fournisseur int&eacute;gr&eacute; JMS WebSphere. Par exemple, l'ID utilisateur par d&eacute;faut de Windows
+NT, <strong>Administrator</strong>, n'est pas valable avec la messagerie int&eacute;gr&eacute;e WebSphere car il comporte 13 caract&egrave;res. Par cons&eacute;quent, un alias d'authentification pour une fabrique de connexion au fournisseur JMS WebSphere doit sp&eacute;cifier un ID utilisateur de moins de 13 caract&egrave;res.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Liste de s&eacute;lection</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASQueueConnectionFactory_mappingAuthDataAlias"></a>Alias d'authentification g&eacute;r&eacute; par conteneur</strong>
+</dt>
+<dd>Cet alias sp&eacute;cifie un ID utilisateur et un mot de passe &agrave; utiliser pour authentifier la connexion &agrave; un fournisseur JMS pour l'authentification g&eacute;r&eacute;e par conteneur.
+<p>Cette propri&eacute;t&eacute; fournit la liste des alias des entr&eacute;es de donn&eacute;es d'authentification
+J2C d&eacute;finis pour WebSphere Application Server. Vous pouvez s&eacute;lectionner un alias d'entr&eacute;e de donn&eacute;es pour authentifier la cr&eacute;ation d'une connexion au fournisseur JMS.</p>
+
+<p>Si vous avez activ&eacute; la s&eacute;curit&eacute; globale de WebSphere Application Server, s&eacute;lectionnez l'alias qui sp&eacute;cifie l'ID  utilisateur et le mot de passe utilis&eacute;s pour authentifier la cr&eacute;ation d'une connexion au fournisseur JMS. L'utilisation de cet alias d&eacute;pend du param&eacute;trage de l'authentification de la ressource
+(res-auth) d&eacute;clar&eacute; dans la r&eacute;f&eacute;rence de ressource de la fabrique de connexions des
+descripteurs de d&eacute;ploiement du composant d'application.</p>
+
+<p>
+<b>Important: </b>Les ID utilisateur de plus de 12 caract&egrave;res ne peuvent pas &ecirc;tre utilis&eacute;s pour l'authentification avec le fournisseur int&eacute;gr&eacute; JMS WebSphere. Par exemple, l'ID utilisateur par d&eacute;faut de Windows
+NT, <strong>Administrator</strong>, n'est pas valable avec la messagerie int&eacute;gr&eacute;e WebSphere car il comporte 13 caract&egrave;res. Par cons&eacute;quent, un alias d'authentification pour une fabrique de connexion au fournisseur JMS WebSphere doit sp&eacute;cifier un ID utilisateur de moins de 13 caract&egrave;res.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Liste de s&eacute;lection</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASQueueConnectionFactory_mappingConfigAlias"></a>Alias de configuration de mappage</strong>
+</dt>
+<dd>Permet aux utilisateurs de s&eacute;lectionner une option &agrave; partir de la liste <strong>S&eacute;curit&eacute;</strong> &gt;
+<strong>Configuration JAAS</strong> &gt; <strong>Configuration de connexion de l'application</strong>.
+<p>La configuration JAAS <strong>DefaultPrincipalMapping</strong> associe l'alias d'authentification &agrave; l'ID utilisateur
+et au mot de passe.
+Vous pouvez d&eacute;finir et utiliser d'autres configurations d'associations.
+Pour plus d'informations sur les configurations d'associations, reportez-vous &agrave; la section
+<a href="usec_jaas.html">Param&egrave;tres d'entr&eacute;e de configuration du service JAAS (Java Authentication and Authorization service)</a>.
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Liste de s&eacute;lection</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASQueueConnectionFactory_node"></a>Noeud</strong>
+</dt>
+<dd>Nom WebSphere du noeud d'administration sur lequel fonctionne le serveur JMS pour cette
+fabrique de connexions. Les connexions cr&eacute;&eacute;es par cette fabrique permettent la liaison
+avec ce serveur JMS.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&eacute;</td>
+<td align="left" valign="top" class="base">Enum&eacute;ration</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Plage</td>
+<td align="left" valign="top" class="base">Liste d&eacute;roulante des noeuds du domaine administratif WebSphere.</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASQueueConnectionFactory_type"></a>Compatible XA</strong>
+</dt>
+<dd>Indique si la fabrique de connexions concerne la coordination XA ou non-XA des messages et contr&ocirc;le si le serveur d'applications utilise XA QCF/TCF. Activez XA si plusieurs ressources ne sont pas utilis&eacute;es dans la m&ecirc;me transaction.
+<p>Si vous d&eacute;cochez cette propri&eacute;t&eacute; (pour une coordination non XA), la session JMS figure encore dans une
+transaction, mais utilise les appels de transaction locale du gestionnaire de ressources (session.commit et
+session.rollback) au lieu des appels XA. Ceci peut entra&icirc;ner un am&eacute;lioration des performances. Cependant, cela signifie que, dans WebSphere Application Server, une seule ressource peut
+figurer dans une transaction. Dans WebSphere Application Server Enterprise, le support du dernier participant vous
+permet d'inscrire une ressource non-XA avec d'autres ressources compatibles avec XA.</p>
+
+<p>Cette propri&eacute;t&eacute; ne s'applique pas aux fabriques de connexions de rubrique dont la propri&eacute;t&eacute; <strong>Port</strong> a la
+valeur <samp>DIRECT</samp> ; elle prend toujours une coordination NON_XA. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Case &agrave; cocher</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">S&eacute;lectionn&eacute;e (activ&eacute;e pour la coordination XA)</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Plage</td>
+<td align="left" valign="top" class="base">
+<dl>
+<dt>
+<strong>S&eacute;lectionn&eacute;</strong>
+</dt>
+<dd>La fabrique de connexions est activ&eacute;e pour la coordination XA des messages</dd>
+<dt>
+<strong>Effac&eacute;</strong>
+</dt>
+<dd>La fabrique de connexions n'est pas activ&eacute;e pour la coordination XA des messages</dd>
+</dl>
+</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Recommandation</td>
+<td align="left" valign="top" class="base">N'activez pas la coordination XA lorsque la file d'attente ou la rubrique du message re&ccedil;ue est la
+seule ressource de la transaction.
+Activez la coordination XA lorsque d'autres ressources, y compris d'autres files d'attente ou rubriques, sont
+concern&eacute;es.</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="QueueConnectionFactory_connectionPool"></a>Pool de connexion</strong>
+</dt>
+<dd>Indique un ensemble facultatif de param&egrave;tres de pool de
+connexion.
+<p>Les propri&eacute;t&eacute;s du pool de connexion sont communes &agrave; tous les connecteurs
+J2C. </p>
+
+<p>Le serveur d'applications met en pool les connexions et les sessions avec le fournisseur JMS afin d'am&eacute;liorer les performances. Vous devez configurer les propri&eacute;t&eacute;s du pool de connexions et de sessions de fa&ccedil;on appropri&eacute;e pour vos applications, sinon, vous risquez de ne pas obtenir le comportement de connexion et de session que vous souhaitez.</p>
+
+<p>Modifiez la taille du pool de connexion si l'acc&egrave;s concurrent c&ocirc;te serveur &agrave; la ressource JMS d&eacute;passe la valeur par d&eacute;faut. La taille du pool de connexion est d&eacute;finie sur la base d'une file d'attente ou d'une rubrique individuelle. Pour plus de d&eacute;tails, reportez-vous au tableau ci-apr&egrave;s.</p>
+
+</dd>
+<dt>
+<strong><a name="QueueConnectionFactory_sessionPool"></a>Pool de session</strong>
+</dt>
+<dd>Un ensemble optionnel de param&egrave;tres de pool de session.
+<p>Ce lien fournit un &eacute;cran de propri&eacute;t&eacute;s de pool de connexion optionnelles, communes &agrave; tous les connecteurs J2C.</p>
+
+<p>Le serveur d'applications met en pool les connexions et les sessions avec le fournisseur JMS afin d'am&eacute;liorer les performances. Vous devez configurer les propri&eacute;t&eacute;s du pool de connexions et de sessions de fa&ccedil;on appropri&eacute;e pour vos applications, sinon, vous risquez de ne pas obtenir le comportement de connexion et de session que vous souhaitez.</p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informations connexes</strong>
+</p>
+<a href="rcon_buttons.html">Boutons de la console administrative</a>
+<br>
+
+<a href="rcon_scope.html">Param&egrave;tres de la port&eacute;e de la console administrative</a>
+<br>
+
+<a href="udat_conpoolset.html">Param&egrave;tres du pool de connexions</a>
+<br>
+
+<a href="umj_sesspoolset.html">Param&egrave;tres du pool de sessions</a>
+<br>
+
+<a href="usec_j2cauthdata.html">Param&egrave;tres d'entr&eacute;e de donn&eacute;es d'authentification du connecteur Java 2</a>
+<br>
+
+</div>
+</body>
+</html>

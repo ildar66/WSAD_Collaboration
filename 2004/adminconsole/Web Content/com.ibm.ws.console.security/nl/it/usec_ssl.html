@@ -1,0 +1,419 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Impostazioni SSL (Secure Sockets Layer)</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecssl"></a>
+<h2>Impostazioni SSL (Secure Sockets Layer)</h2>
+
+<p>Utilizzare questa pagina per configurare le impostazioni SSL (Secure Sockets Layer) del server.</p>
+
+<p>Per visualizzare questa pagina della console di gestione, fare clic su <strong>Sicurezza&gt; SSL
+&gt; </strong><em>nome_alias</em>.</p>
+
+
+
+
+<div>
+<p>
+<strong>Scheda Configurazione</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="Security_defaultSSLSettings_description"></a>Alias</strong>
+</dt>
+<dd>Indica il nome dell'impostazione SSL specifica
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati:</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecureSocketLayer_keyFileName_description"></a>Nome file di chiavi</strong>
+</dt>
+<dd>Specifica il percorso completo per il file di chiavi SSL che contiene chiavi pubbliche e private.
+
+
+<p>&Egrave; possibile creare un file di chiavi SSL con il programma di utilit&agrave; IKEYMAN, oppure tale file pu&ograve; corrispondere ad un'unit&agrave; hardware, se
+disponibile. In entrambi i casi, questa opzione indica l'origine di certificati
+personali, ma anche
+di certificati del firmatario, a meno che non venga indicato un file sicuro. I file di chiavi SSL predefiniti, <samp>DummyClientKeyFile.jks</samp> e <samp>DummyServerKeyFile.jks</samp>,
+contengono una certificazione di verifica personale con scadenza il 17 marzo 2005.
+Tale certificato &egrave; pensato per essere
+utilizzato solo in ambienti di verifica. I file di chiavi SSL predefiniti non devono mai essere utilizzati
+in un ambiente di produzione poich&eacute; le chiavi private sono le stesse su tutte le
+installazioni WebSphere Application Server.
+Fare riferimento alla sezione Gestione certificati in InfoCenter per informazioni
+relative alla creazione e alla gestione di certificati digitali del dominio WebSphere
+Application Server.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati:</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecureSocketLayer_keyFilePassword_description"></a>Password file di chiavi</strong>
+</dt>
+<dd>Specifica la password per l'accesso al file di chiavi SSL.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati:</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecureSocketLayer_keyFileFormat_description"></a>Formato file di chiavi </strong>
+</dt>
+<dd>Specifica il formato del file di chiavi SSL.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati:</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito:</td>
+<td align="left" valign="top" class="base">JKS</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo:</td>
+<td align="left" valign="top" class="base">JKS, JCEK, PKCS12</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecureSocketLayer_trustFileName_description"></a>Nome file sicuro  </strong>
+</dt>
+<dd>Specifica il percorso completo per un file sicuro che contiene le chiavi
+pubbliche.
+
+<p>&Egrave; possibile creare un file sicuro con il programma di utilit&agrave; IKEYMAN, incluso nella directory <em>bin</em> di WebSphere.
+L'uso del programma di utilit&agrave; IKEYMAN dal GSKIT (Global Security Kit), (un'altra implementazione SSL) non funziona con l'implementazione KSSE (Java Secure Socket Extension). </p>
+
+<p>A differenza del file di chiavi SSL, non
+vengono riportati i certificati personali, ma richiamati solo quelli del firmatario. I file
+sicuri SSL predefiniti, <samp>DummyClientTrustFile.jks</samp> e <samp>DummyServerTrustFile.jks</samp>,
+contengono pi&ugrave; chiavi pubbliche di verifica che rappresentano i certificati del firmatario con
+scadenza.
+La chiave pubblica dei certificati di verifica
+di WebSphere Application
+Server Versione 4.0, scade il 15 gennaio 2004,
+mentre la chiave pubblica dei certificati di verifica di
+WebSphere Application Server Versione 5 e del client CORBA C++ di WebSphere
+Application Server scade il 17 marzo 2005. Tale certificato &egrave; pensato per essere
+utilizzato solo in ambienti di verifica. </p>
+
+<p>Se non viene specificato un file sicuro ma un file di chiavi SSL, quest'ultimo viene utilizzato per il richiamo dei certificati del firmatario e dei certificati personali.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati:</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecureSocketLayer_trustFilePassword_description"></a>Password file sicuro </strong>
+</dt>
+<dd>Specifica la password per l'accesso al file sicuro SSL.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati:</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecureSocketLayer_trustFileFormat_description"></a>Formato file sicuro </strong>
+</dt>
+<dd>Specifica il formato del file sicuro SSL.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati:</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito:</td>
+<td align="left" valign="top" class="base">JKS</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo:</td>
+<td align="left" valign="top" class="base">JKS, JCEK, PKCS12</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecureSocketLayer_clientAuthentication_description"></a>Autenticazione client</strong>
+</dt>
+<dd>Specifica se richiedere un certificato dal client per scopi di autenticazione durante l'esecuzione di una connessione.
+<p>Questo attributo &egrave; valido solo quando utilizzato dal trasporto HTTP del contenitore Web. Durante l'esecuzione dell'autenticazione del client con il protocollo IIOP (per le richieste EJB),
+&egrave; necessario fare clic su <strong>Sicurezza</strong> &gt; <strong>Protocollo di autenticazione</strong> &gt; <strong>CSIv2
+in entrata</strong> o <strong>Autenticazione in uscita</strong>, dal pannello di navigazione sinistro della
+console di gestione. Selezionare <strong>Autenticazione del certificato client SSL</strong>
+per abilitarlo a queste richieste.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati:</td>
+<td align="left" valign="top" class="base">Valore booleano</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito:</td>
+<td align="left" valign="top" class="base">Disabilitato</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo:</td>
+<td align="left" valign="top" class="base">Abilitato o disabilitato</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecureSocketLayer_securityLevel_description"></a>Livello di sicurezza</strong>
+</dt>
+<dd>Specifica se il server effettuer&agrave; la selezione da una serie
+preconfigurata di livelli di
+sicurezza.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati:</td>
+<td align="left" valign="top" class="base">I valori validi includono <strong>Basso</strong>, <strong>Medio</strong> o <strong>Alto</strong>.<ul>
+
+<li>BASSO specifica solo algoritmi di firma digitale (nessuna codifica)</li>
+
+<li>MEDIO specifica solo algoritmi di cifratura a 40 bit (inclusa la firma digitale)</li>
+
+<li>ALTO specifica solo algoritmi di cifratura a 128 bit (inclusa la firma digitale).</li>
+
+</ul>
+<p>Per specificare tutti gli algoritmi di cifratura o intervalli particolari, &egrave;
+possibile impostare la propriet&agrave; <strong>com.ibm.ssl.enabledCipherSuites</strong>. </p>
+<p>Consultare la
+documentazione SSL in InfoCenter.</p>
+</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito:</td>
+<td align="left" valign="top" class="base">Elevato</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo:</td>
+<td align="left" valign="top" class="base">Basso, Medio o Alto</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SSLConfig_cipherSuites_description"></a>Pacchetti di crittografia</strong>
+</dt>
+<dd>Specifica un elenco di pacchetti di crittografia supportati che possono
+essere selezionati per l'uso durante la sincronizzazione SSL. Se si selezionano qui i
+singoli pacchetti, si sovrascrivono quei pacchetti impostati nel campo Livello di
+sicurezza. 
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati:</td>
+<td align="left" valign="top" class="base"> </td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito:</td>
+<td align="left" valign="top" class="base"></td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo:</td>
+<td align="left" valign="top" class="base"></td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecureSocketLayer_enableCryptoHardwareSupport_description"></a>Token crittografico</strong>
+</dt>
+<dd>Specifica se il server &egrave; in grado di abilitare o meno il supporto hardware e
+software crittografico.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati:</td>
+<td align="left" valign="top" class="base">Valore booleano</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito:</td>
+<td align="left" valign="top" class="base">Disabilitato</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo:</td>
+<td align="left" valign="top" class="base">Abilitato o disabilitato</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SystemSecureSocketLayer_provider"></a>Provider</strong>
+            &nbsp;
+            <img alt="[Fix Pack 5.0.2 e successive]" src="v502.gif" border="0"></dt>
+<dd>Indica un pacchetto che fornisce una implementazione concreta di un sottoinsieme di aspetti
+crittografici dell'API di sicurezza Java. 
+<p> Se si seleziona il primo pulsante, selezionare un provider dal menu. WebSphere Application Server
+dispone dei seguenti provider predefiniti: <strong>IBMJSSE</strong> e <strong>IBMJSSEFIPS</strong>. <strong>IBMJSSEFIPS</strong> &egrave; la versione approvata da FIPS
+(Federal Information Processing Standard) del provider IBMJSSE. Se si seleziona il secondo pulsante, immettere un provider personalizzato.
+Per un provider personalizzato, &egrave; necessario immettere innanzitutto i pacchetti di crittografia, tramite le<strong>Propriet&agrave; personalizzate</strong> in Ulteriori propriet&agrave;. I pacchetti di crittografia e i valori di protocollo dipendono dal provider.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Numero intero </td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">100</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo</td>
+<td align="left" valign="top" class="base">Da 1 a 86400</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SystemSecureSocketLayer_protocol"></a>Protocollo</strong>
+            &nbsp;
+            <img alt="[Fix Pack 5.0.2 e successive]" src="v502.gif" border="0"></dt>
+<dd>Specifica il protocollo SSL utilizzato.
+<p>Se si utilizza un JSSE approvato da FIPS, ad esempio  IBMJSSEFIPS, &egrave; necessario selezionare un protocollo TLS. Poich&eacute; i provider JSSE approvati da FIPS non sono compatibili con le versioni precedenti, un server
+che utilizza un protocollo TLS non pu&ograve; comunicare con un client che utilizza un protocollo SSL.</p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informazioni correlate</strong>
+</p>
+<a href="rcon_buttons.html">Pulsanti della console di gestione</a>
+<br>
+
+<a href="rcon_pageusage.html">Funzioni della pagina della console di gestione</a>
+<br>
+
+<a href="rcon_scope.html">Impostazioni ambito della console di gestione</a>
+<br>
+
+<a href="rcon_filter.html">Impostazioni di filtro della console di gestione</a>
+<br>
+
+<a href="rcon_preferences.html">Impostazioni delle preferenze della console di gestione</a>
+<br>
+
+<a href="usec_rassl.html">Impostazioni SSL (Secure Sockets Layer) per le propriet&agrave; personalizzate</a>
+<br>
+
+</div>
+</body>
+</html>

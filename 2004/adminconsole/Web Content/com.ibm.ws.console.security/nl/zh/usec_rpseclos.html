@@ -1,0 +1,91 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>本地操作系统用户注册表设置</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecrpseclos"></a>
+<h2>本地操作系统用户注册表设置</h2>
+
+<p>使用此页面配置本地操作系统用户注册表设置。</p>
+
+<p>要查看此管理控制台页面，单击<strong>安全性</strong> &gt; <strong>用户注册表</strong> &gt; <strong>局部操作系统</strong>。</p>
+
+<div>
+<p>
+<strong>&ldquo;配置&rdquo;选项卡</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="UserRegistry_serverId_description"></a>服务器用户标识</strong>
+</dt>
+<dd>在本地 OS 注册表中指定有效的用户标识。
+<p>互标识是仅用于 WebSphere Application Server 安全性的安全性服务器标识，而与运行服务器的系统进程无关。服务器调用本地 OS 注册表认证和获取有关用户的特权信息（通过调用特定注册表中的本机 API）。访问本机 API 通常受到具有特殊特权的用户的限制（例如，UNIX 系统中的 <strong>root用户</strong>和 Windows 系统中<strong>担当操作系统的一部分</strong>）。要在应用程序服务器中使用安全性，运行 WebSphere Application Server 的进程标识（非安全性服务器标识）需要足够的特权来调用系统 API。特殊特权意味着运行 WebSphere Application Server 的进程需要作为<strong>管理员</strong>组的一部分，对于 Windows 系统具有<strong>担当操作系统的一部分</strong>特权，而在 UNIX 系统中作为 <strong>root 用户</strong>或具有根权限。</p>
+
+<p>当使用 Windows 系统注册表时，此标识不能与 Windows 机器的名称匹配。Windows 系统将机器名 <strong>bob</strong> 视为具有类似于用户 <strong>bob</strong> 的帐户。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型：</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">单位：</td>
+<td align="left" valign="top" class="base">字母数字字符</td>
+
+</tr>
+
+</table>
+
+
+</dd>
+<dt>
+<strong><a name="UserRegistry_serverPassword_description"></a> 服务器用户密码</strong>
+</dt>
+<dd>指定与本地 OS 注册表中的有效用户标识相应的有效用户密码。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+<p></p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>相关信息</strong>
+</p>
+<a href="rcon_buttons.html">管理控制台按钮</a>
+<br>
+
+<a href="rcon_pageusage.html">管理控制台页面功能</a>
+<br>
+
+<a href="rcon_scope.html">管理控制台作用域设置</a>
+<br>
+
+<a href="rcon_filter.html">管理控制台过滤器设置</a>
+<br>
+
+<a href="rcon_preferences.html">管理控制台首选项设置</a>
+<br>
+
+</div>
+</body>
+</html>

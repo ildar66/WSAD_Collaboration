@@ -1,0 +1,129 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Valores de inicio de sesi&oacute;n</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="urun_rlogin"></a>
+<h2>Valores de inicio de sesi&oacute;n</h2>
+
+<p>Utilice esta p&aacute;gina para
+especificar el usuario de la consola administrativa de WebSphere
+Application Server. Si est&aacute; utilizando la seguridad global, tambi&eacute;n debe especificar una contrase&ntilde;a.</p>
+
+<p>Si especifica un usuario podr&aacute; reanudar el trabajo realizado anteriormente con el
+producto.
+Despu&eacute;s de escribir un ID de usuario, pulse <strong>Aceptar</strong> para continuar con la siguiente p&aacute;gina y acceder a la consola administrativa.</p>
+
+<p>Para ver esta p&aacute;gina, inicie la consola administrativa.</p>
+
+<dl>
+<dt>
+<strong><a name="logon_desc"></a>ID de usuario</strong>
+</dt>
+<dd>Especifica una serie que identifica el usuario. El ID de usuario debe ser exclusivo para el servidor de administraci&oacute;n.
+<p>El trabajo que realice con el producto se puede guardar antes de salir en una configuraci&oacute;n identificada por el ID de usuario que especifique.
+ Para acceder posteriormente al trabajo realizado bajo ese ID de usuario, especifique el ID de usuario en la p&aacute;gina Inicio de sesi&oacute;n.</p>
+
+<p>Si va a iniciar la sesi&oacute;n desde una m&aacute;quina cliente que actualmente tiene abierto un
+navegador en la consola administrativa y se conecta al mismo servidor, las dos conexiones
+pueden compartir el mismo objeto de sesi&oacute;n HTTP, aunque los ID de usuario con los que inicie la sesi&oacute;n sean distintos. Debe utilizar dos tipos de navegadores distintos (por ejemplo,
+Microsoft Internet Explorer y Netscape Communicator) para iniciar la sesi&oacute;n en la consola
+administrativa desde la misma m&aacute;quina cliente para poder trabajar desde dos objetos de sesi&oacute;n
+HTTP distintos, tanto si utiliza o no el mismo ID de usuario. Es decir, si necesita dos
+sesiones simult&aacute;neas en la misma m&aacute;quina cliente, acceda a la consola administrativa desde dos
+tipos de navegadores diferentes.</p>
+
+<p>Tenga en cuenta que puede utilizar el mismo tipo de navegador para iniciar la sesi&oacute;n dos
+veces en la consola, aunque debe hacerlo desde sistemas principales f&iacute;sicos distintos y
+utilizar ID de usuario distintos.  Por ejemplo, suponga que Juan inicia la sesi&oacute;n en la consola
+administrativa con el ID de usuario <em>juan</em> en el sistema principal f&iacute;sico
+<em>misistppal1</em> utilizando un navegador Internet Explorer. Juan puede iniciar la sesi&oacute;n en
+la misma consola una segunda vez utilizando un navegador Internet Explorer, pero debe utilizar
+un ID de usuario distinto (por ejemplo <em>alicia</em>) y un sistema principal f&iacute;sico diferente
+(por ejemplo <em>misistppal2</em>).</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="UserExists_information"></a>Otro usuario ha iniciado una sesi&oacute;n con el mismo nombre de usuario</strong>
+</dt>
+<dd>Especifica si debe terminar la sesi&oacute;n del usuario y continuar trabajando con el ID de usuario especificado, si debe volver a la p&aacute;gina de Inicio de sesi&oacute;n y especificar otro ID de usuario, o si debe esperar a que el usuario termine la sesi&oacute;n.
+<p>Este campo aparece si el usuario ha cerrado un navegador Web mientras examinaba la consola administrativa y no ha cerrado antes la sesi&oacute;n y, a continuaci&oacute;n, ha abierto un navegador nuevo y ha intentado acceder a la consola administrativa.</p>
+
+</dd>
+<dt>
+<strong><a name="ChangesFound_restore"></a>Acceder a la configuraci&oacute;n maestra</strong>
+</dt>
+<dd>Cuando esta opci&oacute;n est&aacute; habilitada, especifica que desea utilizar la configuraci&oacute;n administrativa por omisi&oacute;n y no la configuraci&oacute;n utilizada por &uacute;ltima vez para la sesi&oacute;n de usuario.
+ Los cambios efectuados en la sesi&oacute;n de usuario desde la &uacute;ltima vez que se ha guardado la configuraci&oacute;n administrativa se perder&aacute;n.
+<p>Este campo aparece s&oacute;lo si el usuario ha cambiado la configuraci&oacute;n administrativa y, a continuaci&oacute;n, ha cerrado la sesi&oacute;n sin guardar los cambios.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">false</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ChangesFound_recover"></a>Recuperar los cambios efectuados en la sesi&oacute;n anterior</strong>
+</dt>
+<dd>Cuando esta operaci&oacute;n est&aacute; habilitada, especifica que desea utilizar la misma configuraci&oacute;n administrativa utilizada por &uacute;ltima vez para la sesi&oacute;n de usuario. Recupera los cambios efectuados por el usuario desde la &uacute;ltima vez que se ha guardado la configuraci&oacute;n administrativa para la sesi&oacute;n de usuario.
+<p>Este campo aparece s&oacute;lo si el usuario ha cambiado la configuraci&oacute;n administrativa y, a continuaci&oacute;n, ha cerrado la sesi&oacute;n sin guardar los cambios.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">true</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>Informaci&oacute;n relacionada</strong>
+</p>
+<a href="rcon_buttons.html">Botones de la consola de administraci&oacute;n</a>
+<br>
+
+</div>
+</body>
+</html>

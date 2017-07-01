@@ -1,0 +1,105 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Configuring nonce for the cell level</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="twbs_confnoncecell"></a>
+<h2>
+<img alt="[Release 5.1 and later]" src="v51.gif" border="0">Configuring nonce for the cell level</h2>
+
+
+<div>
+<em>Nonce</em> is a randomly generated, cryptographic token used to
+thwart the highjacking of username tokens used with Simple Object Access Protocol
+(SOAP) messages. Nonce is used in conjunction with the basicauth authentication
+method. <p>This task provides instructions on how to configure nonce for the
+cell level using the WebSphere Application Server administrative console.
+You can configure nonce at the application level, server level, and cell level.
+However, you must consider the order of precedence. The following list shows
+the order of precedence:<ol>
+
+<li>Application level</li>
+
+<li>Server level</li>
+
+<li>Cell level</li>
+
+</ol>
+</p>If you configure nonce on the application level and
+the server level, the values specified for the application level take precedence
+over the values specified for the server level. Likewise, the values specified
+for the application level take precedence over the values specified for the
+server level and cell level. In WebSphere Application Server Network Deployment,
+the <strong>Nonce Cache Timeout</strong>, <strong>Nonce Maximum Age</strong>, and <strong>Nonce Clock
+Skew</strong> fields are required to use nonce effectively. However, these fields
+are optional on the server level. Complete the following steps to configure
+nonce on the cell level:</div>
+
+<div>
+<p class="sectiontitle">Steps for this task</p>
+<ol>
+
+<li>Connect to administrative console by typing http://localhost:9090/admin in
+your Web browser unless you have changed the port number.</li>
+
+<li>Click <strong>Servers &gt; Application Servers &gt; </strong><strong>server1</strong>.
+</li>
+
+<li>Under Additional Properties, click <strong>Web Services: Default Bindings
+for Web Services Security</strong>.</li>
+
+<li>Specify a value, in seconds, for the <strong>Nonce Cache Timeout</strong> field.
+<div>The value specified for the <strong>Nonce Cache Timeout</strong> field indicates
+how long the nonce remains cached before it is expunged. You must specify
+a minimum of 300 seconds. However, if you do not specify a value, the default
+is 600 seconds. This field is optional on the server level, but required on
+the cell level.</div>
+</li>
+
+<li>Specify a value, in seconds, for the <strong>Nonce Maximum Age</strong> field.
+<div>The value specified for the <strong>Nonce Maximum Age</strong> field indicates
+how long the nonce is valid. You must specify a minimum of 300 seconds, but
+the value cannot exceed the number of seconds specified for the <strong>Nonce Cache
+Timeout</strong> field in the previous step. If you do not specify a value, the
+default is 600 seconds. In a WebSphere Application Server
+Network Deployment environment,WebSphere Application Server for z/OS
+environment, if you specify a value on the server level for the <strong>Nonce
+Cache Timeout</strong> field, the value cannot exceed the value specified for on
+the cell level for the <strong>Nonce Cache Timeout</strong> field. This field is optional
+on the server level, but required on the cell level</div>
+</li>
+
+<li>Specify a value, in seconds, for the <strong>Nonce Clock Skew</strong> field.
+<div>The value specified for the <strong>Nonce Clock Skew</strong> field specifies
+the amount of time, in seconds, to consider when the message receiver checks
+the freshness of the value. Consider the following information when you set
+this value:<ul>
+
+<li>Difference in time between the message sender and message receiver if
+the clocks are unsynchronized.</li>
+
+<li>Time needed to encrypt and transmit the message.</li>
+
+<li>Time needed to get through network congestion.</li>
+
+</ul>At a minimum, you must specify 0 seconds in this field. However, the
+maximum value cannot exceed the number of seconds indicated in the <strong>Nonce
+Maximum Age</strong> field. If you do not specify a value, the default is 0 seconds.
+This field is optional on the server level, but required on the cell level.</div>
+
+</li>
+
+<li>Restart the server.<div>If you change the <strong>Nonce Cache
+Timeout</strong> value and do not restart the server, the change is not recognized
+by the server.</div>
+</li>
+
+</ol>
+</div>
+
+</body>
+</html>

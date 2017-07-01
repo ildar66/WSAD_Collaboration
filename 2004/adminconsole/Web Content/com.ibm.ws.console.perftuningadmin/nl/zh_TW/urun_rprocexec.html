@@ -1,0 +1,141 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>程序執行設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="urun_rprocexec"></a>
+<h2>程序執行設定</h2>
+
+<p>請利用這個頁面來檢視或變更啟動或起始設定 UNIX 程序的指令行資訊。
+</p>
+
+<p>如果要檢視這個管理主控台頁面，請按一下<strong>伺服器 &gt; 應用程式伺服器 &gt; </strong><em>server_name</em><strong> &gt; 程序定義 &gt; 程序執行</strong>。
+</p>
+
+<div>
+<p>
+<strong>「配置」標籤</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="ProcessExecution_processPriority_description"></a>程序優先順序</strong>
+</dt>
+<dd>指定程序的作業系統優先順序。只有 root 使用者可以變更這個值。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">整數</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">1000 適用於大部分作業系統中的 WebSphere Application Server。
+在 OS/400，預設值是 25。</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ProcessExecution_umask_description"></a>UMASK</strong>
+</dt>
+<dd>指定程序執行時所用的使用者遮罩（檔案模式許可權遮罩）。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">整數</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ProcessExecution_runAsUser_description"></a>執行使用者</strong>
+</dt>
+<dd>指定程序的執行使用者。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ProcessExecution_runAsGroup_description"></a>執行群組</strong>
+</dt>
+<dd>指定程序是哪一個執行群組的成員。
+<p>在 OS/400，「執行群組」設定將被忽略。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ProcessExecution_runInProcessGroup_description"></a>執行處理中群組</strong>
+</dt>
+<dd>指定程序的特定程序群組。
+在分割處理器之類的事件中，這個程序群組非常有用。
+系統管理者可以指定執行所在的程序群組，例如，12 個處理器中的 6 個。
+預設值 (0) 不指定程序給任何特定群組。
+<p>在 OS/400，「執行處理中群組」設定將被忽略。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">整數</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">0</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>相關資訊</strong>
+</p>
+<a href="rcon_buttons.html">管理主控台按鈕</a>
+<br>
+
+<a href="rcon_pageusage.html">管理主控台頁面特性</a>
+<br>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,211 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Custom property settings</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="Custom_properties_detail"></a>
+<h2>Custom property settings</h2>
+
+<p>Use this page to set custom properties that might be required for
+Resource Providers and Resource Factories</p>
+
+<p>To view this administrative console page, click <strong>Resources</strong> &gt;<strong>JDBC
+Providers</strong> &gt; <em>JDBC_provider</em> &gt; <strong>Data Sources</strong> &gt; <em> data_source</em>&gt; <strong>Custom
+Properties</strong> &gt; <em>custom_property</em>.</p>
+
+<div>
+<p>
+<strong>Configuration tab</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="J2EEResourceproperty_detail_contextID"></a>Scope</strong>
+</dt>
+<dd>Specifies the level to which this resource definition is visible
+-- the cell, node, or server level.
+<p>Resources such as JDBC Providers, Namespace bindings, or shared libraries
+can be defined at multiple scopes, with resources defined at more specific
+scopes overriding duplicates which are defined at more general scopes.</p>
+
+<p>Note that no matter what the scope of a defined resource, the resource's
+properties only apply at an individual server level. For example, if you define
+the scope of a data source at the Cell level, all users in that Cell can look
+up and use that data source, which is unique within that Cell. However, resource
+property settings are local to each server in the Cell. For example,
+if you define <em>max connections</em> to 10, then each server in that Cell
+can have 10 connections.<dl>
+
+<dt>
+<strong>Cell</strong>
+</dt>
+<dd>The most general scope.  Resources defined at the Cell scope
+are visible from all Nodes and  servers, unless they are overridden. To view
+resources defined in the cell scope, do not specify a server or a node name
+in the scope selection  form.</dd>
+
+<dt>
+<strong>Node</strong>
+</dt>
+<dd>The default scope for most resource types.  Resources defined
+at the Node scope override  any duplicates defined at the Cell scope and are
+visible to all servers on the same node, unless they  are overridden at a
+server scope on that node. To view resources defined in a node scope, do not
+specify a server, but select a node name in the scope  selection form.</dd>
+
+<dt>
+<strong>Server</strong>
+</dt>
+<dd>The most specific scope for defining resources.  Resources
+defined at the Server scope override  any duplicate resource definitions defined
+at the Cell scope or parent Node scope and are visible only to  a specific
+server. To view resources defined in a server scope, specify a server name
+as well as a node name in the scope  selection form.</dd>
+
+</dl>
+</p>
+
+<p>When resources are created, they are always created into the current scope
+selected in the panel.   To view resources in other scopes, specify a different
+node or server in the scope selection form.  </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2EEResourceProperty_required_description"></a>Required</strong>
+</dt>
+<dd>Specifies properties that are required for this resource. 
+<p>Setting can be <em>true</em> or <em>false</em>.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2EEResourceProperty_name_displayName"></a>Name</strong>
+</dt>
+<dd>Specifies the name associated with this property (PortNumber, ConnectionURL,
+etc). 
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2EEResourceProperty_value_displayName"></a>Value</strong>
+</dt>
+<dd>Specifies the value associated with this property in this property
+set. 
+<p></p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2EEResourceProperty_description_displayName"></a>Description </strong>
+</dt>
+<dd>Specifies text to describe any bounds or well-defined values for
+this property. 
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2EEResourceProperty_type_displayName"></a>Type</strong>
+</dt>
+<dd>Specifies the fully qualified Java data type of this property . 
+<p>There are specific types that are valid: <ul>
+
+<li>java.lang.Boolean</li>
+
+<li>java.lang.String</li>
+
+<li>java.lang.Integer</li>
+
+<li>java.lang.Double</li>
+
+<li> java.lang.Byte</li>
+
+<li>java.lang.Short</li>
+
+<li>java.lang.Long</li>
+
+<li>java.lang.Float</li>
+
+<li>java.lang.Character</li>
+
+</ul>
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">Pick file</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Related information</strong>
+</p>
+<a href="rcon_buttons.html">Administrative console buttons</a>
+<br>
+
+<a href="rcon_pageusage.html">Administrative console page features</a>
+<br>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Einstellungen f&uuml;r EJB-Module</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uejbemod"></a>
+<h2>Einstellungen f&uuml;r EJB-Module</h2>
+
+<p>Auf dieser Seite k&ouml;nnen Sie ein bestimmtes implementiertes (Deployment)
+EJB-Modul konfigurieren und verwalten.</p>
+
+<p>
+<b>Anmerkung: </b>Ein einzelnes EJB-Modul kann nicht gestartet oder zwecks
+&Auml;nderung gestoppt werden.
+Sie m&uuml;ssen die gesamte Anwendung starten oder stoppen, zu der das Modul geh&ouml;rt.
+</p>
+
+<p>Klicken Sie zum Anzeigen dieser Seite der Administrationskonsole auf <strong>Anwendungen</strong> <strong>&gt;</strong> <strong>Enterprise-Anwendungen</strong>
+<strong>&gt;</strong> <em>Anwendungsname</em> <strong>&gt;</strong> <strong>EJB-Module</strong> <strong>&gt;</strong> <em>Modulname</em>.</p>
+
+<div>
+<p>
+<strong>Register "Konfiguration"</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="ModuleDeployment_uri_description"></a>URI</strong>
+</dt>
+<dd>Der URI gibt die Position des Modularchivinhalts in einem Dateisystem an, wenn er im Verh&auml;ltnis zum
+Anwendungs-URL aufgel&ouml;st wird. Der URI muss mit dem URI eines ModuleRef-URI im
+Deployment-Deskriptor der implementierten Anwendung (EAR) &uuml;bereinstimmen. </dd>
+<dt>
+<strong><a name="ModuleDeployment_altdd_description"></a>Alternativer DD</strong>
+</dt>
+<dd>Gibt einen Deployment-Deskriptor an, der anstelle des im Modul installierten
+Deployment-Deskriptors zur Laufzeit verwendet werden soll.</dd>
+<dt>
+<strong><a name="ModuleDeployment_startingWeight_description"></a>Anfangswertigkeit</strong>
+</dt>
+<dd>Gibt die Reihenfolge an, in der Module beim Start des Servers
+gestartet werden. Das Modul, das beim Start die niedrigste Wertigkeit hat,
+wird zuerst gestartet. 
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">5000</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">Gr&ouml;&szlig;er als 0</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Zugeh&ouml;rige Informationen</strong>
+</p>
+<a href="rcon_buttons.html">Kn&ouml;pfe in der Adminstrationskonsole</a>
+<br>
+
+</div>
+</body>
+</html>

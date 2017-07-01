@@ -1,0 +1,131 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://dtdserver/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.hps.july.rts.object.request">
+
+	<class name="RentElementaryRequest" table="rts_rentelemrequest">
+
+		<id name="requestId" column="rentelemreqid">
+			<generator class="native"/>
+		</id>
+
+		<version name="version" column="version" type="integer"/>
+
+        <property name="number" column="number" type="string" update="true"/>
+        
+        <many-to-one name="keyManager"
+            column="keymanager"
+            class="com.hps.april.auth.object.Person"/>
+        <many-to-one name="regManager"
+            column="regmanager"
+            class="com.hps.april.auth.object.Person"/>
+        <many-to-one name="initiatorPerson"
+            column="initman"
+            class="com.hps.april.auth.object.Person"/>
+        <many-to-one name="executor"
+            column="executor"
+            class="com.hps.april.auth.object.Person"/>
+
+		<property name="rtsStatusId" column="status" type="integer"/>
+		<property name="rtsRequestTypeId" column="reqtype" type="integer"/>
+
+        <property name="arendaType" column="elemreqtype" type="integer"/>
+
+		<many-to-one name="channelInterfaceType"
+			column="intefacetypeid"
+			class="com.hps.july.rts.object.channelinterfacetype.ChannelInterfaceType" />
+
+		<many-to-one name="channelInterface"
+			column="interfaceid"
+			class="com.hps.july.rts.object.channelinterface.ChannelInterface" />
+
+		<many-to-one name="channelSetting"
+			column="channelstlmnt"
+			class="com.hps.july.rts.object.channelsetting.ChannelSetting" />
+
+        <property name="factComplDate" column="factcompldate" type="date"/>
+
+        <property name="planComplDate" column="plancompldate" type="date"/>
+
+        <property name="completeDate" column="completedate" type="date"/>
+
+        <property name="channelLabel" column="channellabel" type="string"/>
+        <property name="channelCode" column="channelCode" type="string"/>
+        <property name="interfaceOm" column="interfaceOm" type="string"/>
+
+		<many-to-one name="capacity"
+			column="capacityid" cascade="none"
+			class="com.hps.july.rts.object.capacity.Capacity"/>
+		
+		<many-to-one name="equipmentA" update="true" insert="true"
+			column="equipmentA" cascade="none"
+			class="com.hps.july.storageplace.object.Equipment"/>
+
+		<many-to-one name="equipmentB" update="true" insert="true" 
+			column="equipmentB" cascade="none"
+			class="com.hps.july.storageplace.object.Equipment"/>
+
+		<many-to-one name="positionA"
+			column="positiona" cascade="none"
+			class="com.hps.july.storageplace.object.Position"/>
+
+		<many-to-one name="positionB"
+			column="positionb" cascade="none"
+			class="com.hps.july.storageplace.object.Position"/>
+
+        <property name="portA" column="portA" type="string"/>
+        <property name="portB" column="portB" type="string"/>
+
+        <property name="contactA" column="contactA" type="string"/>
+        <property name="contactB" column="contactB" type="string"/>
+
+        <property name="commentKM" column="commentkm" type="string"/>
+        <property name="commentRM" column="commentrm" type="string"/>
+        <property name="comment" column="comment" type="string"/>
+
+        <property name="siteLabel" column="siteLabel" type="string"/>
+        <property name="connectParams" column="connectParams" type="string"/>
+        <property name="actNumber" column="actNumber" type="string"/>
+        <property name="actDate" column="actDate" type="date"/>
+        <property name="docNumber" column="docNumber" type="string"/>
+        <property name="docDate" column="docDate" type="date"/>
+        <property name="channelClosingDate" column="channelClosingDate" type="date"/>
+        <property name="operatorDate" column="operatordate" type="date"/>
+        <property name="orderDate" column="orderDate" type="date"/>
+        <property name="planStartDate" column="planStartDate" type="date"/>
+        <property name="order" column="order" type="string"/>
+        <property name="contract" column="contract" type="string"/>
+        <property name="actClosingDate" column="actClosingDate" type="date"/>
+
+        <property name="modified" column="modified" type="timestamp"/>
+        <property name="created" column="created" update="false" type="timestamp" />
+        <many-to-one name="createdBy"
+            column="createdBy" update="false"
+            class="com.hps.april.auth.object.Person"/>
+        <many-to-one name="modifiedBy"
+            column="modifiedBy"
+            class="com.hps.april.auth.object.Person"/>
+
+        <many-to-one name="elementaryRequest"
+            column="elemreqid"
+            class="com.hps.july.rts.object.request.ElementaryRequest" />
+
+		<many-to-one name="counterAgent"
+			column="counterAgent"
+			class="com.hps.july.rts.object.counteragent.CounterAgent" />
+
+		<property name="agreement" formula="getNumAgreement(elemreqid)"/>
+
+		<many-to-one name="beenetA"
+			column="beenetA" cascade="none"
+			class="com.hps.july.storageplace.object.Beenet"/>
+	
+		<many-to-one name="beenetB"
+			column="beenetB" cascade="none"
+			class="com.hps.july.storageplace.object.Beenet"/>
+		
+	</class>
+
+</hibernate-mapping>

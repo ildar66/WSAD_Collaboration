@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<!-- TODO: сделать автоматическую загрузку маппингов по модулям -->
+
+	<bean id="july.hibernateMappingLocations" class="org.springframework.beans.factory.config.ListFactoryBean">
+		<property name="sourceList">
+	    	<list>
+				<value>/META-INF/hibernate/Operator.hbm.xml</value>
+				<value>/META-INF/hibernate/Role.hbm.xml</value>
+				<value>/META-INF/hibernate/Person.hbm.xml</value>
+				<value>com/hps/july/rts/auth/object/RTSRole.hbm.xml</value>
+				<value>com/hps/july/rts/auth/object/RTSGroup.hbm.xml</value>
+
+				<value>com/hps/july/rts/object/capacity/Capacity.hbm.xml</value>
+				<value>com/hps/july/rts/object/channeltype/ChannelType.hbm.xml</value>
+				<value>com/hps/july/rts/object/channelsetting/ChannelSetting.hbm.xml</value>
+				<value>com/hps/july/rts/object/channelinterface/ChannelInterface.hbm.xml</value>
+				<value>com/hps/july/rts/object/channelinterfacetype/ChannelInterfaceType.hbm.xml</value>
+				<value>com/hps/july/rts/object/counteragent/CounterAgent.hbm.xml</value>
+
+				<value>com/hps/july/rts/object/request/InitiatorRequest.hbm.xml</value>
+				<value>com/hps/july/rts/object/request/ConsolidatedRequest.hbm.xml</value>
+				<value>com/hps/july/rts/object/request/ElementaryRequest.hbm.xml</value>
+
+				<value>com/hps/july/rts/object/request/RentElementaryRequest.hbm.xml</value>
+
+				<value>com/hps/july/rts/object/numeration/RequestNumerationBean.hbm.xml</value>
+
+				<!-- Storageplace mapping -->
+				<value>com/hps/july/storageplace/object/Storageplace.hbm.xml</value>
+				<value>com/hps/july/storageplace/object/Equipment.hbm.xml</value>
+				<value>com/hps/july/storageplace/object/Position.hbm.xml</value>
+				<value>com/hps/july/storageplace/object/Beenet.hbm.xml</value>
+
+				<!-- RTS Tasks-->
+				<value>com/hps/july/rts/task/object/RTSTask.hbm.xml</value>
+
+				<!-- persistence value support -->
+				<value>com/hps/july/persistence/value/object/NamedValue.hbm.xml</value>
+            </list>
+		</property>
+	</bean>
+
+    <!-- This configures default properties, which can overridden with the file specified by 
+    	the location property -->
+    <bean id="july.hibernateProperties"
+    	  class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+    	<property name="properties">
+        	<props>
+<!--       			<prop key="hibernate.dialect">org.hibernate.dialect.HSQLDialect</prop>-->
+				<prop key="hibernate.dialect">org.hibernate.dialect.InformixDialect</prop>
+
+               	<prop key="hibernate.show_sql">false</prop>
+               	<prop key="hibernate.format_sql">false</prop>
+
+	           	<prop key="hibernate.cglib.use_reflection_optimizer">true</prop>
+				<prop key="hibernate.query.substitutions">yes 'Y', no 'N'</prop>
+				<prop key="hibernate.connection.pool_size">1</prop>
+				<prop key="hibernate.proxool.pool_alias">pool1</prop>
+				<prop key="hibernate.max_fetch_depth">1</prop>
+				<prop key="hibernate.jdbc.batch_versioned_data">false</prop>
+				<prop key="hibernate.jdbc.use_streams_for_binary">true</prop>
+				<prop key="hibernate.cache.region_prefix">com.hps</prop>
+				<prop key="hibernate.cache.provider_class">org.hibernate.cache.HashtableCacheProvider</prop>
+<!--
+				<prop key="hibernate.cache.use_query_cache">true</prop>
+-->
+				<!--<prop key="hibernate.hbm2ddl.auto">validate</prop>-->
+<!--				<prop key="hibernate.hbm2ddl.auto">create</prop>-->
+				
+            </props>
+        </property>
+    </bean>
+    
+    
+    <!-- Configurate hibernate sessionFactory -->
+    <bean id="july.hibernateSessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+	    <property name="dataSource"><ref bean="july.dataSource"/></property>
+	    <property name="mappingLocations"><ref local="july.hibernateMappingLocations"/></property>
+        <property name="hibernateProperties"><ref local="july.hibernateProperties"/></property>
+    </bean>
+    
+    <!-- If we opt to use JTA transactions, we could replace this with the JTATransactionManager or
+         configure Hibernante to work with JTATransactions and keep this as is. -->
+    <bean id="july.transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+        <property name="sessionFactory"><ref bean="july.hibernateSessionFactory"/></property>
+    </bean>
+
+</beans>

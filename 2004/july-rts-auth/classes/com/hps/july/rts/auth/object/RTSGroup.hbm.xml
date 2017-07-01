@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+   "http://dtdserver/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.hps.july.rts.auth.object" >
+    <class name="RTSGroup" table="rts_groups" mutable="false" discriminator-value="null">
+        <id name="id" column="groupid" type="integer" unsaved-value="0">
+            <generator class="native"/>
+        </id>
+
+        <!--discriminator column="initiatorcode" insert="false" type="integer"/-->
+        
+        <property name="name" column="name" type="string"/>
+        <property name="regionId" column="regionid" type="integer"/>
+        <property name="filialId" column="filialid" type="integer"/>
+        <property name="initiatorCode" column="initiatorcode" type="integer"/>
+<!--
+        <property name="roleId" column="roleid" type="integer"/>
+-->
+        <many-to-one name="role" class="RTSRole" column="roleid" not-null="true" insert="true" update="false" lazy="no-proxy"/>
+
+        <!--subclass name="RTSInitiatorGroup" discriminator-value="not null" lazy="false">
+            <property name="initiatorCode" column="initiatorcode"/>
+        </subclass-->
+        
+    </class>
+</hibernate-mapping>

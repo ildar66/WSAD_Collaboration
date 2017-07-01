@@ -1,0 +1,100 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>「資料庫」設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="database_settings"></a>
+<h2>「資料庫」設定</h2>
+
+<p>請利用這個頁面來指定資料庫階段作業支援的設定。
+</p>
+
+<p>如果要檢視這個管理主控台頁面，請按一下<strong>伺服器 </strong> &gt; <strong>應用程式伺服器</strong> &gt; <em>server_name</em> &gt; <strong>Web 儲存區</strong> &gt; <strong>階段作業管理</strong> &gt; <strong>分散式環境設定</strong> &gt; <strong>資料庫</strong>。</p>
+
+<div>
+<p>
+<strong>「配置」標籤</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="SessionDatabasePersistence_datasourceJNDIName_description"></a>資料來源 JNDI 名稱</strong>
+</dt>
+<dd>指定資料來源說明
+<p>階段作業管理要從中取得資料庫連線的未啟用 XA 之資料來源的 JNDI 名稱。
+比方說，如果資料來源的 JNDI 名稱是 "jdbc/sessions"，請指定 "jdbc/sessions"。
+資料來源代表一個資料庫連線儲存池及這個儲存池的配置（如儲存池大小）。資料來源必須作為環境中的配置資源而已經存在。
+</p>
+
+</dd>
+<dt>
+<strong><a name="SessionDatabasePersistence_userId_description"></a>使用者 ID</strong>
+            &nbsp;
+            </dt>
+<dd>指定資料庫存取的使用者 ID
+</dd>
+<dt>
+<strong><a name="SessionDatabasePersistence_password_description"></a>密碼</strong>
+            &nbsp;
+            </dt>
+<dd>指定資料庫存取的密碼</dd>
+<dt>
+<strong><a name="SessionDatabasePersistence_password2_description"></a>確認密碼</strong>
+            &nbsp;
+            </dt>
+<dd>再次指定密碼，以確保它記錄正確。
+</dd>
+<dt>
+<strong><a name="SessionDatabasePersistence_db2RowSize_description"></a>DB2 列大小</strong>
+            &nbsp;
+            </dt>
+<dd>指定在使用 DB2 資料庫時，配置給階段作業表的表格空間頁面大小。可能的值為 4、8、16 和 32 千位元組 (K)。
+預設列大小是 4K。
+
+<p>預設列大小是 4K。
+在 DB2 中，可以將它更新為較大的值。
+在某些環境中，這會提高資料庫的效能。
+當這個值不是 4 時，您必須指定要用的表格空間名稱。
+如果是 4K 頁面，表格空間名稱是選用的。
+</p>
+
+</dd>
+<dt>
+<strong><a name="SessionDatabasePersistence_tableSpaceName_description"></a>表格空間名稱</strong>
+            &nbsp;
+            </dt>
+<dd>指定要用於階段作業表的表格空間。
+<p>當 DB2 頁大小不是 4K 時，需要這個值。</p>
+
+</dd>
+<dt>
+<strong><a name="TuningParams_usingRowSchema_description"></a>使用多列階段作業
+</strong>
+</dt>
+<dd>指定將應用程式資料的每個實例放在資料庫的個別列中，讓更大量的資料能以階段作業為單位來儲存。
+在某些使用實務中，這個動作可以產生比較好的效能。
+如果沒有啟用使用多列綱目的話，應用程式資料的實例可以放在同一列中。</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>相關資訊</strong>
+</p>
+<a href="rcon_buttons.html">管理主控台按鈕</a>
+<br>
+
+<a href="rcon_pageusage.html">管理主控台頁面特性</a>
+<br>
+
+<a href="rcon_filter.html">管理主控台過濾器設定</a>
+<br>
+
+<a href="rcon_preferences.html">管理主控台喜好設定</a>
+<br>
+
+</div>
+</body>
+</html>

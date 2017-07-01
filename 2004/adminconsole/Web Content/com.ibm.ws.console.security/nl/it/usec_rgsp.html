@@ -1,0 +1,414 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Impostazioni di sicurezza globale</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecrgsp"></a>
+<h2>
+<img alt="[Fix Pack 5.0.2 e successive]" src="v502.gif" border="0">Impostazioni di sicurezza globale</h2>
+
+<p>Utilizzare questa pagina per configurare la sicurezza. Quando si abilita la
+sicurezza, le impostazioni di sicurezza vengono attivate a livello globale. Quando viene abilitata la sicurezza, le prestazioni di WebSphere Application Server aumentano dal 10 al 20%. Tuttavia, quando non &egrave; necessario, disabilitare la sicurezza.</p>
+
+<p>Per visualizzare questa pagina della console di gestione, fare clic su <strong>Sicurezza</strong> &gt;
+<strong>Sicurezza globale</strong>.</p>
+
+<div>
+<p>Se si sta configurando la sicurezza per la prima volta, completare le fasi
+presenti in "Configurazione sicurezza globale", per evitare eventuali
+problemi.
+Una volta configurata la sicurezza, convalidare qualsiasi modifica apportata ai
+pannelli del registro o del meccanismo di autenticazione. Fare clic su <strong>Applica</strong>
+per convalidare le impostazioni del registro utenti.
+Viene effettuato un tentativo di autenticare l'ID server sul registro utenti
+configurato.
+La convalida
+delle impostazioni del registro utenti, dopo aver abilitato la sicurezza globale,
+pu&ograve; evitare dei problemi quando si riavvia il server per la prima volta.</p>
+</div>
+
+<div>
+<p>
+<strong>Scheda Configurazione</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="Security_enabled_description"></a>Abilitato </strong>
+</dt>
+<dd>Specifica per il server che consente di abilitare i sottosistemi di sicurezza. 
+<p>Questo indicatore viene comunemente definito
+<em>indicatore di sicurezza globale</em> nelle informazioni su WebSphere Application Server. Se viene abilitata la sicurezza, impostare la
+configurazione del meccanismo di autenticazione e specificare un ID utente valido e la
+password nella configurazione del registro utenti valido.</p>
+
+
+
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati:</td>
+<td align="left" valign="top" class="base">Valore booleano</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito:</td>
+<td align="left" valign="top" class="base">Disabilita</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="Security_enforceJava2Security_description"></a>Applicazione di Java 2 Security</strong>
+</dt>
+<dd>Specifica se abilitare o disabilitare il controllo delle
+autorizzazioni di sicurezza Java 2. Per impostazione predefinita, Java 2 Security &egrave;
+disabilitata. Tuttavia, abilitando la sicurezza globale, si abilita automaticamente la sicurezza Java 2. Si pu&ograve; scegliere di disattivare Java 2 Security
+anche quando &egrave; attivata la sicurezza globale.
+<p>Se Java 2 Security  &egrave; attivata e se un'applicazione richiede pi&ugrave; autorizzazioni di
+Java 2 Security di quelle concesse nella politica predefinita, l'applicazione potrebbe
+non funzionare correttamente fino a quando non vengono concesse tali autorizzazioni nel
+file <samp>app.policy</samp> o <samp>was.policy</samp> dell'applicazione.
+Le eccezioni AccessControl non sono concesse dalle applicazioni che non
+dispongono di tutte le autorizzazioni necessarie. Consultare InfoCenter e rivedere le
+sezioni
+<em>Java 2 Security e Politica dinamica</em> nel caso non si abbia molta
+dimestichezza con Java 2 Security.</p>
+
+<p>Se il server non si riavvia dopo aver abilitato la sicurezza globale, &egrave; possibile
+disabilitare tale sicurezza. Andare alla directory <samp>$&lt;root_installazione&gt;\bin</samp> ed
+eseguire il comando <samp>wsadmin -conntype NONE</samp>. Sul prompt <samp>wsadmin&gt;</samp>, immettere
+<samp>securityoff</samp>, quindi <samp>exit</samp> per ritornare al prompt dei comandi. Riavviare il server con la sicurezza disabilitata per verificare eventuali impostazioni non corrette nella console di gestione.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati:</td>
+<td align="left" valign="top" class="base">Valore booleano</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito:</td>
+<td align="left" valign="top" class="base">Disabilitato</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo:</td>
+<td align="left" valign="top" class="base">Abilitato o disabilitato</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="Security_useDomainQualifiedUserNames_description"></a>Utilizzare i nomi utente qualificati del dominio</strong>
+</dt>
+<dd>Specifica i nomi utenti da qualificare con il
+dominio di sicurezza in cui risiedono.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati:</td>
+<td align="left" valign="top" class="base">Valore booleano</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito:</td>
+<td align="left" valign="top" class="base">Disabilitato</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo:</td>
+<td align="left" valign="top" class="base">Abilita o disabilita</td>
+
+</tr>
+
+</table>
+
+
+<p>
+<img alt="[5.0 only]" src="v50x.gif" border="0"><img alt="[Fix Pack 5.0.1]" src="v501x.gif" border="0">Quando si specifica <strong>Utilizza i nomi utente qualificati del dominio</strong>
+dal pannello di configurazione <strong>Sicurezza &gt; Sicurezza globale</strong>, la chiamata di runtime a
+getCallerPrincipal() da un bean enterprise restituisce il nome completo preceduto dal dominio
+specificato due volte. Ad esempio, il formato restituito sar&agrave; realm/realm/user.
+Quando si effettuano chiamate API, &egrave; possibile eliminare il primo dominio dal valore restituito.
+L'API servlet getUserPrincipal() &egrave; correttamente operativa.</p>
+
+</dd>
+<dt>
+<strong><a name="Security_cacheTimeout_description"></a>Timeout cache </strong>
+</dt>
+<dd>Specifica il valore di timeout in secondi della cache di sicurezza. Questo
+valore &egrave; un timeout relativo.
+<p>Se viene abilitata la sicurezza di WebSphere Application Server, il timeout di
+memorizzazione nella cache di sicurezza pu&ograve; influire sulle prestazioni. L'impostazione di
+timeout specifica la frequenza di aggiornamento delle cache relative alla sicurezza. Nella cache vengono memorizzate le informazioni di sicurezza relative ai bean, alle autorizzazioni e alle credenziali. Quando il timeout della cache scade, tutte le informazioni memorizzate nella cache non sono pi&ugrave; valide. Le successive richieste di informazioni comportano una ricerca nel database. Talvolta, l'acquisizione delle informazioni richiede la chiamata ad una un'autenticazione nativa o collegata a LDAP (Lightweight Directory Access Protocol). Entrambe le chiamate rappresentano operazioni che rallentano notevolmente le prestazioni. Determinare il trade-off migliore per l'applicazione, facendo ricorso ai modelli di utilizzo e prendendo in considerazione i requisiti di sicurezza del sito.</p>
+
+<p>In una verifica delle prestazioni di 20 minuti, l'impostazione del timeout della cache in
+modo tale che non si verifichi un timeout produce un aumento delle prestazioni del 40%.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati:</td>
+<td align="left" valign="top" class="base">Numero intero</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&agrave;:</td>
+<td align="left" valign="top" class="base">Secondi</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito:</td>
+<td align="left" valign="top" class="base">600</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo:</td>
+<td align="left" valign="top" class="base">Superiore a 30 secondi</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="Security_issuePermissionWarning_description"></a>Emetti avvertenza di autorizzazione</strong>
+</dt>
+<dd>Indica che quando l'opzione <em>Emetti avvertenza di autorizzazione</em>
+&egrave; abilitata, durante la distribuzione e l'avvio di un'applicazione, il runtime
+di sicurezza emette un'avvertenza nel caso in cui vengano concesse delle autorizzazioni
+personalizzate alle applicazioni. Tali autorizzazioni sono definite dalle applicazioni dell'utente e non
+dalle autorizzazioni JDK.
+Queste ultime si trovano nel <samp>pacchetto java.*</samp> e
+<samp>javax.*</samp>.
+<p>Il prodotto WebSphere fornisce il supporto per la gestione dei file contenenti le
+politiche. In questo prodotto &egrave; presente un numero di file contenenti le politiche,
+alcune di queste sono statiche, altre dinamiche. Le politiche dinamiche rappresentano un modello di autorizzazioni per un tipo particolare di risorsa. Nessun code base definito o relativo viene utilizzato nel modello delle politiche
+dinamiche. Il
+code base reale viene creato in modo dinamico dai dati di configurazione e di run-time.  Il file <samp>filter.policy</samp> contiene un elenco di autorizzazioni che le applicazioni non dovrebbero avere in base alla specifica J2EE 1.3. Per ulteriori informazioni sulle autorizzazioni, consultare la sezione Java 2 Security
+Policy Management in InfoCenter.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati:</td>
+<td align="left" valign="top" class="base">Valore booleano</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito:</td>
+<td align="left" valign="top" class="base">Disabilitato</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo:</td>
+<td align="left" valign="top" class="base">Abilita o disabilita</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="Security_activeProtocol_description"></a>Protocollo attivo </strong>
+</dt>
+<dd>Specifica il protocollo di autenticazione attivo per le richieste RMI IIOP (Remote
+Method Invocation over the Internet Inter-ORB Protocol) quando la sicurezza &egrave; abilitata. Nelle release precedenti il protocollo SAS (Security Authentication Service)  era l'unico protocollo disponibile. 
+<p>Un protocollo OMG (Object Management Group) definito CSIv2 (Common Secure Interoperability Version 2) supporta l'aumentata interoperabilit&agrave; del fornitore e ulteriori funzioni. Se tutti i server, presenti
+nel dominio di sicurezza, sono della Versione 5, &egrave; meglio indicare <strong>CSI</strong> come
+protocollo. Se alcuni server sono server3.x
+o 4.x, specificare <strong>CSI e SAS</strong>.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati:</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito:</td>
+<td align="left" valign="top" class="base">ENTRAMBI</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo:</td>
+<td align="left" valign="top" class="base">CSI e SAS, CSI</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="Security_activeAuthMechanism_description"></a>Meccanismo di autenticazione attivo </strong>
+</dt>
+<dd>Specifica il meccanismo di autenticazione attivo quando viene abilitata
+la sicurezza.
+
+<p>WebSphere Application Server, Version 5 supporta i seguenti meccanismi  di autenticazione: SWAM (Simple WebSphere Authentication Mechanism) e LTAP (Lightweight Third Party Authentication).</p>
+
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati:</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito:</td>
+<td align="left" valign="top" class="base">SWAM (WebSphere Application Server)</td>
+
+</tr>
+
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo:</td>
+<td align="left" valign="top" class="base">SWAM, LTPA</td>
+
+</tr>
+
+</table>
+
+
+</dd>
+<dt>
+<strong><a name="Security_activeUserRegistry_description"></a>Registro utenti attivo</strong>
+</dt>
+<dd>Specifica il registro utenti attivo quando viene abilitata la sicurezza.
+<p>&Egrave; possibile configurare le impostazioni per uno dei seguenti registri utenti:<ul>
+
+
+<li>Sistema operativo locale</li>
+
+<li>Registro utenti LDAP. Le impostazioni del registro utenti LDAP vengono utilizzate quando gli utenti e i gruppi si trovano in una directory LDAP esterna. Quando la sicurezza viene abilitata e una qualsiasi di queste propriet&agrave; viene modificata, andare al pannello
+<strong>Sicurezza globale</strong> e fare clic su <strong>Applica</strong> o <strong>OK</strong> per convalidare le modifiche.</li>
+
+<li>Registro utenti personalizzato</li>
+
+</ul>
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati:</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito:</td>
+<td align="left" valign="top" class="base">OS locale</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo:</td>
+<td align="left" valign="top" class="base">OS, LDAP, Custom locali</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="Security_fips"></a>Utilizzo di FIPS</strong>
+            &nbsp;
+            <img alt="[Fix Pack 5.0.2 e successive]" src="v502.gif" border="0"></dt>
+<dd>Abilita l'uso di algoritmi crittografici approvati da FIPS (Federal Information Processing Standard). 
+<p>Quando viene abilitato <strong>Utilizza FIPS</strong>, l'implementazione LTPA (Lightweight Third
+Party Authentication) utilizza IBMJCEFIPS. IBMJCEFIPS supporta l'algoritmo di cifratura approvato da FIPS
+(Federal Information Processing Standard) per DES, Triple DES e AES. Sebbene
+le chiavi LTPA siano compatibili con le precedenti release di WebSphere Application Server, il
+token LTAP non &egrave; compatibile con le release precedenti.</p>
+
+<p>WebSphere Application Server fornisce un provider JSSE (Java Secure Socket Extension)
+approvato da FIPS, denominato IBMJSSEFIPS. Un JSSE approvato da FIPS richiede il protocollo
+TLS (Transport Layer Security) poich&eacute; non &egrave; compatibile con il protocollo SSL (Secure Sockets
+Layer). Se si seleziona la casella di controllo <strong>Utilizza FIPS</strong> prima di specificare un provider JSSE approvato da FIPS e un protocollo TLS, viene visualizzato il seguente messaggio di errore nella parte superiore del pannello<strong>Sicurezza globale</strong>:<pre class="program">
+<font style="font-family: arial"><samp>La politica di sicurezza &egrave; impostata in modo che utilizzi solo gli algoritmi crittografici approvati da FIPS. 
+Tuttavia, almeno una configurazione SSL potrebbe non utilizzare un provider JSSE approvato da FFIPS. 
+Gli algoritmi crittografici approvati da FIPS non possono essere utilizzati in questi casi.
+</samp></font>
+</pre>Per risolvere questo problema, configurare il provider JSSE e il protocollo di sicurezza sul pannello <strong>Repertori di configurazione SSL</strong>, completando una delle seguenti attivit&agrave;:<ul>
+
+<li>facendo clic su <strong>Sicurezza &gt; SSL</strong> e modificando la configurazione esistente</li>
+
+<li>facendo clic su <strong>Nuovo</strong> e creando una nuova configurazione</li>
+
+</ul>
+</p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informazioni correlate</strong>
+</p>
+<a href="rcon_buttons.html">Pulsanti della console di gestione</a>
+<br>
+
+<a href="rcon_pageusage.html">Funzioni della pagina della console di gestione</a>
+<br>
+
+<a href="rcon_scope.html">Impostazioni ambito della console di gestione</a>
+<br>
+
+<a href="rcon_filter.html">Impostazioni di filtro della console di gestione</a>
+<br>
+
+<a href="rcon_preferences.html">Impostazioni delle preferenze della console di gestione</a>
+<br>
+
+</div>
+</body>
+</html>

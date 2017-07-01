@@ -1,0 +1,251 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Impostazioni del server JMS interno di WebSphere</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="JMSServer"></a>
+<h2>Impostazioni del server JMS interno di WebSphere</h2>
+
+<p>Le funzioni JMS su un nodo all'interno del dominio di gestione WebSphere Application
+Server sono supportate dal server JMS sul nodo stesso.  Utilizzare questo
+pannello per visualizzare o modificare le propriet&agrave; di configurazione del server JMS
+selezionato.</p>
+
+<p>&Egrave; possibile utilizzare questo pannello per configurare un insieme generale di
+propriet&agrave; del server JMS, che vengono aggiunte ai valori predefiniti delle propriet&agrave; configurate automaticamente per il provider JMS incorporato di WebSphere.</p>
+
+
+<p>
+<b>Nota: </b>in generale, i valori predefiniti delle propriet&agrave; WebSphere MQ sono adatte ai
+server JMS interni di WebSphere. Tuttavia, in presenza di carichi elevati di messaggi,
+potrebbe essere necessario modificare alcune propriet&agrave; WebSphere MQ; ad esempio, le
+propriet&agrave; per le ubicazioni dei file di log, le pagine di file e le pagine buffer. Per ulteriori
+informazioni sulla configurazione delle propriet&agrave; di WebSphere MQ, consultare il manuale
+<cite>WebSphere MQ System Administration</cite>, SC33-1873, disponibile in
+<img border="0" alt="&Egrave; possibile accedere alla destinazione solo quando
+questo argomento &egrave; collegato a World Wide Web" src="web.gif">&nbsp;&nbsp;               
+   <a target="_blank" href="http://www.elink.ibmlink.ibm.com/public/applications/publications/cgibin/pbi.cgi"><strong>IBM
+Publications Center</strong></a>
+ o nel kit di raccolta WebSphere MQ, SK2T-0730.</p>
+
+<dl>
+<dt>
+<strong><a name="JMSServer_name"></a>Nome</strong>
+</dt>
+<dd>Il nome attribuito al server JMS per scopi di gestione all'interno di IBM WebSphere Application
+Server.
+<p>Questo nome non deve essere modificato.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&agrave;</td>
+<td align="left" valign="top" class="base">Non applicabile</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">Server JMS interno di WebSphere</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo</td>
+<td align="left" valign="top" class="base">Non applicabile</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JMSServer_description"></a>Descrizione</strong>
+</dt>
+<dd>Una descrizione del server JMS, per scopi di gestione all'interno di IBM WebSphere Application
+Server.
+<p>Questa stringa non deve essere modificata.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+
+
+
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">Server JMS interno di WebSphere</td>
+
+</tr>
+
+
+
+
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JMSServer_numThreads"></a>Numero di thread</strong>
+            &nbsp;
+            </dt>
+<dd>Il numero di thread simultanei utilizzati dal motore corrispondente
+pubblicazione/sottoscrizione
+<p>Il numero di thread simultanei deve essere impostato solo su un numero basso.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Numero intero</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&agrave;</td>
+<td align="left" valign="top" class="base">Thread</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">1</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo</td>
+<td align="left" valign="top" class="base">Maggiore o pari a 1.</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JMSServer_queueNames"></a>Nomi coda</strong>
+</dt>
+<dd>I nomi delle code ospitate da questo server JMS. Ciascun nome coda deve essere aggiunto su una riga diversa.
+<p>Ciascuna coda elencata in questo campo deve disporre di un diverso oggetto di
+gestione code con lo stesso nome di gestione. Per rendere disponibile una coda alle
+applicazioni, definire una coda WebSphere e aggiungere il nome in questo campo sul
+pannello del Server JMS dell'host su cui si desidera ospitare la coda.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">ASCII</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&agrave;</td>
+<td align="left" valign="top" class="base">Nome coda</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">Non applicabile</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo</td>
+<td align="left" valign="top" class="base">Ciascuna voce in questo campo &egrave; un nome di coda lungo al massimo 45 caratteri, che deve
+corrispondere esattamente (anche per i caratteri maiuscoli e minuscoli)
+all'oggetto di gestione code di WebSphere definito per quella coda.</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JMSServer_executionState"></a>Stato iniziale</strong>
+</dt>
+<dd>Lo stato che si desidera per il server JMS al successivo riavvio.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&agrave;</td>
+<td align="left" valign="top" class="base">Non applicabile</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">Avviato</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>Avviato</strong>
+</dt>
+<dd>Il server JMS viene avviato automaticamente.</dd>
+
+<dt>
+<strong>Arrestato</strong>
+</dt>
+<dd>Il server JMS non viene avviato automaticamente. Se un'applicazione
+enterprise distribuita deve utilizzare le funzioni del server JMS fornite dallo stesso server, l'amministratore del sistema deve avviare il server JMS manualmente o selezionare il valore
+Avviato di questa propriet&agrave;, quindi riavviare il server JMS.</dd>
+
+</dl>
+<p>Per riavviare il server JMS per un server delle applicazioni, arrestare quindi riavviare il server delle applicazioni.</p>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Web 儲存區設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uweb_rcont"></a>
+<h2>Web 儲存區設定</h2>
+
+<p>請利用這個頁面來配置儲存區設定。<p>請在管理主控台中遍訪下列路徑來存取這個頁面：</p>
+
+<pre>
+<strong>伺服器</strong> &gt; <strong>應用程式伺服器</strong> &gt; <em>server_instance</em> &gt; <strong>Web 儲存區</strong>
+</pre>
+ 
+</p>
+
+<p> 
+<strong>配置 - 一般內容</strong> 
+</p>
+
+<dl>
+<dt>
+<strong><a name="rcont_default"></a>預設虛擬主機</strong>
+</dt>
+<dd>指定虛擬主機是能使單一主機機器變成類似多部主機機器的配置。
+虛擬主機所關聯的資源無法與另一虛擬主機所關聯的資源共用資料，即使它們共用相同的實體機器也一樣。
+
+<p>請選取虛擬主機選項：
+</p>
+
+<dl>
+
+<dt>
+<strong><strong>預設主機</strong></strong>
+</dt>
+<dd>產品提供一個預設虛擬主機，含有若干通用別名，如機器的 IP 位址、短的主機名稱及完整的主機名稱。
+別名構成了 Servlet 這類資源之存取路徑的第一部分。
+比方說，在 <samp>http://localhost:9080/myServlet</samp> 要求中，它是 <samp>localhost:9080</samp>。
+</dd>
+
+<dt>
+<strong><strong>管理主機</strong></strong>
+</dt>
+<dd>這是應用程式伺服器的另一個名稱；在基本安裝架構中，也稱為 <em>server1</em>。
+這個程序支援利用管理主控台。
+</dd>
+
+</dl>
+</dd>
+<dt>
+<strong><a name="rcont_cache"></a>Servlet 快取</strong>
+</dt>
+<dd>指定如果呼叫 Servlet，且它產生要快取的輸出，就建立一個快取項目，不但包含輸出，同時也包含呼叫的邊際作用。
+這些邊際作用可能包括呼叫其他 Servlet 或 Java Server Pages (JSP) 檔，以及項目的 Meta 資料，其中包括逾時和項目優先順序資訊。
+
+<p></p>
+
+<dl>
+
+<dt>
+<strong><strong>啟用 Servlet 快取</strong></strong>
+</dt>
+<dd> 請勾選這個框來啟用 Servlet 快取。</dd>
+
+</dl>
+
+</dd>
+</dl>
+</body>
+</html>

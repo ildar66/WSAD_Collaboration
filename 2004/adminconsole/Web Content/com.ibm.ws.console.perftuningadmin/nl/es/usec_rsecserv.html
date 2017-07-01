@@ -1,0 +1,229 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Valores de seguridad a nivel de servidor</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecrsecserv"></a>
+<h2>Valores de seguridad a nivel de servidor</h2>
+
+<p>Utilice esta p&aacute;gina para habilitar la seguridad a nivel de servidor y especificar otras configuraciones de seguridad a nivel de servidor.</p>
+
+<p>Para ver esta p&aacute;gina de la consola administrativa, pulse <strong>Servidores </strong> Servidores de aplicaciones &gt;
+<em>nombre_servidor</em> &gt; <strong>Seguridad de servidor</strong> &gt; <strong>Seguridad a nivel de servidor</strong>.</p>
+
+<div>
+<p>
+<strong>Pesta&ntilde;a Configuraci&oacute;n</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="SecurityS_enabled_description"></a>Habilitado </strong>
+</dt>
+<dd>Utilice este distintivo para inhabilitar o volver a habilitar la seguridad para este
+servidor de aplicaciones mientras la seguridad global est&eacute; habilitada. La seguridad del servidor se habilita por omisi&oacute;n, cuando la seguridad global est&aacute; habilitada. No puede habilitar la
+seguridad en el servidor de aplicaciones mientras la seguridad global est&eacute; inhabilitada. La
+seguridad de denominaci&oacute;n y administrativa (consola administrativa y wsadmin) permanecen habilitadas mientras la seguridad global est&eacute; habilitada independientemente del estado de este
+distintivo.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">Inhabilitar</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecurityS_enforceJava2Security_description"></a>Forzar la seguridad de Java 2</strong>
+</dt>
+<dd> Especifica que el servidor utiliza la comprobaci&oacute;n de permisos de seguridad Java 2 a nivel de servidor. Si no est&aacute; seleccionado, no se instala el gestor de seguridad a nivel de servidor Java 2 y la comprobaci&oacute;n de los permisos de seguridad Java 2 se inhabilita a nivel de servidor.
+<p>Si no se ha configurado correctamente el archivo de pol&iacute;tica de
+aplicaci&oacute;n, consulte el apartado
+<a href="tsec_waspolicyfile.html">Configuraci&oacute;n de
+was.policy</a> para obtener informaci&oacute;n sobre c&oacute;mo configurar
+archivos de pol&iacute;tica de aplicaci&oacute;n.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">Inhabilitado</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">Habilitado o Inhabilitado</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecurityS_useDomainQualifiedUserNames_description"></a>Utilizar ID de usuario cualificado para dominio</strong>
+</dt>
+<dd>Especifica si los ID de usuario que devuelven las llamadas de tipo
+getUserPrincipal() est&aacute;n cualificados con el dominio de seguridad a nivel de servidor en el
+que residen. 
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">Inhabilitado</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">Habilitar o Inhabilitar</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecurityS_cacheTimeout_description"></a>Tiempo de espera de antememoria </strong>
+</dt>
+<dd>Especifica el valor de tiempo de espera en segundos de la antememoria de seguridad a nivel de servidor. 
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unidades</td>
+<td align="left" valign="top" class="base">Segundos</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">600</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">Mayor que 30 segundos.  Evite establecer un valor de tiempo de espera de antememoria de 30 segundos o menos.</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecurityS_issuePermissionWarning_description"></a>Emitir aviso de permiso</strong>
+</dt>
+<dd>Especifica si se emite un aviso cuando la aplicaci&oacute;n necesite durante su
+instalaci&oacute;n un permiso de Java 2 que normalmente no se otorga a una aplicaci&oacute;n.
+<p>WebSphere Application Server da soporte a la gesti&oacute;n de los archivos de pol&iacute;tica.
+Hay varios archivos de pol&iacute;tica incluidos en WebSphere Application Server. Algunos de estos archivos de pol&iacute;tica son est&aacute;ticos y otros din&aacute;micos. La pol&iacute;tica din&aacute;mica es una plantilla de permisos para un tipo concreto de recurso. En los archivos de pol&iacute;tica din&aacute;micos, las bases de c&oacute;digo se eval&uacute;an durante el tiempo de ejecuci&oacute;n mediante los datos de configuraci&oacute;n. Puede a&ntilde;adir o eliminar permisos, seg&uacute;n sea necesario, para cada base de c&oacute;digo. No obstante, no a&ntilde;ada, elimine o modifique las bases de c&oacute;digo existentes. La base de c&oacute;digo real se crea din&aacute;micamente a partir
+de la configuraci&oacute;n y los datos de tiempo de ejecuci&oacute;n.  El archivo <samp>filter.policy</samp> contiene una lista de permisos que no debe tener una aplicaci&oacute;n de acuerdo con la especificaci&oacute;n J2EE 1.3. Para obtener m&aacute;s informaci&oacute;n sobre permisos, consulte el art&iacute;culo Gesti&oacute;n de pol&iacute;ticas de seguridad de Java 2 en InfoCenter.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">Habilitado</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">Habilitar o Inhabilitar</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecurityS_activeProtocol_description"></a>Protocolo activo </strong>
+</dt>
+<dd>Especifica el protocolo activo de autenticaci&oacute;n de seguridad a nivel de servidor cuando est&aacute; habilitada la seguridad a nivel de servidor. 
+<p>Puede utilizar un protocolo OMG (Object Management Group) llamado CSIv2 (Common Secure
+Interoperability Version 2) para una mayor interoperatividad de proveedores y caracter&iacute;sticas adicionales. Si todos los servidores de todo el dominio de
+seguridad son servidores de la Versi&oacute;n 5.0, es mejor especificar <strong>CSI</strong> como protocolo. Si
+algunos servidores son de la versi&oacute;n 3.x o de la versi&oacute;n 4.x, es mejor especificar <strong>CSI y
+SAS</strong>. No obstante, al especificar <strong>CSI y SAS</strong>, ahora tiene dos interceptores ejecutando cada petici&oacute;n.No obstante, al especificar <strong>CSI y zSAS</strong>, ahora tiene dos interceptores ejecutando cada petici&oacute;n.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">CSI y SAS</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">CSI, CSI y SAS  </td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+</body>
+</html>

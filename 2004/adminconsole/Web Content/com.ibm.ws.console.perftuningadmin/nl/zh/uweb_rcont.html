@@ -1,0 +1,67 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Web 容器设置</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uweb_rcont"></a>
+<h2>Web 容器设置</h2>
+
+<p>使用此页面配置信任关联设置。<p>通过遍历管理控制台中的以下路径访问此页面：</p>
+
+<pre>
+<strong>服务器</strong> &gt; <strong>应用程序服务器</strong> &gt; <em>server_instance</em> &gt; <strong>Web 容器</strong>
+</pre>
+ 
+</p>
+
+<p> 
+<strong>配置 － 常规属性</strong> 
+</p>
+
+<dl>
+<dt>
+<strong><a name="rcont_default"></a>缺省虚拟主机</strong>
+</dt>
+<dd>指定虚拟主机是使得单个主机机器类似于多个主机机器的配置。即使两台虚拟主机共享相同的物理机器，与一台虚拟主机相关联的资源也无法同与另一台虚拟主机相关联的资源一起共享数据。
+<p>选择虚拟主机选项：</p>
+
+<dl>
+
+<dt>
+<strong><strong>缺省主机</strong></strong>
+</dt>
+<dd>产品提供了一个带有一些公共别名的缺省虚拟主机，例如机器的 IP 地址、短主机名和全限定主机名。别名组成访问资源（如 servlet）的路径的第一部分。例如，在请求 <samp>http://localhost:9080/myServlet</samp> 中它是 <samp>localhost:9080</samp>。</dd>
+
+<dt>
+<strong><strong>管理主机</strong></strong>
+</dt>
+<dd>这是应用程序服务器的另一个名称，在基本安装中也称为 <em>server1</em>。
+此进程支持使用管理控制台。
+</dd>
+
+</dl>
+</dd>
+<dt>
+<strong><a name="rcont_cache"></a>servlet 高速缓存</strong>
+</dt>
+<dd>指定如果一旦调用 servlet 并且它生成要高速缓存的输出，则创建包含输出和调用的副作用的高速缓存条目。
+这些副作用可包括对其它 servlet 或 Java Server Pages（JSP）文件的调用，以及有关条目的元数据，包括超时和条目优先级信息。
+<p></p>
+
+<dl>
+
+<dt>
+<strong><strong>启用 servlet 高速缓存</strong></strong>
+</dt>
+<dd> 选取此框启用 servlet 高速缓存。</dd>
+
+</dl>
+
+</dd>
+</dl>
+</body>
+</html>

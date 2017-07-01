@@ -1,0 +1,195 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Lightweight Third Party Authentication settings</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecrltpa"></a>
+<h2>Lightweight Third Party Authentication settings</h2>
+
+<p>Use this page to configure Lightweight Third Party Authentication
+(LTPA) settings.</p>
+
+<p>To view this administrative console page, click <strong>Security</strong> &gt; <strong>Authentication
+Mechanisms</strong> &gt; <strong>LTPA</strong>.</p>
+
+<p>If you are configuring security for the first time only the password is
+required. Once the password is entered click <strong>Apply</strong>. Click <strong>Single
+Sign On</strong> (SSO) and enter the domain name. Make sure that SSO is enabled.
+Click <strong>Apply</strong>.  To complete the security setup, make sure the appropriate
+registry is set up and click <strong>Apply</strong> from the Global Security panel.
+When security is enabled and any of these properties change, go to the Global
+Security panel and click <strong>Apply</strong> to validate the changes.</p>
+
+<div>
+<p>
+<strong>Configuration tab</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="button"></a>Generate Keys</strong>
+</dt>
+<dd>Specifies whether the server will generate new LTPA keys.
+<p>When security is turned on for the first time with LTPA as the authentication
+mechanism the LTPA keys are automatically generated with the password entered
+in the panel. If you need a new set of keys to be generated using the previously
+set password click <strong>Generate Keys</strong>. If a new password is used do not
+click this button. Once the new password is entered and <strong>OK</strong> or <strong>Apply</strong> is
+clicked, a new set of keys are generated. <em>Whenever a new set of keys are
+generated, they will not be used until you save them.</em> 
+</p>
+
+</dd>
+<dt>
+<strong><a name="LTPA_password_description"></a>Import Keys</strong>
+</dt>
+<dd>Specifies whether the server will import new LTPA keys.
+<p>To support Single Sign-On (SSO) in the WebSphere product across multiple
+WebSphere domains (cells), share the LTPA keys and the password among the
+domains. The <strong>Import Keys</strong> button can be used to import the LTPA keys
+from other domains. The LTPA keys should have been previously exported from
+one of the cells to a file. In order to import a new set of LTPA keys, enter
+the appropriate password, click <strong>OK</strong> and click <strong>Save</strong>. Then, enter
+the directory location where the LTPA keys are located prior to clicking <strong>Import
+keys</strong>. Do not click <strong>OK</strong> or <strong>Apply</strong>, but save the settings.</p>
+
+</dd>
+<dt>
+<strong><a name="LTPA_password_description"></a>Export Keys</strong>
+</dt>
+<dd>Specifies whether the server will export LTPA keys.
+<p>To support single sign on (SSO) in the WebSphere product across multiple
+WebSphere domains (cells), share the LTPA keys and the password among the
+domains. The <strong>Export Keys</strong> button can be used to export the LTPA keys
+to other domains.</p>
+
+<p>To export the LTPA keys, make sure that the system is running with security
+enabled, and using LTPA. Enter the file name in <strong>Key File Name</strong> field
+and click <strong>Export Keys</strong>. The encrypted keys will be stored in the file
+specified.</p>
+
+</dd>
+<dt>
+<strong><a name="LTPA_password_description"></a>Password</strong>
+</dt>
+<dd>Specifies the password to encrypt and decrypt the LTPA keys. Use
+this password when importing these keys into other WebSphere Application Server
+administrative domain configurations (if any) and when configuring SSO for
+Domino server.
+<p>Once the keys are generated or imported they are used to encrypt and decrypt
+the LTPA token. Whenever the password is changed, a new set of LTPA keys are
+automatically generated when you click <strong>OK</strong> or <strong>Apply</strong>. These new
+set of keys will be used only when you save.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LTPA_confirmPassword_description"></a>Confirm Password</strong>
+</dt>
+<dd>Specifies the confirmed password used to encrypt and decrypt the
+LTPA keys.
+<p>Use this password when importing these keys into other WebSphere Application
+Server administrative domain configurations (if any) and when configuring
+SSO for Domino Server.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LTPA_timeout_description"></a>Timeout</strong>
+</dt>
+<dd>Specifies the time period in minutes at which an LTPA token will
+expire. Ensure this time period is longer than cache timeout configured in
+the Global Security panel.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Units</td>
+<td align="left" valign="top" class="base">Minutes</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">120</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LTPA_keyFilename_description"></a>Key File Name</strong>
+</dt>
+<dd>Specifies the name of the file used when  importing or exporting
+keys.
+<p>Enter a fully qualified key file name, and click <strong>Import Keys</strong> or <strong>Export
+Keys</strong>.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Related information</strong>
+</p>
+<a href="rcon_buttons.html">Administrative console buttons</a>
+<br>
+
+<a href="rcon_pageusage.html">Administrative console page features</a>
+<br>
+
+<a href="rcon_scope.html">Administrative console scope settings</a>
+<br>
+
+<a href="rcon_filter.html">Administrative console filter settings</a>
+<br>
+
+<a href="rcon_preferences.html">Administrative console preference settings</a>
+<br>
+
+</div>
+</body>
+</html>

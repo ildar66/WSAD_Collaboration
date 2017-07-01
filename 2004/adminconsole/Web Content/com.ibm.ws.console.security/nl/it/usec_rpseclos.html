@@ -1,0 +1,100 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Impostazioni del registro utenti del sistema operativo locale</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecrpseclos"></a>
+<h2>Impostazioni del registro utenti del sistema operativo locale</h2>
+
+<p>Utilizzare questa pagina per configurare le impostazioni del registro utenti del sistema operativo locale.</p>
+
+<p>Per visualizzare questa pagina della console di gestione, fare clic su <strong>Sicurezza</strong> &gt;
+<strong>Registri utenti</strong> &gt; <strong>OS locale</strong>.</p>
+
+<div>
+<p>
+<strong>Scheda Configurazione</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="UserRegistry_serverId_description"></a>ID utente server </strong>
+</dt>
+<dd>Specifica un ID utente valido nel registro OS locale.
+<p>Questo &egrave; l'ID del server di sicurezza che viene utilizzato solo per la sicurezza
+WebSphere Application Server e non &egrave; associato al processo di sistema sul quale &egrave; in
+esecuzione il
+server. Il server
+chiama il registro OS locale per autenticare e ottenere le informazioni sui
+privilegi relative agli utenti che richiamano le API native in quel registro particolare. L'accesso alle API native generalmente &egrave; limitato agli utenti con privilegi speciali (ad esempio, <strong>root</strong> nei sistemi UNIX <strong>Agisci come parte del sistema operativo</strong> nei sistemi Windows). Per utilizzare la sicurezza nel server delle applicazioni, l'ID processo (non l'ID server di sicurezza), su cui &egrave; in esecuzione WebSphere Application Server, deve
+disporre di privilegi sufficienti per chiamare le API di sistema. Il privilegio speciale indica che il processo, che esegue WebSphere Application Server, deve essere parte del gruppo di <strong>Amministratori</strong> e deve disporre del privilegio <strong>Agisci come parte del sistema
+operativo</strong> sui sistemi Windows, oltre a essere <strong>root</strong>, o a disporre dell'autorizzazione root sui sistemi UNIX.</p>
+
+<p>Se si usa un registro del sistema Windows, questo ID
+non pu&ograve; essere uguale al nome della macchina Windows. I sistemi Windows considerano il nome della macchina <strong>bob</strong> come avente un account simile al <strong>bob</strong> dell'utente.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati:</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&agrave;:</td>
+<td align="left" valign="top" class="base">Caratteri alfanumerici</td>
+
+</tr>
+
+</table>
+
+
+</dd>
+<dt>
+<strong><a name="UserRegistry_serverPassword_description"></a> Password utente server</strong>
+</dt>
+<dd>Specifica una password utente che corrisponde a un ID utente valido nel registro OS locale.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+</table>
+
+<p></p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informazioni correlate</strong>
+</p>
+<a href="rcon_buttons.html">Pulsanti della console di gestione</a>
+<br>
+
+<a href="rcon_pageusage.html">Funzioni della pagina della console di gestione</a>
+<br>
+
+<a href="rcon_scope.html">Impostazioni ambito della console di gestione</a>
+<br>
+
+<a href="rcon_filter.html">Impostazioni di filtro della console di gestione</a>
+<br>
+
+<a href="rcon_preferences.html">Impostazioni delle preferenze della console di gestione</a>
+<br>
+
+</div>
+</body>
+</html>

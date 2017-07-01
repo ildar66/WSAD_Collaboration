@@ -1,0 +1,66 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>トラスト・アンカー・コレクション</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_trstanc"></a>
+<h2>
+<img alt="[修正パッケージ 5.0.2 以降]" src="v502.gif" border="0">トラスト・アンカー・コレクション</h2>
+
+<p>このページを使用して、トラステッド・ルート証明書を含む
+鍵ストア・オブジェクトのリストを表示します。これらのオブジェクトは、着信する X.509 形式のセキュリティー・トークンの証明書のパスを検証するために使用されます。
+トラスト・アンカー内の鍵ストア・オブジェクトには、
+証明書チェーンの信頼性を検証するために CertPath API が使用する、トラステッド・ルート証明書が含まれています。</p>
+
+<p>鍵ストア・ファイルを作成するには、<samp><em>install_dir</em>\java\jre\bin\keytool</samp> ディレクトリー内にある鍵ツールを使用します。</p>
+
+<p>この管理コンソール・ページを表示するには、「<strong>サーバー</strong>」&gt;「<strong>アプリケーション・サーバー</strong>」&gt;「<em>server_name</em>」をクリックします。「追加プロパティー」の下の「<strong>Web Services: Default bindings for Web Services Security</strong>」&gt;「<strong>Trust Anchors</strong>」をクリックします。</p>
+
+<p>新規のトラスト・アンカーを作成する場合は、「<strong>新規</strong>」をクリックします。</p>
+
+<p>トラスト・アンカーを削除する場合は、「<strong>削除</strong>」をクリックします。</p>
+
+<p>「<strong>Update runtime</strong>」をクリックすると、保管済みの <samp>ws-security.xml</samp> ファイルに含まれているデフォルトのバインディング情報で Web サービス・セキュリティー・ランタイムが更新されます。このパネルで変更を行う場合、
+以下のステップを完了する必要があります。<ol>
+
+<li>管理コンソールの上部にある「<strong>保管</strong>」をクリックして変更を保管してください。「<strong>保管</strong>」をクリックすると、管理コンソールのホーム・パネルに戻ります。</li>
+
+<li>「Trust Anchors collection」パネルに戻り、「<strong>Update runtime</strong>」をクリックします。<p>
+<b>注: </b>「<strong>Update runtime</strong>」をクリックすると、他の Web サービスで変更された構成も、Web サービス・セキュリティー・ランタイムで更新されます。
+</p>
+</li>
+
+</ol>
+</p>
+
+<dl>
+<dt>
+<strong><a name="sec_trstancname"></a>Trust Anchor Name</strong>
+</dt>
+<dd>トラスト・アンカーの識別に使用される固有の名前を指定します。</dd>
+<dt>
+<strong><a name="sec_keystpath"></a>Key Store Path</strong>
+</dt>
+<dd>トラスト・アンカーを含む鍵ストア・ファイルのロケーションを指定します。</dd>
+<dt>
+<strong><a name="sec_keysttype"></a>Key Store Type</strong>
+</dt>
+<dd>鍵ストア・ファイルのタイプを指定します。
+<p>このフィールドの値は、<strong>JKS</strong> または <strong>JCEKS</strong> のいずれかです。</p>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>関連情報</strong>
+</p>
+<a href="uwbs_trstancn.html">トラスト・アンカー構成の設定</a>
+<br>
+
+</div>
+</body>
+</html>

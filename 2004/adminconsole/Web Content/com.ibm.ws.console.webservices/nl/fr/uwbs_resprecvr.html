@@ -1,0 +1,85 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Collection Liaison de r&eacute;cepteur de r&eacute;ponse</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_resprecvr"></a>
+<h2>
+<img alt="[Fix Pack 5.0.2 and later]" src="v502.gif" border="0">Collection Liaison de r&eacute;cepteur de r&eacute;ponse</h2>
+
+<p>Cette page permet d'indiquer la configuration de liaison
+applicable aux messages de r&eacute;ponse du r&eacute;cepteur pour la s&eacute;curit&eacute; des
+services Web.</p>
+
+<p>Pour afficher cette page de la console d'administration, suivez la proc&eacute;dure ci-apr&egrave;s. <ol>
+
+<li>Cliquez sur <strong>Applications &gt; Applications d'entreprise &gt; </strong><em>nom_application</em>. </li>
+
+<li>Dans la section Articles li&eacute;s, cliquez sur <strong>Modules Web</strong> &gt; <em>nom_fichier_URI</em> &gt; <strong>Services
+Web Services : Liaisons de s&eacute;curit&eacute; du serveur</strong>. </li>
+
+<li>Dans la section Liaison d'&eacute;metteur de r&eacute;ponse, cliquez sur
+<strong>Editer</strong>.</li>
+
+</ol>
+</p>
+
+<dl>
+<dt>
+<strong><a name="sec_signing"></a>Informations relatives &agrave; la signature</strong>
+</dt>
+<dd>Indique la configuration des param&egrave;tres de signature. Les informations de signature sont utilis&eacute;es pour signer et valider
+certaines parties d'un message, notamment le corps et l'horodatage.
+<p>Vous pouvez &eacute;galement utiliser ces param&egrave;tres pour la validation X.509 lorsque la <em>m&eacute;thode
+d'authentification</em> est <samp>IDAssertion</samp> et que le <em>type d'ID</em> est <samp>X509Certificate</samp>
+dans la configuration au niveau serveur. Dans de tels cas, vous devez uniquement compl&eacute;ter les
+zones <em>Chemin d'acc&egrave;s au certificat</em>.</p>
+
+</dd>
+<dt>
+<strong><a name="sec_encrypt"></a>Informations de chiffrement</strong>
+</dt>
+<dd>Indique la configuration des param&egrave;tres de chiffrement et de
+d&eacute;chiffrement.
+Les informations de chiffrement sont utilis&eacute;es
+pour chiffrer et d&eacute;chiffrer certaines parties d'un message,
+notamment le corps et le jeton du nom d'utilisateur.</dd>
+<dt>
+<strong><a name="sec_trustancdescr"></a>Ancres
+de s&eacute;curisation</strong>
+</dt>
+<dd>Indique une liste d'objets du magasin de donn&eacute;es qui contiennent
+les certificats racine s&eacute;curis&eacute;s, auto-sign&eacute;s ou &eacute;mis par une autorit&eacute; de certification.
+<p>L'autorit&eacute; de certification authentifie un utilisateur et &eacute;met un certificat.
+Une fois que le certificat a &eacute;t&eacute; &eacute;mis, les objets du magasin de cl&eacute;s
+qui contiennent ces certificats utilisent le certificat pour le
+chemin des certificats ou la validation d'une cha&icirc;ne de certificats
+des jetons de s&eacute;curit&eacute; entrants au format X.509.</p>
+
+</dd>
+<dt>
+<strong><a name="sec_collcert"></a>Magasin de certificats de collection</strong>
+</dt>
+<dd>Indique une liste de fichiers de certificat interm&eacute;diaires, non
+s&eacute;curis&eacute;s.
+<p>Le magasin de certificats de collection contient une cha&icirc;ne de
+certificats interm&eacute;diaires, non s&eacute;curis&eacute;s. L'API CertPath tente de valider
+ces certificats bas&eacute;s sur l'ancre de s&eacute;curisation.</p>
+
+</dd>
+<dt>
+<strong><a name="sec_keyldesc"></a>Localisateurs de cl&eacute;s</strong>
+</dt>
+<dd>Indique une liste de localisateurs de cl&eacute;s qui extraient les cl&eacute;s
+pour la signature num&eacute;rique et le chiffrement &agrave; partir d'un fichier
+de cl&eacute;s ou d'un r&eacute;f&eacute;rentiel.
+Le localisateur de cl&eacute;s mappe un nom ou un nom logique vers un alias ou
+mappe une identit&eacute; authentifi&eacute;e vers une cl&eacute;. Ce nom logique permet de
+localiser une cl&eacute; dans l'impl&eacute;mentation d'adresse de cl&eacute;.</dd>
+</dl>
+</body>
+</html>

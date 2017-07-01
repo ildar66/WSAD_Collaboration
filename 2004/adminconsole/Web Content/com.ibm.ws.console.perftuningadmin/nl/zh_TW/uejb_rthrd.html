@@ -1,0 +1,162 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>執行緒儲存池設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uejb_rthrd"></a>
+<h2>執行緒儲存池設定</h2>
+
+<p>請利用這個頁面來配置應用程式伺服器使用的執行緒群組。
+這些要求會透過任何 HTTP 傳輸，傳送到伺服器。
+執行緒儲存池可讓伺服器元件重複使用執行緒，因而不必在執行時期建立新執行緒。
+建立新執行緒會消耗時間和資源。</p>
+
+<p>如果要檢視這個管理主控台頁面，請按一下<strong>伺服器 &gt; 管理應用程式伺服器 &gt; </strong><em>server_name</em><strong> &gt; ORB 服務 &gt; 執行緒儲存池</strong>。
+（您可以利用多個導覽路徑來找到這個頁面。）
+</p>
+
+<div>
+<p>
+<strong>「配置」標籤</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="ThreadPool_minimumSize_description"></a>大小下限</strong>
+</dt>
+<dd>指定儲存池中所允許的執行緒數目下限
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">整數</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">10</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ThreadPool_maximumSize_description"></a>大小上限</strong>
+</dt>
+<dd>指定儲存池中所允許的執行緒數目上限
+
+<p>如果 Tivoli 效能檢視器顯示「上限百分比」度量始終是兩位數，請考慮增加大小上限。
+「上限百分比」度量指出使用所配置之執行緒的時間量。
+如果有許多用戶端同時連接到伺服器端 ORB，支援的大小最多可達 1000 個用戶端。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">整數</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">50</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">建議</td>
+<td align="left" valign="top" class="base"><a href="rprf_troubleshoot.html">50（Linux 系統是 25）</a></td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ThreadPool_inactivityTimeout_description"></a>執行緒不作用逾時值</strong>
+</dt>
+<dd>指定在收回執行緒之前應該經歷之不活動的毫秒數。0 值表示不需等待，而負值（小於 0）則表示要永遠等待。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">整數</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">單位</td>
+<td align="left" valign="top" class="base">毫秒</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">3500</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ThreadPool_isGrowable_description"></a>可增長</strong>
+</dt>
+<dd>指定執行緒數目是否可以增加，超出配置給執行緒儲存池的大小上限。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">未啟用 (false)</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">有效值是「允許執行緒配置超出執行緒大小上限」或「未啟用」。</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>相關資訊</strong>
+</p>
+<a href="rcon_buttons.html">管理主控台按鈕</a>
+<br>
+
+<a href="rcon_pageusage.html">管理主控台頁面特性</a>
+<br>
+
+</div>
+</body>
+</html>

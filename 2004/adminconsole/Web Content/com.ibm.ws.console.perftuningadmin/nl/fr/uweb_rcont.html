@@ -1,0 +1,86 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Param&egrave;tres des conteneurs Web</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uweb_rcont"></a>
+<h2>Param&egrave;tres des conteneurs Web</h2>
+
+<p>Utilisez cette page pour configurer les param&egrave;tres des conteneurs.
+<p>Pour acc&eacute;der &agrave; cette page, recherchez le chemin d'acc&egrave;s suivant
+dans la console d'administration :</p>
+
+<pre>
+<strong>Serveurs</strong> &gt; <strong>Serveurs d'applications</strong> &gt; <em>instance_serveur</em> &gt; <strong>conteneur Web</strong>
+</pre>
+ 
+</p>
+
+<p> 
+<strong>Configuration - Propri&eacute;t&eacute;s g&eacute;n&eacute;rales</strong> 
+</p>
+
+<dl>
+<dt>
+<strong><a name="rcont_default"></a>H&ocirc;te virtuel par d&eacute;faut</strong>
+</dt>
+<dd>Sp&eacute;cifie un h&ocirc;te virtuel, c'est-&agrave;-dire une configuration permettant &agrave; une seule
+machine h&ocirc;te de se comporter comme plusieurs machines h&ocirc;tes.  Les ressources associ&eacute;es &agrave; un
+h&ocirc;te virtuel ne peuvent pas partager de donn&eacute;es avec les
+ressources associ&eacute;es &agrave; un autre h&ocirc;te virtuel, m&ecirc;me si les
+deux h&ocirc;tes sont sur la m&ecirc;me machine physique. 
+<p>S&eacute;lectionnez une option d'h&ocirc;te virtuel :</p>
+
+<dl>
+
+<dt>
+<strong><strong>H&ocirc;te par d&eacute;faut</strong></strong>
+</dt>
+<dd>Le produit fournit un h&ocirc;te virtuel par d&eacute;faut comportant des
+alias courants, tels que l'adresse IP de la machine, un nom d'h&ocirc;te court
+et un nom d'h&ocirc;te complet.  L'alias constitue la premi&egrave;re
+partie du chemin d'acc&egrave;s d'une ressource, comme un servlet.  Par exemple, il s'agit de <samp>localhost:9080</samp>
+dans la demande <samp>http://localhost:9080/monServlet</samp>.</dd>
+
+<dt>
+<strong><strong>H&ocirc;te d'administration</strong></strong>
+</dt>
+<dd>Autre nom du serveur d'applications ;
+d&eacute;sign&eacute; &eacute;galement sous le nom <em>server1</em> dans l'installation de base.  
+Ce processus supporte l'utilisation de la console d'administration.
+</dd>
+
+</dl>
+</dd>
+<dt>
+<strong><a name="rcont_cache"></a>Mise en cache du servlet</strong>
+</dt>
+<dd>Lorsqu'un servlet est appel&eacute; et g&eacute;n&egrave;re une sortie destin&eacute;e
+&agrave; &ecirc;tre enregistr&eacute;e en m&eacute;moire cache, l'entr&eacute;e cr&eacute;&eacute;e en m&eacute;moire cache
+contient non seulement la sortie mais aussi des &eacute;l&eacute;ments d&eacute;coulant de
+l'appel. 
+Ces &eacute;l&eacute;ments sont constitu&eacute;s par les appels &agrave; d'autres
+servlets ou fichiers JSP (Java Server Pages), ainsi que par les
+m&eacute;tadonn&eacute;es relatives &agrave; l'entr&eacute;e, y compris les informations
+concernant les d&eacute;lais et la priorit&eacute; des entr&eacute;es. 
+ 
+<p></p>
+
+<dl>
+
+<dt>
+<strong><strong>Activer la mise en cache du servlet</strong></strong>
+</dt>
+<dd> Cochez
+cette case pour activer la mise en cache du servlet.</dd>
+
+</dl>
+
+</dd>
+</dl>
+</body>
+</html>

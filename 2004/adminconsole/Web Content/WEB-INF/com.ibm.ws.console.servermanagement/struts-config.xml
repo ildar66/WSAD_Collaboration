@@ -1,0 +1,687 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.0//EN"
+                               "http://jakarta.apache.org/struts/dtds/struts-config_1_0.dtd">
+<struts-config>
+    <form-beans>
+     <form-bean name="com.ibm.ws.console.servermanagement.GenericServerCollectionForm" type="com.ibm.ws.console.servermanagement.applicationserver.GenericServerCollectionForm"/>
+     <form-bean name="com.ibm.ws.console.servermanagement.ApplicationServerDetailForm" type="com.ibm.ws.console.servermanagement.applicationserver.ApplicationServerDetailForm"/>
+     <form-bean name="com.ibm.ws.console.servermanagement.TransactionServiceDetailForm" type="com.ibm.ws.console.servermanagement.transactionservice.TransactionServiceDetailForm"/>
+     <form-bean name="com.ibm.ws.console.servermanagement.JMXConnectorCollectionForm" type="com.ibm.ws.console.servermanagement.jmx.JMXConnectorCollectionForm"/>
+     <form-bean name="com.ibm.ws.console.servermanagement.JMXConnectorDetailForm" type="com.ibm.ws.console.servermanagement.jmx.JMXConnectorDetailForm"/>
+     <form-bean name="com.ibm.ws.console.servermanagement.AdminServiceCollectionForm" type="com.ibm.ws.console.servermanagement.adminservice.AdminServiceCollectionForm"/>
+     <form-bean name="com.ibm.ws.console.servermanagement.AdminServiceDetailForm" type="com.ibm.ws.console.servermanagement.adminservice.AdminServiceDetailForm"/>
+     <form-bean name="com.ibm.ws.console.servermanagement.ServerDetailForm" type="com.ibm.ws.console.servermanagement.server.ServerDetailForm"/>
+     <form-bean name="com.ibm.ws.console.servermanagement.ServerCollectionForm" type="com.ibm.ws.console.servermanagement.server.ServerCollectionForm"/>
+     <form-bean name="com.ibm.ws.console.servermanagement.JavaProcessDefDetailForm" type="com.ibm.ws.console.servermanagement.processexec.JavaProcessDetailForm"/>
+     <form-bean name="com.ibm.ws.console.servermanagement.JavaVirtualMachineDetailForm" type="com.ibm.ws.console.servermanagement.processexec.JavaVirtualMachineDetailForm"/>
+     <form-bean name="com.ibm.ws.console.servermanagement.MonitoringPolicyDetailForm" type="com.ibm.ws.console.servermanagement.processexec.MonitoringPolicyDetailForm"/>
+     <form-bean name="com.ibm.ws.console.servermanagement.ProcessDefDetailForm" type="com.ibm.ws.console.servermanagement.processexec.ProcessDefDetailForm"/>
+     <form-bean name="com.ibm.ws.console.servermanagement.ProcessExecutionDetailForm" type="com.ibm.ws.console.servermanagement.processexec.ProcessExecutionDetailForm"/>
+     <form-bean name="com.ibm.ws.console.servermanagement.PropertyCollectionForm" type="com.ibm.ws.console.servermanagement.properties.PropertyCollectionForm"/>
+     <form-bean name="com.ibm.ws.console.servermanagement.PropertyDetailForm" type="com.ibm.ws.console.servermanagement.properties.PropertyDetailForm"/>
+     <form-bean name="com.ibm.ws.console.servermanagement.SecurityServerCollectionForm" type="com.ibm.ws.console.servermanagement.securityserver.SecurityServerCollectionForm"/>
+     <form-bean name="com.ibm.ws.console.servermanagement.SecurityServerDetailForm" type="com.ibm.ws.console.servermanagement.securityserver.SecurityServerDetailForm"/>
+     <form-bean name="com.ibm.ws.console.servermanagement.NameServerCollectionForm" type="com.ibm.ws.console.servermanagement.nameserver.NameServerCollectionForm"/>
+     <form-bean name="com.ibm.ws.console.servermanagement.NameServerDetailForm" type="com.ibm.ws.console.servermanagement.nameserver.NameServerDetailForm"/>
+     <form-bean name="com.ibm.ws.console.servermanagement.JMSServerCollectionForm" type="com.ibm.ws.console.servermanagement.jmsserver.JMSServerCollectionForm"/>
+     <form-bean name="com.ibm.ws.console.servermanagement.JMSServerDetailForm" type="com.ibm.ws.console.servermanagement.jmsserver.JMSServerDetailForm"/>
+     <form-bean name="com.ibm.ws.console.servermanagement.ServerComponentCollectionForm" type="com.ibm.ws.console.servermanagement.process.ServerComponentCollectionForm"/>
+     <form-bean name="com.ibm.ws.console.servermanagement.ServerComponentDetailForm" type="com.ibm.ws.console.servermanagement.process.ServerComponentDetailForm"/>
+     <form-bean name="com.ibm.ws.console.servermanagement.ServiceCollectionForm" type="com.ibm.ws.console.servermanagement.process.ServiceCollectionForm"/>
+     <form-bean name="com.ibm.ws.console.servermanagement.ServiceDetailForm" type="com.ibm.ws.console.servermanagement.process.ServiceDetailForm"/>
+     <form-bean name="com.ibm.ws.console.servermanagement.RepositoryServiceCollectionForm" type="com.ibm.ws.console.servermanagement.adminservice.RepositoryServiceCollectionForm"/>
+     <form-bean name="com.ibm.ws.console.servermanagement.RepositoryServiceDetailForm" type="com.ibm.ws.console.servermanagement.adminservice.RepositoryServiceDetailForm"/>
+     <form-bean name="com.ibm.ws.console.servermanagement.ExtensionMBeanCollectionForm" type="com.ibm.ws.console.servermanagement.adminservice.ExtensionMBeanCollectionForm"/>
+     <form-bean name="com.ibm.ws.console.servermanagement.ExtensionMBeanDetailForm" type="com.ibm.ws.console.servermanagement.adminservice.ExtensionMBeanDetailForm"/>
+     <form-bean name="com.ibm.ws.console.servermanagement.ExtensionMBeanProviderCollectionForm" type="com.ibm.ws.console.servermanagement.adminservice.ExtensionMBeanProviderCollectionForm"/>
+     <form-bean name="com.ibm.ws.console.servermanagement.ExtensionMBeanProviderDetailForm" type="com.ibm.ws.console.servermanagement.adminservice.ExtensionMBeanProviderDetailForm"/>
+     <form-bean name="com.ibm.ws.console.servermanagement.ExtensionCollectionForm" type="com.ibm.ws.console.servermanagement.process.ExtensionCollectionForm"/>
+     <form-bean name="com.ibm.ws.console.servermanagement.ExtensionDetailForm" type="com.ibm.ws.console.servermanagement.process.ExtensionDetailForm"/>
+     <form-bean name="com.ibm.ws.console.servermanagement.TransactionServiceDetailForm" type="com.ibm.ws.console.servermanagement.transactionservice.TransactionServiceDetailForm"/>
+     <form-bean name="com.ibm.ws.console.servermanagement.ObjectRequestBrokerDetailForm" type="com.ibm.ws.console.servermanagement.orb.ObjectRequestBrokerDetailForm"/>
+     <form-bean name="com.ibm.ws.console.servermanagement.webcontainer.WebContainerDetailForm" type="com.ibm.ws.console.servermanagement.webcontainer.WebContainerDetailForm"/>
+     <form-bean name="com.ibm.ws.console.servermanagement.webcontainer.ThreadPoolDetailForm" type="com.ibm.ws.console.servermanagement.webcontainer.ThreadPoolDetailForm"/>
+     <form-bean name="com.ibm.ws.console.servermanagement.webcontainer.SessionManagerDetailForm" type="com.ibm.ws.console.servermanagement.webcontainer.SessionManagerDetailForm"/>
+     <form-bean name="com.ibm.ws.console.servermanagement.webcontainer.CookieDetailForm" type="com.ibm.ws.console.servermanagement.webcontainer.CookieDetailForm"/>
+     <form-bean name="com.ibm.ws.console.servermanagement.webcontainer.PersistenceDetailForm" type="com.ibm.ws.console.servermanagement.webcontainer.PersistenceDetailForm"/>
+     <form-bean name="com.ibm.ws.console.servermanagement.webcontainer.SessionDatabasePersistenceDetailForm" type="com.ibm.ws.console.servermanagement.webcontainer.SessionDatabasePersistenceDetailForm"/>
+     <form-bean name="com.ibm.ws.console.servermanagement.webcontainer.TuningDetailForm" type="com.ibm.ws.console.servermanagement.webcontainer.TuningDetailForm"/>
+     <form-bean name="com.ibm.ws.console.servermanagement.webcontainer.TuningParamsDetailForm" type="com.ibm.ws.console.servermanagement.webcontainer.TuningParamsDetailForm"/>
+     <form-bean name="com.ibm.ws.console.servermanagement.webcontainer.HTTPTransportDetailForm" type="com.ibm.ws.console.servermanagement.webcontainer.HTTPTransportDetailForm"/>
+     <form-bean name="com.ibm.ws.console.servermanagement.webcontainer.HTTPTransportCollectionForm" type="com.ibm.ws.console.servermanagement.webcontainer.HTTPTransportCollectionForm"/>
+     <form-bean name="com.ibm.ws.console.servermanagement.webcontainer.DRSSettingsDetailForm" type="com.ibm.ws.console.servermanagement.webcontainer.DRSSettingsDetailForm"/>
+     <form-bean name="com.ibm.ws.console.servermanagement.dynamiccache.DynamicCacheDetailForm" type="com.ibm.ws.console.servermanagement.dynamiccache.DynamicCacheDetailForm"/>
+     <form-bean name="com.ibm.ws.console.servermanagement.dynamiccache.DRSSettingsDetailForm" type="com.ibm.ws.console.servermanagement.dynamiccache.DRSSettingsDetailForm"/>
+     <form-bean name="com.ibm.ws.console.servermanagement.dynamiccache.ExternalCacheGroupCollectionForm" type="com.ibm.ws.console.servermanagement.dynamiccache.ExternalCacheGroupCollectionForm"/>
+     <form-bean name="com.ibm.ws.console.servermanagement.dynamiccache.ExternalCacheGroupDetailForm" type="com.ibm.ws.console.servermanagement.dynamiccache.ExternalCacheGroupDetailForm"/>
+     <form-bean name="com.ibm.ws.console.servermanagement.dynamiccache.ExternalCacheGroupMemberCollectionForm" type="com.ibm.ws.console.servermanagement.dynamiccache.ExternalCacheGroupMemberCollectionForm"/>
+     <form-bean name="com.ibm.ws.console.servermanagement.dynamiccache.ExternalCacheGroupMemberDetailForm" type="com.ibm.ws.console.servermanagement.dynamiccache.ExternalCacheGroupMemberDetailForm"/>
+     <form-bean name="com.ibm.ws.console.servermanagement.MessageListenerServiceDetailForm" type="com.ibm.ws.console.servermanagement.messagelistener.MessageListenerServiceDetailForm"/>
+     <form-bean name="com.ibm.ws.console.servermanagement.ListenerPortCollectionForm" type="com.ibm.ws.console.servermanagement.messagelistener.ListenerPortCollectionForm"/>
+     <form-bean name="com.ibm.ws.console.servermanagement.ListenerPortDetailForm" type="com.ibm.ws.console.servermanagement.messagelistener.ListenerPortDetailForm"/>
+     <form-bean name="com.ibm.ws.console.servermanagement.PMIServiceDetailForm" type="com.ibm.ws.console.servermanagement.pmiservice.PMIServiceDetailForm"/>
+     <form-bean name="com.ibm.ws.console.servermanagement.EJBContainerDetailForm" type="com.ibm.ws.console.servermanagement.ejbcontainer.EJBContainerDetailForm"/>
+     <form-bean name="com.ibm.ws.console.servermanagement.EJBCacheDetailForm" type="com.ibm.ws.console.servermanagement.ejbcontainer.EJBCacheDetailForm"/>
+     <form-bean name="SelectAppServerTemplateForm" type="com.ibm.ws.console.servermanagement.wizard.CreateNewAppServerForm"/>
+     <form-bean name="ConfirmCreateAppServerForm" type="com.ibm.ws.console.servermanagement.wizard.CreateNewAppServerForm"/>
+     <form-bean name="com.ibm.ws.console.servermanagement.CustomServiceCollectionForm" type="com.ibm.ws.console.servermanagement.customservice.CustomServiceCollectionForm"/>
+     <form-bean name="com.ibm.ws.console.servermanagement.CustomServiceDetailForm" type="com.ibm.ws.console.servermanagement.customservice.CustomServiceDetailForm"/>
+     <form-bean name="com.ibm.ws.console.servermanagement.TransactionCollectionForm" type="com.ibm.ws.console.servermanagement.transactionservice.TransactionCollectionForm"/>
+     <form-bean name="com.ibm.ws.console.servermanagement.EndPointDetailForm" type="com.ibm.ws.console.servermanagement.process.EndPointDetailForm"/>
+     <form-bean name="com.ibm.ws.console.servermanagement.DebugServiceDetailForm" type="com.ibm.ws.console.servermanagement.debugservice.DebugServiceDetailForm"/>
+     <form-bean name="com.ibm.ws.console.servermanagement.NamedEndPointCollectionForm" type="com.ibm.ws.console.servermanagement.serverindex.NamedEndPointCollectionForm"/>     
+     <form-bean name="com.ibm.ws.console.servermanagement.NamedEndPointDetailForm" type="com.ibm.ws.console.servermanagement.serverindex.NamedEndPointDetailForm"/>        
+     
+    </form-beans>
+
+
+    <global-forwards>
+        <forward name="stopServerConf" path="/com.ibm.ws.console.servermanagement/StopServerConf.jsp"/>
+        <forward name="goodbye" path="/com.ibm.ws.console.servermanagement/StopServer.jsp"/>
+        <forward name="appserver.new.step1" path="appserver.new.step1"/>
+        <forward name="appserver.new.step3" path="appserver.new.step3"/>
+    </global-forwards>
+
+    <action-mappings>
+
+        <action name="com.ibm.ws.console.servermanagement.forwardCmd"
+                path="/com.ibm.ws.console.servermanagement.forwardCmd" type="com.ibm.ws.console.core.action.ForwardAction">
+                <forward name="AdminService.config.view" path="AdminService.config.view"/>
+                <forward name="JMXConnector.content.main" path="JMXConnector.content.main"/>
+                <forward name="ProcessDef.config.view" path="ProcessDef.config.view"/>
+                <forward name="JavaProcessDef.config.view" path="JavaProcessDef.config.view"/>
+                <forward name="ProcessExecution.config.view" path="ProcessExecution.config.view"/>
+                <forward name="Property.content.main" path="Property.content.main"/>
+                <forward name="MonitoringPolicy.config.view" path="MonitoringPolicy.config.view"/>
+                <forward name="JavaVirtualMachine.content.main" path="JavaVirtualMachine.content.main"/>
+                <forward name="JavaVirtualMachine.config.view" path="JavaVirtualMachine.config.view"/>
+                <forward name="OutputRedirect.config.view" path="OutputRedirect.config.view"/>
+                <forward name="Service.content.main" path="Service.content.main"/>
+                <forward name="Component.content.main" path="Component.content.main"/>
+                <forward name="Extension.content.main" path="Extension.content.main"/>
+                <forward name="StateManageable.config.view" path="StateManageable.config.view"/>
+                <forward name="StatisticsProvider.config.view" path="StatisticsProvider.config.view"/>
+                <forward name="CustomService.content.main" path="CustomService.content.main"/>
+                <forward name="ApplicationServer.content.main" path="ApplicationServer.content.main"/>
+                <forward name="JMSServer.content.main" path="JMSServer.content.main"/>
+                <forward name="EndPoint.config.view" path="EndPoint.config.view"/>
+                <forward name="NamedEndPoint.content.main" path="NamedEndPoint.content.main"/>                
+                <forward name="NameServer.content.main" path="NameServer.content.main"/>
+                <forward name="SecurityServer.content.main" path="SecurityServer.content.main"/>
+                <forward name="ExtensionMBeanProvider.content.main" path="ExtensionMBeanProvider.content.main"/>
+                <forward name="RepositoryService.config.view" path="RepositoryService.config.view"/>
+                <forward name="ServerComponent.content.main" path="ServerComponent.content.main"/>
+                <forward name="RepositoryService.content.main" path="RepositoryService.content.main"/>
+                <forward name="ExtensionMBean.content.main" path="ExtensionMBean.content.main"/>
+                <forward name="TransactionService.config.view" path="TransactionService.config.view"/>
+                <forward name="Transaction.content.main" path="Transaction.content.main"/>
+                <forward name="ObjectRequestBroker.config.view" path="ObjectRequestBroker.config.view"/>
+                <forward name="ThreadPool.config.view" path="ThreadPool.config.view"/>
+                <forward name="SessionManager.config.view" path="SessionManager.config.view"/>
+                <forward name="SessionManagerEnable.config.view" path="SessionManagerEnable.config.view"/>
+                <forward name="Cookie.config.view" path="Cookie.config.view"/>
+                <forward name="ApplicationServer.config.view" path="ApplicationServer.config.view"/>
+                <forward name="Server.config.view" path="Server.config.view"/>
+                <forward name="Persistence.config.view" path="Persistence.config.view"/>
+                <forward name="SessionDatabasePersistence.config.view" path="SessionDatabasePersistence.config.view"/>
+                <forward name="Tuning.config.view" path="Tuning.config.view"/>
+                <forward name="TuningParams.config.view" path="TuningParams.config.view"/>
+                <forward name="HTTPTransport.content.main" path="HTTPTransport.content.main"/>
+                <forward name="HTTPTransport.config.view" path="HTTPTransport.config.view"/>
+                <forward name="MessageListenerService.config.view" path="MessageListenerService.config.view"/>
+                <forward name="ListenerPort.config.view" path="ListenerPort.config.view"/>
+                <forward name="ListenerPort.content.main" path="ListenerPort.content.main"/>
+                <forward name="RASLoggingservice.config.view" path="RASLoggingservice.config.view"/>
+                <forward name="TraceService.config.view" path="TraceService.config.view"/>
+                <forward name="ApplicationDeployment.content.main" path="ApplicationDeployment.content.main"/>
+                <forward name="webcontainer.config.view" path="webcontainer.config.view"/>
+                <forward name="PMIService.config.view" path="PMIService.config.view"/>
+                <forward name="EJBContainer.config.view" path="EJBContainer.config.view"/>
+                <forward name="EJBCache.config.view" path="EJBCache.config.view"/>
+                <forward name="DynamicCache.config.view" path="DynamicCache.config.view"/>
+        		<forward name="ExternalCacheGroup.content.main" path="ExternalCacheGroup.content.main"/>
+        		<forward name="ExternalCacheGroupMember.content.main" path="ExternalCacheGroupMember.content.main"/>
+                <forward name="DRSSettings.config.view" path="DRSSettings.config.view"/>
+                <forward name="DynamicCacheDRSSettings.config.view" path="DynamicCacheDRSSettings.config.view"/>
+                <forward name="DebugService.config.view" path="DebugService.config.view"/>
+                <forward name="ServerSecurity.config.view" path="ServerSecurity.config.view"/>
+                <forward name="ProductInfo.content.main" path="ProductInfo.content.main"/>
+                <forward name="Components.content.main" path="Components.content.main"/>
+                <forward name="Extensions.content.main" path="Extensions.content.main"/>
+                <forward name="Efixes.content.main" path="Efixes.content.main"/>
+                <forward name="Ptfs.content.main" path="Ptfs.content.main"/>
+        </action>
+
+
+        <action
+            name="com.ibm.ws.console.servermanagement.GenericServerCollectionForm"
+            path="/applicationServerCollection" type="com.ibm.ws.console.servermanagement.applicationserver.ApplicationServerCollectionAction">
+            <forward name="failure" path="/error1.jsp"/>
+            <forward name="JMSServer.config.view" path="JMSServer.config.view"/>
+            <forward name="ApplicationServer.config.view" path="ApplicationServer.config.view"/>
+            <forward name="success" path="ApplicationServer.config.view"/>
+            <forward name="updatedCollection" path="com.ibm.ws.console.servermanagement.forwardCmd.do?forwardName=ApplicationServer.content.main"/>
+            <forward name="applicationServerCollection" path="ApplicationServer.content.main"/>
+            <forward name="appserverDeteteConf" path="/com.ibm.ws.console.servermanagement/DeleteAppServerConf.jsp"/>
+        </action>
+
+                <action input="ApplicationServer.config.view"
+            name="com.ibm.ws.console.servermanagement.ApplicationServerDetailForm"
+            path="/applicationServerDetail" type="com.ibm.ws.console.servermanagement.applicationserver.ApplicationServerDetailAction">
+            <forward name="error" path="ApplicationServer.config.view"/>
+            <forward name="ApplicationServerComponent" path="ApplicationServerComponent.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.servermanagement.forwardCmd.do?forwardName=ApplicationServer.content.main"/>
+        </action>
+
+        <action input="TransactionService.config.view"
+            name="com.ibm.ws.console.servermanagement.TransactionServiceDetailForm"
+            path="/transactionServiceDetail" type="com.ibm.ws.console.servermanagement.transactionservice.TransactionServiceDetailAction">
+            <forward name="error" path="TransactionService.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.servermanagement.forwardCmd.do?forwardName=ApplicationServer.config.view"/>
+            <forward name="transactionCollection" path="com.ibm.ws.console.servermanagement.forwardCmd.do?forwardName=Transaction.content.main"/>
+        </action>
+
+        <action
+            name="com.ibm.ws.console.servermanagement.TransactionCollectionForm"
+            path="/transactionCollection" type="com.ibm.ws.console.servermanagement.transactionservice.TransactionCollectionAction">
+            <forward name="failure" path="/error1.jsp"/>
+            <forward name="success" path="com.ibm.ws.console.servermanagement.forwardCmd.do?forwardName=Transaction.content.main"/>
+            <forward name="transactionCollection" path="Transaction.content.main"/>
+        </action>
+
+        <action
+            name="com.ibm.ws.console.servermanagement.AdminServiceCollectionForm"
+            path="/adminServiceCollection" type="com.ibm.ws.console.servermanagement.adminservice.AdminServiceCollectionAction">
+            <forward name="failure" path="/error1.jsp"/>
+            <forward name="success" path="AdminService.config.view"/>
+            <forward name="adminServiceCollection" path="AdminService.content.main"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.servermanagement.AdminServiceDetailForm"
+            path="/adminServiceDetail" type="com.ibm.ws.console.servermanagement.adminservice.AdminServiceDetailAction" input="AdminService.config.view">
+            <forward name="error" path="AdminService.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.servermanagement.forwardCmd.do?forwardName=AdminService.content.main"/>
+        </action>
+
+
+         <action name="com.ibm.ws.console.servermanagement.JMXConnectorCollectionForm"
+                 path="/jMXConnectorCollection" type="com.ibm.ws.console.servermanagement.jmx.JMXConnectorCollectionAction">
+                <forward name="failure" path="/error1.jsp"/>
+                <forward name="success" path="JMXConnector.config.view"/>
+                <forward name="jMXConnectorCollection" path="JMXConnector.content.main"/>
+         </action>
+
+         <action name="com.ibm.ws.console.servermanagement.JMXConnectorDetailForm"
+                 path="/jMXConnectorDetail" type="com.ibm.ws.console.servermanagement.jmx.JMXConnectorDetailAction">
+                <forward name="failure" path="/error1.jsp"/>
+                <forward name="success" path="com.ibm.ws.console.servermanagement.forwardCmd.do?forwardName=JMXConnector.content.main"/>
+                <forward name="error" path="JMXConnector.config.view"/>
+                <forward name="jMXConnectorCollection" path="JMXConnector.content.main"/>
+         </action>
+
+
+        <action
+            name="com.ibm.ws.console.servermanagement.ServerCollectionForm"
+            path="/serverCollection" type="com.ibm.ws.console.servermanagement.server.ServerCollectionAction">
+            <forward name="failure" path="/error1.jsp"/>
+            <forward name="success" path="Server.config.view"/>
+            <forward name="serverCollection" path="Server.content.main"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.servermanagement.ServerDetailForm"
+            path="/serverDetail" type="com.ibm.ws.console.servermanagement.server.ServerDetailAction">
+            <forward name="error" path="Server.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.servermanagement.forwardCmd.do?forwardName=console.content.main"/>
+        </action>
+
+        <action
+            name="com.ibm.ws.console.servermanagement.ProcessExecutionDetailForm"
+            path="/processExecutionDetail" type="com.ibm.ws.console.servermanagement.processexec.ProcessExecutionDetailAction" input="ProcessExecution.config.view">
+            <forward name="error" path="ProcessExecution.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.servermanagement.forwardCmd.do?forwardName=Server.config.view"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.servermanagement.ProcessDefDetailForm"
+            path="/processDefDetail" type="com.ibm.ws.console.servermanagement.processexec.ProcessDefDetailAction" input="ProcessDef.config.view">
+            <forward name="error" path="ProcessDef.config.view"/>
+            <forward name="error_nodeagent" path="ProcessDef.config.nodeagent.view"/>
+            <forward name="success" path="com.ibm.ws.console.servermanagement.forwardCmd.do?forwardName=Server.config.view"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.servermanagement.MonitoringPolicyDetailForm"
+            path="/monitoringPolicyDetail" type="com.ibm.ws.console.servermanagement.processexec.MonitoringPolicyDetailAction" input="MonitoringPolicy.config.view">
+            <forward name="error" path="MonitoringPolicy.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.servermanagement.forwardCmd.do?forwardName=Server.config.view"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.servermanagement.JavaVirtualMachineDetailForm"
+            path="/javaVirtualMachineDetail" type="com.ibm.ws.console.servermanagement.processexec.JavaVirtualMachineDetailAction" input="JavaVirtualMachine.config.view">
+            <forward name="error" path="JavaVirtualMachine.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.servermanagement.forwardCmd.do?forwardName=Server.config.view"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.servermanagement.JavaProcessDefDetailForm"
+            path="/javaProcessDefDetail" type="com.ibm.ws.console.servermanagement.processexec.JavaProcessDefDetailAction" input="JavaProcessDef.config.view">
+            <forward name="error" path="JavaProcessDef.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.servermanagement.forwardCmd.do?forwardName=Server.config.view"/>
+        </action>
+
+
+        <action
+            name="com.ibm.ws.console.servermanagement.GenericServerCollectionForm"                
+            path="/jMSServerCollection" type="com.ibm.ws.console.servermanagement.jmsserver.JMSServerCollectionAction">
+            <forward name="failure" path="/error1.jsp"/>
+            <forward name="success" path="JMSServer.config.view"/>
+            <forward name="jMSServerCollection" path="JMSServer.content.main"/>
+            <forward name="updateCollection" path="com.ibm.ws.console.servermanagement.forwardCmd.do?forwardName=JMSServer.content.main"/>            
+        </action>
+        <action input="JMSServer.config.view"
+            name="com.ibm.ws.console.servermanagement.JMSServerDetailForm"
+            path="/jMSServerDetail" type="com.ibm.ws.console.servermanagement.jmsserver.JMSServerDetailAction">
+            <forward name="error" path="JMSServer.config.view"/>
+            <forward name="JMSServerComponent" path="JMSServerComponent.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.servermanagement.forwardCmd.do?forwardName=JMSServer.content.main"/>
+        </action>
+        
+        <action
+            name="com.ibm.ws.console.servermanagement.NameServerCollectionForm"
+            path="/nameServerCollection" type="com.ibm.ws.console.servermanagement.nameserver.NameServerCollectionAction">
+            <forward name="failure" path="/error1.jsp"/>
+            <forward name="success" path="NameServer.config.view"/>
+            <forward name="nameServerCollection" path="NameServer.content.main"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.servermanagement.NameServerDetailForm"
+            path="/nameServerDetail" type="com.ibm.ws.console.servermanagement.nameserver.NameServerDetailAction" input="NameServer.config.view">
+            <forward name="error" path="NameServer.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.servermanagement.forwardCmd.do?forwardName=ServerComponent.content.main"/>
+        </action>
+
+
+        <action
+            name="com.ibm.ws.console.servermanagement.SecurityServerCollectionForm"
+            path="/securityServerCollection" type="com.ibm.ws.console.servermanagement.securityserver.SecurityServerCollectionAction">
+            <forward name="failure" path="/error1.jsp"/>
+            <forward name="success" path="SecurityServer.config.view"/>
+            <forward name="securityServerCollection" path="SecurityServer.content.main"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.servermanagement.SecurityServerDetailForm"
+            path="/securityServerDetail" type="com.ibm.ws.console.servermanagement.securityserver.SecurityServerDetailAction" input="SecurityServer.config.view">
+            <forward name="error" path="SecurityServer.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.servermanagement.forwardCmd.do?forwardName=SecurityServer.content.main"/>
+        </action>
+
+
+        <action
+            name="com.ibm.ws.console.servermanagement.PropertyCollectionForm"
+            path="/propertyCollection" type="com.ibm.ws.console.servermanagement.properties.PropertyCollectionAction">
+            <forward name="failure" path="/error1.jsp"/>
+            <forward name="success" path="Property.config.view"/>
+            <forward name="propertyCollection" path="Property.content.main"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.servermanagement.PropertyDetailForm"
+            path="/propertyDetail" type="com.ibm.ws.console.servermanagement.properties.PropertyDetailAction" input="Property.config.view">
+            <forward name="error" path="Property.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.servermanagement.forwardCmd.do?forwardName=Property.content.main"/>
+        </action>
+
+
+        <action
+            name="com.ibm.ws.console.servermanagement.ServerComponentCollectionForm"
+            path="/serverComponentCollection" type="com.ibm.ws.console.servermanagement.process.ServerComponentCollectionAction">
+            <forward name="failure" path="/error1.jsp"/>
+            <forward name="success" path="ServerComponent.config.view"/>
+            <forward name="serverComponentCollection" path="ServerComponent.content.main"/>
+            <forward name="WebContainer.config.view" path="webcontainer.config.view"/>
+            <forward name="EJBContainer.config.view" path="EJBContainer.config.view"/>
+            <forward name="NameServer.config.view" path="NameServer.config.view"/>
+            <forward name="JMSServer.config.view" path="JMSServer.config.view"/>
+            <forward name="ApplicationServer.config.view" path="ApplicationServer.config.view"/>
+            <forward name="ApplicationServerComponent.config.view" path="ApplicationServerComponent.config.view"/>
+            <forward name="JMSServerComponent.config.view" path="JMSServerComponent.config.view"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.servermanagement.ServerComponentDetailForm"
+            path="/serverComponentDetail" type="com.ibm.ws.console.servermanagement.process.ServerComponentDetailAction" input="ServerComponent.config.view">
+            <forward name="error" path="ServerComponent.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.servermanagement.forwardCmd.do?forwardName=ServerComponent.content.main"/>
+        </action>
+
+
+        <action
+            name="com.ibm.ws.console.servermanagement.ServiceCollectionForm"
+            path="/serviceCollection" type="com.ibm.ws.console.servermanagement.process.ServiceCollectionAction">
+            <forward name="failure" path="/error1.jsp"/>
+            <forward name="success" path="Service.config.view"/>
+            <forward name="serviceCollection" path="Service.content.main"/>
+		    <forward name="AdminService.config.view" path="AdminService.config.view"/>
+		    <forward name="ApplicationManagementService.config.view" path="ApplicationManagementService.config.view"/>
+		    <forward name="CustomService.config.view" path="CustomService.config.view"/>
+		    <forward name="ObjectRequestBroker.config.view" path="ObjectRequestBroker.config.view"/>
+		    <forward name="PMIService.config.view" path="PMIService.config.view"/>
+		    <forward name="RASLoggingService.config.view" path="RASLoggingService.config.view"/>
+		    <forward name="TraceService.config.view" path="TraceService.config.view"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.servermanagement.ServiceDetailForm"
+            path="/serviceDetail" type="com.ibm.ws.console.servermanagement.process.ServiceDetailAction" input="Service.config.view">
+            <forward name="error" path="Service.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.servermanagement.forwardCmd.do?forwardName=Service.content.main"/>
+        </action>
+
+
+        <action
+            name="com.ibm.ws.console.servermanagement.ExtensionMBeanCollectionForm"
+            path="/extensionMBeanCollection" type="com.ibm.ws.console.servermanagement.adminservice.ExtensionMBeanCollectionAction">
+            <forward name="failure" path="/error1.jsp"/>
+            <forward name="success" path="ExtensionMBean.config.view"/>
+            <forward name="extensionMBeanCollection" path="ExtensionMBean.content.main"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.servermanagement.ExtensionMBeanDetailForm"
+            path="/extensionMBeanDetail" type="com.ibm.ws.console.servermanagement.adminservice.ExtensionMBeanDetailAction" input="ExtensionMBean.config.view">
+            <forward name="error" path="ExtensionMBean.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.servermanagement.forwardCmd.do?forwardName=ExtensionMBean.content.main"/>
+        </action>
+
+
+        <action
+            name="com.ibm.ws.console.servermanagement.ExtensionMBeanProviderCollectionForm"
+            path="/extensionMBeanProviderCollection" type="com.ibm.ws.console.servermanagement.adminservice.ExtensionMBeanProviderCollectionAction">
+            <forward name="failure" path="/error1.jsp"/>
+            <forward name="success" path="ExtensionMBeanProvider.config.view"/>
+            <forward name="extensionMBeanProviderCollection" path="ExtensionMBeanProvider.content.main"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.servermanagement.ExtensionMBeanProviderDetailForm"
+            path="/extensionMBeanProviderDetail" type="com.ibm.ws.console.servermanagement.adminservice.ExtensionMBeanProviderDetailAction" input="ExtensionMBeanProvider.config.view">
+            <forward name="error" path="ExtensionMBeanProvider.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.servermanagement.forwardCmd.do?forwardName=ExtensionMBeanProvider.content.main"/>
+        </action>
+
+        <action
+            name="com.ibm.ws.console.servermanagement.RepositoryServiceCollectionForm"
+            path="/repositoryServiceCollection" type="com.ibm.ws.console.servermanagement.adminservice.RepositoryServiceCollectionAction">
+            <forward name="failure" path="/error1.jsp"/>
+            <forward name="success" path="RepositoryService.config.view"/>
+            <forward name="repositoryServiceCollection" path="RepositoryService.content.main"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.servermanagement.RepositoryServiceDetailForm"
+            path="/repositoryServiceDetail" type="com.ibm.ws.console.servermanagement.adminservice.RepositoryServiceDetailAction" input="RepositoryService.config.view">
+            <forward name="error" path="RepositoryService.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.servermanagement.forwardCmd.do?forwardName=RepositoryService.content.main"/>
+        </action>
+
+
+        <action
+            name="com.ibm.ws.console.servermanagement.ExtensionCollectionForm"
+            path="/extensionCollection" type="com.ibm.ws.console.servermanagement.process.ExtensionCollectionAction">
+            <forward name="failure" path="/error1.jsp"/>
+            <forward name="success" path="Extension.config.view"/>
+            <forward name="extensionCollection" path="Extension.content.main"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.servermanagement.ExtensionDetailForm"
+            path="/extensionDetail" type="com.ibm.ws.console.servermanagement.process.ExtensionDetailAction" input="Extension.config.view">
+            <forward name="error" path="Extension.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.servermanagement.forwardCmd.do?forwardName=Extension.content.main"/>
+        </action>
+
+        <action
+            name="com.ibm.ws.console.servermanagement.ObjectRequestBrokerDetailForm"
+            path="/objectRequestBrokerDetail" type="com.ibm.ws.console.servermanagement.orb.ObjectRequestBrokerDetailAction" input="ObjectRequestBroker.config.view">
+            <forward name="error" path="ObjectRequestBroker.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.servermanagement.forwardCmd.do?forwardName=ApplicationServer.config.view"/>
+        </action>
+
+        <action
+            name="com.ibm.ws.console.servermanagement.webcontainer.WebContainerDetailForm"
+            path="/webcontainerDetail" type="com.ibm.ws.console.servermanagement.webcontainer.WebContainerDetailAction" input="webcontainer.config.view">
+            <forward name="error" path="webcontainer.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.servermanagement.forwardCmd.do?forwardName=ApplicationServer.config.view"/>
+        </action>
+
+        <action
+            name="com.ibm.ws.console.servermanagement.webcontainer.SessionManagerDetailForm"
+            path="/sessionManagerDetail" type="com.ibm.ws.console.servermanagement.webcontainer.SessionManagerDetailAction" input="SessionManager.config.view">
+            <forward name="error" path="SessionManager.config.view"/>
+            <forward name="errorEnable" path="SessionManagerEnable.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.servermanagement.forwardCmd.do?forwardName=webcontainer.config.view"/>
+        </action>
+
+
+        <action
+            name="com.ibm.ws.console.servermanagement.webcontainer.ThreadPoolDetailForm"
+            path="/threadPoolDetail" type="com.ibm.ws.console.servermanagement.webcontainer.ThreadPoolDetailAction" input="ThreadPool.config.view">
+            <forward name="error" path="ThreadPool.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.servermanagement.forwardCmd.do?forwardName=webcontainer.config.view"/>
+        </action>
+
+        <action
+            name="com.ibm.ws.console.servermanagement.webcontainer.CookieDetailForm"
+            path="/cookieDetail" type="com.ibm.ws.console.servermanagement.webcontainer.CookieDetailAction" input="Cookie.config.view">
+            <forward name="error" path="Cookie.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.servermanagement.forwardCmd.do?forwardName=SessionManager.config.view"/>
+			<forward name="successEnable" path="com.ibm.ws.console.servermanagement.forwardCmd.do?forwardName=SessionManagerEnable.config.view"/>            
+        </action>
+
+
+        <action
+            name="com.ibm.ws.console.servermanagement.webcontainer.PersistenceDetailForm"
+            path="/persistenceDetail" type="com.ibm.ws.console.servermanagement.webcontainer.PersistenceDetailAction" input="Persistence.config.view">
+            <forward name="error" path="Persistence.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.servermanagement.forwardCmd.do?forwardName=SessionManager.config.view"/>
+			<forward name="successEnable" path="com.ibm.ws.console.servermanagement.forwardCmd.do?forwardName=SessionManagerEnable.config.view"/>            
+        </action>
+
+        <action
+            name="com.ibm.ws.console.servermanagement.webcontainer.SessionDatabasePersistenceDetailForm"
+            path="/sessionDatabasePersistenceDetail" type="com.ibm.ws.console.servermanagement.webcontainer.SessionDatabasePersistenceDetailAction" input="SessionDatabasePersistence.config.view">
+            <forward name="error" path="SessionDatabasePersistence.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.servermanagement.forwardCmd.do?forwardName=Persistence.config.view"/>
+        </action>
+
+        <action
+            name="com.ibm.ws.console.servermanagement.webcontainer.TuningDetailForm"
+            path="/tuningDetail" type="com.ibm.ws.console.servermanagement.webcontainer.TuningDetailAction" input="Tuning.config.view">
+            <forward name="error" path="Tuning.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.servermanagement.forwardCmd.do?forwardName=Persistence.config.view"/>
+        </action>
+
+        <action
+            name="com.ibm.ws.console.servermanagement.webcontainer.TuningParamsDetailForm"
+            path="/tuningParamsDetail" type="com.ibm.ws.console.servermanagement.webcontainer.TuningParamsDetailAction" input="TuningParams.config.view">
+            <forward name="error" path="TuningParams.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.servermanagement.forwardCmd.do?forwardName=Tuning.config.view"/>
+        </action>
+
+        <action input="MessageListenerService.config.view"
+            name="com.ibm.ws.console.servermanagement.MessageListenerServiceDetailForm"
+            path="/messageListenerServiceDetail" type="com.ibm.ws.console.servermanagement.messagelistener.MessageListenerServiceDetailAction">
+            <forward name="error" path="MessageListenerService.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.servermanagement.forwardCmd.do?forwardName=ApplicationServer.config.view"/>
+        </action>
+
+        <action
+            name="com.ibm.ws.console.servermanagement.ListenerPortCollectionForm"
+            path="/listenerPortCollection" type="com.ibm.ws.console.servermanagement.messagelistener.ListenerPortCollectionAction">
+            <forward name="failure" path="/error1.jsp"/>
+            <forward name="success" path="ListenerPort.config.view"/>
+            <forward name="listenerPortCollection" path="ListenerPort.content.main"/>
+            <forward name="updatedCollection" path="com.ibm.ws.console.servermanagement.forwardCmd.do?forwardName=ListenerPort.content.main"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.servermanagement.ListenerPortDetailForm"
+            path="/listenerPortDetail" type="com.ibm.ws.console.servermanagement.messagelistener.ListenerPortDetailAction" input="ListenerPort.config.view">
+            <forward name="error" path="ListenerPort.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.servermanagement.forwardCmd.do?forwardName=ListenerPort.content.main"/>
+        </action>
+
+        <action
+            name="com.ibm.ws.console.servermanagement.webcontainer.HTTPTransportDetailForm"
+            path="/hTTPTransportDetail" type="com.ibm.ws.console.servermanagement.webcontainer.HTTPTransportDetailAction" input="HTTPTransport.config.view">
+            <forward name="error" path="HTTPTransport.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.servermanagement.forwardCmd.do?forwardName=HTTPTransport.content.main"/>
+            <forward name="hTTPTransportCollection" path="HTTPTransport.content.main"/>
+        </action>
+
+        <action
+            name="com.ibm.ws.console.servermanagement.webcontainer.HTTPTransportCollectionForm"
+            path="/hTTPTransportCollection" type="com.ibm.ws.console.servermanagement.webcontainer.HTTPTransportCollectionAction" input="HTTPTransport.content.main">
+            <forward name="error" path="webcontainer.config.view"/>
+            <forward name="success" path="HTTPTransport.config.view"/>
+            <forward name="hTTPTransportCollection" path="HTTPTransport.content.main"/>
+
+        </action>
+
+        <action
+            name="com.ibm.ws.console.servermanagement.webcontainer.DRSSettingsDetailForm"
+            path="/dRSSettingsDetail" type="com.ibm.ws.console.servermanagement.webcontainer.DRSSettingsDetailAction" input="DRSSettings.config.view">
+            <forward name="error" path="DRSSettings.config.view"/>
+            <forward name="success" path="Persistence.config.view"/>
+        </action>
+
+        <action name="com.ibm.ws.console.servermanagement.server.ServerDetailForm"
+            path="/com.ibm.ws.console.servermanagement.stopServer" type="com.ibm.ws.console.servermanagement.server.StopServerAction">
+        </action>
+
+        <action
+            name="com.ibm.ws.console.servermanagement.PMIServiceDetailForm"
+            path="/pMIServiceDetail" type="com.ibm.ws.console.servermanagement.pmiservice.PMIServiceDetailAction" input="PMIService.config.view">
+            <forward name="error" path="PMIService.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.servermanagement.forwardCmd.do?forwardName=Server.config.view"/>
+        </action>
+
+        <action
+            name="com.ibm.ws.console.servermanagement.EJBContainerDetailForm"
+            path="/eJBContainerDetail" type="com.ibm.ws.console.servermanagement.ejbcontainer.EJBContainerDetailAction" input="EJBContainer.config.view">
+            <forward name="error" path="EJBContainer.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.servermanagement.forwardCmd.do?forwardName=ApplicationServer.config.view"/>
+        </action>
+
+        <action
+            name="com.ibm.ws.console.servermanagement.EJBCacheDetailForm"
+            path="/eJBCacheDetail" type="com.ibm.ws.console.servermanagement.ejbcontainer.EJBCacheDetailAction" input="EJBCache.config.view">
+            <forward name="error" path="EJBCache.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.servermanagement.forwardCmd.do?forwardName=EJBContainer.config.view"/>
+        </action>
+
+        <action name="SelectAppServerTemplateForm"
+            path="/selectAppServerTemplate" type="com.ibm.ws.console.servermanagement.wizard.SelectAppServerTemplateAction">
+            <forward name="cancel" path="ApplicationServer.content.main"/>
+        </action>
+
+        <action name="ConfirmCreateAppServerForm"
+            path="/confirmCreateAppServer" type="com.ibm.ws.console.servermanagement.wizard.ConfirmCreateAppServerAction">
+            <forward name="ApplicationServer.content.main" path="com.ibm.ws.console.servermanagement.forwardCmd.do?forwardName=ApplicationServer.content.main"/>
+            <forward name="cancel" path="ApplicationServer.content.main"/>
+        </action>
+
+        <action
+            name="com.ibm.ws.console.servermanagement.dynamiccache.DynamicCacheDetailForm"
+            path="/dynamicCacheDetail" type="com.ibm.ws.console.servermanagement.dynamiccache.DynamicCacheDetailAction" input="DynamicCache.config.view">
+            <forward name="error" path="DynamicCache.config.view"/>
+            <forward name="success" path="Server.content.main"/>
+        </action>
+
+        <action
+            name="com.ibm.ws.console.servermanagement.dynamiccache.DRSSettingsDetailForm"
+            path="/dynamicCacheDRSSettingsDetail" type="com.ibm.ws.console.servermanagement.dynamiccache.DRSSettingsDetailAction" input="DynamicCacheDRSSettings.config.view">
+            <forward name="error" path="DynamicCacheDRSSettings.config.view"/>
+            <forward name="success" path="DynamicCache.config.view"/>
+        </action>
+
+        <action
+            name="com.ibm.ws.console.servermanagement.dynamiccache.ExternalCacheGroupDetailForm"
+            path="/externalCacheGroupDetail" type="com.ibm.ws.console.servermanagement.dynamiccache.ExternalCacheGroupDetailAction" input="ExternalCacheGroup.config.view">
+            <forward name="error" path="ExternalCacheGroup.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.servermanagement.forwardCmd.do?forwardName=ExternalCacheGroup.content.main"/>
+            <forward name="externalCacheGroupCollection" path="ExternalCacheGroup.content.main"/>
+        </action>
+
+        <action
+            name="com.ibm.ws.console.servermanagement.dynamiccache.ExternalCacheGroupCollectionForm"
+            path="/externalCacheGroupCollection" type="com.ibm.ws.console.servermanagement.dynamiccache.ExternalCacheGroupCollectionAction" input="ExternalCacheGroup.content.main">
+            <forward name="error" path="DynamicCache.config.view"/>
+            <forward name="success" path="ExternalCacheGroup.config.view"/>
+            <forward name="externalCacheGroupCollection" path="ExternalCacheGroup.content.main"/>
+        </action>
+
+        <action
+            name="com.ibm.ws.console.servermanagement.dynamiccache.ExternalCacheGroupMemberDetailForm"
+            path="/externalCacheGroupMemberDetail" type="com.ibm.ws.console.servermanagement.dynamiccache.ExternalCacheGroupMemberDetailAction" input="ExternalCacheGroupMember.config.view">
+            <forward name="error" path="ExternalCacheGroupMember.content.main"/>
+            <forward name="success" path="com.ibm.ws.console.servermanagement.forwardCmd.do?forwardName=ExternalCacheGroupMember.content.main"/>
+            <forward name="externalCacheGroupCollection" path="ExternalCacheGroupMember.content.main"/>
+        </action>
+
+        <action
+            name="com.ibm.ws.console.servermanagement.dynamiccache.ExternalCacheGroupMemberCollectionForm"
+            path="/externalCacheGroupMemberCollection" type="com.ibm.ws.console.servermanagement.dynamiccache.ExternalCacheGroupMemberCollectionAction" input="ExternalCacheGroupMember.content.main">
+            <forward name="error" path="ExternalCacheGroup.content.main"/>
+            <forward name="success" path="ExternalCacheGroupMember.config.view"/>
+            <forward name="externalCacheGroupMemberCollection" path="ExternalCacheGroupMember.content.main"/>
+        </action>
+
+
+        <action
+            name="com.ibm.ws.console.servermanagement.CustomServiceCollectionForm"
+            path="/customServiceCollection" type="com.ibm.ws.console.servermanagement.customservice.CustomServiceCollectionAction">
+            <forward name="failure" path="/error1.jsp"/>
+            <forward name="success" path="CustomService.config.view"/>
+            <forward name="customServiceCollection" path="CustomService.content.main"/>
+        </action>
+
+        <action
+            name="com.ibm.ws.console.servermanagement.CustomServiceDetailForm"
+            path="/customServiceDetail" type="com.ibm.ws.console.servermanagement.customservice.CustomServiceDetailAction" input="CustomService.config.view">
+            <forward name="error" path="CustomService.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.servermanagement.forwardCmd.do?forwardName=CustomService.content.main"/>
+        </action>
+        
+        <action input="DebugService.config.view"
+            name="com.ibm.ws.console.servermanagement.DebugServiceDetailForm"
+            path="/debugServiceDetail" type="com.ibm.ws.console.servermanagement.debugservice.DebugServiceDetailAction">
+            <forward name="error" path="DebugService.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.servermanagement.forwardCmd.do?forwardName=ApplicationServer.config.view"/>
+        </action>
+
+        <action
+            name="com.ibm.ws.console.servermanagement.GenericServerCollectionForm"
+            path="/com.ibm.ws.console.servermanagement.deleteAppServerConf" type="com.ibm.ws.console.servermanagement.applicationserver.DeleteAppServerAction">
+         <forward name="ApplicationServer.content.main" path="com.ibm.ws.console.servermanagement.forwardCmd.do?forwardName=ApplicationServer.content.main"/>
+        </action>
+
+        <action
+            name="com.ibm.ws.console.servermanagement.EndPointDetailForm"
+            path="/endPointDetail" type="com.ibm.ws.console.servermanagement.process.EndPointDetailAction" input="EndPoint.config.view">
+            <forward name="error" path="EndPoint.config.view"/>
+        </action>
+
+
+        <action
+            name="com.ibm.ws.console.servermanagement.NamedEndPointCollectionForm"
+            path="/namedEndPointCollection" type="com.ibm.ws.console.servermanagement.serverindex.NamedEndPointCollectionAction">
+            <forward name="failure" path="/error1.jsp"/>
+            <forward name="success" path="NamedEndPoint.config.view"/>
+            <forward name="namedEndPointCollection" path="NamedEndPoint.content.main"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.servermanagement.NamedEndPointDetailForm"
+            path="/namedEndPointDetail" type="com.ibm.ws.console.servermanagement.serverindex.NamedEndPointDetailAction" input="NamedEndPoint.config.view">
+            <forward name="error" path="NamedEndPoint.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.servermanagement.forwardCmd.do?forwardName=NamedEndPoint.content.main"/>
+        </action>
+
+        <action
+            name="com.ibm.ws.console.servermanagement.ProductInfoDetailForm"
+            path="/productInfoDetail" type="com.ibm.ws.console.servermanagement.productinfo.ProductInfoDetailAction">
+            <forward name="ApplicationServer.config.view" path="ApplicationServer.config.view"/>
+            <forward name="ProductInfo.content.main" path="ProductInfo.content.main"/>
+        </action>
+
+    </action-mappings>
+</struts-config>

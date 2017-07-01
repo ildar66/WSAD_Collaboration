@@ -1,0 +1,193 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Einstellungen f&uuml;r Konsolbenutzer und Einstellungen f&uuml;r Benutzer des CORBA-Namensservice</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecconuser"></a>
+<h2>Einstellungen f&uuml;r Konsolbenutzer und Einstellungen f&uuml;r Benutzer des CORBA-Namensservice</h2>
+
+<p>Auf der Seite "Einstellungen f&uuml;r Konsolbenutzer" k&ouml;nnen Sie Benutzern bestimmte Berechtigungen zuordnen, um den WebSphere
+Application Server mit Tools, wie z. B. der Administrationskonsole oder dem wsadmin-Scripting, zu verwalten. Die Voraussetzungen f&uuml;r die Berechtigungen sind nur g&uuml;ltig, wenn die
+Sicherheitseinrichtung aktiviert ist. Auf der Seite "Einstellungen f&uuml;r Benutzer des CORBA-Namensservice" k&ouml;nnen Sie die Einstellungen f&uuml;r die Benutzer
+des CORBA-Namensservice verwalten.
+</p>
+
+<p>Klicken Sie zum Anzeigen der Seite <strong>Konsolbenutzer</strong> der Administrationskonsole auf
+<strong>Systemverwaltung</strong> &gt; <strong>Konsolbenutzer</strong>. </p>
+
+<p>Klicken Sie zum Anzeigen der Seite "Benutzer des CORBA-Namensservice" auf
+<strong>Umgebung &gt; Naming &gt; Benutzer des CORBA-Namensservice</strong>.</p>
+
+<dl>
+<dt>
+<strong><a name="desc_users_title"></a>Benutzer (Konsolbenutzer)</strong>
+</dt>
+<dd>Gibt Benutzer an. 
+<p>Die eingegebenen Benutzer m&uuml;ssen in der konfigurierten aktiven Benutzer-Registry vorhanden sein. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="corba_desc_users_title"></a> Benutzer (Benutzer des CORBA-Namensservice)</strong>
+</dt>
+<dd>Benutzer des CORBA-Namensservice.
+<p>Die eingegebenen Benutzer m&uuml;ssen in der konfigurierten aktiven Benutzer-Registry vorhanden sein. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="label_role_desc"></a>Aufgabenbereich (Konsolbenutzer)</strong>
+</dt>
+<dd>Gibt Aufgabenbereiche f&uuml;r Benutzer an. 
+<p>Die folgenden Administrationsaufgabenbereiche umfassen unterschiedliche Berechtigungsgrade, die erforderlich sind, um bestimmte
+Administrationsfunktionen von WebSphere Application Server auszuf&uuml;hren:<dl>
+<dt>
+<strong>Administrator</strong>
+</dt>
+<dd>Der Aufgabenbereich des Administrators umfasst die Operator-Berechtigungen,
+die Configurator-Berechtigungen und die Berechtigung f&uuml;r den Zugriff auf sensible Daten wie
+das Serverkennwort, das LTPA-Kennwort, Schl&uuml;ssel usw. </dd>
+<dt>
+<strong>Configurator</strong>
+</dt>
+<dd>Der Aufgabenbereich des Configurator umfasst die Monitor-Berechtigungen und die M&ouml;glichkeit,
+die Konfiguration von WebSphere Application Server zu &auml;ndern.</dd>
+<dt>
+<strong>Operator</strong>
+</dt>
+<dd>Der Aufgabenbereich des Operator umfasst die Monitor-Berechtigungen und die M&ouml;glichkeit, den Laufzeitstatus
+zu &auml;ndern. Der Operator kann beispielsweise Services starten und stoppen. </dd>
+<dt>
+<strong>Monitor</strong>
+</dt>
+<dd>Der Aufgabenbereich des Monitor umfasst die wenigsten Berechtigungen. Dieser Aufgabenbereich
+beschr&auml;nkt den Benutzer auf die Anzeige der Konfiguration und des aktuellen Status von WebSphere Application Server. </dd>
+</dl>
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">Administrator, Configurator, Operator und Monitor</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="corba_label_role_desc"></a>Aufgabenbereich (Benutzer des CORBA-Namensservice)</strong>
+</dt>
+<dd>Gibt die Aufgabenbereiche f&uuml;r die Benutzer des Namensservice an. 
+<p>Es sind eine Reihe von Naming-Aufgabenbereichen f&uuml;r die verschiedenen Berechtigungsgrade definiert, die erforderlich sind, um
+bestimmte Funktionen des WebSphere-Namensservice auszuf&uuml;hren. Die
+Berechtigungs-Policy tritt erst bei Aktivierung der globalen Sicherheit in Kraft. Es sind vier
+Sicherheitsaufgabenbereiche g&uuml;ltig: CosNamingRead, CosNamingWrite, CosNamingCreate und
+CosNamingDelete. </p>
+
+<p> Die Namen der vier Aufgabenbereiche stimmen mit denen in WebSphere Advanced Edition Version
+4.0.2 &uuml;berein. Die Aufgabenbereiche haben jetzt jedoch mehr Berechtigungsstufen:<dl>
+<dt>
+<strong>CosNamingRead</strong>
+</dt>
+<dd>Benutzer k&ouml;nnen den WebSphere-Namespace beispielsweise mit der JNDI-Lookup-Methode
+abfragen.
+Das Sondersubjekt <strong>EVERYONE</strong> ist die Standard-Policy f&uuml;r diesen Aufgabenbereich. </dd>
+<dt>
+<strong>CosNamingWrite</strong>
+</dt>
+<dd>Benutzer k&ouml;nnen Schreiboperationen wie JNDI
+bind, rebind und unbind sowie CosNamingRead-Operationen durchf&uuml;hren. Das Sondersubjekt
+<strong>ALL_AUTHENTICATED</strong> ist die Standard-Policy f&uuml;r diesen Aufgabenbereich. </dd>
+<dt>
+<strong>CosNamingCreate</strong>
+</dt>
+<dd>Benutzer k&ouml;nnen mit Operationen wie JNDI createSubcontext und CosNamingWrite-Operationen
+neue Objekte im Namespace erstellen.
+Das Sondersubjekt
+<strong>ALL_AUTHENTICATED</strong> ist die Standard-Policy f&uuml;r diesen Aufgabenbereich. </dd>
+<dt>
+<strong>CosNamingDelete</strong>
+</dt>
+<dd>Benutzer k&ouml;nnen Objekte im Namespace l&ouml;schen, z. B. mit der JNDI-Methode
+destroySubcontext und CosNamingCreate-Operationen.
+Das Sondersubjekt
+<strong>ALL_AUTHENTICATED</strong> ist die Standard-Policy f&uuml;r diesen Aufgabenbereich. </dd>
+</dl>
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">CosNamingRead, CosNamingWrite, CosNamingCreate und CosNamingDelete</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>Zugeh&ouml;rige Informationen</strong>
+</p>
+<a href="rcon_buttons.html">Kn&ouml;pfe in der Adminstrationskonsole</a>
+<br>
+
+<a href="rcon_pageusage.html">Funktionen auf den Seiten der Administrationskonsole</a>
+<br>
+
+<a href="rcon_scope.html">Geltungsbereichseinstellungen f&uuml;r die Administrationskonsole</a>
+<br>
+
+<a href="rcon_filter.html">Filtereinstellungen f&uuml;r die Administrationskonsole</a>
+<br>
+
+<a href="rcon_preferences.html">Vorgaben f&uuml;r die Administrationskonsole</a>
+<br>
+
+</div>
+</body>
+</html>

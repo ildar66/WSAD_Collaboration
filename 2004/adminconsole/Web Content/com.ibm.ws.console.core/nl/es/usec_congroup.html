@@ -1,0 +1,208 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Grupos de consola y Grupos de CORBA Naming Service</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="useccongroup"></a>
+<h2>Grupos de consola y Grupos de CORBA Naming Service</h2>
+
+<p>Utilice la p&aacute;gina de grupos de consola para conceder a grupos la autorizaci&oacute;n
+espec&iacute;fica para administrar WebSphere Application Server utilizando
+herramientas, como por ejemplo, la consola administrativa o la herramienta de scripts wsadmin. Los requisitos de autorizaci&oacute;n solamente tienen efecto cuando est&aacute; habilitada la seguridad global. Utilice la p&aacute;gina Grupos de CORBA Naming Service para gestionar los valores de Grupos de CORBA Naming Service.</p>
+
+<p>Para ver la p&aacute;gina de la consola administrativa Grupos de consola, pulse  <strong>Administraci&oacute;n del sistema</strong> &gt; <strong>Grupos de consola</strong>. </p>
+
+<p>Para ver la p&aacute;gina de la consola administrativa de Grupos de CORBA Naming Service, pulse <strong>Entorno</strong> &gt;
+<strong>Denominaci&oacute;n</strong> &gt; <strong>Grupos de CORBA Naming Service</strong>.</p>
+
+<dl>
+<dt>
+<strong><a name="desc_groups_title"></a>Grupo (Grupos de consola)</strong>
+</dt>
+<dd>Especifica los grupos.
+<p>Los grupos TODOS AUTENTICADOS y TODOS pueden tener los privilegios de rol
+siguientes: administrador, configurador, operador y supervisor.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos:</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango:</td>
+<td align="left" valign="top" class="base">TODOS AUTENTICADOS, TODOS</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="CORBA_desc_groups_title"></a>Grupo (Grupos de CORBA Naming Service)</strong>
+</dt>
+<dd>Identifica los grupos de servicio de denominaci&oacute;n CORBA.
+<p>El grupo TODOS AUTENTICADOS tiene los siguientes privilegios de rol: CosNamingRead,
+CosNamingWrite, CosNamingCreate y CosNamingDelete. El grupo TODOS indica que los usuarios de
+este grupo s&oacute;lo tienen privilegios CosNamingRead.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos:</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango:</td>
+<td align="left" valign="top" class="base">TODOS AUTENTICADOS, TODOS</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="label_role_desc"></a>Rol (Grupos de consola)</strong>
+</dt>
+<dd>Especifica los roles del usuario.
+<p>Los roles administrativos siguientes proporcionan distintos grados de autorizaci&oacute;n
+necesarios para realizar determinadas funciones administrativas de WebSphere Application Server:<dl>
+<dt>
+<strong>Administrador</strong>
+</dt>
+<dd>El rol de administrador tiene permisos de
+operador y de configurador, adem&aacute;s del permiso necesario para acceder
+a datos confidenciales, incluidas la contrase&ntilde;a del servidor, la
+contrase&ntilde;a LTPA y las claves, etc.</dd>
+<dt>
+<strong>Configurador</strong>
+</dt>
+<dd>El rol de configurador tiene permisos de supervisor y la
+posibilidad de cambiar la configuraci&oacute;n de WebSphere Application Server.</dd>
+<dt>
+<strong>Operador</strong>
+</dt>
+<dd>El rol de operador tiene permisos de supervisor y la posibilidad
+de cambiar el estado de tiempo de ejecuci&oacute;n. Por ejemplo, el operador puede iniciar y detener
+servicios.</dd>
+<dt>
+<strong>Supervisor</strong>
+</dt>
+<dd>El rol de supervisor tiene los m&iacute;nimos permisos. Este rol
+principalmente limita al usuario a ver la configuraci&oacute;n y el estado actual de
+WebSphere Application Server.</dd>
+</dl>
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos:</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango:</td>
+<td align="left" valign="top" class="base">Administrador, configurador, operador y supervisor</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="CORBA_label_role_desc"></a>Rol (Grupos de CORBA Naming Service)</strong>
+</dt>
+<dd>Identifica los roles de grupo de servicio de denominaci&oacute;n.
+<p>Se definen varios roles de denominaci&oacute;n que proporcionan los grados de autorizaci&oacute;n necesarios
+para realizar determinadas funciones de servicio de denominaci&oacute;n de WebSphere. La pol&iacute;tica de autorizaci&oacute;n s&oacute;lo se aplica cuando se habilita la seguridad global.</p>
+
+<p> Hay cuatro roles de seguridad de espacio de nombres disponibles: CosNamingRead, CosNamingWrite,
+CosNamingCreate y CosNamingDelete. Los nombres de los cuatro roles son los
+mismos que aparecen en WebSphere Advanced Edition, Versi&oacute;n 4.0.2. No obstante,
+ahora los roles tienen los niveles de autorizaci&oacute;n de inferior a superior
+como se indica a continuaci&oacute;n:<dl>
+<dt>
+<strong>CosNamingRead</strong>
+</dt>
+<dd>Los usuarios pueden consultar el espacio de
+nombres de WebSphere utilizando, por ejemplo, el m&eacute;todo de b&uacute;squeda JNDI (Java Naming and Directory Interface). El asunto especial
+<strong>TODOS</strong> es la pol&iacute;tica por omisi&oacute;n para este rol.</dd>
+<dt>
+<strong>CosNamingWrite</strong>
+</dt>
+<dd>Los usuarios pueden realizar operaciones de
+escritura como, por ejemplo, de enlace, reenlace o fin de enlace de JNDI,
+y operaciones de CosNamingRead. El asunto especial <strong>TODOS AUTENTICADOS</strong> es la pol&iacute;tica por omisi&oacute;n de este rol.</dd>
+<dt>
+<strong>CosNamingCreate</strong>
+</dt>
+<dd>Los usuarios pueden crear nuevos objetos en el
+espacio de nombres, mediante operaciones como createSubcontext y
+CosNamingWrite de JNDI. El asunto especial <strong>TODOS AUTENTICADOS</strong> es la pol&iacute;tica por omisi&oacute;n de este rol.</dd>
+<dt>
+<strong>CosNamingDelete</strong>
+</dt>
+<dd>Los usuarios pueden destruir objetos en el mismo espacio de
+nombres, por ejemplo, utilizando el m&eacute;todo destroySubcontext y las operaciones CosNamingCreate
+de JNDI. El asunto especial <strong>TODOS AUTENTICADOS</strong> es la pol&iacute;tica por omisi&oacute;n de este rol.</dd>
+</dl>
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos:</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango:</td>
+<td align="left" valign="top" class="base">CosNamingRead, CosNamingWrite, CosNamingCreate y CosNamingDelete</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>Informaci&oacute;n relacionada</strong>
+</p>
+<a href="rcon_buttons.html">Botones de la consola de administraci&oacute;n</a>
+<br>
+
+<a href="rcon_pageusage.html">Caracter&iacute;sticas de la p&aacute;gina de la consola administrativa</a>
+<br>
+
+<a href="rcon_scope.html">Valores de &aacute;mbito de la consola administrativa</a>
+<br>
+
+<a href="rcon_filter.html">Valores de filtro de la consola administrativa</a>
+<br>
+
+<a href="rcon_preferences.html">Valores de preferencias de la consola administrativa</a>
+<br>
+
+</div>
+</body>
+</html>

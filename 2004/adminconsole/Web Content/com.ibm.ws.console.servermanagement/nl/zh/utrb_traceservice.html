@@ -1,0 +1,356 @@
+﻿<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>诊断跟踪服务设置</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="TraceService_description"></a>
+<h2>诊断跟踪服务设置</h2>
+
+<p>使用此页面复查和修改诊断跟踪服务的属性。</p>
+
+<p>要查看此页面，单击<strong>故障诊断 &gt; 日志和跟踪 &gt; <em>server</em> &gt; 诊断跟踪</strong>。</p>
+
+<div>
+<p>
+<strong>&ldquo;配置&rdquo;选项卡</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="enable_trace_service_description"></a>启用跟踪</strong>
+</dt>
+<dd>启用跟踪服务。
+<p>如果未选择此选项，则在服务器启动时下列配置属性不会被传递到应用程序服务器跟踪服务。</p>
+
+</dd>
+<dt>
+<strong><a name="trace_spec_description"></a>跟踪规范</strong>
+</dt>
+<dd>指定跟踪详细信息。
+<p>输入指定要跟踪的组件、软件包或组的跟踪字符串。跟踪字符串必须符合下面描述的特定语法。您可以直接输入跟踪字符串或使用图形跟踪界面生成跟踪字符串。单击<strong>修改</strong>启动图形跟踪界面。</p>
+
+<p>如果您从配置选项卡启动图形跟踪界面，将显示一张熟悉的组件、软件包和组的列表。此列表可能会有遗漏。</p>
+
+<p>如果您从运行时选项卡启动图形跟踪界面，组件、软件包和组的列表将显示位于正在运行的服务器上的所有当前已注册的组件。</p>
+
+<p>跟踪规范的格式是：<pre>&lt;<em>component</em>&gt; = &lt;<em>trace_type</em>&gt;= enabled | disabled</pre> 其中：&lt;<em>component</em>&gt; 是要启用或禁用跟踪的组件，而 &lt;<em>trace_type</em>&gt; 是启用或禁用的跟踪类型。用冒号（:）分隔多个跟踪规范。</p>
+
+<p>相应于 Java 软件包和类或 Java 软件包集合的组件。使用 * 作为通配符以表明一些组件，这些组件包括指定组件包含的所有软件包中的所有类。例如：<dl>
+<dt>
+<strong><samp>*</samp></strong>
+</dt>
+<dd>指定所有运行在应用程序服务器中的可跟踪代码，包括 WebSphere Application Server 系统代码和客户代码。</dd>
+<dt>
+<strong><samp>com.ibm.ws.*</samp></strong>
+</dt>
+<dd>指定其软件包名以 <samp>com.ibm.ws</samp> 开始的所有类。</dd>
+<dt>
+<strong><samp>com.ibm.ws.classloader.JarClassLoader</samp></strong>
+</dt>
+<dd>仅指定 JarClassLoader 类。</dd>
+</dl>
+</p>
+
+<p>要获取更多有关跟踪字符串语法的信息，请参阅 WebSphere Application Server 信息中心的<cite>启用跟踪</cite>一文。</p>
+
+<p>
+<b>注: </b>如果选择是从&ldquo;组&rdquo;和&ldquo;组件&rdquo;列表同时完成的，则从管理控制台设置跟踪规范时可能发生错误。
+在有些情况下，从一个列表完成的选择不会在从其它列表添加选择时丢失。要解决此问题，将期望的跟踪规范直接输入到&ldquo;跟踪规范&rdquo;输入字段中。</p>
+
+</dd>
+<dt>
+<strong><a name="trace_output_description"></a>跟踪输出</strong>
+            &nbsp;
+            </dt>
+<dd>指定跟踪输出应该写到哪里。
+<p>跟踪输出可以直接写入输出文件，或根据需要使用可在运行时页面上找到的&ldquo;转储&rdquo;按钮存储到内存和写入文件。</p>
+
+<p>
+<dl>
+<dt>
+<strong>内存缓冲区</strong>
+</dt>
+<dd>指定跟踪输出应该写到内存中的循环缓冲区。如果您选择此选项，您必须指定下列参数：<dl>
+<dt>
+<strong>最大缓冲区大小</strong>
+</dt>
+<dd>指定在缓冲区中可以高速缓存的条目数（以千计）。超过此数时，新的条目将覆盖旧的条目。</dd>
+<dt>
+<strong>转储文件名</strong>
+</dt>
+<dd>内存缓冲区转储时将写入的文件名。此选项仅在&ldquo;运行时&rdquo;选项卡中可用。</dd>
+</dl>
+</dd>
+</dl>
+</p>
+
+<p>
+<dl>
+<dt>
+<strong>文件</strong>
+</dt>
+<dd>指定以写跟踪输出到自管理日志文件。<p>自管理日志文件写消息到文件直到达到文件大小条件。当文件达到指定大小时，将临时地暂挂记录并关闭此日志文件和重命名。新的名称基于原始文件名，加上时间戳记限定符以表明发生重命名的时间。一旦重命名完成，将重新打开以原始文件名命名的新的空日志文件并继续记录。尽管单个消息可能被分割到两个文件中，但是该切换不会丢失消息。</p>
+</dd>
+</dl>
+</p>
+
+<p>如果您选择此选项，您必须指定下列参数：<dl>
+<dt>
+<strong>最大文件大小</strong>
+</dt>
+<dd>指定允许输出文件增长到的最大的大小（以兆字节计）。<p>此属性仅在选择了文件大小属性时才有效。当文件达到该大小时，将像上面所描述的一样滚动。</p>
+</dd>
+<dt>
+<strong>最大历史文件数</strong>
+</dt>
+<dd>指定要保留的最大滚动文件数。</dd>
+<dt>
+<strong>文件名</strong>
+</dt>
+<dd>指定跟踪输出写入的文件名。</dd>
+</dl>
+</p>
+
+</dd>
+<dt>
+<strong><a name="trace_format_description"></a>跟踪输出格式</strong>
+            &nbsp;
+            </dt>
+<dd>指定跟踪输出的格式。
+<p>您可指定跟踪输出的三种级别之一：<dl>
+
+<dt>
+<strong>基本（兼容的）</strong>
+</dt>
+<dd>仅保存基本跟踪信息。选择此选项最小化跟踪输出占用的空间数。</dd>
+<dt>
+<strong>高级</strong>
+</dt>
+<dd>保存更多特定跟踪信息。选择此选项查看详细的跟踪信息以用于故障诊断和问题确定。</dd>
+<dt>
+<strong>日志分析器</strong>
+</dt>
+<dd>以日志分析器工具兼容的格式保存跟踪信息。如果您要将跟踪输出用作到日志分析器工具的输入，则选择此选项。</dd>
+</dl>
+</p>
+
+</dd>
+<dt>
+<strong><a name="trace_runtime_tab"></a>&ldquo;运行时&rdquo;选项卡</strong>
+            &nbsp;
+            </dt>
+<dd>指定跟踪输出的格式。
+<dl>
+<dt>
+<strong>保存跟踪</strong>
+</dt>
+<dd>同时保存在&ldquo;运行时&rdquo;选项卡上对于跟踪配置的更改。<p>选择此框也将运行时跟踪更改复制到跟踪配置设置。保存这些更改到跟踪配置将导致即使重新启动应用程序，更改还将保留。</p>
+</dd>
+<dt>
+<strong>跟踪规范</strong>
+</dt>
+<dd>指定跟踪详细信息。<p>输入指定要跟踪的组件、软件包或组的跟踪字符串。跟踪字符串必须符合下面描述的特定语法。您可以直接输入跟踪字符串或使用图形跟踪界面生成跟踪字符串。单击<strong>修改</strong>启动图形跟踪界面。</p>
+<p>如果您从配置选项卡启动图形跟踪界面，将显示一张熟悉的组件、软件包和组的列表。此列表可能会有遗漏。</p>
+<p>跟踪规范的格式是：<pre>&lt;component&gt; = &lt;trace_type&gt; = enabled | disabled</pre>
+</p>
+<p>其中 &lt;component&gt; 是要启用或禁用跟踪的组件，而 &lt;trace_type&gt; 是启用或禁用的跟踪类型。用冒号（:）分隔多个跟踪规范。</p>
+<p>相应于 Java 软件包和类或 Java 软件包集合的组件。使用 * 作为通配符以表明一些组件，这些组件包括指定组件包含的所有软件包中的所有类。例如：<dl>
+<dt>
+<strong>*</strong>
+</dt>
+<dd>指定所有运行在应用程序服务器中的可跟踪代码，包括 WebSphere Application Server 系统代码和客户代码。</dd>
+<dt>
+<strong>com.ibm.ws.*</strong>
+</dt>
+<dd>指定其软件包名以 com.ibm.ws 开始的所有类。</dd>
+<dt>
+<strong>com.ibm.ws.classloader.JarClassLoader</strong>
+</dt>
+<dd>仅指定 JarClassLoader 类。</dd>
+</dl>
+</p>
+<p>要获取更多有关跟踪字符串语法的信息，请参阅 WebSphere Application Server 信息中心的&ldquo;启用跟踪&rdquo;一文。<p>
+<b>注: </b>如果选择是从&ldquo;组&rdquo;和&ldquo;组件&rdquo;列表同时完成的，则从管理控制台设置跟踪规范时可能发生错误。
+在有些情况下，从一个列表完成的选择不会在从其它列表添加选择时丢失。要解决此问题，将期望的跟踪规范直接输入到&ldquo;跟踪规范&rdquo;输入字段中。</p>
+</p> 
+</dd>
+</dl>
+
+</dd>
+<dt>
+<strong><a name="trace_output"></a>跟踪输出</strong>
+            &nbsp;
+            </dt>
+<dd>指定跟踪输出应该写到哪里。
+
+<p>跟踪输出可以直接写入输出文件，或根据需要使用可在运行时页面上找到的&ldquo;转储&rdquo;按钮存储到内存和写入文件。<dl>
+<dt>
+<strong>内存缓冲区</strong>
+</dt>
+<dd>指定跟踪输出应该写到内存中的循环缓冲区。如果您选择此选项，您必须指定下列参数：<dl>
+
+<dt>
+<strong>最大缓冲区大小</strong>
+</dt>
+<dd>指定在缓冲区中可以高速缓存的条目数（以千计）。超过此数时，新的条目将覆盖旧的条目。</dd>
+<dt>
+<strong>转储文件名</strong>
+</dt>
+<dd>内存缓冲区转储时将写入的文件名。此选项仅在运行时选项卡中可用。</dd>
+</dl>
+</dd>
+<dt>
+<strong>文件</strong>
+</dt>
+<dd>指定以写跟踪输出到自管理日志文件。<p>自管理日志文件写消息到文件直到达到文件大小条件。当文件达到指定大小时，将临时地暂挂记录并关闭此日志文件和重命名。新的名称基于原始文件名，加上时间戳记限定符以表明发生重命名的时间。一旦重命名完成，将重新打开以原始文件名命名的新的空日志文件并继续记录。尽管单个消息可能被分割到两个文件中，但是该切换不会丢失消息。</p> 
+<p>如果您选择此选项，您必须指定下列参数：</p>
+<dl>
+<dt>
+<strong>最大文件大小</strong>
+</dt>
+<dd>指定允许输出文件增长到的最大的大小（以兆字节计）。<p>此属性仅在选择了文件大小属性时才有效。当文件达到该大小时，将像上面所描述的一样滚动。</p>
+</dd>
+<dt>
+<strong>最大历史文件数</strong>
+</dt>
+<dd>指定要保留的最大滚动文件数。</dd>
+<dt>
+<strong>文件名</strong>
+</dt>
+<dd>指定跟踪输出写入的文件名。</dd>
+</dl>
+</dd>
+</dl>
+</p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>&ldquo;运行时&rdquo;选项卡</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="save_trace_to_config"></a>保存跟踪</strong>
+</dt>
+<dd>同时保存在&ldquo;运行时&rdquo;选项卡上对于跟踪配置的更改。
+<p>选择此框也将运行时跟踪更改复制到跟踪配置设置。保存这些更改到跟踪配置将导致即使重新启动应用程序，更改仍将保留。</p>
+
+</dd>
+<dt>
+<strong><a name="trace_spec_description"></a>跟踪规范</strong>
+</dt>
+<dd>指定跟踪详细信息。
+<p>输入指定要跟踪的组件、软件包或组的跟踪字符串。跟踪字符串必须符合下面描述的特定语法。您可以直接输入跟踪字符串或使用图形跟踪界面生成跟踪字符串。单击<strong>修改</strong>启动图形跟踪界面。</p>
+
+<p>如果您从配置选项卡启动图形跟踪界面，将显示一张熟悉的组件、软件包和组的列表。此列表可能会有遗漏。</p>
+
+<p>如果您从运行时选项卡启动图形跟踪界面，组件、软件包和组的列表将显示位于正在运行的服务器上的所有当前已注册的组件。</p>
+
+<p>跟踪规范的格式是：<pre>&lt;<em>component</em>&gt; = &lt;<em>trace_type</em>&gt;= enabled | disabled</pre> 其中：&lt;<em>component</em>&gt; 是要启用或禁用跟踪的组件，而 &lt;<em>trace_type</em>&gt; 是启用或禁用的跟踪类型。用冒号（:）分隔多个跟踪规范。</p>
+
+<p>相应于 Java 软件包和类或 Java 软件包集合的组件。使用 * 作为通配符以表明一些组件，这些组件包括指定组件包含的所有软件包中的所有类。例如：<dl>
+<dt>
+<strong><samp>*</samp></strong>
+</dt>
+<dd>指定所有运行在应用程序服务器中的可跟踪代码，包括 WebSphere Application Server 系统代码和客户代码。</dd>
+<dt>
+<strong><samp>com.ibm.ws.*</samp></strong>
+</dt>
+<dd>指定其软件包名以 <samp>com.ibm.ws</samp> 开始的所有类。</dd>
+<dt>
+<strong><samp>com.ibm.ws.classloader.JarClassLoader</samp></strong>
+</dt>
+<dd>仅指定 JarClassLoader 类。</dd>
+</dl>
+</p>
+
+<p>要获取更多有关跟踪字符串语法的信息，请参阅 WebSphere Application Server 信息中心的<cite>启用跟踪</cite>一文。</p>
+
+<p>
+<b>注: </b>如果选择是从&ldquo;组&rdquo;和&ldquo;组件&rdquo;列表同时完成的，则从管理控制台设置跟踪规范时可能发生错误。
+在有些情况下，从一个列表完成的选择不会在从其它列表添加选择时丢失。要解决此问题，将期望的跟踪规范直接输入到&ldquo;跟踪规范&rdquo;输入字段中。</p>
+
+</dd>
+<dt>
+<strong><a name="trace_output_description"></a>跟踪输出</strong>
+            &nbsp;
+            </dt>
+<dd>指定跟踪输出应该写到哪里。
+<p>跟踪输出可以直接写入输出文件，或根据需要使用可在运行时页面上找到的&ldquo;转储&rdquo;按钮存储到内存和写入文件。</p>
+
+<p>
+<dl>
+<dt>
+<strong>内存缓冲区</strong>
+</dt>
+<dd>指定跟踪输出应该写到内存中的循环缓冲区。如果您选择此选项，您必须指定下列参数：<dl>
+<dt>
+<strong>最大缓冲区大小</strong>
+</dt>
+<dd>指定在缓冲区中可以高速缓存的条目数（以千计）。超过此数时，新的条目将覆盖旧的条目。</dd>
+<dt>
+<strong>转储文件名</strong>
+</dt>
+<dd>内存缓冲区转储时将写入的文件名。此选项仅在&ldquo;运行时&rdquo;选项卡中可用。</dd>
+</dl>
+</dd>
+</dl>
+</p>
+
+<p>
+<dl>
+<dt>
+<strong>文件</strong>
+</dt>
+<dd>指定以写跟踪输出到自管理日志文件。<p>自管理日志文件写消息到文件直到达到文件大小条件。当文件达到指定大小时，将临时地暂挂记录并关闭此日志文件和重命名。新的名称基于原始文件名，加上时间戳记限定符以表明发生重命名的时间。一旦重命名完成，将重新打开以原始文件名命名的新的空日志文件并继续记录。尽管单个消息可能被分割到两个文件中，但是该切换不会丢失消息。</p>
+</dd>
+</dl>
+</p>
+
+<p>如果您选择此选项，您必须指定下列参数：<dl>
+<dt>
+<strong>最大文件大小</strong>
+</dt>
+<dd>指定允许输出文件增长到的最大的大小（以兆字节计）。<p>此属性仅在选择了文件大小属性时才有效。当文件达到该大小时，将像上面所描述的一样滚动。</p>
+</dd>
+<dt>
+<strong>最大历史文件数</strong>
+</dt>
+<dd>指定要保留的最大滚动文件数。</dd>
+<dt>
+<strong>文件名</strong>
+</dt>
+<dd>指定跟踪输出写入的文件名。</dd>
+</dl>
+</p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>相关信息</strong>
+</p>
+<a href="rcon_buttons.html">管理控制台按钮</a>
+<br>
+
+<a href="rcon_scope.html">管理控制台作用域设置</a>
+<br>
+
+<a href="rcon_filter.html">管理控制台过滤器设置</a>
+<br>
+
+<a href="rcon_preferences.html">管理控制台首选项设置</a>
+<br>
+
+<a href="rcon_pageusage.html">管理控制台页面功能</a>
+<br>
+
+</div>
+</body>
+</html>

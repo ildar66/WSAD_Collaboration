@@ -1,0 +1,291 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Valores de LDAP (Lightweight Directory Access Protocol) avanzados</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecadvldap"></a>
+<h2>Valores de LDAP (Lightweight Directory Access Protocol) avanzados</h2>
+
+<p>Utilice esta p&aacute;gina para configurar los valores avanzados del
+registro de usuarios LDAP (Lightweight Directory Access Protocol) cuando
+los usuarios y los grupos residen en un directorio LDAP externo.</p>
+
+<p>Para ver esta p&aacute;gina de la consola administrativa, pulse <strong>Seguridad</strong> &gt; <strong>Registros de usuario</strong> &gt; <strong>LDAP</strong> <strong>Valores de LDAP avanzados</strong>.</p>
+
+<p>Los valores por omisi&oacute;n para todos los filtros relacionados con los usuarios y el grupo est&aacute;n especificados en los campos adecuados. Puede modificar estos valores seg&uacute;n sus necesidades.
+
+Estos valores por omisi&oacute;n se basan en el tipo de servidor LDAP seleccionado en el
+panel <strong>Valores de LDAP</strong>. Si este panel se modifica (por ejemplo, de NETSCAPE
+A SECUREWAY) los filtros por omisi&oacute;n se modifican autom&aacute;ticamente. Cuando
+los valores de filtro por omisi&oacute;n se modifican, el tipo de servidor LDAP
+cambia a <strong>Personalizado</strong> para indicar que se est&aacute;n utilizando filtros
+personalizados. Cuando se habilite la seguridad y se modifique una de
+estas propiedades, vaya al panel <strong>Seguridad Global</strong> y pulse
+<strong>Aplicar</strong> o <strong>Aceptar</strong> para validar los cambios.</p>
+
+<div>
+<p>
+<strong>Pesta&ntilde;a Configuraci&oacute;n</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="LDAPSearchFilter_userFilter_description"></a>Filtro de usuarios </strong>
+</dt>
+<dd>Especifica el filtro de usuario LDAP para buscar usuarios en el registro.
+<p>Generalmente, esta opci&oacute;n se utiliza para las asignaciones de rol de seguridad a usuario. Especifica la propiedad mediante la cual se buscan usuarios en el servicio de directorios.
+Por ejemplo, para buscar usuarios
+a partir de sus ID de usuario, especifique
+<samp>(ampersand(uid=%v)(objectclass=inetOrgPerson)</samp> donde
+<samp>ampersand</samp> es el s&iacute;mbolo ampersand (&amp;).  Para
+obtener m&aacute;s informaci&oacute;n sobre esta sintaxis, consulte la documentaci&oacute;n del servicio de
+directorios LDAP.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos:</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LDAPSearchFilter_groupFilter_description"></a>Filtro de grupo</strong>
+</dt>
+<dd>Especifica el filtro de grupo LDAP para buscar grupos en el registro. 
+<p>Generalmente, esta opci&oacute;n se utiliza para las asignaciones de rol de seguridad a grupo. Especifica la propiedad mediante la cual se buscan grupos en el servicio de directorios.
+Para
+obtener m&aacute;s informaci&oacute;n sobre esta sintaxis, consulte la documentaci&oacute;n del servicio de
+directorios LDAP.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos:</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LDAPSearchFilter_userIdMap_description"></a>Correlaci&oacute;n del ID de usuario</strong>
+</dt>
+<dd>Especifica un filtro LDAP que correlaciona el nombre abreviado de un usuario con una entrada LDAP.
+<p>Especifica el fragmento de informaci&oacute;n que representa a los usuarios cuando estos se
+visualizan.
+Por ejemplo, para visualizar entradas del tipo <samp>objectclass
+= inetOrgPerson</samp> seg&uacute;n sus ID, especifique <samp>inetOrgPerson:uid</samp>. Este campo toma varios pares claseobjeto:propiedad delimitados
+por un punto y coma (";").</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos:</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LDAPSearchFilter_groupIdMap_description"></a>Correlaci&oacute;n del ID de grupo</strong>
+</dt>
+<dd>Especifica un filtro LDAP que correlaciona el nombre abreviado de un grupo con una entrada LDAP.
+<p>Especifica el fragmento de informaci&oacute;n que representa a los grupos cuando estos se
+visualizan.
+Por ejemplo, para visualizar grupos por sus nombres, especifique <samp>*:cn</samp>. El asterisco (<samp>*</samp>) es un car&aacute;cter
+comod&iacute;n que busca en cualquier clase de objeto en este caso. Este campo
+toma varios pares <samp>claseobjeto:propiedad</samp> delimitados por un signo
+de punto y coma (;). </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos:</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LDAPSearchFilter_groupMemberIdMap_description"></a>Correlaci&oacute;n de ID de miembros de grupo </strong>
+</dt>
+<dd>Especifica el filtro LDAP que identifica las relaciones de un usuario con un grupo.
+<p>Para los tipos de directorios SecureWay, NetScape y Domino, este campo
+acepta varios pares claseobjeto:propiedad delimitados por un signo de
+punto y coma (;). En un par claseobjeto:propiedad, el valor claseobjeto es
+el mismo definido en Filtro de grupo y la propiedad es el atributo de
+miembro. Si el valor claseobjeto no coincide con la claseobjeto en Filtro
+de grupo, es posible que la autorizaci&oacute;n no se realice correctamente si
+los grupos se correlacionan con roles de seguridad. Para obtener m&aacute;s informaci&oacute;n sobre esta sintaxis,
+consulte la documentaci&oacute;n del servicio de directorios LDAP.</p>
+
+<p>En IBM Directory Server, iPlanet Directory Server y en
+Active Directory, este campo acepta varios pares de (<samp>group
+attribute:member attribute</samp>) delimitados por un signo de punto y
+coma (;). Se utilizan para buscar los miembros de grupo de un usuario mediante la enumeraci&oacute;n de
+todos los atributos de grupo que posee un determinado usuario.
+Por ejemplo, el par de atributos <samp>(memberof:member)</samp> lo utiliza
+Active Directory y el par (ibm-allGroup:member) lo utiliza IBM
+Directory Server. Este campo tambi&eacute;n especifica la propiedad de una claseobjeto que almacena la lista de
+miembros pertenecientes al grupo representado por la claseobjeto. Para
+obtener una lista de los servidores de directorios LDAP soportados,
+consulte el art&iacute;culo del InfoCenter "Servicios de directorio
+soportados".</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos:</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LDAPSearchFilter_certificateMapMode_description"></a>Modalidad de correlaci&oacute;n de certificados</strong>
+</dt>
+<dd>Especifica si se han de correlacionar certificados X.509 en un directorio LDAP
+mediante EXACT_DN o CERTIFICATE_FILTER. Especifique CERTIFICATE_FILTER si desea utilizar el
+filtro de certificado para la correlaci&oacute;n.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos:</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LDAPSearchFilter_certificateFilter_description"></a>Filtro de certificado</strong>
+</dt>
+<dd>Especifica si se ha de utilizar la propiedad de filtro de
+correlaci&oacute;n de certificados para especificar el filtro LDAP que se utiliza
+para correlacionar los atributos del certificado de cliente con las
+entradas de LDAP.
+<p> Para habilitar este campo, pulse <strong>CERTIFICATE_FILTER</strong> para la correlaci&oacute;n de certificados. Si hay m&aacute;s de una entrada LDAP que coincide con la especificaci&oacute;n de
+filtro durante la ejecuci&oacute;n, la autenticaci&oacute;n fallar&aacute; ya que dar&aacute; como
+resultado una coincidencia ambigua.
+La sintaxis o estructura de este
+filtro es: <samp>atributo LDAP=${atributo de certificado de
+cliente}</samp> (por ejemplo, <samp>uid=${SubjectCN}</samp>). El lado izquierdo de la especificaci&oacute;n del filtro es un atributo
+LDAP que depende del esquema que el servidor LDAP deba utilizar seg&uacute;n
+su configuraci&oacute;n. El lado derecho de la especificaci&oacute;n del filtro es
+uno de los atributos p&uacute;blicos del certificado de cliente. Este lado debe
+comenzar con un signo del d&oacute;lar ($), un par&eacute;ntesis inicial ({) y acabar
+con un par&eacute;ntesis final (}). Puede utilizar los siguientes valores de atributos de certificados:aparecen en la parte derecha de la especificaci&oacute;n de filtro. Es importante la distinci&oacute;n entre
+may&uacute;sculas y min&uacute;sculas de las series:
+  <ul>
+
+<li>
+<samp>{UniqueKey} </samp>
+</li>
+
+<li>
+<samp>${PublicKey}</samp>
+</li>
+
+<li>
+<samp>${PublicKey}</samp>
+</li>
+
+<li>
+<samp>${Issuer}</samp>
+</li>
+
+<li>
+<samp>${NotAfter}</samp>
+</li>
+
+<li>
+<samp>${NotBefore}</samp>
+</li>
+
+<li>
+<samp>${SerialNumber}</samp>
+</li>
+
+<li>
+<samp>${SigAlgName}</samp>
+</li>
+
+<li>
+<samp>${SigAlgOID}</samp>
+</li>
+
+<li>
+<samp>${SigAlgParams}</samp>
+</li>
+
+<li>
+<samp>${SubjectCN}</samp>
+</li>
+
+<li>
+<samp>${Version}</samp>
+</li>
+
+</ul>
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos:</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informaci&oacute;n relacionada</strong>
+</p>
+<a href="rcon_buttons.html">Botones de la consola de administraci&oacute;n</a>
+<br>
+
+<a href="rcon_pageusage.html">Caracter&iacute;sticas de la p&aacute;gina de la consola administrativa</a>
+<br>
+
+<a href="rcon_scope.html">Valores de &aacute;mbito de la consola administrativa</a>
+<br>
+
+<a href="rcon_filter.html">Valores de filtro de la consola administrativa</a>
+<br>
+
+<a href="rcon_preferences.html">Valores de preferencias de la consola administrativa</a>
+<br>
+
+<a href="usec_rprdap.html">Valores de LDAP (Lightweight Directory Access Protocol)</a>
+<br>
+
+</div>
+</body>
+</html>

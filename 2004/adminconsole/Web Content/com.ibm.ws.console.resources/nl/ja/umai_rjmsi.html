@@ -1,0 +1,131 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>メール・セッション設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="ujtc_rjmsi"></a>
+<h2>メール・セッション設定</h2>
+
+<p>このページを使用して、特定のメール・プロバイダーを構成します。
+</p>
+
+<p>この管理コンソール・ページを表示するには、「
+<strong>リソース</strong>」&gt;「<strong>メール・プロバイダー</strong>」&gt;「<em>mail_provider</em>」&gt;「<strong>メール・セッション</strong>」&gt;「<em>mail_session</em>」をクリックします。</p>
+
+<div>
+<p>
+<strong>「構成」タブ</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="MailSession_name_description"></a>名前</strong>
+</dt>
+<dd>JavaMail セッション・オブジェクトの管理名を指定します。</dd>
+<dt>
+<strong><a name="MailSession_jndiName_description"></a>JNDI 名</strong>
+</dt>
+<dd>任意のネーミング・サブコンテキストなどのリソースの Java Naming and Directory Interface (JNDI) 名を指定します。
+
+<p>この名前は、クライアント・アプリケーションのデプロイメント記述子で定義されるリソースに対するプラットフォームのバインディング情報と、
+プラットフォームによって JNDI にバインドされる実際のリソースとの間のリンクを提供します。
+</p>
+
+</dd>
+<dt>
+<strong><a name="MailSession_description_description"></a>説明</strong>
+</dt>
+<dd> 管理レコードの説明をオプションで指定します。</dd>
+<dt>
+<strong><a name="MailSession_category_description"></a>カテゴリー</strong>
+</dt>
+<dd>セッションを分類またはグループ化するためのコレクションをオプションで指定します。</dd>
+<dt>
+<strong><a name="MailSession_mailTransportHost_description"></a>メール・トランスポート・ホスト</strong>
+</dt>
+<dd>メールの送信時にアクセスするサーバーを指定します。
+</dd>
+<dt>
+<strong><a name="MailSession_mailTransportProtocol_description"></a>メール・トランスポート・プロトコル</strong>
+</dt>
+<dd>メールの送信時に使用されるトランスポート・プロトコルを指定します。
+</dd>
+<dt>
+<strong><a name="MailSession_mailTransportUser_description"></a>メール・トランスポート・ユーザー</strong>
+</dt>
+<dd> メール・トランスポート・ホストが認証を必要とする場合のユーザー ID を指定します。
+
+<p>この設定は、通常、ほとんどのメール・サーバーでは使用されません。 ユーザー ID とパスワードが必要なメール・サーバーを使用しない場合、
+このフィールドはブランクのままにしておいてください。
+</p>
+
+</dd>
+<dt>
+<strong><a name="MailSession_mailTransportPassword_description"></a>メール・トランスポート・パスワード</strong>
+</dt>
+<dd> メール・トランスポート・ホストが認証を必要とする場合のパスワードを指定します。
+
+<p>この設定は、通常、ほとんどのメール・サーバーでは使用されません。 ユーザー ID とパスワードが必要なメール・サーバーを使用しない場合、
+このフィールドはブランクのままにしておいてください。
+</p>
+
+</dd>
+<dt>
+<strong><a name="MailSession_mailFrom_description"></a>メール送信者</strong>
+</dt>
+<dd>メールの発信元を指定します。
+<p>この値はインターネットの電子メール・アドレスを表すもので、デフォルトでは、受信メッセージに、「
+<samp>From</samp>」または「<samp>Reply-To</samp>」のアドレスとして表示されます。
+受信者の返信はこのアドレスに送られます。</p>
+
+</dd>
+<dt>
+<strong><a name="MailSession_mailStoreHost_description"></a>メール・ストア・ホスト</strong>
+</dt>
+<dd>メールの受信時にアクセスするサーバーを指定します。
+
+<p>この設定は、メール・ストア・ユーザー ID とパスワードを結合したもので、
+有効なメール・アカウントを示します。
+例えば、メール・アカウントが <em>john_william@my.company.com</em> である場合は、
+メール・ストア・ホストは <em>my.company.com</em> です。
+</p>
+
+</dd>
+<dt>
+<strong><a name="MailSession_mailStoreProtocol_description"></a>メール・ストア・プロトコル</strong>
+</dt>
+<dd>メールの受信時に使用するプロトコルを指定します。
+IMAP または POP3、あるいは、ユーザーがプロバイダーをインストールした任意のストア・プロトコルが指定できます。
+</dd>
+<dt>
+<strong><a name="MailSession_mailStoreUser_description"></a>メール・ストア・ユーザー</strong>
+</dt>
+<dd>特定のメール・アカウントのユーザー ID を指定します。
+
+<p>例えば、メール・アカウントが <em>john_william@my.company.com</em> である場合は、
+ユーザーは <em>john_william</em> です。
+</p>
+
+</dd>
+<dt>
+<strong><a name="MailSession_mailStorePassword_description"></a>メール・ストア・パスワード</strong>
+</dt>
+<dd>特定のメール・アカウントのパスワードを指定します。
+
+<p>例えば、メール・アカウントが <em>john_william@my.company.com</em> である場合は、
+ID <em>john_william</em> のパスワードを入力します。
+</p>
+
+</dd>
+<dt>
+<strong><a name="MailSession_debug_description"></a>デバッグ</strong>
+</dt>
+<dd>このメール・セッションのデバッグ・モードのオン/オフを切り替えます。
+</dd>
+</dl>
+</div>
+</body>
+</html>

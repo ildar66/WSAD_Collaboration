@@ -1,0 +1,161 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>加密信息配置设置</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_encryptrsb"></a>
+<h2>
+<img alt="[Release 5.1 and later]" src="v51.gif" border="0">加密信息配置设置</h2>
+
+<p>使用此页面配置加密和解密参数。</p>
+
+<p>此页面上所列出签名方法、摘要方法和规范方法的规范位于标题为 <em>XML Encryption Syntax and Processing: W3C Recommendation
+10 Dec 2002</em> 的万维网协会（W3C）文档中。</p>
+
+<p>要查看此管理控制台页面，完成以下步骤：<ol>
+
+<li>单击<strong>应用程序 &gt; 企业应用程序 &gt; </strong><em>application_name</em>。</li>
+
+<li>在&ldquo;相关项&rdquo;下，单击 <strong>Web 模块 &gt; </strong><em>URI_file_name</em>&gt; <strong>Web 服务：服务器安全性绑定</strong>。</li>
+
+<li>在&ldquo;响应发送程序绑定&rdquo;下，单击<strong>编辑 &gt; 加密信息</strong>。</li>
+
+<li>如果加密信息不可用，选择<strong>无</strong>。</li>
+
+<li>如果加密信息是可用的，选择<strong>专用的加密信息</strong>。</li>
+
+</ol>
+</p>
+
+<p></p>
+
+<p>然后，在下列字段中指定配置：</p>
+
+<dl>
+<dt>
+<strong><a name="sec_name"></a>加密信息名</strong>
+</dt>
+<dd>指定加密信息的名称。</dd>
+<dt>
+<strong><a name="sec_klr"></a>密钥定位器引用</strong>
+</dt>
+<dd>指定用于引用密钥定位器的名称。
+<p>要指定密钥定位器引用，单击<strong>服务器 &gt; 应用程序服务器 &gt; </strong><em>server_name</em>。
+在&ldquo;其它属性&rdquo;下，单击 <strong>Web 服务：Web 服务安全性的缺省绑定 &gt; 密钥定位器</strong>。</p>
+
+</dd>
+<dt>
+<strong><a name="sec_ekn"></a>加密密钥名</strong>
+</dt>
+<dd>指定加密密钥的名称，其由指定的密钥定位器解析为实际密钥。</dd>
+<dt>
+<strong><a name="sec_eka"></a>密钥加密算法</strong>
+</dt>
+<dd>指定密钥加密方法的算法 URI。
+<p>支持下列算法：<ul>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#rsa-1_5</samp>
+</li>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#kw-tripledes</samp>
+</li>
+
+</ul>
+</p>
+
+<p>支持以下附加的算法：<ul>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#kw-aes128</samp>
+</li>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#kw-aes256</samp>
+</li>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#kw-aes192</samp>
+</li>
+
+</ul>
+</p>
+
+<p>缺省情况下，与 Java 密码术扩展（JCE）一起提供的是限定或受限强度的密码。要使用 192 位和 256 位高级加密标准（AES）加密算法，您必须应用不受限制的辖区策略文件。在下载这些策略文件之前，在您想要稍后恢复原来的文件的情况下，在覆盖这些文件之前，先备份现有策略文件（jre/lib/security/ 目录中的 local_policy.jar 和 US_export_policy.jar）。要下载策略文件，完成以下两组步骤集合之一：<ul>
+
+<li>对于使用 IBM Developer Kit, Java
+Technology Edition V1.4.1（包括 AIX、Linux 和 Windows 平台）的 WebSphere Application Server 平台，您可以通过完成下列步骤来获取不受限制的辖区策略文件：<ul>
+
+<li>转至以下 Web 站点：http://www.ibm.com/developerworks/java/jdk/security/index.html </li>
+
+<li>单击<strong>策略文件</strong>。<p>unrestrict.jar 文件下载到您的机器上。</p>
+</li>
+
+</ul>
+</li>
+
+<li>对于使用基于 Sun 的 Java Development
+Kit（JDK）V1.4.1（包括 Solaris 环境和 HP-UX 平台）的 WebSphere Application Server 平台，您可以通过完成下列步骤来获取不受限制的辖区策略文件：<ul>
+
+<li>转至以下 Web 站点：http://java.sun.com/j2se/1.4.1/download.html</li>
+
+<li>转至 Web 页面的底部并单击 Java 密码术扩展（JCE）不受限制强度的辖区策略文件 1.4.1 边上的&ldquo;下载&rdquo;。jce_policy-1_4_1.zip 文件下载到您的机器上。</li>
+
+</ul>
+</li>
+
+</ul>在按这两组步骤集合之一进行操作后，有两个 Java 归档文件（JAR）会放在 JVM jre/lib/security/ 目录中。</p>
+
+</dd>
+<dt>
+<strong><a name="sec_dea"></a>数据加密算法</strong>
+</dt>
+<dd>指定数据加密方法的算法统一资源标识（URI）。
+<p>支持以下算法：<ul>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#tripledes-cbc</samp>
+</li>
+
+</ul>
+</p>
+
+<p>支持以下附加的算法：<ul>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#aes128-cbc</samp>
+</li>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#aes256-cbc</samp>
+</li>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#aes192-cbc</samp>
+</li>
+
+</ul>
+</p>
+
+<p>缺省情况下，与 JCE 一起提供的是限定或受限强度的密码。要使用 192 位和 256 位 AES 加密算法，您必须应用不受限制的辖区策略文件。</p>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>相关信息</strong>
+</p>
+<a href="uwbs_encrypt.html">加密信息集合</a>
+<br>
+
+<a href="uwbs_keyl.html">密钥定位器集合</a>
+<br>
+
+</div>
+</body>
+</html>

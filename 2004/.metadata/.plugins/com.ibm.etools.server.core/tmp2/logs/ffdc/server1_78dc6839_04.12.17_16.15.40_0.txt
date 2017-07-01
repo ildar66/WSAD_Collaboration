@@ -1,0 +1,81 @@
+------Start of DE processing------ = [04.12.17 16:15:40:094 MSK] , key = javax.ejb.EJBException com.ibm.ejs.container.LocalExceptionMappingStrategy.setUncheckedException 178
+Exception = javax.ejb.EJBException
+Source = com.ibm.ejs.container.LocalExceptionMappingStrategy.setUncheckedException
+probeid = 178
+Stack Dump = javax.ejb.EJBException
+	at com.hps.july.sync.session.GenericFinderBean.findPage(GenericFinderBean.java:76)
+	at com.hps.july.sync.session.EJSLocalStatelessGenericFinder_c888eb68.findPage(EJSLocalStatelessGenericFinder_c888eb68.java:23)
+	at com.hps.july.collaboration.helper.GenericHelper.searchPageFromEJB(GenericHelper.java:46)
+	at com.hps.july.collaboration.helper.GenericHelper.searchPage(GenericHelper.java:42)
+	at com.hps.july.collaboration.helper.GenericHelper.searchPage(GenericHelper.java:38)
+	at com.hps.july.collaboration.formbean.GenericForm.doTask(GenericForm.java:87)
+	at com.hps.july.collaboration.action.GenericAction.perform(GenericAction.java:40)
+	at org.apache.struts.action.ActionServlet.processActionPerform(ActionServlet.java:1787)
+	at org.apache.struts.action.ActionServlet.process(ActionServlet.java:1586)
+	at org.apache.struts.action.ActionServlet.doGet(ActionServlet.java:492)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:740)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:853)
+	at com.ibm.ws.webcontainer.servlet.StrictServletInstance.doService(StrictServletInstance.java:110)
+	at com.ibm.ws.webcontainer.servlet.StrictLifecycleServlet._service(StrictLifecycleServlet.java:174)
+	at com.ibm.ws.webcontainer.servlet.IdleServletState.service(StrictLifecycleServlet.java:313)
+	at com.ibm.ws.webcontainer.servlet.StrictLifecycleServlet.service(StrictLifecycleServlet.java:116)
+	at com.ibm.ws.webcontainer.servlet.ServletInstance.service(ServletInstance.java:283)
+	at com.ibm.ws.webcontainer.servlet.ValidServletReferenceState.dispatch(ValidServletReferenceState.java:42)
+	at com.ibm.ws.webcontainer.servlet.ServletInstanceReference.dispatch(ServletInstanceReference.java:40)
+	at com.ibm.ws.webcontainer.webapp.WebAppRequestDispatcher.handleWebAppDispatch(WebAppRequestDispatcher.java:983)
+	at com.ibm.ws.webcontainer.webapp.WebAppRequestDispatcher.dispatch(WebAppRequestDispatcher.java:564)
+	at com.ibm.ws.webcontainer.webapp.WebAppRequestDispatcher.forward(WebAppRequestDispatcher.java:200)
+	at com.ibm.ws.webcontainer.srt.WebAppInvoker.doForward(WebAppInvoker.java:119)
+	at com.ibm.ws.webcontainer.srt.WebAppInvoker.handleInvocationHook(WebAppInvoker.java:276)
+	at com.ibm.ws.webcontainer.cache.invocation.CachedInvocation.handleInvocation(CachedInvocation.java:71)
+	at com.ibm.ws.webcontainer.srp.ServletRequestProcessor.dispatchByURI(ServletRequestProcessor.java:182)
+	at com.ibm.ws.webcontainer.oselistener.OSEListenerDispatcher.service(OSEListener.java:334)
+	at com.ibm.ws.webcontainer.http.HttpConnection.handleRequest(HttpConnection.java:56)
+	at com.ibm.ws.http.HttpConnection.readAndHandleRequest(HttpConnection.java:618)
+	at com.ibm.ws.http.HttpConnection.run(HttpConnection.java:439)
+	at com.ibm.ws.util.ThreadPool$Worker.run(ThreadPool.java:672)
+
+Dump of callerThis = 
+Object type = com.ibm.ejs.container.LocalExceptionMappingStrategy
+com.ibm.ejs.container.LocalExceptionMappingStrategy@6aace835
+
+==> Performing default dump from com.ibm.ejs.container.EJBContainerDiagnosticModule  = Fri Dec 17 16:15:40 MSK 2004
+Dump of EJBContainer Internals = 
+Object type = com.ibm.ejs.container.EJSContainer
+com.ibm.ejs.container.EJSContainer@312835
+
++Data for directive [default] obtained. = 
+Dump of ComponentMetaData = 
+                                 *** START ComponentMetaData fields ***
+                                 J2EEName       = CollaborationEAR#CollaborationEJB.jar#GenericFinder
+                                 EJB Type       = STATELESS_SESSION
+                                 TX Type        = CONTAINER_MANAGED_TX
+                                 Module Version = EJB 2.0
+                                     ******* ResRefList ******* 
+                                 ResRefList size=0
+                                       ****** LOCAL-TRANSACTION *******
+                                 Boundary=BEAN_METHOD
+                                 Resolver=APPLICATION
+                                 UnResolvedAction=ROLLBACK
+                                 *** END ComponentMetaData fields  ***
++Data for directive [defaultcomponentmetadata] obtained. = 
+Dump of ContainerTx = 
+
+*** Start ContainerTx Dump    ---> com.ibm.ejs.container.ContainerTx@2a532835
+
+  Tx Key                  = com.ibm.ws.Transaction.JTA.TransactionImpl@64b7e835#tid=1
+  State                   = Active
+  Entered beforCompletion = false
+  Marked Rollback Only    = false
+  Method Began            = true
+  Isolation Level         = TRANSACTION_NONE
+
+  --- Dump of Enlisted Beans : 0 ---------------------- 
+
+
+  --- Dump of Access Intents : 0 ---------------------- 
+
+*** ContainerTx Dump Complete ---> com.ibm.ejs.container.ContainerTx@2a532835
+
++Data for directive [defaultcontainertx] obtained. = 
+==> Dump complete for com.ibm.ejs.container.EJBContainerDiagnosticModule  = Fri Dec 17 16:15:40 MSK 2004

@@ -1,0 +1,61 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>トラステッド ID エバリュエーター構成の設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_trstiden"></a>
+<h2>
+<img alt="[修正パッケージ 5.0.2 以降]" src="v502.gif" border="0">トラステッド ID エバリュエーター構成の設定</h2>
+
+<p>この情報を使用して、トラスト ID エバリュエーターを構成します。</p>
+
+<p>この管理コンソール・ページを表示するには、以下のステップを実行します。<ol>
+
+<li>「<strong>サーバー</strong>」&gt;「<strong>アプリケーション・サーバー</strong>」&gt;「<em>server_name</em> 」をクリックします。</li>
+
+<li>「Additional Properties」の下の「<strong>Web Services: Default bindings for Web Services Security</strong>」&gt;「<strong>Trust ID Evaluators</strong>」&gt;「<strong>新規</strong>」をクリックします。</li>
+
+</ol>
+</p>
+
+<p>評価用にトラステッド ID リストを作成するためには、デフォルトのトラステッド ID エバリュエーターに、名前および値プロパティーを指定する必要があります。</p>
+
+<dl>
+<dt>
+<strong><a name="sec_trstname"></a>Trusted ID Evaluator Name</strong>
+</dt>
+<dd>デフォルトのバインディングで定義されたトラステッド識別 (ID) エバリュエーターを参照するために、アプリケーション・バインディングが使用する固有の名前を指定します。
+<p>トラステッド ID エバリュエーターの名前は、<samp>trustedId_n</samp> (<samp> _n</samp> は 0 〜 n までの整数) という形式で指定する必要があります。</p>
+
+</dd>
+<dt>
+<strong><a name="sec_trstclass"></a>Trusted ID Evaluator Class Name </strong>
+</dt>
+<dd>トラステッド ID エバリュエーターのクラス名を指定します。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">com.ibm.wsspi.wssecurity.id.TrustedIDEvaluatorImpl</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>関連情報</strong>
+</p>
+<a href="uwbs_trstide.html">トラステッド ID エバリュエーター・コレクション</a>
+<br>
+
+</div>
+</body>
+</html>

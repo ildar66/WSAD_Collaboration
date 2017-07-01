@@ -1,0 +1,296 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Application server settings</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="urun_rappsvr"></a>
+<h2>Application server settings</h2>
+
+<p>Use this page to view or change the settings of an application
+server  instance.</p>
+
+<p>To view this administrative console page, click <strong>Servers &gt; Application
+ Servers &gt; </strong><em>server_name</em>.</p>
+
+<p>The <strong>Configuration</strong> tab provides editable fields and the <strong>Runtime</strong> 
+tab provides read-only information. The <strong>Runtime</strong> tab is available only
+ when the server is running.</p>
+
+<div>
+<p>
+<strong>Configuration tab</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="Server_name_description"></a>Name</strong>
+</dt>
+<dd>Specifies a logical name for the server. Server names must be unique
+within  a node.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">server1</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="StateManageable_initialState_description"></a>Initial State</strong>
+</dt>
+<dd>Specifies the component execution state requested when the server
+is first started. 
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">Started</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationServer_classloaderPolicy_description"></a>Application Class loader Policy</strong>
+</dt>
+<dd>Specifies whether to use a single class loader to load all applications
+ or to use a different class loader for each application.
+<p>The options are SINGLE and MULTIPLE. The default is to use a separate 
+class loader for each application (MULTIPLE).</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">MULTIPLE</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationServer_classloaderMode_description"></a>Application Classloading Mode</strong>
+</dt>
+<dd>Specifies whether the class loader should search in the parent
+class loader or  in the application class loader first to load a class. The
+standard for Developer Kit class loaders  and WebSphere class
+loaders is PARENT_FIRST. By specifying PARENT_LAST, your application  can
+override classes contained in the parent class loader, but this action can
+potentially  result in ClassCastException or LinkageErrors if you have mixed
+use of overriden classes  and non-overriden classes.
+<p>The options are PARENT_FIRST and PARENT_LAST. The default is to search
+in the parent  class loader before searching in the application class loader
+to load a class.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">PARENT_FIRST</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Runtime tab</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="rappsvr-rt1"></a>Process ID</strong>
+            &nbsp;
+            </dt>
+<dd>Specifies a string identifying the process.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="rappsvr-rt2"></a>Cell Name</strong>
+            &nbsp;
+            </dt>
+<dd>Specifies the name of the cell for the application server.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base"><em>host_name</em>Network</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="rappsvr-rt3"></a>Node Name</strong>
+            &nbsp;
+            </dt>
+<dd>Specifies the name of the node for the application server.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="rappsvr-rt4"></a>State</strong>
+            &nbsp;
+            </dt>
+<dd>Indicates whether the application server is started or stopped.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">Started</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Related information</strong>
+</p>
+<a href="rcon_buttons.html">Administrative console buttons</a>
+<br>
+
+<a href="rcon_pageusage.html">Administrative console page features</a>
+<br>
+
+<a href="uagt_radmin.html">Administration service settings</a>
+<br>
+
+<a href="urun_rclassloader.html">Class loader collection</a>
+<br>
+
+<a href="urun_rapp.html">Enterprise application collection</a>
+<br>
+
+<a href="urun_rsvr_services.html">Custom service collection</a>
+<br>
+
+<a href="utrb_debugsvc.html">Debugging Service details</a>
+<br>
+
+<a href="udyn_rcachesettings.html">Dynamic cache service settings</a>
+<br>
+
+<a href="uejb_recnt.html">EJB container settings</a>
+<br>
+
+<a href="urun_rendpoint.html">End point collection</a>
+<br>
+
+<a href="utrb_servicelogs.html">IBM service log settings</a>
+<br>
+
+<a href="utrb_logtrace.html">Logging and tracing settings</a>
+<br>
+
+<a href="umb_smlp.html">Message listener port collection</a>
+<br>
+
+<a href="uorb_rsetg.html">Object Request Broker service settings in administrative console</a>
+<br>
+
+<a href="uprf_rmonitorsettings.html">Performance monitoring service settings</a>
+<br>
+
+<a href="urun_rconfproc.html">Process definition settings</a>
+<br>
+
+<a href="urun_rproperty.html">Custom property collection</a>
+<br>
+
+<a href="urun_rsvrcomp.html">Server component collection</a>
+<br>
+
+<a href="utrb_traceservice.html">Diagnostic trace service settings</a>
+<br>
+
+<a href="udat_contranserv.html">Transaction service settings</a>
+<br>
+
+<a href="uweb_rcont.html">Web container settings</a>
+<br>
+
+</div>
+</body>
+</html>

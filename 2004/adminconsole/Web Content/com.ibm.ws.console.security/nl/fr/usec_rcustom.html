@@ -1,0 +1,158 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Param&egrave;tres personnalis&eacute;s du registre d'utilisateurs</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecrcustom"></a>
+<h2>Param&egrave;tres personnalis&eacute;s du registre d'utilisateurs</h2>
+
+<p>Cette page permet de configurer le registre
+d'utilisateurs personnalis&eacute;.</p>
+
+<p>Pour afficher cette page de la console d'administration, cliquez sur <strong>S&eacute;curit&eacute;</strong> &gt; <strong>Registres d'utilisateurs</strong> &gt; <strong>Personnalis&eacute;</strong>.</p>
+
+<p>Une fois les propri&eacute;t&eacute;s d&eacute;finies dans ce panneau, cliquez sur
+<strong>Valider</strong>. Utilisez le panneau <strong>Propri&eacute;t&eacute;s</strong> pour les
+propri&eacute;t&eacute;s suppl&eacute;mentaires requises par le registre personnalis&eacute;. Lorsque la s&eacute;curit&eacute; est activ&eacute;e et que certaines propri&eacute;t&eacute;s sont
+modifi&eacute;es, acc&eacute;dez au panneau <strong>S&eacute;curit&eacute; globale</strong> et cliquez sur
+<strong>Valider</strong> pour valider les modifications. </p>
+
+<div>
+<p>
+<strong>Onglet Configuration</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="UserRegistry_serverId_description"></a>ID utilisateur administrateur</strong>
+</dt>
+<dd>Indique l'ID utilisateur sous lequel s'ex&eacute;cuter le serveur
+pour les besoins de s&eacute;curit&eacute;. 
+<p>Cet ID serveur repr&eacute;sente un utilisateur valide dans le registre
+personnalis&eacute;.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es :</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="UserRegistry_serverPassword_description"></a>Mot de passe administrateur </strong>
+</dt>
+<dd>Indique le mot de passe correspondant &agrave; l'ID de serveur de
+s&eacute;curit&eacute;.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es :</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="CustomUserRegistry_customRegistryClassName_description"></a>Nom de classe du registre personnalis&eacute; </strong>
+</dt>
+<dd>Indique un nom de classe s&eacute;par&eacute; par des points et
+impl&eacute;mentant l'interface <samp>com.ibm.websphere.security.UserRegistry</samp>.
+<p>Placez le nom de la classe du registre personnalis&eacute; dans le chemin
+d'acc&egrave;s aux classes. Il est conseill&eacute; d'utiliser le r&eacute;pertoire <samp>%install_root%/lib/ext</samp>. M&ecirc;me si le registre
+personnalis&eacute; impl&eacute;mente l'interface <samp>com.ibm.websphere.security.UserRegistry</samp>,
+un registre d'utilisateurs peut &eacute;galement, pour une compatibilit&eacute;
+amont, impl&eacute;menter l'interface <samp>com.ibm.websphere.security.CustomRegistry</samp>.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es :</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut :</td>
+<td align="left" valign="top" class="base">com.ibm.websphere.security.FileRegistrySample</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="CustomUserRegistry_ignoreCase_description"></a>Ignorer maj/min</strong>
+</dt>
+<dd>Indique qu'une v&eacute;rification sans prise en compte des
+majuscules et des minuscules est effectu&eacute;e.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut :</td>
+<td align="left" valign="top" class="base">Activ&eacute;e</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Port&eacute;e :</td>
+<td align="left" valign="top" class="base">Activ&eacute;e ou D&eacute;sactiv&eacute;e</td>
+
+</tr>
+
+</table>
+
+<div>Utilisez le lien <strong>Propri&eacute;t&eacute;s personnalis&eacute;es</strong> pour ajouter
+les propri&eacute;t&eacute;s suppl&eacute;mentaires requises pour l'initialisation du registre
+personnalis&eacute;. La propri&eacute;t&eacute; suivante est pr&eacute;-d&eacute;finie par le produit.
+D&eacute;finissez cette propri&eacute;t&eacute; uniquement lorsque cette op&eacute;ration est requise : <ul>
+
+<li>WAS_UseDisplayName : si cette propri&eacute;t&eacute; a pour valeur <samp>true</samp>, les
+m&eacute;thodes getCallerPrincipal(),
+getUserPrincipal(), getRemoteUser() renvoient le nom affich&eacute;. Par d&eacute;faut le <samp>nom de s&eacute;curit&eacute;</samp>
+de l'utilisateur est renvoy&eacute;. Cela
+permet avant tout de prendre en charge le registre personnalis&eacute; de la
+version 4.0 (compatibilit&eacute; arri&egrave;re).</li>
+
+</ul>
+</div>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informations connexes</strong>
+</p>
+<a href="rcon_buttons.html">Boutons de la console administrative</a>
+<br>
+
+<a href="rcon_pageusage.html">Caract&eacute;ristiques de la page de la console d'administration</a>
+<br>
+
+<a href="rcon_scope.html">Param&egrave;tres de la port&eacute;e de la console administrative</a>
+<br>
+
+<a href="rcon_filter.html">Param&egrave;tres de filtrage de la console administrative</a>
+<br>
+
+<a href="rcon_preferences.html">Param&egrave;tres des pr&eacute;f&eacute;rences de la console administrative</a>
+<br>
+
+</div>
+</body>
+</html>

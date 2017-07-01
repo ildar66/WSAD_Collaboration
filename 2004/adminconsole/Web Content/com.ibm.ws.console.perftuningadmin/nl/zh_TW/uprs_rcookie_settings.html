@@ -1,0 +1,80 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Cookie 設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="cook_set"></a>
+<h2>Cookie 設定</h2>
+
+<p>請利用這個頁面來配置階段作業管理的 Cookie 設定。</p>
+
+<p>如果要檢視這個管理主控台頁面，請按一下<strong>伺服器 </strong> &gt; <strong>應用程式伺服器</strong> &gt; <em>server_name</em> &gt; <strong>Web 儲存區</strong> &gt; <strong>階段作業管理</strong> &gt; <strong>啟用 Cookies</strong>。</p>
+
+<div>
+<p>
+<strong>「配置」標籤</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="Cookie_name_description"></a>Cookie 名稱</strong>
+</dt>
+<dd>指定階段作業管理 Cookie 的唯一名稱。
+Servlet 規格需要 JSESSIONID 這個名稱。不過，為了能靈活運用，您可以配置這個值。
+</dd>
+<dt>
+<strong><a name="Cookie_secure_description"></a>安全 Cookie</strong>
+</dt>
+<dd>指定階段作業 Cookie 包不包含安全欄位。
+啟用這個特性會限制只能與 HTTPS 階段作業交換 Cookie。</dd>
+<dt>
+<strong><a name="Cookie_domain_description"></a>Cookie 領域</strong>
+</dt>
+<dd>指定階段作業追蹤 Cookie 的領域欄位。
+這個值會控制是不是將 Cookie 傳送給特定伺服器。
+比方說，如果您指定一個特定領域，階段作業 Cookie 就會送往這個領域中的主機。
+預設領域是這個伺服器。
+</dd>
+<dt>
+<strong><a name="Cookie_path_description"></a>Cookie 路徑</strong>
+</dt>
+<dd>指定將 Cookie 送往路徑中所指定的 URL。
+指定代表伺服器中之路徑的任何字串。"/" 表示根目錄。
+請指定一個值來限制 Cookie 要送往的路徑。
+藉由限制路徑，您可以防止 Cookie 傳送至伺服器中的特定 URL。
+如果您指定根目錄的話，這時不論是存取給定伺服器中的任何路徑，都會傳送 Cookie。
+</dd>
+<dt>
+<strong><a name="Cookie_maximum_age"></a>Cookie 存在期間上限
+</strong>
+</dt>
+<dd>指定 Cookie 將存在於用戶端瀏覽器中的時間量。
+請指定 Cookie 的存活時間只和現行瀏覽器階段作業相同，或指定為有效期限上限。
+如果您選擇有效期限選項，請指定有效期限（秒）。
+這個值對應於 Cookie 規格中所說明的「存活時間」(TTL) 值。
+
+<p>預設值是現行瀏覽器階段作業，相當於將值設成 -1。
+</p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>相關資訊</strong>
+</p>
+<a href="rcon_buttons.html">管理主控台按鈕</a>
+<br>
+
+<a href="rcon_pageusage.html">管理主控台頁面特性</a>
+<br>
+
+<a href="rcon_preferences.html">管理主控台喜好設定</a>
+<br>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.0//EN"
+                               "http://jakarta.apache.org/struts/dtds/struts-config_1_0.dtd">
+<!--  IBM Confidential OCO Source Material                                    -->
+<!--  5630-A36 (C) COPYRIGHT International Business Machines Corp. 2003       -->
+<!--  The source code for this program is not published or otherwise divested -->
+<!--  of its trade secrets, irrespective of what has been deposited with the  -->
+<!--  U.S. Copyright Office.                                                  -->
+
+<struts-config>
+    <form-beans>
+        <form-bean name="com.ibm.ws.console.security.SecurityDetailForm" type="com.ibm.ws.console.security.SecurityDetailForm"/>
+        <form-bean name="com.ibm.ws.console.security.SecuritySDetailForm" type="com.ibm.ws.console.security.SecuritySDetailForm"/>
+        <form-bean name="com.ibm.ws.console.security.ServerSecurityDetailForm" type="com.ibm.ws.console.security.ServerSecurityDetailForm"/>
+        <form-bean name="com.ibm.ws.console.security.LTPADetailForm" type="com.ibm.ws.console.security.LTPADetailForm"/>
+        <form-bean name="com.ibm.ws.console.security.SingleSignonDetailForm" type="com.ibm.ws.console.security.SingleSignonDetailForm"/>
+        <form-bean name="com.ibm.ws.console.security.TAInterceptorCollectionForm" type="com.ibm.ws.console.security.TAInterceptorCollectionForm"/>
+        <form-bean name="com.ibm.ws.console.security.TAInterceptorDetailForm" type="com.ibm.ws.console.security.TAInterceptorDetailForm"/>
+        <form-bean name="com.ibm.ws.console.security.TrustAssociationDetailForm" type="com.ibm.ws.console.security.TrustAssociationDetailForm"/>
+        <form-bean name="com.ibm.ws.console.security.LocalOSUserRegistryDetailForm" type="com.ibm.ws.console.security.LocalOSUserRegistryDetailForm"/>
+        <form-bean name="com.ibm.ws.console.security.CustomUserRegistryDetailForm" type="com.ibm.ws.console.security.CustomUserRegistryDetailForm"/>
+        <form-bean name="com.ibm.ws.console.security.LDAPUserRegistryDetailForm" type="com.ibm.ws.console.security.LDAPUserRegistryDetailForm"/>
+        <form-bean name="com.ibm.ws.console.security.JAASConfigurationEntryCollectionForm" type="com.ibm.ws.console.security.JAASConfigurationEntryCollectionForm"/>
+        <form-bean name="com.ibm.ws.console.security.JAASConfigurationEntryDetailForm" type="com.ibm.ws.console.security.JAASConfigurationEntryDetailForm"/>
+        <form-bean name="com.ibm.ws.console.security.JAASLoginModuleCollectionForm" type="com.ibm.ws.console.security.JAASLoginModuleCollectionForm"/>
+        <form-bean name="com.ibm.ws.console.security.JAASLoginModuleDetailForm" type="com.ibm.ws.console.security.JAASLoginModuleDetailForm"/>
+        <form-bean name="com.ibm.ws.console.security.JAASAuthDataCollectionForm" type="com.ibm.ws.console.security.JAASAuthDataCollectionForm"/>
+        <form-bean name="com.ibm.ws.console.security.JAASAuthDataDetailForm" type="com.ibm.ws.console.security.JAASAuthDataDetailForm"/>
+        <form-bean name="com.ibm.ws.console.security.LDAPSearchFilterDetailForm" type="com.ibm.ws.console.security.LDAPSearchFilterDetailForm"/>
+        <form-bean name="com.ibm.ws.console.security.SSLConfigCollectionForm" type="com.ibm.ws.console.security.SSLConfigCollectionForm"/>
+        <form-bean name="com.ibm.ws.console.security.SSLConfigDetailForm" type="com.ibm.ws.console.security.SSLConfigDetailForm"/>
+        <form-bean name="com.ibm.ws.console.security.SecureSocketLayerDetailForm" type="com.ibm.ws.console.security.SecureSocketLayerDetailForm"/>
+        <form-bean name="com.ibm.ws.console.security.CryptoHardwareTokenDetailForm" type="com.ibm.ws.console.security.CryptoHardwareTokenDetailForm"/>
+        <form-bean name="com.ibm.ws.console.security.PropertyCollectionForm" type="com.ibm.ws.console.security.PropertyCollectionForm"/>
+        <form-bean name="com.ibm.ws.console.security.PropertyDetailForm" type="com.ibm.ws.console.security.PropertyDetailForm"/>
+        <form-bean name="com.ibm.ws.console.security.CSIiaDetailForm" type="com.ibm.ws.console.security.CSIiaDetailForm"/>
+        <form-bean name="com.ibm.ws.console.security.CSIoaDetailForm" type="com.ibm.ws.console.security.CSIoaDetailForm"/>
+        <form-bean name="com.ibm.ws.console.security.CSIicDetailForm" type="com.ibm.ws.console.security.CSIicDetailForm"/>
+        <form-bean name="com.ibm.ws.console.security.CSIocDetailForm" type="com.ibm.ws.console.security.CSIocDetailForm"/>
+        <form-bean name="com.ibm.ws.console.security.IBMicDetailForm" type="com.ibm.ws.console.security.IBMicDetailForm"/>
+        <form-bean name="com.ibm.ws.console.security.IBMocDetailForm" type="com.ibm.ws.console.security.IBMocDetailForm"/>
+        <form-bean name="com.ibm.ws.console.security.EndPointCollectionForm" type="com.ibm.ws.console.security.EndPointCollectionForm"/>
+        <form-bean name="com.ibm.ws.console.security.EndPointDetailForm" type="com.ibm.ws.console.security.EndPointDetailForm"/>
+    </form-beans>
+
+    <global-forwards>
+        <forward name="success" path="com.ibm.ws.console.security.forwardCmd.do?forwardName=Security.config.view"/>
+        <forward name="server.security.success" path="com.ibm.ws.console.security.forwardCmd.do?forwardName=ServerSecurity.config.view"/>
+    </global-forwards>
+
+    <action-mappings>
+
+       <!--action name="com.ibm.ws.console.security.forwardCmd"
+               path="/com.ibm.ws.console.security.forwardCmd"
+               type="com.ibm.ws.console.security.ForwardCmdAction"-->
+       <action name="com.ibm.ws.console.security.forwardCmd"
+               path="/com.ibm.ws.console.security.forwardCmd"
+               type="com.ibm.ws.console.core.action.ForwardAction">
+           <forward name="Security.config.view" path="Security.config.view"/>
+           <forward name="ServerSecurity.config.view" path="ServerSecurity.config.view"/>
+           <forward name="SecurityS.config.view" path="SecurityS.config.view"/>
+           <forward name="LTPA.config.view" path="LTPA.config.view"/>
+           <forward name="SingleSignon.config.view" path="SingleSignon.config.view"/>
+           <forward name="TrustAssociation.config.view" path="TrustAssociation.config.view"/>
+           <forward name="TAInterceptor.config.view" path="TAInterceptor.config.view"/>
+           <forward name="TAInterceptor.content.main" path="TAInterceptor.content.main"/>
+           <forward name="JAASConfigurationEntry.config.view" path="JAASConfigurationEntry.config.view"/>
+           <forward name="JAASConfigurationEntry.content.main" path="JAASConfigurationEntry.content.main"/>
+           <forward name="JAASSysConfigurationEntry.config.view" path="JAASSysConfigurationEntry.config.view"/>
+           <forward name="JAASSysConfigurationEntry.content.main" path="JAASSysConfigurationEntry.content.main"/>
+           <forward name="JAASLoginModule.content.main" path="JAASLoginModule.content.main"/>
+           <forward name="JAASLoginModule.config.view" path="JAASLoginModule.config.view"/>
+           <forward name="JAASAuthData.content.main" path="JAASAuthData.content.main"/>
+           <forward name="JAASAuthData.config.view" path="JAASAuthData.config.view"/>
+           <forward name="SSLConfig.content.main" path="SSLConfig.content.main"/>
+           <forward name="SSLConfig.config.view" path="SSLConfig.config.view"/>
+           <forward name="SecureSocketLayer.config.view" path="SecureSocketLayer.config.view"/>
+           <forward name="CryptoHardwareToken.config.view" path="CryptoHardwareToken.config.view"/>
+           <forward name="Security.Property.content.main" path="Security.Property.content.main"/>
+           <forward name="Security.Property.config.view" path="Security.Property.config.view"/>
+           <forward name="Security.AdminOnly.Property.content.main" path="Security.AdminOnly.Property.content.main"/>
+           <forward name="Security.AdminOnly.Property.config.view" path="Security.AdminOnly.Property.config.view"/>
+           <forward name="CSIia.config.view" path="CSIia.config.view"/>
+           <forward name="CSIoa.config.view" path="CSIoa.config.view"/>
+           <forward name="CSIic.config.view" path="CSIic.config.view"/>
+           <forward name="CSIoc.config.view" path="CSIoc.config.view"/>
+           <forward name="IBMic.config.view" path="IBMic.config.view"/>
+           <forward name="IBMoc.config.view" path="IBMoc.config.view"/>
+           <forward name="LDAPSearchFilter.config.view" path="LDAPSearchFilter.config.view"/>
+           <forward name="Security.EndPoint.content.main" path="Security.EndPoint.content.main"/>
+           <forward name="Security.EndPoint.config.view" path="Security.EndPoint.config.view"/>
+           <forward name="LDAPSearchFilter.config.view" path="LDAPSearchFilter.config.view"/>
+           <forward name="LocalOSUserRegistry.config.view" path="LocalOSUserRegistry.config.view"/>
+           <forward name="CustomUserRegistry.config.view" path="CustomUserRegistry.config.view"/>
+           <forward name="LDAPUserRegistry.config.view" path="LDAPUserRegistry.config.view"/>
+        </action>
+
+        <action
+            name="com.ibm.ws.console.security.SecurityDetailForm"
+            path="/securityDetail"
+            type="com.ibm.ws.console.security.SecurityDetailAction"
+            input="Security.config.view">
+            <forward name="error" path="Security.config.view"/>
+            <forward name="ltpaDetails" path="com.ibm.ws.console.security.forwardCmd.do?forwardName=LTPA.config.view"/>
+            <forward name="local"       path="com.ibm.ws.console.security.forwardCmd.do?forwardName=LocalOSUserRegistry.config.view"/>
+            <forward name="custom"      path="com.ibm.ws.console.security.forwardCmd.do?forwardName=CustomUserRegistry.config.view"/>
+            <forward name="ldap"        path="com.ibm.ws.console.security.forwardCmd.do?forwardName=LDAPUserRegistry.config.view"/>
+        </action>
+
+        <action
+            name="com.ibm.ws.console.security.SecuritySDetailForm"
+            path="/securitySDetail"
+            type="com.ibm.ws.console.security.SecuritySDetailAction"
+            input="SecurityS.config.view">
+            <forward name="error" path="SecurityS.config.view"/>
+        </action>
+
+        <action
+            name="com.ibm.ws.console.security.ServerSecurityDetailForm"
+            path="/serverSecurityDetail"
+            type="com.ibm.ws.console.security.ServerSecurityDetailAction"
+            input="ServerSecurity.config.view">
+            <forward name="error" path="ServerSecurity.config.view"/>
+        </action>
+
+        <action
+            name="com.ibm.ws.console.security.LTPADetailForm"
+            path="/lTPADetail"
+            type="com.ibm.ws.console.security.LTPADetailAction"
+            input="LTPA.config.view">
+            <forward name="error" path="LTPA.config.view"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.security.SingleSignonDetailForm"
+            path="/singleSignonDetail"
+            type="com.ibm.ws.console.security.SingleSignonDetailAction"
+            input="SingleSignon.config.view">
+            <forward name="success" path="com.ibm.ws.console.security.forwardCmd.do?forwardName=LTPA.config.view"/>
+            <forward name="error" path="SingleSignon.config.view"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.security.TAInterceptorCollectionForm"
+            path="/tAInterceptorCollection"
+            type="com.ibm.ws.console.security.TAInterceptorCollectionAction">
+            <forward name="failure" path="/error.jsp"/>
+            <forward name="success" path="TAInterceptor.config.view"/>
+            <forward name="tAInterceptorCollection" path="TAInterceptor.content.main"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.security.TAInterceptorDetailForm"
+            path="/tAInterceptorDetail"
+            type="com.ibm.ws.console.security.TAInterceptorDetailAction"
+            input="TAInterceptor.config.view">
+            <forward name="error" path="TAInterceptor.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.security.forwardCmd.do?forwardName=TAInterceptor.content.main"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.security.TrustAssociationDetailForm"
+            path="/trustAssociationDetail"
+            type="com.ibm.ws.console.security.TrustAssociationDetailAction"
+            input="TrustAssociation.config.view">
+            <forward name="success" path="com.ibm.ws.console.security.forwardCmd.do?forwardName=LTPA.config.view"/>
+            <forward name="error" path="TrustAssociation.config.view"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.security.LocalOSUserRegistryDetailForm"
+            path="/localOSUserRegistryDetail"
+            type="com.ibm.ws.console.security.LocalOSUserRegistryDetailAction"
+            input="LocalOSUserRegistry.config.view">
+            <forward name="error" path="LocalOSUserRegistry.config.view"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.security.CustomUserRegistryDetailForm"
+            path="/customUserRegistryDetail"
+            type="com.ibm.ws.console.security.CustomUserRegistryDetailAction"
+            input="CustomUserRegistry.config.view">
+            <forward name="error" path="CustomUserRegistry.config.view"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.security.LDAPUserRegistryDetailForm"
+            path="/lDAPUserRegistryDetail"
+            type="com.ibm.ws.console.security.LDAPUserRegistryDetailAction"
+            input="LDAPUserRegistry.config.view">
+            <forward name="error" path="LDAPUserRegistry.config.view"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.security.JAASConfigurationEntryCollectionForm"
+            path="/jAASConfigurationEntryCollection"
+            type="com.ibm.ws.console.security.JAASConfigurationEntryCollectionAction">
+            <forward name="failure" path="/error.jsp"/>
+            <forward name="success" path="JAASConfigurationEntry.config.view"/>
+            <forward name="jAASConfigurationEntryCollection" path="JAASConfigurationEntry.content.main"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.security.JAASConfigurationEntryDetailForm"
+            path="/jAASConfigurationEntryDetail"
+            type="com.ibm.ws.console.security.JAASConfigurationEntryDetailAction"
+            input="JAASConfigurationEntry.config.view">
+            <forward name="error" path="JAASConfigurationEntry.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.security.forwardCmd.do?forwardName=JAASConfigurationEntry.content.main&#38;sfname=entries"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.security.JAASConfigurationEntryCollectionForm"
+            path="/jAASSysConfigurationEntryCollection"
+            type="com.ibm.ws.console.security.JAASConfigurationEntryCollectionAction">
+            <forward name="failure" path="/error.jsp"/>
+            <forward name="success" path="JAASSysConfigurationEntry.config.view"/>
+            <forward name="jAASConfigurationEntryCollection" path="JAASSysConfigurationEntry.content.main"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.security.JAASConfigurationEntryDetailForm"
+            path="/jAASSysConfigurationEntryDetail"
+            type="com.ibm.ws.console.security.JAASConfigurationEntryDetailAction"
+            input="JAASSysConfigurationEntry.config.view">
+            <forward name="error" path="JAASSysConfigurationEntry.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.security.forwardCmd.do?forwardName=JAASSysConfigurationEntry.content.main&#38;sfname=entries"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.security.JAASLoginModuleCollectionForm"
+            path="/jAASLoginModuleCollection"
+            type="com.ibm.ws.console.security.JAASLoginModuleCollectionAction">
+            <forward name="failure" path="/error.jsp"/>
+            <forward name="success" path="JAASLoginModule.config.view"/>
+            <forward name="jAASLoginModuleCollection" path="JAASLoginModule.content.main"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.security.JAASLoginModuleDetailForm"
+            path="/jAASLoginModuleDetail"
+            type="com.ibm.ws.console.security.JAASLoginModuleDetailAction"
+            input="JAASLoginModule.config.view">
+            <forward name="error" path="JAASLoginModule.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.security.forwardCmd.do?forwardName=JAASLoginModule.content.main&#38;sfname=loginModules"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.security.JAASAuthDataCollectionForm"
+            path="/jAASAuthDataCollection"
+            type="com.ibm.ws.console.security.JAASAuthDataCollectionAction">
+            <forward name="failure" path="/error.jsp"/>
+            <forward name="success" path="JAASAuthData.config.view"/>
+            <forward name="jAASAuthDataCollection" path="JAASAuthData.content.main"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.security.JAASAuthDataDetailForm"
+            path="/jAASAuthDataDetail"
+            type="com.ibm.ws.console.security.JAASAuthDataDetailAction"
+            input="JAASAuthData.config.view">
+            <forward name="error" path="JAASAuthData.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.security.forwardCmd.do?forwardName=JAASAuthData.content.main&#38;sfname=authDataEntries"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.security.LDAPSearchFilterDetailForm"
+            path="/lDAPSearchFilterDetail"
+            type="com.ibm.ws.console.security.LDAPSearchFilterDetailAction"
+            input="LDAPSearchFilter.config.view">
+            <forward name="error" path="LDAPSearchFilter.config.view"/>
+            <forward name="success" path="LDAPUserRegistry.config.view"/>
+        </action>
+
+        <action
+            name="com.ibm.ws.console.security.IBMicDetailForm"
+            path="/iBMicDetail"
+            type="com.ibm.ws.console.security.IBMicDetailAction"
+            input="IBMic.config.view">
+            <forward name="error" path="IBMic.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.security.forwardCmd.do?forwardName=Security.config.view"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.security.IBMocDetailForm"
+            path="/iBMocDetail"
+            type="com.ibm.ws.console.security.IBMocDetailAction"
+            input="IBMoc.config.view">
+            <forward name="error" path="IBMoc.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.security.forwardCmd.do?forwardName=Security.config.view"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.security.CSIicDetailForm"
+            path="/cSIicDetail"
+            type="com.ibm.ws.console.security.CSIicDetailAction"
+            input="CSIic.config.view">
+            <forward name="error" path="CSIic.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.security.forwardCmd.do?forwardName=Security.config.view"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.security.CSIocDetailForm"
+            path="/cSIocDetail"
+            type="com.ibm.ws.console.security.CSIocDetailAction"
+            input="CSIoc.config.view">
+            <forward name="error" path="CSIoc.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.security.forwardCmd.do?forwardName=Security.config.view"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.security.CSIiaDetailForm"
+            path="/cSIiaDetail"
+            type="com.ibm.ws.console.security.CSIiaDetailAction"
+            input="CSIia.config.view">
+            <forward name="error" path="CSIia.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.security.forwardCmd.do?forwardName=Security.config.view"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.security.CSIoaDetailForm"
+            path="/cSIoaDetail"
+            type="com.ibm.ws.console.security.CSIoaDetailAction"
+            input="CSIoa.config.view">
+            <forward name="error" path="CSIoa.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.security.forwardCmd.do?forwardName=Security.config.view"/>
+        </action>
+
+        <action
+            name="com.ibm.ws.console.security.SSLConfigCollectionForm"
+            path="/sSLConfigCollection"
+            type="com.ibm.ws.console.security.SSLConfigCollectionAction">
+            <forward name="failure" path="/error.jsp"/>
+            <forward name="success" path="SSLConfig.config.view"/>
+            <forward name="sSLConfigCollection" path="SSLConfig.content.main"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.security.SSLConfigDetailForm"
+            path="/sSLConfigDetail"
+            type="com.ibm.ws.console.security.SSLConfigDetailAction"
+            input="SSLConfig.config.view">
+            <forward name="error" path="SSLConfig.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.security.forwardCmd.do?forwardName=SSLConfig.content.main"/>
+        </action>
+
+        <action
+            name="com.ibm.ws.console.security.SecureSocketLayerDetailForm"
+            path="/secureSocketLayerDetail"
+            type="com.ibm.ws.console.security.SecureSocketLayerDetailAction"
+            input="SecureSocketLayer.config.view">
+            <forward name="error" path="SecureSocketLayer.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.security.forwardCmd.do?forwardName=SSLConfig.config.view"/>
+        </action>
+
+        <action
+            name="com.ibm.ws.console.security.CryptoHardwareTokenDetailForm"
+            path="/cryptoHardwareTokenDetail"
+            type="com.ibm.ws.console.security.CryptoHardwareTokenDetailAction"
+            input="CryptoHardwareToken.config.view">
+            <forward name="success" path="com.ibm.ws.console.security.forwardCmd.do?forwardName=SSLConfig.config.view"/>
+            <forward name="error" path="CryptoHardwareToken.config.view"/>
+        </action>
+
+        <action
+            name="com.ibm.ws.console.security.PropertyCollectionForm"
+            path="/secPropertyCollection"
+            type="com.ibm.ws.console.security.PropertyCollectionAction">
+            <forward name="failure" path="/error.jsp"/>
+            <forward name="success" path="Security.Property.config.view"/>
+            <forward name="secPropertyCollection" path="Security.Property.content.main"/>
+        </action>
+
+        <action
+            name="com.ibm.ws.console.security.PropertyDetailForm"
+            path="/secPropertyDetail"
+            type="com.ibm.ws.console.security.PropertyDetailAction"
+            input="Security.Property.config.view">
+            <forward name="error" path="Security.Property.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.security.forwardCmd.do?forwardName=Security.Property.content.main"/>
+        </action>
+
+        <action
+            name="com.ibm.ws.console.security.PropertyCollectionForm"
+            path="/secAdminPropertyCollection"
+            type="com.ibm.ws.console.security.PropertyCollectionAction">
+            <forward name="failure" path="/error.jsp"/>
+            <forward name="success" path="Security.AdminOnly.Property.config.view"/>
+            <forward name="secPropertyCollection" path="Security.AdminOnly.Property.content.main"/>
+        </action>
+
+        <action
+            name="com.ibm.ws.console.security.PropertyDetailForm"
+            path="/secAdminPropertyDetail"
+            type="com.ibm.ws.console.security.PropertyDetailAction"
+            input="Security.AdminOnly.Property.config.view">
+            <forward name="error" path="Security.AdminOnly.Property.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.security.forwardCmd.do?forwardName=Security.AdminOnly.Property.content.main"/>
+        </action>
+
+        <action
+            name="com.ibm.ws.console.security.EndPointCollectionForm"
+            path="/securityEndPointCollection"
+            type="com.ibm.ws.console.security.EndPointCollectionAction">
+            <forward name="failure" path="/error.jsp"/>
+            <forward name="success" path="Security.EndPoint.config.view"/>
+            <forward name="securityEndPointCollection" path="Security.EndPoint.content.main"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.security.EndPointDetailForm"
+            path="/securityEndPointDetail"
+            type="com.ibm.ws.console.security.EndPointDetailAction"
+            input="Security.EndPoint.config.view">
+            <forward name="error" path="Security.EndPoint.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.security.forwardCmd.do?forwardName=Security.EndPoint.content.main&#38;sfname=hosts"/>
+        </action>
+
+    </action-mappings>
+</struts-config>

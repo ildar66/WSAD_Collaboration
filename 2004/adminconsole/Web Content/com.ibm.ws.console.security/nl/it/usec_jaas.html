@@ -1,0 +1,151 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Impostazioni della voce di configurazione JAAS (Java Authentication and Authorization service)</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecjaas"></a>
+<h2>
+<img alt="[Fix Pack 5.0.1 e successive]" src="v501.gif" border="0">Impostazioni della voce di configurazione JAAS (Java Authentication and Authorization service)</h2>
+
+<p>Utilizzare questa pagina per specificare un elenco di configurazioni di login
+JAAS (Java Authentication and Authorization) per il codice dell'applicazione da
+utilizzare, compresi i bean enterprise, le JSP
+(Java Server Pages), i servlet e gli adattatori risorse.</p>
+
+<p>Per visualizzare questa pagina della console di gestione, fare clic su
+<strong>Sicurezza</strong> &gt;
+<strong>Configurazione JAAS</strong> &gt; <strong>Configurazione login applicazione</strong>.</p>
+
+<p>Si consiglia di leggere la documentazione JAAS, presente in InfoCenter, prima di
+definire ulteriori moduli login utilizzati per l'autenticazione del runtime
+di sicurezza di WebSphere Application Server. &Egrave; possibile definire altre configurazioni login per le applicazioni. Tuttavia, se il LoginModule di WebSphere Application Server
+(<samp>com.ibm.ws.security.common.auth.module.WSLoginModuleImpl</samp>) non &egrave; utilizzato, o
+LoginModule non produce una credenziale riconosciuta da WebSphere Application Server,
+il runtime di sicurezza di WebSphere Application Server non pu&ograve; utilizzare il
+soggetto, autenticato da queste configurazioni login, per controllare l'autorizzazione
+dell'accesso risorse.</p>
+
+<p>
+<p>
+<img alt="[Fix Pack 5.0.1 e successive]" src="v501.gif" border="0"><b>Nota: </b>&Egrave; necessario richiamare i programmi client Java che utilizzano
+JAAS (Java Authentication and Authorization Service) per l'autenticazione con un file
+di configurazione JAAS specificato. Il prodotto WebSphere fornisce il file di configurazione JAAS
+predefinito, wsjaas_client.conf nella directory &lt;root_installazione&gt;/properties. Questo file
+di configurazione viene impostato in <em>/&lt;root_installazione&gt;/bin/launchClient.bat</em> come:
+<strong>set
+JAAS_LOGIN_CONFIG=-Djava.security.auth.login.config=%WAS_HOME%\properties\wsjaas_client.conf</strong>
+<p>Se il
+file launchClient.bat non viene utilizzato per richiamare i programmi client Java, verificare che il file di
+configurazione JAAS appropriato sia stato inviato alla JVM (Java virtual machine) con l'indicatore
+<em>-Djava.security.auth.login.config</em>. </p>
+</p>
+</p>
+
+<dl>
+<dt>
+<strong>ClientContainer</strong>
+</dt>
+<dd>Specifica la configurazione login utilizzata dal contenitore client
+applicativo,
+che utilizza l'API CallbackHandler definita nel descrittore di distribuzione del
+contenitore client.
+<p>ClientContainer &egrave; la configurazione login predefinita di WebSphere Application Server. Non eliminare tale impostazione, in quanto altre applicazioni che la utilizzano non
+funzionerebbero correttamente.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito:</td>
+<td align="left" valign="top" class="base">ClientContainer</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong>DefaultPrincipalMapping</strong>
+</dt>
+<dd>Specifica la configurazione login utilizzata dai connettori Java 2 per mappare
+gli utenti sui principal definiti <strong>Voci dati di autenticazione J2C.</strong>
+
+<p>DefaultPrincipalMapping &egrave; la configurazione login predefinita di WebSphere Application
+Server. Non eliminare tale impostazione, in quanto altre applicazioni che la utilizzano non
+funzionerebbero correttamente. La configurazione login
+DefaultPrincipalMapping autentica gli utenti per il runtime di sicurezza WebSphere
+Application Server. Utilizzare
+le credenziali dal soggetto autenticato, restituito da questa configurazione login, come
+controllo di autorizzazione per l'accesso alle risorse WebSphere Application Server. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito:</td>
+<td align="left" valign="top" class="base">ClientContainer</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong>WSLogin</strong>
+</dt>
+<dd>Indica se tutte le applicazioni possono utilizzare la configurazione WSLogin per
+eseguire
+l'autenticazione del runtime di sicurezza di WebSphere Application Server.
+<p>Questa configurazione login non utilizza CallbackHandler, definito nel descrittore
+di distribuzione del contenitore client. Per tale funzionalit&agrave;, utilizzare la
+configurazione login ClientContainer.</p>
+
+<p>WSLogin &egrave; la configurazione login predefinita di WebSphere
+Application
+Server. Non eliminare tale impostazione, in quanto altre applicazioni che la utilizzano non
+funzionerebbero correttamente.
+Questa configurazione di login
+autentica gli utenti per il runtime di sicurezza di WebSphere Application
+Server. Utilizzare le credenziali dal soggetto autenticato,
+restituito da questa configurazione di login, come controllo di autorizzazione per l'accesso
+alle risorse WebSphere Application Server.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito:</td>
+<td align="left" valign="top" class="base">ClientContainer</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>Informazioni correlate</strong>
+</p>
+<a href="rcon_buttons.html">Pulsanti della console di gestione</a>
+<br>
+
+<a href="rcon_pageusage.html">Funzioni della pagina della console di gestione</a>
+<br>
+
+<a href="rcon_scope.html">Impostazioni ambito della console di gestione</a>
+<br>
+
+<a href="rcon_filter.html">Impostazioni di filtro della console di gestione</a>
+<br>
+
+<a href="rcon_preferences.html">Impostazioni delle preferenze della console di gestione</a>
+<br>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Konfigurationseinstellungen f&uuml;r Signaturdaten</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_signinfon"></a>
+<h2>
+<img alt="[Fixpack 5.0.2 und h&ouml;her]" src="v502.gif" border="0">Konfigurationseinstellungen f&uuml;r Signaturdaten</h2>
+
+<p>Verwenden Sie diese Seite, um neue Signaturparameter zu konfigurieren.</p>
+
+<p>Die auf dieser Seite aufgelisteten Spezifikationen f&uuml;r die Signaturmethode, Digest-Methode
+und Kanonisierungsmethode finden Sie im W3C-Dokument mit dem Titel
+"XMLSignature Syntax and Specification: W3C Recommendation 12 Feb 2002".</p>
+
+<p>Klicken Sie zum Anzeigen dieser Seite der Administrationskonsole auf
+<strong>Enterprise-Anwendungen</strong> &gt; <em>Anwendungsname</em>.
+Klicken Sie unter "Zugeh&ouml;rige Elemente" auf <strong>Webmodul
+&gt; </strong><em>Name_der_URI-Datei</em> <strong>&gt; Web Services: Sicherheitsbindungen des Servers</strong>.
+Klicken Sie in der Spalte "Bindung des Anforderungsempf&auml;ngers" auf
+<strong>Bearbeiten &gt; Signaturdaten &gt; Neu</strong>.</p>
+
+<p>Klicken Sie auf <strong>Neu</strong>, um einen Signaturparameter zu erstellen. </p>
+
+<p>Klicken Sie auf <strong>L&ouml;schen</strong>, um einen Signaturparameter zu l&ouml;schen.</p>
+
+<dl>
+<dt>
+<strong><a name="sec_sigmeth"></a>Signaturmethode</strong>
+</dt>
+<dd>Der URI des Algorithmus f&uuml;r die Signaturmethode.
+Diese Methode enth&auml;lt den echten Wert der mit base64 verschl&uuml;sselten digitalen Signatur.
+<p>Die folgenden Algorithmen werden unterst&uuml;tzt:<ul>
+
+<li>
+<samp>http://www.w3.org/2000/09/xmldsig#rsa-sha1</samp>
+</li>
+
+<li>
+<samp>http://www.w3.org/2000/09/xmldsig#dsa-sha1</samp>
+</li>
+
+</ul>
+</p>
+
+</dd>
+<dt>
+<strong><a name="sec_digestmeth"></a>Digest-Methode
+</strong>
+</dt>
+<dd>Der URI des Algorithmus f&uuml;r die Digest-Methode.
+
+<p>Der Algorithmus <samp>http://www.w3.org/2000/09/xmldsig#sha1</samp> wird unterst&uuml;tzt.</p>
+
+</dd>
+<dt>
+<strong><a name="sec_cancmeth"></a>Kanonisierungsmethode
+</strong>
+</dt>
+<dd>Der URI des Algorithmus f&uuml;r die Kanonisierungsmethode.
+
+<p>Die folgenden Algorithmen werden unterst&uuml;tzt:<ul>
+
+<li>
+<samp>http://www.w3.org/2001/10/xml-exc-c14n#</samp>
+</li>
+
+<li>
+<samp>http://www.w3.org/2001/10/xml-exc-c14n#WithComments</samp>
+</li>
+
+<li>
+<samp>http://www.w3.org/TR/2001/REC-xml-c14n-20010315</samp>
+</li>
+
+<li>
+<samp>http://www.w3.org/TR/2001/REC-xml-c14n-20010315#WithComments</samp>
+</li>
+
+</ul>
+</p>
+
+</dd>
+<dt>
+<strong><a name="sec_signk"></a>Signaturschl&uuml;ssel
+</strong>
+</dt>
+<dd>Die f&uuml;r die Signatur zu verwendenden Schl&uuml;sseldaten. Diese Felder werden in der Konfiguration auf Empf&auml;ngerseite ignoriert.
+
+<p>Wenn Sie einen <strong>Schl&uuml;sselnamen</strong> und eine <strong>Referenz auf den Key Locator</strong> angeben, w&auml;hlen
+Sie im Feld "Zertifikatpfad" <strong>Kein</strong> aus. </p>
+
+</dd>
+<dt>
+<strong><a name="sec_certpath"></a>Zertifikatpfad</strong>
+</dt>
+<dd> Die Einstellungen f&uuml;r die Validierung des Zertifikatpfads. Wenn
+Sie <strong>Jedem vertrauen</strong> ausw&auml;hlen, wird diese Validierung &uuml;bersprungen, und alle eingehenden Zertifikate werden als vertrauensw&uuml;rdig eingestuft. Diese Felder werden in der Konfiguration auf Senderseite ignoriert.
+
+<p>Wenn Sie auf <strong>Jedem vertrauen</strong> klicken oder einen <strong>Trust Anchor</strong> und einen <strong>Certificate
+Store</strong> ausw&auml;hlen, w&auml;hlen Sie als Signaturschl&uuml;ssel im vorherigen Feld <strong>Kein</strong> aus. </p>
+
+<p>
+<strong>Trust Anchor</strong>
+</p>
+
+<p>Klicken Sie zur Auswahl eines Trust Anchor auf <strong>Server
+&gt; Anwendungsserver &gt; </strong><em>Servername</em>. Klicken Sie unter "Weitere Merkmale" auf <strong>Web Services:
+Standardbindungen f&uuml;r die Sicherheit von Web Services &gt; Trust Anchor</strong>.</p>
+
+<p>
+<strong>Certificate Store</strong>
+</p>
+
+<p>Klicken Sie zur Auswahl eines Collection Store auf <strong>Server
+&gt; Anwendungsserver &gt; </strong><em>Servername</em>. Klicken Sie unter "Zugeh&ouml;rige Elemente"
+auf <strong>Web Services:
+Standardbindungen f&uuml;r die Sicherheit von Web Services &gt; Collection Certificate Store</strong>.</p>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>Zugeh&ouml;rige Informationen</strong>
+</p>
+<a href="uwbs_signinfo.html">Signaturdaten</a>
+<br>
+
+</div>
+</body>
+</html>

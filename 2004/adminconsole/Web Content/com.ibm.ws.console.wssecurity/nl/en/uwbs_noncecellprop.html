@@ -1,0 +1,149 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Nonce cell-level properties</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_noncecellprop"></a>
+<h2>
+<img alt="[Release 5.1 and later]" src="v51.gif" border="0">Nonce cell-level properties</h2>
+
+<p>Use this page to specify the nonce configuration on the cell level
+in a WebSphere Application Server Network Deployment environment.</p>
+
+<p>To view this administrative console page, click <strong>Security &gt; Web Services
+&gt; Properties</strong>.</p>
+
+<p>Define the server-side nonce configuration by clicking <strong>Servers &gt; Application
+Servers  &gt; </strong><em>server_name</em>. Under Additional Properties, click <strong>Web
+Services: Default bindings for Web Services Security</strong>.</p>
+
+<p>
+<img alt="[Release 5.1 and later]" src="v51.gif" border="0"><em>Nonce</em> is a unique cryptographic number embedded
+in a message to help stop repeat, unauthorized attacks of user name tokens.
+In a WebSphere Application Server Network Deployment environment, you must
+specify values for the <strong>Nonce Cache Timeout</strong>, <strong>Nonce Maximum Age</strong>,
+and <strong>Nonce Clock Skew</strong> fields for the cell level. </p>
+
+<dl>
+<dt>
+<strong><a name="sec_cellnoncecachetimeout"></a>Nonce Cache Timeout</strong>
+</dt>
+<dd>Specifies the time out value, in seconds, for the nonce cached
+on the server. Nonce is a randomly generated value.
+<p>You must specify a minimum of 300 seconds for the <strong>Nonce Cache Timeout</strong> field.
+However, if you do not specify a value, the default is 600 seconds.</p>
+
+<p>The <strong>Nonce Cache Timeout</strong> field for the cell level is required in
+the WebSphere Application Server Network Deployment environment.</p>
+
+<p>
+<b>Note: </b>If you make changes to the nonce cache timeout value,
+you must restart WebSphere Application Server for the changes to take effect.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">600 seconds</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Minimum</td>
+<td align="left" valign="top" class="base">300 seconds</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="sec_cellnoncemaxage"></a>Nonce Maximum Age</strong>
+</dt>
+<dd>Specifies the time, in seconds, before the nonce time stamp expires.
+Nonce is a randomly generated value.
+<p>You must specify a minimum of 300 seconds for the <strong>Nonce Maximum Age</strong> field.
+However, the maximum value cannot exceed the number of seconds specified in
+the <strong>Nonce Cache Timeout</strong> field for the cell level. If you do not specify
+a value, the default is 300 seconds. The value specified in this cell-level
+field is the maximum value that you can specify for the <strong>Nonce Maximum Age</strong> field
+for the server level. You can specify the <strong>Nonce Maximum Age</strong> value for
+the server level by clicking <strong>Servers &gt; Application Servers  &gt; </strong><em>server_name</em>.
+Under Additional Properties, click <strong>Web Services: Default bindings for Web
+Services Security</strong>.</p>
+
+<p>The <strong>Nonce Maximum Age</strong> field for the cell level is required in the
+WebSphere Application Server Network Deployment environment.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">300 seconds</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range</td>
+<td align="left" valign="top" class="base">300 to <strong>Nonce Cache Timeout</strong> seconds</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="sec_nonceclockskew"></a>Nonce Clock Skew</strong>
+</dt>
+<dd>Specifies the clock skew value, in seconds, to consider when WebSphere
+Application Server checks the freshness of the message. Nonce is a randomly
+generated value.
+<p>You must specify a minimum of 0 seconds for the <strong>Nonce Clock Skew</strong> field.
+However, the maximum value cannot exceed the number of seconds specified in
+the <strong>Nonce Maximum Age</strong> cell-level field. If you do not specify a value,
+the default is 0 seconds.</p>
+
+<p>The <strong>Nonce Clock Skew</strong> field for the cell level is required in the
+WebSphere Application Server Network Deployment environment.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">0 seconds</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range</td>
+<td align="left" valign="top" class="base">0 to <strong>Nonce Maximum Age</strong> seconds</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>Related information</strong>
+</p>
+<a href="uwbs_websvcb.html">Web services: default bindings for the Web services security collection</a>
+<br>
+
+<a href="uwbs_logmapn.html">Login mapping configuration settings</a>
+<br>
+
+</div>
+</body>
+</html>

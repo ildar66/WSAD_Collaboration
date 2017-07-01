@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:odc="http://www.ibm.com/Odyssey" name="Hello" nsURI="com/ibm/odcb/simple/wdo4jsmediators/Hello/Hello_client.ecore" nsPrefix="">
+  <eClassifiers xsi:type="ecore:EDataType" name="WDODate" instanceClassName="java.util.Date"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Hello">
+    <eAttributes name="ODCstatus" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EChar"/>
+    <eAttributes name="ODCid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eAttributes name="xmi:id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eAttributes name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="0" upperBound="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Diff">
+    <eReferences name="Current" eType="#//ClientRoot" lowerBound="1" upperBound="1" containment="true"/>
+    <eReferences name="Original" eType="#//ClientRoot" lowerBound="1" upperBound="1" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ClientRoot">
+    <eReferences name="Hello" eType="#//Hello" lowerBound="0" upperBound="-1" containment="false"/>
+  </eClassifiers>
+</ecore:EPackage>

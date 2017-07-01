@@ -1,0 +1,317 @@
+------Start of DE processing------ = [04.10.25 11:30:35:375 MSD] , key = java.net.SocketException com.ibm.ws.webcontainer.servlet.StrictLifecycleServlet._service 187
+Exception = java.net.SocketException
+Source = com.ibm.ws.webcontainer.servlet.StrictLifecycleServlet._service
+probeid = 187
+Stack Dump = java.net.SocketException: Connection reset by peer: socket write error
+	at java.net.SocketOutputStream.socketWrite(Native Method)
+	at java.net.SocketOutputStream.write(SocketOutputStream.java:103)
+	at com.ibm.ws.io.Stream.write(Stream.java:26)
+	at com.ibm.ws.io.WriteStream.flushMyBuf(WriteStream.java:145)
+	at com.ibm.ws.io.WriteStream.flush(WriteStream.java:137)
+	at com.ibm.ws.http.ResponseStream.flush(ResponseStream.java:323)
+	at com.ibm.ws.io.WriteStream.flush(WriteStream.java:139)
+	at com.ibm.ws.webcontainer.http.HttpConnection.flush(HttpConnection.java:379)
+	at com.ibm.ws.webcontainer.srp.SRPConnection.flush(SRPConnection.java:242)
+	at com.ibm.ws.webcontainer.srt.SRTOutputStream.flush(SRTOutputStream.java:45)
+	at java.io.OutputStreamWriter.flush(OutputStreamWriter.java:259)
+	at com.ibm.ws.webcontainer.srt.BufferedWriter.flushChars(BufferedWriter.java:348)
+	at com.ibm.ws.webcontainer.srt.BufferedWriter.flush(BufferedWriter.java:326)
+	at com.ibm.ws.webcontainer.srt.BufferedWriter.flushBuffer(BufferedWriter.java:488)
+	at com.ibm.ws.webcontainer.srt.SRTServletResponse.flushBuffer(SRTServletResponse.java:841)
+	at com.ibm.ws.webcontainer.servlet.HttpServletResponseProxy.flushBuffer(HttpServletResponseProxy.java:142)
+	at com.ibm.ws.webcontainer.servlet.HttpServletResponseProxy.flushBuffer(HttpServletResponseProxy.java:142)
+	at com.ibm.ws.webcontainer.webapp.WebAppRequestDispatcher.handleWebAppDispatch(WebAppRequestDispatcher.java:879)
+	at com.ibm.ws.webcontainer.webapp.WebAppRequestDispatcher.dispatch(WebAppRequestDispatcher.java:491)
+	at com.ibm.ws.webcontainer.webapp.WebAppRequestDispatcher.forward(WebAppRequestDispatcher.java:173)
+	at org.apache.struts.action.ActionServlet.processActionForward(ActionServlet.java:1759)
+	at org.apache.struts.action.ActionServlet.process(ActionServlet.java:1596)
+	at org.apache.struts.action.ActionServlet.doGet(ActionServlet.java:492)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:740)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:853)
+	at com.ibm.ws.webcontainer.servlet.StrictServletInstance.doService(StrictServletInstance.java:110)
+	at com.ibm.ws.webcontainer.servlet.StrictLifecycleServlet._service(StrictLifecycleServlet.java:174)
+	at com.ibm.ws.webcontainer.servlet.IdleServletState.service(StrictLifecycleServlet.java:313)
+	at com.ibm.ws.webcontainer.servlet.StrictLifecycleServlet.service(StrictLifecycleServlet.java:116)
+	at com.ibm.ws.webcontainer.servlet.ServletInstance.service(ServletInstance.java:258)
+	at com.ibm.ws.webcontainer.servlet.ValidServletReferenceState.dispatch(ValidServletReferenceState.java:42)
+	at com.ibm.ws.webcontainer.servlet.ServletInstanceReference.dispatch(ServletInstanceReference.java:40)
+	at com.ibm.ws.webcontainer.webapp.WebAppRequestDispatcher.handleWebAppDispatch(WebAppRequestDispatcher.java:872)
+	at com.ibm.ws.webcontainer.webapp.WebAppRequestDispatcher.dispatch(WebAppRequestDispatcher.java:491)
+	at com.ibm.ws.webcontainer.webapp.WebAppRequestDispatcher.forward(WebAppRequestDispatcher.java:173)
+	at com.ibm.ws.webcontainer.srt.WebAppInvoker.doForward(WebAppInvoker.java:79)
+	at com.ibm.ws.webcontainer.srt.WebAppInvoker.handleInvocationHook(WebAppInvoker.java:199)
+	at com.ibm.ws.webcontainer.cache.invocation.CachedInvocation.handleInvocation(CachedInvocation.java:71)
+	at com.ibm.ws.webcontainer.cache.invocation.CacheableInvocationContext.invoke(CacheableInvocationContext.java:114)
+	at com.ibm.ws.webcontainer.srp.ServletRequestProcessor.dispatchByURI(ServletRequestProcessor.java:187)
+	at com.ibm.ws.webcontainer.oselistener.OSEListenerDispatcher.service(OSEListener.java:331)
+	at com.ibm.ws.webcontainer.http.HttpConnection.handleRequest(HttpConnection.java:56)
+	at com.ibm.ws.http.HttpConnection.readAndHandleRequest(HttpConnection.java:432)
+	at com.ibm.ws.http.HttpConnection.run(HttpConnection.java:343)
+	at com.ibm.ws.util.ThreadPool$Worker.run(ThreadPool.java:592)
+
+Dump of callerThis = 
+Object type = com.ibm.ws.webcontainer.servlet.StrictServletInstance
+com.ibm.ws.webcontainer.servlet.StrictServletInstance@177ebcce
+
+Exception = java.net.SocketException
+Source = com.ibm.ws.webcontainer.servlet.StrictLifecycleServlet._service
+probeid = 187
+Dump of callerThis = 
+Object type = com.ibm.ws.webcontainer.servlet.StrictServletInstance
+  class$com$ibm$ws$webcontainer$servlet$StrictServletInstance = 
+    serialPersistentFields = {}
+    serialVersionUID = 3206093459760846163
+    allPermDomain = null
+    getPDperm = null
+    have_extensions = true
+  _servicingCount = 0
+  _servletClassname = org.apache.struts.action.ActionServlet
+  _servletName = action
+  _servlet = 
+    tempDir = null
+    multipartClass = org.apache.struts.upload.DiskMultipartRequestHandler
+    maxFileSize = 250M
+    bufferSize = 4096
+    validating = true
+    validate = true
+    servletName = action
+    servletMapping = *.do
+    registrations = 
+      [0] = -//Apache Software Foundation//DTD Struts Configuration 1.0//EN
+      [1] = /org/apache/struts/resources/struts-config_1_0.dtd
+      [2] = -//Sun Microsystems, Inc.//DTD Web Application 2.2//EN
+      [3] = /org/apache/struts/resources/web-app_2_2.dtd
+      [4] = -//Sun Microsystems, Inc.//DTD Web Application 2.3//EN
+      [5] = /org/apache/struts/resources/web-app_2_3.dtd
+    nocache = false
+    mappings = 
+      unknown = null
+      servlet = this._servlet
+      mappings = org.apache.struts.util.FastHashMap@9d77cce
+    mappingClass = org.apache.struts.action.ActionMapping
+    locale = true
+    internalName = org.apache.struts.action.ActionResources
+    internal = 
+      messages = java.util.HashMap@70287ccf
+      locales = java.util.HashMap@702c3ccf
+      defaultFactory = org.apache.struts.util.PropertyMessageResourcesFactory@72507ccf
+      returnNull = true
+      formats = java.util.HashMap@7020fccf
+      factory = this._servlet.internal.defaultFactory
+      defaultLocale = this._servlet.defaultLocale
+      config = org.apache.struts.action.ActionResources
+    forwards = 
+      forwards = org.apache.struts.util.FastHashMap@e7f3cce
+    forwardClass = org.apache.struts.action.ActionForward
+    formBeans = 
+      formBeans = org.apache.struts.util.FastHashMap@494fcce
+    formBeanClass = org.apache.struts.action.ActionFormBean
+    factoryClass = null
+    defaultLocale = 
+      compressedCtry2LangMapping = ADfresAEarenAFpsAGenAIrnALsqAMhyruANnlenAOptAResASensmATdeAUenAWnlenAZazhyruBAsrshhrslmksqBBenBDbnhibhenBEfrnldeBFfrBGbgtrBHarenBIrnfrswBJfrBMenBNmsenzhBOesayquBRptBSenBTdzenneBVnoBWentnBYberuBZenesCAenfrCCenCFfrsgCGfrCHfrdeitrmCIfrCKmienCLesCMenfrCNzhboCOesCResCUesCVptCXenCYeltrenCZcsskDEdeDJarfrsoDKdaDMenfrDOesDZarfrECesquEEetruEGarenfrEHarfritERamtiarenitESeseucaglETamarenFIfisvFJenfjhiFKenFMenFOfodaFRfreubrcoFXfrGAfrGBengdcyGDenfrGEkahyruGFfrGHenGIenesGLdaikklGMenwoGNfrGPfrenGQesGRelGTesGUenGWptGYenhiurHKzhenHNesHRhrHTfrHUhuIDinennlIEengaILiwarjiINhienguknksmlmrneorpasatateIOenIQarkutkIRfaarkuISisITitfrdeJMenJOarJPjaKEenswKGkyKHkmKIenKMfrarKNenKPkoKRkoKWarenKYenKZkkruLAlofrLBarenfrLCenfrLIdeLKtasienLRenLSstenLTltruplLUfrdeLVlvltruLYarenitMAarfresMCfrenitMDmorobgMGmgenfrMKmkshtrMLfrMMmyMNmnruMOzhptMQfrMRarfrMSenMTmtenitMUenfrhiMWenMXesMYmsenMZptNAenafdeNEfrhaNFenNGenhayoNIesNLnlfyNOnoNPneNRnaenNUenNZenmiOMarenPAesenPEesquayPFfrPGenPHentlesPKurenpspasdPLplPMfrenPNenPResenPTptPWenPYesgnQAarenREfrtaROrohuRUruRWenfrrwSAarSBenSCenfrSDarsuSEsvSGzhenmstaSHenSIslSJnoSKskhuplshSLenSMitSNfrSOarenitsoSRnleneshiSTptSVesSYarSZenssTCenTDfrarTFfrTGfrTHthTJtgruuzTKenmiTMtkruTNarTOentoTRtrkuTTenTVenTWzhTZenswUAukruUGenswUMenUSenesUYesUZuzruVAlaitVCenVEesVGenVIenVNvizhfrVUenfrbiWFfrWSensmYEarYTfrmgswYUsrshmkhuZAafenZMenZRfrswZWensn
+      ctry2LangMapping = null
+      compressedIsoCountries = ,ADAND,AEARE,AFAFG,AGATG,AIAIA,ALALB,AMARM,ANANT,AOAGO,AQATA,ARARG,ASASM,ATAUT,AUAUS,AWABW,AZAZE,BABIH,BBBRB,BDBGD,BEBEL,BFBFA,BGBGR,BHBHR,BIBDI,BJBEN,BMBMU,BNBRN,BOBOL,BRBRA,BSBHS,BTBTN,BVBVT,BWBWA,BYBLR,BZBLZ,CACAN,CCCCK,CFCAF,CGCOG,CHCHE,CICIV,CKCOK,CLCHL,CMCMR,CNCHN,COCOL,CRCRI,CUCUB,CVCPV,CXCXR,CYCYP,CZCZE,DEDEU,DJDJI,DKDNK,DMDMA,DODOM,DZDZA,ECECU,EEEST,EGEGY,EHESH,ERERI,ESESP,ETETH,FIFIN,FJFJI,FKFLK,FMFSM,FOFRO,FRFRA,FXFXX,GAGAB,GBGBR,GDGRD,GEGEO,GFGUF,GHGHA,GIGIB,GLGRL,GMGMB,GNGIN,GPGLP,GQGNQ,GRGRC,GSSGS,GTGTM,GUGUM,GWGNB,GYGUY,HKHKG,HMHMD,HNHND,HRHRV,HTHTI,HUHUN,IDIDN,IEIRL,ILISR,ININD,IOIOT,IQIRQ,IRIRN,ISISL,ITITA,JMJAM,JOJOR,JPJPN,KEKEN,KGKGZ,KHKHM,KIKIR,KMCOM,KNKNA,KPPRK,KRKOR,KWKWT,KYCYM,KZKAZ,LALAO,LBLBN,LCLCA,LILIE,LKLKA,LRLBR,LSLSO,LTLTU,LULUX,LVLVA,LYLBY,MAMAR,MCMCO,MDMDA,MGMDG,MHMHL,MKMKD,MLMLI,MMMMR,MNMNG,MOMAC,MPMNP,MQMTQ,MRMRT,MSMSR,MTMLT,MUMUS,MVMDV,MWMWI,MXMEX,MYMYS,MZMOZ,NANAM,NCNCL,NENER,NFNFK,NGNGA,NINIC,NLNLD,NONOR,NPNPL,NRNRU,NUNIU,NZNZL,OMOMN,PAPAN,PEPER,PFPYF,PGPNG,PHPHL,PKPAK,PLPOL,PMSPM,PNPCN,PRPRI,PTPRT,PWPLW,PYPRY,QAQAT,REREU,ROROM,RURUS,RWRWA,SASAU,SBSLB,SCSYC,SDSDN,SESWE,SGSGP,SHSHN,SISVN,SJSJM,SKSVK,SLSLE,SMSMR,SNSEN,SOSOM,SRSUR,STSTP,SVSLV,SYSYR,SZSWZ,TCTCA,TDTCD,TFATF,TGTGO,THTHA,TJTJK,TKTKL,TMTKM,TNTUN,TOTON,TPTMP,TRTUR,TTTTO,TVTUV,TWTWN,TZTZA,UAUKR,UGUGA,UMUMI,USUSA,UYURY,UZUZB,VAVAT,VCVCT,VEVEN,VGVGB,VIVIR,VNVNM,VUVUT,WFWLF,WSWSM,YEYEM,YTMYT,YUYUG,ZAZAF,ZMZMB,ZRZAR,ZWZWE
+      isoCountries = null
+      compressedIsoLanguages = ,aaaar,ababk,afafr,amamh,arara,asasm,ayaym,azaze,babak,bebel,bgbul,bhbih,bibis,bnben,bobod,brbre,cacat,cocos,csces,cycym,dadan,dedeu,dzdzo,elell,eneng,eoepo,esspa,etest,eueus,fafas,fifin,fjfij,fofao,frfra,fyfry,gagai,gdgdh,glglg,gngrn,guguj,hahau,heheb,hihin,hrhrv,huhun,hyhye,iaina,idind,ieile,ikipk,inind,isisl,itita,iuiku,iwheb,jajpn,jiyid,jwjaw,kakat,kkkaz,klkal,kmkhm,knkan,kokor,kskas,kukur,kykir,lalat,lnlin,lolao,ltlit,lvlav,mgmlg,mimri,mkmkd,mlmal,mnmon,momol,mrmar,msmsa,mtmlt,mymya,nanau,nenep,nlnld,nonor,ococi,omorm,orori,papan,plpol,pspus,ptpor,quque,rmroh,rnrun,roron,rurus,rwkin,sasan,sdsnd,sgsag,shsrp,sisin,skslk,slslv,smsmo,snsna,sosom,sqsqi,srsrp,ssssw,stsot,susun,svswe,swswa,tatam,tetel,tgtgk,ththa,titir,tktuk,tltgl,tntsn,toton,trtur,tstso,tttat,twtwi,uguig,ukukr,ururd,uzuzb,vivie,vovol,wowol,xhxho,yiyid,yoyor,zazha,zhzho,zuzul
+      isoLanguages = null
+      defaultLocale = this._servlet.defaultLocale
+      hashcode = 1024
+      variant = 
+      country = RU
+      language = ru
+      serialVersionUID = 9149081749638150636
+      CANADA_FRENCH = java.util.Locale@74c27cea
+      CANADA = java.util.Locale@74c1fcea
+      US = java.util.Locale@74c77cea
+      UK = java.util.Locale@753afcea
+      TAIWAN = java.util.Locale@753bfcea
+      PRC = java.util.Locale@7538fcea
+      CHINA = java.util.Locale@7539fcea
+      KOREA = java.util.Locale@694e3cea
+      JAPAN = java.util.Locale@694dbcea
+      ITALY = java.util.Locale@69433cea
+      GERMANY = java.util.Locale@6946bcea
+      FRANCE = java.util.Locale@69443cea
+      TRADITIONAL_CHINESE = java.util.Locale@69bbbcea
+      SIMPLIFIED_CHINESE = java.util.Locale@69b93cea
+      CHINESE = java.util.Locale@69bcbcea
+      KOREAN = java.util.Locale@69b23cea
+      JAPANESE = java.util.Locale@69b1bcea
+      ITALIAN = java.util.Locale@69b73cea
+      GERMAN = java.util.Locale@69aabcea
+      FRENCH = java.util.Locale@69a83cea
+      ENGLISH = java.util.Locale@69a23cea
+    debug = 2
+    dataSources = 
+      fast = true
+      map = java.util.HashMap@3fdafcce
+      class$java$util$HashMap$Entry = java.lang.Class@a3a7ced
+      serialVersionUID = 362498820763181265
+      emptyHashIterator = java.util.HashMap$EmptyHashIterator@6fd5fcea
+      ENTRIES = 2
+      VALUES = 1
+      KEYS = 0
+      values = null
+      entrySet = null
+      keySet = null
+      modCount = 0
+      loadFactor = 0.75
+      threshold = 8
+      count = 0
+      table = [Ljava.util.HashMap$Entry;@3163fcce
+    content = text/html
+    config = WEB-INF/struts-config.xml
+    application = 
+      messages = java.util.HashMap@78dbbccf
+      locales = java.util.HashMap@78de7ccf
+      defaultFactory = this._servlet.internal.defaultFactory
+      returnNull = true
+      formats = java.util.HashMap@78d23ccf
+      factory = org.apache.struts.util.PropertyMessageResourcesFactory@78d13ccf
+      defaultLocale = this._servlet.defaultLocale
+      config = resources.ApplicationResources
+    actions = 
+      fast = true
+      map = java.util.HashMap@6308bce8
+      class$java$util$HashMap$Entry = this._servlet.dataSources.class$java$util$HashMap$Entry
+      serialVersionUID = 362498820763181265
+      emptyHashIterator = this._servlet.dataSources.emptyHashIterator
+      ENTRIES = 2
+      VALUES = 1
+      KEYS = 0
+      values = null
+      entrySet = null
+      keySet = null
+      modCount = 0
+      loadFactor = 0.75
+      threshold = 8
+      count = 0
+      table = [Ljava.util.HashMap$Entry;@315cbcce
+    lStrings = 
+      lookup = java.util.Properties@5dd7bce3
+      class$java$util$ResourceBundle = java.lang.Class@37b27c67
+      locale = java.util.Locale@5dc73ce3
+      parent = null
+      cacheList = sun.misc.SoftCache@2a04bceb
+      DEFAULT_NOT_FOUND = -1
+      underConstruction = java.util.Hashtable@2a113ceb
+      MAX_BUNDLES_SEARCHED = 3
+      CACHE_LOAD_FACTOR = 1.0
+      INITIAL_CACHE_SIZE = 25
+      cacheKey = java.util.ResourceBundle$ResourceCacheKey@2a17bceb
+    LSTRING_FILE = javax.servlet.http.LocalStrings
+    HEADER_LASTMOD = Last-Modified
+    HEADER_IFMODSINCE = If-Modified-Since
+    METHOD_TRACE = TRACE
+    METHOD_PUT = PUT
+    METHOD_POST = POST
+    METHOD_OPTIONS = OPTIONS
+    METHOD_GET = GET
+    METHOD_HEAD = HEAD
+    METHOD_DELETE = DELETE
+    config = this._config
+  tc = 
+    ivLogger = null
+    ivResourceBundleName = com.ibm.ejs.resources.seriousMessages
+    ivDumpEnabled = false
+    defaultMessageFile = com.ibm.ejs.resources.seriousMessages
+    ivEntryEnabled = false
+    ivEventEnabled = false
+    ivDebugEnabled = false
+    ivName = com.ibm.ws.webcontainer.servlet.StrictServletInstance
+  syncObject = java.lang.Object@17793cce
+  servicingCount = 2
+  _implementsSTM = false
+  _config = 
+    _servletName = action
+    _initParams = 
+      hexDigit = [C@621ffcea
+      whiteSpaceChars =  	
+
+      specialSaveChars = =: 	
+#!
+      strictKeyValueSeparators = =:
+      keyValueSeparators = =: 	
+
+      defaults = null
+      serialVersionUID = 4112578634029874840
+      class$java$util$Hashtable$Entry = java.lang.Class@cea7ced
+      emptyIterator = java.util.Hashtable$EmptyIterator@620b7cea
+      emptyEnumerator = java.util.Hashtable$EmptyEnumerator@6208fcea
+      ENTRIES = 2
+      VALUES = 1
+      KEYS = 0
+      values = null
+      entrySet = null
+      keySet = null
+      modCount = 5
+      loadFactor = 0.75
+      threshold = 8
+      count = 5
+      table = [Ljava.util.Hashtable$Entry;@986fcce
+    _servletContext = 
+      class$com$ibm$ws$webcontainer$webapp$WebApp = java.lang.Class@1d95bce7
+      autoResponseEncoding = false
+      autoRequestEncoding = false
+      currentTrans = com.ibm.ejs.jts.jts.CurrentSet@7513ce7
+      _metaDataService = com.ibm.ws.runtime.component.MetaDataMgrImpl@25a7fce8
+      _j2eeNameFactory = com.ibm.ejs.csi.J2EENameFactoryImpl@37dafcf3
+      _isServlet23OrHigher = true
+      JSP_API_VERSION = JSP 1.2
+      SERVLET_API_VERSION = Servlet 2.3
+      SERVLET_API_MINOR_VERSION = 3
+      SERVLET_API_MAJOR_VERSION = 2
+      _alive = true
+      _mimeFilteringEnabled = false
+      _availableForService = true
+      _mimeFilters = java.util.HashMap@37d13cf3
+      _userTransaction = com.ibm.ejs.jts.jta.UserTransactionImpl@76043ce0
+      _javaColonCtxt = javax.naming.InitialContext@34d93cf3
+      _connectionHandleCollaborator = com.ibm.ws.webcontainer.collaborator.ConnectionHandleCollaborator@12387cfc
+      _mmd = com.ibm.ws.webcontainer.metadata.WebModuleMetaDataImpl@7ec5bcfe
+      _webAppCollaboratorConfig = com.ibm.ws.webcontainer.webapp.collaborator.WebAppCollaboratorConfigImpl@3bfafcf3
+      _webAppInvocationCollaborators = [Lcom.ibm.ws.webcontainer.webapp.collaborator.WebAppInvocationCollaborator;@e0efcfc
+      _webAppInitializationCollaborators = {}
+      _webAppTransactionCollaborator = com.ibm.ws.webcontainer.webapp.WebAppTransactionCollaborator@37da7cf3
+      _webAppSecurityCollaborator = com.ibm.ws.webcontainer.webapp.WebAppSecurityCollaborator@5ff4fceb
+      _webAppNameSpaceCollaborator = com.ibm.ws.webcontainer.webapp.WebAppNameSpaceCollaborator@37db3cf3
+      _javaNameSpaceValue = com.ibm.ws.naming.java.javaNameSpace@3706fcf3
+      _initParameters = java.util.HashMap@37d5fcf3
+      _eventSource = com.ibm.ws.webcontainer.webapp.WebAppEventSource@37c9bcf3
+      _URIToServletNameTable = com.ibm.ws.webcontainer.util.StringMatcher@20b17ceb
+      _webAppContext = com.ibm.ws.webcontainer.srt.WebGroup@7d0a7cfe
+      _attributes = java.util.HashMap@37ccbcf3
+      _filtersDefined = false
+      _filterManager = com.ibm.ws.webcontainer.filter.WebAppFilterManager@5fe63ceb
+      _servletManager = com.ibm.ws.webcontainer.webapp.WebAppServletManager@66fcf3
+      _webModuleExt = com.ibm.ejs.models.base.extensions.webappext.impl.WebAppExtensionImpl@25f67cf3
+      _webModuleDD = com.ibm.etools.webapplication.impl.WebAppImpl@485abcf3
+      nls = com.ibm.ejs.sm.client.ui.NLS@63533ce2
+      tc = com.ibm.ejs.ras.TraceComponent@6351fce2
+      ERROR_BEAN_NAME = ErrorReport
+  _unavailableUntil = -1
+  _servicingState = 
+    _instance = this._servicingState
+  _state = 
+    _instance = this._state
+  PERMANENTLY_UNAVAILABLE_FOR_SERVICE_STATE = 
+    _instance = this.PERMANENTLY_UNAVAILABLE_FOR_SERVICE_STATE
+  UNAVAILABLE_FOR_SERVICE_STATE = 
+    _instance = this.UNAVAILABLE_FOR_SERVICE_STATE
+  AVAILABLE_FOR_SERVICE_STATE = this._servicingState
+  ERROR_STATE = 
+    _instance = this.ERROR_STATE
+  DESTROYED_STATE = 
+    _instance = this.DESTROYED_STATE
+  DESTROYING_STATE = 
+    _instance = this.DESTROYING_STATE
+  STM_SERVICING_STATE = 
+    _instance = this.STM_SERVICING_STATE
+  SERVICING_STATE = this._state
+  IDLE_STATE = 
+    _instance = this.IDLE_STATE
+  INITIALIZING_STATE = 
+    _instance = this.PRE_INITIALIZED_STATE
+  PRE_INITIALIZED_STATE = 
+    _instance = this.PRE_INITIALIZED_STATE
+

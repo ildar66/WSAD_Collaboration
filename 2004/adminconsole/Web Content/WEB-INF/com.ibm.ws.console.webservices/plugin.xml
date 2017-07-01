@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin id="com.ibm.ws.console.webservices" 
+        name="webservices" 
+        version="1.0.0" 
+        provider-name="IBM Corp. - WebSphere Server Group"
+        embedded="true"
+        context-root="webservices">  
+   
+<requires>
+    <import plugin="com.ibm.ws.console.core"/>
+    <import plugin="com.ibm.ws.console.appmanagement"/>
+</requires>
+
+
+<extension point="com.ibm.ws.console.core.wizardStep">
+
+<step name="webservices.deploy.GetServerName" jspName="GetServerName" />
+<step name="webservices.deploy.WSDeployOptions" jspName="WSDeployOptions" />
+
+</extension> 
+
+
+    <extension point="com.ibm.ws.console.core.link">
+        <link
+            id="com.ibm.ws.console.webservices.editbind.providescopeid"
+            label="ProvideScope.server.displayName"
+            helpContextId=""
+            icon=""
+            actionUri="com.ibm.ws.console.webservices.editbind.forwardCmd.do?forwardName=ProvideScope.config.view"
+            actionView="com.ibm.ws.console.webservices.editbind.forwardCmd.do?forwardName=ProvideScope.config.view"
+            description="ProvideScope.plugin.description"
+            contextTypePluginId="com.ibm.ws.console.appmanagement"
+            contextType="WebModuleDeployment"
+        />
+    </extension>
+
+    <extension point="com.ibm.ws.console.core.link">
+        <link
+            id="com.ibm.ws.console.webservices.editbind.clientbindingsid"
+            label="ProvideClient.plugin.displayName"
+            helpContextId=""
+            icon=""
+            actionUri="com.ibm.ws.console.webservices.editbind.forwardCmd.do?forwardName=ProvideClient.config.view"
+            actionView="com.ibm.ws.console.webservices.editbind.forwardCmd.do?forwardName=ProvideClient.config.view"
+            description="ProvideClient.plugin.description"
+            contextTypePluginId="com.ibm.ws.console.appmanagement"
+            contextType="EJBModuleDeployment"
+        />
+    </extension>
+
+    <extension point="com.ibm.ws.console.core.link">
+        <link
+            id="com.ibm.ws.console.webservices.editbind.clientbindingsid"
+            label="ProvideClient.plugin.displayName"
+            helpContextId=""
+            icon=""
+            actionUri="com.ibm.ws.console.webservices.editbind.forwardCmd.do?forwardName=ProvideClient.config.view"
+            actionView="com.ibm.ws.console.webservices.editbind.forwardCmd.do?forwardName=ProvideClient.config.view"
+            description="ProvideClient.plugin.description"
+            contextTypePluginId="com.ibm.ws.console.appmanagement"
+            contextType="WebModuleDeployment"
+        />
+    </extension>
+
+    <extension point="com.ibm.ws.console.core.link">
+        <link
+            id="publishWSDLFiles"
+            label="webservices.getUrlPrefixes.label"
+            helpContextId=""
+            icon=""
+            actionUri="com.ibm.ws.console.publishWSDLFiles.forwardCmd.do?forwardName=publishWSDLFiles.main.view"
+            actionView="com.ibm.ws.console.publishWSDLFiles.forwardCmd.do?forwardName=publishWSDLFiles.main.view"
+            description="webservices.getUrlPrefixes.description"
+            contextTypePluginId="com.ibm.ws.console.appmanagement"
+            contextType="ApplicationDeployment" />
+    </extension>
+
+</plugin>
+
+

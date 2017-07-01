@@ -1,0 +1,142 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Impostazioni di configurazione dell'indicatore di posizione della chiave</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_keyln"></a>
+<h2>
+<img alt="[Fix Pack 5.0.2 e successive]" src="v502.gif" border="0">Impostazioni di configurazione dell'indicatore di posizione della chiave</h2>
+
+<p>Utilizzare questa pagina per specificare le impostazioni per gli indicatori di posizione della chiave.</p>
+
+<p>Per visualizzare questa pagina della console di gestione, completare le seguenti operazioni:<ol>
+
+<li>Fare clic su <strong>Server &gt; Server delle applicazioni &gt; </strong><em>nome_server</em>.</li>
+
+<li>In Ulteriori propriet&agrave;, fare clic su <strong>Servizi Web: collegamenti predefiniti per la sicurezza dei servizi Web (WS-Security, Web Services Security) &gt; Indicatori di posizione della chiave &gt; Nuovo</strong>.</li>
+
+</ol>
+</p>
+
+<dl>
+<dt>
+<strong><a name="sec_keylname"></a>Nome indicatore di posizione della chiave   </strong>
+</dt>
+<dd>Specifica il nome dell'indicatore di posizione della chiave.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="sec_keylclass"></a>Nome classe indicatore di posizione della chiave </strong>
+</dt>
+<dd>Specifica il nome per l'implementazione della classe dell'indicatore di  posizione della chiave.
+<p>WebSphere Application Server dispone delle seguenti implementazioni della classe indicatore di posizione della chiave predefinite:<dl>
+<dt>
+<strong>com.ibm.wsspi.wssecurity.config.WSldKeyStoreMapKeyLocator</strong>
+</dt>
+<dd>Questa classe, utilizzata dal mittente della risposta, mappa un'identit&agrave; autenticata su una chiave. Se si usa la codifica, questa classe viene utilizzata per individuare una chiave utile per  codificare il messaggio di risposta. La classe com.ibm.wsspi.wssecurity.config.WSldKeyStoreMapKeyLocator ha la capacit&agrave; di mappare un'identit&agrave; autenticata dalla credenziale di chiamata del thread corrente su una chiave che viene utilizzata per codificare il messaggio.
+Se sul thread corrente si trova un'identit&agrave; autenticata, la classe mappa l'ID sul nome mappato. Ad esempio, user1 viene mappato su <samp>mappedName_1</samp>.
+Altrimenti, name="default". Quando non viene rilevata una chiave corrispondente, l'identit&agrave; autenticata viene mappata sulla chiave predefinita specificata nel file di collegamento.</dd>
+<dt>
+<strong>com.ibm.wsspi.wssecurity.config.KeyStoreKeyLocator</strong>
+</dt>
+<dd>Questa classe,
+utilizzata dal ricevente della risposta, dal mittente della richiesta e dal ricevente della richiesta, mappa un nome su un alias. Il processo di codifica utilizza questa classe per ottenere una chiave che consenta di codificare un messaggio mentre quello di firma digitale utilizza questa classe per ottenere una chiave che consenta di firmare un messaggio. La classe com.ibm.wsspi.wssecurity.config.KeyStoreKeyLocator mappa un nome logico su un alias chiave nel file di memorizzazione delle chiavi. Ad esempio, la chiave #105115176771
+viene mappata su <samp>CN=Alice, O=IBM, c=US</samp>.</dd>
+</dl>
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valori predefiniti</td>
+<td align="left" valign="top" class="base">com.ibm.wsspi.wssecurity.config.KeyStoreKeyLocator</td>
+<td align="left" valign="top" class="base">com.ibm.wsspi.wssecurity.config.WSldKeyStoreMayKeyLocator</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="sec_keystpass"></a>Password del file di memorizzazione delle chiavi</strong>
+</dt>
+<dd>Specifica la password utilizzata per accedere al file di memorizzazione delle chiavi.</dd>
+<dt>
+<strong><a name="sec_keystpath"></a>Percorso del file di memorizzazione delle chiavi</strong>
+</dt>
+<dd>Specifica l'ubicazione del file di memorizzazione delle chiavi.
+<p>Utilizzare ${USER_INSTALL_ROOT} nel momento in cui questo percorso si espande al percorso di WebSphere Application sulla propria macchina.</p>
+
+</dd>
+<dt>
+<strong><a name="sec_keysttype"></a>Tipo di file di memorizzazione delle chiavi</strong>
+</dt>
+<dd>Specifica il tipo di file di memorizzazione delle chiavi.
+<p>Il valore per questo campo &egrave; <strong>JKS</strong> o <strong>JCEKS</strong>:<dl>
+
+<dt>
+<strong>JKS</strong>
+</dt>
+<dd>Utilizzare questa opzione se non si sta utilizzando JCE (Java Cryptography Extensions).</dd>
+<dt>
+<strong>JCEKS</strong>
+</dt>
+<dd>Utilizzare questa opzione se si sta utilizzando Java Cryptography Extensions.</dd>
+</dl>
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">JKS</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo</td>
+<td align="left" valign="top" class="base">JKS, JCEKS</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>Informazioni correlate</strong>
+</p>
+<a href="uwbs_keyl.html">Raccolta indicatori di posizione della chiave</a>
+<br>
+
+<a href="uwbs_keylak.html">Raccolta chiavi</a>
+<br>
+
+</div>
+</body>
+</html>

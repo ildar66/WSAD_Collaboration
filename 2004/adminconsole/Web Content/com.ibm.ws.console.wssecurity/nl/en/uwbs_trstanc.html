@@ -1,0 +1,74 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Trust anchors collection</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_trstanc"></a>
+<h2>Trust anchors collection</h2>
+
+<p>Use this page to view a list of keystore objects that contain trusted
+root certificates. These objects are used for certificate path validation
+of incoming X.509-formatted security tokens. Keystore objects within trust
+anchors contain trusted root certificates used by the CertPath API to validate
+the trust of a certificate chain.</p>
+
+<p>To create the keystore file, use the key tool located in the <samp><em>install_dir</em>\java\jre\bin\keytool</samp> directory.</p>
+
+<p>To view this administrative console page, click <strong>Servers &gt; Application
+Servers &gt; </strong><em>server_name</em>. Under Additional Properties, click <strong>Web
+Services: Default bindings for Web Services Security &gt; Trust Anchors</strong>.</p>
+
+<p>Click <strong>New</strong> to create a new trust anchor.</p>
+
+<p>Click <strong>Delete</strong> to a delete trust anchor. </p>
+
+<p>If you click <strong>Update runtime</strong>, the Web services security run time
+is updated with the default binding information, which is contained in the <samp>ws-security.xml</samp> file
+that was previously saved. If you make changes on this panel, you must complete
+the following steps:<ol>
+
+<li>Save your changes by clicking <strong>Save</strong> at the top of the administrative
+console. When you click <strong>Save</strong>, you are returned to the administrative
+console home panel. </li>
+
+<li>Return to the Trust Anchors collection panel and click <strong>Update runtime</strong>. <p>
+<b>Note: </b>When you click <strong>Update runtime</strong>, the configuration changes
+made to the other Web services also are updated in the Web services security
+run time.</p>
+</li>
+
+</ol>
+</p>
+
+<dl>
+<dt>
+<strong><a name="sec_trstancname"></a>Trust Anchor Name</strong>
+</dt>
+<dd>Specifies the unique name used to identify the trust anchor.</dd>
+<dt>
+<strong><a name="sec_keystpath"></a>Key Store Path</strong>
+</dt>
+<dd>Specifies the location of the keystore file that contains the trust
+anchors.</dd>
+<dt>
+<strong><a name="sec_keysttype"></a>Key Store Type</strong>
+</dt>
+<dd>Specifies the type of keystore file.
+<p>The value for this field is either <strong>JKS</strong> or <strong>JCEKS</strong>.</p>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>Related information</strong>
+</p>
+<a href="uwbs_trstancn.html">Trust anchor configuration settings</a>
+<br>
+
+</div>
+</body>
+</html>

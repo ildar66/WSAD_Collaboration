@@ -1,0 +1,237 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Tuning parameter settings</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="tune_para"></a>
+<h2>Tuning parameter settings</h2>
+
+<p>Use this page to set tuning parameters for distributed sessions.</p>
+
+<p>To view this administrative console page, click <strong>Servers</strong> &gt; <strong> Application
+Servers</strong> &gt; <em>server_name</em> &gt; <strong>Web Container</strong> &gt; <strong>Session Management</strong> &gt; <strong>Distributed
+Environment Settings</strong> &gt; <strong>Custom Tuning Parameters</strong>.</p>
+
+<div>
+<p>
+<strong>Configuration tab</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="Tuning_level_description"></a>Tuning Level</strong>
+</dt>
+<dd>Specifies that the session management facility provides certain
+predefined settings that affect performance.
+<p>Select one of these predefined settings or customize a setting. To customize
+a setting, select one of the predefined settings that comes closest to the
+setting desired, click <strong>Custom settings</strong>, make your changes, and then
+click <strong>OK</strong>.</p>
+
+<div>
+<p class="sectiontitle">
+<b>Very high (optimize for performance)</b>
+</p>
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Write frequency </td>
+<td align="left" valign="top" class="base">Time based</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Write interval </td>
+<td align="left" valign="top" class="base">300 seconds</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Write contents </td>
+<td align="left" valign="top" class="base">Only updated attributes</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Schedule sessions cleanup</td>
+<td align="left" valign="top" class="base">true</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">First time of day default</td>
+<td align="left" valign="top" class="base">0</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Second time of day default</td>
+<td align="left" valign="top" class="base">2</td>
+
+</tr>
+
+</table>
+</div>
+
+<div>
+<p class="sectiontitle">
+<b>High</b>
+</p>
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Write frequency </td>
+<td align="left" valign="top" class="base">Time based</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Write interval </td>
+<td align="left" valign="top" class="base">300 seconds</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Write Contents </td>
+<td align="left" valign="top" class="base">All session attributes</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Schedule sessions cleanup</td>
+<td align="left" valign="top" class="base">false</td>
+
+</tr>
+
+</table>
+</div>
+
+<div>
+<p class="sectiontitle">
+<b>Medium</b>
+</p>
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Write frequency </td>
+<td align="left" valign="top" class="base">End of servlet service</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Write Contents </td>
+<td align="left" valign="top" class="base">Only updated attributes</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Schedule sessions cleanup</td>
+<td align="left" valign="top" class="base">false</td>
+
+</tr>
+
+</table>
+</div>
+
+<div>
+<p class="sectiontitle">
+<b>Low (optimize for failover)</b>
+</p>
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Write frequency </td>
+<td align="left" valign="top" class="base">End of servlet service</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Write Contents </td>
+<td align="left" valign="top" class="base">All session attributes</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Schedule sessions cleanup</td>
+<td align="left" valign="top" class="base">false</td>
+
+</tr>
+
+</table>
+</div>
+
+<div>
+<p class="sectiontitle">
+<b>Custom settings</b>
+</p>
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Write frequency default</td>
+<td align="left" valign="top" class="base">Time based</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Write interval default</td>
+<td align="left" valign="top" class="base">10 seconds</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Write contents default</td>
+<td align="left" valign="top" class="base">All session attributes</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Schedule sessions cleanup default</td>
+<td align="left" valign="top" class="base">false</td>
+
+</tr>
+
+</table>
+</div>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Related information</strong>
+</p>
+<a href="rcon_buttons.html">Administrative console buttons</a>
+<br>
+
+<a href="rcon_pageusage.html">Administrative console page features</a>
+<br>
+
+<a href="rcon_preferences.html">Administrative console preference settings</a>
+<br>
+
+</div>
+</body>
+</html>

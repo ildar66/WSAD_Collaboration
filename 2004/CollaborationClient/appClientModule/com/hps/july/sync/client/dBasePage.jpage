@@ -1,0 +1,105 @@
+		Properties prop = com.hps.july.sync.client.CollaborationClientForNRI.readSyncProperties("C:/workspases/WSAD_Collaboration/CollaborationClient/appClientModule/sync.cfg");
+		//DB db = new DB(prop, "dBase");
+		DB db = new DB(prop, "Interbase");
+		//DB db = new DB(prop, "NRI");
+		//DB db = new DB(prop, "MSACCESS1");
+		//DB db = new DB(prop, "MSACCESS");
+
+		Connection conn = DB.getConnection(db);
+		System.out.println("conn =" + conn);
+		DatabaseMetaData dbMetaData = conn.getMetaData();
+        ResultSet rs = dbMetaData.getTables(null,null,null,new String[]{"TABLE"});
+        ArrayList tables = new ArrayList();
+        while (rs.next()) {
+			String table = (String) rs.getString(3);
+			tables.add(table);
+			System.out.println(table); 
+		}
+		
+	for(int i = 0; i < tables.size(); i++)	{
+	System.out.println("FOR TABLE " + tables.get(i) + "//////////////////////////");
+	PreparedStatement ps = conn.prepareStatement("select * from \"" + tables.get(i) + "\"");
+	ps.executeQuery();
+	rs = ps.getResultSet();
+	ResultSetMetaData md = rs.getMetaData();
+	int k = md.getColumnCount();
+	for (int j = 1; j < k-1; j++) {
+		System.out.print("ColumnName " + md.getColumnName(j));
+		System.out.print("  ColumnType " + md.getColumnType(j));
+		//System.out.print("  ColumnType " + md.get(i));
+		System.out.println("  ColumnTypeName " + md.getColumnTypeName(j));
+	}
+/**	
+		if(rs.next()){
+			Object result = rs.getObject(k-2);
+			System.out.println("result='"+result+"'");
+			if(result.getClass() == String.class){
+				String resultStr = (String)result;
+				resultStr = resultStr.trim();
+				char [] array = resultStr.toCharArray();
+				for (int m = 0; m < array.length; m++) {
+					System.out.println("char array=" + array[m]);
+				}
+			}
+		}
+*/		
+	if (rs != null)
+		rs.close();
+	if (ps != null)
+		ps.close();				
+	}		
+		
+/**
+//"SET EXCLUSIVE ON"
+conn.createStatement().execute("SET EXCLUSIVE ON");			
+
+System.out.println("conn =" + conn);
+System.out.println("conn.getAutoCommit() =" + conn.getAutoCommit());		
+				
+		PreparedStatement ps = conn.prepareStatement("insert into allbs (id, gsm,dcs, damps, gsm_name, damps_name, region, address,latitude, longitude, brief, responsib, finder) values (10001,10,20,30,'33434','33344 3erasdfsd', 'erjjkerjer', 'hefjerjhejr', 24.949322, 73.999221, 'erererer','ererer', '')");
+		//int ok = ps.executeUpdate("update allbs set gsm = 11, dcs = 22, damps = 33,  gsm_name = 'eerehjherj',  damps_name = '3werwewewe',  region = 'weseqwewe',  address = 'erwereerer',  latitude = 10.839321,  longitude = 57.939392,  brief = '323434344',  responsib = '3434334',  finder = '23343434'where id = 19027");
+		int count = ps.executeUpdate();		
+System.out.println("count uxecuteUpdate=" + count);
+		ps = conn.prepareStatement("select * from allbs");
+		ps.execute();	
+		ResultSet rs = ps.getResultSet(); 
+		
+		ResultSetMetaData md = rs.getMetaData();
+		int k = md.getColumnCount();
+		for (int i = 1; i < k-1; i++) {
+			System.out.print("ColumnName " + md.getColumnName(i));
+			System.out.print("  ColumnType " + md.getColumnType(i));
+			//System.out.print("  ColumnType " + md.get(i));
+			System.out.println("  ColumnTypeName " + md.getColumnTypeName(i));
+			
+		}
+		if(rs != null)
+			rs.close();		
+		if (ps != null)
+			ps.close();
+*/	
+		
+/**	
+		ps = conn.prepareStatement("delete from allbs");
+		int c = ps.executeUpdate();
+		System.out.println("result: delete from allbs="+c);
+		
+	
+        ps = conn.prepareStatement("pack");
+		c = ps.executeUpdate();        
+		System.out.println("result: pack="+c);
+		
+		if (ps != null)
+			ps.close();		
+		
+		
+		ps = conn.prepareStatement("select count(*) from allbs");
+		ps.executeQuery();
+		rs = ps.getResultSet();
+		if (rs.next())
+			System.out.println("count=" + rs.getObject(1));		
+*/		
+		if (conn != null){
+			//conn.commit();
+			conn.close();
+		}

@@ -1,0 +1,216 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>JDBC プロバイダー設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="Manage_JDBC_Providers_detail"></a>
+<h2>JDBC プロバイダー設定</h2>
+
+<p>このページを使用して、JDBC プロバイダー設定を作成または変更します。
+</p>
+
+<p>この管理コンソール・ページを表示するには、「
+<strong>リソース</strong>」&gt;「<strong>JDBC プロバイダー</strong>」&gt;「<em>JDBC_provider</em>」をクリックします。</p>
+
+<div>
+<p>
+<strong>「構成」タブ</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="JDBCProvider_detail_contextID"></a>有効範囲</strong>
+</dt>
+<dd>このリソース定義を可視にするレベル (セル、ノード、またはサーバーの
+各レベル) を指定します。
+
+<p>JDBC プロバイダー、ネーム・スペース・バインディング、
+共用ライブラリーなどのリソースを複数の有効範囲で定義することが可能です。
+より限定的な有効範囲で定義されたリソースは、
+それより広い有効範囲で定義された重複するリソースをオーバーライドします。
+</p>
+
+<p>定義済みリソースの有効範囲が何であれ、そのリソースのプロパティーは
+個々のサーバー・レベルでのみ適用されることに注意して下さい。
+例えば、あるデータ・ソースの有効範囲を「セル」レベルで定義する場合、
+そのセルのすべてのユーザーが、そのデータ・ソースをルックアップおよび使用できます。
+このとき、そのデータ・ソースはそのセル内で固有です。ただし、リソース・プロパティーの設定値は、そのセル内の各サーバーに対してローカルです。例えば、<em>最大接続数</em> を 10 に設定する場合、そのセル内の
+各サーバーは 10 個の接続を使用できます。<dl>
+
+<dt>
+<strong>セル</strong>
+</dt>
+<dd>最も一般的な有効範囲です。「セル」有効範囲で定義されている
+リソースは、オーバーライドされない限り、すべてのノードおよびサーバーから可視です。
+「セル」有効範囲で定義されたリソースを表示する場合は、
+有効範囲選択フォームでサーバーまたはノードの名前を指定しないでください。
+</dd>
+
+<dt>
+<strong>ノード</strong>
+</dt>
+<dd>大部分のリソース・タイプのデフォルト有効範囲。
+「ノード」有効範囲で定義されたリソースは、「
+セル」有効範囲で定義されたすべての重複するリソースをオーバーライドします。
+同じノード上の「サーバー」有効範囲でオーバーライドされない限り、
+そのノード上のすべてのサーバーから可視です。
+「ノード」有効範囲で定義されたリソースを表示する場合は、
+有効範囲選択フォームで、サーバーを指定せず、ノード名を選択します。
+</dd>
+
+<dt>
+<strong>サーバー</strong>
+</dt>
+<dd>リソース定義で最も限定的な有効範囲です。「サーバー」
+有効範囲で定義されたリソースは、「セル」有効範囲または親の「ノード」有効範囲で
+定義されたすべての重複するリソース定義をオーバーライドし、
+特定のサーバーからのみ可視です。
+「サーバー」有効範囲で定義されたリソースを表示するには、
+有効範囲選択フォームで、ノード名だけでなくサーバー名も指定します。
+</dd>
+
+</dl>
+</p>
+
+<p>リソースが作成されるときは常に、パネルで選択されている現行の有効範囲内に
+作成されます。
+他の有効範囲でリソースを表示する場合は、有効範囲選択フォームで、
+別のノードまたはサーバーを指定します。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2EEResourceProvider_name_displayName"></a>名前</strong>
+</dt>
+<dd>リソース・プロバイダーの名前を指定します。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2EEResourceProvider_description_displayName"></a>説明</strong>
+</dt>
+<dd>リソース・プロバイダーを説明するテキストを指定します。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2EEResourceProvider_classpath_displayName"></a>クラスパス</strong>
+</dt>
+<dd>リソース・プロバイダー・クラスのロケーションを形成するパス、
+または JAR ファイル名のリストを指定します。
+
+<p>例えば、<em>D:/SQLLIB/java/db2java.zip</em> です。</p>
+
+<p>クラスパス・エントリーは、ENTER (実行) キーを使用して区切ります。
+パス区切り文字 (';' や ':' など) は使用できません。
+クラスパスには、変数マップを使用して代替できる変数 (シンボル) 名が含まれます。
+個々の必須 JAR ファイル名は、ドライバーのインストール資料をチェックしてください。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2EEResourceProvider_nativepath_displayName"></a>ネイティブ・ライブラリー・パス</strong>
+</dt>
+<dd>リソース・プロバイダーのネイティブ・ライブラリーのロケーションを
+形成するパスのリストを指定します。
+<p>ネイティブ・パス・エントリーは、ENTER (実行) キーを使用して区切ります。
+パス区切り文字 (';' や ':' など) は使用できません。
+ネイティブ・パスには、変数マップを使用して代替できる変数 (シンボル) 名が含まれます。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JDBCProvider_implementationClassName_displayName"></a>Implementation Classname </strong>
+</dt>
+<dd>JDBC ドライバー・インプリメンテーションの Java クラス名を指定します。
+
+<p>このクラスは、前述の「クラスパス」の説明で述べられている
+ドライバー・ファイルにあります。例えば <em>COM.ibm.db2.jdbc.DB2XADataSource</em> です。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>関連情報</strong>
+</p>
+<a href="rcon_buttons.html">管理コンソールのボタン</a>
+<br>
+
+<a href="rcon_pageusage.html">管理コンソール・ページのフィーチャー</a>
+<br>
+
+<a href="udat_was4datsor.html">データ・ソース (バージョン 4)</a>
+<br>
+
+<a href="udat_jdbcdatasor.html">データ・ソース・コレクション</a>
+<br>
+
+</div>
+</body>
+</html>

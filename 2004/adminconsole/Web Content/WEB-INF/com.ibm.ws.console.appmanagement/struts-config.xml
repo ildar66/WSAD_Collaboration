@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.0//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_0.dtd">
+
+<struts-config>
+  <form-beans>
+     <form-bean      name="uploadForm" type="com.ibm.ws.console.appmanagement.form.UploadForm"/>
+     <form-bean      name="defaultBindingsForm" type="com.ibm.ws.console.appmanagement.form.DefaultBindingsForm"/>
+     <form-bean      name="AppDeploymentOptionsForm" type="com.ibm.ws.console.appmanagement.form.AppInstallForm"/>
+     <form-bean      name="EJBDeployOptionsForm" type="com.ibm.ws.console.appmanagement.form.AppInstallForm"/>
+     <form-bean      name="BackendIdSelectionForm" type="com.ibm.ws.console.appmanagement.form.AppInstallForm"/>
+     <form-bean      name="EJBRedeployOptionForm" type="com.ibm.ws.console.appmanagement.form.AppInstallForm"/>
+     <form-bean      name="BindJndiForEJBMessageBindingForm" type="com.ibm.ws.console.appmanagement.form.AppInstallForm"/>
+     <form-bean      name="BindJndiForEJBNonMessageBindingForm" type="com.ibm.ws.console.appmanagement.form.AppInstallForm"/>
+     <form-bean      name="DataSourceFor10EJBModulesForm" type="com.ibm.ws.console.appmanagement.form.AppInstallForm"/>
+     <form-bean      name="DataSourceFor20EJBModulesForm" type="com.ibm.ws.console.appmanagement.form.AppInstallForm"/>
+     <form-bean      name="DataSourceFor10CMPBeansForm" type="com.ibm.ws.console.appmanagement.form.AppInstallForm"/>
+     <form-bean      name="DataSourceFor20CMPBeansForm" type="com.ibm.ws.console.appmanagement.form.AppInstallForm"/>
+     <form-bean      name="MapEJBRefToEJBForm" type="com.ibm.ws.console.appmanagement.form.AppInstallForm"/>
+     <form-bean      name="MapResRefToEJBForm" type="com.ibm.ws.console.appmanagement.form.AppInstallForm"/>
+     <form-bean      name="MapResEnvRefToResForm" type="com.ibm.ws.console.appmanagement.form.AppInstallForm"/>
+     <form-bean      name="MapWebModToVHForm" type="com.ibm.ws.console.appmanagement.form.AppInstallForm"/>
+     <form-bean      name="MapModulesToServersForm" type="com.ibm.ws.console.appmanagement.form.AppInstallForm"/>
+     <form-bean      name="MapRolesToUsersForm" type="com.ibm.ws.console.appmanagement.form.AppInstallForm"/>
+     <form-bean      name="MapRunAsRolesToUsersForm" type="com.ibm.ws.console.appmanagement.form.AppInstallForm"/>
+     <form-bean      name="CorrectUseSystemIdentityForm" type="com.ibm.ws.console.appmanagement.form.AppInstallForm"/>
+     <form-bean      name="EnsureMethodProtectionFor10EJBForm" type="com.ibm.ws.console.appmanagement.form.AppInstallForm"/>
+     <form-bean      name="EnsureMethodProtectionFor20EJBForm" type="com.ibm.ws.console.appmanagement.form.AppInstallForm"/>
+     <form-bean      name="AppInstallSummaryForm" type="com.ibm.ws.console.appmanagement.form.AppInstallForm"/>
+     <form-bean      name="CorrectOracleIsolationLevelForm" type="com.ibm.ws.console.appmanagement.form.AppInstallForm"/>
+     <form-bean      name="ShowSecurityWarningsForm" type="com.ibm.ws.console.appmanagement.form.ShowSecurityWarningsForm"/>
+     <form-bean      name="com.ibm.ws.console.appdeployment.ApplicationDeploymentDetailForm" type="com.ibm.ws.console.appdeployment.ApplicationDeploymentDetailForm"/>
+     <form-bean      name="com.ibm.ws.console.appdeployment.ApplicationDeploymentCollectionForm" type="com.ibm.ws.console.appdeployment.ApplicationDeploymentCollectionForm"/>
+     <form-bean      name="com.ibm.ws.console.sessionmanager.SessionManagerForm" type="com.ibm.ws.console.sessionmanager.SessionManagerDetailForm"/>
+     <form-bean      name="com.ibm.ws.console.sessionmanager.SessionManagerCollectionForm" type="com.ibm.ws.console.sessionmanager.SessionManagerCollectionForm"/>
+     <form-bean      name="com.ibm.ws.console.appdeployment.WebModuleDeploymentDetailForm" type="com.ibm.ws.console.appdeployment.WebModuleDeploymentDetailForm"/>
+     <form-bean      name="com.ibm.ws.console.appdeployment.WebModuleDeploymentCollectionForm" type="com.ibm.ws.console.appdeployment.WebModuleDeploymentCollectionForm"/>
+     <form-bean      name="com.ibm.ws.console.appdeployment.EJBModuleDeploymentDetailForm" type="com.ibm.ws.console.appdeployment.EJBModuleDeploymentDetailForm"/>
+     <form-bean      name="com.ibm.ws.console.appdeployment.EJBModuleDeploymentCollectionForm" type="com.ibm.ws.console.appdeployment.EJBModuleDeploymentCollectionForm"/>
+     <form-bean      name="com.ibm.ws.console.appdeployment.ConnectorModuleDeploymentDetailForm" type="com.ibm.ws.console.appdeployment.ConnectorModuleDeploymentDetailForm"/>
+     <form-bean      name="com.ibm.ws.console.appdeployment.ConnectorModuleDeploymentCollectionForm" type="com.ibm.ws.console.appdeployment.ConnectorModuleDeploymentCollectionForm"/>
+     <form-bean name="com.ibm.ws.console.appmanagement.ModuleServerConfigurationCollectionForm" type="com.ibm.ws.console.appdeployment.ModuleServerConfigurationCollectionForm"/>     
+     <form-bean name="com.ibm.ws.console.appmanagement.ModuleServerConfigurationDetailForm" type="com.ibm.ws.console.appdeployment.ModuleServerConfigurationDetailForm"/>     
+     <form-bean name="com.ibm.ws.console.appdeployment.LibraryRefCollectionForm" type="com.ibm.ws.console.appdeployment.LibraryRefCollectionForm"/>     
+     <form-bean name="com.ibm.ws.console.appdeployment.LibraryRefDetailForm" type="com.ibm.ws.console.appdeployment.LibraryRefDetailForm"/>          
+     <form-bean name="com.ibm.ws.console.appdeployment.DeploymentTargetMappingCollectionForm" type="com.ibm.ws.console.appdeployment.DeploymentTargetMappingCollectionForm"/>     
+     <form-bean name="com.ibm.ws.console.appdeployment.DeploymentTargetMappingDetailForm" type="com.ibm.ws.console.appdeployment.DeploymentTargetMappingDetailForm"/>               
+  </form-beans> 
+  
+
+  <global-forwards>
+        <forward name="appmanagement.remote.node.browse" path="appmanagement.remote.node.browse"/>
+        <forward name="appmanagement.upload" path="appmanagement.upload"/>
+        <forward name="appmanagement.install.options" path="appmanagement.install.options"/>
+        <forward name="appmanagement.ejbdeploy.options" path="appmanagement.ejbdeploy.options"/>
+        <forward name="appmanagement.select.backendid" path="appmanagement.select.backendid"/>
+        <forward name="appmanagement.ejbredeploy.options" path="appmanagement.ejbredeploy.options"/>
+        <forward name="appmanagement.jndinames.formessagingbeans" path="appmanagement.jndinames.formessagingbeans"/>
+        <forward name="appmanagement.jndinames.fornonmessagingbeans" path="appmanagement.jndinames.fornonmessagingbeans"/>
+        <forward name="appmanagement.datasource.for10entitybeans" path="appmanagement.datasource.for10entitybeans"/>
+        <forward name="appmanagement.datasource.for20entitybeans" path="appmanagement.datasource.for20entitybeans"/>
+        <forward name="appmanagement.datasource.for10cmpbeans" path="appmanagement.datasource.for10cmpbeans"/>
+        <forward name="appmanagement.datasource.for20cmpbeans" path="appmanagement.datasource.for20cmpbeans"/>
+        <forward name="appmanagement.ejbrefs.tobeans" path="appmanagement.ejbrefs.tobeans"/>
+        <forward name="appmanagement.resrefs.tobeans" path="appmanagement.resrefs.tobeans"/>
+        <forward name="appmanagement.isolationlevels.forresourcerefs" path="appmanagement.isolationlevels.forresourcerefs"/>
+        <forward name="appmanagement.resenvrefs.tores" path="appmanagement.resenvrefs.tores"/>
+        <forward name="appmanagement.virtualhosts.towebmodules" path="appmanagement.virtualhosts.towebmodules"/>
+        <forward name="appmanagement.modules.toappservers" path="appmanagement.modules.toappservers"/>
+        <forward name="appmanagement.securityroles.tousers" path="appmanagement.securityroles.tousers"/>
+        <forward name="appmanagement.runasroles.tousers" path="appmanagement.runasroles.tousers"/>
+        <forward name="appmanagement.correctuse.systemidentity" path="appmanagement.correctuse.systemidentity"/>
+        <forward name="appmanagement.method.10protetection" path="appmanagement.method.10protetection"/>
+        <forward name="appmanagement.method.20protetection" path="appmanagement.method.20protetection"/>
+        <forward name="appmanagement.summary" path="appmanagement.summary"/>
+        <forward name="error" path="/error.jsp"/>
+        <forward name="cancel" path="appmanagement.upload"/>
+        <forward name="SessionManagerEnable.config.view" path="SessionManagerEnable.config.view"/>
+        <forward name="applicationDeploymentDetail" path="ApplicationDeployment.config.view"/>
+        <forward name="applicationDeploymentCollection" path="ApplicationDeployment.content.main"/>
+    </global-forwards>
+
+  <action-mappings>
+
+      <action name="uploadForm" path="/upload" type="com.ibm.ws.console.appmanagement.action.UploadAction">
+        <forward name="reload" path="appmanagement.upload"/>
+        <forward name="nodebrowse" path="appmanagement.remote.node.browse"/>
+        <forward name="next" path="appmanagement.default.bindings"/>
+        <forward name="cancel" path="console.content.main"/>
+      </action>
+
+      <action name="defaultBindingsForm" path="/defaultBindings" type="com.ibm.ws.console.appmanagement.action.DefaultBindingsAction">
+        <forward name="previous" path="appmanagement.upload"/>
+        <forward name="finish" path="appmanagement.install.options"/>
+        <forward name="reload" path="appmanagement.default.bindings"/>
+        <forward name="warnings" path="appmanagement.security.warnings"/>
+      </action>
+
+      <action name="showSecurityWarningsForm" path="/showSecurityWarnings" type="com.ibm.ws.console.appmanagement.action.ShowSecurityWarningsAction">
+        <forward name="continue" path="appmanagement.install.options"/>
+        <forward name="cancel" path="appmanagement.upload"/>
+      </action>
+
+    <action name="AppDeploymentOptionsForm" path="/appDeploymentOptions" type="com.ibm.ws.console.appmanagement.action.AppDeploymentOptionsAction"/>
+
+    <action name="EJBDeployOptionsForm" path="/ejbDeployOptions" type="com.ibm.ws.console.appmanagement.action.EJBDeployOptionsAction"/>
+
+    <action name="BackendIdSelectionForm" path="/backendIdSelection" type="com.ibm.ws.console.appmanagement.action.BackendIdSelectionAction"/>
+
+    <action name="EJBRedeployOptionForm" path="/ejbRedeployOption" type="com.ibm.ws.console.appmanagement.action.EJBRedeployOptionAction"/>
+
+    <action name="BindJndiForEJBMessageBindingForm" path="/bindJndiForEJBMessageBinding" type="com.ibm.ws.console.appmanagement.action.BindJndiForEJBMessageBindingAction">
+      <forward name="this" path="appconfigure.jndinames.formessagingbeans"/>
+    </action>
+
+      <action name="BindJndiForEJBNonMessageBindingForm" path="/bindJndiForEJBNonMessageBinding" type="com.ibm.ws.console.appmanagement.action.BindJndiForEJBNonMessageBindingAction">
+            <forward name="this" path="appconfigure.jndinames.fornonmessagingbeans"/>
+      </action>
+
+      <action name="DataSourceFor10EJBModulesForm" path="/dataSourceFor10EJBModules" type="com.ibm.ws.console.appmanagement.action.DataSourceFor10EJBModulesAction">
+            <forward name="this" path="appconfigure.datasource.for10entitybeans"/>
+      </action>
+
+      <action name="DataSourceFor20EJBModulesForm" path="/dataSourceFor20EJBModules" type="com.ibm.ws.console.appmanagement.action.DataSourceFor20EJBModulesAction">
+            <forward name="this" path="appconfigure.datasource.for20entitybeans"/>
+      </action>
+
+      <action name="DataSourceFor10CMPBeansForm" path="/dataSourceFor10CMPBeans" type="com.ibm.ws.console.appmanagement.action.DataSourceFor10CMPBeansAction">
+            <forward name="this" path="appconfigure.datasource.for10cmpbeans"/>
+      </action>
+
+      <action name="DataSourceFor20CMPBeansForm" path="/dataSourceFor20CMPBeans" type="com.ibm.ws.console.appmanagement.action.DataSourceFor20CMPBeansAction">
+            <forward name="this" path="appconfigure.datasource.for20cmpbeans"/>
+      </action>
+
+      <action name="MapEJBRefToEJBForm" path="/mapEJBRefToEJB" type="com.ibm.ws.console.appmanagement.action.MapEJBRefToEJBAction">
+            <forward name="this" path="appconfigure.ejbrefs.tobeans"/>
+      </action>
+
+      <action name="MapResRefToEJBForm" path="/mapResRefToEJB" type="com.ibm.ws.console.appmanagement.action.MapResRefToEJBAction">
+            <forward name="this" path="appconfigure.resrefs.tobeans"/>
+      </action>
+
+      <action name="MapResEnvRefToResForm" path="/mapResEnvRefToRes" type="com.ibm.ws.console.appmanagement.action.MapResEnvRefToResAction">
+            <forward name="this" path="appconfigure.resenvrefs.tores"/>
+      </action>
+
+      <action name="MapWebModToVHForm" path="/mapWebModToVH" type="com.ibm.ws.console.appmanagement.action.MapWebModToVHAction">
+            <forward name="this" path="appconfigure.virtualhosts.towebmodules"/>
+      </action>
+
+      <action name="MapModulesToServersForm" path="/mapModulesToServers" type="com.ibm.ws.console.appmanagement.action.MapModulesToServersAction">
+            <forward name="this" path="appconfigure.modules.toappservers"/>
+      </action>
+
+      <action name="MapRolesToUsersForm" path="/mapRolesToUsers" type="com.ibm.ws.console.appmanagement.action.MapRolesToUsersAction">
+            <forward name="lookup.users.groups" path="appmanagement.lookup.content"/>
+            <forward name="this" path="appconfigure.securityroles.tousers"/>
+      </action>
+
+      <action name="MapRunAsRolesToUsersForm" path="/mapRunAsRolesToUsers" type="com.ibm.ws.console.appmanagement.action.MapRunAsRolesToUsersAction">
+            <forward name="this" path="appconfigure.runasroles.tousers"/>
+      </action>
+
+      <action name="CorrectUseSystemIdentityForm" path="/correctUseSystemIdentity" type="com.ibm.ws.console.appmanagement.action.CorrectUseSystemIdentityAction"/>
+
+     <action name="EnsureMethodProtectionFor10EJBForm" path="/ensureMethodProtectionFor10EJB" type="com.ibm.ws.console.appmanagement.action.EnsureMethodProtectionFor10EJBAction"/>
+
+     <action name="EnsureMethodProtectionFor20EJBForm" path="/ensureMethodProtectionFor20EJB" type="com.ibm.ws.console.appmanagement.action.EnsureMethodProtectionFor20EJBAction"/>
+
+     <action name="CorrectOracleIsolationLevelForm" path="/correctOracleIsolationLevel" type="com.ibm.ws.console.appmanagement.action.CorrectOracleIsolationLevelAction"/>
+
+     <action name="AppInstallSummaryForm" path="/appInstallSummary" type="com.ibm.ws.console.appmanagement.action.AppInstallSummaryAction">
+         <forward name="success" path="navigatorCmd.do?forwardName=ApplicationDeployment.content.main"/>
+     </action>
+
+     <action path="/com.ibm.ws.console.appmanagement.action.forwardCmd" type="com.ibm.ws.console.appmanagement.action.ForwardCmdAction">
+     </action>
+
+     <action path="/com.ibm.ws.console.appdeployment.forwardCmd" type="com.ibm.ws.console.core.action.ForwardAction">
+        <forward name="ApplicationDeployment.content.main" path="ApplicationDeployment.content.main"/>
+         <forward name="WebModuleDeployment.content.main" path="WebModuleDeployment.content.main"/>
+         <forward name="EJBModuleDeployment.content.main" path="EJBModuleDeployment.content.main"/>
+         <forward name="ConnectorModuleDeployment.content.main" path="ConnectorModuleDeployment.content.main"/>
+         <forward name="SessionManagerEnable.config.view" path="SessionManagerEnable.config.view"/>
+         <forward name="J2CResourceAdapter.config.view" path="J2CResourceAdapter.config.view"/>
+         <forward name="appconfigure.securityroles.tousers" path="appconfigure.securityroles.tousers"/>
+         <forward name="appconfigure.runasroles.tousers" path="appconfigure.runasroles.tousers"/>
+         <forward name="appconfigure.jndinames.fornonmessagingbeans" path="appconfigure.jndinames.fornonmessagingbeans"/>
+         <forward name="appconfigure.jndinames.formessagingbeans" path="appconfigure.jndinames.formessagingbeans"/>
+         <forward name="appconfigure.resenvrefs.tores" path="appconfigure.resenvrefs.tores"/>
+         <forward name="appconfigure.resrefs.tobeans" path="appconfigure.resrefs.tobeans"/>
+         <forward name="appconfigure.ejbrefs.tobeans" path="appconfigure.ejbrefs.tobeans"/>
+         <forward name="appconfigure.datasource.for20cmpbeans" path="appconfigure.datasource.for20cmpbeans"/>
+         <forward name="appconfigure.datasource.for10cmpbeans" path="appconfigure.datasource.for10cmpbeans"/>         
+         <forward name="appconfigure.datasource.for10entitybeans" path="appconfigure.datasource.for10entitybeans"/>         
+         <forward name="appconfigure.datasource.for20entitybeans" path="appconfigure.datasource.for20entitybeans"/>         
+         <forward name="appconfigure.virtualhosts.towebmodules" path="appconfigure.virtualhosts.towebmodules"/>
+         <forward name="appconfigure.modules.toappservers" path="appconfigure.modules.toappservers"/>
+         <forward name="ModuleServerConfiguration.content.main" path="ModuleServerConfiguration.content.main"/>
+         <forward name="ModuleServerConfiguration.config.view" path="ModuleServerConfiguration.config.view"/>
+         <forward name="LibraryRef.content.main" path="LibraryRef.content.main"/>
+         <forward name="LibraryRef.config.view" path="LibraryRef.config.view"/>
+         <forward name="DeploymentTargetMapping.content.main" path="DeploymentTargetMapping.content.main"/>
+         <forward name="DeploymentTargetMapping.config.view" path="DeploymentTargetMapping.config.view"/>
+      </action>        
+
+    <action name="com.ibm.ws.console.appdeployment.ApplicationConfigureAction"
+        path="/applicationConfigure" type="com.ibm.ws.console.appdeployment.ApplicationConfigureAction">
+        <forward name="applicationDeploymentCollection" path="ApplicationDeployment.content.main"/>
+    </action>
+
+        
+         <action name="com.ibm.ws.console.appdeployment.ApplicationDeploymentCollectionForm" 
+                 path="/applicationDeploymentCollection" type="com.ibm.ws.console.appdeployment.ApplicationDeploymentCollectionAction">
+                <forward name="failure" path="/error.jsp"/>
+                <forward name="success" path="ApplicationDeployment.config.view"/>
+                <forward name="applicationDeploymentCollection" path="ApplicationDeployment.content.main"/>
+                <forward name="nochange" path="com.ibm.ws.console.appdeployment.forwardCmd.do?forwardName=ApplicationDeployment.content.main&#38;noChange=true"/>
+                <forward name="sessionManagerCollection" path="SessionManager.config.view"/>
+                <forward name="exportApplication" path="ExportApp.config.view"/>
+                <forward name="exportDDL" path="ExportDDL.config.view"/>            
+         </action>                 
+     
+        <action
+            name="com.ibm.ws.console.appdeployment.ApplicationDeploymentDetailForm"
+            path="/applicationDeploymentDetail" type="com.ibm.ws.console.appdeployment.ApplicationDeploymentDetailAction" input="ApplicationDeployment.config.view">
+            <forward name="error" path="ApplicationDeployment.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.appdeployment.forwardCmd.do?forwardName=ApplicationDeployment.content.main"/>
+            <forward name="sessionManagerCollection" path="SessionManager.config.view"/>
+        </action>
+                     
+
+        <action
+            name="com.ibm.ws.console.appdeployment.WebModuleDeploymentCollectionForm"
+            path="/webModuleDeploymentCollection" type="com.ibm.ws.console.appdeployment.WebModuleDeploymentCollectionAction">
+            <forward name="failure" path="/error.jsp"/>
+            <forward name="success" path="WebModuleDeployment.config.view"/>
+            <forward name="webModuleDeploymentCollection" path="WebModuleDeployment.content.main"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.appdeployment.WebModuleDeploymentDetailForm"
+            path="/webModuleDeploymentDetail" type="com.ibm.ws.console.appdeployment.WebModuleDeploymentDetailAction" input="WebModuleDeployment.config.view">
+            <forward name="error" path="WebModuleDeployment.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.appdeployment.forwardCmd.do?forwardName=WebModuleDeployment.content.main"/>
+        </action>
+
+        <action
+            name="com.ibm.ws.console.appdeployment.EJBModuleDeploymentCollectionForm"
+            path="/eJBModuleDeploymentCollection" type="com.ibm.ws.console.appdeployment.EJBModuleDeploymentCollectionAction">
+            <forward name="failure" path="/error.jsp"/>
+            <forward name="success" path="EJBModuleDeployment.config.view"/>
+            <forward name="eJBModuleDeploymentCollection" path="EJBModuleDeployment.content.main"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.appdeployment.EJBModuleDeploymentDetailForm"
+            path="/eJBModuleDeploymentDetail" type="com.ibm.ws.console.appdeployment.EJBModuleDeploymentDetailAction" input="EJBModuleDeployment.config.view">
+            <forward name="error" path="EJBModuleDeployment.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.appdeployment.forwardCmd.do?forwardName=EJBModuleDeployment.content.main"/>
+        </action>
+
+        <action
+            name="com.ibm.ws.console.appdeployment.ConnectorModuleDeploymentCollectionForm"
+            path="/connectorModuleDeploymentCollection" type="com.ibm.ws.console.appdeployment.ConnectorModuleDeploymentCollectionAction">
+            <forward name="failure" path="/error.jsp"/>
+            <forward name="success" path="ConnectorModuleDeployment.config.view"/>
+            <forward name="connectorModuleDeploymentCollection" path="ConnectorModuleDeployment.content.main"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.appdeployment.ConnectorModuleDeploymentDetailForm"
+            path="/connectorModuleDeploymentDetail" type="com.ibm.ws.console.appdeployment.ConnectorModuleDeploymentDetailAction" input="ConnectorModuleDeployment.config.view">
+            <forward name="error" path="ConnectorModuleDeployment.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.appdeployment.forwardCmd.do?forwardName=ConnectorModuleDeployment.content.main"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.appmanagement.ModuleServerConfigurationCollectionForm"
+            path="/moduleServerConfigurationCollection" type="com.ibm.ws.console.appdeployment.ModuleServerConfigurationCollectionAction">
+            <forward name="failure" path="/error.jsp"/>
+            <forward name="success" path="ModuleServerConfiguration.config.view"/>
+            <forward name="moduleServerConfigurationCollection" path="ModuleServerConfiguration.content.main"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.appmanagement.ModuleServerConfigurationDetailForm"
+            path="/moduleServerConfigurationDetail" type="com.ibm.ws.console.appdeployment.ModuleServerConfigurationDetailAction" input="ModuleServerConfiguration.config.view">
+            <forward name="error" path="ModuleServerConfiguration.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.appmanagement.forwardCmd.do?forwardName=ModuleServerConfiguration.content.main"/>
+        </action>                                
+        
+        <action
+            name="com.ibm.ws.console.appmanagement.ExportForm"
+            path="/exportApp" type="com.ibm.ws.console.appdeployment.ExportAction" input="ExportApp.config.view">
+            <forward name="error" path="ExportApp.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.appdeployment.forwardCmd.do?forwardName=ApplicationDeployment.content.main"/>
+        </action>                                        
+        
+        <action
+            name="com.ibm.ws.console.appmanagement.ExportForm"
+            path="/exportDDL" type="com.ibm.ws.console.appdeployment.ExportAction" input="ExportDDL.config.view">
+            <forward name="error" path="ExportDDL.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.appdeployment.forwardCmd.do?forwardName=ApplicationDeployment.content.main"/>
+        </action>                                                
+        
+        <action
+            name="com.ibm.ws.console.appdeployment.LibraryRefCollectionForm"
+            path="/libraryRefCollection" type="com.ibm.ws.console.appdeployment.LibraryRefCollectionAction">
+            <forward name="failure" path="/error.jsp"/>
+            <forward name="success" path="LibraryRef.config.view"/>
+            <forward name="libraryRefCollection" path="LibraryRef.content.main"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.appdeployment.LibraryRefDetailForm"
+            path="/libraryRefDetail" type="com.ibm.ws.console.appdeployment.LibraryRefDetailAction" input="LibraryRef.config.view">
+            <forward name="error" path="LibraryRef.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.appdeployment.forwardCmd.do?forwardName=LibraryRef.content.main"/>
+        </action>
+        
+        
+        <action
+            name="com.ibm.ws.console.appdeployment.DeploymentTargetMappingCollectionForm"
+            path="/deploymentTargetMappingCollection" type="com.ibm.ws.console.appdeployment.DeploymentTargetMappingCollectionAction">
+            <forward name="failure" path="/error.jsp"/>
+            <forward name="success" path="DeploymentTargetMapping.config.view"/>
+            <forward name="deploymentTargetMappingCollection" path="DeploymentTargetMapping.content.main"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.appdeployment.DeploymentTargetMappingDetailForm"
+            path="/deploymentTargetMappingDetail" type="com.ibm.ws.console.appdeployment.DeploymentTargetMappingDetailAction" input="DeploymentTargetMapping.config.view">
+            <forward name="error" path="DeploymentTargetMapping.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.appdeployment.forwardCmd.do?forwardName=DeploymentTargetMapping.content.main"/>
+        </action>
+  </action-mappings>
+</struts-config>

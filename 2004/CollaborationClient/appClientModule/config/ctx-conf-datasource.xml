@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+	<bean id="july.dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+        destroy-method="close">
+        <property name="driverClassName" value="com.informix.jdbc.IfxDriver"/>
+        <property name="url" value="jdbc:informix-sqli://172.21.9.132:1541:informixserver=beeinf_app;database=july;DB_LOCALE=ru_RU.1251;CLIENT_LOCALE=ru_RU.1251;informixLockModeWait=60"/>
+        <property name="username" value="nrisync"/>
+	    <property name="password" value="TZ1N&amp;u5j"/>
+    </bean>
+</beans>

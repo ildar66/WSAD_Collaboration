@@ -1,0 +1,150 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>会话管理设置</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uprs_rsession_manager"></a>
+<h2>会话管理设置</h2>
+
+<p>使用此页面管理 HTTP 会话支持。此支持包括指定会话跟踪机制、设置最大内存中会话计数、控制溢出和配置会话超时。</p>
+
+<p>要查看此管理控制台页面，单击<strong>服务器</strong> &gt; <strong>应用程序服务器</strong> &gt; <em>server_name</em> &gt; <strong>Web 容器</strong> &gt; <strong>会话管理</strong>。</p>
+
+<div>
+<p>
+<strong>&ldquo;配置&rdquo;选项卡</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="SessionManager_enable_description"></a>重写会话管理（仅应用程序和 Web 模块级别）</strong>
+</dt>
+<dd>指定这些会话管理设置是否优先于从当前应用程序或 Web 模块的更高级别正常继承的那些设置。
+<p>缺省情况下，Web 模块从它上面的应用程序级别继承会话管理设置，而应用程序从它上面的 Web 容器级别继承会话管理设置。</p>
+
+</dd>
+<dt>
+<strong><a name="SessionManager_sessionTracking_description"></a>会话跟踪机制</strong>
+</dt>
+<dd>指定 HTTP 会话管理的机制。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">机制</td>
+<td align="left" valign="top" class="base">功能</td>
+<td align="left" valign="top" class="base">缺省</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">启用 SSL 标识跟踪</td>
+<td align="left" valign="top" class="base">指定会话跟踪使用安全套接字层（SSL）信息作为会话标识。启用 SSL 跟踪优先于基于 cookie 的会话跟踪和 URL 重写。
+<p>如果您启用 SSL 标识跟踪，则存在两个可用参数：SSLV3Timeout 和安全关联服务器（SAS）。SSLV3Timeout 指定重新协商 SSL 会话前的时间间隔。这是高设置，修改在性能方面不提供任何重要影响。仅当 SAS 参数从 Java 虚拟机（JVM）转出到另一个 JVM 时，才建立 SSL 连接。如果所有 bean 协同定位在同一 JVM 中，则 SAS 使用的 SSL 不阻碍性能。</p>
+<p>这些是通过编辑位于 <em>product_installation_root</em>\properties（其中 <em>product_installation_root</em> 是安装 WebSphere Application Server 的目录）目录中的 <samp>sas.server.properties</samp>和 <samp>sas.client.props</samp> 文件设置。</p>
+</td>
+<td align="left" valign="top" class="base">9600 秒</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">启用 Cookie</td>
+<td align="left" valign="top" class="base">指定会话跟踪使用 cookie 携带会话标识。
+如果启用 cookie，则会话跟踪识别到达的会话标识作为 cookie 并尝试使用 cookie 发送会话标识。如果未启用 cookie，则会话跟踪使用 URL 重写而不是 cookie（如果启用了 URL 重写的话）。<p>启用 cookie 优先于 URL 重写。
+不要在运行管理应用程序的应用程序服务器的会话管理工具中禁用 cookie，因为此操作会导致在服务器重新启动后管理应用程序不运行。作为备用方法，在独立于您的应用程序的进程中运行管理应用程序。</p>
+<p>单击<strong>修改</strong>更改这些设置。</p>
+</td>
+<td align="left" valign="top" class="base"></td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">启用 URL 重写</td>
+<td align="left" valign="top" class="base">指定会话管理工具使用重写 URL 携带会话标识。如果启用 URL 重写，则会话管理工具识别 URL 中到达的会话标识（如果在 servlet 中调用 encodeURL 方法）。</td>
+<td align="left" valign="top" class="base"></td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">启用协议转换重写</td>
+<td align="left" valign="top" class="base">指定当 URL 要求从 HTTP 转换到 HTTPS 或从 HTTPS 转换到 HTTP 时添加会话标识到 URL。如果启用重写，则会话标识必需能够在 HTTP 和 HTTPS 之间转换。</td>
+<td align="left" valign="top" class="base"></td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SessionManager_overflow_description"></a>溢出</strong>
+</dt>
+<dd>指定内存中的会话数可以超出&ldquo;最大内存中会话计数&rdquo;属性指定的值。此选项仅在非分布式会话方式下才有效。</dd>
+<dt>
+<strong><a name="TuningParams_maxInMemorySessionCount_description"></a>最大内存中会话计数</strong>
+</dt>
+<dd>指定内存中存留的最大会话数。
+<p>取决于您使用的是内存中会话还是分布式会话，含意不同。对于内存中会话，此值指定基本会话表中的会话数。使用&ldquo;允许溢出&rdquo;属性指定是限制整个会话管理工具的会话数为此数目，还是允许在次表中存储附加的会话。对于分布式会话，此值指定会话的内存高速缓存的大小。
+当会话高速缓存已到达它的最大大小并且请求新的会话时，会话管理工具从高速缓存除去最近最少使用的会话来为新的会话腾出空间。<p>
+<img alt="[Fix Pack 5.0.2 and later]" src="v502.gif" border="0"><b>注: </b>不要将此值设置为小于服务器的最大线程池大小的数字。</p>
+</p>
+
+</dd>
+<dt>
+<strong><a name="SessionManager_sessionTimeout_description"></a>会话超时</strong>
+</dt>
+<dd>指定会话不再有效之前可以不使用它的时间。指定 <samp>Set timeout</samp> 或 <samp>No timeout</samp>。指定大于或等于 2 的分钟值。
+<p> 当在 Web 模块部署描述符中未指定会话超时时，此设置的值作为缺省值使用。注意要保持性能，无效计时器不精确到秒。当写频率是基于时间时，确保此值至少是写间隔的两倍。</p>
+
+</dd>
+<dt>
+<strong><a name="SessionManager_securityIntegration_description"></a>安全性集成</strong>
+</dt>
+<dd>指定当启用安全性集成时，会话管理工具将用户身份与它们的 HTTP 会话关联起来</dd>
+<dt>
+<strong><a name="SessionManager_serialAccess_description"></a>串行化会话访问</strong>
+</dt>
+<dd>指定在给定服务器中不允许并发会话访问。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">最大等待时间</td>
+<td align="left" valign="top" class="base">指定在继续执行之前 servlet 请求等待 HTTP 会话的最大时间数量。此参数是可选的并且以秒表示。缺省为 120 秒或 2 分钟。在正常情况下，当前拥有给定 HTTP 会话的请求在它完成时会向等待访问此 HTTP 会话的 servlet 请求发出通知。</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">允许访问超时</td>
+<td align="left" valign="top" class="base">指定在超时事件中 servlet 正常地执行还是异常终止。如果选取此框，servlet 正常执行。如果未选取此框，servlet 执行异常终止并且生成错误日志。</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>相关信息</strong>
+</p>
+<a href="rcon_buttons.html">管理控制台按钮</a>
+<br>
+
+<a href="rcon_pageusage.html">管理控制台页面功能</a>
+<br>
+
+<a href="rcon_preferences.html">管理控制台首选项设置</a>
+<br>
+
+</div>
+</body>
+</html>

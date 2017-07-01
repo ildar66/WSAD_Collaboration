@@ -1,0 +1,306 @@
+﻿<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>アプリケーション・インストールの設定の準備</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="urun_rapp_instw"></a>
+<h2>アプリケーション・インストールの設定の準備</h2>
+
+<p>このページを使用して、アプリケーション (EAR ファイル) またはモジュール (JAR または WAR ファイル) をインストールします。</p>
+
+<p>この管理コンソール・ページを表示するには、「<strong>アプリケーション</strong>」&gt;「<strong>新規アプリケーションのインストール</strong>」をクリックします。</p>
+
+<p>このページのステップに従って、アプリケーションまたはモジュールをインストールします。
+少なくとも最初のステップは完了する必要があります。それ以降のステップのいくつか、
+またはすべてを完了する必要があるかどうかは、アプリケーション、EJB モジュール、
+または Web モジュールのいずれをインストールするかによります。</p>
+
+<dl>
+<dt>
+<strong><a name="app_deploy_path"></a>パス</strong>
+</dt>
+<dd>エンタープライズ・アプリケーションの .ear、.jar、または .war ファイルへの完全修飾パスを指定します。
+<p>ブラウザーとアプリケーション・ファイルが同一マシン上にある場合
+(サーバーもそのマシン上にあるかないかにかかわらず)、「<strong>ローカル・パス</strong>」を使用します。</p>
+
+<p>アプリケーション・ファイルが現行セルのコンテキストのいずれかのノードにある場合、「
+<strong>サーバー・パス</strong>」を使用します。
+選択ノードでノード・エージェントまたはデプロイメント・マネージャーが実行中の場合、
+そのノードのファイル・システム全体をブラウズすることができます。
+ブラウズ中に表示されるのは、.ear、.jar、または .war ファイルのみです。 </p>
+
+<p>アプリケーションのインストール中、アプリケーション・ファイルは通常、
+ブラウザーを稼働しているクライアント・マシンから、そのファイルがデプロイされる、
+管理コンソールを稼働しているサーバー・マシンにアップロードされます。
+この場合、サーバー・マシンにアップロードされる EAR、WAR、または JAR モジュールの選択には、
+管理コンソールが稼働する Web ブラウザーが使用されます。</p>
+
+<p>ただし場合によっては、アプリケーション・ファイルが、
+セル内の任意のノードのファイル・システム上に常駐していることがあります。
+このようなファイルをアプリケーション・サーバーでインストールする場合は、「
+<strong>サーバー・パス</strong>」オプションを使用してください。</p>
+
+<p>このオプションを使用して、
+アプリケーション・サーバーを実行中のマシンにすでにあるアプリケーション・ファイルを指定することもできます。
+例えば、Windows NT におけるこのフィールドの値は、
+<samp>C:&yen;WebSphere&yen;AppServer&yen;installableApps&yen;test.ear</samp> のようになります。
+スタンドアロンの WAR モジュールをインストールする場合、コンテキスト・ルートも指定する必要があります。</p>
+
+</dd>
+<dt>
+<strong><a name="app_deploy_contextRoot"></a>コンテキスト・ルート</strong>
+</dt>
+<dd>Web アプリケーション (WAR) のコンテキスト・ルートを指定します。
+<p>このフィールドは、スタンドアロンの WAR ファイルをインストールする場合にのみ使用します。コンテキスト・ルートは、(WAR ファイルからの) 定義済みのサーブレット・マッピングと組み合わされて、ユーザーがサーブレットへのアクセス時に入力する完全 URL を構成します。 例えば、コンテキスト・ルートが /gettingstarted で、サーブレット・マッピングが MySession の場合、URL は <samp>http://host:port/gettingstarted/MySession</samp> となります。</p>
+
+</dd>
+<dt>
+<strong><a name="app_deploy_genDefBindings"></a>デフォルト・バインディングの生成</strong>
+</dt>
+<dd>デフォルト・バインディングを生成するかどうかを指定します。
+チェック・ボックスにチェックマークを付けた場合、アプリケーション内の
+不完全なバインディングはすべてデフォルト値で埋められます。
+既存のバインディングは、変更されません。
+<p>このオプションを選択すると、「サマリー」ステップに直接ジャンプし、
+どのステップの横にも赤いアスタリスク (*) が付いていなければ、
+アプリケーションをインストールすることができます。
+赤のアスタリスクは、そのステップのデータが不完全であり、有効な値が必要であることを示しています。
+「サマリー」パネルでは、
+アプリケーションのインストールされるセル、ノード、およびサーバーを確認してください。</p>
+
+<p>バインディングは、次のように生成されます。</p>
+
+<ul>
+
+<li>EJB JNDI 名は、<em>prefix</em>/<em>ejb-name</em> の形式で生成されます。
+デフォルトのプレフィックスは <samp>ejb</samp> ですが、オーバーライドすることができます。
+<em>ejb-name</em> は、デプロイメント記述子の <samp>&lt;ejb-name&gt;</samp> タグでの指定と同様です。</li>
+
+<li>EJB 参照は次のようにバインドされます: &lt;ejb-link&gt; が検出されると、それが使用されます。
+それ以外では、固有の Enterprise Bean が、参照 Bean として、
+一致するホーム (またはローカル・ホーム) インターフェースとともに検出された場合、
+その参照は自動的に解決されます。</li>
+
+<li>リソース参照バインディングは、&lt;res-ref-name&gt; タグから派生されます。
+このアクションは、java:comp/env 名がリソースのグローバル JNDI 名と同じであることを前提としています。</li>
+
+<li>接続ファクトリー・バインディング (EJB 2.0 JAR ファイル用) は、
+提供された JNDI 名と許可情報を基に、生成されます。
+このアクションの結果、
+インストールされるアプリケーションの各 EJB 2.0 JAR ファイルに対してデフォルトの接続ファクトリーが設定されます。
+Bean レベルの接続ファクトリーのバインディングは、生成されません。</li>
+
+<li>データ・ソース・バインディング (EJB 1.1 JAR ファイル用) は、JNDI 名、
+データ・ソースのユーザー名とパスワードのオプションを基に、生成されます。
+この結果、各 EJB JAR ファイルに対してデフォルトのデータ・ソースが設定されます。
+Bean レベルのデータ・ソースのバインディングは、生成されません。</li>
+
+<li>メッセージ・ドリブン Bean (MDB) リスナー・ポートは、
+MDB &lt;ejb-name&gt; タグから派生し、ストリング <samp>Port</samp> が付加されます。</li>
+
+<li>.war ファイルの場合、特に指定されないかぎり、仮想ホストは <samp>default_host</samp> として設定されます。</li>
+
+</ul>
+
+<p>ほとんどのアプリケーション、または少なくともほとんどのアプリケーションのほとんどのバインディングは、
+デフォルトのストラテジーで十分です。
+ただし、以下の場合は機能しません。</p>
+
+<ul>
+
+<li>1 つ以上の EJB ファイルのグローバル JNDI 名を明示的に制御したい。</li>
+
+<li>CMP のデータ・ソース・バインディングをより厳密に制御する必要がある。
+つまり、複数のデータ・ソースがあり、複数のグローバル・データ・ソースを必要とする場合。</li>
+
+<li>リソース参照をグローバル・リソースの java:comp/env とは異なる JNDI 名にマッピングする必要がある場合。
+</li>
+
+</ul>
+
+<p>そのような場合は、XML 文書を使用して動作を変更することができます (カスタム・ストラテジー)。
+「<strong>特定バインディング・ファイル</strong>」フィールドを使用して、
+カスタム・ストラテジーを指定したり、フィールドのヘルプで例を参照します。</p>
+
+</dd>
+<dt>
+<strong><a name="app_deploy_prefixes"></a>プレフィックス</strong>
+</dt>
+<dd>生成される JNDI 名に使用するプレフィックスを指定します。
+
+</dd>
+<dt>
+<strong><a name="app_deploy_override"></a>オーバーライド</strong>
+</dt>
+<dd>既存のバインディングをオーバーライドするかどうかを指定します。
+<p>このチェック・ボックスがチェックされていると、
+既存のバインディングは、生成されたバインディングでオーバーライドされます。</p>
+
+</dd>
+<dt>
+<strong><a name="app_deploy_ejbCmpBindings"></a>EJB 1.1 CMP バインディング</strong>
+</dt>
+<dd>デフォルト・データ・ソースの JNDI 名を指定します。
+<p>「<strong>EJB 1.1 CMP のデフォルト・バインディング</strong>」ラジオ・ボタンが選択されている場合は、
+CMP 1.1 Bean で使用されるデフォルトのデータ・ソースの JNDI 名を指定してください。
+また、このデフォルト・データ・ソースのユーザー ID とパスワードも指定します。</p>
+
+</dd>
+<dt>
+<strong><a name="app_deploy_connFacBindings"></a>接続ファクトリー・バインディング</strong>
+</dt>
+<dd>デフォルト・データ・ソースの JNDI 名を指定します。
+<p>「<strong>デフォルト接続ファクトリー・バインディング</strong>」ラジオ・ボタンが選択されている場合は、
+バインディングで使用されるデフォルトのデータ・ソースの JNDI 名を指定してください。
+また、リソース許可も指定します。</p>
+
+</dd>
+<dt>
+<strong><a name="app_deploy_virtualHost"></a>仮想ホスト</strong>
+</dt>
+<dd>WAR モジュールの仮想ホストを指定します。
+
+</dd>
+<dt>
+<strong><a name="app_deploy_specificBindingsFile"></a>特定バインディング・ファイル</strong>
+</dt>
+<dd>デフォルト・バインディングをオーバーライドするバインディング・ファイルを指定します。
+<p>XML 文書 (<em>aka</em> カスタム・ストラテジー) でデフォルト・バインディングの動作を変更します。
+カスタム・ストラテジーは、デフォルト・ストラテジーを拡張するので、
+デフォルト・ストラテジーが不十分な領域のみをカスタマイズする必要があります。
+つまり、必要なのは、デフォルト・ストラテジーによって生成されたバインディングを変更する方法の記述のみで、
+アプリケーション全体のバインディングを定義する必要がないということです。
+</p>
+
+<p>デフォルト・バインディング生成プログラムのさまざまな局面をオーバーライドする方法の簡単な例は次のとおりです。</p>
+
+<p>
+<strong>EJB JNDI 名の制御</strong>
+
+</p>
+
+<pre>&lt;?xml version="1.0"?&gt;
+&lt;!DOCTYPE dfltbndngs SYSTEM "dfltbndngs.dtd"&gt;
+&lt;dfltbndngs&gt;
+  &lt;module-bindings&gt;
+    &lt;ejb-jar-binding&gt;
+      &lt;jar-name&gt;helloEjb.jar&lt;/jar-name&gt;
+&lt;!-- この名前は .ear ファイル内のモジュール名と一致しなければなりません --&gt;
+      &lt;ejb-bindings&gt;
+        &lt;ejb-binding&gt;
+         &lt;ejb-name&gt;HelloEjb&lt;/ejb-name&gt;
+&lt;!-- これは、EJB JAR DD 内の &lt;ejb-name&gt; エントリーと一致しなければなりません --&gt;
+         &lt;jndi-name&gt;com/acme/ejb/HelloHome&lt;/jndi-name&gt;
+        &lt;/ejb-binding&gt;
+      &lt;/ejb-bindings&gt;
+    &lt;/ejb-jar-binding&gt;
+  &lt;/module-bindings&gt;
+&lt;/dfltbndngs&gt;</pre>
+
+<p> 
+<strong>EJB JAR ファイルの接続ファクトリー・バインディングの設定</strong>
+
+</p>
+
+<pre>&lt;!DOCTYPE dfltbndngs SYSTEM "dfltbndngs.dtd"&gt;
+&lt;dfltbndngs&gt;
+  &lt;module-bindings&gt;
+    &lt;ejb-jar-binding&gt;
+      &lt;jar-name&gt;yourEjb20.jar&lt;/jar-name&gt;
+      &lt;connection-factory&gt;
+        &lt;jndi-name&gt;eis/jdbc/YourData_CMP&lt;/jndi-name&gt;
+        &lt;res-auth&gt;Container&lt;/res-auth&gt;
+      &lt;/connection-factory&gt;
+    &lt;/ejb-jar-binding&gt;
+  &lt;/module-bindings&gt;
+&lt;/dfltbndngs&gt;</pre>
+
+<p> 
+<strong>EJB ファイルの接続ファクトリー・バインディングの設定</strong>
+
+</p>
+
+<pre>&lt;?xml version="1.0"&gt;
+&lt;!DOCTYPE dfltbndngs SYSTEM "dfltbndngs.dtd"&gt;
+&lt;dfltbndngs&gt;
+  &lt;module-bindings&gt;
+    &lt;ejb-jar-binding&gt;
+      &lt;jar-name&gt;yourEjb20.jar&lt;/jar-name&gt;
+      &lt;ejb-bindings&gt;
+        &lt;ejb-binding&gt;
+          &lt;ejb-name&gt;YourCmp20&lt;/ejb-name&gt;
+&lt;!-- これは DD の ejb-name タグと一致しなければなりません --&gt;
+          &lt;connection-factory&gt;
+           &lt;jndi-name&gt;eis/jdbc/YourData_CMP&lt;/jndi-name&gt;
+           &lt;res-auth&gt;PerConnFact&lt;/res-auth&gt;
+          &lt;/connection-factory&gt;
+        &lt;/ejb-binding&gt;
+      &lt;/ejb-bindings&gt;
+    &lt;/ejb-jar-binding&gt;
+ &lt;/module-bindings&gt;
+&lt;/dfltbndngs&gt;</pre>
+
+<p> 
+<strong>WAR、EJB JAR ファイル、
+または J2EE クライアント JAR ファイルからのリソース参照バインディングのオーバーライド</strong>
+
+</p>
+
+<p>WAR ファイルからリソース参照バインディングをオーバーライドするサンプル・コードは次のとおりです。
+類似コードを使用して、
+EJB JAR ファイルまたは J2EE クライアント JAR ファイルからのリソース参照バインディングをオーバーライドします。</p>
+
+<pre>&lt;?xml version="1.0"?&gt;
+&lt;!DOCTYPE dfltbndngs SYSTEM "dfltbndngs.dtd"&gt;
+&lt;dfltbndngs&gt;
+  &lt;module-bindings&gt;
+    &lt;war-binding&gt;
+      &lt;jar-name&gt;hello.war&lt;/jar-name&gt;
+      &lt;resource-ref-bindings&gt;
+        &lt;resource-ref-binding&gt;
+          &lt;!-- 以下は DD 内のリソース参照と一致しなければなりません --&gt;
+          &lt;resource-ref-name&gt;jdbc/MyDataSrc&lt;/resource-ref-name&gt;
+          &lt;jndi-name&gt;war/override/dataSource&lt;/jndi-name&gt;
+        &lt;/resource-ref-binding&gt;
+      &lt;/resource-ref-bindings&gt;
+    &lt;/war-binding&gt;
+  &lt;/module-bindings&gt;
+&lt;/dfltbndngs&gt;</pre>
+
+<p> 
+<strong>MDB JMS リスナー・ポートのオーバーライド</strong>
+
+</p>
+
+<pre>&lt;?xml version="1.0"?&gt;
+&lt;!DOCTYPE dfltbndngs SYSTEM "dfltbndngs.dtd"&gt;
+&lt;dfltbndngs&gt;
+  &lt;module-bindings&gt;
+    &lt;ejb-jar-binding&gt;
+      &lt;jar-name&gt;YourEjbJar.jar&lt;/jar-name&gt;
+      &lt;ejb-bindings&gt;
+        &lt;ejb-binding&gt;
+          &lt;ejb-name&gt;YourMDB&lt;/ejb-name&gt;
+          &lt;listener-port&gt;yourMdbListPort&lt;/listener-port&gt;
+        &lt;/ejb-binding&gt;
+      &lt;/ejb-bindings&gt;
+    &lt;/ejb-jar-binding&gt;
+  &lt;/module-bindings&gt;
+&lt;/dfltbndngs&gt;</pre>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>関連情報</strong>
+</p>
+<a href="rcon_buttons.html">管理コンソールのボタン</a>
+<br>
+
+</div>
+</body>
+</html>

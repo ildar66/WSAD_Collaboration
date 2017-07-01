@@ -1,0 +1,372 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Valores del servicio de transacciones</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="Transaction_service"></a>
+<h2>Valores del servicio de transacciones</h2>
+
+<p>Utilice esta p&aacute;gina para modificar los valores del servicio de transacciones.</p>
+
+<p>Para ver esta p&aacute;gina de la consola administrativa, pulse
+<strong>Servidores</strong> &gt; <strong>Servidores de aplicaciones</strong> &gt; <em>servidor</em> &gt; <strong>Servicio de transacciones</strong>.</p>
+
+<div>
+<p>
+<strong>Pesta&ntilde;a Configuraci&oacute;n</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="TransactionService_transactionLogDirectory_displayName"></a>Directorio de archivo de anotaciones cronol&oacute;gicas de transacciones</strong>
+</dt>
+<dd>Especifica el nombre de un directorio de este servidor donde el servicio de transacciones almacena los archivos de anotaciones cronol&oacute;gicas para la recuperaci&oacute;n.
+
+<p>Al arrancar, el archivo de anotaciones cronol&oacute;gicas de transacciones expande un valor en
+blanco de la configuraci&oacute;n del servidor como directorio
+(<em>ra&iacute;z_instalaci&oacute;n</em>)/tranlog/(<em>nombre_servidor</em>).</p>
+
+<p>Cuando la aplicaci&oacute;n que se ejecuta en
+el producto WebSphere accede a m&aacute;s de un recurso, el producto WebSphere almacena
+informaci&oacute;n de la transacci&oacute;n para coordinar y gestionar correctamente la transacci&oacute;n
+distribuida. En cargas de transacci&oacute;n mayores, esta persistencia disminuye el rendimiento
+del servidor de aplicaciones por su dependencia del sistema operativo y de los sistemas
+de almacenamiento subyacentes.</p>
+
+<p>Para aumentar el rendimiento,
+desplace los archivos de anotaciones cronol&oacute;gicas de transacci&oacute;n a dispositivos
+de almacenamiento con m&aacute;s unidades de disco f&iacute;sicas o, preferiblemente unidades
+de disco RAID. Cuando se mueven los archivos de anotaciones cronol&oacute;gicas a
+sistemas de archivos en los discos RAID, la tarea de grabar datos en el soporte
+f&iacute;sico se comparte en todas las distintas unidades de disco. Esto permite un acceso m&aacute;s
+simult&aacute;neo a informaci&oacute;n de transacciones persistente y un acceso m&aacute;s r&aacute;pido a esos datos de
+los archivos de anotaciones cronol&oacute;gicas. En funci&oacute;n del dise&ntilde;o del subsistema de aplicaci&oacute;n
+y almacenamiento, la obtenci&oacute;n de rendimiento puede variar del 10% al 100% o incluso m&aacute;s en algunos casos. </p>
+
+<p>Este cambio s&oacute;lo se aplica a la
+configuraci&oacute;n donde la aplicaci&oacute;n utiliza recursos distribuidos o transacciones XA,
+por ejemplo, se accede a varias bases de datos y recursos dentro de una sola transacci&oacute;n. Considere establecer esta propiedad cuando el servidor de aplicaciones muestra
+uno o m&aacute;s signos siguientes:  <ul>
+
+<li>Sigue habiendo poca utilizaci&oacute;n de la CPU a pesar de que aumentan las transacciones</li>
+
+<li>No se pueden efectuar las transacciones con tiempos de espera excedidos en varias ocasiones</li>
+
+<li>Se producen retrotraimientos de transacciones con la excepci&oacute;n <strong>no se puede incluir la transacci&oacute;n</strong>
+</li>
+
+<li>El servidor de aplicaciones se inhabilita en mitad de una ejecuci&oacute;n y se requiere que
+se reinicie el servidor</li>
+
+<li>El disco en que se est&aacute; ejecutando el servidor de aplicaciones muestra mayor utilizaci&oacute;n</li>
+
+</ul>
+</p>
+
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">El valor inicial es el directorio <em>%WAS_HOME%</em>\tranlog/(<em>nombre_servidor</em>) y un tama&ntilde;o por omisi&oacute;n
+de 1 MB. </td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Recomendado</td>
+<td align="left" valign="top" class="base">Cree un sistema de archivos con al menos 3 &oacute; 4 unidades de disco RAID
+combinadas en una configuraci&oacute;n RAID-0. A continuaci&oacute;n, cree el archivo de anotaciones
+cronol&oacute;gicas de transacciones en este sistema de archivos con el tama&ntilde;o por omisi&oacute;n. Cuando el servidor se ejecuta bajo carga, compruebe la entrada y la salida
+de disco. Si el tiempo de entrada y salida de disco supera el 5%, considere
+a&ntilde;adir m&aacute;s discos f&iacute;sicos para disminuir el valor. Si se produce poca entrada y
+salida de disco, pero el servidor sigue con alto volumen, considere aumentar el
+tama&ntilde;o de los archivos de anotaciones cronol&oacute;gicas. </td>
+
+</tr>
+
+</table>
+
+
+
+
+</dd>
+<dt>
+<strong><a name="TransactionService_totalTranLifetimeTimeout_displayName"></a>Tiempo de espera de actividad total de transacci&oacute;n </strong>
+</dt>
+<dd>Especifica la duraci&oacute;n m&aacute;xima en segundos de las transacciones en este servidor de aplicaciones.  
+
+<p>Cualquier transacci&oacute;n a la que no se solicite que finalice antes de dicho tiempo de espera se retrotraer&aacute;. Si est&aacute; establecido en 0, no existe l&iacute;mite de tiempo de espera.</p>
+
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unidades</td>
+<td align="left" valign="top" class="base">Segundos</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">120</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">0 a 2 147 483 647</td>
+
+</tr>
+
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="TransactionService_clientInactivityTimeout_displayName"></a>Tiempo de espera de inactividad de cliente  </strong>
+</dt>
+<dd>Especifica el intervalo m&aacute;ximo de tiempo en segundos entre peticiones de transacciones de un cliente remoto. 
+<p>Cualquier periodo de inactividad del cliente que exceda este tiempo de espera, provoca que la transacci&oacute;n se retrotraiga en este servidor de aplicaciones. Si est&aacute; establecido en 0, no existe l&iacute;mite de tiempo de espera.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unidades</td>
+<td align="left" valign="top" class="base">Segundos</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">60</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">0 a 2 147 483 647</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Pesta&ntilde;a Tiempo de ejecuci&oacute;n</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="TransactionService_transactionLogDirectory_displayName"></a>Directorio de archivo de anotaciones cronol&oacute;gicas de transacciones</strong>
+</dt>
+<dd>Especifica el nombre de un directorio de este servidor donde el servicio de transacciones almacena los archivos de anotaciones cronol&oacute;gicas para la recuperaci&oacute;n.
+
+<p>Al arrancar, el archivo de anotaciones cronol&oacute;gicas de transacciones expande un valor en
+blanco de la configuraci&oacute;n del servidor como directorio
+(<em>ra&iacute;z_instalaci&oacute;n</em>)/tranlog/(<em>nombre_servidor</em>).</p>
+
+<p>Cuando la aplicaci&oacute;n que se ejecuta en
+el producto WebSphere accede a m&aacute;s de un recurso, el producto WebSphere almacena
+informaci&oacute;n de la transacci&oacute;n para coordinar y gestionar correctamente la transacci&oacute;n
+distribuida. En cargas de transacci&oacute;n mayores, esta persistencia disminuye el rendimiento
+del servidor de aplicaciones por su dependencia del sistema operativo y de los sistemas
+de almacenamiento subyacentes.</p>
+
+<p>Para aumentar el rendimiento,
+desplace los archivos de anotaciones cronol&oacute;gicas de transacci&oacute;n a dispositivos
+de almacenamiento con m&aacute;s unidades de disco f&iacute;sicas o, preferiblemente unidades
+de disco RAID. Cuando se mueven los archivos de anotaciones cronol&oacute;gicas a
+sistemas de archivos en los discos RAID, la tarea de grabar datos en el soporte
+f&iacute;sico se comparte en todas las distintas unidades de disco. Esto permite un acceso m&aacute;s
+simult&aacute;neo a informaci&oacute;n de transacciones persistente y un acceso m&aacute;s r&aacute;pido a esos datos de
+los archivos de anotaciones cronol&oacute;gicas. En funci&oacute;n del dise&ntilde;o del subsistema de aplicaci&oacute;n
+y almacenamiento, la obtenci&oacute;n de rendimiento puede variar del 10% al 100% o incluso m&aacute;s en algunos casos. </p>
+
+<p>Este cambio s&oacute;lo se aplica a la
+configuraci&oacute;n donde la aplicaci&oacute;n utiliza recursos distribuidos o transacciones XA,
+por ejemplo, se accede a varias bases de datos y recursos dentro de una sola transacci&oacute;n. Considere establecer esta propiedad cuando el servidor de aplicaciones muestra
+uno o m&aacute;s signos siguientes:  <ul>
+
+<li>Sigue habiendo poca utilizaci&oacute;n de la CPU a pesar de que aumentan las transacciones</li>
+
+<li>No se pueden efectuar las transacciones con tiempos de espera excedidos en varias ocasiones</li>
+
+<li>Se producen retrotraimientos de transacciones con la excepci&oacute;n <strong>no se puede incluir la transacci&oacute;n</strong>
+</li>
+
+<li>El servidor de aplicaciones se inhabilita en mitad de una ejecuci&oacute;n y se requiere que
+se reinicie el servidor</li>
+
+<li>El disco en que se est&aacute; ejecutando el servidor de aplicaciones muestra mayor utilizaci&oacute;n</li>
+
+</ul>
+</p>
+
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">El valor inicial es el directorio <em>%WAS_HOME%</em>\tranlog/(<em>nombre_servidor</em>) y un tama&ntilde;o por omisi&oacute;n
+de 1 MB. </td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Recomendado</td>
+<td align="left" valign="top" class="base">Cree un sistema de archivos con al menos 3 &oacute; 4 unidades de disco RAID
+combinadas en una configuraci&oacute;n RAID-0. A continuaci&oacute;n, cree el archivo de anotaciones
+cronol&oacute;gicas de transacciones en este sistema de archivos con el tama&ntilde;o por omisi&oacute;n. Cuando el servidor se ejecuta bajo carga, compruebe la entrada y la salida
+de disco. Si el tiempo de entrada y salida de disco supera el 5%, considere
+a&ntilde;adir m&aacute;s discos f&iacute;sicos para disminuir el valor. Si se produce poca entrada y
+salida de disco, pero el servidor sigue con alto volumen, considere aumentar el
+tama&ntilde;o de los archivos de anotaciones cronol&oacute;gicas. </td>
+
+</tr>
+
+</table>
+
+
+
+
+</dd>
+<dt>
+<strong><a name="TransactionService_totalTranLifetimeTimeout_displayName"></a>Tiempo de espera de actividad total de transacci&oacute;n </strong>
+</dt>
+<dd>Especifica la duraci&oacute;n m&aacute;xima en segundos de las transacciones en este servidor de aplicaciones.  
+
+<p>Cualquier transacci&oacute;n a la que no se solicite que finalice antes de dicho tiempo de espera se retrotraer&aacute;. Si est&aacute; establecido en 0, no existe l&iacute;mite de tiempo de espera.</p>
+
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unidades</td>
+<td align="left" valign="top" class="base">Segundos</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">120</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">0 a 2 147 483 647</td>
+
+</tr>
+
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="TransactionService_clientInactivityTimeout_displayName"></a>Tiempo de espera de inactividad de cliente  </strong>
+</dt>
+<dd>Especifica el intervalo m&aacute;ximo de tiempo en segundos entre peticiones de transacciones de un cliente remoto. 
+<p>Cualquier periodo de inactividad del cliente que exceda este tiempo de espera, provoca que la transacci&oacute;n se retrotraiga en este servidor de aplicaciones. Si est&aacute; establecido en 0, no existe l&iacute;mite de tiempo de espera.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unidades</td>
+<td align="left" valign="top" class="base">Segundos</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">60</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">0 a 2 147 483 647</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informaci&oacute;n relacionada</strong>
+</p>
+<a href="rcon_buttons.html">Botones de la consola de administraci&oacute;n</a>
+<br>
+
+<a href="rcon_pageusage.html">Caracter&iacute;sticas de la p&aacute;gina de la consola administrativa</a>
+<br>
+
+</div>
+</body>
+</html>

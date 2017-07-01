@@ -1,0 +1,57 @@
+------Start of DE processing------ = [05.05.21 15:01:36:016 MSD] , key = java.net.SocketException com.ibm.ws.webcontainer.webapp.WebAppRequestDispatcher.handleWebAppDispatch 725
+Exception = java.net.SocketException
+Source = com.ibm.ws.webcontainer.webapp.WebAppRequestDispatcher.handleWebAppDispatch
+probeid = 725
+Stack Dump = java.net.SocketException: Connection reset by peer: socket write error
+	at java.net.SocketOutputStream.socketWrite0(Native Method)
+	at java.net.SocketOutputStream.socketWrite(SocketOutputStream.java:112)
+	at java.net.SocketOutputStream.write(SocketOutputStream.java:156)
+	at com.ibm.ws.io.Stream.write(Stream.java:26)
+	at com.ibm.ws.io.WriteStream.flushMyBuf(WriteStream.java:145)
+	at com.ibm.ws.io.WriteStream.flush(WriteStream.java:137)
+	at com.ibm.ws.http.ResponseStream.flush(ResponseStream.java:303)
+	at com.ibm.ws.io.WriteStream.flush(WriteStream.java:139)
+	at com.ibm.ws.webcontainer.http.HttpConnection.flush(HttpConnection.java:379)
+	at com.ibm.ws.webcontainer.srp.SRPConnection.flush(SRPConnection.java:242)
+	at com.ibm.ws.webcontainer.srt.SRTOutputStream.flush(SRTOutputStream.java:46)
+	at com.ibm.ws.webcontainer.srt.BufferedServletOutputStream.flushBytes(BufferedServletOutputStream.java:357)
+	at com.ibm.ws.webcontainer.srt.BufferedServletOutputStream.flush(BufferedServletOutputStream.java:334)
+	at com.ibm.ws.webcontainer.srt.BufferedServletOutputStream.flushBuffer(BufferedServletOutputStream.java:488)
+	at com.ibm.ws.webcontainer.srt.SRTServletResponse.flushBuffer(SRTServletResponse.java:1053)
+	at com.ibm.ws.webcontainer.webapp.WebAppRequestDispatcher.handleWebAppDispatch(WebAppRequestDispatcher.java:994)
+	at com.ibm.ws.webcontainer.webapp.WebAppRequestDispatcher.dispatch(WebAppRequestDispatcher.java:564)
+	at com.ibm.ws.webcontainer.webapp.WebAppRequestDispatcher.forward(WebAppRequestDispatcher.java:200)
+	at com.ibm.faces.context.MultipartExternalContextImpl.dispatch(MultipartExternalContextImpl.java:320)
+	at com.sun.faces.application.ViewHandlerImpl.renderView(ViewHandlerImpl.java:142)
+	at com.sun.faces.lifecycle.RenderResponsePhase.execute(RenderResponsePhase.java:87)
+	at com.sun.faces.lifecycle.LifecycleImpl.phase(LifecycleImpl.java:200)
+	at com.sun.faces.lifecycle.LifecycleImpl.render(LifecycleImpl.java:117)
+	at javax.faces.webapp.FacesServlet.service(FacesServlet.java:198)
+	at com.ibm.ws.webcontainer.servlet.StrictServletInstance.doService(StrictServletInstance.java:110)
+	at com.ibm.ws.webcontainer.servlet.StrictLifecycleServlet._service(StrictLifecycleServlet.java:174)
+	at com.ibm.ws.webcontainer.servlet.IdleServletState.service(StrictLifecycleServlet.java:313)
+	at com.ibm.ws.webcontainer.servlet.StrictLifecycleServlet.service(StrictLifecycleServlet.java:116)
+	at com.ibm.ws.webcontainer.servlet.ServletInstance.service(ServletInstance.java:283)
+	at com.ibm.ws.webcontainer.servlet.ValidServletReferenceState.dispatch(ValidServletReferenceState.java:42)
+	at com.ibm.ws.webcontainer.servlet.ServletInstanceReference.dispatch(ServletInstanceReference.java:40)
+	at com.ibm.ws.webcontainer.webapp.WebAppRequestDispatcher.handleWebAppDispatch(WebAppRequestDispatcher.java:983)
+	at com.ibm.ws.webcontainer.webapp.WebAppRequestDispatcher.dispatch(WebAppRequestDispatcher.java:564)
+	at com.ibm.ws.webcontainer.webapp.WebAppRequestDispatcher.forward(WebAppRequestDispatcher.java:200)
+	at com.ibm.ws.webcontainer.srt.WebAppInvoker.doForward(WebAppInvoker.java:119)
+	at com.ibm.ws.webcontainer.srt.WebAppInvoker.handleInvocationHook(WebAppInvoker.java:276)
+	at com.ibm.ws.webcontainer.cache.invocation.CachedInvocation.handleInvocation(CachedInvocation.java:71)
+	at com.ibm.ws.webcontainer.srp.ServletRequestProcessor.dispatchByURI(ServletRequestProcessor.java:182)
+	at com.ibm.ws.webcontainer.oselistener.OSEListenerDispatcher.service(OSEListener.java:334)
+	at com.ibm.ws.webcontainer.http.HttpConnection.handleRequest(HttpConnection.java:56)
+	at com.ibm.ws.http.HttpConnection.readAndHandleRequest(HttpConnection.java:618)
+	at com.ibm.ws.http.HttpConnection.run(HttpConnection.java:443)
+	at com.ibm.ws.util.ThreadPool$Worker.run(ThreadPool.java:672)
+
+Dump of callerThis = 
+Object type = com.ibm.ws.webcontainer.webapp.WebAppRequestDispatcher
+com.ibm.ws.webcontainer.webapp.WebAppRequestDispatcher@786b0dbb
+
+Exception = java.net.SocketException
+Source = com.ibm.ws.webcontainer.webapp.WebAppRequestDispatcher.handleWebAppDispatch
+probeid = 725
+Dump of callerThis = 

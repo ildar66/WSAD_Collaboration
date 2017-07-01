@@ -1,0 +1,166 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Param&egrave;tres du pool d'unit&eacute;s d'ex&eacute;cution</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uejb_rthrd"></a>
+<h2>Param&egrave;tres du pool d'unit&eacute;s d'ex&eacute;cution</h2>
+
+<p>Utilisez cette page pour configurer un groupe d'unit&eacute;s
+d'ex&eacute;cution utilis&eacute; par le serveur d'applications. Les demandes sont envoy&eacute;es au serveur via
+l'un des transports HTTP.
+Un groupe d'unit&eacute;s d'ex&eacute;cution permet &agrave; des composants du serveur de r&eacute;utiliser des unit&eacute;s d'ex&eacute;cution afin de ne pas avoir &agrave; recr&eacute;er d'autres unit&eacute;s lors de l'ex&eacute;cution. La cr&eacute;ation d'unit&eacute;s d'ex&eacute;cution contribue &agrave; augmenter les d&eacute;lais et
+les ressources.</p>
+
+<p>Pour afficher cette page de la console administrative, cliquez sur <strong>Serveurs &gt; G&eacute;rer les serveurs d'applications
+&gt; </strong><em>nom_serveur</em><strong> &gt; Service ORB &gt; Pool d'unit&eacute;s</strong>. (Il existe d'autres chemins de navigation pour
+acc&eacute;der &agrave; cette page.)</p>
+
+<div>
+<p>
+<strong>Onglet Configuration</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="ThreadPool_minimumSize_description"></a>Taille minimale</strong>
+</dt>
+<dd>Indique le nombre minimal d'unit&eacute;s
+d'ex&eacute;cution autoris&eacute;es dans le groupe.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Entier</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">10</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ThreadPool_maximumSize_description"></a>Taille maximale</strong>
+</dt>
+<dd>Sp&eacute;cifie le nombre maximal d'unit&eacute;s d'ex&eacute;cution &agrave; allouer dans le pool. 
+<p>Si Tivoli Performance Viewer affiche la plupart du temps un pourcentage maximal &agrave; deux chiffres, pensez &agrave; augmenter la taille maximale. Ce pourcentage indique la dur&eacute;e d'utilisation des unit&eacute;s d'ex&eacute;cution. Si plusieurs clients sont connect&eacute;s simultan&eacute;ment &agrave; l'ORB c&ocirc;t&eacute; serveur, la valeur de ce
+param&egrave;tre peut &ecirc;tre augment&eacute;e afin d'accepter une charge &eacute;lev&eacute;e (jusqu'&agrave; 1000 clients).</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Entier</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">50</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur conseill&eacute;e</td>
+<td align="left" valign="top" class="base"><a href="rprf_troubleshoot.html">50
+ (25 sous Linux)</a></td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ThreadPool_inactivityTimeout_description"></a>D&eacute;lai d'inactivit&eacute; de l'unit&eacute;</strong>
+</dt>
+<dd>Indique le nombre de millisecondes d'inactivit&eacute; &agrave;
+l'issue desquelles une unit&eacute; d'ex&eacute;cution est r&eacute;cup&eacute;r&eacute;e. La valeur 0
+correspond &agrave; un d&eacute;lai nul et une valeur n&eacute;gative (inf&eacute;rieure &agrave; 0)
+correspond &agrave; un d&eacute;lai illimit&eacute;.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Entier</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&eacute;s</td>
+<td align="left" valign="top" class="base">Millisecondes</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">3 500</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ThreadPool_isGrowable_description"></a>Evolutif</strong>
+</dt>
+<dd>Indique si le nombre d'unit&eacute;s d'ex&eacute;cution
+peut &ecirc;tre augment&eacute; au-del&agrave; de la taille maximale
+configur&eacute;e pour le groupe d'unit&eacute;s d'ex&eacute;cution.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">El&eacute;ment bool&eacute;en</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">Non activ&eacute; (false)</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Plage de valeurs</td>
+<td align="left" valign="top" class="base">Les valeurs valides sont Permet d'allouer un nombre d'unit&eacute;s d'ex&eacute;cution d&eacute;passant la taille
+maximale autoris&eacute;e et Non activ&eacute;.</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informations connexes</strong>
+</p>
+<a href="rcon_buttons.html">Boutons de la console administrative</a>
+<br>
+
+<a href="rcon_pageusage.html">Caract&eacute;ristiques de la page de la console d'administration</a>
+<br>
+
+</div>
+</body>
+</html>

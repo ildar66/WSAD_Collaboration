@@ -1,0 +1,208 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Param&egrave;tres LTPA (Lightweight Third Party Authentication)</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecrltpa"></a>
+<h2>Param&egrave;tres LTPA (Lightweight Third Party Authentication)</h2>
+
+<p>Cette page permet de configurer les param&egrave;tres LTPA
+(Lightweight Third Party Authentication).</p>
+
+<p>Pour afficher cette page de la console d'administration, cliquez sur <strong>S&eacute;curit&eacute;</strong> &gt; <strong>M&eacute;canismes d'authentification</strong> &gt; <strong>LTPA</strong>.</p>
+
+<p>Le mot de passe est requis uniquement lorsque vous configurez la
+s&eacute;curit&eacute; pour la premi&egrave;re fois. Une fois le mot de passe saisi,
+cliquez sur <strong>Valider</strong>. Cliquez ensuite sur <strong>Ouverture de
+session unique</strong> (SSO) et tapez le nom du domaine. Assurez-vous que SSO est activ&eacute;e.
+Cliquez sur <strong>Valider</strong>.  Pour achever la configuration de s&eacute;curit&eacute;, v&eacute;rifiez que le registre appropri&eacute; est configur&eacute; et cliquez sur <strong>Valider</strong>
+dans le panneau S&eacute;curit&eacute; globale. Lorsque
+la s&eacute;curit&eacute; est activ&eacute;e et que certaines de ces propri&eacute;t&eacute;s sont
+modifi&eacute;es, acc&eacute;dez au panneau S&eacute;curit&eacute; globale et cliquez sur
+<strong>Valider</strong> les modifications.</p>
+
+<div>
+<p>
+<strong>Onglet Configuration</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="button"></a>G&eacute;n&eacute;ration de cl&eacute;s</strong>
+</dt>
+<dd>Indique si le serveur g&eacute;n&egrave;re des cl&eacute;s LTPA.
+<p>Lorsque la s&eacute;curit&eacute; est activ&eacute;e pour la premi&egrave;re fois avec LTPA
+comme m&eacute;canisme d'authentification, les cl&eacute;s LTPA sont
+automatiquement g&eacute;n&eacute;r&eacute;es avec le mot de passe saisi dans le panneau. Pour
+d&eacute;finir un nouveau jeu de cl&eacute;s &agrave; l'aide du mot de passe d&eacute;fini
+pr&eacute;c&eacute;demment, cliquez sur <strong>G&eacute;n&eacute;rer des cl&eacute;s</strong>. Si un nouveau
+mot de passe est utilis&eacute;, ne cliquez pas sur ce bouton. Une fois
+que vous avez entr&eacute; le nouveau mot de passe et cliqu&eacute; sur <strong>OK</strong>
+ou sur <strong>Appliquer</strong>, un nouveau jeu de cl&eacute;s est g&eacute;n&eacute;r&eacute;. <em>Lorsqu'un
+nouveau jeu de cl&eacute;s est g&eacute;n&eacute;r&eacute;, il n'est pas utilis&eacute; avant
+d'avoir &eacute;t&eacute; sauvegard&eacute;.</em> 
+</p>
+
+</dd>
+<dt>
+<strong><a name="LTPA_password_description"></a>Importer les cl&eacute;s</strong>
+</dt>
+<dd>Indique si le serveur importe de nouvelles cl&eacute;s LTPA.
+<p>Pour prendre en charge l'ouverture de session unique (SSO) dans le
+produit WebSphere sur plusieurs domaines (cellules) WebSphere,
+partagez les cl&eacute;s LTPA et le mot de passe sur les diff&eacute;rents domaines. Vous pouvez
+utiliser l'option <strong>Importer les cl&eacute;s</strong> pour importer les cl&eacute;s LTPA dans
+d'autres domaines. Les cl&eacute;s LTPA
+doivent avoir d&eacute;j&agrave; &eacute;t&eacute; export&eacute;es &agrave; partir d'une des cellules dans un
+fichier. Pour importer un nouveau jeu de cl&eacute;s LTPA, entrez le mot de
+passe appropri&eacute; et le nom du fichier contenant les cl&eacute;s LTPA.
+Cliquez sur <strong>Importer les cl&eacute;s</strong>, mais pas sur <strong>OK</strong>, ni sur
+<strong>Appliquer</strong>.</p>
+
+</dd>
+<dt>
+<strong><a name="LTPA_password_description"></a>Exporter les cl&eacute;s</strong>
+</dt>
+<dd>Indique si le serveur exporte des cl&eacute;s LTPA.
+<p>Pour prendre en charge l'ouverture de session unique (SSO) dans le
+produit WebSphere sur plusieurs domaines (cellules) WebSphere,
+partagez les cl&eacute;s LTPA et le mot de passe sur les diff&eacute;rents domaines. Vous
+pouvez utiliser le bouton <strong>Exporter les cl&eacute;s</strong> pour exporter les
+cl&eacute;s LTPA dans d'autres domaines.</p>
+
+<p>Pour exporter les cl&eacute;s LTPA, v&eacute;rifiez que la s&eacute;curit&eacute; est activ&eacute;e
+sur le syst&egrave;me et que ce dernier utilise LTPA. Tapez le nom du
+fichier dans la zone <strong>Nom du fichier de cl&eacute;s</strong>, puis cliquez sur
+<strong>Exporter les cl&eacute;s</strong>. Les cl&eacute;s chiffr&eacute;es sont stock&eacute;es dans le
+fichier sp&eacute;cifi&eacute;.</p>
+
+</dd>
+<dt>
+<strong><a name="LTPA_password_description"></a>Mot de passe</strong>
+</dt>
+<dd>Indique le mot de passe de chiffrement et de d&eacute;chiffrement
+des cl&eacute;s LTPA. Utilisez ce mot de passe lors de l'importation de ces
+cl&eacute;s dans les autres configurations de domaine d'administration
+WebSphere Application Server et lors de la
+configuration de SSO pour Domino server.
+<p>Une fois les cl&eacute;s g&eacute;n&eacute;r&eacute;es ou import&eacute;es, elles permettent de
+chiffrer ou de d&eacute;chiffrer le jeton LTPA. Si le mot de
+passe est modifi&eacute;, un nouveau jeu de cl&eacute;s LTPA est
+automatiquement g&eacute;n&eacute;r&eacute; lorsque vous cliquez sur <strong>OK</strong> ou sur
+<strong>Appliquer</strong>. Ces nouveaux jeux de cl&eacute;s ne seront utilis&eacute;s
+qu'apr&egrave;s avoir &eacute;t&eacute; sauvegard&eacute;s.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LTPA_confirmPassword_description"></a>Confirmation du mot de passe</strong>
+</dt>
+<dd>Indique le mot de passe confirm&eacute; permettant de chiffrer et
+de d&eacute;chiffrer les cl&eacute;s LTPA.
+<p>Utilisez ce mot de passe lors de l'importation de ces cl&eacute;s dans
+d'autres configurations de domaine d'administration WebSphere
+Application Server et lors de la configuration
+de SSO pour Domino Server.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LTPA_timeout_description"></a>D&eacute;lai d'expiration</strong>
+</dt>
+<dd>Indique le d&eacute;lai, en minutes, au bout duquel le jeton LTPA
+arrivera &agrave; expiration. Assurez-vous que cette dur&eacute;e en sup&eacute;rieure au
+d&eacute;lai d'expiration de la cache configur&eacute; dans
+le panneau S&eacute;curit&eacute; globale.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Integer (entier)</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&eacute;s</td>
+<td align="left" valign="top" class="base">Minutes</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">120</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LTPA_keyFilename_description"></a>Nom du fichier de cl&eacute;s</strong>
+</dt>
+<dd>Indique le nom du fichier utilis&eacute; lors de l'importation ou
+de l'exportation de cl&eacute;s.
+<p>Indiquez un nom de fichier de cl&eacute;s complet et cliquez sur
+<strong>Importer les cl&eacute;s</strong> ou <strong>Exporter les cl&eacute;s</strong>.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informations connexes</strong>
+</p>
+<a href="rcon_buttons.html">Boutons de la console administrative</a>
+<br>
+
+<a href="rcon_pageusage.html">Caract&eacute;ristiques de la page de la console d'administration</a>
+<br>
+
+<a href="rcon_scope.html">Param&egrave;tres de la port&eacute;e de la console administrative</a>
+<br>
+
+<a href="rcon_filter.html">Param&egrave;tres de filtrage de la console administrative</a>
+<br>
+
+<a href="rcon_preferences.html">Param&egrave;tres des pr&eacute;f&eacute;rences de la console administrative</a>
+<br>
+
+</div>
+</body>
+</html>

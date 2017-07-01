@@ -1,0 +1,101 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Internal messaging configuration settings</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="udyn_rcachereplication"></a>
+<h2>Internal messaging configuration settings</h2>
+
+<p>Use this page to set advanced configurations for Memory to Memory
+session replication.</p>
+
+<p>To view this administrative console page, click <strong>Servers</strong> &gt; <strong>Application
+Servers</strong> &gt; <em>server</em> &gt; <strong>Dynamic Cache Service</strong>&gt; <strong>Cache replication</strong> &gt; <strong>Enable
+cache replication</strong> .</p>
+
+<p>The advanced replication settings include fields for choosing the initial
+replicator entry that connects to the replicator domains. As an alternative,
+you can specify the IP addresses and ports (of the form address:port) for
+connection to replicators outside of the cell that the server is administered
+under. By default, if a replicator is defined on the server you are configuring,
+that server is the one chosen for cache replication. Select the advanced properties
+only if you want to deviate from the default setting.</p>
+
+
+<div>
+<p>
+<strong>Configuration tab</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="DRSSettings_internalMessagingServer_description"></a>Internal messaging server</strong>
+</dt>
+<dd>Specifies a domain from which your data will be replicated. Depending
+on the domain you choose to replicate the data, you can choose any of the
+replicators defined under that domain. You can use the default domain or choose
+one from the drop down window.</dd>
+<dt>
+<strong><a name="DRSSettings_runtimeMode_description"></a>Runtime mode</strong>
+</dt>
+<dd>Specifies the global sharing policy for this server. 
+<p>The following settings are available:<ul>
+
+<li>
+<strong>Both push and pull</strong> sends the cache ID of newly updated content
+to other servers in the replication domain.  Then, if one of the other servers
+requests the content, and that server has the ID of the cache entry for the
+previously updated content, it will retrieve the content from the publishing
+server.  On the other hand, if a request is made for an ID which has not been
+previously published, the server assumes it does not exist in the cluster
+and creates a new entry.</li>
+
+<li>
+<strong>Push only</strong> sends the cache ID and cache content of new content to
+all other servers in the replication domain.</li>
+
+<li>The sharing policy of <strong>Not Shared</strong> results in the cache ID and cache
+content not being shared with other servers in the replication domain.</li>
+
+</ul>
+</p>
+
+<p>The default setting for a non-clustered environment is <strong>Not Shared</strong>.
+When enabling replication, the default value is <strong>Push only</strong>. </p>
+
+</dd>
+<dt>
+<strong><a name="DynamicCache_DRSSettings_pushFrequency_description"></a>Push frequency</strong>
+</dt>
+<dd>Specifies the time in seconds to wait before pushing new or modified
+cache entries to other servers. A value of 0 (zero) means send immediately.
+<p>Setting this property to a value greater than 0 (zero) causes a "batch"
+push of all cache entries that are created or modified during the time period.</p>
+
+<table border="1" cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base">Default</td>
+<td align="left" valign="top" class="base">0 (equivalent to immediate)</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Related information</strong>
+</p>
+<a href="cdyn_cachereplication.html">Cache replication</a>
+<br>
+
+</div>
+</body>
+</html>

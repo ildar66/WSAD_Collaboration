@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+
+    <!-- RTS TASK service -->
+    <bean id="july.rts.service.task" parent="july.txProxyTemplate">
+        <property name="proxyInterfaces"
+            value="com.hps.july.rts.task.service.RTSTaskService"/>
+        <property name="target">
+            <bean class="com.hps.july.rts.task.service.impl.RTSTaskServiceImpl">
+                <property name="dao" ref="july.rts.dao.rtsTaskDAO"/>
+            	<property name="authService" ref="july.rts.auth.RTSAuthService"/>
+                <property name="notificationService" ref="july.rts.service.notification"/>
+                <property name="operatorService" ref="july.rts.service.operatorService"/>
+                <property name="consolidatedRequestService" ref="july.rts.service.consolidatedRequest"/>
+                <property name="initiatorRequestService" ref="july.rts.service.initiatorRequestService"/>
+                <property name="elementaryRequestService" ref="july.rts.service.elementaryRequest"/>
+                <!--property name="rentElementaryRequestService" ref="july.rts.service.rentElementaryRequest"/-->
+                <property name="statusService" ref="july.rts.statusService"/>
+                <property name="commentService" ref="july.rts.service.commentService"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="july.rts.service.taskModule" parent="july.txProxyTemplate">
+        <property name="proxyInterfaces"
+            value="com.hps.july.rts.task.service.RTSTaskModule"/>
+        <property name="target">
+            <bean class="com.hps.july.rts.task.service.impl.RTSTaskModuleImpl">
+                <property name="taskService" ref="july.rts.service.task"/>
+				<property name="authService" ref="july.rts.auth.RTSAuthService"/>
+				<property name="handlers">
+					<map>
+						<entry key="1">
+							<bean id="july.rts.task.handler.type1" parent="july.txProxyTemplate">
+								<property name="proxyInterfaces"
+									value="com.hps.july.rts.task.service.RTSTaskEventHandler"/>
+								<property name="target">
+									<bean class="com.hps.july.rts.task.service.impl.RTSTaskEventType1Handler">
+										<property name="authService" ref="july.rts.auth.RTSAuthService"/>
+										<property name="reglamentMailService" ref="july.rts.mail.reglamentMailService"/>
+										<property name="initiatorRequestService" ref="july.rts.service.initiatorRequestService"/>
+									</bean>
+								</property>
+							</bean>
+						</entry>
+						<entry key="2">
+							<bean id="july.rts.task.handler.type2" parent="july.txProxyTemplate">
+								<property name="proxyInterfaces"
+									value="com.hps.july.rts.task.service.RTSTaskEventHandler"/>
+								<property name="target">
+									<bean class="com.hps.july.rts.task.service.impl.RTSTaskEventType2Handler">
+										<property name="authService" ref="july.rts.auth.RTSAuthService"/>
+										<property name="reglamentMailService" ref="july.rts.mail.reglamentMailService"/>
+										<property name="initiatorRequestService" ref="july.rts.service.initiatorRequestService"/>
+									</bean>
+								</property>
+							</bean>
+						</entry>
+						<entry key="3">
+							<bean id="july.rts.task.handler.type3" parent="july.txProxyTemplate">
+								<property name="proxyInterfaces"
+									value="com.hps.july.rts.task.service.RTSTaskEventHandler"/>
+								<property name="target">
+									<bean class="com.hps.july.rts.task.service.impl.RTSTaskEventType3Handler">
+										<property name="authService" ref="july.rts.auth.RTSAuthService"/>
+										<property name="reglamentMailService" ref="july.rts.mail.reglamentMailService"/>
+										<property name="initiatorRequestService" ref="july.rts.service.initiatorRequestService"/>
+										<property name="elementaryRequestService" ref="july.rts.service.elementaryRequest"/>
+									</bean>
+								</property>
+							</bean>
+						</entry>
+						<entry key="4">
+							<bean id="july.rts.task.handler.type4" parent="july.txProxyTemplate">
+								<property name="proxyInterfaces"
+									value="com.hps.july.rts.task.service.RTSTaskEventHandler"/>
+								<property name="target">
+									<bean class="com.hps.july.rts.task.service.impl.RTSTaskEventType4Handler">
+										<property name="authService" ref="july.rts.auth.RTSAuthService"/>
+										<property name="reglamentMailService" ref="july.rts.mail.reglamentMailService"/>
+										<property name="initiatorRequestService" ref="july.rts.service.initiatorRequestService"/>
+										<property name="elementaryRequestService" ref="july.rts.service.elementaryRequest"/>
+										<property name="consolidatedRequestService" ref="july.rts.service.consolidatedRequest"/>
+									</bean>
+								</property>
+							</bean>
+						</entry>
+						<entry key="5">
+							<bean id="july.rts.task.handler.type5" parent="july.txProxyTemplate">
+								<property name="proxyInterfaces"
+									value="com.hps.july.rts.task.service.RTSTaskEventHandler"/>
+								<property name="target">
+									<bean class="com.hps.july.rts.task.service.impl.RTSTaskEventType5Handler">
+										<property name="authService" ref="july.rts.auth.RTSAuthService"/>
+										<property name="reglamentMailService" ref="july.rts.mail.reglamentMailService"/>
+										<property name="initiatorRequestService" ref="july.rts.service.initiatorRequestService"/>
+										<property name="elementaryRequestService" ref="july.rts.service.elementaryRequest"/>
+										<property name="consolidatedRequestService" ref="july.rts.service.consolidatedRequest"/>
+									</bean>
+								</property>
+							</bean>
+						</entry>
+						<entry key="6">
+							<bean id="july.rts.task.handler.type6" parent="july.txProxyTemplate">
+								<property name="proxyInterfaces"
+									value="com.hps.july.rts.task.service.RTSTaskEventHandler"/>
+								<property name="target">
+									<bean class="com.hps.july.rts.task.service.impl.RTSTaskEventType6Handler">
+										<property name="authService" ref="july.rts.auth.RTSAuthService"/>
+										<property name="reglamentMailService" ref="july.rts.mail.reglamentMailService"/>
+										<property name="initiatorRequestService" ref="july.rts.service.initiatorRequestService"/>
+										<property name="elementaryRequestService" ref="july.rts.service.elementaryRequest"/>
+										<property name="consolidatedRequestService" ref="july.rts.service.consolidatedRequest"/>
+									</bean>
+								</property>
+							</bean>
+						</entry>
+						<entry key="7">
+							<bean id="july.rts.task.handler.type7" parent="july.txProxyTemplate">
+								<property name="proxyInterfaces"
+									value="com.hps.july.rts.task.service.RTSTaskEventHandler"/>
+								<property name="target">
+									<bean class="com.hps.july.rts.task.service.impl.RTSTaskEventType7Handler">
+										<property name="authService" ref="july.rts.auth.RTSAuthService"/>
+										<property name="reglamentMailService" ref="july.rts.mail.reglamentMailService"/>
+										<property name="initiatorRequestService" ref="july.rts.service.initiatorRequestService"/>
+										<property name="elementaryRequestService" ref="july.rts.service.elementaryRequest"/>
+										<property name="consolidatedRequestService" ref="july.rts.service.consolidatedRequest"/>
+									</bean>
+								</property>
+							</bean>
+						</entry>
+					</map>
+				</property>
+            </bean>
+        </property>
+    </bean>
+
+</beans>

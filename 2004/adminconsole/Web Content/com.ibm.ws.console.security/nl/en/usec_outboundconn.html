@@ -1,0 +1,137 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Common secure interoperability transport outbound settings</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecoutboundconn"></a>
+<h2>Common secure interoperability transport outbound settings</h2>
+
+<p>Use this page to specify which transports and Secure Sockets Layer
+(SSL) settings this server uses when communicating with downstream servers
+for outbound requests.</p>
+
+<p>To view this administrative console page, click <strong>Security &gt; Authentication
+Protocol &gt; CSI Outbound Transport</strong>.</p>
+
+<div>
+<p>
+<strong>Configuration tab</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="Transport_o_description"></a>Transport</strong>
+</dt>
+<dd>Specifies whether the client processes connect to the server using
+one of the server connected transports. 
+<p>You can choose to use either <strong>SSL</strong>, <strong>TCP/IP</strong> or <strong>Both</strong> as
+the outbound transport which a server supports. If you specify <strong>TCP/IP</strong>,
+the server only supports TCP/IP and cannot initiate SSL connections with downstream
+servers. If you specify <strong>SSL Supported</strong>, this server can initiate either
+TCP/IP or SSL connections. If you specify <strong>SSL required</strong>, then this server
+must use SSL to initiate connections to downstream servers. When you do specify
+SSL, decide which set of SSL configuration settings you want to use for the
+outbound configuration. This decision determines which key file and trust
+file to use for outbound connections to downstream servers. For example, consider
+the following:<dl>
+
+<dt>
+<strong>TCP/IP</strong>
+</dt>
+<dd>This server only opens TCP/IP connections with downstream
+servers.</dd>
+
+<dt>
+<strong>SSL Supported</strong>
+</dt>
+<dd>This server opens SSL connections with any downstream
+servers supporting them, and TCP/IP connections with any downstream servers
+not supporting them.</dd>
+
+<dt>
+<strong>SSL Required</strong>
+</dt>
+<dd>This server always opens SSL connections with downstream
+servers.</dd>
+
+</dl>
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default:</td>
+<td align="left" valign="top" class="base">SSL-Supported</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range:</td>
+<td align="left" valign="top" class="base">TCP/IP, SSL-Required, SSL-Supported</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SSLSettings_ibm_o_description"></a>SSL settings</strong>
+</dt>
+<dd>Specifies a list of predefined SSL settings for outbound connections.
+ These settings are configured at the SSL Configuration Repertoires panel.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type:</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default:</td>
+<td align="left" valign="top" class="base">DefaultSSLSettings</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range:</td>
+<td align="left" valign="top" class="base">Any SSL settings configured in the SSL Configuration Repertoires
+panel</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Related information</strong>
+</p>
+<a href="rcon_buttons.html">Administrative console buttons</a>
+<br>
+
+<a href="rcon_pageusage.html">Administrative console page features</a>
+<br>
+
+<a href="rcon_scope.html">Administrative console scope settings</a>
+<br>
+
+<a href="rcon_filter.html">Administrative console filter settings</a>
+<br>
+
+<a href="rcon_preferences.html">Administrative console preference settings</a>
+<br>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Java Authentication Authorization Service login module settings</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecjaaslogin"></a>
+<h2>Java Authentication Authorization Service login module settings</h2>
+
+<p>Use this page to define the login module for a Java Authentication
+Authorization Service (JAAS) login configuration.</p>
+
+<p>To view this administrative page, click <strong>Security</strong> &gt; <strong>JAAS Configuration</strong> &gt; <strong>Application
+Logins</strong> &gt; <em>alias_name</em> &gt; <strong>JAAS Login Modules</strong>.</p>
+
+<div>
+<p>
+<strong>Configuration tab</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="JAASLoginModule_moduleClassName_description"></a>Module Class Name</strong>
+</dt>
+<dd>Specifies the class name of the given login module.
+<p>The default login modules defined by the WebSphere product use a proxy
+LoginModule class, com.ibm.ws.security.common.auth.module.WSLoginModuleProxy.
+This proxy class loads the WebSphere login module with the thread context
+class loader and delegates all the operations to the <em>real</em> login module
+implementation. The real login module implementation is specified as the delegate
+option in the option configuration. The proxy class is needed because the
+Developer Kit application class loaders do not have visibility of the WebSphere
+product class loaders.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type:</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JAASLoginModule_authenticationStrategy_description"></a>Authentication Strategy</strong>
+</dt>
+<dd>Specifies the authentication behavior as authentication proceeds
+down the stack of login modules.
+<p>A JAAS authentication provider supplies the authentication strategy. In
+JAAS, an authentication strategy is implemented through the LoginModule interface. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type:</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default:</td>
+<td align="left" valign="top" class="base">Required</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range:</td>
+<td align="left" valign="top" class="base">Required, Requisite, Sufficient and Optional</td>
+
+</tr>
+
+</table>
+
+<p>Specify additional options in <strong>Options Additional Properties</strong>. These
+name and value pairs are passed to the login modules during initialization.
+This is one of the mechanism used to passed information to login modules.</p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Related information</strong>
+</p>
+<a href="rcon_buttons.html">Administrative console buttons</a>
+<br>
+
+<a href="rcon_pageusage.html">Administrative console page features</a>
+<br>
+
+<a href="rcon_scope.html">Administrative console scope settings</a>
+<br>
+
+<a href="rcon_filter.html">Administrative console filter settings</a>
+<br>
+
+<a href="rcon_preferences.html">Administrative console preference settings</a>
+<br>
+
+</div>
+</body>
+</html>

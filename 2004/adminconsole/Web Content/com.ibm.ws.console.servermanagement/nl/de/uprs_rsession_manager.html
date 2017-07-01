@@ -1,0 +1,209 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Einstellungen f&uuml;r die Sitzungsverwaltung</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uprs_rsession_manager"></a>
+<h2>Einstellungen f&uuml;r die Sitzungsverwaltung</h2>
+
+<p>Auf dieser Seite k&ouml;nnen Sie die Unterst&uuml;tzung von HTTP-Sitzungen
+verwalten. Diese Unterst&uuml;tzung umfasst die Angabe eines Verfahrens zur Sitzungs&uuml;berwachung, der maximal
+zul&auml;ssigen Anzahl  der Sitzungen im Speicher, die &Uuml;berlaufsteuerung und die
+Konfiguration des Sitzungszeitlimits.</p>
+
+<p>Klicken Sie zum Anzeigen dieser Seite der Administrationskonsole auf
+<strong>Server</strong> &gt; <strong>Anwendungsserver</strong> &gt; <em>Servername</em> &gt;
+<strong>Webcontainer</strong> &gt; <strong>Sitzungsverwaltung</strong>.</p>
+
+<div>
+<p>
+<strong>Register "Konfiguration"</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="SessionManager_enable_description"></a>Sitzungsverwalten &uuml;berschreiben (nur auf Anwendungs- und Webmodulebene)</strong>
+</dt>
+<dd>Gibt an, ob diese Einstellungen f&uuml;r die Sitzungsverwaltung Vorrang vor den Einstellungen
+haben, die normalerweise von einer &uuml;bergeordneten Ebene f&uuml;r die aktuelle Anwendung oder das aktuelle Webmodul
+&uuml;bernommen werden.
+
+<p>Standardm&auml;&szlig;ig &uuml;bernehmen Webmodule die Einstellungen der Sitzungsverwaltung von der
+&uuml;bergeordneten Anwendungsebene, und Anwendungen &uuml;bernehmen die Einstellungen der Sitzungsverwaltung von
+der &uuml;bergeordneten Webcontainerebene.</p>
+
+</dd>
+<dt>
+<strong><a name="SessionManager_sessionTracking_description"></a>Verfahren der Sitzungs&uuml;berwachung </strong>
+</dt>
+<dd>Gibt ein Verfahren zur HTTP-Sitzungsverwaltung an.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Verfahren</td>
+<td align="left" valign="top" class="base">Funktion</td>
+<td align="left" valign="top" class="base">Standardwert</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">&Uuml;berwachung von SSL-IDs aktivieren</td>
+<td align="left" valign="top" class="base">Gibt an, dass die Sitzungs&uuml;berwachung die SSL-Informationen als Sitzungs-ID verwendet. Das Aktivieren der SSL-&Uuml;berwachung hat Vorrang vor der
+Cookie-gest&uuml;tzten Sitzungs&uuml;berwachung und dem Umschreiben von URLs. <p>Es stehen zwei Parameter zur Verf&uuml;gung, wenn
+Sie die &Uuml;berwachung von SSL-IDs aktivieren: SSLV3Timeout und Secure Association Server
+(SAS). Der Wert von SSLV3Timeout gibt das Intervall an, nach dem SSL-Sitzungen neu ausgehandelt
+werden.
+Dieser Parameter ist auf einen hohen Wert gesetzt. Eine
+&Auml;nderung hat wahrscheinlich keine nennenswerte Auswirkung auf die Leistung.
+Der Parameter SAS (Secure Association Service) erstellt SSL-Verbindungen nur zwischen zwei JVMs. Wenn alle Beans in einer JVM kopositioniert sind,
+ist nicht zu erwarten, dass das von SAS verwendete
+SSL sich negativ auf den Durchsatz auswirkt.
+</p>
+<p>Diese Einstellungen werden in den Dateien <samp>sas.server.properties</samp> und <samp>sas.client.props</samp>
+im Verzeichnis "<em>Produktinstallationsverzeichnis</em>\properties" definiert. <em>Produktinstallationsverzeichnis</em>
+steht f&uuml;r das Verzeichnis, in dem WebSphere Application Server installiert ist. </p>
+</td>
+<td align="left" valign="top" class="base">9600 Sekunden</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Cookies aktivieren</td>
+<td align="left" valign="top" class="base">Gibt an, ob bei der Sitzungs&uuml;berwachung Cookies zur &Uuml;bertragung von Sitzungs-IDs verwendet werden. 
+Wenn Cookies aktiviert sind, werden bei der Sitzungs&uuml;berwachung Sitzungs-IDs, die als Cookies eingehen,
+erkannt, und es wird versucht, Cookies f&uuml;r das Senden von Sitzungs-IDs zu verwenden. Sind keine Cookies
+aktiviert, wird bei der Sitzungs&uuml;berwachung das Umschreiben von URLs eingesetzt, und es werden keine Cookies
+verwendet (vorausgesetzt, das Umschreiben von URLs ist aktiviert).<p>Das Aktivieren von Cookies hat
+Vorrang vor dem Umschreiben von URLs.
+Sie d&uuml;rfen die Verwendung von Cookies in der Sitzungsverwaltung des Anwendungsservers, der die
+Administrationsanwendung ausf&uuml;hrt,
+nicht inaktivieren. Die Administrationsanwendung funktioniert sonst nach einem Neustart des Servers nicht
+mehr. Alternativ dazu k&ouml;nnen Sie die Administrationsanwendung in einem von Ihren Anwendungen getrennten
+Prozess ausf&uuml;hren. </p>
+<p>Klicken Sie auf <strong>&Auml;ndern</strong>, um diese Einstellungen zu &auml;ndern.</p>
+</td>
+<td align="left" valign="top" class="base"></td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Umschreiben von URLs aktivieren</td>
+<td align="left" valign="top" class="base">Gibt an, dass der Session Manager umgeschriebene URLs zur &Uuml;bertragung der Sitzungs-IDs verwendet. 
+Ist das Umschreiben von URLs aktiviert, erkennt die Sitzungsverwaltung Sitzungs-IDs, die im
+URL eingehen, wenn
+die Methode encodeURL im Servlet aufgerufen wird.</td>
+<td align="left" valign="top" class="base"></td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Umschreiben von URLs bei Protokollwechsel aktivieren</td>
+<td align="left" valign="top" class="base">Gibt an, dass die Sitzungs-ID einem URL hinzugef&uuml;gt wird, wenn f&uuml;r den URL ein Wechsel von HTTP zu
+HTTPS oder von HTTPS zu HTTP erforderlich ist. Wenn das Umschreiben aktiviert ist, ist die Sitzungs-ID
+erforderlich, damit ein Wechsel von HTTP zu HTTPS durchgef&uuml;hrt werden kann.</td>
+<td align="left" valign="top" class="base"></td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SessionManager_overflow_description"></a>&Uuml;berlauf zulassen</strong>
+</dt>
+<dd>Gibt an, dass die Anzahl der Sitzungen im Speicher den f&uuml;r das Merkmal "Maximalanzahl der
+Speichersitzungen" angegebenen Wert &uuml;berschreiten darf. Diese Option gilt nur f&uuml;r den Modus f&uuml;r nicht
+verteilte Sitzungen.
+</dd>
+<dt>
+<strong><a name="TuningParams_maxInMemorySessionCount_description"></a>Maximalanzahl der Speichersitzungen </strong>
+</dt>
+<dd>Gibt die Maximalanzahl der Sitzungen an, die im Speicher zu verwalten sind.
+<p>Die Bedeutung des Parameters h&auml;ngt davon ab, ob Sie Speichersitzungen oder verteilte Sitzungen
+verwenden. Bei Speichersitzungen gibt dieser Wert die Anzahl der Sitzungen in der Tabelle der Basissitzungen an. 
+Geben Sie mit dem Merkmal "&Uuml;berlauf zulassen" an, ob Sitzungen f&uuml;r den gesamten Session Manager auf diesen
+Wert begrenzt werden sollen oder ob weitere Sitzungen in sekund&auml;ren Tabellen gespeichert werden k&ouml;nnen. Bei
+verteilten Sitzungen gibt dieser Wert die Gr&ouml;&szlig;e des Speicher-Cache f&uuml;r Sitzungen an. Wenn der Sitzungs-Cache
+seine maximale Gr&ouml;&szlig;e erreicht hat und eine neue Sitzung angefordert wird, entfernt der Session Manager die
+zuletzt verwendete Sitzung aus dem Cache, um Raum f&uuml;r die neue Sitzung freizumachen. <p>
+<img alt="[Fixpack 5.0.2 und h&ouml;her]" src="v502.gif" border="0"><b>Anmerkung: </b>Geben Sie
+keinen kleineren Wert als die maximale Gr&ouml;&szlig;e des Thread-Pools f&uuml;r Ihren Server an.
+</p>
+</p>
+
+</dd>
+<dt>
+<strong><a name="SessionManager_sessionTimeout_description"></a>Sitzungszeitlimit</strong>
+</dt>
+<dd>Gibt den Zeitraum an, in dem es m&ouml;glich ist, eine Sitzung nicht zu verwenden. Nach Ablauf dieses
+Zeitraums ist die Sitzung nicht mehr g&uuml;ltig. Geben Sie entweder <samp>Zeitlimit festlegen</samp> oder
+<samp>Kein Zeitlimit</samp> an. Geben Sie den Wert (in Minuten) gr&ouml;&szlig;er-gleich 2 an. 
+<p> Der Wert dieser Einstellung wird als Standardwert verwendet, wenn in einem
+Deployment-Deskriptor eines Webmoduls kein Sitzungszeitlimit angegeben ist.  Aus Leistungsgr&uuml;nden ist
+der Zeitgeber f&uuml;r die Invalidierung nicht sekundengenau. Wenn das Schreibintervall zeitbasiert ist, muss
+dieser Wert mindestens doppelt so gro&szlig; wie das Schreibintervall sein. </p>
+
+</dd>
+<dt>
+<strong><a name="SessionManager_securityIntegration_description"></a>Sicherheitsintegration</strong>
+</dt>
+<dd>Wenn die Sicherheitsintegration aktiviert ist, ordnet die Sitzungsverwaltung
+den entsprechenden HTTP-Sitzungen Benutzer-IDs zu.</dd>
+<dt>
+<strong><a name="SessionManager_serialAccess_description"></a>Sitzungszugriff serialisieren</strong>
+</dt>
+<dd>Gibt an, dass der gleichzeitig ablaufende Sitzungszugriff auf einem bestimmten Server
+nicht zul&auml;ssig ist. 
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Maximale Wartezeit</td>
+<td align="left" valign="top" class="base">Gibt den Zeitraum an, in dem eine Servlet-Anforderung auf eine HTTP-Sitzung
+wartet, bis sie weiter ausgef&uuml;hrt wird. Dieser Parameter ist optional und wird in Sekunden
+angegeben. Der Standardwert ist 120 (2 Minuten). Unter normalen Bedingungen wird eine Servlet-Anforderung, die auf die
+Zugriffberechtigung f&uuml;r eine HTTP-Sitzung wartet, von der Anforderung, die
+gegenw&auml;rtig Eigner der gegebenen HTTP-Sitzung ist, bei Beendigung der
+Anforderung entsprechend benachrichtigt.</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Zugriff bei Zeitlimit&uuml;berschreitung zulassen</td>
+<td align="left" valign="top" class="base">Gibt an, ob das Servlet im Falle einer Zeitlimit&uuml;berschreitung normal ausgef&uuml;hrt oder abgebrochen
+werden soll. Wenn dieses Feld ausgew&auml;hlt ist, wird das Servlet normal ausgef&uuml;hrt.
+Ist das Feld nicht ausgew&auml;hlt, wird die Ausf&uuml;hrung des Servlet abgebrochen, und es werden Fehlerprotokolle
+generiert. </td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Zugeh&ouml;rige Informationen</strong>
+</p>
+<a href="rcon_buttons.html">Kn&ouml;pfe in der Adminstrationskonsole</a>
+<br>
+
+<a href="rcon_pageusage.html">Funktionen auf den Seiten der Administrationskonsole</a>
+<br>
+
+<a href="rcon_preferences.html">Vorgaben f&uuml;r die Administrationskonsole</a>
+<br>
+
+</div>
+</body>
+</html>

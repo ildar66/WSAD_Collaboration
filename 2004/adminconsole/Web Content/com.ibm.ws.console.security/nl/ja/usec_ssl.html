@@ -1,0 +1,419 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Secure Sockets Layer の設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecssl"></a>
+<h2>Secure Sockets Layer の設定</h2>
+
+<p>このページを使用して、サーバーの Secure Sockets Layer (SSL) 設定を構成します。
+</p>
+
+<p>この管理コンソール・ページを表示するには、「<strong>セキュリティー</strong>」&gt;「<strong>SSL</strong>」&gt;「<em>alias_name</em> 」をクリックします。</p>
+
+
+
+
+<div>
+<p>
+<strong>「構成」タブ</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="Security_defaultSSLSettings_description"></a>エイリアス</strong>
+</dt>
+<dd>特定の SSL 設定の名前を指定します。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型:</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecureSocketLayer_keyFileName_description"></a>鍵ファイル名</strong>
+</dt>
+<dd>公開鍵と秘密鍵が含まれる SSL 鍵ファイルへの
+完全修飾パスを指定します。
+
+
+<p>SSL 鍵ファイルは、鍵管理ユーティリティーを使用して作成できます。
+あるいは、使用可能なものがある場合、これがハードウェア・デバイスに対応している場合もあります。 いずれの場合も、
+トラスト・ファイルを指定する場合を除いて、このオプションは個人用証明書および署名者の証明書のソースを示します。 
+デフォルト SSL 鍵ファイル、すなわち <samp>DummyClientKeyFile.jks</samp> および <samp>DummyServerKeyFile.jks</samp> については、
+2005 年 3 月 17 日に有効期限が切れる自己署名個人テスト証明書が入っています。
+このテスト証明書は、テスト環境で使用することだけを目的としています。
+秘密鍵はすべての WebSphere Application Server インストールで同じであるため、
+デフォルト SSL 鍵ファイルは実稼働環境で使用しないでください。
+WebSphere Application Server ドメインでのディジタル証明書の作成と管理については、
+インフォセンターの『証明書の管理』の項目を参照してください。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型:</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecureSocketLayer_keyFilePassword_description"></a>鍵ファイル・パスワード</strong>
+</dt>
+<dd>SSL 鍵ファイルにアクセスするためのパスワードを指定します。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型:</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecureSocketLayer_keyFileFormat_description"></a>鍵ファイル形式</strong>
+</dt>
+<dd>SSL 鍵ファイルの形式を指定します。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型:</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト:</td>
+<td align="left" valign="top" class="base">JKS</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲:</td>
+<td align="left" valign="top" class="base">JKS、JCEK、PKCS12</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecureSocketLayer_trustFileName_description"></a>トラスト・ファイル名</strong>
+</dt>
+<dd>公開鍵が含まれるトラスト・ファイルへの完全修飾パスを指定します。
+
+
+<p>WebSphere <em>bin</em> ディレクトリーに含まれている 鍵管理ユーティリティーを使用して、トラスト・ファイルを作成できます。
+Global Security Kit (GSKit) (他の SSL インプリメンテーション) からの鍵管理ユーティリティーの使用は、Java Secure Socket Extension (JSSE) インプリメンテーションと連動しません。</p>
+
+<p>SSL 鍵ファイルと異なり、個人証明書は参照されません。
+署名者証明書だけ検索されます。
+デフォルトの SSL トラスト・ファイル、
+すなわち <samp>DummyClientTrustFile.jks</samp> および <samp>DummyServerTrustFile.jks</samp> については、
+有効期限のある署名者の証明書として複数のテスト公開鍵が含まれます。
+WebSphere Application Server バージョン 4.0 のテスト証明書の公開鍵は、2004 年 1 月 15 日に期限切れになり、
+WebSphere Application Server バージョン 5 のテスト証明書と WebSphere Application Server CORBA C++ クライアントの
+公開鍵は 2005 年 3 月 17 日に期限切れになります。このテスト証明書は、テスト環境で使用することだけを目的としています。
+</p>
+
+<p>トラスト・ファイルを指定せずに、SSL 鍵ファイルを指定した場合、
+署名者証明書と個人用証明書の両方の検索に SSL 鍵ファイルを使用します。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型:</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecureSocketLayer_trustFilePassword_description"></a>トラスト・ファイル・パスワード</strong>
+</dt>
+<dd>SSL トラスト・ファイルにアクセスするためのパスワードを指定します。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型:</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecureSocketLayer_trustFileFormat_description"></a>トラスト・ファイル形式</strong>
+</dt>
+<dd>SSL トラスト・ファイルの形式を指定します。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型:</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト:</td>
+<td align="left" valign="top" class="base">JKS</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲:</td>
+<td align="left" valign="top" class="base">JKS、JCEK、PKCS12</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecureSocketLayer_clientAuthentication_description"></a>クライアント認証</strong>
+</dt>
+<dd>接続するときに、認証を目的としてクライアントから証明書を要求するかどうかを指定します。
+
+<p>この属性は、Web コンテナー HTTP トランスポートが
+使用する場合にのみ有効になります。Internet InterORB Protocol (IIOP)  プロトコルでの
+(EJB 要求に対する) クライアント認証を実行するときは、管理コンソールの左側のナビゲーション・ペイン
+から、「<strong>セキュリティー</strong>」&gt;「<strong>認証プロトコル</strong>」&gt;「<strong>CSIv2 Inbound</strong>」または「<strong>アウトバウンド認証</strong>」の順にクリックしなければなりません。これらの要求で SSL クライアント証明書認証を使用可能にする場合は、「
+<strong>SSL Client Certificate Authentication</strong>」をクリックします。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型:</td>
+<td align="left" valign="top" class="base">ブール</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト:</td>
+<td align="left" valign="top" class="base">使用不可</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲:</td>
+<td align="left" valign="top" class="base">使用可能または使用不可</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecureSocketLayer_securityLevel_description"></a>セキュリティー・レベル</strong>
+</dt>
+<dd>サーバーがセキュリティー・レベルの事前構成されたセットから選択するかどうかを指定します。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型:</td>
+<td align="left" valign="top" class="base">有効な値には、「<strong>低</strong>」、「<strong>中間</strong>」、または「<strong>高</strong>」があります。<ul>
+
+<li>「低」はディジタル署名暗号のみを指定します (暗号化はなし)。</li>
+
+<li>「中間」は 40 ビット暗号のみを指定します (ディジタル署名を含む)。</li>
+
+<li>「高」は 128 ビット暗号のみを指定します (ディジタル署名を含む)。</li>
+
+</ul>
+<p>すべての暗号または特定の範囲を指定するには、プロパティー「<strong>com.ibm.ssl.enabledCipherSuites</strong>」を設定します。</p>
+
+<p>インフォセンターの SSL 資料を参照してください。</p>
+</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト:</td>
+<td align="left" valign="top" class="base">高</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲:</td>
+<td align="left" valign="top" class="base">低、中間、または高</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SSLConfig_cipherSuites_description"></a>暗号スイート</strong>
+</dt>
+<dd>SSL ハンドシェーク中に使用するよう選択できる、サポートされている暗号スイートのリストを指定します。
+暗号スイートをこの場所で個別に選択すると、「セキュリティー・レベル」フィールドに設定されている暗号スイートが
+オーバーライドされます。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型:</td>
+<td align="left" valign="top" class="base"> </td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト:</td>
+<td align="left" valign="top" class="base"></td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲:</td>
+<td align="left" valign="top" class="base"></td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecureSocketLayer_enableCryptoHardwareSupport_description"></a>暗号トークン</strong>
+</dt>
+<dd>サーバーが暗号ハードウェアおよび暗号ソフトウェアのサポートを使用可能にするか、または使用不可にするかを
+指定します。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型:</td>
+<td align="left" valign="top" class="base">ブール</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト:</td>
+<td align="left" valign="top" class="base">使用不可</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲:</td>
+<td align="left" valign="top" class="base">使用可能または使用不可</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SystemSecureSocketLayer_provider"></a>プロバイダー</strong>
+            &nbsp;
+            <img alt="[修正パッケージ 5.0.2 以降]" src="v502.gif" border="0"></dt>
+<dd>Java セキュリティー API の暗号面のサブセットの具体的なインプリメンテーションを提供するパッケージを参照します。
+<p> 最初のボタンを選択し、メニューからプロバイダーを選択します。
+WebSphere Application Server には、<strong>IBMJSSE</strong> および <strong>IBMJSSEFIPS</strong> という事前定義プロバイダーがあります。
+<strong>IBMJSSEFIPS</strong> は IBMJSSE プロバイダーの連邦情報処理規格 (FIPS) 承認済みバージョンです。2 番目のボタンを選択して、カスタム・プロバイダーを入力します。
+カスタム・プロバイダーでは、「追加プロパティー」の下の「<strong>カスタム・プロパティー</strong>」を介して最初に暗号スイートを入力する必要があります。
+暗号スイートおよびプロトコル値は、プロバイダーに応じて異なります。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">整数</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">100</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">1 から 86400</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SystemSecureSocketLayer_protocol"></a>プロトコル</strong>
+            &nbsp;
+            <img alt="[修正パッケージ 5.0.2 以降]" src="v502.gif" border="0"></dt>
+<dd>使用される SSL プロトコルを指定します。
+<p>IBMJSSEFIPS などの承認済み JSSE を使用する場合には、
+TLS プロトコルを選択する必要があります。FIPS 承認済み JSSE には後方互換性がないので、TLS プロトコルを使用するサーバーは、SSL プロトコルを使用するクライアントとは通信できません。</p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>関連情報</strong>
+</p>
+<a href="rcon_buttons.html">管理コンソールのボタン</a>
+<br>
+
+<a href="rcon_pageusage.html">管理コンソール・ページのフィーチャー</a>
+<br>
+
+<a href="rcon_scope.html">管理コンソールの有効範囲設定</a>
+<br>
+
+<a href="rcon_filter.html">管理コンソールのフィルター設定</a>
+<br>
+
+<a href="rcon_preferences.html">管理コンソールの設定の変更</a>
+<br>
+
+<a href="usec_rassl.html">カスタム・プロパティーに対する Secure Sockets Layer の設定</a>
+<br>
+
+</div>
+</body>
+</html>

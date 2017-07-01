@@ -1,0 +1,98 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Application client assembly settings</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="ucli_rclientmod"></a>
+<h2>Application client assembly settings</h2>
+
+<p>Use this page to specify assembly properties for J2EE application
+clients.</p>
+<dl>
+<dt>
+<strong><a name="file_name"></a>File name (Required, String)</strong>
+</dt>
+<dd>Specifies the file name of the application client module, relative
+to the top level of the Enterprise Archive (EAR) file.
+<p>If this is a stand-alone module, the file name is the full path name of
+the archive.</p>
+
+</dd>
+<dt>
+<strong><a name="alternative_DD"></a>Alternative DD</strong>
+</dt>
+<dd>Specifies the file name for an alternative deployment descriptor
+file to use instead of the original deployment descriptor file in the module
+Java Archive (JAR) file. Although you can edit deployment descriptor
+files, do not use the administrative console to modify them.
+<p>This file is the post-assembly version of the deployment descriptor file.
+(Manually edit the original deployment descriptor file to resolve dependencies
+and security information. Directing the use of the alternative deployment
+descriptor allows you to keep the original deployment descriptor file intact).
+The value of the Alternative DD property must be the full path name of the
+deployment descriptor file relative to the module root directory. By convention,
+the file is in the <samp>ALT-INF</samp> directory. If this property is not specified,
+the deployment descriptor file is read directly from the module JAR file.</p>
+
+</dd>
+<dt>
+<strong><a name="classpath"></a>Classpath</strong>
+</dt>
+<dd>Specifies the full classpath containing the dependent code that
+is not contained in the application client JAR file. 
+<p>Specify the values relative to the root of the EAR file and separate the
+values with spaces. Absolute values that reference files or directories on
+the hard drive are ignored. To specify classes that are not in JAR files but
+are in the root of the EAR file, use a period and forward slash (./). Consider
+the following example directory structure in which the file myapp.ear contains
+an application client JAR file named <samp>client.jar</samp>. Additional classes
+reside in <samp>class1.jar</samp> and <samp>class2.zip</samp> files. A class named
+xyz.class is not packaged in a JAR file but is in the root of the EAR file <samp>myapp.ear/client.jar
+myapp.ear/class1.jar myapp.ear/class2.zip myapp.ear/xyz.class</samp>.  Specify
+class1.jar class2.zip ./ as the value of the Classpath property. (Name only
+the directory for <samp>.class</samp> files.)</p>
+
+</dd>
+<dt>
+<strong><a name="display_name"></a>Display name (Required, String)</strong>
+</dt>
+<dd>Specifies a short name that is intended for display by GUIs.
+<p></p>
+
+</dd>
+<dt>
+<strong><a name="small_icon"></a>Small icon</strong>
+</dt>
+<dd>Specifies a JPEG or GIF file containing a small image (16x16 pixels).
+<p>The image is used as an icon to represent the application client in a GUI.</p>
+
+</dd>
+<dt>
+<strong><a name="large_icon"></a>Large icon</strong>
+</dt>
+<dd>Specifies a JPEG or GIF file containing a large image (32x32 pixels). 
+<p>The image is used as an icon to represent the application client in a GUI</p>
+
+</dd>
+<dt>
+<strong><a name="description"></a>Description</strong>
+</dt>
+<dd>Contains text describing the application client.
+<p></p>
+
+</dd>
+<dt>
+<strong><a name="main_class"></a>Main class (Required, String)</strong>
+</dt>
+<dd>Specifies the full path name of the main class for this application
+client.
+<p></p>
+
+</dd>
+</dl>
+</body>
+</html>

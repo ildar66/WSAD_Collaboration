@@ -1,0 +1,108 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Local operating system user registry settings</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecrpseclos"></a>
+<h2>Local operating system user registry settings</h2>
+
+<p>Use this page to configure local operating system user registry
+settings.</p>
+
+<p>To view this administrative console page, click <strong>Security</strong> &gt; <strong>User
+Registries</strong> &gt; <strong>Local OS</strong>.</p>
+
+<div>
+<p>
+<strong>Configuration tab</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="UserRegistry_serverId_description"></a>Server user ID </strong>
+</dt>
+<dd>Specifies a valid user ID in the Local OS registry.
+<p>This ID is the security server ID, which is only used for WebSphere Application
+Server security and is not associated with the system process that runs the
+server. The server calls the Local OS registry to authenticate and obtain
+privilege information about users by calling the native APIs in that particular
+registry. Access to native APIs is normally restricted to users having special
+privileges (for example, <strong>root</strong> in UNIX systems and <strong>Act as part of
+operating system</strong> in Windows systems). To use security in the application
+server, the process ID (not the security server ID) on which WebSphere Application
+Server runs requires enough privileges to call the system APIs. The special
+privilege means that the process running the WebSphere Application Server
+needs to be part of the <strong>Administrators</strong> group and have the <strong>Act as
+part of operating system</strong> privilege on Windows systems, and be <strong>root</strong>,
+or have root authority on UNIX systems.</p>
+
+<p>When using a Windows system registry, this ID cannot match the name of
+the Windows machine. Windows systems treat the machine name <strong>bob</strong> as
+having an account similar to user <strong>bob</strong>.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type:</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Units:</td>
+<td align="left" valign="top" class="base">Alphanumeric characters</td>
+
+</tr>
+
+</table>
+
+
+</dd>
+<dt>
+<strong><a name="UserRegistry_serverPassword_description"></a> Server user password</strong>
+</dt>
+<dd>Specifies a valid user password that corresponds to a valid user
+ID in the Local OS registry.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+<p></p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Related information</strong>
+</p>
+<a href="rcon_buttons.html">Administrative console buttons</a>
+<br>
+
+<a href="rcon_pageusage.html">Administrative console page features</a>
+<br>
+
+<a href="rcon_scope.html">Administrative console scope settings</a>
+<br>
+
+<a href="rcon_filter.html">Administrative console filter settings</a>
+<br>
+
+<a href="rcon_preferences.html">Administrative console preference settings</a>
+<br>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,245 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Impostazioni log JVM</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="JVMLogs_description"></a>
+<h2>Impostazioni log JVM</h2>
+
+<p>Utilizzare questa pagina per visualizzare e modificare le impostazioni per i
+log <samp>System.out</samp> e <samp>System.err</samp> di JVM (Java Virtual Machine).</p>
+
+<p>Per visualizzare questa pagina della console di gestione, fare clic su <strong>Risoluzione dei
+problemi &gt; Log e traccia &gt;<cite>server</cite> &gt; Log JVM</strong>.</p>
+
+<div>
+<p>
+<strong>Scheda Configurazione</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="system_out_file_description"></a>Nome file</strong>
+</dt>
+<dd>Specifica il nome di uno dei file di log descritti in questa pagina. 
+<p>Il primo campo nome file specifica il nome del log <samp>System.out</samp>.
+Il secondo campo nome file specifica il nome del file <samp>System.err</samp>. </p>
+
+<p>Premere il pulsante <strong>Visualizza</strong> sulla scheda Runtime per visualizzare il contenuto del file di log selezionato.</p>
+
+<p>Il nome file specificato per il log <samp>System.out</samp> o per il log <samp>System.err</samp> deve avere uno dei seguenti valori:<dl>
+
+<dt>
+<strong><em>nome file</em></strong>
+</dt>
+<dd>Il nome del file nel file system. Si consiglia di
+utilizzare un nome file completo. Se il nome file non &egrave; completo, &egrave; considerato relativo
+alla directory di lavoro corrente per il server.
+E' necessario configurare ciascun flusso con un file dedicato. Ad esempio, non &egrave; possibile
+reindirizzare sia <samp>System.out</samp> sia <samp>System.err</samp> sullo stesso file fisico.<p>Se la directory che contiene il file esiste gi&agrave;, l'ID utente, sotto cui &egrave; in esecuzione
+il server, richiede l'accesso in lettura/scrittura alla directory. Se la
+directory non esiste, verr&agrave; creata con le autorizzazioni adeguate.
+L'ID utente, sotto cui &egrave; in esecuzione il server, deve disporre dell'autorizzazione per
+creare la directory.</p>
+</dd>
+
+<dt>
+<strong>console</strong>
+</dt>
+<dd>E' un nome file speciale utilizzato per reindirizzare il flusso al corrispondente flusso del processo. Se il valore &egrave; specificato per <samp>System.out</samp>,
+il file viene reindirizzato su <samp>stdout</samp>. Se il valore &egrave; specificato per <samp>System.err</samp>,
+il file viene reindirizzato su <samp>stderr</samp>.</dd>
+
+<dt>
+<strong>nessuno</strong>
+</dt>
+<dd>Annulla tutti i dati scritti sul flusso. La specifica di <strong>nessuno</strong> corrisponde al reinidirizzamento del flusso su dev/null su un sistema Unix.</dd>
+
+</dl>
+</p>
+
+</dd>
+<dt>
+<strong><a name="system_out_file_formatting_description"></a>Formattazione file</strong>
+</dt>
+<dd>Specifica il formato da utilizzare durante il salvataggio del file
+<samp>System.out</samp>.</dd>
+<dt>
+<strong><a name="log_file_rotation"></a>Rotazione file di log</strong>
+</dt>
+<dd>
+
+<p>Utilizzare questa serie di attributi di configurazione per configurare il file di log
+<samp>System.out</samp> o <samp>System.err</samp> in modo da autogestirsi.</p>
+
+<p>Un file di log di autogestione scrive i messaggi in un file fino a quando non vengono raggiunti alcuni criteri di orario o di dimensione. Ad un'ora specificata o quando il file
+raggiunge una dimensione specificata, la registrazione viene sospesa temporaneamente mentre il
+file di log viene aggiornato; operazione che richiede di chiudere il file e ridenominare il
+file salvato. Il nuovo nome file salvato sar&agrave; uguale a quello originale del file, pi&ugrave;
+un qualificativo data/ora che indica, appunto, quando si &egrave; verificata la ridenominazione. Una
+volta ridenominato il file, viene aperto un nuovo file di log vuoto con il nome originale e
+l'accesso viene ripristinato. Tutti i messaggi vengono mantenuti dopo il rollover del file di
+log, sebbene un solo messaggio potrebbe essere suddiviso tra il file corrente e quello salvato.</p>
+
+<p>Un log pu&ograve; essere configurato per l'autogestione solo se il flusso corrispondente
+viene reindirizzato ad un file.<dl>
+
+<dt>
+<strong>Dimensione del file</strong>
+</dt>
+<dd>Fare clic su questo attributo per consentire al file di log di autogestirsi in base alle dimensioni del file. Il rollover automatico si verifica quando il
+file raggiunge le dimensioni specificate nel campo delle dimensioni massime.</dd>
+
+<dt>
+<strong>Dimensione massima</strong>
+</dt>
+<dd>Specifica la dimensione massima del file in megabyte.
+Quando il file raggiunge questa dimensione, viene eseguito il rollover.<p>Questo attributo &egrave;
+valido solo se si fa clic su Dimensione del file.</p>
+</dd>
+
+<dt>
+<strong>Tempo</strong>
+</dt>
+<dd>Fare clic su questo attributo per consentire al file di log di autogestirsi in base all'ora. All'ora specificata nel campo ora di avvio, il file esegue il rollover.</dd>
+
+<dt>
+<strong>Ora di avvio</strong>
+</dt>
+<dd>Specifica l'ora del giorno, da 1 a 24, in cui viene avviato
+l'algoritmo di rollover periodico per la prima volta dopo il riavvio di Application Server. L'algoritmo viene caricato all'avvio di Application Server. Dopo l'avvio all'ora indicata
+(campo ora di avvio), l'algoritmo esegue il rollover del file ogni ora (campo ora di
+ripetizione). Questo modello di rollover continua senza modifiche fino a quando Application
+Server non viene arrestato. </dd>
+
+<dt>
+<strong>Ora di ripetizione</strong>
+</dt>
+<dd>Specifica il numero di ore, da 1 a 24, in cui si verifica un rollover periodico.</dd>
+
+<dt>
+<strong>Ora di ripetizione</strong>
+</dt>
+<dd>Specifica il numero di ore in seguito al quale verr&agrave;
+eseguito il rollover del file di log. I valori validi sono compresi nell'intervallo tra 1 e
+24. </dd>
+
+</dl>
+</p>
+
+<p>Configurare un file di log per il rollover basato sull'ora, sulle dimensioni o su entrambe.
+Fare clic su <strong>Dimensione del file</strong> e su <strong>Ora</strong> per eseguire il rollover del file al primo criterio corrispondente. Ad esempio, se il campo ora di ripetizione &egrave; impostato su 5 ore
+e la dimensione massima del file &egrave; di 2 MB, il file esegue il rollover ogni 5 ore, a meno che
+non raggiunga 2 MB prima di quest'intervallo. Dopo il rollover della dimensione, il file continua ad eseguire il rollover ad ogni intervallo.</p>
+
+</dd>
+<dt>
+<strong><a name="max_historical_files"></a>Numero massimo di file di log cronologici</strong>
+</dt>
+<dd>
+
+<p>Specifica il numero di file di cronologia (sottoposti a rollover) da mantenere. Il flusso scrive nel file corrente fino a quando non viene eseguito il rollover. Durante il rollover, il file corrente viene chiuso e salvato con un nuovo nome formato dal nome corrente pi&ugrave; la data/ora del rollover.
+Il flusso riapre quindi un nuovo file con il nome originale per continuare la scrittura.
+Il numero di file cronologici passa da zero al valore del numero massimo del campo file
+cronologici. Il rollover successivo cancella il primo file cronologico.</p>
+
+</dd>
+<dt>
+<strong><a name="installed_application_output"></a>Output applicazione installata</strong>
+</dt>
+<dd>
+
+<p>Specifica se le istruzioni di stampa <samp>System.out</samp> o <samp>System.err</samp> emesse dal codice dell'applicazione vengono registrate e formattate.<dl>
+
+<dt>
+<strong>Visualizza istruzioni di stampa applicazione</strong>
+</dt>
+<dd>Fare clic su questo campo per
+visualizzare i messaggi che le applicazioni scrivono sul flusso tramite i metodi <strong>print</strong>
+e <strong>println</strong>. I messaggi di sistema WebSphere Application Server vengono sempre visualizzati.</dd>
+
+<dt>
+<strong>Formatta istruzioni di stampa</strong>
+</dt>
+<dd>Fare clic su questo campo per formattare
+l'istruzione di stampa dell'applicazione come messaggi di sistema WebSphere Application Server.</dd>
+
+</dl>
+</p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Scheda Runtime</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="system_out_file_description"></a>Nome file</strong>
+</dt>
+<dd>Specifica il nome di uno dei file di log descritti in questa pagina. 
+<p>Il primo campo nome file specifica il nome del log <samp>System.out</samp>.
+Il secondo campo nome file specifica il nome del file <samp>System.err</samp>. </p>
+
+<p>Premere il pulsante <strong>Visualizza</strong> sulla scheda Runtime per visualizzare il contenuto del file di log selezionato.</p>
+
+<p>Il nome file specificato per il log <samp>System.out</samp> o per il log <samp>System.err</samp> deve avere uno dei seguenti valori:<dl>
+
+<dt>
+<strong><em>nome file</em></strong>
+</dt>
+<dd>Il nome del file nel file system. Si consiglia di
+utilizzare un nome file completo. Se il nome file non &egrave; completo, &egrave; considerato relativo
+alla directory di lavoro corrente per il server.
+E' necessario configurare ciascun flusso con un file dedicato. Ad esempio, non &egrave; possibile
+reindirizzare sia <samp>System.out</samp> sia <samp>System.err</samp> sullo stesso file fisico.<p>Se la directory che contiene il file esiste gi&agrave;, l'ID utente, sotto cui &egrave; in esecuzione
+il server, richiede l'accesso in lettura/scrittura alla directory. Se la
+directory non esiste, verr&agrave; creata con le autorizzazioni adeguate.
+L'ID utente, sotto cui &egrave; in esecuzione il server, deve disporre dell'autorizzazione per
+creare la directory.</p>
+</dd>
+
+<dt>
+<strong>console</strong>
+</dt>
+<dd>E' un nome file speciale utilizzato per reindirizzare il flusso al corrispondente flusso del processo. Se il valore &egrave; specificato per <samp>System.out</samp>,
+il file viene reindirizzato su <samp>stdout</samp>. Se il valore &egrave; specificato per <samp>System.err</samp>,
+il file viene reindirizzato su <samp>stderr</samp>.</dd>
+
+<dt>
+<strong>nessuno</strong>
+</dt>
+<dd>Annulla tutti i dati scritti sul flusso. La specifica di <strong>nessuno</strong> corrisponde al reinidirizzamento del flusso su dev/null su un sistema Unix.</dd>
+
+</dl>
+</p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informazioni correlate</strong>
+</p>
+<a href="rcon_buttons.html">Pulsanti della console di gestione</a>
+<br>
+
+<a href="rcon_scope.html">Impostazioni ambito della console di gestione</a>
+<br>
+
+<a href="rcon_filter.html">Impostazioni di filtro della console di gestione</a>
+<br>
+
+<a href="rcon_preferences.html">Impostazioni delle preferenze della console di gestione</a>
+<br>
+
+<a href="rcon_pageusage.html">Funzioni della pagina della console di gestione</a>
+<br>
+
+</div>
+</body>
+</html>

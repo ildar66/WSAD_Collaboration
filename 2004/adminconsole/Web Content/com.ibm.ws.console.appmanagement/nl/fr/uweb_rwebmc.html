@@ -1,0 +1,72 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Param&egrave;tres de module Web</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uweb_rwebmc"></a>
+<h2>Param&egrave;tres de module Web</h2>
+
+<p> Utilisez cette page pour configurer les param&egrave;tres
+de vos modules Web. </p>
+
+<p>Pour acc&eacute;der &agrave; cette page, recherchez le chemin d'acc&egrave;s suivant
+dans la console d'administration :</p>
+
+<pre>
+<strong>Applications</strong> &gt; <strong>Application d'entreprise</strong> &gt;
+<em>instance_application</em> &gt; <strong>Module Web</strong>
+</pre>
+
+<dl>
+<dt>
+<strong><a name="rwebm_uri"></a>URI</strong>
+</dt>
+<dd>Sp&eacute;cifie un URI qui, une fois r&eacute;solu par rapport &agrave; l'URL de l'application,
+indique l'emplacement du contenu de l'archive du module dans un
+syst&egrave;me de fichiers.
+Si ce module constitue l'un des composants int&eacute;gr&eacute;s dans l'archive d'une application
+d&eacute;ploy&eacute;e (fichier EAR), l'URI indiqu&eacute; ici doit correspondre &agrave; une r&eacute;f&eacute;rence de module (ModuleRef) sp&eacute;cifi&eacute;e dans le
+descripteur de d&eacute;ploiement de cette application.  </dd>
+<dt>
+<strong><a name="rwebm_name"></a>Nom</strong>
+</dt>
+<dd>Sp&eacute;cifie le nom unique par lequel le module sera d&eacute;sign&eacute; dans les outils &agrave; interface graphique.</dd>
+<dt>
+<strong><a name="rweb_altdd"></a>Descripteur de d&eacute;ploiement secondaire</strong>
+</dt>
+<dd>Sp&eacute;cifie le nom de fichier d'un autre descripteur de d&eacute;ploiement &agrave; utiliser &agrave; la place
+du descripteur original se trouvant dans le fichier JAR du module.
+<p> Ce fichier est la version <em>post-assemblage</em> du fichier descripteur de d&eacute;ploiement. Vous pouvez &eacute;diter le fichier descripteur de d&eacute;ploiement original pour r&eacute;soudre les
+interd&eacute;pendance et les informations de s&eacute;curit&eacute;.  L'utilisation d'un autre descripteur vous permet de
+conserver intact le descripteur d'origine.</p>
+
+<p>La valeur de la propri&eacute;t&eacute; <em>Autre DD</em> doit &ecirc;tre le nom complet du fichier descripteur de d&eacute;ploiement,
+sp&eacute;cifi&eacute; par rapport au r&eacute;pertoire racine du module.
+ Par convention, ce fichier se trouve dans le r&eacute;pertoire <samp>ALT-INF</samp>. Si cette propri&eacute;t&eacute; n'est pas sp&eacute;cifi&eacute;e, le fichier descripteur de
+d&eacute;ploiement est lu dans le fichier JAR du module.</p>
+
+</dd>
+<dt>
+<strong><a name="rwebm_wt"></a>Pond&eacute;ration de d&eacute;marrage</strong>
+</dt>
+<dd>D&eacute;termine l'ordre de d&eacute;marrage des diff&eacute;rents modules de l'application.  Les modules sont d&eacute;marr&eacute;s par ordre croissant de poids.</dd>
+<dt>
+<strong><a name="rwebm_webinf"></a>Pr&eacute;f&eacute;rer les classes WEB-INF</strong>
+</dt>
+<dd>Indique
+les classes &agrave; charger dans WEB-INF avant les autres. Il est conseill&eacute; d'impl&eacute;menter
+le chargeur de classes de l'application de telle sorte que les classes et les
+ressources int&eacute;gr&eacute;es dans le fichier WAR du module soient charg&eacute;es avant celles qui r&eacute;sident
+dans les fichiers JAR des biblioth&egrave;ques utilis&eacute;es &agrave; l'&eacute;chelle du conteneur.</dd>
+<dt>
+<strong><a name="rwebm_init"></a>Etat initial</strong>
+</dt>
+<dd>Sp&eacute;cifie l'&eacute;tat par d&eacute;faut de l'application au
+d&eacute;marrage du serveur. </dd>
+</dl>
+</body>
+</html>

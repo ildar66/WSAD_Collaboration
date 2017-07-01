@@ -1,0 +1,152 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>线程池设置</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uejb_rthrd"></a>
+<h2>线程池设置</h2>
+
+<p>使用此页面配置应用程序服务器使用的线程组。请求通过任何 HTTP 传输发送到服务器。
+线程池使服务器的组件能重用线程以消除在运行时创建新线程的需要。新建线程消耗的时间和资源。</p>
+
+<p>要查看此管理控制台页面，单击<strong>服务器 &gt; 管理应用程序服务器 &gt; </strong><em>server_name</em><strong> &gt; ORB 服务 &gt; 线程池</strong>。（您可以通过多个导航路由到达此页面。）</p>
+
+<div>
+<p>
+<strong>&ldquo;配置&rdquo;选项卡</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="ThreadPool_minimumSize_description"></a>最小大小</strong>
+</dt>
+<dd>指定池中允许的最小线程数。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">整型</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">10</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ThreadPool_maximumSize_description"></a>最大大小</strong>
+</dt>
+<dd>指定池中允许的最大线程数。
+<p>如果 Tivoli 性能查看器显示最大百分比度量以始终保持在双精度数字，考虑增加最大大小。最大百分比度量表明使用已配置线程的时间数。如果存在多个并发客户机连接到服务器端 ORB，增加大小以最多支持 1000 个客户机。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">整型</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">50</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">建议</td>
+<td align="left" valign="top" class="base"><a href="rprf_troubleshoot.html">50（在 Linux 系统上是 25 个）</a></td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ThreadPool_inactivityTimeout_description"></a>线程不活动超时</strong>
+</dt>
+<dd>指定在收回线程之前应该消逝的不活动的毫秒数。为 0 的值表明不等待而负值（小于 0）意味着永运等待。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">整型</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">单位</td>
+<td align="left" valign="top" class="base">毫秒</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">3500</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ThreadPool_isGrowable_description"></a>可增长</strong>
+</dt>
+<dd>指定线程数是否能增加至超过为线程池配置的最大大小。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">未启用（false）</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">范围</td>
+<td align="left" valign="top" class="base">有效值是允许线程分配超过最大线程大小或&ldquo;未启用&rdquo;。</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>相关信息</strong>
+</p>
+<a href="rcon_buttons.html">管理控制台按钮</a>
+<br>
+
+<a href="rcon_pageusage.html">管理控制台页面功能</a>
+<br>
+
+</div>
+</body>
+</html>

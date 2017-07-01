@@ -1,0 +1,78 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>요청 전송자 바인딩 콜렉션</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_reqsend"></a>
+<h2>
+<img alt="[픽스팩 5.0.2 이상]" src="v502.gif" border="0">요청 전송자 바인딩 콜렉션</h2>
+
+<p>이 페이지를 참조하여 웹 서비스 보안의 요청 메시지를 전송하는 데 필요한
+바인딩 구성을 지정할 수 있습니다. </p>
+
+<p>이 관리 콘솔 페이지를 보려면, 다음 단계를 완료하십시오. <ol>
+
+<li>
+<strong>응용프로그램 &gt; 엔터프라이즈 응용프로그램 &gt; </strong><em>application_name</em>을 클릭하십시오. </li>
+
+<li>관련 항목 아래에서 <strong>웹 모듈</strong> &gt; <em>URI_file_name</em> &gt; <strong>웹
+서비스: 클라이언트 보안 바인딩</strong>을 클릭하십시오. </li>
+
+<li>요청 송신자 바인딩 아래에서 <strong>편집</strong>을 클릭하십시오. </li>
+
+</ol>
+</p>
+
+<dl>
+<dt>
+<strong><a name="sec_signing"></a>서명 정보</strong>
+</dt>
+<dd>서명 매개변수에 대한 구성을 지정합니다. 서명 정보는
+본문 및 시간 소인을 포함한 메시지의 부분을 서명하고 유효성을 검증하는 데
+사용됩니다. 
+<p>서버 레벨 구성에서 <em>인증 메소드</em>가 <samp>IDAssertion</samp>이고 <em>ID 유형</em>이
+<samp>X509Certificate</samp>일 경우 이러한 매개변수를 X.509 유효성 검증에 사용할 수도
+있습니다. 이러한 경우, <em>인증 경로</em> 필드만 입력해야 합니다.</p>
+
+</dd>
+<dt>
+<strong><a name="sec_encrypt"></a>암호화 정보</strong>
+</dt>
+<dd>암호화 및 암호 해독 매개변수에 대한 구성을 지정합니다.
+암호화 정보는 본문 및 사용자 이름 토큰을 포함한 메시지의
+다양한 부분을 암호화 및 암호 해독하는 데 사용됩니다. </dd>
+<dt>
+<strong><a name="sec_keyldesc"></a>키 위치 지정자</strong>
+</dt>
+<dd>키 저장 파일 또는 저장소에서 디지털 서명과 암호화를 위한 키를 검색하는
+키 위치 지정자 오브젝트의 목록을 지정합니다.
+키 위치 지정자는 이름 또는 논리 이름을 별명에 맵핑하고, 인증된 ID를
+키에 맵핑합니다. 이 논리 이름은 키 위치 지정자 구현에서 키를 찾는 데
+사용됩니다. </dd>
+<dt>
+<strong><a name="sec_logmapdesc"></a>로그인 맵핑</strong>
+</dt>
+<dd>수신 메시지 내 토큰의 유효성을 검증하기 위한 구성 목록을
+지정합니다. 
+<p>로그인 맵핑은 인증 메소드를 JAAS(Java Authentication and Authorization Service)
+구성에 맵핑합니다. </p>
+
+<p>JAAS를 구성하려면, 관리 콘솔에서 <strong>보안 &gt; JAAS 구성</strong>을
+클릭하십시오. </p>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>관련 정보</strong>
+</p>
+<a href="uwbs_encrypt.html">암호화 정보 콜렉션</a>
+<br>
+
+</div>
+</body>
+</html>

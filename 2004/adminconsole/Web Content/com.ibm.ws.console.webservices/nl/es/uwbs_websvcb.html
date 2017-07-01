@@ -1,0 +1,250 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Servicios Web: grupo de enlaces por omisi&oacute;n para Web Services Security</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_websvcb"></a>
+<h2>
+<img alt="[Release 5.1 y posterior]" src="v51.gif" border="0">Servicios Web: grupo de enlaces por omisi&oacute;n para Web Services Security</h2>
+
+<p>Utilice esta p&aacute;gina para configurar los valores de Nonce en el nivel de
+servidor y para gestionar los enlaces por omisi&oacute;n para las anclas de confianza,
+el almac&eacute;n de certificados de colecciones, los localizadores de claves, los
+evaluadores de ID de confianza y las correlaciones de inicio de sesi&oacute;n. </p>
+
+<p>Para ver esta p&aacute;gina de la consola administrativa, pulse <strong>Servidores &gt; Servidores de aplicaciones </strong><em>nombre_servidor</em>. En Propiedades
+adicionales, pulse <strong>Servicios Web: Enlaces por omisi&oacute;n para Web
+Services Security</strong>.</p>
+
+<p>Antes de comenzar a definir los enlaces por omisi&oacute;n para Web Services
+Security, lea la documentaci&oacute;n de los Servicios Web.</p>
+
+<p>Para definir los enlaces de servidor, realice los pasos siguientes:<ol>
+
+<li>Pulse <strong>Aplicaciones &gt; Aplicaciones de empresa &gt;
+</strong><em>nombre_aplicaci&oacute;n</em>.</li>
+
+<li>En Elementos Relacionados, pulse <strong>M&oacute;dulos Web &gt;
+</strong> <em>nombre_archivo_URI</em><strong> &gt; Servicios Web: Enlaces de seguridad del servidor</strong>. </li>
+
+</ol>
+</p>
+
+<p>Para definir los enlaces del cliente, realice los pasos siguientes:<ol>
+
+<li>Pulse <strong>Aplicaciones &gt; Aplicaciones de empresa &gt;
+</strong><em>nombre_aplicaci&oacute;n</em>.</li>
+
+<li>En Elementos relacionados, pulse <strong>M&oacute;dulos Web &gt; </strong><em>nombre_archivo_URI</em><strong>&gt; Servicios Web: Enlaces de seguridad del cliente</strong>.</li>
+
+</ol>
+</p>
+
+<p>
+<img alt="[Release 5.1 y posterior]" src="v51.gif" border="0"><em>Nonce</em> es un n&uacute;mero criptogr&aacute;fico exclusivo
+incorporado en un mensaje para facilitar la detenci&oacute;n de repetidos ataques no
+autorizados de s&iacute;mbolos de nombre de usuario. En un entorno de WebSphere
+Application Server base, debe especificar valores para los campos <strong>Tiempo de
+espera de antememoria de Nonce</strong>, <strong>Antig&uuml;edad m&aacute;xima de Nonce</strong> y
+<strong>Desfase horario de Nonce</strong> para el nivel de servidor.  </p>
+
+<p> La configuraci&oacute;n de enlaces por omisi&oacute;n proporciona una ubicaci&oacute;n central donde se define la informaci&oacute;n de enlace reutilizable. El archivo de enlaces de aplicaciones puede hacer referencia a la informaci&oacute;n que contiene la configuraci&oacute;n de enlaces por omisi&oacute;n. </p>
+
+<dl>
+<dt>
+<strong><a name="sec_noncecachetimeout"></a>Tiempo de espera de antememoria de Nonce</strong>
+            &nbsp;
+            <img alt="[Release 5.1 y posterior]" src="v51.gif" border="0"></dt>
+<dd>Especifica el valor de tiempo de espera en segundos para la
+antememoria de Nonce en el servidor. Nonce es un valor generado aleatoriamente. 
+<p>Debe especificar un m&iacute;nimo de 300 segundos para el campo <strong>Tiempo de espera
+de antememoria de Nonce</strong>. Sin embargo, si no especifica un valor, el valor
+por omisi&oacute;n es 600 segundos. </p>
+
+<p>El campo <strong>Tiempo de espera de antememoria de Nonce</strong> es necesario para
+el entorno de WebSphere Application Server base.</p>
+
+<p>Si realiza cambios en el valor de tiempo de espera de antememoria de Nonce,
+debe reiniciar WebSphere Application Server para que los cambios entren en
+vigor.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">600 segundos</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">M&iacute;nimo</td>
+<td align="left" valign="top" class="base">300 segundos</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="sec_noncemaxage"></a>Antig&uuml;edad m&aacute;xima de Nonce</strong>
+            &nbsp;
+            <img alt="[Release 5.1 y posterior]" src="v51.gif" border="0"></dt>
+<dd>Especifica la cantidad de tiempo por omisi&oacute;n en segundos antes
+de que caduque la indicaci&oacute;n de la hora de Nonce. Nonce es un valor generado aleatoriamente. 
+<p>Debe especificar un m&iacute;nimo de 300 segundos para el campo <strong>Antig&uuml;edad
+m&aacute;xima de Nonce</strong>. Sin embargo, el valor m&aacute;ximo no puede exceder el n&uacute;mero
+de segundos especificado en el campo <strong>Tiempo de espera de antememoria de
+Nonce</strong> para el nivel de servidor. Si no especifica un valor, el valor por omisi&oacute;n es 300 segundos. 
+El valor establecido para el campo <strong>Antig&uuml;edad m&aacute;xima de Nonce</strong> del nivel
+de servidor no debe exceder el valor de <strong>Antig&uuml;edad m&aacute;xima de Nonce</strong>
+establecido para el nivel de c&eacute;lula, al que puede acceder pulsando <strong>Seguridad
+&gt; Servicios Web &gt; Propiedades</strong>. </p>
+
+<p>El campo <strong>Antig&uuml;edad m&aacute;xima de Nonce</strong> es necesario para el entorno de
+WebSphere Application Server base.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">300 segundos</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">300 segundos a <strong>Tiempo de espera de antememoria de Nonce</strong></td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="sec_nonceclockskew"></a>Desfase horario de Nonce</strong>
+            &nbsp;
+            <img alt="[Release 5.1 y posterior]" src="v51.gif" border="0"></dt>
+<dd>Especifica el valor de desfase horario por omisi&oacute;n en segundos a
+tener en cuenta cuando WebSphere Application Server comprueba lo reciente que
+es el mensaje. Nonce es un valor generado aleatoriamente. 
+<p>Debe especificar un m&iacute;nimo de 0 segundos para el campo <strong>Desfase horario de
+Nonce</strong>. Sin embargo, el valor m&aacute;ximo no puede exceder el n&uacute;mero de segundos
+especificado en el campo <strong>Antig&uuml;edad m&aacute;xima de Nonce</strong>. Si no especifica
+un valor, el valor por omisi&oacute;n es 0 segundos. </p>
+
+<p>El campo <strong>Desfase horario de Nonce</strong> es necesario para el entorno de
+WebSphere Application Server base.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">0 segundos</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">0 segundos a <strong>Antig&uuml;edad m&aacute;xima de Nonce</strong></td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="sec_trustancdescr"></a>Anclas de confianza</strong>
+            &nbsp;
+            <img alt="[Fix Pack 5.0.2 y posterior]" src="v502.gif" border="0"></dt>
+<dd>Especifica una lista de objetos de almac&eacute;n de claves que contienen
+los certificados ra&iacute;z de confianza, los certificados autofirmados o emitidos
+por una CA (autoridad certificadora).
+<p>La autoridad certificadora autentica a un usuario y emite un certificado.
+Una vez emitido el certificado, los objetos de almac&eacute;n de claves, que contienen
+estos certificados, utilice el certificado para validar la v&iacute;a de acceso de
+certificados o la cadena de certificados de los s&iacute;mbolos de seguridad con
+formato X.509 recibidos.</p>
+
+</dd>
+<dt>
+<strong><a name="sec_collcert"></a>Almac&eacute;n de certificados de colecciones</strong>
+            &nbsp;
+            <img alt="[Fix Pack 5.0.2 y posterior]" src="v502.gif" border="0"></dt>
+<dd>Especifica una lista de archivos de certificados intermedios que no son de confianza.
+<p>El almac&eacute;n de certificados de colecciones contiene una cadena de
+certificados intermedios que no son de confianza. La API CertPath intenta validar
+estos certificados, que est&aacute;n basados en el ancla de confianza.</p>
+
+</dd>
+<dt>
+<strong><a name="sec_keyldesc"></a>Localizadores de claves</strong>
+            &nbsp;
+            <img alt="[Fix Pack 5.0.2 y posterior]" src="v502.gif" border="0"></dt>
+<dd>Especifica una lista de objetos de localizador de claves que
+recuperan las claves para la signatura digital y el cifrado desde un archivo de
+almac&eacute;n de claves o un dep&oacute;sito. El localizador de claves correlaciona un nombre o nombre l&oacute;gico con un alias o correlaciona una identidad autenticada con una clave. 
+Este nombre l&oacute;gico se utiliza para localizar una clave en una implementaci&oacute;n de
+localizador de claves.</dd>
+<dt>
+<strong><a name="sec_trstiddesc"></a>Evaluadores de ID de confianza</strong>
+            &nbsp;
+            <img alt="[Fix Pack 5.0.2 y posterior]" src="v502.gif" border="0"></dt>
+<dd>Especifica una lista de evaluadores de ID de confianza que determinan si se ha de confiar en la autoridad de confirmaci&oacute;n de identidad o en el remitente del mensaje.
+<p>Los evaluadores de ID de confianza se utilizan para autenticar identidades adicionales desde un servidor a otro servidor. Por ejemplo, un cliente env&iacute;a la identidad del usuario A al servidor 1 para que lo autentique. El servidor 1 llama al servidor 2, que est&aacute; situado en sentido
+descendente, confirma la identidad del usuario A e incluye el ID de
+usuario y la contrase&ntilde;a del servidor 1. El servidor 2 intenta establecer
+la confianza con el servidor 1 autenticando su ID de usuario y contrase&ntilde;a
+y comprobando la confianza seg&uacute;n la implementaci&oacute;n de TrustedIDEvaluator. Si el proceso de autenticaci&oacute;n y la comprobaci&oacute;n de confianza se efect&uacute;an
+correctamente, el servidor 2 conf&iacute;a en que el servidor 1 ha autenticado al
+usuario A y se crea una credencial para el usuario A en el servidor 2
+para invocar la petici&oacute;n.</p>
+
+</dd>
+<dt>
+<strong><a name="sec_logmapdesc"></a>Correlaciones de inicio de sesi&oacute;n</strong>
+            &nbsp;
+            <img alt="[Fix Pack 5.0.2 y posterior]" src="v502.gif" border="0"></dt>
+<dd>Especifica una lista de configuraciones para validar los s&iacute;mbolos en los mensajes de entrada.
+<p>Las correlaciones de inicio de sesi&oacute;n correlacionan el m&eacute;todo de autenticaci&oacute;n con la configuraci&oacute;n de JAAS (Java Authentication
+and Authorization Service).</p>
+
+<p>Para configurar JAAS, utilice la consola administrativa y pulse
+<strong>Seguridad &gt; Configuraci&oacute;n JAAS</strong>.</p>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>Informaci&oacute;n relacionada</strong>
+</p>
+<a href="uwbs_trstanc.html">Grupo de anclas de confianza</a>
+<br>
+
+<a href="uwbs_colcertst.html">Grupo de almacenes de certificados de colecciones</a>
+<br>
+
+<a href="uwbs_keyl.html">Grupo de localizadores de claves</a>
+<br>
+
+<a href="uwbs_trstide.html">Grupo de evaluadores de ID de confianza</a>
+<br>
+
+<a href="uwbs_logmap.html">Grupo de correlaciones de inicio de sesi&oacute;n</a>
+<br>
+
+<a href="uwbs_logmapn.html">Valores de configuraci&oacute;n de enlaces de correlaciones de inicio de sesi&oacute;n</a>
+<br>
+
+</div>
+</body>
+</html>

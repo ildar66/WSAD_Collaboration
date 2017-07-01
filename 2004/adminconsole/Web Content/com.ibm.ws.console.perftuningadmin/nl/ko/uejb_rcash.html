@@ -1,0 +1,136 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>EJB 캐시 설정</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uejbcash"></a>
+<h2>EJB 캐시 설정</h2>
+
+<p>이 페이지에서 특정 EJB 컨테이너에 대한 캐시를
+구성하고 관리하십시오.캐시 절대 한계를 판별하려면,
+예상되는 총 동시 트랜잭션 수에 해당 트랜잭션에서 활성
+상태인 Enterprise Bean의 수를 곱하십시오.
+그 다음, 활성화된 세션 bean 인스턴수 수를 더하십시오.
+ Tivoli Performance Viewer를
+사용하여 bean 성능 정보를 볼 수 있습니다.</p>
+
+<p>이 관리 콘솔 페이지를 보려면 <strong>서버</strong> <strong>&gt;</strong> <strong>Application Server</strong>
+<strong>&gt;</strong> <em>서버 이름</em> <strong>&gt;</strong> <strong>EJB 컨테이너</strong> <strong>&gt;</strong> <strong>EJB
+캐시 설정</strong>을 클릭하십시오.</p>
+
+<div>
+<p>
+<strong>구성 탭</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="EJBCache_cleanupInterval_description"></a>정리 간격</strong>
+</dt>
+<dd>컨테이너가 총 항목 수를 캐시 크기 값으로 줄이기 위해 캐시에서
+사용되지 않은 항목을 제거하려고 시도하는 간격을 지정합니다. 
+<p>캐시 관리자는 필요할 때 신속하게 할당할 수 있도록 일부
+할당되지 않은 항목을 유지하려고 합니다. 백그라운 스레드는 일부
+할당되지 않은 항목을 유지하는 동안 일부 항목을 사용 가능하게 하려고 합니다.
+Application Server가 대기 중인 동안 스레드가 실행되면, Application Server가
+새 캐시 항목을 할당해야 하는 경우에 캐시에서 항목을 제거해도 성능이 저하되지
+않습니다. 일반적으로 이 매개변수를 캐시 크기 증가분만큼 증가시키십시오. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">정수</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">
+단위</td>
+<td align="left" valign="top" class="base">밀리초</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">범위</td>
+<td align="left" valign="top" class="base">0보다 큼</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">기본값</td>
+<td align="left" valign="top" class="base">3000</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="EJBCache_cacheSize_description"></a>캐시 크기</strong>
+</dt>
+<dd>EJB 컨테이너 내 활성 인스턴스에 있는 버켓 수를 지정합니다.
+<p>버켓은 둘 이상의 활성 Enterprise Bean 인스턴스를 포함할 수 있지만
+테이블의 각 버켓이 지정된 최소 인스턴스 수를 가지고 있는 경우
+성능이 최대화됩니다. 컨테이너의 활성 인스턴스 수가 버켓의 수(캐시 크기)를
+초과하는 경우, 컨테이너는 주기적으로 활성 인스턴스의 일부를 수동화하여
+테이블 내의 활성 인스턴스 수를 줄이려고 합니다. 성능과 메모리 간에 최적 균형을
+맞추려면, 이 값은 일반 워크로드 중에 예상되는 활성 인스턴스의 최대 수로
+설정하십시오. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">정수</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">
+단위</td>
+<td align="left" valign="top" class="base">해시 테이블의 버켓 수 </td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">범위</td>
+<td align="left" valign="top" class="base">0보다 큽니다. 컨테이너는 지정된 값보다 크거나 같은 숫자 중 다음으로 큰 숫자를 선택합니다.</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">기본값</td>
+<td align="left" valign="top" class="base">2053</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>관련 정보</strong>
+</p>
+<a href="rcon_buttons.html">관리 콘솔 단추</a>
+<br>
+
+<a href="uejb_recnt.html">EJB 컨테이너 설정</a>
+<br>
+
+</div>
+</body>
+</html>

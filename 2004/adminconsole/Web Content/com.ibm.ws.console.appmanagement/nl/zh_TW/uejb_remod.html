@@ -1,0 +1,80 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>EJB 模組設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uejbemod"></a>
+<h2>EJB 模組設定</h2>
+
+<p>請利用這個頁面來配置和管理特定的部署 EJB 模組。</p>
+
+<p>
+<b>附註: </b>您不能啟動或停止個別 EJB 模組來進行修改。
+您必須啟動或停止整個相關的應用程式。
+</p>
+
+<p>如果要檢視這個管理主控台頁面，請按一下<strong>應用程式</strong> <strong>&gt;</strong> <strong>企業應用程式</strong> <strong>&gt;</strong> <em>applicationName</em> <strong>&gt;</strong> <strong>EJB 模組</strong> <strong>&gt;</strong> <em>moduleName</em>。</p>
+
+<div>
+<p>
+<strong>「配置」標籤</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="ModuleDeployment_uri_description"></a>URI</strong>
+</dt>
+<dd>當相對於應用程式 URL 而解析時，這會指定模組保存檔內容在檔案系統中的位置。
+URI 必須符合部署的應用程式 (EAR) 的部署描述子中之 ModuleRef URI 的 URI。
+</dd>
+<dt>
+<strong><a name="ModuleDeployment_altdd_description"></a>替代 DD</strong>
+</dt>
+<dd>指定執行時期用來取代模組中所安裝者的部署描述子。
+</dd>
+<dt>
+<strong><a name="ModuleDeployment_startingWeight_description"></a>啟動加權</strong>
+</dt>
+<dd>指定在伺服器啟動時的模組啟動次序。有最低啟動加權的模組會最先啟動。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">整數</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">5000
+</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">大於 0</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>相關資訊</strong>
+</p>
+<a href="rcon_buttons.html">管理主控台按鈕</a>
+<br>
+
+</div>
+</body>
+</html>

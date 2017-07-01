@@ -1,0 +1,196 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>세션 관리 설정</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uprs_rsession_manager"></a>
+<h2>세션 관리 설정</h2>
+
+<p>이 페이지를 참조하여 HTTP 세션 지원을 관리하십시오. 여기에는
+세션 추적 메커니즘 지정, 최대 인메모리 세션 계수 설정, 오버플로우 제어,
+세션 제한시간 구성이 포함됩니다. </p>
+
+<p>이 관리 콘솔 페이지를 보려면 <strong>서버</strong> &gt; <strong>Application Server</strong> &gt; <em>server_name</em>
+&gt; <strong>웹 컨테이너</strong> &gt; <strong>세션 관리</strong>를 클릭하십시오.</p>
+
+<div>
+<p>
+<strong>구성 탭</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="SessionManager_enable_description"></a>세션 관리에 겹쳐쓰기 하십시오(응용프로그램 및 웹 모듈 레벨만)</strong>
+</dt>
+<dd>이 세션 관리 설정이 일반적으로 현재
+응용프로그램 또는 웹 모듈의 상위 레벨에서 상속된
+설정에 우선하는지 여부를 지정합니다.
+<p>기본적으로 웹 모듈은 상위 응용프로그램 레벨에서
+세션 관리 설정을 상속하고, 응용프로그램은 상위 웹 컨테이너
+레벨에서 세션 관리 설정을 상속합니다.</p>
+
+</dd>
+<dt>
+<strong><a name="SessionManager_sessionTracking_description"></a>세션 추적 메커니즘</strong>
+</dt>
+<dd>HTTP 세션 관리를 위한 메커니즘을 지정합니다.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">메커니즘</td>
+<td align="left" valign="top" class="base">기능</td>
+<td align="left" valign="top" class="base">기본값</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">SSL ID 추적 사용 가능</td>
+<td align="left" valign="top" class="base">세션 추적이 SSL(Secure Sockets Layer) 정보를
+세션 ID로 사용하도록 지정합니다. SSL 추적이 사용 가능하면
+쿠키 기반 세션 추적과 URL 재작성보다 우선으로 사용됩니다.<p>SSL(Secure Socket Layer) ID 추적을 사용 가능으로 하면 SSLV3Timeout 및 SAS(Secure Association Server) 등 두 개의 매개변수를 사용할 수 있게 됩니다. SSLV3Timeout은 SSL 세션이 다시 조정된 후의 시간 간격을 지정합니다.
+이것은 높은 설정값이므로, 수정이 성능에 중대한 영향을 미치지 않을 것입니다.
+SAS 매개변수는 Java 가상 시스템(JVM)에서 빠져 나와 다른 JVM으로 이동할 경우에만 SSL 연결을 확립합니다. Bean이 모두 같은 JVM에 있으면, SAS가 사용하는 SSL(Secure Socket Layer)은 성능에 방해가 되지 않습니다. </p>
+<p>
+<em>product_installation_root</em>\properties 디렉토리에 있는 <samp>sas.server.properties</samp> 및 <samp>sas.client.props</samp> 파일을 편집하여 이들 매개변수를 설정합니다. 여기서 <em>product_installation_root</em>는 WebSphere Application Server를 설치한 디렉토리입니다. </p>
+</td>
+<td align="left" valign="top" class="base">9600초</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">쿠키 사용 가능</td>
+<td align="left" valign="top" class="base">세션 추적이 쿠키를 사용하여 세션 ID를 수행하도록 지정합니다.
+쿠키가 사용 가능한 경우, 세션 추적은 쿠키로서 도착하는 세션 ID를 인식하고
+세션 ID를 전송하기 위해 쿠키를 사용하려고 합니다.
+쿠키가 사용 가능하지 않으면, 세션 추적은 쿠키 대신 URL 재작성을 사용합니다
+(URL 재작성이 사용 가능한 경우). <p>쿠키를
+사용 가능하게 하면 URL 재작성보다 우선순위를 갖습니다. 관리 응용프로그램을
+실행하는 Application Server의 세션 관리 기능에서 쿠키를 사용할 수 없게 해서는
+안됩니다. 그러면 관리 응용프로그램이 서버 다시 시작 후에 작동되지 않습니다.
+아니면 관리 응용프로그램을 응용프로그램과 별개의 프로세스로 실행할 수도
+있습니다.</p>
+<p>
+<strong>수정</strong>을 클릭하여 이러한 설정을 변경하십시오.
+</p>
+</td>
+<td align="left" valign="top" class="base"></td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">URL 재작성 사용 가능</td>
+<td align="left" valign="top" class="base">세션 관리 기능이 세션 ID를 전달하는 데 재작성된 URL을 사용하는지 여부를
+지정합니다. URL 재작성이 사용 가능하면, 세션 관리 기능은 encodeURL 메소드가 Servlet에서
+호출될 경우 URL에 도달하는 세션 ID를 인식합니다.</td>
+<td align="left" valign="top" class="base"></td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">프로토콜 전환 재작성 사용 가능</td>
+<td align="left" valign="top" class="base">URL이 HTTP에서 HTTPS 또는 HTTPS에서 HTTP로 전환되어야 할 때
+세션 ID가 URL에 추가되는지의 여부를 지정합니다. 재작성이 사용 가능하면
+HTTP와 HTTPS 사이에 이동하기 위해서 세션 ID가 필요합니다.
+</td>
+<td align="left" valign="top" class="base"></td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SessionManager_overflow_description"></a>오버플로우</strong>
+</dt>
+<dd>메모리 내의 세션 수가 메모리 내의 최대 세션 수 등록 정보에서 지정한 값을
+초과할 수 있도록 지정합니다. 이 옵션은 분산되지
+않은 세션 모드에서만 유효합니다.</dd>
+<dt>
+<strong><a name="TuningParams_maxInMemorySessionCount_description"></a>메모리 내의 최대 세션 수</strong>
+</dt>
+<dd>메모리 내에 유지할 최대 세션 수를 지정합니다.
+<p>메모리 내 세션 또는 분배 세션 중 어느 것을 사용하느냐에 따라 의미는
+약간씩 다릅니다. 메모리 내 세션의 경우 이 값은 기본 세션 테이블에 세션 수를 지정합니다.
+오버플로우 허용 등록 정보를 사용하여, 전체 세션 관리 기능에 대해 세션을
+이 수로 제한할지를 지정하거나 추가 세션이 두 번째 테이블에 저장될 수
+있게 할 수 있습니다. 분배 세션의 경우, 이 값은 세션의 메모리 캐시 크기를
+지정합니다. 세션 캐시가 최대 크기에 도달하여 새 세션을 요청할 때,
+세션 관리 기능은 캐시에서 최근에 사용한 세션을 제거하여 새 세션에 대한 공간을 만듭니다.
+<p>
+<img alt="[픽스팩 5.0.2 이상]" src="v502.gif" border="0"><b>참고: </b>이 값을 서버의 최대 스레드 풀 크기 미만으로
+설정하지 마십시오. </p>
+</p>
+
+</dd>
+<dt>
+<strong><a name="SessionManager_sessionTimeout_description"></a>세션 제한시간
+</strong>
+</dt>
+<dd>무효화되기 전에 세션이 사용하지 않음 상태를 유지할 수 있는 시간을 지정합니다. <samp>제한시간 설정</samp> 또는 <samp>제한시간 없음</samp>을 지정하십시오. 2보다 크거나
+같은 값(분)을 지정하십시오. 
+<p> 이 설정의 값은 세션 제한시간이 웹 모듈 전개 설명자에 지정되지 않은 경우에 기본값으로
+사용됩니다. 성능 유지를 위해 무효화 타이머가 초까지 정확하지는 않습니다. 쓰기 빈도가
+시간을 근거로 할 경우, 이 값은 최소한 쓰기 간격의 두 배가 되는지 확인하십시오.
+</p>
+
+</dd>
+<dt>
+<strong><a name="SessionManager_securityIntegration_description"></a>보안 통합</strong>
+</dt>
+<dd>보안 통합이 사용 가능할 때 세션 관리 기능이 사용자 ID를 HTTP 세션과 연관시키도록 지정합니다.</dd>
+<dt>
+<strong><a name="SessionManager_serialAccess_description"></a>세션 액세스 직렬화</strong>
+</dt>
+<dd>해당 서버의 동시 세션 액세스가 허용되지 않도록 지정합니다.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">최대 대기 시간</td>
+<td align="left" valign="top" class="base">Servlet 요청이 계속 실행하기 전에 HTTP 세션에서 대기하는 최대 시간을
+지정합니다. 이 매개변수는 선택적이며 초 단위로
+표현됩니다. 기본값은 120초 또는 2분입니다. 정상적인 조건하에서 HTTP 세션에 대한
+액세스를 기다리는 Servlet 요청은 요청 완료 시 현재 지정된 HTTP 세션을
+소유하는 요청의 통지를 받습니다.</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">제한시간의 액세스 허용</td>
+<td align="left" valign="top" class="base">제한시간의 경우에 Servlet이 정상적으로 실행될지 또는
+중단될지를 지정합니다. 이 상자를 선택하면, Servlet은 정상적으로
+실행됩니다. 이 상자를 선택하지 않으면, Servlet 실행은 중단되고
+오류 로그가 생성됩니다.</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>관련 정보</strong>
+</p>
+<a href="rcon_buttons.html">관리 콘솔 단추</a>
+<br>
+
+<a href="rcon_pageusage.html">관리 콘솔 페이지 기능</a>
+<br>
+
+<a href="rcon_preferences.html">관리 콘솔 환경 설정</a>
+<br>
+
+</div>
+</body>
+</html>

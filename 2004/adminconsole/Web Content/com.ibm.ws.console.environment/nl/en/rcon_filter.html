@@ -1,0 +1,44 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Administrative console filter settings</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="rrun_filter"></a>
+<h2>Administrative console filter settings</h2>
+
+<p>Use the Filter settings to specify how to filter entries shown
+in a collection view.</p>
+
+<p>Select the column to filter, then enter the filter criteria.</p>
+
+<dl>
+<dt>
+<strong>Column to filter</strong>
+</dt>
+<dd>Use the drop-down list to select the column to filter. When you apply
+the filter, the collection table is modified accordingly.<p>For example, select <strong>Application
+Servers</strong> if you plan to enter criteria by which to filter application server
+names.</p>
+</dd>
+<dt>
+<strong>Filter criteria</strong>
+</dt>
+<dd>In the field beside the drop-down list, enter a string that must be found
+in the name of a collection entry to qualify the entry to appear in the collection
+table. The string can contain %, *, or ? symbols as wildcard characters. For
+example, enter <samp>*App*</samp> to find any application server whose name contains
+the string <strong><em>App</em></strong>. <p>Prefix each of the characters <samp>( ) ^ *
+% { } \ + $</samp> with a  <samp>\</samp> so that the regular expression engine
+performing the search correctly matches  the supplied search criteria. For
+example, to search for all JDBC providers  containing <strong><em>(XA)</em></strong> in
+the provider name, specify the following string:</p> 
+<pre>*\(XA\)</pre>
+</dd>
+</dl>
+
+</body>
+</html>

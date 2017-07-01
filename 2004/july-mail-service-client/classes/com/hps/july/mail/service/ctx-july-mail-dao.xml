@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+    <bean id="july.mail.dao.mailDAO" 
+          class="com.hps.july.mail.service.impl.dao.MailDAOMessageBean">
+        <!--<property name="connectionFactoryJndiName" value="/nri-databaseNetwork/nodes/nri-database/servers/server2/jms/DefaultMailQCF"/>-->
+        <!--<property name="queueJndiName" value="/nri-databaseNetwork/nodes/nri-database/servers/server2/jms/DefaultMailQueue"/>-->
+          <property name="connectionFactoryJndiName" value="java:comp/env/jms/mailQCF"/>
+          <property name="queueJndiName" value="java:comp/env/jms/mailQueue"/>
+    </bean>
+
+</beans>

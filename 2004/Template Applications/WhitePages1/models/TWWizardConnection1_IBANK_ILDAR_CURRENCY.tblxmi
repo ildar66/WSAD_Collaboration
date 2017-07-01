@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RDBSchema:RDBTable xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:RDBSchema="RDBSchema.xmi" xmi:id="RDBTable_1097047310531" name="CURRENCY" primaryKey="SQLReference_1097047310531">
+  <database href="models/TWWizardConnection1_IBANK.dbxmi#RDBDatabase_1097047310203"/>
+  <schema href="models/TWWizardConnection1_IBANK_ILDAR.schxmi#RDBSchema_1097047310203"/>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1097047310531" name="CODE_CURRENCY" allowNull="false" comments="Буквенный код валюты (USD, DEM и пр.)">
+    <type xmi:type="RDBSchema:SQLCharacterStringType" xmi:id="SQLCharacterStringType_1097047310531" characterSet="800" length="3">
+      <originatingType xmi:type="RDBSchema:SQLCharacterStringType" href="DB2UDBNT_V72_Primitives.xmi#SQLCharacterStringType_1"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1097047310532" name="CURRENCY" allowNull="false" comments="Валюта (обозначение - USD, DEM и пр.)">
+    <type xmi:type="RDBSchema:SQLCharacterStringType" xmi:id="SQLCharacterStringType_1097047310532" characterSet="800" length="3">
+      <originatingType xmi:type="RDBSchema:SQLCharacterStringType" href="DB2UDBNT_V72_Primitives.xmi#SQLCharacterStringType_1"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1097047310533" name="NAME" allowNull="false" comments="Наименование - именительный падеж">
+    <type xmi:type="RDBSchema:SQLCharacterStringType" xmi:id="SQLCharacterStringType_1097047310533" characterSet="800" length="64">
+      <originatingType xmi:type="RDBSchema:SQLCharacterStringType" href="DB2UDBNT_V72_Primitives.xmi#SQLCharacterStringType_3"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1097047310534" name="NAMEV" allowNull="true" comments="Наименование - винительный падеж">
+    <type xmi:type="RDBSchema:SQLCharacterStringType" xmi:id="SQLCharacterStringType_1097047310534" characterSet="800" length="64">
+      <originatingType xmi:type="RDBSchema:SQLCharacterStringType" href="DB2UDBNT_V72_Primitives.xmi#SQLCharacterStringType_3"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1097047310535" name="NAMER" allowNull="true" comments="Наименование - родительынй падеж">
+    <type xmi:type="RDBSchema:SQLCharacterStringType" xmi:id="SQLCharacterStringType_1097047310535" characterSet="800" length="64">
+      <originatingType xmi:type="RDBSchema:SQLCharacterStringType" href="DB2UDBNT_V72_Primitives.xmi#SQLCharacterStringType_3"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1097047310536" name="NAMEP" allowNull="true" comments="Наименование - предложный падеж">
+    <type xmi:type="RDBSchema:SQLCharacterStringType" xmi:id="SQLCharacterStringType_1097047310536" characterSet="800" length="64">
+      <originatingType xmi:type="RDBSchema:SQLCharacterStringType" href="DB2UDBNT_V72_Primitives.xmi#SQLCharacterStringType_3"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1097047310537" name="RECALC" allowNull="true" comments="Банковский счет пересчета курса для валюты">
+    <type xmi:type="RDBSchema:SQLCharacterStringType" xmi:id="SQLCharacterStringType_1097047310537" characterSet="800" length="20">
+      <originatingType xmi:type="RDBSchema:SQLCharacterStringType" href="DB2UDBNT_V72_Primitives.xmi#SQLCharacterStringType_1"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1097047310547" name="DECIMALS" allowNull="false" defaultValue="02" comments="Число знаков после запятой">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1097047310547" precision="2" scale="0">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="DB2UDBNT_V72_Primitives.xmi#SQLNumeric_3"/>
+    </type>
+  </columns>
+  <namedGroup xmi:type="RDBSchema:SQLReference" xmi:id="SQLReference_1097047310531" name="XPKCURRENCY" members="RDBColumn_1097047310531" constraint="SQLConstraint_1097047310547"/>
+  <constraints xmi:id="SQLConstraint_1097047310547" name="XPKCURRENCY" type="PRIMARYKEY" primaryKey="SQLReference_1097047310531"/>
+</RDBSchema:RDBTable>

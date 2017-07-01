@@ -1,0 +1,475 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Java 虛擬機器設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="urun_rconfproc_jvm"></a>
+<h2>Java 虛擬機器設定</h2>
+
+<p>請利用這個頁面來檢視和變更應用程式伺服器程序的 Java 虛擬機器 (JVM) 配置。
+</p>
+
+<p>如果要檢視這個管理主控台頁面，請按一下<strong>伺服器 &gt; 應用程式伺服器 &gt; </strong><em>server_name</em><strong> &gt; 程序定義 &gt; Java 虛擬機器</strong>。
+</p>
+
+<div>
+<p>
+<strong>「配置」標籤</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="JavaVirtualMachine_classpath_description"></a>類別路徑</strong>
+</dt>
+<dd>指定 Java 虛擬機器程式碼在其中尋找類別的標準類別路徑。
+
+<p>將每一個類別路徑項目輸入表格列中。
+您不需要在每個項目的尾端加上冒號或分號。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">單位</td>
+<td align="left" valign="top" class="base">類別路徑</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_bootClasspath_description"></a>啟動類別路徑</strong>
+</dt>
+<dd>指定 JVM 程式碼的引導類別和資源。
+這個選項只適用於支援引導類別和資源的 JVM 指示。
+您可以用冒號 (:) 或分號 (;) 區隔多個路徑，這是隨著節點的作業系統而不同的。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_verboseModeClass_description"></a>詳細類別載入</strong>
+</dt>
+<dd>指定是否要對類別載入使用詳細除錯輸出。預設值是不啟用詳細類別載入。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">false</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_verboseModeGarbageCollection_description"></a>詳細記憶體回收</strong>
+</dt>
+<dd>指定是否要對記憶體回收使用詳細除錯輸出。預設值是不啟用詳細記憶體回收。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">false</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_verboseModeJNI_description"></a>詳細 JNI</strong>
+</dt>
+<dd>指定是否要對原生方法呼叫使用詳細除錯輸出。預設值是不啟用詳細 Java 原生介面 (JNI) 活動。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">false</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_initialHeapSize_description"></a>起始資料堆大小</strong>
+</dt>
+<dd>指定 JVM 程式碼所能使用的起始資料堆大小 (MB)。
+
+<p>增加資料堆大小下限可以改進啟動作業。
+記憶體回收次數會減少，效能可增進 10%。</p>
+
+<p>大體上，增加 Java 資料堆大小會改進通訊量，直到資料堆不再能常駐於實體記憶體為止。
+當資料堆開始交換到磁碟之後，Java 效能會變得很差。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">整數</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">OS/400 是 64，所有其他平台是 50</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_maximumHeapSize_description"></a>資料堆的大小上限</strong>
+</dt>
+<dd>指定 JVM 程式碼所能使用的資料堆大小上限 (MB)。
+
+<p>增加資料堆大小可以改進啟動作業。
+記憶體回收次數會減少，效能可增進 10%。</p>
+
+<p>大體上，增加 Java 資料堆大小會改進通訊量，直到資料堆不再能常駐於實體記憶體為止。
+當資料堆開始交換到磁碟之後，Java 效能會變得很差。
+因此，請將資料堆大小上限設成足以讓資料堆放在實體記憶體內。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">整數</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">OS/400 是 0，所有其他平台是 256。
+這個值要保持得夠低，以避免造成移頁或從記憶體交換至磁碟中。</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_runHProf_description"></a>執行 HProf</strong>
+</dt>
+<dd>指定是否要使用 HProf Profiler 支援。如果要使用另一個 Profiler，請利用 HProf 引數設定來指定自訂 Profiler 設定。
+預設值是不啟用 HProf Profiler 支援。
+<p>如果將「執行 HProf」內容設成 true，則您必須將指令行 Profiler 引數指定成「HProf 引數」內容的值。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">false</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_hprofArguments_description"></a>HProf 引數</strong>
+</dt>
+<dd>指定要傳遞給啟動應用程式伺服器程序的 JVM 程式碼之指令行 Profiler 引數。
+當啟用 HProf Profiler 支援時，您就可以指定引數。
+<p>僅在「執行 HProf」內容設成 true 時，才需要 HProf 引數。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_debugMode_description"></a>除錯模式</strong>
+</dt>
+<dd>指定要不要在除錯模式下執行 JVM。預設值是不啟用除錯模式支援。
+<p>如果將「除錯模式」內容設成 true，則您必須將指令行除錯引數指定成「除錯引數」內容的值。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">false</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_debugArgs_description"></a>除錯引數
+</strong>
+</dt>
+<dd>指定要傳遞給啟動應用程式伺服器程序的 JVM 程式碼之指令行除錯引數。
+當啟用「除錯模式」時，您就可以指定引數。
+<p>僅在「除錯模式」內容設成 true 時，才需要除錯引數。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">單位</td>
+<td align="left" valign="top" class="base">Java 指令行引數</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_genericJvmArguments_description"></a>一般 JVM 引數
+</strong>
+</dt>
+<dd>指定要傳遞給啟動應用程式伺服器程序的 Java 虛擬機器程式碼之指令行引數。
+
+<p>以下是選用的指令行引數，您可以在<strong>一般 JVM 引數</strong>欄位中輸入它們：
+<ul>
+
+<li>
+<strong>-Xquickstart：</strong>您可以利用這個值，以低於預設模式的最佳化層次來進行起始編譯，稍後您可以根據採樣結果來重新編譯至預設模式的起始編譯層次。
+如果應用程式開始的中等速度比長時間執行的通訊量更加重要，請使用 quickstart。
+在某些除錯實務、測試控制工具和短時間執行的工具中，啟動效能有可能增進 15-20%。
+<strong>-DCOPT_NQREACHDEF </strong> 可以使啟動作業增進 15%。
+</li>
+
+<li>
+<strong>-Xverify:none：</strong>當使用這個值時，在類別載入期間，會略過類別驗證階段。
+當使用 <strong>-Xverify:none</strong> 且啟用 Just in Time (JIT) 編譯器時，啟動時間可以增進 10-15%。</li>
+
+<li>
+<strong>-Xnoclassgc：</strong>您可以利用這個值來停用類別的記憶體回收，以增加類別的重複使用，效能會受到些微影響。
+依預設，會啟用類別記憶體回收，但不建議您啟用它。
+您可以利用 verbose:gc 配置設定來監視記憶體回收，因為它的輸出包括類別記憶體收集統計資料。</li>
+
+<li>
+<strong>-Xgcthreads：</strong>您可以同時使用多個記憶體回收執行緒，這也稱為<em>並行記憶體回收</em>。
+當在<strong>通用的 JVM 引數</strong>欄位中輸入這個值時，也要輸入機器的處理器數目，比方說，<samp>-Xgcthreads=</samp><em>number_of_processors</em>。
+如果機器的處理器不只一個，建議您使用並行記憶體回收。
+這個引數只適用於 IBM Developer Kit。</li>
+
+<li>
+<strong>-Xnocompactgc：</strong>這個值會停用資料堆壓縮（成本最高的記憶體回收作業）。
+在 IBM Developer Kit 中，請避免使用壓縮。
+ 如果您停用了資料堆壓縮，您會消除所有相關的額外負荷。
+當在<strong>通用的 JVM 引數</strong>欄位中輸入這個值時，也要輸入機器的處理器數目，比方說，<samp>-Xnocompactgc=</samp><em>number_of_processors</em>。
+</li>
+
+<li>
+<strong>-Xinitsh：</strong>您可以利用這個值來設定儲存類別物件的起始資料堆大小。
+方法定義和靜態欄位也會隨著類別物件而一起儲存。
+雖然系統資料堆大小沒有上界，但仍要設定起始的大小，以免耗費成本來呼叫作業系統記憶體管理程式，以展開系統資料堆。
+您可以得知 WebSphere 產品所載入的類別數目（大約 8,000 個類別）及其平均大小來計算好的起始系統資料堆大小。
+有了應用程式的資料，您就可以將它們加入計算中。
+</li>
+
+<li>
+<strong>-Xmc：</strong>執行緒本端資料堆大小是資料堆中配置給執行緒專用的部分。
+由於這個執行緒本端資料堆大小，在配置物件時，執行緒不需要鎖定整個資料堆。
+不過，當執行緒本端資料堆已滿時，會從需要同步處理的資料堆完成物件的配置。
+對效能而言，好的本端快取大小非常重要，這需要瞭解應用程式及其物件。
+</li>
+
+<li>
+<strong>-Xml：</strong>您可以利用這個值來設定要從本端快取配置的物件大小限制。
+超出限制大小的物件必須配置在一般資料堆中。
+請儘可能從本端快取配置物件，否則，本端快取會因為沒有動態增長而用完。
+如果您知道某些物件會變成很大，請從一般資料堆來配置它們。
+</li>
+
+</ul>
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">單位</td>
+<td align="left" valign="top" class="base">Java 指令行引數</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_executableJarFileName_description"></a>JAR 執行檔名稱</strong>
+</dt>
+<dd>指定 JVM 程式碼使用的 JAR 執行檔的完整路徑名稱。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">單位</td>
+<td align="left" valign="top" class="base">路徑名稱</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_disableJIT_description"></a>停用 JIT</strong>
+</dt>
+<dd>指定要不要停用 JVM 程式碼的 Just in Time (JIT) 編譯器選項。
+<p>如果您停用 JIT 編譯器，通訊量明顯降低。
+因此，為了效能，請保持啟用 JIT。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">false（啟用 JIT）</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">建議
+</td>
+<td align="left" valign="top" class="base">啟用 JIT</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_osName_description"></a>作業系統名稱</strong>
+</dt>
+<dd>指定給定的作業系統的 JVM 設定。啟動之後，程序會使用節點作業系統的 JVM 設定。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>相關資訊</strong>
+</p>
+<a href="rcon_buttons.html">管理主控台按鈕</a>
+<br>
+
+<a href="rcon_pageusage.html">管理主控台頁面特性</a>
+<br>
+
+<a href="urun_rproperty.html">自訂內容集合</a>
+<br>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Param&egrave;tres de connexion unique</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecsso"></a>
+<h2>Param&egrave;tres de connexion unique</h2>
+
+<p>Cette page permet de d&eacute;finir les valeurs de configuration pour
+la connexion unique (SSO).</p>
+
+<p>Pour afficher cette page de la console d'administration, cliquez sur <strong>S&eacute;curit&eacute;</strong> &gt; <strong>M&eacute;canismes d'authentification</strong> &gt; <strong>LTPA</strong> &gt; <strong>SSO (Single Signon)</strong>.</p>
+
+<div>
+<p>
+<strong>Onglet Configuration</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="SingleSignon_requiresSSL_description"></a>SSL requis</strong>
+</dt>
+<dd>Indique si la fonction SSO est activ&eacute;e uniquement lorsque
+les demandes sont transmises via les connexions SSL HTTPS.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es :</td>
+<td align="left" valign="top" class="base">Bool&eacute;en</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut :</td>
+<td align="left" valign="top" class="base">D&eacute;sactiv&eacute;e</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Port&eacute;e :</td>
+<td align="left" valign="top" class="base">Activ&eacute;e ou D&eacute;sactiv&eacute;e</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SingleSignon_domainName_description"></a>Nom de domaine</strong>
+</dt>
+<dd>Indique le nom de domaine (.ibm.com, par exemple) pour tous les
+h&ocirc;tes SSO (single signon).
+<p>Si aucune valeur n'est indiqu&eacute;e, Le navigateur Web attribue par d&eacute;faut
+au domaine le nom de l'h&ocirc;te sur lequel l'application Web est en cours
+d'ex&eacute;cution.  De cette mani&egrave;re, le cookie HTTP (g&eacute;n&eacute;r&eacute;
+pour SSO) est restreint &agrave; l'h&ocirc;te dont il provient. Cette action est
+d&eacute;conseill&eacute;e s'il existe plusieurs h&ocirc;tes dans le domaine SSO. Laisser
+l'attribut de nom de domaine vide n'est souhaitable que si plusieurs
+h&ocirc;tes virtuels ayant des noms de domaine diff&eacute;rents sont en cours
+d'ex&eacute;cution dans le m&ecirc;me h&ocirc;te physique. Laisser cette zone vide
+permet au navigateur Web d'attribuer par d&eacute;faut le nom de domaine &agrave;
+chaque h&ocirc;te virtuel diff&eacute;rent.  Si un nom de domaine est explicitement
+indiqu&eacute; dans cette zone, cette valeur est utilis&eacute;e pour tous les h&ocirc;tes
+virtuels et ces derniers sont restreints &agrave; un seul domaine, ce qui peut
+&ecirc;tre ind&eacute;sirable dans certaines situations.</p>
+
+<p>Si un nom de domaine est indiqu&eacute; de mani&egrave;re explicite, toutes les URL
+utilis&eacute;es permettant d'acc&eacute;der aux ressources Web prot&eacute;g&eacute;es contiennent le
+nom d'h&ocirc;te DNS (domain name system).
+Par exemple, une fois que la s&eacute;curit&eacute; globale est configur&eacute;e pour LTPA
+et qu'un nom de domaine SSO est indiqu&eacute;, il est possible d'acc&eacute;der &agrave; la
+console d'administration &agrave; l'aide de l'URL suivante :
+<strong>http://votreh&ocirc;te.austin.ibm.com:9090/admin</strong>, o&ugrave;
+<em>votreh&ocirc;te.austin.ibm.com</em> est remplac&eacute; par le nom d'h&ocirc;te DNS du
+serveur.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es :</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SingleSignon_enabled_description"></a>Activ&eacute;e</strong>
+</dt>
+<dd>Indique que la fonction SSO est activ&eacute;e.
+<p>Les applications Web qui utilisent les pages de connexion de style J2EE
+FormLogin (telles que la console d'administration WebSphere Application
+Server) exigent que la fonction SSO soit activ&eacute;e. D&eacute;sactivez uniquement
+SSO pour certaines configurations avanc&eacute;es dans lesquelles les cookies de
+type SSO LTPA ne sont pas requis.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es :</td>
+<td align="left" valign="top" class="base">Bool&eacute;en</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut :</td>
+<td align="left" valign="top" class="base">Activ&eacute;e</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Port&eacute;e :</td>
+<td align="left" valign="top" class="base">Activ&eacute;e ou D&eacute;sactiv&eacute;e</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informations connexes</strong>
+</p>
+<a href="rcon_buttons.html">Boutons de la console administrative</a>
+<br>
+
+<a href="rcon_pageusage.html">Caract&eacute;ristiques de la page de la console d'administration</a>
+<br>
+
+<a href="rcon_scope.html">Param&egrave;tres de la port&eacute;e de la console administrative</a>
+<br>
+
+<a href="rcon_filter.html">Param&egrave;tres de filtrage de la console administrative</a>
+<br>
+
+<a href="rcon_preferences.html">Param&egrave;tres des pr&eacute;f&eacute;rences de la console administrative</a>
+<br>
+
+</div>
+</body>
+</html>

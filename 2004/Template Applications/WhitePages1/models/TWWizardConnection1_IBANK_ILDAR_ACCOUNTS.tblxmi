@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RDBSchema:RDBTable xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:RDBSchema="RDBSchema.xmi" xmi:id="RDBTable_1097047311234" name="ACCOUNTS" primaryKey="SQLReference_1097047311234">
+  <database href="models/TWWizardConnection1_IBANK.dbxmi#RDBDatabase_1097047310203"/>
+  <schema href="models/TWWizardConnection1_IBANK_ILDAR.schxmi#RDBSchema_1097047310203"/>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1097047311234" name="BRANCH_ID" allowNull="false" comments="Уникальный идентификатор банка или филиала, зарегистрированных в системе">
+    <type xmi:type="RDBSchema:SQLCharacterStringType" xmi:id="SQLCharacterStringType_1097047311234" characterSet="800" length="20">
+      <originatingType xmi:type="RDBSchema:SQLCharacterStringType" href="DB2UDBNT_V72_Primitives.xmi#SQLCharacterStringType_3"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1097047311235" name="ACCOUNT" allowNull="false" comments="Счет клиента">
+    <type xmi:type="RDBSchema:SQLCharacterStringType" xmi:id="SQLCharacterStringType_1097047311235" characterSet="800" length="20">
+      <originatingType xmi:type="RDBSchema:SQLCharacterStringType" href="DB2UDBNT_V72_Primitives.xmi#SQLCharacterStringType_1"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1097047311236" name="CLIENT_ID" allowNull="false" comments="Уникальный в рамках системы идентификатор клиента, за которым зарегистрирован счёт из таблицы clients">
+    <type xmi:type="RDBSchema:SQLExactNumeric" xmi:id="SQLExactNumeric_1097047311234">
+      <originatingType xmi:type="RDBSchema:SQLExactNumeric" href="DB2UDBNT_V72_Primitives.xmi#SQLExactNumeric_1"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1097047311237" name="TYPE_ACCOUNT" allowNull="false" comments="Тип счета. Может принимать значения: 0 - расчетный, 1 - текущий, 2 - транзитный, 3 - спецтранзитный">
+    <type xmi:type="RDBSchema:SQLCharacterStringType" xmi:id="SQLCharacterStringType_1097047311236" characterSet="800" length="1">
+      <originatingType xmi:type="RDBSchema:SQLCharacterStringType" href="DB2UDBNT_V72_Primitives.xmi#SQLCharacterStringType_1"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1097047311238" name="CREATE_DATE" allowNull="false" comments="Дата заведения счета">
+    <type xmi:type="RDBSchema:SQLDate" xmi:id="SQLDate_1097047311234">
+      <originatingType xmi:type="RDBSchema:SQLDate" href="DB2UDBNT_V72_Primitives.xmi#SQLDate_1"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1097047311239" name="CREATE_AMOUNT" allowNull="false" comments="Сумма на момент заведения счета (в единицах валюты)">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1097047311234" precision="28" scale="10">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="DB2UDBNT_V72_Primitives.xmi#SQLNumeric_3"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1097047311240" name="CURRENCY" allowNull="false" comments="Буквенный код (USD, DEM и т.д.) валюты счёта">
+    <type xmi:type="RDBSchema:SQLCharacterStringType" xmi:id="SQLCharacterStringType_1097047311237" characterSet="800" length="3">
+      <originatingType xmi:type="RDBSchema:SQLCharacterStringType" href="DB2UDBNT_V72_Primitives.xmi#SQLCharacterStringType_3"/>
+    </type>
+  </columns>
+  <namedGroup xmi:type="RDBSchema:SQLReference" xmi:id="SQLReference_1097047311234" name="XPKACCOUNTS" members="RDBColumn_1097047311234 RDBColumn_1097047311235" constraint="SQLConstraint_1097047311234"/>
+  <namedGroup xmi:type="RDBSchema:RDBReferenceByKey" xmi:id="RDBReferenceByKey_1097047310375" name="R_5" onDelete="CASCADE" onUpdate="NO ACTION" members="RDBColumn_1097047311236" constraint="SQLConstraint_1097047311235">
+    <target href="models/TWWizardConnection1_IBANK_ILDAR_CLIENTS.tblxmi#SQLReference_1097047310375"/>
+  </namedGroup>
+  <namedGroup xmi:type="RDBSchema:RDBReferenceByKey" xmi:id="RDBReferenceByKey_1097047310766" name="R_4" onDelete="NO ACTION" onUpdate="NO ACTION" members="RDBColumn_1097047311234" constraint="SQLConstraint_1097047311236">
+    <target href="models/TWWizardConnection1_IBANK_ILDAR_INIT_AS.tblxmi#SQLReference_1097047310750"/>
+  </namedGroup>
+  <constraints xmi:id="SQLConstraint_1097047311234" name="XPKACCOUNTS" type="PRIMARYKEY" primaryKey="SQLReference_1097047311234"/>
+  <constraints xmi:id="SQLConstraint_1097047311235" name="R_5" type="FOREIGNKEY" referenceByKey="RDBReferenceByKey_1097047310375"/>
+  <constraints xmi:id="SQLConstraint_1097047311236" name="R_4" type="FOREIGNKEY" referenceByKey="RDBReferenceByKey_1097047310766"/>
+</RDBSchema:RDBTable>

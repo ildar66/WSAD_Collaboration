@@ -1,0 +1,428 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Secure Sockets Layer settings</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecssl"></a>
+<h2>Secure Sockets Layer settings</h2>
+
+<p>Use this page to configure Secure Sockets Layer (SSL) settings
+for the server.</p>
+
+<p>To view this administrative console page, click <strong>Security &gt; SSL &gt; </strong><em>alias_name</em>.</p>
+
+
+
+
+<div>
+<p>
+<strong>Configuration tab</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="Security_defaultSSLSettings_description"></a>Alias</strong>
+</dt>
+<dd>Specifies the name of the specific SSL setting
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type:</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecureSocketLayer_keyFileName_description"></a>Key File Name</strong>
+</dt>
+<dd>Specifies the fully
+qualified path to the SSL key file that contains public keys and private keys.
+
+
+<p>You can create an SSL key file
+with the key management utility, or this file can correspond to a hardware
+device if one is available. In either case, this option indicates the source
+for personal certificates and for signer certificates unless a trust file
+is specified. The default SSL key files, <samp>DummyClientKeyFile.jks</samp> and <samp>DummyServerKeyFile.jks</samp>,
+contais a self-signed personal test certificate expiring on March 17, 2005.
+The test certificate is only intended for use in a test environment. The default
+SSL key files should never be used in a production environment because the
+private keys are the same on all the WebSphere Application Server installations.
+Refer to the Managing certificates article in the InfoCenter for information
+about creating and managing digital certificates for your WebSphere Application
+Server domain.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type:</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecureSocketLayer_keyFilePassword_description"></a>Key File Password</strong>
+</dt>
+<dd>Specifies the password for accessing the SSL key file.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type:</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecureSocketLayer_keyFileFormat_description"></a>Key File Format </strong>
+</dt>
+<dd>Specifies the format of the SSL key file.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type:</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default:</td>
+<td align="left" valign="top" class="base">JKS</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range:</td>
+<td align="left" valign="top" class="base">JKS, JCEK, PKCS12</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecureSocketLayer_trustFileName_description"></a>Trust File Name  </strong>
+</dt>
+<dd>Specifies the fully qualified path to a trust file containing the
+public keys.
+
+<p>You can create a trust file with
+the key management utility included in the WebSphere <em>bin</em> directory.
+Using the key management utility from Global Security Kit (GSKit) (another
+SSL implementation) does not work with the Java Secure Socket Extension (JSSE)
+implementation. </p>
+
+<p>Unlike the SSL key file, no personal certificates are referenced; only
+signer certificates are retrieved. The default SSL trust files, <samp>DummyClientTrustFile.jks</samp> and <samp>DummyServerTrustFile.jks</samp>,
+contain multiple test public keys as signer certificates that can expire.
+The public key for the WebSphere Application Server Version 4.0 test certificates
+expires on January 15, 2004, and the public key for the WebSphere Application
+Server Version 5 test certificates and WebSphere Application Server CORBA
+C++ client expires on March 17, 2005. The test certificate is only intended
+for use in a test environment. </p>
+
+<p>If a trust file is not specified but the SSL key file is specified, then
+the SSL key file is used for retrieval of signer certificates as well as personal
+certificates.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type:</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecureSocketLayer_trustFilePassword_description"></a>Trust File Password </strong>
+</dt>
+<dd>Specifies the password for accessing the SSL trust file.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type:</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecureSocketLayer_trustFileFormat_description"></a>Trust File Format </strong>
+</dt>
+<dd>Specifies the format of the SSL trust file.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type:</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default:</td>
+<td align="left" valign="top" class="base">JKS</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range:</td>
+<td align="left" valign="top" class="base">JKS, JCEK, PKCS12</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecureSocketLayer_clientAuthentication_description"></a>Client Authentication</strong>
+</dt>
+<dd>Specifies whether to request a certificate from the client for
+authentication purposes when making a connection.
+<p>This attribute is only valid
+when used by the Web container HTTP transport. When performing client
+authentication with the Internet InterORB Protocol (IIOP) protocol (for EJB
+requests), you must click <strong>Security</strong> &gt; <strong>Authentication Protocol</strong> &gt; <strong>CSIv2
+Inbound</strong> or <strong>Outbound Authentication</strong> from the left navigation pane
+of the administrative console. Click <strong>SSL Client Certificate Authentication</strong> to
+enable it for these requests.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type:</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default:</td>
+<td align="left" valign="top" class="base">Disabled</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range:</td>
+<td align="left" valign="top" class="base">Enabled or Disabled</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecureSocketLayer_securityLevel_description"></a>Security Level</strong>
+</dt>
+<dd>Specifies whether the server selects from a preconfigured set of
+security levels. 
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type:</td>
+<td align="left" valign="top" class="base">Valid values include <strong>Low</strong>, <strong>Medium</strong> or <strong>High</strong>.<ul>
+
+<li>LOW specifies only digital signing ciphers (no encryption)</li>
+
+<li>MEDIUM specifies only 40-bit ciphers (including digital signing)</li>
+
+<li>HIGH specifies only 128-bit ciphers (including digital signing).</li>
+
+</ul>
+<p>To specify all ciphers or any particular range, you can set the property <strong>com.ibm.ssl.enabledCipherSuites</strong>. </p>
+<p>See
+the SSL documentation in the InfoCenter.</p>
+</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default:</td>
+<td align="left" valign="top" class="base">High</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range:</td>
+<td align="left" valign="top" class="base">Low, Medium or High</td>
+
+</tr>
+
+</table>
+
+
+</dd>
+<dt>
+<strong><a name="SSLConfig_cipherSuites_description"></a>Cipher Suites</strong>
+</dt>
+<dd>Specifies a list of supported cipher suites that can be selected
+for use during the SSL handshake. If you select cipher suites individually
+here, you override those cipher suites set in the Security Level field. 
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type:</td>
+<td align="left" valign="top" class="base"> </td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default:</td>
+<td align="left" valign="top" class="base"></td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range:</td>
+<td align="left" valign="top" class="base"></td>
+
+</tr>
+
+</table>
+
+
+</dd>
+<dt>
+<strong><a name="SecureSocketLayer_enableCryptoHardwareSupport_description"></a>Cryptographic Token</strong>
+</dt>
+<dd>Specifies whether the server enables or disables cryptographic
+hardware and software support.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type:</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default:</td>
+<td align="left" valign="top" class="base">Disabled</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range:</td>
+<td align="left" valign="top" class="base">Enabled or Disabled</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SystemSecureSocketLayer_provider"></a>Provider</strong>
+            &nbsp;
+            </dt>
+<dd>Refers to a package that supplies a concrete implementation of
+a subset of the cryptography aspects of the Java Security API. 
+<p> If you select the first button, select a provider from the menu. WebSphere
+Application Server has the following pre-defined providers: <strong>IBMJSSE</strong> and <strong>IBMJSSEFIPS</strong>. <strong>IBMJSSEFIPS</strong> is
+the Federal Information Processing Standard (FIPS)-approved version of the
+IBMJSSE provider. If you select the second button, enter a custom provider.
+For a custom provider, you first must enter the Cipher Suites through <strong>Custom
+Properties</strong> under Additional Properties.Cipher suites and protocol values
+depend on the Provider.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">integer </td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">100</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range</td>
+<td align="left" valign="top" class="base">1 to 86400</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SystemSecureSocketLayer_protocol"></a>Protocol</strong>
+            &nbsp;
+            </dt>
+<dd>Specifies the SSL protocol used.
+<p>If you are using a FIPS-approved JSSE such as IBMJSSEFIPS, you must select
+a TLS protocol. Because the FIPS-approved JSSE providers are not backwards-compatible,
+a server that uses the TLS protocol cannot communicate with a client that
+uses an SSL protocol.</p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Related information</strong>
+</p>
+<a href="rcon_buttons.html">Administrative console buttons</a>
+<br>
+
+<a href="rcon_pageusage.html">Administrative console page features</a>
+<br>
+
+<a href="rcon_scope.html">Administrative console scope settings</a>
+<br>
+
+<a href="rcon_filter.html">Administrative console filter settings</a>
+<br>
+
+<a href="rcon_preferences.html">Administrative console preference settings</a>
+<br>
+
+<a href="usec_rassl.html">Secure Sockets Layer settings for custom properties</a>
+<br>
+
+</div>
+</body>
+</html>

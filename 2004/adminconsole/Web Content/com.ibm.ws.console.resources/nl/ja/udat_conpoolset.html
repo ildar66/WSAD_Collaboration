@@ -1,0 +1,466 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>接続プール設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="Connection_pool_settings"></a>
+<h2>接続プール設定</h2>
+
+<p>このページを使用して、接続プールの設定を構成します。</p>
+
+<p>この管理コンソール・ページは、特定のリソース・タイプ (例えば、JDBC データ・ソースや JMS キュー接続ファクトリーなど) に共通のものです。
+このページを表示する際のパスはリソースのタイプによって異なります。
+一般的な表示手順としては、リソース・プロバイダーのインスタンスを選択し、次にそのリソース・タイプのインスタンスを選択し、「<strong>接続プール</strong>」をクリックします。
+例えば、「<strong>リソース</strong>」&gt;「<strong>JDBC プロバイダー</strong>」&gt;「<strong>JDBC_provider</strong>」&gt;「<strong>データ・ソース</strong>」&gt;「<strong>data_source</strong>」&gt;「<strong>接続プール</strong>」をクリックします。</p>
+
+<div>
+<p>
+<strong>「構成」タブ</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="Connectionpool_detail_contextID"></a>有効範囲</strong>
+</dt>
+<dd>このリソース定義を可視にするレベル (セル、ノード、またはサーバーの
+各レベル) を指定します。
+
+<p>JDBC プロバイダー、ネーム・スペース・バインディング、
+共用ライブラリーなどのリソースを複数の有効範囲で定義することが可能です。
+より限定的な有効範囲で定義されたリソースは、
+それより広い有効範囲で定義された重複するリソースをオーバーライドします。
+</p>
+
+<p>定義済みリソースの有効範囲が何であれ、そのリソースのプロパティーは
+個々のサーバー・レベルでのみ適用されることに注意して下さい。
+例えば、あるデータ・ソースの有効範囲を「セル」レベルで定義する場合、
+そのセルのすべてのユーザーが、そのデータ・ソースをルックアップおよび使用できます。
+このとき、そのデータ・ソースはそのセル内で固有です。ただし、リソース・プロパティーの設定値は、そのセル内の各サーバーに対してローカルです。例えば、<em>最大接続数</em> を 10 に設定する場合、そのセル内の
+各サーバーは 10 個の接続を使用できます。<dl>
+<dt>
+<strong>セル</strong>
+</dt>
+<dd>最も一般的な有効範囲です。「セル」有効範囲で定義されている
+リソースは、オーバーライドされない限り、すべてのノードおよびサーバーから可視です。
+「セル」有効範囲で定義されたリソースを表示する場合は、
+有効範囲選択フォームでサーバーまたはノードの名前を指定しないでください。
+</dd>
+<dt>
+<strong>ノード</strong>
+</dt>
+<dd>大部分のリソース・タイプのデフォルト有効範囲。
+「ノード」有効範囲で定義されたリソースは、「
+セル」有効範囲で定義されたすべての重複するリソースをオーバーライドします。
+同じノード上の「サーバー」有効範囲でオーバーライドされない限り、
+そのノード上のすべてのサーバーから可視です。
+「ノード」有効範囲で定義されたリソースを表示する場合は、
+有効範囲選択フォームで、サーバーを指定せず、ノード名を選択します。
+</dd>
+<dt>
+<strong>サーバー</strong>
+</dt>
+<dd>リソース定義で最も限定的な有効範囲です。「サーバー」
+有効範囲で定義されたリソースは、「セル」有効範囲または親の「ノード」有効範囲で
+定義されたすべての重複するリソース定義をオーバーライドし、
+特定のサーバーからのみ可視です。
+「サーバー」有効範囲で定義されたリソースを表示するには、
+有効範囲選択フォームで、ノード名だけでなくサーバー名も指定します。
+</dd>
+</dl>
+</p>
+
+<p>リソースが作成されるときは常に、パネルで選択されている現行の有効範囲内に
+作成されます。
+他の有効範囲でリソースを表示する場合は、有効範囲選択フォームで、
+別のノードまたはサーバーを指定します。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ConnectionPool_connectionTimeout_displayName"></a>接続タイムアウト</strong>
+</dt>
+<dd>接続要求がタイムアウトになり、
+ConnectionWaitTimeoutException がスローされるまでの時間 (秒) を指定します。
+<p> 特定の接続プールに対する接続の最大値 (<em>最大接続数</em>) に達したら、
+待機する必要があります。例えば、<em>接続タイムアウト</em> が 300 に設定されていて、
+最大接続数に達している場合、プール・マネージャーは、物理接続が使用可能になるのを 300 秒待機します。
+物理接続が、この時間内に使用可能に<em>ならない</em> 場合は、
+プール・マネージャーが ConnectionWaitTimeoutException をスローします。
+<em>getConnection()</em> メソッドを再試行しても、通常は意味がありません。
+それは、待機時間を長くする必要がある場合、<em>Connection Timeout</em> 設定を高い値に設定する必要があるためです。したがって、この例外がアプリケーションによってキャッチされた場合、
+管理者はアプリケーションの予期される使用法を確認し、
+それに従って接続プールとデータベースを調整する必要があります。
+</p>
+
+<p>接続タイムアウトが 0 に設定されている場合、
+プール・マネージャーは、接続が割り振られるまで (割り振られるのは、
+接続数が<em>最大接続数</em> の値を下回った場合です) 必要なだけ待機します。</p>
+
+<p>最大接続数が 0 に設定されていると、物理接続の数が無制限になるので、
+接続タイムアウト値は使用されません。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">整数</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">単位</td>
+<td align="left" valign="top" class="base">秒</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">180</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">0 から 最大の整数</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ConnectionPool_maxConnections_displayName"></a>最大接続数</strong>
+</dt>
+<dd>このプールに構築できる物理接続の最大数を指定します。
+<p>これらは、バックエンド・リソースへの物理接続です。
+一度この数値に到達すると、新規の物理接続は構築されず、
+リクエスターは、現在使用中の物理接続がプールに戻されるか、
+ConnectionWaitTimeoutException がスローされるまで待機します。</p>
+
+<p>例えば、最大接続数 が 5 に設定されていて、5 つの物理接続が
+使用中の場合、プール・マネージャーは、接続タイムアウトに指定された
+時間、物理接続が空くのを待機します。 </p>
+
+<p>最大接続数が 0 に設定されていると、接続タイムアウト値は無視されます。</p>
+
+<p>パフォーマンスを改善するには、接続プールの値を Web コンテナー・オプションの
+最大接続数の値より低く設定します。
+低い設定 (例えば、10 から 30 の接続) では、高い設定 (例えば、100) の場合よりもパフォーマンスが向上します。</p>
+
+<p>クローンを使用する場合、各クローンに対して 1 つのデータ・プールが存在します。
+これは、データベースの最大接続数を構成する場合に重要となります。</p>
+
+<p>Tivoli Performance Viewer を使用すると、プール内の最適な接続数を見つけることができます。同時待機数が 0 より
+大きいにもかかわらず、CPU 負荷が 100% 近くに達しない場合は、接続プール・サイズを大きくすることを検討します。通常のワークロード下で使用パーセントが常に低い場合は、プール内の接続数を減らすことを検討します。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">整数</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">10</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">0 から 最大の整数</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ConnectionPool_minConnections_displayName"></a>最小接続数</strong>
+</dt>
+<dd>維持する物理接続の最小数を指定します。
+<p>この数値に達するまで、プール維持スレッドは物理接続を廃棄しません。
+ただし、接続数をこの数値まで増やすための試行は行われません。経過タイムアウトの値を設定すると、この最小数は維持されません。有効期限切れの接続はすべて廃棄されます。</p>
+
+<p>例えば、最小接続数が 3 に設定されていて、1 つの物理接続が作成される
+場合、その接続が「未使用のタイムアウト」スレッドによって廃棄されることはありません。
+同じトークンによって、スレッドが自動的に 2 つの追加の物理接続を作成し、
+最小接続数の設定値に達することはありません。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">整数</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">1</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">0 から 最大の整数</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ConnectionPool_reapTime_displayName"></a>リープ時間</strong>
+</dt>
+<dd>プール維持スレッドの実行とその次の実行との間隔 (秒) を指定します。
+
+<p> 例えば、リープ時間が 60 に設定されていると、プール維持スレッドは 60 秒ごとに実行されます。
+<em>リープ時間</em> の間隔は、
+<em>未使用タイムアウト</em> と<em>経過タイムアウト</em> の設定値の精度に影響を与えます。
+間隔が短いほど精度は高まります。
+プール維持スレッドが使用可能である場合は、
+リープ時間値を、未使用タイムアウトや経過タイムアウトの値より少なく設定してください。
+プール維持スレッドが実行されると、
+未使用タイムアウトで指定された値より長い時間使用されていない接続をすべて廃棄します。
+廃棄は、<em>最小接続数</em> で指定された接続数になるまで行われます。プール維持スレッドは、
+経過タイムアウトで指定された時間値よりも長い間アクティブである接続も、すべて廃棄します。
+</p>
+
+<p> リープ時間間隔も、パフォーマンスに影響を与えます。間隔が短いということは、
+プール維持スレッドの実行回数が増え、パフォーマンスが低下することを意味します。
+</p>
+
+<p>プール維持スレッドを使用不可にするには、リープ時間を 0 に設定するか、
+または未使用タイムアウトと経過タイムアウトの両方を 0 に設定します。
+プール維持スレッドを使用不可にするためには、リープ時間を 0 に設定する方法をお勧めします。
+この場合、未使用タイムアウトと経過タイムアウトは無視されます。 
+ただし、未使用タイムアウトと経過タイムアウトが 0 に設定されている場合は、
+プール維持スレッドは実行されますが、
+タイムアウト値が非ゼロであるためにタイムアウトになる物理接続だけは廃棄されます。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">整数</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">単位</td>
+<td align="left" valign="top" class="base">秒</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">180</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">0 から 最大の整数</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ConnectionPool_unusedTimeout_displayName"></a>未使用タイムアウト</strong>
+</dt>
+<dd>未使用またはアイドルの接続が廃棄されるまでの時間 (秒) を指定します。
+
+<p> パフォーマンスを最適化するためには、未使用タイムアウト値を、リープ時間より高く設定してください。
+未使用の物理接続が廃棄されるのは、未使用接続の現行数が、
+最小接続数の設定値を超える場合に限られます。例えば、未使用タイムアウト値が 120 に設定され、
+プール維持スレッドが使用可能 (リープ時間が 0 でない) である場合、
+2 分間未使用の状態が続いた物理接続は廃棄されます。
+パフォーマンスと同様、このタイムアウトの精度もリープ時間値の影響を受けることに注意してください。詳しくは、『リープ時間』を参照してください。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">整数</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">単位</td>
+<td align="left" valign="top" class="base">秒</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">1800</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">0 から 最大の整数</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ConnectionPool_agedTimeout_displayName"></a>経過タイムアウト</strong>
+</dt>
+<dd>物理接続が廃棄されるまでの時間 (秒) を指定します。
+
+<p> 
+<em>経過タイムアウト</em> を 0 に設定すると、
+アクティブな物理接続を無制限にプールに残しておくことができます。
+パフォーマンスを最適化するには、経過タイムアウト値を、リープ時間より高く設定してください。
+例えば、経過タイムアウト値を 1200 に設定し、リープ時間の値が 0 でない
+場合は、1200 秒間 (20 分間) 存在し続けている物理接続はプールから廃棄されます。
+パフォーマンスと同様、このタイムアウトの精度もリープ時間値の影響を受けます。
+詳しくは、『リープ時間』を参照してください。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">整数</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">単位</td>
+<td align="left" valign="top" class="base">秒</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">0</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">0 から 最大の整数</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ConnectionPool_purgePolicy_displayName"></a>パージ・ポリシー</strong>
+</dt>
+<dd>  
+<em>不整合な接続</em> または<em>致命的接続エラー</em> が検出されたときに、
+接続をパージする方法を指定します。
+
+<p>有効な値は「<strong>EntirePool</strong>」と「<strong>FailingConnectionOnly</strong>」です。JCA データ・ソースは、いずれかのオプションを持つことができます。WebSphere バージョン 4.0 のデータ・ソースのパージ・ポリシーは、常に <strong>EntirePool</strong> です。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">EntirePool</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">
+<dl>
+<dt>
+<strong>EntirePool</strong>
+</dt>
+<dd>プール内の接続は、すべて失効とマークされます。使用されていない接続は、直ちに閉じられます。
+使用中の接続は閉じられ、その接続に次回操作が行われたときに <em>StaleConnectionException</em> がスローされます。アプリケーションからの後続の <em>getConnection</em> 要求の結果、
+開かれているデータベースへの新規接続が発生します。
+このパージ・ポリシーを使用しているときは、
+プール内の一部の接続が、失効していない場合に不必要に閉じられる可能性が若干あります。
+ただし、これはめったに起こりません。たいていの場合は、パージ・ポリシーを EntirePool に設定するのが最善の選択です。</dd>
+<dt>
+<strong>FailingConnectionOnly</strong>
+</dt>
+<dd> 
+<em>StaleConnectionException</em> の発生原因である接続だけがクローズされます。この設定により、有効な接続が不必要に閉じられなくなる一方で、アプリケーション・パースペクティブからのリカバリーがより複雑になります。
+現在失敗している接続だけが閉じられるため、
+アプリケーションからの次の <em>getConnection</em> 要求により、
+やはり失効したプールから接続が戻され、結果的により多くの失効接続の例外が
+発生する可能性が極めて高くなります。</dd>
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>関連情報</strong>
+</p>
+<a href="rcon_buttons.html">管理コンソールのボタン</a>
+<br>
+
+<a href="rcon_pageusage.html">管理コンソール・ページのフィーチャー</a>
+<br>
+
+</div>
+</body>
+</html>

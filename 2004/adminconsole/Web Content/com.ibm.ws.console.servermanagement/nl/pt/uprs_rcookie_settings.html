@@ -1,0 +1,80 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Cookie settings</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="cook_set"></a>
+<h2>Cookie settings</h2>
+
+<p>Use this page to configure cookie settings for session management.</p>
+
+<p>To view this administrative console page, click <strong>Servers</strong> &gt; <strong>Application
+Servers</strong> &gt; <em>server_name</em> &gt; <strong>Web Container</strong> &gt; <strong>Session Management</strong> &gt; <strong>Enable
+Cookies</strong>.</p>
+
+<div>
+<p>
+<strong>Configuration tab</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="Cookie_name_description"></a>Cookie name  </strong>
+</dt>
+<dd>Specifies a unique name for the session management cookie. The
+servlet specification requires the name JSESSIONID. However, for flexibility
+this value can be configured. </dd>
+<dt>
+<strong><a name="Cookie_secure_description"></a>Secure cookies </strong>
+</dt>
+<dd>Specifies that the session cookies include the secure field. Enabling
+the feature restricts the exchange of cookies to HTTPS sessions only. </dd>
+<dt>
+<strong><a name="Cookie_domain_description"></a>Cookie domain</strong>
+</dt>
+<dd>Specifies the domain field of a session tracking cookie. This value
+controls whether or not a browser sends a cookie to particular servers. For
+example, if you specify a particular domain, session cookies are sent to hosts
+in that domain. The default domain is the server.</dd>
+<dt>
+<strong><a name="Cookie_path_description"></a>Cookie path</strong>
+</dt>
+<dd>Specifies that a cookie is sent to the URL designated in the path.
+Specify any string representing a path on the server. "/" indicates root directory.
+  Specify a value to restrict the paths to which the cookie will be sent.
+By restricting paths, you prevent the cookie from going to certain URLs on
+the server. If you specify the root directory, the cookie is sent no matter
+which path on the given server is accessed.</dd>
+<dt>
+<strong><a name="Cookie_maximum_age"></a>Cookie maximum age  </strong>
+</dt>
+<dd>Specifies the amount of time that the cookie lives on the client
+browser.   Specify that the cookie lives only as long as the current browser
+session, or to a maximum age. If you choose the maximum age option, specify
+the age in seconds.  This value corresponds to the Time to Live (TTL) value
+described in the Cookie specification.
+<p>Default is the current browser session which is equivalent to setting the
+value to -1.</p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Related information</strong>
+</p>
+<a href="rcon_buttons.html">Administrative console buttons</a>
+<br>
+
+<a href="rcon_pageusage.html">Administrative console page features</a>
+<br>
+
+<a href="rcon_preferences.html">Administrative console preference settings</a>
+<br>
+
+</div>
+</body>
+</html>

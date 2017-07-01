@@ -1,0 +1,128 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>「一般 JMS 目的地」設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="JMSDestination"></a>
+<h2>「一般 JMS 目的地」設定</h2>
+
+<p>請使用這個畫面來檢視或變更選取要搭配相關 JMS 提供者使用之 JMS 目的地的配置內容。
+</p>
+
+<p>JMS 目的地用來配置相關聯的一般 JMS 提供者之 JMS 目的地的內容。
+通往 JMS 目的地的連線是由相關聯的 JMS Connection Factory 來建立的。
+要搭配一般 JMS 提供者（不是內嵌 WebSphere JMS Provider 或 WebSphere MQ JMS Provider）使用之 JMS 目的地有下列內容。
+</p>
+
+<p>如果要檢視這個管理主控台頁面，請按一下<strong>資源 -&gt; 一般 JMS 提供者 -&gt; <em>provider_name</em> -&gt; JMS 目的地 -&gt; <em>destination</em></strong>。</p>
+
+<dl>
+<dt>
+<strong><a name="JMSDestination_name"></a>名稱
+</strong>
+</dt>
+<dd>用來識別 IBM WebSphere Application Server 內管理作業所用之佇列的名稱。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JMSDestination_type"></a>類型</strong>
+</dt>
+<dd>這個 JMS 目的地是佇列（用於點對點）或主題（用於發佈/訂閱）。
+<p>請選取下列選項之一：<dl>
+
+<dt>
+<strong>佇列</strong>
+</dt>
+<dd>點對點傳訊所用的 JMS Queue Destination。</dd>
+
+<dt>
+<strong>主題</strong>
+</dt>
+<dd>發佈/訂閱傳訊所用的 JMS Topic Destination。</dd>
+
+</dl>
+</p>
+
+</dd>
+<dt>
+<strong><a name="JMSDestination_jndiName"></a>JNDI 名稱</strong>
+</dt>
+<dd>將佇列連結至應用程式伺服器名稱空間的 JNDI 名稱。
+<p>請依照慣例使用完整的 JNDI 名稱；比方說，在 jms/<em>Name</em> 格式中，<em>Name</em> 是資源的邏輯名稱。
+</p>
+<p>這個名稱用來鏈結平台的連結資訊。
+連結會將模組部署描述子所定義的資源關聯到由平台連結至 JNDI 內的實際（實體）資源。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+</table>
+</dd>
+<dt>
+<strong><a name="JMSDestination_description"></a>說明
+</strong>
+</dt>
+<dd>佇列的說明，供管理使用。</dd>
+<dt>
+<strong><a name="JMSDestination_category"></a>種類</strong>
+</dt>
+<dd>就您的 IBM WebSphere Application Server 管理記錄，用來分類或分組這個佇列的種類。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JMSDestination_externalJndiName"></a>外部 JNDI 名稱</strong>
+</dt>
+<dd>將佇列連結至應用程式伺服器名稱空間的 JNDI 名稱。
+<p>請依照慣例使用完整的 JNDI 名稱；比方說，在 jms/<em>Name</em> 格式中，<em>Name</em> 是資源的邏輯名稱。
+</p>
+<p>這個名稱用來鏈結平台的連結資訊。
+連結會將模組部署描述子所定義的資源關聯到由平台連結至 JNDI 內的實際（實體）資源。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+</table>
+</dd>
+</dl>
+</body>
+</html>

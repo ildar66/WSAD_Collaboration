@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  IBM Confidential OCO Source Material                                    -->
+<!--  5630-A36 (C) COPYRIGHT International Business Machines Corp. 2003       -->
+<!--  The source code for this program is not published or otherwise divested -->
+<!--  of its trade secrets, irrespective of what has been deposited with the  -->
+<!--  U.S. Copyright Office.                                                  -->
+
+<plugin id="com.ibm.ws.console.wssecurity"
+        name="wssecurity"
+        version="1.0.0"
+        provider-name="IBM Corp. - WebSphere Server Group"
+        embedded="true"
+        context-root="wssecurity">
+
+<requires>
+    <import plugin="com.ibm.ws.console.core"/>
+    <import plugin="com.ibm.ws.console.servermanagement"/>
+    <import plugin="com.ibm.ws.console.appmanagement"/>
+    <import plugin="com.ibm.ws.console.security"/>
+</requires>
+
+<extension point="com.ibm.ws.console.core.link">
+    <link id="servermanagement.additionalLink.WSServerSecurity"
+          contextType="ApplicationServer"
+          contextTypePluginId="com.ibm.ws.console.servermanagement"
+          categoryId="additional.properties"
+          icon=""
+          label="WSServerSecurity.displayName"
+          description="WSServerSecurity.description"
+          actionView="com.ibm.ws.console.wssecurity.forwardCmd.do?forwardName=WSServerSecurity.config.view"/>
+</extension>
+
+<extension point="com.ibm.ws.console.core.link">
+    <link id="webmodule.additionalLink.WSServerBinding"
+          contextType="WebModuleDeployment"
+          contextTypePluginId="com.ibm.ws.console.appmanagement"
+          categoryId="additional.properties"
+          icon=""
+          label="WSServerBinding.displayName"
+          description="WSServerBinding.description"
+          actionView="com.ibm.ws.console.wssecurity.forwardCmd.do?forwardName=WSServerBinding.content.main"/>
+</extension>
+
+<extension point="com.ibm.ws.console.core.link">
+    <link id="ejbmodule.additionalLink.WSServerBinding"
+          contextType="EJBModuleDeployment"
+          contextTypePluginId="com.ibm.ws.console.appmanagement"
+          categoryId="additional.properties"
+          icon=""
+          label="WSServerBinding.displayName"
+          description="WSServerBinding.description"
+          actionView="com.ibm.ws.console.wssecurity.forwardCmd.do?forwardName=WSServerBinding.content.main"/>
+</extension>
+
+<extension point="com.ibm.ws.console.core.link">
+    <link id="webmodule.additionalLink.WSClientBinding"
+          contextType="WebModuleDeployment"
+          contextTypePluginId="com.ibm.ws.console.appmanagement"
+          categoryId="additional.properties"
+          icon=""
+          label="WSClientBinding.displayName"
+          description="WSClientBinding.description"
+          actionView="com.ibm.ws.console.wssecurity.forwardCmd.do?forwardName=WSClientBinding.content.main"/>
+</extension>
+
+<extension point="com.ibm.ws.console.core.link">
+    <link id="ejbmodule.additionalLink.WSClientBinding"
+          contextType="EJBModuleDeployment"
+          contextTypePluginId="com.ibm.ws.console.appmanagement"
+          categoryId="additional.properties"
+          icon=""
+          label="WSClientBinding.displayName"
+          description="WSClientBinding.description"
+          actionView="com.ibm.ws.console.wssecurity.forwardCmd.do?forwardName=WSClientBinding.content.main"/>
+</extension>
+
+<extension point="com.ibm.ws.console.core.link">
+    <link id="webmodule.additionalLink.WSServerDD"
+          contextType="WebModuleDeployment"
+          contextTypePluginId="com.ibm.ws.console.appmanagement"
+          categoryId="additional.properties"
+          icon=""
+          label="WSSecurity.viewServerDD.displayName"
+          description="WSSecurity.viewServerDD.description"
+          actionView="com.ibm.ws.console.wssecurity.forwardCmd.do?forwardName=WSServerDD.config.view"/>
+</extension>
+
+<extension point="com.ibm.ws.console.core.link">
+    <link id="ejbmodule.additionalLink.WSServerDD"
+          contextType="EJBModuleDeployment"
+          contextTypePluginId="com.ibm.ws.console.appmanagement"
+          categoryId="additional.properties"
+          icon=""
+          label="WSSecurity.viewServerDD.displayName"
+          description="WSSecurity.viewServerDD.description"
+          actionView="com.ibm.ws.console.wssecurity.forwardCmd.do?forwardName=WSServerDD.config.view"/>
+</extension>
+
+<extension point="com.ibm.ws.console.core.link">
+    <link id="webmodule.additionalLink.WSClientDD"
+          contextType="WebModuleDeployment"
+          contextTypePluginId="com.ibm.ws.console.appmanagement"
+          categoryId="additional.properties"
+          icon=""
+          label="WSSecurity.viewClientDD.displayName"
+          description="WSSecurity.viewClientDD.description"
+          actionView="com.ibm.ws.console.wssecurity.forwardCmd.do?forwardName=WSClientDD.config.view"/>
+</extension>
+
+<extension point="com.ibm.ws.console.core.link">
+    <link id="ejbmodule.additionalLink.WSClientDD"
+          contextType="EJBModuleDeployment"
+          contextTypePluginId="com.ibm.ws.console.appmanagement"
+          categoryId="additional.properties"
+          icon=""
+          label="WSSecurity.viewClientDD.displayName"
+          description="WSSecurity.viewClientDD.description"
+          actionView="com.ibm.ws.console.wssecurity.forwardCmd.do?forwardName=WSClientDD.config.view"/>
+</extension>
+
+<extension point="com.ibm.ws.console.core.help">
+    <toc file="toc.xml" primary="true"/>
+</extension>
+
+</plugin>
+

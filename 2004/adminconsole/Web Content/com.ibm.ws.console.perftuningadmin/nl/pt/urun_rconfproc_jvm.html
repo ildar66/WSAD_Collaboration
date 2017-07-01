@@ -1,0 +1,533 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Java virtual machine settings</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="urun_rconfproc_jvm"></a>
+<h2>Java virtual machine settings</h2>
+
+<p>Use this page to view and change the Java virtual machine (JVM)
+ configuration for the application server's process.</p>
+
+<p>To view this administrative console page, click <strong>Servers &gt; Application
+ Servers &gt; </strong><em>server_name</em><strong> &gt; Process Definition &gt; Java Virtual 
+Machine</strong>.</p>
+
+<div>
+<p>
+<strong>Configuration tab</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="JavaVirtualMachine_classpath_description"></a>Classpath</strong>
+</dt>
+<dd>Specifies the standard class path in which the Java virtual machine
+code  looks for classes.
+<p>Enter each classpath entry into a table row. You do not need to add the
+colon or semicolon at the end of each entry.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Units</td>
+<td align="left" valign="top" class="base">Class path</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_bootClasspath_description"></a>Boot Classpath</strong>
+</dt>
+<dd>Specifies bootstrap classes and resources for JVM code. This option
+is only  available for JVM instructions that support bootstrap classes and
+resources. You can  separate multiple paths by a colon (:) or semi-colon (;),
+depending on operating  system of the node.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_verboseModeClass_description"></a>Verbose Class Loading</strong>
+</dt>
+<dd>Specifies whether to use verbose debug output for class loading.
+ The default is not to enable verbose class loading.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">false</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_verboseModeGarbageCollection_description"></a>Verbose Garbage Collection</strong>
+</dt>
+<dd>Specifies whether to use verbose debug output for garbage collection.
+ The default is not to enable verbose garbage collection.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">false</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_verboseModeJNI_description"></a>Verbose JNI</strong>
+</dt>
+<dd>Specifies whether to use verbose debug output for native method
+invocation.  The default is not to enable verbose Java Native Interface (JNI)
+activity.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">false</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_initialHeapSize_description"></a>Initial Heap Size</strong>
+</dt>
+<dd>Specifies the initial heap size available to the JVM code, in megabytes. 
+<p>Increasing the minimum heap size can improve startup. The number of garbage
+collection occurrences are reduced and a 10% gain in performance is realized.</p>
+
+<p>In general, increasing the size of the Java heap improves throughput until
+the heap no longer resides in physical memory. After the heap begins swapping
+to disk, Java performance suffers drastically. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">64 for OS/400, 50 for all other platforms</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_maximumHeapSize_description"></a>Maximum Heap Size</strong>
+</dt>
+<dd>Specifies the maximum heap size available to the JVM code, in megabytes.
+ 
+<p>Increasing the heap size can improve startup. By increasing heap size,
+you can reduce the number of garbage collection occurrences with a 10% gain
+in performance. </p>
+
+<p>In general, increasing the size of the Java heap improves throughput until
+the heap no longer resides in physical memory. After the heap begins swapping
+to disk, Java performance suffers drastically. Set the maximum heap size low
+enough to contain the heap within physical memory.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">0 for OS/400, 256 for all other platforms. Keep the value low enough
+to avoid paging or swapping-out-memory-to-disk.</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_runHProf_description"></a>Run HProf</strong>
+</dt>
+<dd>Specifies whether to use HProf profiler support. To use another
+profiler,  specify the custom profiler settings using the HProf Arguments
+setting.  The default is not to enable HProf profiler support.
+<p>If you set the Run HProf property to true, then you must specify command-line
+profiler  arguments as values for the HProf Arguments property.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">false</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_hprofArguments_description"></a>HProf Arguments</strong>
+</dt>
+<dd>Specifies command-line profiler arguments to pass to the JVM code
+ that starts the application server process. You can specify arguments when
+ HProf profiler support is enabled.
+<p>HProf arguments are only required if the Run HProf property is set to true.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_debugMode_description"></a>Debug Mode</strong>
+</dt>
+<dd>Specifies whether to run the JVM in debug mode. The default is
+not to enable debug mode support.
+<p>If you set the Debug Mode property to true, then you must specify command-line
+debug  arguments as values for the Debug Arguments property.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">false</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_debugArgs_description"></a>Debug Arguments</strong>
+</dt>
+<dd>Specifies command-line debug arguments to pass to the JVM code
+ that starts the application server process. You can specify arguments  when
+Debug Mode is enabled.
+<p>Debug arguments are only required if the Debug Mode property is set to
+true.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Units</td>
+<td align="left" valign="top" class="base">Java command-line arguments</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_genericJvmArguments_description"></a>Generic JVM Arguments</strong>
+</dt>
+<dd>Specifies command line arguments to pass to the Java virtual  machine
+code that starts the application server process.
+<p>The following are optional command line arguments that you can use by entering
+them into the <strong>General JVM Arguments</strong> field. <p>
+<b>Note: </b>If the argument says
+it is for the IBM Developer Kit only, you cannot use the argument with another
+JVM, such as the Sun JDK or the HP JDK.</p>
+<ul>
+
+<li>
+<strong>-Xquickstart:</strong> You can use <strong>-Xquickstart</strong> for initial compilation
+at a lower optimization level than in default mode. Later, depending on sampling
+results, you can recompile to the level of the initial compile in default
+mode. Use <strong>-Xquickstart</strong> for applications where early moderate speed
+is more important than long run throughput. In some debug scenarios, test
+harnesses and short-running tools, you can improve startup time between 15-20%.</li>
+
+<li>
+<strong>-Xverify:none:</strong> When using this value, the class verification stage
+is skipped during class loading . By using <strong>-Xverify:none</strong> with the just
+in time (JIT) compiler enabled, startup time is improved by 10-15%.</li>
+
+<li>
+<strong>-Xnoclassgc:</strong> You can use this value to disable class garbage collection,
+which leads to more class reuse and slightly improved performance. The trade-off
+is that you won't be collecting the resources owned by these classes. You
+can monitor garbage collection using the verbose:gc configuration setting,
+which will output class garbage collection statistics. Examining these statistics
+will help you understand the trade-off between the reclaimed resources and
+the amount of garbage collection required to reclaim the resources. However,
+if the same set of classes are garbage collected repeatedly in your workload,
+you should disable garbage collection. Class garbage collection is enabled
+by default.</li>
+
+<li>
+<strong>-Xgcthreads:</strong> You can use several garbage collection threads at
+one time, also known as <em>parallel garbage collection</em>. When entering
+this value in the <strong>Generic JVM Arguments</strong> field, also enter the number
+of processors that your machine has, for example, <samp>-Xgcthreads=</samp><em>number_of_processors</em>.
+On a node with <em>n</em> processors, the default number of threads is <em>n</em>.
+You should use parallel garbage collection if your machine has more than one
+processor. This argument is valid only for the IBM Developer Kit.</li>
+
+<li>
+<strong>-Xnocompactgc:</strong> This value disables heap compaction which is the
+most expensive garbage collection operation. Avoid compaction in the IBM Developer
+Kit. If you disable heap compaction, you eliminate all associated overhead. </li>
+
+<li>
+<strong>-Xinitsh:</strong> You can use this value to set the initial heap size where
+class objects are stored. The method definitions and static fields are also
+stored with the class objects. Although the system heap size has no upper
+bound, set the initial size so that you do not incur the cost of expanding
+the system heap size, which involves calls to the operating system memory
+manager. You can compute a good initial system heap size by knowing the number
+of classes loaded in the WebSphere product, which is about 8,000 classes,
+and their average size. Having knowledge of the applications helps you include
+them in the calculation. You can use this argument only with the IBM Developer
+Kit.</li>
+
+<li>
+<strong>-Xgpolicy:</strong> You can use this value to set the garbage collection
+policy. If the garbage collection policy (gcpolicy) is set to  <samp>optavgpause</samp>,
+concurrent marking is used to track application threads starting from the
+stack before the heap becomes full. The garbage collector pauses become uniform
+and long pauses are not apparent. The trade-off is reduced throughput because
+threads might have to do extra work. The default, recommended value is <samp>optthruput</samp>.
+Enter the value as <samp>-Xgcpolicy:[optthruput|optavgpause]</samp>. &nbsp;You
+can use this argument only with the IBM Developer Kit.</li>
+
+<li>
+<strong>-XX: </strong> The Sun-based Java Development Kit (JDK) Version
+1.4.1 has generation garbage collection, which allows separate memory
+pools to contain objects with different ages. The garbage collection cycle
+collects the objects independently from one another depending on age. With
+additional parameters, you can set the size of the memory pools individually.
+To achieve better performance, set the size of the pool containing short lived
+objects so that objects in the pool do not live through more then one garbage
+collection cycle. The size of new generation pool is determined by the <samp>NewSize</samp> and <samp>MaxNewSize</samp> 
+parameters. Objects that survive the first garbage collection cycle are transferred
+to another pool. The size of the survivor pool is determined by parameter <samp>SurvivorRatio</samp>.
+If garbage collection becomes a bottleneck, you can try customizing the generation
+pool settings.   To monitor garbage collection statistics, use the object
+statistics in Tivoli Performance Viewer or the verbose:gc configuration setting.
+Enter the following values: <samp>-XX:NewSize (lower bound)</samp> ,  <samp>-XX:MaxNewSize
+(upper bound)</samp>, and  <samp>-XX:SurvivorRatio=NewRatioSize</samp>. The default
+values are:<samp>NewSize=2m MaxNewSize=32m SurvivorRatio=2</samp> However, if
+you have a JVM with more than 1 GB heap size, you should use the values: <samp>-XX:newSize=640m
+-XX:MaxNewSize=640m -XX:SurvivorRatio=16</samp>,  or set 50 to 60% of total
+heap size to a new generation pool. </li>
+
+<li>
+<strong>-server | -client:</strong> Java HotSpot Technology in the Sun-based Java
+Development Kit (JDK) Version 1.4.1 introduces
+an adaptive JVM containing algorithms for optimizing byte code execution over
+time. The JVM runs in two modes, <strong>-server</strong> and <strong>-client</strong>. If you
+use the default <strong>-client</strong> mode, there will be a faster startup time and
+a smaller memory footprint, but lower extended performance. You can enhance
+performance by using <strong>-server</strong> mode if a sufficient amount of time is
+allowed for the HotSpot JVM to warm up by performing continuous execution
+of byte code. In most cases, use <strong>-server </strong> mode, which produces more
+efficient run-time execution over extended periods. You can monitor the process
+size and the server startup time to check the difference between <strong>-client</strong> and<strong> -server</strong>.
+ </li>
+
+</ul>
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Units</td>
+<td align="left" valign="top" class="base">Java command line arguments</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_executableJarFileName_description"></a>Executable JAR File Name</strong>
+</dt>
+<dd>Specifies a full path name for an executable JAR file that the
+JVM  code uses.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Units</td>
+<td align="left" valign="top" class="base">Path name</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_disableJIT_description"></a>Disable JIT</strong>
+</dt>
+<dd>Specifies whether to disable the just in time (JIT) compiler option
+of  the JVM code. 
+<p>If you disable the JIT compiler, throughput decreases noticeably. Therefore,
+for performance reasons, keep JIT enabled.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">false (JIT enabled)</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Recommended</td>
+<td align="left" valign="top" class="base">JIT enabled</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JavaVirtualMachine_osName_description"></a>Operating System Name</strong>
+</dt>
+<dd>Specifies JVM settings for a given operating system. When started,
+the  process uses the JVM settings for the operating system of the node.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Related information</strong>
+</p>
+<a href="rcon_buttons.html">Administrative console buttons</a>
+<br>
+
+<a href="rcon_pageusage.html">Administrative console page features</a>
+<br>
+
+<a href="urun_rproperty.html">Custom property collection</a>
+<br>
+
+</div>
+</body>
+</html>

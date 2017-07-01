@@ -1,0 +1,145 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>ログイン設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="urun_rlogin"></a>
+<h2>ログイン設定</h2>
+
+<p>このページを使用して、WebSphere Application Server 管理コンソールのユーザーを指定します。
+グローバル・セキュリティーを使用している場合は、パスワードも指定します。
+</p>
+
+<p>ユーザーを指定すると、その製品を使用して以前に実行した作業を再開することができます。
+ユーザー ID を入力したら、「<strong>OK</strong>」をクリックして次のページに進み、
+管理コンソールにアクセスしてください。
+</p>
+
+<p>このページを表示するには、管理コンソールを始動します。</p>
+
+<dl>
+<dt>
+<strong><a name="logon_desc"></a>ユーザー ID</strong>
+</dt>
+<dd>ユーザーを識別するストリングを指定します。
+ユーザー ID は、管理サーバーに対して固有のものでなければなりません。
+
+<p>この製品を使用して実行し、製品を終了する前に保管した作業は、
+ここで入力するユーザー ID で識別される構成に保管されます。
+そのユーザー ID で行った作業にあとでアクセスする場合は、「ログイン」ページでユーザー ID を指定します。
+</p>
+
+<p>管理コンソールで現在、ブラウザーが開いているクライアント・マシンからログインし、
+同じサーバーに接続する場合は、
+別のユーザー ID でログインするかどうかにかかわらず、2 つの接続で同じ HTTP セッション・オブジェクトを共用することになる可能性があります。
+同じユーザー ID を使用するかどうかにかかわらず、
+2 つの異なる HTTP セッション・オブジェクトを使用して作業するためには、
+同じクライアント・マシンから管理コンソールにログインするのに、
+2 つの異なる種類のブラウザー (例えば、Microsoft Internet Explorer と Netscape Communicator) を使用する必要があります。
+つまり、同じクライアント・マシンに 2 つの並行セッションが必要な場合は、
+2 つの異なるブラウザー・タイプから管理コンソールにアクセスします。</p>
+
+<p>同じブラウザー・タイプを使用して、コンソールに再度ログインすることはできますが、別の物理ホストからログインし、別のユーザー ID を使用する必要があるので注意してください。
+例えば、Joe が、Internet Explorer ブラウザーを使用して物理ホスト <em>myhost1</em> からユーザー ID <em>joe</em> で管理コンソールにログインするとします。
+Joe は、Internet Explorer ブラウザーを使用して同じコンソールに再度ログインできますが、
+別のユーザー ID (例えば、<em>peggy</em>) と別の物理ホスト (例えば、<em>myhost2</em>) を使用する必要があります。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="UserExists_information"></a>現在、別のユーザーが同じユーザー名でログインしています</strong>
+</dt>
+<dd>そのユーザーをログアウトさせて指定したユーザー ID で作業を継続するか、「
+ログイン」ページに戻って別のユーザー ID を指定するか、
+あるいはそのユーザーがログアウトするのを待機するかを指定します。
+
+<p>ユーザーが管理コンソールをブラウズしているときにログアウトしないで Web ブラウザーを閉じ、
+その後新たにブラウザーを開いて管理コンソールにアクセスしようとした場合に、このフィールドが表示されます。
+</p>
+
+</dd>
+<dt>
+<strong><a name="ChangesFound_restore"></a>マスター構成を編集する</strong>
+</dt>
+<dd>これが使用可能になっている場合は、デフォルトの管理構成を使用して、
+そのユーザーのセッションで最後に使用された構成は使用しないように指定されています。
+この場合、管理構成を最後に保管した後にユーザーのセッションで行った変更は保管されません。
+
+<p>このフィールドが表示されるのは、ユーザーが管理構成を変更した後に、
+変更を保管せずにログアウトした場合に限られます。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ブール</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">false</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ChangesFound_recover"></a>前のセッションで行った変更をリカバリーする</strong>
+</dt>
+<dd>これが使用可能になっている場合は、
+そのユーザーのセッションで最後に使用されたものと同じ管理構成を使用するように指定されています。
+ユーザーのセッションの管理構成を最後に保管した後にユーザーが行った変更をリカバリーします。
+
+<p>このフィールドが表示されるのは、ユーザーが管理構成を変更した後に、
+変更を保管せずにログアウトした場合に限られます。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ブール</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">true</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>関連情報</strong>
+</p>
+<a href="rcon_buttons.html">管理コンソールのボタン</a>
+<br>
+
+</div>
+</body>
+</html>

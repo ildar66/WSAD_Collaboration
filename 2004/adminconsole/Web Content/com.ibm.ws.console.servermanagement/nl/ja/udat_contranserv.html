@@ -1,0 +1,358 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>トランザクション・サービス設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="Transaction_service"></a>
+<h2>トランザクション・サービス設定</h2>
+
+<p>このページを使用して、トランザクション・サービス設定を変更します。
+</p>
+
+<p>この管理コンソール・ページを表示するには、「<strong>サーバー</strong>」&gt;「<strong>アプリケーション・サーバー</strong>」&gt; <em>server</em> &gt;「<strong>トランザクション・サービス</strong>」をクリックします。</p>
+
+<div>
+<p>
+<strong>「構成」タブ</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="TransactionService_transactionLogDirectory_displayName"></a>トランザクション・ログ・ディレクトリー</strong>
+</dt>
+<dd>トランザクション・サービスがリカバリー用のログ・ファイルを保管する、
+このサーバーでのディレクトリー名を指定します。
+
+<p>サーバーの構成でブランクになっている値は、始動時にトランザクション・ログによって、ディレクトリー (<em>install_root</em>)/tranlog/(<em>server_name</em>) として展開されます。</p>
+
+<p>WebSphere 製品で実行中のアプリケーションが複数のリソースにアクセスする
+場合、WebSphere 製品は、トランザクション情報を保管して分散トランザクションを適切に調整および管理します。トランザクションの負荷が比較的大きい場合、このパーシスタンスによってアプリケーション・サーバーのパフォーマンスが低下します。
+これは、アプリケーション・サーバーが、オペレーティング・システムおよび基礎となるストレージ・システムに
+依存しているためです。</p>
+
+<p>より高いパフォーマンスを実現するには、トランザクション・ログ・ファイル
+を、より多くの物理ディスク・ドライブまたは RAID ディスク・ドライブ (推奨) を持つストレージ・デバイスに移動します。ログ・ファイルを RAID に組み込まれたディスク上のファイル・システムに移動すると、
+物理メディアへのデータ書き込みタスクは、複数の
+ディスク・ドライブ間で共用されます。これにより、永続トランザクション情報への同時アクセスをより頻繁に行ったり、ログからこのデータに
+さらに迅速にアクセスできるようになります。アプリケーションおよびストレージ・サブシステムの設計に応じて、10% から 100% までのパフォーマンスの向上が見込まれ、場合によってはさらに改善されます。</p>
+
+<p>この変化は、例えば、1 つのトランザクションで
+複数のデータベースおよびリソースへのアクセスが行われる場合など、アプリケーションが分散リソースまたは XA トランザクションを
+使用する場合の構成にのみ該当します。アプリケーション・サーバーが以下の 1 つ以上の症状を示す場合、このプロパティーを
+設定することを検討してください。<ul>
+
+<li>トランザクションの増加にかかわらず、CPU 使用率が低い状態のままである。</li>
+
+<li>数回のタイムアウトによりトランザクションが失敗する。</li>
+
+<li>「<em>unable to enlist transaction</em>」という例外により、トランザクション・ロールバックが発生する。</li>
+
+<li>実行の途中でアプリケーション・サーバーが停止し、サーバーの再始動が必要になる。</li>
+
+<li>アプリケーション・サーバーが実行されているディスクが、通常よりも高い使用率を示す。</li>
+
+</ul>
+</p>
+
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">初期値は <em>%WAS_HOME%</em>/tranlog/(<em>server_name</em>) ディレクトリーで、デフォルトのサイズは 1MB です。</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">推奨</td>
+<td align="left" valign="top" class="base">RAID-0 構成で、ともに RAID に組み込まれた 3 つまたは 4 つ以上のディスク・ドライブを持つ
+ファイル・システムを作成します。 次に、このファイル・システム上
+で、デフォルトのサイズのトランザクション・ログを作成します。 負荷がかかった状態でサーバーが稼働している場合は、ディスクの
+入出力をチェックします。 ディスクの入出力時間が 5% を超える場合は、物理ディスクをさらに追加してこの値を抑えることを検討してください。ディスクの入出力が低いにもかかわらず、サーバーが高い値を示す場合は、ログ・ファイルのサイズを
+大きくすることを検討してください。</td>
+
+</tr>
+
+</table>
+
+
+
+
+</dd>
+<dt>
+<strong><a name="TransactionService_totalTranLifetimeTimeout_displayName"></a>Total transaction lifetime timeout </strong>
+</dt>
+<dd>このアプリケーション・サーバーでの、トランザクションの
+最大存続時間 (秒単位) を指定します。
+
+<p>このタイムアウト前に完了するように要求されていないトランザクションは、ロールバックされます。
+0 に設定されている場合、タイムアウト制限はありません。</p>
+
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">整数</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">単位</td>
+<td align="left" valign="top" class="base">秒</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">120</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">0 から 2147483647</td>
+
+</tr>
+
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="TransactionService_clientInactivityTimeout_displayName"></a>クライアント非活動タイムアウト</strong>
+</dt>
+<dd>リモート・クライアントからの各トランザクション要求間の
+最大所要時間 (秒単位) を指定します。
+<p>クライアントの非活動状態がこのタイムアウトを超過すると、
+このアプリケーション・サーバーでは、トランザクションがロールバックされます。
+0 に設定されている場合、タイムアウト制限はありません。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">整数</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">単位</td>
+<td align="left" valign="top" class="base">秒</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">60</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">0 から 2147483647</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>「ランタイム」タブ</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="TransactionService_transactionLogDirectory_displayName"></a>トランザクション・ログ・ディレクトリー</strong>
+</dt>
+<dd>トランザクション・サービスがリカバリー用のログ・ファイルを保管する、
+このサーバーでのディレクトリー名を指定します。
+
+<p>サーバーの構成でブランクになっている値は、始動時にトランザクション・ログによって、ディレクトリー (<em>install_root</em>)/tranlog/(<em>server_name</em>) として展開されます。</p>
+
+<p>WebSphere 製品で実行中のアプリケーションが複数のリソースにアクセスする
+場合、WebSphere 製品は、トランザクション情報を保管して分散トランザクションを適切に調整および管理します。トランザクションの負荷が比較的大きい場合、このパーシスタンスによってアプリケーション・サーバーのパフォーマンスが低下します。
+これは、アプリケーション・サーバーが、オペレーティング・システムおよび基礎となるストレージ・システムに
+依存しているためです。</p>
+
+<p>より高いパフォーマンスを実現するには、トランザクション・ログ・ファイル
+を、より多くの物理ディスク・ドライブまたは RAID ディスク・ドライブ (推奨) を持つストレージ・デバイスに移動します。ログ・ファイルを RAID に組み込まれたディスク上のファイル・システムに移動すると、
+物理メディアへのデータ書き込みタスクは、複数の
+ディスク・ドライブ間で共用されます。これにより、永続トランザクション情報への同時アクセスをより頻繁に行ったり、ログからこのデータに
+さらに迅速にアクセスできるようになります。アプリケーションおよびストレージ・サブシステムの設計に応じて、10% から 100% までのパフォーマンスの向上が見込まれ、場合によってはさらに改善されます。</p>
+
+<p>この変化は、例えば、1 つのトランザクションで
+複数のデータベースおよびリソースへのアクセスが行われる場合など、アプリケーションが分散リソースまたは XA トランザクションを
+使用する場合の構成にのみ該当します。アプリケーション・サーバーが以下の 1 つ以上の症状を示す場合、このプロパティーを
+設定することを検討してください。<ul>
+
+<li>トランザクションの増加にかかわらず、CPU 使用率が低い状態のままである。</li>
+
+<li>数回のタイムアウトによりトランザクションが失敗する。</li>
+
+<li>「<em>unable to enlist transaction</em>」という例外により、トランザクション・ロールバックが発生する。</li>
+
+<li>実行の途中でアプリケーション・サーバーが停止し、サーバーの再始動が必要になる。</li>
+
+<li>アプリケーション・サーバーが実行されているディスクが、通常よりも高い使用率を示す。</li>
+
+</ul>
+</p>
+
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">初期値は <em>%WAS_HOME%</em>/tranlog/(<em>server_name</em>) ディレクトリーで、デフォルトのサイズは 1MB です。</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">推奨</td>
+<td align="left" valign="top" class="base">RAID-0 構成で、ともに RAID に組み込まれた 3 つまたは 4 つ以上のディスク・ドライブを持つ
+ファイル・システムを作成します。 次に、このファイル・システム上
+で、デフォルトのサイズのトランザクション・ログを作成します。 負荷がかかった状態でサーバーが稼働している場合は、ディスクの
+入出力をチェックします。 ディスクの入出力時間が 5% を超える場合は、物理ディスクをさらに追加してこの値を抑えることを検討してください。ディスクの入出力が低いにもかかわらず、サーバーが高い値を示す場合は、ログ・ファイルのサイズを
+大きくすることを検討してください。</td>
+
+</tr>
+
+</table>
+
+
+
+
+</dd>
+<dt>
+<strong><a name="TransactionService_totalTranLifetimeTimeout_displayName"></a>Total transaction lifetime timeout </strong>
+</dt>
+<dd>このアプリケーション・サーバーでの、トランザクションの
+最大存続時間 (秒単位) を指定します。
+
+<p>このタイムアウト前に完了するように要求されていないトランザクションは、ロールバックされます。
+0 に設定されている場合、タイムアウト制限はありません。</p>
+
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">整数</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">単位</td>
+<td align="left" valign="top" class="base">秒</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">120</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">0 から 2147483647</td>
+
+</tr>
+
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="TransactionService_clientInactivityTimeout_displayName"></a>クライアント非活動タイムアウト</strong>
+</dt>
+<dd>リモート・クライアントからの各トランザクション要求間の
+最大所要時間 (秒単位) を指定します。
+<p>クライアントの非活動状態がこのタイムアウトを超過すると、
+このアプリケーション・サーバーでは、トランザクションがロールバックされます。
+0 に設定されている場合、タイムアウト制限はありません。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">整数</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">単位</td>
+<td align="left" valign="top" class="base">秒</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">60</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">0 から 2147483647</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>関連情報</strong>
+</p>
+<a href="rcon_buttons.html">管理コンソールのボタン</a>
+<br>
+
+<a href="rcon_pageusage.html">管理コンソール・ページのフィーチャー</a>
+<br>
+
+</div>
+</body>
+</html>

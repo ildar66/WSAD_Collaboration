@@ -1,0 +1,72 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Pubblicazione delle impostazioni dei file WSDL</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_publishwsdl"></a>
+<h2>
+<img alt="[Fix Pack 5.0.2 e successive]" src="v502.gif" border="0">Pubblicazione delle impostazioni dei file WSDL</h2>
+
+<p>Utilizzare questa pagina per pubblicare i file WSDL (Web Services Description Language).      </p>
+
+<p>Per visualizzare questa pagina, fare clic su <strong>Applicazioni</strong> &gt;<strong>Applicazioni Enterprise</strong> &gt; <em>istanza_applicazione</em> &gt; <strong>Pubblica WSDL</strong>. </p>
+
+<p>Se si seleziona <strong>OK</strong>, viene prodotto un file zip contenente tutti i moduli abilitati ai servizi Web nell'applicazione. Il nome del file zip pubblicato &egrave; <samp>nome_applicazione_WSDLFiles.zip</samp>.
+Nel file zip pubblicato, la struttura della directory &egrave; <em>nome_applicazione/nome_modulo/[META-INF|WEB-INF]/wsdl/nome_file_wsdl</em>.
+ </p>
+
+<p>In un file WSDL pubblicato, l'attributo di ubicazione di una sezione di servizio <samp>soap:address</samp> contiene l'URL tramite cui si accede al servizio Web. &Egrave; possibile specificare, in ogni modulo, la parte dell'URL da utilizzare per i servizi Web. &Egrave; possibile accedere ai servizi Web in un modulo tramite un trasporto HTTP, un trasporto JMS oppure tramite entrambi. Le informazioni relative all'URL possono essere specificate per entrambi i tipi di trasporti.   </p>
+
+<div>
+<p>
+<strong>Scheda Configurazione</strong>
+</p>
+<dl>
+<dt>
+<strong>Specificare i prefissi URL per i servizi Web</strong>
+</dt>
+<dd>Specifica il <em>protocollo</em> (http o https), il <em>nome_host</em>,
+e il <em>numero_porta</em> da utilizzare nell'URL. 
+<p>Il formato del prefisso URL &egrave; il protocollo://<em>nome_host:numero_porta</em>, ad esempio,
+http://<em>myHost</em>:9045. L'URL effettivo che appare nel file WSDL pubblicato &egrave; composto dal prefisso, preceduto dalla root contesto del modulo e dal modello url del servizio Web, ad esempio http://<em>myHost</em>:9045/services/<em>myService</em> .</p>
+
+</dd>
+<dt>
+<strong>Selezionare il prefisso URL HTTP </strong>
+</dt>
+<dd>Specifica l'elenco a discesa associato a un elenco predefinito di prefissi URL. Questo elenco rappresenta l'intersezione del gruppo di porte per l'host virtuale del modulo e
+del gruppo di porte per il server delle applicazioni del modulo. Se si accede direttamente al server delle applicazioni dei servizi Web, utilizzare gli elementi contenuti in questo elenco. 
+<p>Per impostare un prefisso HTTP, selezionare <strong>Prefisso URL HTTP</strong> o <strong>Prefisso URL HTTP personalizzato</strong>, immettere il valore, selezionare la casella di controllo dei moduli che devono utilizzare il prefisso e fare clic su <strong>Applica</strong>. In base al campo scelto, quando si fa clic su <strong>Applica</strong>, la voce presente nel campo <strong>Selezionare il prefisso URL HTTP</strong> o nel campo <strong>Prefisso URL HTTP personalizzato</strong>, viene copiata nel campo <strong>Prefisso URL HTTP</strong> di qualsiasi modulo di cui &egrave; stata selezionata la casella di controllo (nella colonna pi&ugrave; a sinistra). Il prefisso HTTP non viene applicato ai campi della colonna Prefisso URL JMS.</p>
+
+</dd>
+<dt>
+<strong>Prefisso URL HTTP personalizzato </strong>
+</dt>
+<dd>Specifica il <em>protocollo</em>, l'<em>host</em> e il <em>numero_porta</em> del servizio intermedio se
+si accede ai servizi Web presenti in un modulo tramite un nodo intermedio, ad esempio il Web
+services gateway o un server IHS. 
+<p>Per impostare un prefisso HTTP, selezionare <strong>Prefisso URL HTTP</strong> o <strong>Prefisso URL HTTP personalizzato</strong>, immettere il valore, selezionare la casella di controllo dei moduli che devono utilizzare il prefisso e fare clic su <strong>Applica</strong>. In base al campo scelto, quando si fa clic su <strong>Applica</strong>, la voce presente nel campo <strong>Selezionare il prefisso URL HTTP</strong> o nel campo <strong>Prefisso URL HTTP personalizzato</strong>, viene copiata nel campo <strong>Prefisso URL HTTP</strong> di qualsiasi modulo di cui &egrave; stata selezionata la casella di controllo (nella colonna pi&ugrave; a sinistra). Il prefisso HTTP non viene applicato ai campi della colonna Prefisso URL JMS.</p>
+
+</dd>
+<dt>
+<strong>Prefisso URL JMS</strong>
+</dt>
+<dd>Specifica la stringa del prefisso URL JMS utilizzata per ciascun modulo. 
+<p>Il prefisso URL specificato deve contenere la destinazione e le propriet&agrave; connectionFactory. Pu&ograve; contenere altre coppie propriet&agrave;-valore, ma non deve contenere la propriet&agrave; targetService,
+che viene aggiunta dal sistema al momento della creazione dei file WSDL pubblicati. Il formato del
+prefisso URL JMS &egrave;
+jms:/[<em>queue&amp;topic</em>]?destination=<em>target_queue_or_topic_jndi_name</em>&amp;connectionFactory=<em>factory_jndi_name</em>,
+ad esempio, jms:/queue?destination=jms/Q1&amp;connectionFactory=jms/QCF.
+L'URL effettivo che viene visualizzato in un file WSDL pubblicato, &egrave; composto dal prefisso
+preceduto dal targetService del servizio Web, ad esempio,
+jms:/queue?destination=jms/Q1&amp;connectionFactory=jms/QCF&amp;targetService=StockQuote.</p>
+
+</dd>
+</dl>
+</div>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<core:DataSource xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:core="core.xmi" xmlns:RDBSchema="RDBSchema.xmi" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmi:id="DataSource_1035107281622" id="DataSourceImpl_750.0" version="2" name="Users" description="">
+  <DataDomainMapping xmi:type="core:RDBDomainMapping" xmi:id="RDBDomainMapping_1035107366884" id="RDBDomainMappingImpl_788.0" version="2">
+    <DataSourceMappings xmi:type="core:RDBDataSourceMapping" xmi:id="RDBDataSourceMapping_1035275619265" id="RDBDataSourceMappingImpl_1865.0" version="2">
+      <FieldMappings xmi:type="core:RDBFieldMapping" xmi:id="RDBFieldMapping_1035275619265" id="RDBFieldMappingImpl_1872.0" version="2" PersistentField="PersistentField_1035107366895">
+        <RDBColumn href="models/TWWizardConnection1_RESOURCE_RESERVATIONS_APP_USERS.tblxmi#RDBColumn_1035814917185"/>
+      </FieldMappings>
+      <FieldMappings xmi:type="core:RDBFieldMapping" xmi:id="RDBFieldMapping_1035275619266" id="RDBFieldMappingImpl_1874.0" version="1" PersistentField="PersistentField_1035107366894">
+        <RDBColumn href="models/TWWizardConnection1_RESOURCE_RESERVATIONS_APP_USERS.tblxmi#RDBColumn_1035814917186"/>
+      </FieldMappings>
+      <RDBTable href="models/TWWizardConnection1_RESOURCE_RESERVATIONS_APP_USERS.tblxmi#RDBTable_1035814917185"/>
+    </DataSourceMappings>
+    <RDBDatabase href="models/TWWizardConnection1_RESOURCE_RESERVATIONS.dbxmi#RDBDatabase_1035814916885"/>
+  </DataDomainMapping>
+  <Fields xmi:type="core:PersistentField" xmi:id="PersistentField_1035107366895" id="PersistentFieldImpl_790.0" version="1" name="user_name" FieldMapping="RDBFieldMapping_1035275619265">
+    <CoreTypeDescriptor href="ResourceReservations.prjxmi#CoreTypeDescriptor_8"/>
+    <FieldDescriptor xmi:type="core:AlphanumFieldDescriptor" xmi:id="AlphanumFieldDescriptor_1035275619265" id="AlphanumFieldDescriptorImpl_1873.0" version="1" length="20">
+      <initialValue xsi:nil="true"/>
+      <CoreTypeDescriptor href="ResourceReservations.prjxmi#CoreTypeDescriptor_8"/>
+    </FieldDescriptor>
+  </Fields>
+  <Fields xmi:type="core:PersistentField" xmi:id="PersistentField_1035107366894" id="PersistentFieldImpl_798.0" version="1" name="password" FieldMapping="RDBFieldMapping_1035275619266">
+    <CoreTypeDescriptor href="ResourceReservations.prjxmi#CoreTypeDescriptor_8"/>
+    <FieldDescriptor xmi:type="core:AlphanumFieldDescriptor" xmi:id="AlphanumFieldDescriptor_1035275619266" id="AlphanumFieldDescriptorImpl_1875.0" version="1" length="20">
+      <initialValue xsi:nil="true"/>
+      <CoreTypeDescriptor href="ResourceReservations.prjxmi#CoreTypeDescriptor_8"/>
+    </FieldDescriptor>
+  </Fields>
+  <DomainActionDescriptors xmi:id="DomainActionDescriptor_1" version="1" name="Create" description="Performs a Create">
+    <ActionMapping xmi:type="core:SQLStatementMapping" xmi:id="SQLStatementMapping_1" version="1" SQLStatement="INSERT INTO APP.USERS (LOGIN_NAME,PASSWORD) VALUES (:user_name,:password)"/>
+  </DomainActionDescriptors>
+  <DomainActionDescriptors xmi:id="DomainActionDescriptor_2" version="1" name="Update" description="Performs a Update">
+    <ActionMapping xmi:type="core:SQLStatementMapping" xmi:id="SQLStatementMapping_2" version="1" SQLStatement=" UPDATE APP.USERS SET PASSWORD = :password WHERE APP.USERS.USER_NAME = :user_name"/>
+  </DomainActionDescriptors>
+  <DomainActionDescriptors xmi:id="DomainActionDescriptor_3" version="1" name="Delete" description="Performs a Delete">
+    <ActionMapping xmi:type="core:SQLStatementMapping" xmi:id="SQLStatementMapping_3" version="1" SQLStatement="DELETE FROM APP.USERS WHERE APP.USERS.USER_NAME = :user_name"/>
+  </DomainActionDescriptors>
+  <DomainActionDescriptors xmi:id="DomainActionDescriptor_4" version="1" name="Select All" description="Performs a Select All">
+    <ActionMapping xmi:type="core:SQLStatementMapping" xmi:id="SQLStatementMapping_4" version="1" SQLStatement="SELECT * FROM APP.USERS"/>
+  </DomainActionDescriptors>
+  <DomainActionDescriptors xmi:id="DomainActionDescriptor_5" version="1" name="Read" description="Performs a Read">
+    <returnedValue xmi:type="core:CoreTypeDescriptor" href="ResourceReservations.prjxmi#CoreTypeDescriptor_4"/>
+    <ActionMapping xmi:type="core:SQLStatementMapping" xmi:id="SQLStatementMapping_5" version="1" SQLStatement="SELECT * FROM APP.USERS WHERE APP.USERS.LOGIN_NAME = :user_name"/>
+  </DomainActionDescriptors>
+  <DomainActionDescriptors xmi:id="DomainActionDescriptor_6" version="1" name="Search" description="Performs a Search">
+    <returnedValue xmi:type="core:CoreTypeDescriptor" href="ResourceReservations.prjxmi#CoreTypeDescriptor_4"/>
+    <parameters xmi:id="ParameterType_1" version="1">
+      <type xmi:type="core:CoreTypeDescriptor" href="ResourceReservations.prjxmi#CoreTypeDescriptor_11"/>
+    </parameters>
+    <parameters xmi:id="ParameterType_2" version="1">
+      <type xmi:type="core:CoreTypeDescriptor" href="ResourceReservations.prjxmi#CoreTypeDescriptor_8"/>
+    </parameters>
+  </DomainActionDescriptors>
+  <DomainActionDescriptors xmi:id="DomainActionDescriptor_7" version="1" name="Read By Field" description="Performs a Read By Field">
+    <returnedValue xmi:type="core:CoreTypeDescriptor" href="ResourceReservations.prjxmi#CoreTypeDescriptor_4"/>
+    <parameters xmi:id="ParameterType_3" version="1">
+      <type xmi:type="core:CoreTypeDescriptor" href="ResourceReservations.prjxmi#CoreTypeDescriptor_11"/>
+    </parameters>
+  </DomainActionDescriptors>
+  <KeyFields xmi:id="KeyField_1035107366914" id="KeyFieldImpl_793.0" version="1" PersistentField="PersistentField_1035107366895"/>
+  <DataSourceTypeDescriptor xmi:id="DataSourceTypeDescriptor_1035107281712" id="DataSourceTypeDescriptorImpl_751.0" version="1"/>
+</core:DataSource>

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin id="com.ibm.ws.console.security"
+        name="securitycenter"
+        version="1.0.0"
+        provider-name="IBM Corp. - WebSphere Server Group"
+        embedded="true"
+        context-root="securitycenter">
+
+<requires>
+    <import plugin="com.ibm.ws.console.core"/>
+    <import plugin="com.ibm.ws.console.servermanagement"/>
+</requires>
+
+<extension point="com.ibm.ws.console.core.navigatorTask">
+    <tasks>
+                 <!-- Security Center -->
+        <categoryDefinition id="SecurityCenter" parent="root" icon="images/Security.gif" label="Security.SecurityCenter.displayName" weight="40"/>
+
+                     <!-- 1. Global Security -->
+        <task id="security" icon="images/Security.gif" label="Security.displayName" view="Security.config.view" external="false" weight="10">
+            <category id="SecurityCenter"/>
+        </task>
+
+                    <!-- 6. SSL Configurations -->
+        <task id="SSLConfigs" icon="images/SecureSocketLayer.gif" label="nav.ssl" view="SSLConfig.content.main" external="false" weight="20">
+            <category id="SecurityCenter"/>
+        </task>
+	             <!-- 2. Auth Mechanism -->
+        <categoryDefinition id="AuthMechanism" parent="SecurityCenter" icon="images/AuthMechanism.gif" label="Security.authMechanisms.displayName" weight="30"/>
+
+                         <!-- LTPA -->
+        <task id="LTPA" icon="images/AuthMechanism.gif" label="LTPA.displayName" view="LTPA.config.view" external="false" weight="10">
+            <category id="AuthMechanism"/>
+        </task>
+
+                     <!-- 3. User Registries -->
+        <categoryDefinition id="UserRegistries" parent="SecurityCenter" icon="images/UserRegistry.gif" label="Security.userRegistries.displayName" weight="40"/>
+
+                         <!-- LocalOS -->
+        <task id="LocalOSRegistry" icon="images/UserRegistry.gif" label="nav.user.registry.localos" view="LocalOSUserRegistry.config.view" external="false" weight="10">
+            <category id="UserRegistries"/>
+        </task>
+
+                         <!-- LDAP Registry -->
+        <task id="LDAPRegistry" icon="images/UserRegistry.gif" label="nav.user.registry.ldap" view="LDAPUserRegistry.config.view" external="false" weight="20">
+            <category id="UserRegistries"/>
+        </task>
+
+                         <!-- Custom Registry -->
+        <task id="CustomRegistry" icon="images/UserRegistry.gif" label="nav.user.registry.custom" view="CustomUserRegistry.config.view" external="false" weight="30">
+            <category id="UserRegistries"/>
+        </task>
+
+                    <!-- 4. JAAS Configuration -->
+        <categoryDefinition id="JAASConfig" parent="SecurityCenter" icon="images/Security.gif" label="JAASConfiguration.displayName" weight="50"/>
+
+                         <!-- Application Login Config -->
+        <task id="ApplLoginConfig" icon="images/Security.gif" label="nav.jaas.application" view="JAASConfigurationEntry.content.main" external="false" weight="10">
+            <category id="JAASConfig"/>
+        </task>
+
+                         <!-- Auth Data -->
+        <task id="AuthData" icon="images/Security.gif" label="nav.jaas.j2c" view="JAASAuthData.content.main" external="false" weight="20">
+            <category id="JAASConfig"/>
+        </task>
+
+                    <!-- 5. Authentication Protocol -->
+        <categoryDefinition id="AuthenticationProtocol" parent="SecurityCenter" icon="images/Security.gif" label="AuthenticationProtocol.displayName" weight="60"/>
+
+                             <!-- CSI AuthInbound -->
+        <task id="CSIia" icon="images/Security.gif" label="nav.auth.csi.auth.in" view="CSIia.config.view" external="false" weight="10">
+            <category id="AuthenticationProtocol"/>
+        </task>
+                             <!-- CSI Auth Outbound -->
+        <task id="CSIoa" icon="images/Security.gif" label="nav.auth.csi.auth.out" view="CSIoa.config.view" external="false" weight="20">
+            <category id="AuthenticationProtocol"/>
+        </task>
+
+                             <!-- CSI Transport Inbound -->
+        <task id="CSIic" icon="images/Security.gif" label="nav.auth.csi.trans.in" view="CSIic.config.view" external="false" weight="30">
+            <category id="AuthenticationProtocol"/>
+        </task>
+                             <!-- CSI Transport Outbound -->
+        <task id="CSIoc" icon="images/Security.gif" label="nav.auth.csi.trans.out" view="CSIoc.config.view" external="false" weight="40">
+            <category id="AuthenticationProtocol"/>
+        </task>
+
+                             <!-- IBM Transport Inbound -->
+        <task id="IBMic" icon="images/Security.gif" label="nav.auth.ibm.trans.in" view="IBMic.config.view" external="false" weight="50">
+            <category id="AuthenticationProtocol"/>
+        </task>
+                             <!-- IBM Transport Outbound -->
+        <task id="IBMoc" icon="images/Security.gif" label="nav.auth.ibm.trans.out" view="IBMoc.config.view" external="false" weight="60">
+            <category id="AuthenticationProtocol"/>
+        </task>
+
+
+    </tasks>
+</extension>
+
+<extension point="com.ibm.ws.console.core.help">
+    <toc file="toc.xml" primary="true"/>
+</extension>
+
+<extension point="com.ibm.ws.console.core.link">
+    <link id="servermanagement.additionalLink"
+          contextType="HTTPTransport"
+          contextTypePluginId="com.ibm.ws.console.servermanagement"
+          categoryId="related.items"
+          icon=""
+          label="ServerSSLConfig.displayName"
+          description="ServerSSLConfig.description"
+          actionView="com.ibm.ws.console.security.forwardCmd.do?forwardName=SSLConfig.content.main"/>
+</extension>
+
+</plugin>
+

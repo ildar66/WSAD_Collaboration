@@ -1,0 +1,82 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Impostazioni del contenitore Web</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uweb_rcont"></a>
+<h2>Impostazioni del contenitore Web</h2>
+
+<p>Utilizzare questa pagina per configurare le impostazioni del contenitore.
+<p>Accedere a questa pagina tramite il seguente percorso nella console di gestione:</p>
+
+<pre>
+<strong>Server</strong> &gt; <strong>Server delle applicazioni</strong> &gt;
+<em>istanza_server</em> &gt; <strong>Contenitore Web</strong>
+</pre>
+ 
+</p>
+
+<p> 
+<strong>Configurazione - Propriet&agrave; generali</strong> 
+</p>
+
+<dl>
+<dt>
+<strong><a name="rcont_default"></a>Host virtuale predefinito</strong>
+</dt>
+<dd>Indica che un host virtuale &egrave; una configurazione che permette ad
+una singola
+macchina host di comportarsi come pi&ugrave; macchine host.  Le risorse associate ad un host virtuale non possono condividere i dati con le risorse associate ad un altro host virtuale, anche se gli host virtuali condividono la stessa macchina fisica. 
+<p>Selezionare un'opzione dell'host virtuale:</p>
+
+<dl>
+
+<dt>
+<strong><strong>Host predefinito</strong></strong>
+</dt>
+<dd>Il prodotto fornisce un host
+virtuale predefinito con alcuni alias comuni, ad esempio l'indirizzo IP della macchina,
+il nome abbreviato e completo dell'host.  L'alias comprende la prima parte
+del percorso di accesso ad una risorsa, come un servlet.  Ad esempio, pu&ograve; essere <samp>localhost:9080</samp>
+nella richiesta <samp>http://localhost:9080/myServlet</samp>.</dd>
+
+<dt>
+<strong><strong>Host di gestione</strong></strong>
+</dt>
+<dd>Questo &egrave; un altro nome per il server delle
+applicazioni; noto anche come <em>server1</em> nell'installazione base.  
+Questo processo supporta l'uso della console di gestione.
+</dd>
+
+</dl>
+</dd>
+<dt>
+<strong><a name="rcont_cache"></a>Cache del servlet</strong>
+</dt>
+<dd>Specifica che se un servlet viene richiamato dopo aver generato l'output da
+memorizzare nella cache, viene creata una voce cache che contiene non solo l'output, ma
+anche gli effetti secondari della chiamata. 
+Tali effetti possono includere chiamate ad altri servlet o a file JSP (Java Server
+Pages) cos&igrave; come i metadati relativi alla voce, comprese le informazioni sul timeout e
+sulla priorit&agrave; delle voci. 
+ 
+<p></p>
+
+<dl>
+
+<dt>
+<strong><strong>Abilita cache del servlet</strong></strong>
+</dt>
+<dd> Selezionare questa casella per
+abilitare la memorizzazione del servlet nella cache.</dd>
+
+</dl>
+
+</dd>
+</dl>
+</body>
+</html>

@@ -1,0 +1,332 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Param&egrave;tres de port d'&eacute;coute</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="ListenerPort"></a>
+<h2>Param&egrave;tres de port d'&eacute;coute</h2>
+
+<p>Un port d'&eacute;coute est utilis&eacute; pour simplifier l'administration de
+l'association entre une fabrique de connexions, une destination et un bean
+g&eacute;r&eacute; par messages d&eacute;ploy&eacute;.</p>
+
+<p>Utilisez cet &eacute;cran pour afficher ou modifier les propri&eacute;t&eacute;s de
+configuration du port d'&eacute;coute s&eacute;lectionn&eacute;.</p>
+
+<p>Pour afficher cette page de la console d'administration, cliquez
+sur <strong>Serveurs-&gt; <em>serveur_applications</em>-&gt; Service
+d'&eacute;coute de messages-&gt; Ports d'&eacute;coute-&gt; <em>port_&eacute;coute</em></strong>
+</p>
+
+<dl>
+<dt>
+<strong><a name="ListenerPort_name"></a>Nom</strong>
+</dt>
+<dd>le nom par lequel le port d'&eacute;coute est connu pour utilisation administrative.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ListenerPort_initialState"></a>Etat initial</strong>
+</dt>
+<dd>L'&eacute;tat souhait&eacute; pour le port d'&eacute;coute lors du prochain red&eacute;marrage du serveur d'applications
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Enum&eacute;ration</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&eacute;</td>
+<td align="left" valign="top" class="base">Non applicable</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">D&eacute;marr&eacute;</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Plage</td>
+<td align="left" valign="top" class="base">
+<dl>
+<dt>
+<strong>D&eacute;marr&eacute;</strong>
+</dt>
+<dd>Au lancement suivant du serveur d'applications, le port d'&eacute;coute est d&eacute;marr&eacute; automatiquement.</dd>
+<dt>
+<strong>Arr&ecirc;t&eacute;</strong>
+</dt>
+<dd>Au lancement suivant du serveur d'applications, le port d'&eacute;coute
+n'est pas d&eacute;marr&eacute; automatiquement. Si les beans g&eacute;r&eacute;s par messages doivent
+utiliser ce port d'&eacute;coute sur le serveur d'applications, l'administrateur
+syst&egrave;me doit d&eacute;marrer le port manuellement ou s&eacute;lectionner la valeur
+D&eacute;marr&eacute; de cette propri&eacute;t&eacute; puis red&eacute;marrer le serveur d'applications.</dd>
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ListenerPort_description"></a>Description</strong>
+</dt>
+<dd>Description du port d'&eacute;coute dans IBM WebSphere Application Server, &agrave; des fins administratives.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ListenerPort_connectionFactoryJNDIName"></a>Nom JNDI de la fabrique de connexions</strong>
+</dt>
+<dd>Le Nom JNDI de la fabrique de connexions JMS &agrave; utiliser par le port d'&eacute;coute
+; par exemple, <samp>jms/connFactory1</samp>.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ListenerPort_destinationJNDIName"></a>Nom JNDI de destination</strong>
+</dt>
+<dd>Le nom JNDI de destination &agrave; utiliser par le port d'&eacute;coute : par exemple,
+<samp>jms/destn1</samp>.
+<p>Si le service de messagerie &eacute;tendue doit utiliser ce port d'&eacute;coute pour g&eacute;rer les r&eacute;ponses tardives, la valeur de cette  propri&eacute;t&eacute; doit correspondre &agrave; la destination de la r&eacute;ponse JMS sur le port de sortie utilis&eacute; par le bean d'&eacute;mission. En outre, il ne peut pas utiliser une destination temporaire pour les r&eacute;ponses tardives.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ListenerPort_maxSessions"></a>Nombre maximum de sessions</strong>
+</dt>
+<dd>Indique le nombre maximal de sessions de serveur JMS simultan&eacute;es utilis&eacute;es par un
+module d'&eacute;coute pour traiter des messages. 
+<p>Chaque session correspond &agrave; une unit&eacute; d'ex&eacute;cution unique du module d'&eacute;coute mais ne
+contr&ocirc;le pas le nombre de messages trait&eacute;s simultan&eacute;ment. D&eacute;finissez ce param&egrave;tre lorsque le
+syst&egrave;me ex&eacute;cutant l'application ne parvient pas &agrave; prendre en compte les capacit&eacute;s disponibles
+et assure un d&eacute;bit inf&eacute;rieur en ex&eacute;cutant des processus longs. </p>
+
+<p>Ce param&egrave;tre autorise la r&eacute;ception simultan&eacute;e de plusieurs messages
+avant le d&eacute;but de la phase de synchronisation de la r&eacute;ception des messages. Une augmentation du d&eacute;bit de 40 % est observ&eacute;e dans une application avec des processus longs ex&eacute;cut&eacute;s sur un syst&egrave;me NetFinity 5500 500
+MHz, &agrave; 4 voies dot&eacute; de 4 Go de m&eacute;moire RAM. </p>
+
+<p>Vous pouvez &eacute;galement modifier la valeur d&eacute;finie pour le nombre maximal de sessions dans le fichier <samp>server.xml</samp> sous la section relative aux ports d'&eacute;coute :<pre>&lt;listenerPorts xmi:id="ListenerPort_1" name="bpeIntListenerPort" 
+description="Internal Listener Port for Process Choreographer" 
+connectionFactoryJNDIName="jms/bpeCF" destinationJNDIName="jms/bpeIntQueue" 
+<strong>maxSessions="5"</strong> maxRetries="10" maxMessages="1"&gt;
+&lt;stateManagement xmi:id="StateManageable_5" initialState="START" /&gt;
+&lt;/listenerPorts&gt;</pre>
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Entier</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&eacute;</td>
+<td align="left" valign="top" class="base">Sessions</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">1 </td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Plage</td>
+<td align="left" valign="top" class="base">1 &agrave; 2147483647</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Recommandation</td>
+<td align="left" valign="top" class="base">Si vous souhaitez que plusieurs messages soient trait&eacute;s simultan&eacute;ment, d&eacute;finissez une valeur
+comprise entre 2 et 4 sessions par processeur syst&egrave;me. Cette valeur doit &ecirc;tre aussi faible que possible afin
+d'&eacute;liminer les risques d'emballement du client. Si l'ordre des messages est une condition imp&eacute;rative, choisissez la valeur 4 afin qu'une unit&eacute; d'ex&eacute;cution soit toujours disponible et bloqu&eacute;e lors de la r&eacute;ception du message. </td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ListenerPort_maxRetries"></a>Nombre maximum de tentatives</strong>
+</dt>
+<dd>Le nombre maximum de tentatives de livraison du message par le programme
+d'&eacute;coute avant arr&ecirc;t de ce programme d'&eacute;coute, selon une plage de 0 &agrave;
+2147483647.
+<p>Le nombre maximum de tentatives de livraison d'un message par le programme
+d'&eacute;coute &agrave; une instance de bean g&eacute;r&eacute; par messages avant arr&ecirc;t de ce
+programme d'&eacute;coute.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Entier</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&eacute;</td>
+<td align="left" valign="top" class="base">Nouvelles tentatives</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">0 (pas de nouvelle tentative)</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Plage</td>
+<td align="left" valign="top" class="base">0 (pas de nouvelle tentative) &agrave; 2147483647</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ListenerPort_maxMessages"></a>Nombre maximum de messages</strong>
+</dt>
+<dd>Nombre maximal de messages pouvant &ecirc;tre trait&eacute;s par le module d'&eacute;coute dans une session du
+serveur JMS.
+<p>Ajustez ce param&egrave;tre lorsque l'ordre des messages n'est pas une n&eacute;cessit&eacute; imp&eacute;rative. Ce param&egrave;tre contr&ocirc;le le niveau de traitement simultan&eacute; du service du module d'&eacute;coute. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Entier</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&eacute;</td>
+<td align="left" valign="top" class="base">Nombre de messages</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">1</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Plage</td>
+<td align="left" valign="top" class="base">1 &agrave; 2147483647</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Recommandation</td>
+<td align="left" valign="top" class="base">Si vous souhaitez que plusieurs messages soient trait&eacute;s simultan&eacute;ment, d&eacute;finissez une valeur
+comprise entre 2 et 4 sessions par processeur syst&egrave;me. Cette valeur doit &ecirc;tre aussi faible que possible afin
+d'&eacute;liminer les risques d'emballement du client. Si l'ordre des messages est une condition imp&eacute;rative, choisissez la valeur 1. </td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</body>
+</html>

@@ -1,0 +1,244 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Param&egrave;tres d'optimisation</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="tune_para"></a>
+<h2>Param&egrave;tres d'optimisation</h2>
+
+<p>Cette page permet de d&eacute;finir des param&egrave;tres d'optimisation pour les sessions r&eacute;parties.</p>
+
+<p>Pour afficher cette page de la console d'administration, cliquez
+sur <strong>Serveurs</strong> &gt; <strong> Serveurs d'applications</strong> &gt;
+<em>nom_serveur</em> &gt; <strong>Conteneur Web</strong> &gt; <strong>Gestion de session</strong>
+&gt; <strong>Param&egrave;tres d'environnement r&eacute;partis</strong> &gt; <strong>Param&egrave;tres
+d'optimisation personnalis&eacute;s</strong>.</p>
+
+<div>
+<p>
+<strong>Onglet Configuration</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="Tuning_level_description"></a>Niveau d'optimisation</strong>
+</dt>
+<dd>Indique que l'utilitaire de gestion de session fournit
+certains param&egrave;tres pr&eacute;d&eacute;finis qui ont une incidence sur les
+performances. 
+<p>S&eacute;lectionnez un de ces param&egrave;tres pr&eacute;d&eacute;finis ou personnalisez
+un param&egrave;tre. Pour personnaliser un param&egrave;tre, s&eacute;lectionnez un des param&egrave;tres
+pr&eacute;d&eacute;finis le plus proche de celui que vous voulez, cliquez sur
+<strong>Param&egrave;tres personnalis&eacute;s</strong>, apportez vos
+modifications, puis cliquez sur <strong>OK</strong>.</p>
+
+<div>
+<p class="sectiontitle">
+<b>Tr&egrave;s &eacute;lev&eacute;e (optimise les performances) </b>
+</p>
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Fr&eacute;quence d'&eacute;criture </td>
+<td align="left" valign="top" class="base">P&eacute;riodique</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervalle d'&eacute;criture </td>
+<td align="left" valign="top" class="base">300 secondes</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Ecriture s&eacute;lective </td>
+<td align="left" valign="top" class="base">Seuls les attributs mis &agrave; jour</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Planification du nettoyage des sessions</td>
+<td align="left" valign="top" class="base">true</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Premi&egrave;re heure du jour par d&eacute;faut  </td>
+<td align="left" valign="top" class="base">0</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Seconde heure du jour par d&eacute;faut  </td>
+<td align="left" valign="top" class="base">2</td>
+
+</tr>
+
+</table>
+</div>
+
+<div>
+<p class="sectiontitle">
+<b>Elev&eacute;</b>
+</p>
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Fr&eacute;quence d'&eacute;criture </td>
+<td align="left" valign="top" class="base">P&eacute;riodique</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervalle d'&eacute;criture </td>
+<td align="left" valign="top" class="base">300 secondes</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Ecriture s&eacute;lective </td>
+<td align="left" valign="top" class="base">Tous les attributs de session</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Planification du nettoyage des sessions</td>
+<td align="left" valign="top" class="base">false</td>
+
+</tr>
+
+</table>
+</div>
+
+<div>
+<p class="sectiontitle">
+<b>Moyen</b>
+</p>
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Fr&eacute;quence d'&eacute;criture </td>
+<td align="left" valign="top" class="base">Fin du service de servlet</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Ecriture s&eacute;lective </td>
+<td align="left" valign="top" class="base">Seuls les attributs mis &agrave; jour</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Planification du nettoyage des sessions</td>
+<td align="left" valign="top" class="base">false</td>
+
+</tr>
+
+</table>
+</div>
+
+<div>
+<p class="sectiontitle">
+<b>Faible (optimise la reprise de la base de donn&eacute;es)</b>
+</p>
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Fr&eacute;quence d'&eacute;criture </td>
+<td align="left" valign="top" class="base">Fin du service de servlet</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Ecriture s&eacute;lective </td>
+<td align="left" valign="top" class="base">Tous les attributs de session</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Planification du nettoyage des sessions</td>
+<td align="left" valign="top" class="base">false</td>
+
+</tr>
+
+</table>
+</div>
+
+<div>
+<p class="sectiontitle">
+<b>Param&egrave;tres personnalis&eacute;s</b>
+</p>
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Fr&eacute;quence d'&eacute;criture par d&eacute;faut</td>
+<td align="left" valign="top" class="base">P&eacute;riodique</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervalle d'&eacute;criture par d&eacute;faut</td>
+<td align="left" valign="top" class="base">10 secondes</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Ecriture s&eacute;lective par d&eacute;faut</td>
+<td align="left" valign="top" class="base">Tous les attributs de session</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Planification du nettoyage des sessions par d&eacute;faut </td>
+<td align="left" valign="top" class="base">false</td>
+
+</tr>
+
+</table>
+</div>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informations connexes</strong>
+</p>
+<a href="rcon_buttons.html">Boutons de la console administrative</a>
+<br>
+
+<a href="rcon_pageusage.html">Caract&eacute;ristiques de la page de la console d'administration</a>
+<br>
+
+<a href="rcon_preferences.html">Param&egrave;tres des pr&eacute;f&eacute;rences de la console administrative</a>
+<br>
+
+<a href="uprs_rtuning_custom.html">Options d'optimisation des param&egrave;tres de personnalisation</a>
+<br>
+
+</div>
+</body>
+</html>

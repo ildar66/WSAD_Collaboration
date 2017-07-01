@@ -1,0 +1,276 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Message listener service custom properties</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="MessageListenerService_CustomProperties"></a>
+<h2>
+<img alt="[Release 5.1 and later]" src="v51x.gif" border="0">Message listener service custom properties</h2>
+
+<p>Use this panel to view or change an optional set of name and value
+pairs for custom properties of the message listener service.</p>
+
+<p>To view this administrative console page, click <strong>Servers-&gt; <em>application_server</em>-&gt;
+Message Listener Service-&gt; (In content pane, under Additional Properties)
+Custom Properties</strong>
+</p>
+
+<p>You can use the Custom properties page to define the following properties
+for use by the message listener service.<ul>
+
+<li>
+<a href="#nonasfreceivetimeout">NON.ASF.RECEIVE.TIMEOUT</a>
+</li>
+
+<li>
+<a href="#mqpooltimeout">MQJMS.POOLING.TIMEOUT</a>
+</li>
+
+<li>
+<a href="#mqpoolthreshold">MQJMS.POOLING.THRESHOLD</a>
+</li>
+
+<li>
+<a href="#maxRecoveryRetries">MAX.RECOVERY.RETRIES</a>
+</li>
+
+<li>
+<a href="#recoveryRetryInterval">RECOVERY.RETRY.INTERVAL</a>
+</li>
+
+</ul>
+</p>
+
+<dl>
+<dt>
+<strong><a name="nonasfreceivetimeout"></a>NON.ASF.RECEIVE.TIMEOUT</strong>
+</dt>
+<dd>The JMS server has two modes of operation, Application Server Facilities
+(ASF) and non-Application Server Facilities. ASF is meant to provide concurrency
+and transactional support for applications. Non-ASF mode is still transactional,
+but the path length is streamlined to improve performance. 
+<p>Use Non-ASF if:<ul>
+
+<li>Message order is a strict requirement </li>
+
+<li>Concurrent PTP messages are desired</li>
+
+<li>The property <samp>NON.ASF.RECEIVE.TIMEOUT</samp> exists and has a value greater
+than 0</li>
+
+</ul>Do not use Non-ASF if concurrent publications and subscriptions messages
+are desired because ASF provides better throughput. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Units</td>
+<td align="left" valign="top" class="base">Milliseconds</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">ASF mode (custom property not created)</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range</td>
+<td align="left" valign="top" class="base"></td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Recommended</td>
+<td align="left" valign="top" class="base">The value is the number of milliseconds it takes for a message to
+be delivered. If a timeout occurs, it must recycle causing extra work. This
+should be set to lower than the transaction timeout, but close to it with
+several (10 or more) seconds to spare. The seconds to spare should be more
+if under extreme loads in which threads are waiting long periods of time to
+get CPU cycles.</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="mqpooltimeout"></a>MQJMS.POOLING.TIMEOUT</strong>
+</dt>
+<dd>The number of milliseconds after which a connection in the pool
+is destroyed if it has not been used.
+<p>An MQSimpleConnectionManager allocates connections on a most-recently-used
+basis, and destroys connections on a least-recently-used basis. By default,
+a connection is destroyed if it has not been used for five minutes.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Units</td>
+<td align="left" valign="top" class="base">Milliseconds</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">5 minutes</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range</td>
+<td align="left" valign="top" class="base"></td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="mqpoolthreshold"></a>MQJMS.POOLING.THRESHOLD</strong>
+</dt>
+<dd>The maximum number of unused connections in the pool.
+<p>An MQSimpleConnectionManager allocates connections on a most-recently-used
+basis, and destroys connections on a least-recently-used basis. By default,
+a connection is destroyed if there are more than ten unused connections in
+the pool.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Units</td>
+<td align="left" valign="top" class="base">Number of connections</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">10</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range</td>
+<td align="left" valign="top" class="base"></td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="maxRecoveryRetries"></a>MAX.RECOVERY.RETRIES</strong>
+</dt>
+<dd>The maximum number of times that the listener service tries to
+get a message from a listener port before the associated listener is stopped,
+in the range 0 through 2147483647.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Units</td>
+<td align="left" valign="top" class="base">Retry attempts</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">0 (no retries)</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range</td>
+<td align="left" valign="top" class="base">0 (no retries) through 2147483647</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="recoveryRetryInterval"></a>RECOVERY.RETRY.INTERVAL</strong>
+</dt>
+<dd>The time in seconds between retry attempts by the listener service
+to get a message from a listener port.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Units</td>
+<td align="left" valign="top" class="base">Seconds</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">10</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range</td>
+<td align="left" valign="top" class="base">1 through 2147483647</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</body>
+</html>

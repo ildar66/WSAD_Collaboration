@@ -1,0 +1,165 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>スレッド・プール設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uejb_rthrd"></a>
+<h2>スレッド・プール設定</h2>
+
+<p>このページを使用して、アプリケーション・サーバーが使用するスレッドのグループを構成します。
+要求は、任意の HTTP トランスポートを介してサーバーに送信されます。
+スレッド・プールを使用すると、サーバーのコンポーネントがスレッドを再使用できるため、実行時に新しいスレッドを作成する必要がなくなります。
+新規スレッドの作成は、時間とリソースを消費します。
+</p>
+
+<p>この管理コンソール・ページを表示するには、「<strong>サーバー</strong>」&gt;「<strong>アプリケーション・サーバーの管理</strong>」&gt;
+「<em>server_name</em>」&gt;「<strong>ORB サービス</strong>」&gt;「<strong>スレッド・プール</strong>」をクリックします。
+(このページを表示するためのナビゲーション経路は複数あります。)
+</p>
+
+<div>
+<p>
+<strong>「構成」タブ</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="ThreadPool_minimumSize_description"></a>最小サイズ</strong>
+</dt>
+<dd>プール内で使用できるスレッドの最小数を指定します。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">整数</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">10</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ThreadPool_maximumSize_description"></a>最大サイズ</strong>
+</dt>
+<dd>プール内で使用できるスレッドの最大数を指定します。
+
+<p>Tivoli Performance Viewer により「最大パーセント」メトリックが常に 2 桁であることが示される場合は、「最大サイズ」を大きくすることを検討してください。「最大パーセント」メトリックは、構成済みのスレッドが使用される時間を示します。サーバー・サイドの ORB に接続する同時クライアントが複数ある場合は、最大 1000 クライア
+ントをサポートするように、このサイズを増やしてください。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">整数</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">50</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">推奨</td>
+<td align="left" valign="top" class="base"> <a href="rprf_troubleshoot.html">50 (Linux システムの場合は 25)</a></td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ThreadPool_inactivityTimeout_description"></a>スレッド非活動状態タイムアウト</strong>
+</dt>
+<dd>スレッドが再利用されるまでの非アクティブな時間をミリ秒で指定します。
+0 の値は、待機しないことを示し、負の値 (0 より小) は、永遠に待機することを意味します。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">整数</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">単位</td>
+<td align="left" valign="top" class="base">ミリ秒</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">3500</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ThreadPool_isGrowable_description"></a>増大可能</strong>
+</dt>
+<dd>スレッド・プール用に構成されている最大サイズを超えてスレッド数を増やすことができるかどうかを指定します。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ブール</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">使用不可 (false)</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">有効な値は「最大スレッド・サイズを超えたスレッド割り振りを許可」または「Not enabled」です。</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>関連情報</strong>
+</p>
+<a href="rcon_buttons.html">管理コンソールのボタン</a>
+<br>
+
+<a href="rcon_pageusage.html">管理コンソール・ページのフィーチャー</a>
+<br>
+
+</div>
+</body>
+</html>

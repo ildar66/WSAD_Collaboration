@@ -1,0 +1,425 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Valores de seguridad global</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecrgsp"></a>
+<h2>
+<img alt="[Fix Pack 5.0.2 y posterior]" src="v502.gif" border="0">Valores de seguridad global</h2>
+
+<p>Utilice esta p&aacute;gina para configurar la seguridad. Cuando habilita la seguridad, habilita los valores de seguridad a un nivel global. Cuando se inhabilita la seguridad, el rendimiento de WebSphere
+Application Server mejora entre un 10 y un 20 por cien. Por lo tanto,
+considere la inhabilitaci&oacute;n de la seguridad cuando no sea necesaria.</p>
+
+<p>Para ver esta p&aacute;gina de la consola administrativa, pulse
+<strong>Seguridad</strong> &gt; <strong>Seguridad global</strong>.</p>
+
+<div>
+<p>Si configura la seguridad por primera vez, siga los pasos que
+se describen en la secci&oacute;n "Configuraci&oacute;n de la seguridad global" de la
+documentaci&oacute;n para evitar problemas.
+Una vez configurada la seguridad, se deben validar los cambios en los paneles de los mecanismos de autenticaci&oacute;n o de registro. Pulse <strong>Aplicar</strong> para validar los valores del registro de usuario.
+Se intentar&aacute; autenticar el ID de servidor en el registro de usuario configurado.
+Si se validan los valores del registro de usuario despu&eacute;s de habilitar la seguridad global se evitan problemas cuando se reinicia el servidor por primera vez.</p>
+</div>
+
+<div>
+<p>
+<strong>Pesta&ntilde;a Configuraci&oacute;n</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="Security_enabled_description"></a>Habilitado </strong>
+</dt>
+<dd>Especifica que el servidor debe habilitar los subsistemas de seguridad. 
+<p>Este distintivo se conoce habitualmente como <em>distintivo de seguridad
+global</em> en la informaci&oacute;n de WebSphere Application Server. Al configurar la seguridad, establezca la configuraci&oacute;n de
+un mecanismo de autenticaci&oacute;n y especifique un ID de usuario y contrase&ntilde;a v&aacute;lidos en la
+configuraci&oacute;n de registro de usuario seleccionado.</p>
+
+
+
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos:</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n:</td>
+<td align="left" valign="top" class="base">Inhabilitar</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="Security_enforceJava2Security_description"></a>Forzar la seguridad de Java 2</strong>
+</dt>
+<dd>Especifica si se debe habilitar o inhabilitar la comprobaci&oacute;n
+del permiso de seguridad de Java 2. Por omisi&oacute;n, se inhabilita la seguridad de Java 2. 
+No obstante, al habilitar la seguridad global, habilita autom&aacute;ticamente la seguridad de Java 2. Puede optar por inhabilitar la seguridad de Java 2, incluso si la seguridad global est&aacute; habilitada.
+<p>Cuando la seguridad de Java 2 est&aacute; habilitada y si una aplicaci&oacute;n necesita m&aacute;s permisos de seguridad de Java 2 que los que se otorgan mediante la pol&iacute;tica por omisi&oacute;n, es posible que la aplicaci&oacute;n no se ejecute correctamente hasta que se otorguen los permisos necesarios en el archivo <samp>app.policy</samp> o <samp>was.policy</samp> de la aplicaci&oacute;n.
+Las
+aplicaciones que no tienen todos los permisos generan excepciones
+AccessControl. Consulte
+InfoCenter y revise las secciones sobre <em>pol&iacute;tica din&aacute;mica y seguridad de Java 2</em> si no est&aacute; familiarizado con la seguridad de Java 2.</p>
+
+<p>Si no se reinicia el servidor despu&eacute;s de habilitar la seguridad global, puede inhabilitar la seguridad. Vaya al directorio <samp>$&lt;ra&iacute;z_instalaci&oacute;n&gt;\bin</samp>
+y ejecute el mandato <samp>wsadmin -conntype NONE</samp>. En el indicador
+de <samp>wsadmin&gt;</samp>, entre <samp>securityoff</samp> y escriba
+<samp>exit</samp> para volver a un indicador de mandatos. Reinicie el servidor con la seguridad
+inhabilitada para comprobar que no haya valores incorrectos en la consola
+administrativa.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos:</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n:</td>
+<td align="left" valign="top" class="base">Inhabilitado</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango:</td>
+<td align="left" valign="top" class="base">Habilitado o Inhabilitado</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="Security_useDomainQualifiedUserNames_description"></a>Utilizar nombres de usuario cualificados para dominio</strong>
+</dt>
+<dd>
+Especifica los
+nombres de usuario que deben cualificarse en el dominio de seguridad en
+el que residen. 
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos:</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n:</td>
+<td align="left" valign="top" class="base">Inhabilitado</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango:</td>
+<td align="left" valign="top" class="base">Habilitar o Inhabilitar</td>
+
+</tr>
+
+</table>
+
+
+<p>
+<img alt="[s&oacute;lo 5.0]" src="v50x.gif" border="0"><img alt="[Fix Pack 5.0.1]" src="v501x.gif" border="0">Cuando se especifica el <strong>Utilizar nombres de
+usuario cualificados para dominio</strong> desde el panel de configuraci&oacute;n
+de <strong>Seguridad &gt; Seguridad global</strong>, la llamada de tiempo de
+ejecuci&oacute;n a getCallerPrincipal() realizada desde un enterprise bean
+devuelve el nombre cualificado con el dominio a&ntilde;adido al principio dos
+veces. Por ejemplo, el formato devuelto es realm/realm/user.
+Cuando
+realice llamadas a la API, puede desechar el primer dominio que figura en
+el valor devuelto.
+La API del servlet getUserPrincipal() funciona correctamente.</p>
+
+</dd>
+<dt>
+<strong><a name="Security_cacheTimeout_description"></a>Tiempo de espera de antememoria </strong>
+</dt>
+<dd>Especifica el valor del tiempo de espera en segundos para la antememoria de seguridad. Este valor es un tiempo de espera relativo.
+<p>Si est&aacute; habilitada la seguridad de WebSphere Application Server, el
+tiempo de espera de antememoria de seguridad puede influir en el
+rendimiento. El par&aacute;metro tiempo de espera especifica la frecuencia con
+que deben renovarse las antememorias relacionadas con la seguridad. En la antememoria se coloca la informaci&oacute;n de seguridad correspondiente a los beans, los permisos y las credenciales. Cuando ha transcurrido el tiempo de espera de antememoria, toda la
+informaci&oacute;n que se ha colocado en la antememoria deja de ser v&aacute;lida. Las posteriores peticiones de informaci&oacute;n dan como resultado una b&uacute;squeda en la base de datos. En ocasiones, la obtenci&oacute;n de informaci&oacute;n hace necesaria la
+invocaci&oacute;n de una autenticaci&oacute;n nativa o de v&iacute;nculo con el protocolo de acceso de directorios ligero (Lightweight Directory Access Protocol -
+LDAP). Ambas invocaciones son operaciones de rendimiento considerable. 
+Determine el mejor punto de equilibrio para la aplicaci&oacute;n, teniendo en
+cuenta los patrones de uso y las necesidades de seguridad del sitio.</p>
+
+<p>En una prueba de rendimiento de 20 minutos, al establecer el tiempo de espera de antememoria de modo que no se produjera un tiempo de espera
+transcurrido se mejor&oacute; el rendimiento en un 40%.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos:</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unidades:</td>
+<td align="left" valign="top" class="base">Segundos</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n:</td>
+<td align="left" valign="top" class="base">600</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango:</td>
+<td align="left" valign="top" class="base">Mayor que 30 segundos</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="Security_issuePermissionWarning_description"></a>Emitir aviso de permiso</strong>
+</dt>
+<dd>Especifica que, cuando est&aacute; habilitada la opci&oacute;n <em>Emitir aviso de permiso</em>, el
+tiempo de ejecuci&oacute;n de seguridad emite un aviso si se otorga alg&uacute;n permiso personalizado a las
+aplicaciones durante el despliegue o inicio de aplicaciones. Los permisos personalizados son permisos definidos por las aplicaciones de usuario, no son permisos JDK.
+Los permisos JDK son permisos en <samp>package java.*</samp> y <samp>javax.*</samp>.
+<p>El producto WebSphere da soporte a la gesti&oacute;n de los archivos de pol&iacute;ticas. Existen varios archivos de pol&iacute;ticas en este producto, unos est&aacute;ticos y otros din&aacute;micos. La pol&iacute;tica din&aacute;mica es una plantilla de permisos para un tipo concreto de recurso. No hay ninguna base de c&oacute;digo
+definida ni se utiliza ninguna base de c&oacute;digo relativa en la plantilla de
+pol&iacute;tica din&aacute;mica. La base de c&oacute;digo real se crea din&aacute;micamente a partir
+de la configuraci&oacute;n y los datos de tiempo de ejecuci&oacute;n.  El archivo <samp>filter.policy</samp> contiene una lista de permisos que no debe tener una aplicaci&oacute;n de acuerdo con la especificaci&oacute;n J2EE 1.3. Para obtener m&aacute;s informaci&oacute;n sobre permisos, consulte el art&iacute;culo Gesti&oacute;n de pol&iacute;ticas de seguridad de Java 2 en InfoCenter.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos:</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n:</td>
+<td align="left" valign="top" class="base">Inhabilitado</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango:</td>
+<td align="left" valign="top" class="base">Habilitar o Inhabilitar</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="Security_activeProtocol_description"></a>Protocolo activo </strong>
+</dt>
+<dd>Especifica el protocolo de autenticaci&oacute;n activo para las
+peticiones RMI IIOP (Remote Method Invocation over the Internet Inter-ORB
+Protocol) cuando la seguridad est&aacute; habilitada. El aviso de permiso
+correspondiente aparece si una aplicaci&oacute;n requiere un permiso de Java 2
+que normalmente no debe concederse. En releases anteriores el protocolo
+SAS (Security
+Authentication Service),  era el &uacute;nico que estaba disponible. 
+<p>Un protocolo OMG (Object Management Group) llamado CSIv2 (Common Secure
+Interoperability Version 2) da soporte a una mayor interoperatividad de proveedores y caracter&iacute;sticas adicionales. Si todos los servidores de su
+dominio de seguridad son de la versi&oacute;n 5, especifique <strong>CSI</strong> como
+protocolo. Si hay servidores
+3.x o 4.x,
+especifique <strong>CSI y SAS</strong>.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos:</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n:</td>
+<td align="left" valign="top" class="base">AMBOS</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango:</td>
+<td align="left" valign="top" class="base">CSI y SAS, CSI</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="Security_activeAuthMechanism_description"></a>Mecanismo de autenticaci&oacute;n activo </strong>
+</dt>
+<dd>Especifica el mecanismo de autenticaci&oacute;n activo cuando la seguridad est&aacute; habilitada.
+
+<p>WebSphere Application Server, Versi&oacute;n 5, proporciona
+los siguientes mecanismos de autenticaci&oacute;n: SWAM (Simple WebSphere
+Authentication Mechanism) y LTPA (Lightweight Third Party Authentication).</p>
+
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos:</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n:</td>
+<td align="left" valign="top" class="base">SWAM (WebSphere Application Server)</td>
+
+</tr>
+
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango:</td>
+<td align="left" valign="top" class="base">SWAM, LTPA</td>
+
+</tr>
+
+</table>
+
+
+</dd>
+<dt>
+<strong><a name="Security_activeUserRegistry_description"></a>Registro de usuario activo</strong>
+</dt>
+<dd>Especifica el registro de usuario activo cuando la seguridad est&aacute; habilitada.
+<p>Puede configurar valores para uno de los siguientes registros de usuario:<ul>
+
+
+<li>Sistema operativo local</li>
+
+<li>registro de usuarios LDAP. Los valores del registro de usuarios LDAP se utilizan cuando los usuarios y grupos residen en un directorio LDAP externo. Cuando se habilite la seguridad y se modifique una de estas propiedades, vaya al panel <strong>Seguridad Global</strong> y pulse <strong>Aplicar</strong> o <strong>Aceptar</strong> para validar los cambios.</li>
+
+<li>Registro de usuario personalizado</li>
+
+</ul>
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos:</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n:</td>
+<td align="left" valign="top" class="base">Sistema operativo local</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango:</td>
+<td align="left" valign="top" class="base">Sistema operativo local, LDAP, Personalizado</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="Security_fips"></a>Utilizar FIPS</strong>
+            &nbsp;
+            <img alt="[Fix Pack 5.0.2 y posterior]" src="v502.gif" border="0"></dt>
+<dd>Habilita el uso de algoritmos criptogr&aacute;ficos aprobados por FIPS (Federal
+Information Processing Standard). 
+<p>Cuando <strong>Utilizar FIPS</strong> est&aacute; habilitado, la implementaci&oacute;n LTPA (Lightweight Third Party Authentication) utiliza IBMJCEFIPS. 
+IBMJSSEFIPS da soporte a los algoritmos criptogr&aacute;ficos para DES,
+TRIPLE DES y AES aprobados por FIPS (Federal Information Processing
+Standard). Aunque las claves LTPA son compatibles con versiones anteriores de releases de WebSphere Application Server, el s&iacute;mbolo LTPA no es compatible con releases anteriores.</p>
+
+<p>WebSphere Application Server proporciona un proveedor JSSE (Java
+Secure Socket Extension) aprobado por FIPS denominado IBMJSSEFIPS. Un
+archivo JSSE aprobado por FIPS necesita el protocolo TLS (Transport
+Layer Security), ya que no es compatible con el protocolo SSL (Transport Layer Security). Si selecciona el recuadro de selecci&oacute;n <strong>Utilizar FIPS</strong> antes
+de especificar un proveedor de JSSE aprobado por FIPS y un protocolo TLS, aparece el siguiente
+mensaje de error en la parte superior del panel <strong>Seguridad global</strong>:<pre class="program">
+<font style="font-family: arial"><samp>La pol&iacute;tica de seguridad se establece de modo que
+se utilicen &uacute;nicamente algoritmos criptogr&aacute;ficos aprobados por FIPS.
+No obstante, es posible que al menos una configuraci&oacute;n SSL no est&eacute;
+utilizando un proveedor JSSE aprobado por FIPS. En estos casos, no se utilizar&aacute;n algoritmos criptogr&aacute;ficos aprobados por FIPS.
+</samp></font>
+</pre>Para corregir este problema, configure el proveedor de JSSE y el protocolo de
+seguridad en el panel <strong>Repertorios de configuraci&oacute;n SSL</strong> realizando una de las siguientes tareas:<ul>
+
+<li>Pulse <strong>Seguridad &gt; SSL</strong> y modifique una configuraci&oacute;n
+existente</li>
+
+<li>Pulse <strong>Nuevo</strong> y cree una nueva configuraci&oacute;n</li>
+
+</ul>
+</p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informaci&oacute;n relacionada</strong>
+</p>
+<a href="rcon_buttons.html">Botones de la consola de administraci&oacute;n</a>
+<br>
+
+<a href="rcon_pageusage.html">Caracter&iacute;sticas de la p&aacute;gina de la consola administrativa</a>
+<br>
+
+<a href="rcon_scope.html">Valores de &aacute;mbito de la consola administrativa</a>
+<br>
+
+<a href="rcon_filter.html">Valores de filtro de la consola administrativa</a>
+<br>
+
+<a href="rcon_preferences.html">Valores de preferencias de la consola administrativa</a>
+<br>
+
+</div>
+</body>
+</html>

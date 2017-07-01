@@ -1,0 +1,423 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Impostazioni del servizio ORB (Object Request Broker) nella console di gestione</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uorbsetg"></a>
+<h2>Impostazioni del servizio ORB (Object Request Broker) nella console di gestione</h2>
+
+<p>Utilizzare questa pagina per configurare il servizio ORB (Object Request Broker) di Java. </p>
+
+<p>Per visualizzare questa pagina della console di gestione, fare clic su <strong>Server</strong>
+<strong>&gt;</strong> <strong>Server delle applicazioni</strong> <strong>&gt;</strong> <em>serverName</em> <strong>&gt;</strong>
+<strong>Servizio ORB</strong>.</p>
+
+<p>Sono disponibili diverse impostazioni per il controllo dell'elaborazione ORB (Object Request Broker) interna. &Egrave; possibile utilizzare queste impostazioni per migliorare le
+prestazioni dell'applicazione nel caso in cui le applicazioni contengano i bean enterprise. &Egrave; possibile modificare queste impostazioni per il server predefinito o per qualsiasi server delle applicazioni configurato nel dominio di gestione.</p>
+
+<div>
+<p>
+<strong>Scheda Configurazione</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="ObjectRequestBroker_requestTimeout_description"></a>Timeout di richiesta</strong>
+            &nbsp;
+            </dt>
+<dd>Specifica il numero di secondi di attesa prima del timeout su un messaggio di
+richiesta.
+<p>Per essere utilizzato nello script della riga comandi, il nome completo di questa
+propriet&agrave; di sistema &egrave; com.ibm.CORBA.RequestTimeout.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">int</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&agrave;</td>
+<td align="left" valign="top" class="base">Secondi</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">180</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo</td>
+<td align="left" valign="top" class="base">Da 0 a 300</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ObjectRequestBroker_requestRetriesCount_description"></a>Numero di tentativi di richiesta</strong>
+            &nbsp;
+            </dt>
+<dd>Specifica il numero di tentativi di invio di una richiesta da parte dell'ORB
+in caso di mancata risposta da parte del server. Ritentare talvolta consente di risolvere eventuali errori transitori sulla rete.
+<p>Per essere utilizzato nello script della riga comandi, il nome completo di questa
+propriet&agrave; di sistema &egrave; com.ibm.CORBA.requestRetriesCount.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">int</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">1</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo</td>
+<td align="left" valign="top" class="base">Da 1 a 10</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ObjectRequestBroker_requestRetriesDelay_description"></a>Ritardo tentativo richiesta</strong>
+            &nbsp;
+            </dt>
+<dd>Specifica il numero in millisecondi tra i tentativi di richiesta.
+<p>Per essere utilizzato nello script della riga comandi, il nome completo di questa
+propriet&agrave; di sistema &egrave; com.ibm.CORBA.requestRetriesDelay.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">int</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&agrave;</td>
+<td align="left" valign="top" class="base">Millisecondi</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">0</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo</td>
+<td align="left" valign="top" class="base">Da 0 a 60</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ObjectRequestBroker_connectionCacheMaximum_description"></a>Dimensione massima della cache delle connessioni</strong>
+            &nbsp;
+            </dt>
+<dd>Specifica il numero massimo di connessioni consentite dalla capacit&agrave; della
+cache delle connessioni al servizio. Se sono presenti molti client simultanei collegati all'ORB lato server, &egrave; possibile aumentare questo parametro per supportare il sovraccarico fino a 1000 client.
+<p>Per essere utilizzato nello script della riga comandi, il nome completo di questa
+propriet&agrave; di sistema &egrave; com.ibm.CORBA.MaxOpenConnections.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Numero intero</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&agrave;</td>
+<td align="left" valign="top" class="base">Connessioni</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">240</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ObjectRequestBroker_connectionCacheMinimum_description"></a>Dimensione minima della cache delle connessioni</strong>
+            &nbsp;
+            </dt>
+<dd>Specifica il numero minimo di connessioni consentite dalla capacit&agrave; della
+cache delle connessioni al servizio.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Numero intero</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&agrave;</td>
+<td align="left" valign="top" class="base">Connessioni</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">100</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ObjectRequestBroker_commTraceEnabled_description"></a>Traccia ORB</strong>
+            &nbsp;
+            </dt>
+<dd>Abilita la traccia dei messaggi GIOP ORB.
+<p>Questa impostazione influisce su due propriet&agrave; di sistema: com.ibm.CORBA.Debug e
+com.ibm.CORBA.CommTrace.
+Se si impostano queste propriet&agrave; tramite lo script della riga comandi, &egrave; necessario
+impostare entrambe su <samp>true</samp> in modo da abilitare la traccia dei messaggi GIOP.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Valore booleano</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">Non abilitato (<samp>false</samp>)</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ObjectRequestBroker_locateRequestTimeout_description"></a>Timeout di richiesta posizione</strong>
+            &nbsp;
+            </dt>
+<dd>Specifica il numero di secondi di attesa prima del timeout su un messaggio
+LocateRequest.
+<p>Per essere utilizzato nello script della riga comandi, il nome completo di questa
+propriet&agrave; di sistema &egrave; com.ibm.CORBA.LocateRequestTimeout.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">int</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&agrave;</td>
+<td align="left" valign="top" class="base">Secondi</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">180</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo</td>
+<td align="left" valign="top" class="base">Da 0 a 300</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ObjectRequestBroker_forceTunnel_description"></a>Forza tunneling</strong>
+            &nbsp;
+            </dt>
+<dd>Controlla in che modo l'ORB tenta di utilizzare l'operazione di tunnel HTTP.
+<p>Per accesso diretto, il nome completo di questa propriet&agrave; &egrave; com.ibm.CORBA.ForceTunnel.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base"><samp>MAI</samp></td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo</td>
+<td align="left" valign="top" class="base">I valori validi sono <samp>SEMPRE</samp>, <samp>MAI</samp> o <samp>QUANDO RICHIESTO</samp>.</td>
+
+</tr>
+
+</table>
+
+<p>Ulteriori informazioni sui valori validi vengono indicati di seguito:<dl>
+
+<dt>
+<strong>SEMPRE</strong>
+</dt>
+<dd>Utilizza immediatamente l'operazione di tunnel HTTP, senza tentare per prima cosa i collegamenti TCP.</dd>
+
+<dt>
+<strong>MAI</strong>
+</dt>
+<dd>Disabilita l'operazione di tunnel HTTP. Se un collegamento TCP non riesce, viene visualizzata un'eccezione del sistema CORBA
+(COMM_FAILURE).</dd>
+
+<dt>
+<strong>QUANDO RICHIESTO</strong>
+</dt>
+<dd>Utilizza l'operazione di tunnel HTTP se i collegamenti TCP non riescono.</dd>
+
+</dl>
+</p>
+
+</dd>
+<dt>
+<strong><a name="ObjectRequestBroker_tunnelAgentURL_description"></a>URL agente tunnel</strong>
+            &nbsp;
+            </dt>
+<dd>Specifica l'URL del servlet utilizzato per supportare l'operazione di
+tunnelling HTTP.
+<p>Deve essere un URL creato in modo appropriato, come ad esempio <samp>http://w3.mycorp.com:81/servlet/com.ibm.CORBA.services.IIOPTunnelServlet</samp> oppure,
+per gli applet, <samp>http://applethost:port/servlet/com.ibm.CORBA.services.IIOPTunnelServlet</samp>.
+Se viene impostata l'<strong>operazione di tunnel HTTP</strong>, questo campo &egrave; obbligatorio.</p>
+
+<p>Per essere utilizzato nello script della riga comandi, il nome completo di questa
+propriet&agrave; di sistema &egrave; com.ibm.CORBA.TunnelAgentURL.</p>
+
+</dd>
+<dt>
+<strong><a name="ObjectRequestBroker_noLocalCopies_description"></a>Invio per riferimento</strong>
+            &nbsp;
+            </dt>
+<dd>Specifica in che modo gli ORB inviano i parametri. Se abilitato, l'ORB invia i parametri per riferimento invece che per valore, evitando cos&igrave; di eseguire una copia dell'oggetto. Se invio per riferimento non &egrave; abilitato, i parametri vengono copiati sullo stack prima di effettuare qualsiasi chiamata al metodo remoto, operazione che pu&ograve; essere molto dispendiosa. 
+<p>Se il client EJB e il server EJB vengono installati nella stessa istanza di WebSphere
+Application Server e il client e il server utilizzano le interfacce remote, l'abilitazione di
+Invio per riferimento pu&ograve; migliorare le prestazioni del 50%. Invio per riferimento migliora le prestazioni solo quando i tipi oggetto non-primitive vengono inviati come parametri.
+Quindi, int e floats vengono copiati sempre, indipendentemente dal modello di chiamata.</p>
+
+<p>Abilitare questa propriet&agrave; con cautela, potrebbe verificarsi una funzione imprevista.
+Se un riferimento oggetto viene modificato dal metodo remoto, la modifica potrebbe essere
+visualizzata dal chiamante.</p>
+
+<p>Per essere utilizzato nello script della riga comandi, il nome completo di questa propriet&agrave;
+di sistema &egrave; com.ibm.CORBA.iiop.noLocalCopies.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Valore booleano</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">Non abilitato (false)</td>
+
+</tr>
+
+</table>
+
+<p>L'uso di quest'opzione per i bean enterprise con le interfacce remote non rispetta la specifica EJB, versione 2.0 (vedere la sezione 5.4). I riferimenti a oggetti inoltrati ai metodi EJB o ai metodi home EJB non vengono copiati e possono essere suscettibili ad alterazioni.</p>
+
+<p>Considerare il seguente esempio:<pre>Iterator iterator = collection.iterator();
+MyPrimaryKey pk = new MyPrimaryKey();
+while (iterator.hasNext()) {
+   pk.id = (String) iterator.next();
+   MyEJB myEJB = myEJBHome.findByPrimaryKey(pk);
+}</pre>
+</p>
+
+<p>In questo esempio, un riferimento allo stesso oggetto MyPrimaryKey
+viene inoltrato a WebSphere Application Server ogni volta con un valore ID diverso. L'esecuzione di questo codice con Invio-per-riferimento <samp>abilitato</samp>, provoca un
+problema all'interno del server delle applicazioni a causa di pi&ugrave; bean enterprise che fanno
+riferimento allo stesso oggetto MyPrimaryKey. Per evitare questo problema, impostare la propriet&agrave; di sistema com.ibm.websphere.ejbcontainer.allowPrimaryKeyMutation su <samp>true</samp> quando viene abilitato Invio-per-riferimento. L'impostazione di Invio per riferimento su
+<samp>true</samp> determina la creazione di una copia locale dell'oggetto PrimaryKey da parte del contenitore EJB. Di conseguenza, si perde una piccola parte dei vantaggi alle prestazioni
+offerti dall'impostazione di Invio per riferimento.</p>
+
+<p>Come regola generale, &egrave; necessario esaminare il codice applicazione che inoltra un
+riferimento oggetto come un parametro a un metodo bean enterprise o a un metodo home EJB per
+determinare se il trasferimento di tale riferimento oggetto pu&ograve; causare la perdita dell'integrit&agrave; dei dati o altri
+problemi.</p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informazioni correlate</strong>
+</p>
+<a href="rcon_buttons.html">Pulsanti della console di gestione</a>
+<br>
+
+<a href="uejb_rthrd.html">Impostazioni del lotto thread</a>
+<br>
+
+</div>
+</body>
+</html>

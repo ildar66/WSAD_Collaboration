@@ -1,0 +1,56 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Web 模块设置</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uweb_rwebmc"></a>
+<h2>Web 模块设置</h2>
+
+<p> 使用此页面配置 Web 模块设置。</p>
+
+<p>通过遍历管理控制台中的以下路径访问此页面：</p>
+
+<pre>
+<strong>应用程序</strong> &gt; <strong>企业应用程序</strong> &gt; <em>application_instance</em> &gt; <strong>Web 模块</strong>
+</pre>
+
+<dl>
+<dt>
+<strong><a name="rwebm_uri"></a>URI</strong>
+</dt>
+<dd>指定当相对于应用程序 URL 解析时，指定文件系统上的内容的模块归档位置的 URI。如果模块作为已部署应用程序或企业归档（EAR）文件的一部分封装时，此 URI 必须与应用程序部署描述符中的模块引用 URI 匹配。
+</dd>
+<dt>
+<strong><a name="rwebm_name"></a>名称</strong>
+</dt>
+<dd>指定模块唯一的显示名称。</dd>
+<dt>
+<strong><a name="rweb_altdd"></a>备用 DD</strong>
+</dt>
+<dd>指定备用部署描述符文件的文件名，该文件用于在模块 JAR 文件中代替原始部署描述符文件。
+<p> 此文件是部署描述符文件的<em>组装后</em>版本。您可编辑原始部署描述符文件以解析相关性和安全性信息。指定使用备用部署描述符将使您能保持原始部署描述符文件的完整。</p>
+
+<p>
+<em>备用 DD</em> 属性必须是相对于模块根目录的部署描述符文件的全路径名。按照约定，此文件位于 <samp>ALT-INF</samp> 目录中。如果未指定此属性，则从模块 JAR 文件中读部署描述符文件。</p>
+
+</dd>
+<dt>
+<strong><a name="rwebm_wt"></a>启动权值</strong>
+</dt>
+<dd>指定模块启动的顺序。
+权值较低的模块在权值较高的模块之前启动。</dd>
+<dt>
+<strong><a name="rwebm_webinf"></a>首选 WEB-INF 类</strong>
+</dt>
+<dd>指定在装入任何其它类之前先在 WEB-INF 中装入的类。建议实现应用程序类装入程序，这样 WAR 文件内封装的类和资源就能在容器范围的库 JAR 文件中驻留的类和资源之前先装入。</dd>
+<dt>
+<strong><a name="rwebm_init"></a>初始状态</strong>
+</dt>
+<dd>指定服务器启动时此应用程序的缺省状态。</dd>
+</dl>
+</body>
+</html>

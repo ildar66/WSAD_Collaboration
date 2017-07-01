@@ -1,0 +1,292 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Impostazioni del server delle applicazioni</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="urun_rappsvr"></a>
+<h2>Impostazioni del server delle applicazioni</h2>
+
+<p>Utilizzare questa pagina per visualizzare o modificare le impostazioni di un'istanza del server delle applicazioni.</p>
+
+<p>Per visualizzare questa pagina della console di gestione, fare lic su <strong>Server &gt; Server delle applicazioni &gt; </strong><em>nome_server</em>.</p>
+
+<p>La scheda <strong>Configurazione</strong> fornisce campi modificabili mentre la scheda
+<strong>Runtime</strong> offre informazioni di sola lettura. La scheda <strong>Runtime</strong> &egrave;
+disponibile soltanto quando il server &egrave; in esecuzione.</p>
+
+<div>
+<p>
+<strong>Scheda Configurazione</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="Server_name_description"></a>Nome</strong>
+</dt>
+<dd>Specifica un nome logico del server. I nomi server all'interno di un nodo devono
+essere univoci.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">server1</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="StateManageable_initialState_description"></a>Stato iniziale</strong>
+</dt>
+<dd>Specifica lo stato di esecuzione del componente, necessario quando il server viene
+avviato per la prima volta.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">Avviato</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationServer_classloaderPolicy_description"></a>Politica del programma di caricamento classi dell'applicazione</strong>
+</dt>
+<dd>Specifica se utilizzare un solo programma di caricamento classi per caricare tutte le applicazioni o usare un programma di caricamento classi diverso per ogni applicazione.
+<p>Le opzioni sono SINGOLO e MULTIPLO. Il valore predefinito &egrave; quello di utilizzare un
+programma di caricamento classi separato per ogni applicazione (MULTIPLO).</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">MULTIPLO</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationServer_classloaderMode_description"></a>Modalit&agrave; programma di caricamento classi dell'applicazione</strong>
+</dt>
+<dd>Specifica se il programma di caricamento classi deve eseguire una ricerca prima nel
+programma di caricamento classi parent o in quello dell'applicazione per caricare una classe. Lo standard per i programmi di caricamento classi JDK e WebSphere &egrave; PARENT_FIRST.
+Se si specifica PARENT_LAST, l'applicazione pu&ograve; ignorare le classi contenute nel programma di
+caricamento classi parent, ma quest'azione pu&ograve; potenzialmente generare un'eccezione
+ClassCastException o un errore LinkageErrors se si utilizzano insieme le classi sovrascritte e
+le classi non sovrascritte.
+<p>Le opzioni sono PARENT_FIRST e PARENT_LAST. Per caricare una classe, il valore predefinito
+&egrave; quello di eseguire una ricerca nel programma di caricamento classi parent prima di
+effettuare tale operazione in quello dell'applicazione.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">PARENT_FIRST</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Scheda Runtime</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="rappsvr-rt1"></a>ID processo</strong>
+            &nbsp;
+            </dt>
+<dd>Specifica una stringa che identifica il processo.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="rappsvr-rt2"></a>Nome cella</strong>
+            &nbsp;
+            </dt>
+<dd>Specifica il nome della cella del server delle applicazioni.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base"><em>nome_host</em>Network</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="rappsvr-rt3"></a>Nome nodo</strong>
+            &nbsp;
+            </dt>
+<dd>Specifica il nome del nodo del server delle applicazioni.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="rappsvr-rt4"></a>Stato</strong>
+            &nbsp;
+            </dt>
+<dd>Indica se lo stato del server delle applicazioni &egrave; avviato o arrestato.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">Avviato</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informazioni correlate</strong>
+</p>
+<a href="rcon_buttons.html">Pulsanti della console di gestione</a>
+<br>
+
+<a href="rcon_pageusage.html">Funzioni della pagina della console di gestione</a>
+<br>
+
+<a href="uagt_radmin.html">Impostazioni del servizio Administration</a>
+<br>
+
+<a href="urun_rclassloader.html">Raccolta programmi di caricamento classi</a>
+<br>
+
+<a href="urun_rapp.html">Raccolta applicazioni enterprise</a>
+<br>
+
+<a href="urun_rsvr_services.html">Raccolta di servizi personalizzati</a>
+<br>
+
+<a href="utrb_debugsvc.html">Dettagli sul Servizio di debug</a>
+<br>
+
+<a href="udyn_rcachesettings.html">Impostazione dei servizi di cache dinamica</a>
+<br>
+
+<a href="uejb_recnt.html">Impostazioni del contenitore EJB</a>
+<br>
+
+<a href="urun_rendpoint.html">Raccolta di endpoint</a>
+<br>
+
+<a href="utrb_servicelogs.html">Impostazioni log di servizio IBM</a>
+<br>
+
+<a href="utrb_logtrace.html">Impostazioni log e traccia</a>
+<br>
+
+<a href="umb_smlp.html">Raccolta porte listener di messaggi</a>
+<br>
+
+<a href="uorb_rsetg.html">Impostazioni del servizio ORB (Object Request Broker) nella console di gestione</a>
+<br>
+
+<a href="uprf_rmonitorsettings.html">Impostazioni del servizio di monitoraggio delle prestazioni</a>
+<br>
+
+<a href="urun_rconfproc.html">Impostazioni di definizione processo</a>
+<br>
+
+<a href="urun_rproperty.html">Raccolta di propriet&agrave; personalizzate</a>
+<br>
+
+<a href="urun_rsvrcomp.html">Raccolta Componenti server</a>
+<br>
+
+<a href="utrb_traceservice.html">Impostazioni del servizio di traccia diagnostica</a>
+<br>
+
+<a href="udat_contranserv.html">Impostazioni del servizio transazioni</a>
+<br>
+
+<a href="uweb_rcont.html">Impostazioni del contenitore Web</a>
+<br>
+
+</div>
+</body>
+</html>

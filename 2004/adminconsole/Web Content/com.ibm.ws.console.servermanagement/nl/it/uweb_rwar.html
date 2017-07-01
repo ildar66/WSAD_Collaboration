@@ -1,0 +1,83 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Impostazioni di Distribuzione del modulo Web</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uweb_rwar"></a>
+<h2>Impostazioni di Distribuzione del modulo Web</h2>
+
+<p> Utilizzare questa pagina per configurare un'istanza di distribuzione del
+modulo Web. </p>
+
+<p>Per visualizzare questa pagina della console di gestione, fare clic su <strong>Applicazioni</strong> &gt; <strong>Applicazioni Enterprise</strong> &gt; <em>istanza_applicazione</em> &gt; <strong>Moduli Web</strong> &gt; <em>istanza_modulo Web</em>.</p>
+
+<dl>
+<dt>
+<strong><a name="rwar_uri"></a>URI</strong>
+</dt>
+<dd>Specifica un URI che, quando viene determinato come relativo all'URL
+dell'applicazione,
+specifica la posizione dei contenuti dell'archivio di un modulo su un file system.
+L'URI
+deve corrispondere all'URI di ModuleRef nel descrittore di distribuzione di
+un'applicazione, se il modulo &egrave; stato incluso come parte di un'applicazione sviluppata o
+di file EAR (enterprise archive).  </dd>
+<dt>
+<strong><a name="rwar_altdd"></a>DD alternato</strong>
+</dt>
+<dd>Specifica il nome di un file alternativo del descrittore di distribuzione
+da utilizzare al posto di quello originale nel file JAR del modulo.
+<p> Questo file &egrave; la versione <em>post-assemblaggio</em> del file del descrittore di distribuzione. &Egrave; possibile modificare il
+file del descrittore di distribuzione originale per risolvere le informazioni sulle dipendenze e sulla sicurezza.  La specifica dell'uso del descrittore di distribuzione alternativo mantiene
+intatto il file originale del descrittore di distribuzione.</p>
+
+<p>Il valore della propriet&agrave; del <em>DD alternativo</em> deve corrispondere al nome
+percorso completo del file del descrittore di distribuzione, relativo
+alla directory root del modulo.
+ Per convenzione, il file si trova nella directory <samp>ALT-INF</samp>. Se questa propriet&agrave; non &egrave; specificata, il file del
+descrittore di distribuzione viene letto dal file JAR del modulo.</p>
+
+</dd>
+<dt>
+<strong><a name="rwar_wt"></a>Peso di avvio</strong>
+</dt>
+<dd>Specifica l'ordine in cui sono avviati i moduli.  I moduli con relazione minore vengono avviati prima di quelli con relazione maggiore.</dd>
+<dt>
+<strong><a name="rwar_classloaderMode_description"></a>Modalit&agrave; del programma di caricamento classi</strong>
+</dt>
+<dd>Specifica se il programma di caricamento classi deve eseguire una ricerca prima nel
+programma di caricamento classi parent o in quello dell'applicazione per caricare una classe. Lo standard per i programmi di caricamento classi JDK e WebSphere &egrave; PARENT_FIRST.
+Se si specifica PARENT_LAST, l'applicazione pu&ograve; ignorare le classi contenute nel programma di
+caricamento classi parent, ma quest'azione pu&ograve; potenzialmente generare un'eccezione
+ClassCastException o un errore LinkageErrors se si utilizzano insieme le classi sovrascritte e
+le classi non sovrascritte.
+<p>Le opzioni sono PARENT_FIRST e PARENT_LAST. Per caricare una classe, il valore predefinito
+&egrave; quello di eseguire una ricerca nel programma di caricamento classi parent prima di
+effettuare tale operazione in quello dell'applicazione.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">PARENT_FIRST</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</body>
+</html>

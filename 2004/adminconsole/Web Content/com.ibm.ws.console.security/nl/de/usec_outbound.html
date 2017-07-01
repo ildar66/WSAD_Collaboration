@@ -1,0 +1,212 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Einstellungen f&uuml;r Authentifizierung abgehender CSI-Anforderungen</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecoutbound"></a>
+<h2>
+<img alt="[Fixpack 5.0.1 und h&ouml;her]" src="v501.gif" border="0">Einstellungen f&uuml;r Authentifizierung abgehender CSI-Anforderungen</h2>
+
+<p>Verwenden Sie diese Seite, um die Funktionen festzulegen, die ein Server unterst&uuml;tzt, wenn
+er als Client f&uuml;r einen anderen Downstream-Server auftritt.
+</p>
+
+<p>Klicken Sie zum Anzeigen dieser Seite der Administrationskonsole auf
+<strong>Sicherheit &gt; Authentifizierungsprotokoll &gt; Abgehende CSI-Authentifizierung</strong>.</p>
+
+<p>Die Authentifizierungsfunktionen umfassen drei Authentifizierungsschichten, die parallel verwendet
+werden k&ouml;nnen:
+<dl>
+<dt>
+<strong>Transportschicht</strong>
+</dt>
+<dd>Die Transportschicht, die die niedrigste Schicht ist, kann ein
+SSL-Clientzertifikat (Secure Sockets Layer) als Identit&auml;t enthalten. </dd>
+<dt>
+<strong>Nachrichtenschicht</strong>
+</dt>
+<dd>Die Nachrichtenschicht kann eine Benutzer-ID und ein Kennwort oder ein
+authentifiziertes Token enthalten. </dd>
+<dt>
+<strong>Attributschicht</strong>
+</dt>
+<dd>Die Attributschicht kann ein Identit&auml;ts-Token enthalten, das eine Identit&auml;t von
+einem Upstream-Server darstellt und bereits authentifiziert ist.
+Die Attributschicht hat die h&ouml;chste Priorit&auml;t, gefolgt von der Nachrichtschicht und schlie&szlig;lich der
+Transportschicht. Wenn dieser Server Daten &uuml;ber alle drei Schichten sendet, wird nur die
+Attributschicht vom Downstream-Server verwendet. Das SSL-Clientzertifikat kann nur als Identit&auml;t verwendet
+werden, wenn es die einzige Information ist, die w&auml;hrend der Anforderung von abgehenden
+Verbindungen bereitgestellt
+wird. </dd>
+</dl>  
+</p>
+
+<div>
+<p>
+<strong>Register "Konfiguration"</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="BasicAuthentication_o_description"></a>Basisauthentifizierung</strong>
+</dt>
+<dd>Gibt an, ob eine Benutzer-ID und ein Kennwort vom Client zur
+Authentifizierung an den Server gesendet werden sollen. 
+<p>Dieser Authentifizierungstyp wird &uuml;ber die Nachrichtenschicht durchgef&uuml;hrt. Bei der
+Basisauthentifizierung wird auch
+ein Berechtigungs-Token von einer bereits authentifizierten Berechtigung delegiert, vorausgesetzt, der
+Berechtigungstyp kann weitergeleitet werden (z. B. LTPA, Lightweight Third Party Authentication). Dieses
+Authentifizierungsverfahren umfasst alle Authentifizierungen, die &uuml;ber die Nachrichtenschicht erfolgen, und
+gibt sowohl die Authentifizierung &uuml;ber Benutzer-ID und Kennwort sowie die Token-basierte Authentifizierung an.</p>
+
+<p>Wenn Sie die <strong>Basisauthentifizierung</strong> ausw&auml;hlen, m&uuml;ssen Sie angeben, ob die Authentifizierung das
+Merkmal "Erforderlich" oder "Unterst&uuml;tzt" hat. Wenn der Server bei Auswahl von <strong>Erforderlich</strong> versucht,
+abgehende Verbindungen zum Downstream-Server herzustellen, muss der Downstream-Server die
+Basisauthentifizierung f&uuml;r diesen Server unterst&uuml;tzen, damit eine Verbindung m&ouml;glich ist. Bei Auswahl von
+<strong>Unterst&uuml;tzt</strong> kann dieser Server die Basisauthentifizierung f&uuml;r einen Downstream-Server herstellen. Andere
+Methoden der Authentifizierung k&ouml;nnen durchgef&uuml;hrt werden, sofern welche konfiguriert sind. Bei Auswahl von <strong>Nie</strong> sendet
+dieser Server kein Nachrichtenschicht-Token an einen Downstream-Server. Ist f&uuml;r den Downstream-Server die
+Basisauthentifizierung erforderlich, wird nicht versucht, die Verbindung herzustellen.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ClientCertificateAuthentication_o_description"></a>Authentifizierung &uuml;ber Clientzertifikat</strong>
+</dt>
+<dd>Gibt an, ob ein Clientzertifikat &uuml;ber das konfigurierte KeyStore verwendet wird, um die
+Authentifizierung f&uuml;r den Server durchzuf&uuml;hren, wenn die SSL-Verbindung zwischen diesem Server und einem
+Downstream-Server hergestellt wird (vorausgesetzt, der Downstream-Server unterst&uuml;tzt die
+Authentifizierung &uuml;ber Clientzertifikate).
+<p>Die Verwendung der Authentifizierung mit Clientzertifikaten bietet in der Regel eine h&ouml;here Leistung als
+die Authentifizierung auf Nachrichtenebene, erfordert aber einige zus&auml;tzliche Konfigurationsschritte.
+Sie m&uuml;ssen z. B. sicherstellen, dass dieser
+Server ein pers&ouml;nliches Zertifikat und der Downstream-Server das
+Ausstellerzertifikat dieses Servers besitzt. </p>
+
+<p>Wenn Sie die Authentifizierung mit Clientzertifikaten ausw&auml;hlen, m&uuml;ssen Sie festlegen, ob diese
+erforderlich oder unterst&uuml;tzt ist.
+Bei Auswahl von <strong>Erforderlich</strong>
+kann dieser Server nur Verbindungen zu Downstream-Servern herstellen, f&uuml;r die die Authentifizierung mit
+Clientzertifikat ebenfalls konfiguriert wurde. Die Auswahl
+<strong>Unterst&uuml;tzt</strong> zeigt an, dass dieser Server die Authentifizierung &uuml;ber Clientzertifikate mit jedem
+Downstream-Server durchf&uuml;hrt, aber davon absehen kann, falls der Downstream-Server dies nicht unterst&uuml;tzt.
+Bei Auswahl von <strong>Nie</strong> f&uuml;hrt der Client keine
+Authentifizierung mit Clientzertifikat mit einem Downstream-Server durch.  Dadurch wird der Zugriff auf
+einen Downstream-Server, f&uuml;r den die Authentifizierung &uuml;ber Clientzertifikat erforderlich ist, verhindert.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="IdentityAssertion_o_description"></a>Zusicherung der Identit&auml;t</strong>
+</dt>
+<dd>Gibt an, ob beim Aufruf einer Downstream-Enterprise-Bean zwischen zwei Servern Identit&auml;ten
+ausgetauscht und best&auml;tigt werden sollen. 
+<p>Die zugesicherte Identit&auml;t stellt die Aufrufberechtigung dar, die durch den RunAs-Modus f&uuml;r die
+Enterprise-Bean
+festgelegt wird. Ist der RunAs-Modus <strong>Client</strong>, stimmt die Identit&auml;t mit der Clientidentit&auml;t &uuml;berein. 
+Ist der RunAs-Modus <strong>System</strong>, stimmt die Identit&auml;t mit der Serveridentit&auml;t &uuml;berein. Ist der RunAs-Modus
+<strong>Angegeben</strong>, entspricht die Identit&auml;t der angegebenen Identit&auml;t. Der empfangende Server empf&auml;ngt die
+Identit&auml;t in einem Identit&auml;ts-Token und empf&auml;ngt auch die Identit&auml;t des sendenden Servers in einem
+Clientauthentifizierungs-Token. Der empfangende Server &uuml;berpr&uuml;ft die Identit&auml;t des sendenden Servers, um
+sicherzustellen, dass die Identit&auml;t als vertrauensw&uuml;rdig eingestuft ist.  </p>
+
+<p>Wenn Sie in der Anzeige <strong>Abgehende CSIv2-Authentifizierung</strong> die Zusicherung der Identit&auml;t (Identity Assertion)
+festlegen, m&uuml;ssen Sie in derselben Anzeige die Basisauthentifizierung als "unterst&uuml;tzt" oder "erforderlich" definieren.
+Dies l&auml;sst die &Uuml;bermittlung der Serveridentit&auml;t zusammen mit dem Identit&auml;ts-Token zu, damit
+der empfangende Server dem sendenden Server <em>vertrauen</em> kann. Wenn Sie die Basisauthentifizierung
+nicht als unterst&uuml;tzt oder erforderlich definieren, wird keine Vertrauensbasis hergestellt, und die Zusicherung
+der Identit&auml;t schl&auml;gt fehlt.
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="StatefulSession_description"></a>Stateful-Sitzungen </strong>
+</dt>
+<dd>Gibt an, ob bei der Authentifizierung Sicherheitsdaten erneut verwendet werden
+sollen. Diese Option wird normalerweise verwendet, um die Leistung zu erh&ouml;hen. 
+<p>Beim ersten Kontakt zwischen einem Client und einem Server muss eine
+vollst&auml;ndige Authentifizierung durchgef&uuml;hrt werden.
+Alle nachfolgenden Kontakte mit g&uuml;ltigen Sitzungen verwenden jedoch die Sicherheitsinformationen erneut.
+Der Client &uuml;bergibt eine Kontext-ID an den Server, und die ID wird zum
+Lokalisieren der Sitzung verwendet. Die Kontext-ID wird der Verbindung
+zugeordnet, wodurch die Verbindung eine eindeutige Kennung erh&auml;lt. Wenn die Sicherheitssitzung ung&uuml;ltig und
+die Option f&uuml;r die Wiederholung der Authentifizierung aktiviert ist
+(Standardwert), invalidiert der
+clientseitige Sicherheits-Interceptor die clientseitige Sitzung und &uuml;bergibt
+die Anforderung transparent erneut. Beispiel: Die Sitzung ist nicht im Server vorhanden. Der Server schl&auml;gt fehl und nimmt
+die Operation wieder auf.
+</p>
+
+<p>Ist dieser Wert inaktiviert, m&uuml;ssen alle Methodenaufrufe erneut authentifiziert
+werden.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Zugeh&ouml;rige Informationen</strong>
+</p>
+<a href="rcon_buttons.html">Kn&ouml;pfe in der Adminstrationskonsole</a>
+<br>
+
+<a href="rcon_pageusage.html">Funktionen auf den Seiten der Administrationskonsole</a>
+<br>
+
+<a href="rcon_scope.html">Geltungsbereichseinstellungen f&uuml;r die Administrationskonsole</a>
+<br>
+
+<a href="rcon_filter.html">Filtereinstellungen f&uuml;r die Administrationskonsole</a>
+<br>
+
+<a href="rcon_preferences.html">Vorgaben f&uuml;r die Administrationskonsole</a>
+<br>
+
+</div>
+</body>
+</html>

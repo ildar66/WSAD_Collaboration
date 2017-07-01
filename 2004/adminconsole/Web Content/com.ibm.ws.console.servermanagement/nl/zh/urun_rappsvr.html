@@ -1,0 +1,281 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>应用程序服务器设置</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="urun_rappsvr"></a>
+<h2>应用程序服务器设置</h2>
+
+<p>使用此页面查看或更改服务器组件实例的设置。</p>
+
+<p>要查看此管理控制台页面，单击<strong>服务器 &gt; 应用程序服务器 &gt; </strong><em>server_name</em>。</p>
+
+<p>
+<strong>配置</strong>选项卡提供了可编辑字段，<strong>运行时</strong>选项卡提供了只读信息。<strong>运行时</strong>选项卡仅在服务器运行时可用。</p>
+
+<div>
+<p>
+<strong>&ldquo;配置&rdquo;选项卡</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="Server_name_description"></a>名称</strong>
+</dt>
+<dd>指定服务器的逻辑名。在节点中，服务器名必须是唯一的。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">server1</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="StateManageable_initialState_description"></a>初始状态</strong>
+</dt>
+<dd>指定服务器第一次启动时请求的组件执行状态。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">已启动</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationServer_classloaderPolicy_description"></a>应用程序类装入程序策略</strong>
+</dt>
+<dd>指定是否使用单个类装入程序装入所有应用程序，还是为每个应用程序使用不同的类装入程序。
+<p>选择为 SINGLE 和 MULTIPLE。缺省是为每个应用程序使用单个类装入程序（MULTIPLE）。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">MULTIPLE</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationServer_classloaderMode_description"></a>应用程序类装入方式</strong>
+</dt>
+<dd>指定类装入程序是否首先在父类装入程序或应用程序类装入程序中搜索来装入类。JDK 类装入程序和 WebSphere 类装入程序的标准为 PARENT_FIRST。通过指定 PARENT_LAST，您的应用程序可以重设包含在父类装入程序中的类，但如果您混合使用了覆盖的类和未覆盖的类，则此操作可能潜在地导致 ClassCastException 或 LinkageErrors。
+<p>选项是 PARENT_FIRST 和 PARENT_LAST。缺省是在应用程序类装入程序装入一个类中搜索之前，在父类装入程序中搜索。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">PARENT_FIRST</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>&ldquo;运行时&rdquo;选项卡</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="rappsvr-rt1"></a>进程标识</strong>
+            &nbsp;
+            </dt>
+<dd>指定标识进程的字符串。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="rappsvr-rt2"></a>单元名称</strong>
+            &nbsp;
+            </dt>
+<dd>指定应用程序服务器的单元名。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base"><em>host_name</em>Network</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="rappsvr-rt3"></a>节点名</strong>
+            &nbsp;
+            </dt>
+<dd>指定应用程序服务器的节点名。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="rappsvr-rt4"></a>状态</strong>
+            &nbsp;
+            </dt>
+<dd>表明应用程序服务器已启动或已停止。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">已启动</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>相关信息</strong>
+</p>
+<a href="rcon_buttons.html">管理控制台按钮</a>
+<br>
+
+<a href="rcon_pageusage.html">管理控制台页面功能</a>
+<br>
+
+<a href="uagt_radmin.html">管理服务设置</a>
+<br>
+
+<a href="urun_rclassloader.html">类装入程序集合</a>
+<br>
+
+<a href="urun_rapp.html">企业应用程序集合</a>
+<br>
+
+<a href="urun_rsvr_services.html">定制服务集合</a>
+<br>
+
+<a href="utrb_debugsvc.html">调试服务详细信息</a>
+<br>
+
+<a href="udyn_rcachesettings.html">动态高速缓存服务设置</a>
+<br>
+
+<a href="uejb_recnt.html">EJB 容器设置</a>
+<br>
+
+<a href="urun_rendpoint.html">端点集合</a>
+<br>
+
+<a href="utrb_servicelogs.html">IBM 服务日志设置</a>
+<br>
+
+<a href="utrb_logtrace.html">记录和跟踪设置</a>
+<br>
+
+<a href="umb_smlp.html">消息侦听器端口集合</a>
+<br>
+
+<a href="uorb_rsetg.html">管理控制台中的对象请求代理服务设置</a>
+<br>
+
+<a href="uprf_rmonitorsettings.html">性能监控服务设置</a>
+<br>
+
+<a href="urun_rconfproc.html">流程定义设置</a>
+<br>
+
+<a href="urun_rproperty.html">定制属性集合</a>
+<br>
+
+<a href="urun_rsvrcomp.html">服务器组件集合</a>
+<br>
+
+<a href="utrb_traceservice.html">诊断跟踪服务设置</a>
+<br>
+
+<a href="udat_contranserv.html">事务服务设置</a>
+<br>
+
+<a href="uweb_rcont.html">Web 容器设置</a>
+<br>
+
+</div>
+</body>
+</html>

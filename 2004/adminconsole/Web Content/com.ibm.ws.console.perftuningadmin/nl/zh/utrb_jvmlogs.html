@@ -1,0 +1,200 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>JVM 日志设置</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="JVMLogs_description"></a>
+<h2>JVM 日志设置</h2>
+
+<p>使用此页面查看和修改 Java 虚拟机（JVM）<samp>System.out</samp> 和 <samp>System.err</samp> 日志的设置。</p>
+
+<p>要查看此管理控制台页面，单击<strong>故障诊断 &gt; 日志和跟踪 &gt; <cite>服务器</cite> &gt; JVM 日志</strong>。</p>
+
+<div>
+<p>
+<strong>&ldquo;配置&rdquo;选项卡</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="system_out_file_description"></a>文件名</strong>
+</dt>
+<dd>指定此页面上所描述日志文件之一的名称。
+<p>第一个文件名字段指定 <samp>System.out</samp> 日志的名称。
+第二个文件名字段指定 <samp>System.err</samp> 文件的名称。</p>
+
+<p>按下&ldquo;运行时&rdquo;选项卡上的<strong>查看</strong>按钮，以查看所选日志文件的内容。</p>
+
+<p>为 <samp>System.out</samp> 日志或 <samp>System.err</samp> 日志指定的文件名必须具有下列值之一：<dl>
+
+<dt>
+<strong><em>文件名</em></strong>
+</dt>
+<dd>文件系统中的文件名称。建议您使用全限定文件名。如果文件名不是全限定的，则认为它是相对于服务器的当前工作目录。
+每个流都必须与一个专用文件一起配置。例如，您不能重定向 <samp>System.out</samp> 和 <samp>System.err</samp> 到同一个物理文件。<p>如果已存在包含此文件的目录，则运行服务器的用户标识需要具有对该目录的读／写访问权。如果不存在此目录，将用正确的许可权创建它。运行服务器的用户标识必须具有创建目录的权限。</p>
+</dd>
+
+<dt>
+<strong>console</strong>
+</dt>
+<dd>这是用于重定向流到相应进程流的特殊文件名。如果此值指定为 <samp>System.out</samp>，则此文件重定向到 <samp>stdout</samp>。如果此值指定为 <samp>System.err</samp>，则文件重定向到 <samp>stderr</samp>。</dd>
+
+<dt>
+<strong>none</strong>
+</dt>
+<dd>废弃所有写入流的数据。指定<strong>无</strong>等价于重定向流到 Unix 系统上的 dev/null。</dd>
+
+</dl>
+</p>
+
+</dd>
+<dt>
+<strong><a name="system_out_file_formatting_description"></a>文件格式</strong>
+</dt>
+<dd>指定用于保存 <samp>System.out</samp> 文件的格式。</dd>
+<dt>
+<strong><a name="log_file_rotation"></a>日志文件循环</strong>
+</dt>
+<dd>
+
+<p>使用此配置属性集配置要自管理的 <samp>System.out</samp> 或 <samp>System.err</samp> 日志文件。</p>
+
+<p>自管理日志文件将消息写入文件，直到达到时间或大小标准。在指定的时间或当文件达到指定大小时，将临时暂挂记录，而日志文件滚动，这涉及关闭和重命名已保存的文件。新的已保存文件名基于原始文件名，加上时间戳记限定符以表明发生重命名的时间。一旦重命名完成，以原始名称命名的新的空日志文件重新打开，并继续记录。日志文件滚动后所有消息保留，尽管单个消息可分割成已保存文件和当前文件。</p>
+
+<p>如果相应的流重定向到文件，那么您只能配置日志为自管理。<dl>
+
+<dt>
+<strong>文件大小</strong>
+</dt>
+<dd>单击此属性使日志文件基于文件的大小来管理自已。当文件达到您在最大大小字段中指定的所指定大小时，发生自动滚动。</dd>
+
+<dt>
+<strong>最大大小</strong>
+</dt>
+<dd>指定文件的最大大小（以兆字节计）。
+当文件达到此大小时，它滚动。<p>此属性仅在单击文件大小时才有效。</p>
+</dd>
+
+<dt>
+<strong>时间</strong>
+</dt>
+<dd>单击此属性使日志文件基于一天中的时间来管理自已。在启动时间字段中指定的时间上，字段滚动。</dd>
+
+<dt>
+<strong>启动时间</strong>
+</dt>
+<dd>指定一天的小时（从 1 到 24），应用程序服务器重新启动后，周期性滚动算法第一次开始的时间。算法在应用程序服务器启动时装入。一旦在（启动时间字段）小时上启动后，滚动算法每（重复时间字段）小时滚动文件。此滚动模式继续，而无须调整，直到应用程序服务器停止。</dd>
+
+<dt>
+<strong>重复时间</strong>
+</dt>
+<dd>指定小时数（从 1 到 24），发生周期性滚动的时间。</dd>
+
+<dt>
+<strong>重复时间</strong>
+</dt>
+<dd>指定小时数，在此时间后日志文件将滚动。有效值范围从 1 到 24。</dd>
+
+</dl>
+</p>
+
+<p>按大小，或按时间和大小配置要滚动的日志文件。单击<strong>文件大小</strong>和<strong>时间</strong>，以在第一次匹配标准时滚动文件。例如，如果重复时间字段为 5 小时，而最大文件大小为 2 MB，则文件每 5 小时滚动一次，除非它在间隔消逝前达到 2 MB。在大小滚动后，文件继续在每次间隔后滚动。</p>
+
+</dd>
+<dt>
+<strong><a name="max_historical_files"></a>最大历史日志文件数</strong>
+</dt>
+<dd>
+
+<p>指定要保持的历史上的（滚动的）文件的数目。流写入当前文件，直到它滚动。在滚动时，当前文件关闭，并另存为由当前名称加上滚动时间戳记组成的新名称。
+然后，流重新打开带有原始名称的新文件，并继续写。
+历史文件数从零增加到历史文件字段的最大数值。下一次滚动删除最旧的历史文件。</p>
+
+</dd>
+<dt>
+<strong><a name="installed_application_output"></a>安装的应用程序输出</strong>
+</dt>
+<dd>
+
+<p>指定产生于应用程序代码的 <samp>System.out</samp> 或 <samp>System.err</samp> 打印语句是否记录和格式化。<dl>
+
+<dt>
+<strong>显示应用程序打印语句</strong>
+</dt>
+<dd>单击此字段显示应用程序使用 <strong>print</strong> 和 <strong>println</strong> 流方法写入流的消息。WebSphere Application Server 系统消息总是出现。</dd>
+
+<dt>
+<strong>格式化打印语句</strong>
+</dt>
+<dd>单击此字段格式化格式化打印语句，象 WebSphere Application Server 系统消息一样。</dd>
+
+</dl>
+</p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>&ldquo;运行时&rdquo;选项卡</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="system_out_file_description"></a>文件名</strong>
+</dt>
+<dd>指定此页面上所描述日志文件之一的名称。
+<p>第一个文件名字段指定 <samp>System.out</samp> 日志的名称。
+第二个文件名字段指定 <samp>System.err</samp> 文件的名称。</p>
+
+<p>按下&ldquo;运行时&rdquo;选项卡上的<strong>查看</strong>按钮，以查看所选日志文件的内容。</p>
+
+<p>为 <samp>System.out</samp> 日志或 <samp>System.err</samp> 日志指定的文件名必须具有下列值之一：<dl>
+
+<dt>
+<strong><em>文件名</em></strong>
+</dt>
+<dd>文件系统中的文件名称。建议您使用全限定文件名。如果文件名不是全限定的，则认为它是相对于服务器的当前工作目录。
+每个流都必须与一个专用文件一起配置。例如，您不能重定向 <samp>System.out</samp> 和 <samp>System.err</samp> 到同一个物理文件。<p>如果已存在包含此文件的目录，则运行服务器的用户标识需要具有对该目录的读／写访问权。如果不存在此目录，将用正确的许可权创建它。运行服务器的用户标识必须具有创建目录的权限。</p>
+</dd>
+
+<dt>
+<strong>console</strong>
+</dt>
+<dd>这是用于重定向流到相应进程流的特殊文件名。如果此值指定为 <samp>System.out</samp>，则此文件重定向到 <samp>stdout</samp>。如果此值指定为 <samp>System.err</samp>，则文件重定向到 <samp>stderr</samp>。</dd>
+
+<dt>
+<strong>none</strong>
+</dt>
+<dd>废弃所有写入流的数据。指定<strong>无</strong>等价于重定向流到 Unix 系统上的 dev/null。</dd>
+
+</dl>
+</p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>相关信息</strong>
+</p>
+<a href="rcon_buttons.html">管理控制台按钮</a>
+<br>
+
+<a href="rcon_scope.html">管理控制台作用域设置</a>
+<br>
+
+<a href="rcon_filter.html">管理控制台过滤器设置</a>
+<br>
+
+<a href="rcon_preferences.html">管理控制台首选项设置</a>
+<br>
+
+<a href="rcon_pageusage.html">管理控制台页面功能</a>
+<br>
+
+</div>
+</body>
+</html>

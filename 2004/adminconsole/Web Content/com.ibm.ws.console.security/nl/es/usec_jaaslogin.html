@@ -1,0 +1,115 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Valores de m&oacute;dulo de inicio de sesi&oacute;n JAAS (Java Authentication Authorization Service)</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecjaaslogin"></a>
+<h2>Valores de m&oacute;dulo de inicio de sesi&oacute;n JAAS (Java Authentication Authorization Service)</h2>
+
+<p>Utilice esta p&aacute;gina para definir el m&oacute;dulo de inicio de sesi&oacute;n para una
+configuraci&oacute;n de inicio de sesi&oacute;n JAAS (Java Authentication Authorization Service).</p>
+
+<p>Para ver esta p&aacute;gina administrativa, pulse <strong>Seguridad</strong> &gt;
+<strong>Configuraci&oacute;n JAAS</strong> &gt; <strong>Inicios de sesi&oacute;n de la
+aplicaci&oacute;n</strong> &gt; <em>nombre_alias</em> &gt; <strong>M&oacute;dulos de inicio de
+sesi&oacute;n de JAAS</strong>.</p>
+
+<div>
+<p>
+<strong>Pesta&ntilde;a Configuraci&oacute;n</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="JAASLoginModule_moduleClassName_description"></a>Nombre de clase de m&oacute;dulo</strong>
+</dt>
+<dd>Especifica el nombre de clase del m&oacute;dulo de inicio de sesi&oacute;n.
+<p>Los m&oacute;dulos de inicio de sesi&oacute;n por omisi&oacute;n definidos por el producto
+WebSphere utilizan una clase LoginModule del proxy,
+com.ibm.ws.security.common.auth.module.WSLoginModuleProxy.
+Esta clase del proxy carga
+el m&oacute;dulo de inicio de sesi&oacute;n de WebSphere con el cargador de clases del contexto de hebra y
+delega todas las operaciones en la implementaci&oacute;n del m&oacute;dulo de inicio de sesi&oacute;n <em>real</em>. La implementaci&oacute;n del m&oacute;dulo de inicio de sesi&oacute;n real se especifica como la opci&oacute;n de delegaci&oacute;n cuando se configuran las opciones. La clase del proxy es necesaria ya que los
+cargadores de clases de la aplicaci&oacute;n Developer Kit no pueden visualizar los cargadores de
+clases del producto WebSphere.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos:</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JAASLoginModule_authenticationStrategy_description"></a>Estrategia de autenticaci&oacute;n</strong>
+</dt>
+<dd>Especifica el comportamiento de autenticaci&oacute;n a medida que prosigue la autenticaci&oacute;n
+por la pila de m&oacute;dulos de inicio de sesi&oacute;n.
+<p>Un proveedor de autenticaci&oacute;n JAAS  proporciona la estrategia de
+autenticaci&oacute;n. 
+En JAAS, una estrategia de autenticaci&oacute;n se implementa a trav&eacute;s de la interfaz LoginModule. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos:</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n:</td>
+<td align="left" valign="top" class="base">Necesaria</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango:</td>
+<td align="left" valign="top" class="base">Obligatoria, Necesaria, Suficiente y Opcional</td>
+
+</tr>
+
+</table>
+
+<p>Especifique las opciones adicionales en <strong>Propiedades adicionales de opciones</strong>. Estos
+pares de nombre y valor se pasan a los m&oacute;dulos de inicio de sesi&oacute;n durante la inicializaci&oacute;n.
+
+Este es uno de los mecanismos que se utiliza para pasar informaci&oacute;n a los m&oacute;dulos de inicio de
+sesi&oacute;n.</p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informaci&oacute;n relacionada</strong>
+</p>
+<a href="rcon_buttons.html">Botones de la consola de administraci&oacute;n</a>
+<br>
+
+<a href="rcon_pageusage.html">Caracter&iacute;sticas de la p&aacute;gina de la consola administrativa</a>
+<br>
+
+<a href="rcon_scope.html">Valores de &aacute;mbito de la consola administrativa</a>
+<br>
+
+<a href="rcon_filter.html">Valores de filtro de la consola administrativa</a>
+<br>
+
+<a href="rcon_preferences.html">Valores de preferencias de la consola administrativa</a>
+<br>
+
+</div>
+</body>
+</html>

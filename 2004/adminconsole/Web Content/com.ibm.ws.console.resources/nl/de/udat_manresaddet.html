@@ -1,0 +1,198 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Einstellungen f&uuml;r Ressourcenadapter</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="manage_resource_adapter"></a>
+<h2>Einstellungen f&uuml;r Ressourcenadapter</h2>
+
+<p>Auf dieser Seite k&ouml;nnen Sie Einstellungen f&uuml;r einen
+Ressourcenadapter angeben.</p>
+
+<p>Es besteht die M&ouml;glichkeit, den Ressourcenadapter eines
+Fremdanbieters zu verwenden. Normalerweise kann ein einzelner Ressourcenadapter
+nur zu einem Back-End-Systemtyp (EIS) eine Verbindung herstellen, jedoch viele verschiedene
+Konfigurationen f&uuml;r Verbindungen zu diesem EIS unterst&uuml;tzen. Der Ressourcenadapter
+hat viele Konfigurationsmerkmale, die in der J2C-Spezifikation definiert sind und vom
+Hersteller des Codes festgelegt werden. </p>
+
+<p>Klicken Sie, um diese Seite der Administrationskonsole anzuzeigen, auf <strong>Ressourcen</strong> &gt;
+<strong>Ressourcenadapter</strong> &gt; <em>Ressourcenadapter</em>. </p>
+
+<div>
+<p>
+<strong>Register "Konfiguration"</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="J2CResourceAdapter_detail_contextID"></a>Bereich</strong>
+</dt>
+<dd>Gibt die Ebene an, bis zu der diese Ressourcendefinition sichtbar ist - Zelle, Knoten oder Server.
+<p>WebSphere 5.0 l&auml;sst Ressourcen, wie z. B. JDBC-Provider,
+Namespace-Bindungen oder gemeinsam benutzte Bibliotheken in mehreren Bereichen
+zu. Dabei &uuml;berschreiben Ressourcen, die in spezifischeren Bereichen definiert wurden,
+Ressourcen, die in allgemeineren Bereichen definiert wurden. <dl>
+
+<dt>
+<strong>Zelle</strong>
+</dt>
+<dd>Der allgemeinste Bereich. Ressourcen, die im Zellenbereich
+definiert werden, sind von allen Knoten und Servern sichtbar, vorausgesetzt,
+sie wurden nicht &uuml;berschrieben.
+M&ouml;chten Sie Ressourcen anzeigen, die im Zellenbereich definiert wurden, d&uuml;rfen Sie
+keinen Server oder Knotennamen im Formular f&uuml;r die Bereichsauswahl angeben.</dd>
+
+<dt>
+<strong>Knoten</strong>
+</dt>
+<dd>Der Standardbereich f&uuml;r die meisten Ressourcentypen.  Ressourcen, die im Knotenbereich
+definiert werden, &uuml;berschreiben alle Duplikate im Zellenbereich und sind auf allen Servern, die sich auf
+demselben Knoten befinden, sichtbar, vorausgesetzt, sie wurden nicht in einem Serverbereich auf diesem
+Knoten &uuml;berschrieben. M&ouml;chten Sie Ressourcen anzeigen, die in einem Knotenbereich
+definiert
+wurden, d&uuml;rfen Sie keinen Server angeben, sondern m&uuml;ssen einen Knotennamen im Formular f&uuml;r
+die Bereichsauswahl ausw&auml;hlen.</dd>
+
+<dt>
+<strong>Server</strong>
+</dt>
+<dd>Der spezifischste Bereich f&uuml;r die Definition von Ressourcen.  Ressourcen,
+die im Serverbereich definiert werden, &uuml;berschreiben alle Duplikate von
+Ressourcendefinitionen, die im Zellenbereich oder im &uuml;bergeordneten
+Knotenbereich definiert wurden, und k&ouml;nnen nur von einem spezifischen Server erkannt werden. M&ouml;chten
+Sie Ressourcen anzeigen, die in einem Serverbereich definiert wurden, m&uuml;ssen Sie im
+Formular f&uuml;r die Bereichsauswahl einen Servernamen und einen Knotennamen ausw&auml;hlen.</dd>
+
+</dl>
+</p>
+
+<p>Wenn Ressourcen erstellt werden, werden sie immer im aktuellen, in der Anzeige
+ausgew&auml;hlten Bereich erstellt. M&ouml;chten Sie Ressourcen in anderen Bereichen anzeigen,
+geben Sie einen anderen Knoten oder Server im Formular f&uuml;r die Bereichsauswahl an.  </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2EEResourceProvider_name_description"></a>Name </strong>
+</dt>
+<dd>Gibt den Namen des Ressourcenproviders an. 
+<p>Eine Textzeichenfolge ohne Leerzeichen, die den Ressourcen-Provider sinnvoll
+bezeichnet.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2EEResourceProvider_description_description"></a>Beschreibung</strong>
+</dt>
+<dd>Gibt eine Textbeschreibung der Ressourcen-Factory an. 
+<p>Eine unformatierte Zeichenfolge zur Beschreibung der Ressourcen-Factory und ihres
+Zwecks.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2CResourceAdapter_archivePath_description"></a>Pfad des Archivs</strong>
+</dt>
+<dd>Gibt den Pfad zur .RAR-Datei an, die das Modul f&uuml;r diesen Ressourcenadapter enth&auml;lt. 
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2EEResourceProvider_classpath_description"></a>Klassenpfad</strong>
+</dt>
+<dd> Eine Liste von Pfaden bzw. Namen von Jar-Dateien, die zusammen die Speicherposition der
+Ressourcen-Provider-Klassen angeben.
+<p>Dies umfasst alle zus&auml;tzlichen Bibliotheken, die vom Ressourcenadapter ben&ouml;tigt
+werden.
+Die Codebasis des Ressourcenadapters wird dem Klassenpfad automatisch hinzugef&uuml;gt. Wenn jedoch Daten
+au&szlig;erhalb der .rar-Datei ben&ouml;tigt werden, k&ouml;nnen diese hier angegeben werden. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2EEResourceProvider_nativepath_description"></a>Nativer Pfad</strong>
+</dt>
+<dd>Eine Liste von Pfaden, die das Verzeichnis der nativen Bibliotheken des Ressourcenproviders angibt. 
+<p>Die Codebasis des Ressourcenadapters wird dem Klassenpfad automatisch hinzugef&uuml;gt. Wenn jedoch Daten
+au&szlig;erhalb der .RAR-Datei ben&ouml;tigt werden, k&ouml;nnen diese hier angegeben werden. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Zugeh&ouml;rige Informationen</strong>
+</p>
+<a href="rcon_buttons.html">Kn&ouml;pfe in der Adminstrationskonsole</a>
+<br>
+
+<a href="rcon_pageusage.html">Funktionen auf den Seiten der Administrationskonsole</a>
+<br>
+
+</div>
+</body>
+</html>

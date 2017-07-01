@@ -1,0 +1,219 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Param&egrave;tres de fabrique de connexions CMP </title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="CMP_connection_factories_detail"></a>
+<h2>Param&egrave;tres de fabrique de connexions CMP </h2>
+
+<p>Utilisez cette page pour visualiser les param&egrave;tres d'une fabrique de connexions utilis&eacute;e par un bean CMP afin d'acc&eacute;der &agrave; n'importe quel magasin de donn&eacute;es dorsal.  Cette fabrique de connexions est en mode "lecture seule". Elle ne peut &ecirc;tre ni modifi&eacute;e ni supprim&eacute;e.</p>
+
+<p>Pour afficher cette page de la console d'administration, cliquez sur <strong>Ressources</strong> &gt;<strong>Adaptateurs
+de ressources</strong> &gt; <em>Adaptateur de ressources relationnelles WebSphere</em>&gt; <strong>Fabriques
+de connexions CMP</strong> &gt; <em>fabrique_connexions</em>. </p>
+
+<div>
+<p>
+<strong>Onglet Configuration</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="j2eeresourcefactory_detail_contextID"></a>Port&eacute;e</strong>
+</dt>
+<dd>Indique &agrave; quel niveau cette d&eacute;finition de ressource est visible :
+cellule, noeud ou serveur.
+<p>Des ressources telles que les fournisseurs JDBC, les liaisons d'espace de noms et les
+biblioth&egrave;ques partag&eacute;es peuvent &ecirc;tre d&eacute;finies &agrave; plusieurs niveaux. Dans ce cas, pour une ressource donn&eacute;e, la d&eacute;finition
+figurant au niveau le plus sp&eacute;cifique (par exemple, le serveur) l'emporte sur l'&eacute;ventuelle d&eacute;finition homologue figurant &agrave; un
+niveau plus g&eacute;n&eacute;ral (par exemple, la cellule).</p>
+
+<p>Notez que quelle que soit la port&eacute;e d'une ressource d&eacute;finie, les propri&eacute;t&eacute;s de cette
+ressource s'appliquent uniquement au niveau d'un serveur individuel. Par exemple, si vous
+d&eacute;finissez la port&eacute;e d'une source de donn&eacute;es au niveau cellule, tous les utilisateurs de
+cette cellule peuvent rechercher et utiliser cette source de donn&eacute;es, laquelle est unique
+au sein de cette cellule. Cependant, les param&egrave;tres de propri&eacute;t&eacute; de la ressource sont locaux &agrave; chaque serveur de la cellule. Par exemple, si vous attribuez la valeur 10
+&agrave; la propri&eacute;t&eacute; <em>Nombre maximal de connexions</em>, chaque serveur de cette cellule pourra
+avoir 10 connexions.<dl>
+
+<dt>
+<strong>Cellule</strong>
+</dt>
+<dd>Niveau de port&eacute;e le plus g&eacute;n&eacute;ral.  Les ressources d&eacute;finies au niveau cellule
+sont visibles depuis tous les noeuds et serveurs de cette cellule, sauf si elles sont red&eacute;finies
+&agrave; un niveau inf&eacute;rieur. Pour visualiser les ressources d&eacute;finies au niveau cellule, ne sp&eacute;cifiez pas
+de nom de serveur ni de nom de noeud dans le formulaire de s&eacute;lection de port&eacute;e.</dd>
+
+<dt>
+<strong>Noeud</strong>
+</dt>
+<dd>Port&eacute;e par d&eacute;faut de la plupart des types de ressources.  Les ressources d&eacute;finies
+au niveau noeud l'emportent sur les &eacute;ventuelles d&eacute;finitions homologues figurant au niveau cellule
+et sont visibles depuis tous les serveurs du noeud consid&eacute;r&eacute;, sauf si elles sont red&eacute;finies &agrave; un niveau
+serveur sur ce noeud. Pour visualiser les ressources d&eacute;finies au niveau d'un noeud, ne sp&eacute;cifiez pas de
+serveur dans le formulaire de s&eacute;lection de port&eacute;e ; sp&eacute;cifiez simplement le nom du noeud concern&eacute;.</dd>
+
+<dt>
+<strong>Serveur</strong>
+</dt>
+<dd>Niveau de port&eacute;e le plus sp&eacute;cifique pour la d&eacute;finition des ressources.  Les ressources
+d&eacute;finies au niveau d'un serveur l'emportent sur les &eacute;ventuelles d&eacute;finitions homologues apparaissant au niveau
+de la cellule parente ou du noeud parent ; elles sont visibles uniquement
+depuis ce serveur. Pour visualiser les ressources d&eacute;finies au niveau d'un serveur, sp&eacute;cifiez le nom de ce
+serveur ainsi que celui de son noeud parent dans le formulaire de s&eacute;lection de port&eacute;e.</dd>
+
+</dl>
+</p>
+
+<p>Lorsque des ressources sont cr&eacute;&eacute;es, elles le sont toujours dans la port&eacute;e en cours,
+c'est-&agrave;-dire celle qui est s&eacute;lectionn&eacute;e dans le formulaire.   Pour afficher les ressources d'autres port&eacute;es, sp&eacute;cifiez un noeud ou un serveur
+diff&eacute;rent dans le formulaire de s&eacute;lection de port&eacute;e.  </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">String (cha&icirc;ne)</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2EEResourceFactory_name_displayName"></a>Nom</strong>
+</dt>
+<dd>Nom affich&eacute; de la ressource. 
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">String (cha&icirc;ne)</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2EEResourceFactory_jndiName_displayName"></a>Nom JNDI</strong>
+</dt>
+<dd>Nom JNDI de la ressource.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">String (cha&icirc;ne)</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2EEResourceFactory_description_displayName"></a>Description</strong>
+</dt>
+<dd>Description de la ressource. 
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">String (cha&icirc;ne)</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2EEResourceFactory_category_displayName"></a>Cat&eacute;gorie</strong>
+</dt>
+<dd>Cha&icirc;ne de cat&eacute;gorie que vous pouvez utiliser pour classifier ou grouper la ressource.  
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">String (cha&icirc;ne)</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2CConnectionFactory_authMechanismPreference_displayName"></a>Pr&eacute;f&eacute;rences d'authentification</strong>
+</dt>
+<dd>Indique quel m&eacute;canisme d'authentification, parmi ceux qui sont d&eacute;finis pour
+l'adaptateur de ressources concern&eacute;, s'applique &agrave; cette fabrique
+de connexions. 
+<p>Par exemple, si deux m&eacute;canismes d'authentification sont d&eacute;finis pour un
+adaptateur de ressources (<em>KerbV5</em> et <em>Mot de passe de base</em>), l'un de ces deux
+m&eacute;canismes est sp&eacute;cifi&eacute; ici. Si la pr&eacute;f&eacute;rence de m&eacute;canisme d'authentification sp&eacute;cifi&eacute;e ne correspond pas &agrave; l'un des m&eacute;canismes d'authentification disponibles sur l'adaptateur de ressources correspondant, elle est ignor&eacute;e. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">String (cha&icirc;ne)</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2CConnectionFactory_authDataAlias_displayName"></a>Alias d'authentification g&eacute;r&eacute; par composant</strong>
+</dt>
+<dd>Fait r&eacute;f&eacute;rence aux donn&eacute;es d'authentification n&eacute;cessaires pour la connexion &agrave; la ressource g&eacute;r&eacute;e par composant.  
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Liste d&eacute;roulante</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2CConnectionFactory_authDataAlias_displayName"></a>Alias d'authentification g&eacute;r&eacute; par conteneur</strong>
+</dt>
+<dd>Fait r&eacute;f&eacute;rence aux donn&eacute;es d'authentification n&eacute;cessaires pour la connexion &agrave; la ressource g&eacute;r&eacute;e par conteneur.  
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Liste d&eacute;roulante</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informations connexes</strong>
+</p>
+<a href="rcon_buttons.html">Boutons de la console administrative</a>
+<br>
+
+<a href="rcon_pageusage.html">Caract&eacute;ristiques de la page de la console d'administration</a>
+<br>
+
+</div>
+</body>
+</html>

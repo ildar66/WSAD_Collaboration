@@ -1,0 +1,267 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Lightweight Directory Access Protocol settings</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecrprdap"></a>
+<h2>
+<img alt="[Release 5.1 and later]" src="v51x.gif" border="0">Lightweight Directory Access Protocol settings</h2>
+
+<p>Use this page to configure Lightweight Directory Access Protocol
+(LDAP) settings when users and groups reside in an external LDAP directory.</p>
+
+<p>To view this administrative console page, click <strong>Security</strong> &gt; <strong>User
+Registries</strong> &gt; <strong>LDAP</strong>.</p>
+
+<p>When security is enabled and any of these properties change, go to the <strong>Global
+Security</strong> panel and click <strong>Apply</strong> to validate the changes.</p>
+
+<div>
+<p>
+<strong>Configuration tab</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="UserRegistry_serverId_description"></a>Server User ID</strong>
+</dt>
+<dd>Specifies the user ID under which the server runs, for security
+purposes.
+<p>Although this ID is not the LDAP administrator user ID, specify a valid
+entry in the LDAP directory located under the Base Distinguished Name.</p>
+
+</dd>
+<dt>
+<strong><a name="UserRegistry_serverPassword_description"></a>Server User Password </strong>
+</dt>
+<dd>Specifies the password corresponding to the security server ID.</dd>
+<dt>
+<strong><a name="LDAPUserRegistry_type_description"></a>Type</strong>
+</dt>
+<dd>Specifies the type of LDAP server to which you connect.
+<p>
+<img alt="[5.0 only]" src="v50.gif" border="0">The type is used to preload default LDAP properties.
+IBM Directory Server users can choose either <samp>IBM_Directory_Server</samp> or <samp>SecureWay</samp> as
+the directory type. Use the <samp>IBM_ Directory_server</samp> directory type
+for better performance. Users of the iPlanet Directory Server can choose either iPlanet
+Directory Server or NetScape as the directory type. Use the iPlanet
+Directory Server directory type for better performance after configuring
+iPlanet to use <samp>role</samp> <samp>(nsRole)</samp> as the grouping method.</p>
+
+<p>
+<img alt="[Release 5.1 and later]" src="v51x.gif" border="0"> IBM
+SecureWay Directory Server is not supported.. </p>
+
+<p>For a list of supported LDAP servers, see "Supported directory services."
+in the documentation.</p>
+
+</dd>
+<dt>
+<strong><a name="LDAPUserRegistry_host_description"></a>Host</strong>
+</dt>
+<dd>Specifies the host ID (IP address or domain name system (DNS) name)
+of the LDAP server.</dd>
+<dt>
+<strong><a name="LDAPUserRegistry_port_description"></a>Port</strong>
+</dt>
+<dd>Specifies the host port of the LDAP server.
+<p>If multiple WebSphere Application Servers are installed and configured
+to run in the same single signon domain, or if the WebSphere Application Server
+interoperates with a previous version of the WebSphere Application Server,
+then it is important that the port number match all configurations. For example,
+if the LDAP port is explicitly specified as <strong>389</strong> in a Version 4.0.x
+configuration, and a WebSphere Application Server at Version 5 is going to
+interoperate with the Version 4.0.x server, then verify that port <strong>389</strong> is
+specified explicitly for the Version 5 server. <table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default:</td>
+<td align="left" valign="top" class="base">389</td>
+
+</tr>
+
+</table>
+<p>
+<b>Note: </b>If the port, including the default port number,
+is specified explicitly in one server configuration, then verify that it is
+specified explicitly in all server configurations.</p>
+</p>
+
+</dd>
+<dt>
+<strong><a name="LDAPUserRegistry_baseDN_description"></a>Base Distinguished Name</strong>
+</dt>
+<dd>Specifies the base distinguished name of the directory service,
+indicating the starting point for LDAP searches of the directory service. 
+<p>For example, for a user with a distinguished name (DN) of cn=John Doe,
+ou=Rochester, o=IBM, c=US, you can specify the base DN as (assuming a suffix
+of c=us): ou=Rochester, o=IBM, c=us  o=IBM, c=us  c=us.  For authorization
+purposes, this field is case sensitive. This implies that if a token is received
+(for example, from another cell or Domino) the base DN in the server must
+match exactly the base DN from the other cell or Domino. If case sensitivity
+is not a consideration for authorization, enable the <strong>Ignore Case</strong> field.
+ This field is required for all LDAP directories except for the Domino Directory,
+where it is optional.</p>
+
+</dd>
+<dt>
+<strong><a name="LDAPUserRegistry_bindDN_description"></a>Bind Distinguished Name</strong>
+</dt>
+<dd>Specifies the distinguished name for the application server to
+use when binding to the directory service.
+<p>If no name is specified, the application server binds anonymously. See
+the Base Distinguished Name field description for examples of distinguished
+names.</p>
+
+</dd>
+<dt>
+<strong><a name="LDAPUserRegistry_bindPassword_description"></a>Bind Password</strong>
+</dt>
+<dd>Specifies the password for the application server to use when binding
+to the directory service.</dd>
+<dt>
+<strong><a name="LDAPUserRegistry_searchTimeout_description"></a>Search Timeout</strong>
+</dt>
+<dd>Specifies the timeout value in seconds for an LDAP server to respond
+before aborting a request.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default:</td>
+<td align="left" valign="top" class="base">120</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LDAPUserRegistry_reuseConnection_description"></a>Reuse connection</strong>
+</dt>
+<dd>Specifies whether the server should reuse the LDAP connection.
+Clear this option only in rare situations where a router is used to spray
+requests to multiple LDAP servers and when the router does not support affinity. 
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default:</td>
+<td align="left" valign="top" class="base">Enabled</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range:</td>
+<td align="left" valign="top" class="base">Enabled or Disabled</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LDAPUserRegistry_ignoreCase_description"></a>Ignore Case</strong>
+</dt>
+<dd>Specifies that a case insensitive authorization check is performed.
+<p>This field is required when IBM Directory Server is selected as the LDAP
+directory server. </p>
+
+<p>
+<img alt="[Release 5.1 and later]" src="v51x.gif" border="0">This field is required when Sun ONE Directory Server
+is selected as the LDAP directory server. For more information, see "Using
+specific directory servers as the LDAP server" in the documentation.</p>
+
+<p>Otherwise, this field is optional and can be enabled when a case-sensitive
+authorization check is required. For example, use this field when the certificates
+and the certificate contents do not match the case used for the entry in the
+LDAP server. You can enable the <strong>Ignore Case</strong> field when using single
+signon (SSO) between WebSphere Application Server and Lotus Domino.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default:</td>
+<td align="left" valign="top" class="base">Disabled</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range:</td>
+<td align="left" valign="top" class="base">Enabled or Disabled</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LDAPUserRegistry_sslEnabled_description"></a>SSL Enabled</strong>
+</dt>
+<dd> Specifies whether secure socket communication is enabled to the
+LDAP server. When enabled, the LDAP Secure Sockets Layer (SSL) settings are
+used, if specified.</dd>
+<dt>
+<strong><a name="LDAPUserRegistry_sslConfig_description"></a>SSL Configuration</strong>
+</dt>
+<dd>Specifies the Secure Sockets Layer configuration to use for the
+LDAP connection. This configuration is used only when SSL is enabled for LDAP.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default: </td>
+<td align="left" valign="top" class="base">DefaultSSLSettings</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LDAPUserRegistry_enableTAM_description"></a>Use Tivoli Access Manager for Account Policies</strong>
+</dt>
+<dd>Select this option to indicate that the Tivoli Access Manager is
+used for authentication to honor password and account policies. This option
+requires that you have previously installed the Tivoli Access Manager.
+<p>Do not select this option unless you have a Tivoli Access Manager Server
+installed and configured to be used by WebSphere Application Server. The LDAP
+directory server used by the Tivoli Access Manager must be the same LDAP directory
+server that is used by WebSphere Application Server.</p>
+
+<p>
+<b>Note: </b>When you select this option, IBM SecureWay Directory
+Server is not supported as an LDAP directory server.</p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Related information</strong>
+</p>
+<a href="rcon_buttons.html">Administrative console buttons</a>
+<br>
+
+<a href="rcon_pageusage.html">Administrative console page features</a>
+<br>
+
+<a href="rcon_scope.html">Administrative console scope settings</a>
+<br>
+
+<a href="rcon_filter.html">Administrative console filter settings</a>
+<br>
+
+<a href="rcon_preferences.html">Administrative console preference settings</a>
+<br>
+
+</div>
+</body>
+</html>

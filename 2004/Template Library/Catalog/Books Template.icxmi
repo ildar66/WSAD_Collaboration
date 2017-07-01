@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<core:RADComponent xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:core="core.xmi" xmi:id="Books Template" name="Catalog" isPattern="false" Default="ComponentEntryPoint_1" version="1">
+  <BusinessLogicUnits xmi:id="BusinessLogicUnit_1" name="Fetch Catalog" version="1">
+    <Sequence xmi:id="Sequence_1">
+      <Statements xmi:type="core:Action" xmi:id="Action_1" returnedValue="DataViewVariable_3">
+        <ActionDescriptor xmi:type="core:DomainActionDescriptor" href="models\Booklist.dsxmi#DomainActionDescriptor_5"/>
+        <reciever xmi:type="core:DataSource" href="models\Booklist.dsxmi#DataSource_1"/>
+      </Statements>
+      <Statements xmi:type="core:Action" xmi:id="Action_33">
+         <parameters  xmi:id="ActionParameter_1" parameter="RADExpression_44"/>
+         <ActionDescriptor xmi:type="core:CoreActionDescriptor" href="Books Template.prjxmi#CoreActionDescriptor_2"/>
+      </Statements>
+    </Sequence>
+    <EntryPoint xmi:id="EntryPoint_3" name="In"/>
+    <ErrorState xmi:id="ErrorState_1" name="Error"/>
+    <ExitStates xmi:id="ExitState_1" name="OK"/>
+    <Variables xmi:id="RADExpression_44" expression="OK"/>
+  </BusinessLogicUnits>
+  <BusinessLogicUnits xmi:id="BusinessLogicUnit_22" name="Update Success Message" version="1">
+    <Sequence xmi:id="Sequence_22">
+      <Statements xmi:type="core:Action" xmi:id="Action_2222">
+      	<parameters  xmi:id="ActionParameter_2" parameter="TransientField_22"/>
+        <parameters  xmi:id="ActionParameter_3" parameter="RADExpression_4423"/>
+        <ActionDescriptor xmi:type="core:CoreActionDescriptor" href="Books Template.prjxmi#CoreActionDescriptor_1"/>
+      </Statements>
+      <Statements xmi:type="core:Action" xmi:id="Action_2221">
+        <parameters  xmi:id="ActionParameter_4" parameter="RADExpression_4422"/>
+        <ActionDescriptor xmi:type="core:CoreActionDescriptor" href="Books Template.prjxmi#CoreActionDescriptor_2"/>
+      </Statements>
+    </Sequence>
+    <EntryPoint xmi:id="EntryPoint_322" name="In"/>
+    <ErrorState xmi:id="ErrorState_122" name="Error"/>
+    <ExitStates xmi:id="ExitState_122" name="OK"/>
+    <Variables xmi:id="RADExpression_4422" expression="OK" version="1"/>
+    <Variables xmi:id="RADExpression_4423" expression="Item Details Updated Successfully" version="1"/>
+  </BusinessLogicUnits>
+  <Variables xmi:type="core:TransientField" xmi:id="TransientField_22" name="Update String" version="1">
+    <CoreTypeDescriptor href="Books Template.prjxmi#CoreTypeDescriptor_8"/>
+    <FieldDescriptor xmi:type="core:AlphanumFieldDescriptor" xmi:id="AlphanumFieldDescriptor_222" length="50">
+      <CoreTypeDescriptor href="Books Template.prjxmi#CoreTypeDescriptor_8"/>
+    </FieldDescriptor>
+  </Variables>
+  <RADLinks xmi:id="RADLink_1">
+    <Source xmi:id="FlowExitReference_1" ExitPoint="FlowExitPoint_4" FlowOccurrence="BusinessLogicUnit_1"/>
+    <Target xmi:id="FlowEntryReference_2" EntryPoint="EntryPoint_3"/>
+  </RADLinks>
+  <RADLinks xmi:id="RADLink_2">
+    <Source xmi:id="FlowExitReference_2" ExitPoint="FlowExitPoint_2" FlowOccurrence="InteractionUnit_2"/>
+    <Target xmi:id="FlowEntryReference_3" EntryPoint="EntryPoint_2"/>
+  </RADLinks>
+  <RADLinks xmi:id="RADLink_5">
+    <Source xmi:id="FlowExitReference_8" ExitPoint="ExitState_1" FlowOccurrence="InteractionUnit_3"/>
+    <Target xmi:id="FlowEntryReference_6" EntryPoint="EntryPoint_5"/>
+  </RADLinks>
+  <RADLinks xmi:id="RADLink_4422">
+    <Source xmi:id="FlowExitReference_44222" ExitPoint="FlowExitPoint_411" FlowOccurrence="InteractionUnit_2"/>
+    <Target xmi:id="FlowEntryReference_44223" EntryPoint="EntryPoint_322" FlowOccurrence="BusinessLogicUnit_22"/>
+  </RADLinks>
+  <RADLinks xmi:id="RADLink_4433">
+    <Source xmi:id="FlowExitReference_44333" ExitPoint="ExitState_122" FlowOccurrence="BusinessLogicUnit_22"/>
+    <Target xmi:id="FlowEntryReference_44334" EntryPoint="EntryPoint_33" FlowOccurrence="InteractionUnit_33"/>
+  </RADLinks>
+  <RADLinks xmi:id="RADLink_4434">
+    <Source xmi:id="FlowExitReference_44335" ExitPoint="FlowExitPoint_333" FlowOccurrence="InteractionUnit_33"/>
+    <Target xmi:id="FlowEntryReference_44336" EntryPoint="EntryPoint_4" FlowOccurrence="InteractionUnit_1"/>
+  </RADLinks>
+  <ExitPoints xmi:id="FlowExitPoint_1" name="OK"/>
+  <InteractionUnits xmi:id="InteractionUnit_1" name="Select Item" version="1">
+    <BusinessLogicUnits xmi:id="BusinessLogicUnit_2" name="Find Item" version="1">
+      <Sequence xmi:id="Sequence_4">
+        <Statements xmi:type="core:Action" xmi:id="Action_2">
+          <ActionDescriptor xmi:type="core:DomainActionDescriptor" href="models\Booklist.dsxmi#DomainActionDescriptor_2"/>
+          <reciever xmi:type="core:DataSource" href="models\Booklist.dsxmi#DataSource_1"/>
+        </Statements>
+        <Statements xmi:type="core:Condition" xmi:id="Condition_2">
+          <RADExpression xmi:id="RADExpression_2" expression="[Data Sources]$[Items]$[creator].equals([Application Components]$[Catalog Template]$[Select Item]$[CreatorVar])"/>
+          <if xmi:id="Sequence_5">
+            <Statements xmi:type="core:Action" xmi:id="Action_3">
+              <parameters  xmi:id="ActionParameter_5" parameter="RADExpression_4"/>
+	      <ActionDescriptor xmi:type="core:CoreActionDescriptor" href="Books Template.prjxmi#CoreActionDescriptor_2"/>
+            </Statements>
+          </if>
+          <else xmi:id="Sequence_6">
+            <Statements xmi:type="core:Action" xmi:id="Action_4">
+              <parameters  xmi:id="ActionParameter_6" parameter="RADExpression_3"/>
+              <ActionDescriptor xmi:type="core:CoreActionDescriptor" href="Books Template.prjxmi#CoreActionDescriptor_2"/>
+            </Statements>
+          </else>
+        </Statements>
+      </Sequence>
+      <Variables xmi:id="RADExpression_3" expression="Fail"/>
+      <Variables xmi:id="RADExpression_4" expression="OK"/>
+      <EntryPoint xmi:id="EntryPoint_4" name="In"/>
+      <ErrorState xmi:id="ErrorState_2" name="Error"/>
+      <ExitStates xmi:id="ExitState_2" name="OK"/>
+      <ExitStates xmi:id="ExitState_3" name="Fail"/>
+    </BusinessLogicUnits>
+    <RADLinks xmi:id="RADLink_3">
+      <Source xmi:id="FlowExitReference_4" ExitPoint="Trigger_2"/>
+      <Target xmi:id="FlowEntryReference_4" EntryPoint="EntryPoint_1"/>
+    </RADLinks>
+    <RADLinks xmi:id="RADLink_4">
+      <Source xmi:id="FlowExitReference_5" ExitPoint="Trigger_1" FlowOccurrence="FormView_1"/>
+      <Target xmi:id="FlowEntryReference_5" EntryPoint="EntryPoint_4"/>
+    </RADLinks>
+    <RADLinks xmi:id="RADLink_40">
+      <Source xmi:id="FlowExitReference_50" ExitPoint="Trigger_10" FlowOccurrence="FormView_1"/>
+      <Target xmi:id="FlowEntryReference_50" EntryPoint="EntryPoint_3"/>
+    </RADLinks>
+    <ExitPoints xmi:id="FlowExitPoint_2" name="OK">
+      <FlowExitReferences xmi:id="FlowExitReference_6" ExitPoint="ExitState_2" FlowOccurrence="BusinessLogicUnit_2"/>
+    </ExitPoints>
+    <ExitPoints xmi:id="FlowExitPoint_4" name="Fail">
+      <FlowExitReferences xmi:id="FlowExitReference_7" ExitPoint="ExitState_3" FlowOccurrence="BusinessLogicUnit_2"/>
+      <FlowExitReferences xmi:id="FlowExitReference_700" ExitPoint="ErrorState_2" FlowOccurrence="BusinessLogicUnit_2"/>
+    </ExitPoints>
+    <Variables xmi:type="core:DataViewVariable" xmi:id="DataViewVariable_1" name="Select Item" version="1">
+      <DataSource href="models\Booklist.dsxmi#DataSource_1"/>
+      <DataSourceTypeDescriptor href="models\Booklist.dsxmi#DataSourceTypeDescriptor_1"/>
+      <ViewFields xmi:id="ViewField_1">
+	  <Field xmi:type="core:PersistentField" href="models\Booklist.dsxmi#PersistentField_1"/>
+      </ViewFields>
+      <ViewFields  xmi:id="ViewField_2" Field="TransientField_1"/>
+    </Variables>
+    <Variables xmi:type="core:TransientField" xmi:id="TransientField_1" name="CreatorVar" version="1">
+      <CoreTypeDescriptor href="Books Template.prjxmi#CoreTypeDescriptor_8"/>
+       <FieldDescriptor xmi:type="core:AlphanumFieldDescriptor" xmi:id="AlphanumFieldDescriptor_1" length="50">
+         <CoreTypeDescriptor href="Books Template.prjxmi#CoreTypeDescriptor_8"/>
+       </FieldDescriptor>
+    </Variables>
+    <EntryPoint xmi:id="EntryPoint_1" name="In"/>
+    <DataViews xmi:type="core:FormView" xmi:id="FormView_1" name="Select Item" description="" DataViewVariable="DataViewVariable_1" version="1">
+      <labelColor xmi:id="RGBValue_1" red="0" green="0" blue="0"/>
+      <Triggers xmi:id="Trigger_2" name="Reset" TriggerDisplay="TriggerDisplay_2"/>
+      <Triggers xmi:id="Trigger_1" name="Submit" TriggerDisplay="TriggerDisplay_1"/>
+      <Triggers xmi:id="Trigger_10" name="list" TriggerDisplay="TriggerDisplay_10"/>
+      <RADDisplays xmi:type="core:FieldDisplay" xmi:id="FieldDisplay_1" name="item_id" displayType="INPUT" ViewField="ViewField_1">
+        <Caption xmi:id="Caption_3" isConstant="false">
+          <CaptionParameter xmi:type="core:CaptionParameter" href="Books Template.prjxmi#CaptionParameter_2"/>
+        </Caption>
+      </RADDisplays>
+      <RADDisplays xmi:type="core:FieldDisplay" xmi:id="FieldDisplay_2" name="creatorVar" displayType="INPUT" ViewField="ViewField_2">
+        <Caption xmi:id="Caption_4" isConstant="false">
+          <CaptionParameter xmi:type="core:CaptionParameter" href="Books Template.prjxmi#CaptionParameter_1"/>
+        </Caption>
+      </RADDisplays>
+      <RADDisplays xmi:type="core:TriggerDisplay" xmi:id="TriggerDisplay_2" name="Reset" Trigger="Trigger_2" displayType="BUTTON">
+        <Caption xmi:id="Caption_2" caption="Refresh"/>
+      </RADDisplays>
+      <RADDisplays xmi:type="core:TriggerDisplay" xmi:id="TriggerDisplay_1" name="Submit" Trigger="Trigger_1" displayType="SUBMIT">
+        <Caption xmi:id="Caption_1" caption="Submit"/>
+      </RADDisplays>
+      <RADDisplays xmi:type="core:TriggerDisplay" xmi:id="TriggerDisplay_10" name="List" Trigger="Trigger_10" displayType="BUTTON">
+        <Caption xmi:id="Caption_10" caption="List Items"/>
+      </RADDisplays>
+    </DataViews>
+    <Title xmi:id="Title_1" version="1" title="Select Item"/>
+  </InteractionUnits>
+  <InteractionUnits xmi:id="InteractionUnit_2" name="Item Information" version="1">
+    <Variables xmi:type="core:DataViewVariable" xmi:id="DataViewVariable_2" name="Item Details" version="1">
+      <DataSourceTypeDescriptor href="models\Booklist.dsxmi#DataSourceTypeDescriptor_1"/>
+      <DataSource href="models\Booklist.dsxmi#DataSource_1"/>
+      <ViewFields xmi:id="ViewField_3">
+	 <Field xmi:type="core:PersistentField" href="models\Booklist.dsxmi#PersistentField_1"/>
+      </ViewFields>
+      <ViewFields  xmi:id="ViewField_5">
+         <Field xmi:type="core:PersistentField" href="models\Booklist.dsxmi#PersistentField_2"/>
+      </ViewFields>
+    </Variables>
+
+
+    <EntryPoint xmi:id="EntryPoint_2" name="In"/>
+    <ExitPoints xmi:id="FlowExitPoint_411" name="OK">
+      <FlowExitReferences xmi:id="FlowExitReference_7" ExitPoint="ExitState_111" FlowOccurrence="BusinessLogicUnit_11"/>
+    </ExitPoints>
+    <BusinessLogicUnits xmi:id="BusinessLogicUnit_11" name="Update Entry" version="1">
+      <Sequence xmi:id="Sequence_11">
+        <Statements xmi:type="core:Action" xmi:id="Action_11">
+          <ActionDescriptor xmi:type="core:DomainActionDescriptor" href="models\Booklist.dsxmi#DomainActionDescriptor_3"/>
+          <reciever xmi:type="core:DataSource" href="models\Booklist.dsxmi#DataSource_1"/>
+        </Statements>
+        <Statements xmi:type="core:Action" xmi:id="Action_311">
+          <parameters  xmi:id="ActionParameter_7" parameter="RADExpression_411"/>
+          <ActionDescriptor xmi:type="core:CoreActionDescriptor" href="Books Template.prjxmi#CoreActionDescriptor_2"/>
+        </Statements>
+      </Sequence>
+      <EntryPoint xmi:id="EntryPoint_311" name="In"/>
+      <ErrorState xmi:id="ErrorState_111" name="Error"/>
+      <ExitStates xmi:id="ExitState_111" name="OK"/>
+      <Variables xmi:id="RADExpression_411" expression="OK"/>
+    </BusinessLogicUnits>
+    <RADLinks xmi:id="RADLink_312">
+      <Source xmi:id="FlowExitReference_412" ExitPoint="Trigger_11" FlowOccurrence="FormView_2"/>
+      <Target xmi:id="FlowEntryReference_412" EntryPoint="EntryPoint_311" FlowOccurrence="BusinessLogicUnit_11"/>
+    </RADLinks>
+    <DataViews xmi:type="core:FormView" xmi:id="FormView_2" name="Item Detail" DataViewVariable="DataViewVariable_2">
+      <labelColor xmi:id="RGBValue_2" red="0" green="0" blue="0"/>
+      <Triggers xmi:id="Trigger_11" name="Update" TriggerDisplay="TriggerDisplay_11"/>
+      <RADDisplays xmi:type="core:FieldDisplay" xmi:id="FieldDisplay_3" name="item_id" displayType="INPUT" ViewField="ViewField_3">
+        <Caption xmi:id="Caption_5" isConstant="false">
+          <CaptionParameter xmi:type="core:CaptionParameter" href="Books Template.prjxmi#CaptionParameter_2"/>
+        </Caption>
+      </RADDisplays>
+      <RADDisplays xmi:type="core:FieldDisplay" xmi:id="FieldDisplay_4" name="creator" displayType="INPUT" ViewField="ViewField_5">
+        <Caption xmi:id="Caption_6" isConstant="false">
+          <CaptionParameter xmi:type="core:CaptionParameter" href="Books Template.prjxmi#CaptionParameter_1"/>
+        </Caption>
+      </RADDisplays>
+      <RADDisplays xmi:type="core:TriggerDisplay" xmi:id="TriggerDisplay_11" name="Update" Trigger="Trigger_11" displayType="SUBMIT">
+        <Caption xmi:id="Caption_11" caption="Update"/>
+      </RADDisplays>
+    </DataViews>
+    <Title xmi:id="Title_2" version="1" title="Item Information"/>
+  </InteractionUnits>
+
+
+  <InteractionUnits xmi:id="InteractionUnit_3" name="All Items" version="1">
+    <Variables xmi:type="core:DataViewVariable" xmi:id="DataViewVariable_3" name="Available Items" version="1">
+      <DataSourceTypeDescriptor href="models\Booklist.dsxmi#DataSourceTypeDescriptor_1"/>
+      <DataSource href="models\Booklist.dsxmi#DataSource_1"/>
+      <ViewFields  xmi:id="ViewField_7">
+        <Field xmi:type="core:PersistentField" href="models\Booklist.dsxmi#PersistentField_1"/>
+      </ViewFields>
+      <ViewFields  xmi:id="ViewField_8">
+        <Field xmi:type="core:PersistentField" href="models\Booklist.dsxmi#PersistentField_2"/>
+      </ViewFields>
+    </Variables>
+    <EntryPoint xmi:id="EntryPoint_5" name="In"/>
+    <DataViews xmi:type="core:ListView" xmi:id="ListView_1" name="Available Items" DataViewVariable="DataViewVariable_3" version="1">
+      <headerColor xmi:id="RGBValue_3" red="0" green="0" blue="0"/>
+      <cellColor xmi:id="RGBValue_4" red="0" green="0" blue="0"/>
+      <RADDisplays xmi:type="core:FieldDisplay" xmi:id="FieldDisplay_7" name="item_id" displayType="OUTPUT" ViewField="ViewField_7">
+        <Caption xmi:id="Caption_9" isConstant="false">
+          <CaptionParameter xmi:type="core:CaptionParameter" href="Books Template.prjxmi#CaptionParameter_2"/>
+        </Caption>
+      </RADDisplays>
+      <RADDisplays xmi:type="core:FieldDisplay" xmi:id="FieldDisplay_8" name="creator" displayType="OUTPUT" ViewField="ViewField_8">
+        <Caption xmi:id="Caption_10" isConstant="false">
+          <CaptionParameter xmi:type="core:CaptionParameter" href="Books Template.prjxmi#CaptionParameter_1"/>
+        </Caption>
+      </RADDisplays>
+    </DataViews>
+    <Title xmi:id="Title_3" version="1" title="All Items"/>
+  </InteractionUnits>
+
+  <InteractionUnits xmi:id="InteractionUnit_33" name="Update Message Page" version="1">
+    <ExitPoints xmi:id="FlowExitPoint_333" name="OK">
+      <FlowExitReferences xmi:id="FlowExitReference_633" ExitPoint="Trigger_33" FlowOccurrence="FormView_33"/>
+    </ExitPoints>
+    <EntryPoint xmi:id="EntryPoint_33" name="In"/>
+     <Variables xmi:type="core:DataViewVariable" xmi:id="DataViewVariable_44" name="Update successful" version="1">
+      <DataSourceTypeDescriptor href="models\Booklist.dsxmi#DataSourceTypeDescriptor_1"/>
+      <DataSource href="models\Booklist.dsxmi#DataSource_1"/>
+      <ViewFields  xmi:id="ViewField_11" Field="TransientField_22"/>
+    </Variables>
+    <DataViews xmi:type="core:FormView" xmi:id="FormView_33" name="Status Message" description="" DataViewVariable="DataViewVariable_44" version="1">
+      <labelColor xmi:id="RGBValue_1" red="0" green="0" blue="0"/>
+      <Triggers xmi:id="Trigger_33" name="Next" TriggerDisplay="TriggerDisplay_33"/>
+      <RADDisplays xmi:type="core:FieldDisplay" xmi:id="FieldDisplay_33" name="message" displayType="OUTPUT" ViewField="ViewField_11">
+        <Caption xmi:id="Caption_333" caption=""/>
+      </RADDisplays>
+      <RADDisplays xmi:type="core:TriggerDisplay" xmi:id="TriggerDisplay_33" name="Next" Trigger="Trigger_33" displayType="BUTTON">
+        <Caption xmi:id="Caption_1" caption="Next Item"/>
+      </RADDisplays>
+    </DataViews>
+    <Title xmi:id="Title_4" version="1" title="Update Message Page"/>
+  </InteractionUnits>
+  <DataInterface xmi:id="DataInterface_1"/>
+  <EntryPoints xmi:id="ComponentEntryPoint_1" name="In">
+    <FirstEntityReference xmi:id="FlowEntryReference_1" EntryPoint="EntryPoint_1" FlowOccurrence="InteractionUnit_1"/>
+  </EntryPoints>
+</core:RADComponent>
+

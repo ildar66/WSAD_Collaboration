@@ -1,0 +1,353 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Affichage du descripteur de d'ploiement du serveur des services Web </title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_vwsdd"></a>
+<h2>
+<img alt="[Fix Pack 5.0.2 and later]" src="v502.gif" border="0">Affichage du descripteur de d'ploiement du serveur des services Web </h2>
+
+<p>Cette page permet d'afficher les param&egrave;tres du descripteur de
+d&eacute;ploiement de votre serveur.</p>
+
+<p>Pour afficher cette page de la console d'administration, suivez la proc&eacute;dure ci-apr&egrave;s. <ol>
+
+<li>Cliquez sur <strong>Applications &gt; Applications d'entreprise &gt; </strong><em>nom_application</em>. </li>
+
+<li>Dans la section Articles li&eacute;s, cliquez sur <strong>Modules Web</strong> &gt; <em>nom_fichier_URI</em> &gt; <strong>Affichage
+du descripteur de d&eacute;ploiement du serveur des services Web</strong>.</li>
+
+</ol>
+</p>
+
+<p>WebSphere Application Server dispose de deux niveaux de liaison :
+niveau application et niveau serveur. WebSphere Application
+Server Network Deployment dispose de trois niveaux de liaison : niveau application, niveau serveur
+et niveau cellule. Les informations fournies dans les descriptions
+d'impl&eacute;mentation ci-dessous expliquent comment configurer les liaisons au
+niveau de l'application. Pour configurer les liaisons au niveau du
+serveur (par d&eacute;faut), suivez la proc&eacute;dure ci-apr&egrave;s. <ol>
+
+<li>Cliquez sur <strong>Serveurs &gt; Serveurs d'applications &gt; </strong><em>nom_serveur</em>.</li>
+
+<li>Dans la section Articles
+li&eacute;s, cliquez sur <strong>Services Web : Liaisons par d&eacute;faut pour la
+s&eacute;curit&eacute; des services Web</strong>. </li>
+
+</ol>Pour configurer les liaison au niveau de la cellule, cliquez sur <strong>S&eacute;curit&eacute;
+&gt; Services Web</strong>.<ul>
+
+<li>
+<a href="#digsign">V&eacute;rification de la signature num&eacute;rique de la demande</a>
+</li>
+
+<li>
+<a href="#reqdecrypt">D&eacute;chiffrement de la demande</a>
+</li>
+
+<li>Authentification <a href="#basicauth">BasicAuth</a>
+</li>
+
+<li>
+<a href="#idassert">Authentification par v&eacute;rification d'identit&eacute; (ID)</a>
+</li>
+
+<li>
+<a href="#idasserttrust">Authentification par v&eacute;rification d'ID, avec TrustMode "signature"</a>
+</li>
+
+<li>
+<a href="#respsign">Signature des r&eacute;ponses</a>
+</li>
+
+<li>
+<a href="#respencr">Chiffrement des r&eacute;ponses</a>
+</li>
+
+</ul>
+</p>
+
+<div>
+<a name="digsign"></a>
+<p class="sectiontitle">
+<b>V&eacute;rification de la signature num&eacute;rique de la demande</b>
+</p>
+<p>Si
+vous avez d&eacute;fini des contraintes d'int&eacute;grit&eacute; (signature
+obligatoire), v&eacute;rifiez que vous avez configur&eacute; les informations de
+signature dans les fichiers de liaison. </p>
+<p>Pour configurer les param&egrave;tres de signature, suivez la proc&eacute;dure ci-apr&egrave;s.<ol>
+
+<li>Cliquez sur <strong>Applications &gt; Applications d'entreprise &gt; </strong><em>nom_application</em>. </li>
+
+<li>Dans la section Articles li&eacute;s, cliquez sur <strong>Modules Web &gt; </strong><em>nom_fichier_URI</em> &gt; <strong>Services
+Web : Liaisons de s&eacute;curit&eacute; du serveur</strong>.</li>
+
+<li>Dans la colonne Liaison de r&eacute;cepteur de
+demande, cliquez sur <strong>Editer &gt; Informations relatives &agrave; la
+signature</strong>.</li>
+
+</ol>
+</p>
+<p>Pour configurer les points d'ancrage dignes de confiance, proc&eacute;dez comme suit.<ol>
+
+<li>Cliquez sur <strong>Serveurs &gt; Serveurs d'applications &gt; </strong><em>nom_serveur</em>.</li>
+
+<li>Dans la section Propri&eacute;t&eacute;s suppl&eacute;mentaires,
+cliquez sur <strong>Services Web : Liaisons par d&eacute;faut pour la s&eacute;curit&eacute;
+des services Web &gt; Ancres de s&eacute;curisation</strong>.</li>
+
+</ol>
+</p>
+<p>Pour configurer le magasin de certificats de collection, suivez la proc&eacute;dure ci-apr&egrave;s.<ol>
+
+<li>Cliquez sur <strong>Serveurs &gt; Serveurs d'applications &gt; </strong><em>nom_serveur</em>.</li>
+
+<li>Dans la section Articles li&eacute;s,
+cliquez sur <strong>Services Web : Liaisons par d&eacute;faut pour la s&eacute;curit&eacute;
+des services Web &gt; Magasin de certificats de collection</strong>.</li>
+
+</ol>
+</p>
+<p>Pour configurer les adresses de cl&eacute;, suivez la proc&eacute;dure ci-apr&egrave;s.<ol>
+
+<li>Cliquez sur <strong>Serveurs &gt; Serveurs d'applications &gt; </strong><em>nom_serveur</em>.</li>
+
+<li>Dans la
+section Propri&eacute;t&eacute;s suppl&eacute;mentaires, cliquez sur <strong>Services Web :
+Liaisons par d&eacute;faut pour la s&eacute;curit&eacute; des services Web &gt;
+Adresse de cl&eacute;s</strong>.</li>
+
+</ol>
+</p>
+</div>
+
+<div>
+<a name="reqdecrypt"></a>
+<p class="sectiontitle">
+<b>D&eacute;chiffrement de la demande</b>
+</p>
+<p>Si vous
+avez d&eacute;fini des contraintes de confidentialit&eacute; (chiffrement), v&eacute;rifiez que
+les informations de chiffrement sont d&eacute;finies. </p>
+<p>Pour configurer les param&egrave;tres de chiffrement, proc&eacute;dez
+comme suit :<ol>
+
+<li>Cliquez sur <strong>Applications d'entreprise &gt; </strong><em>nom_application</em>.</li>
+
+<li>Dans la
+section Articles li&eacute;s, cliquez sur <strong>Module Web</strong>.</li>
+
+<li>Dans la section
+Propri&eacute;t&eacute;s suppl&eacute;mentaires, cliquez sur <strong>Services Web : Liaisons de
+s&eacute;curit&eacute; du serveur</strong>.
+Dans la section Liaison de r&eacute;cepteur de
+demande, cliquez sur <strong>Editer &gt; Informations de chiffrement</strong>.</li>
+
+</ol>
+</p>
+<p>Pour configurer les adresses de cl&eacute;, suivez la proc&eacute;dure ci-apr&egrave;s.<ol>
+
+<li>Cliquez sur <strong>Serveurs &gt; Serveurs d'applications &gt; </strong><em>nom_serveur</em>.</li>
+
+<li>Dans la
+section Propri&eacute;t&eacute;s suppl&eacute;mentaires, cliquez sur <strong>Services Web :
+Liaisons par d&eacute;faut pour la s&eacute;curit&eacute; des services Web &gt;
+Adresse de cl&eacute;s</strong>.</li>
+
+</ol>
+</p>
+</div>
+
+<div>
+<a name="basicauth"></a>
+<p class="sectiontitle">
+<b>Authentification BasicAuth</b>
+</p>
+<p>Si BasicAuth est configur&eacute; en tant que jeton de s&eacute;curit&eacute; requis, indiquez
+CallbackHandler dans le fichier de liaison pour collecter les donn&eacute;es d'authentification
+de base. Vous trouverez ci-apr&egrave;s la liste des impl&eacute;mentations de CallBack :<dl>
+<dt>
+<strong>com.ibm.wsspi.wssecurity.auth.callback.GuiPromptCallbackHandler</strong>
+</dt>
+<dd>L'impl&eacute;mentation
+vous invite &agrave; indiquer les informations d'authentification de base
+(nom d'utilisateur et mot de passe) dans un panneau de l'interface.</dd>
+<dt>
+<strong>com.ibm.wsspi.wssecurity.auth.callback.NonPromptCallbackHandler</strong>
+</dt>
+<dd>Cette
+impl&eacute;mentation lit les informations d'authentification de base dans le
+fichier de liaison.</dd>
+<dt>
+<strong>com.ibm.wsspi.wssecurity.auth.callback.StdPromptCallbackHandler</strong>
+</dt>
+<dd>Cette impl&eacute;mentation vous invite &agrave; indiquer un nom d'utilisateur et un mot de
+passe &agrave; l'aide de stdin.</dd>
+</dl>
+</p>
+<p>Pour configurer les informations de mappage de connexion, suivez la proc&eacute;dure
+ci-apr&egrave;s.<ol>
+
+<li>Cliquez sur <strong>Serveur &gt; Serveurs d'application &gt; </strong><em>nom_serveur</em>. </li>
+
+<li>Dans la section Propri&eacute;t&eacute;s suppl&eacute;mentaires, cliquez sur <strong>Services Web : Liaisons par d&eacute;faut
+pour la s&eacute;curit&eacute; des services Web &gt; Mappage de connexion</strong>.</li>
+
+</ol>
+</p>
+</div>
+
+<div>
+<a name="idassert"></a>
+<p class="sectiontitle">
+<b>Authentification par d&eacute;claration d'identit&eacute; (ID), avec TrustMode "BasicAuth"</b>
+</p>
+<p>Configurez une liaison de connexion dans
+le fichier de liaisons avec une impl&eacute;mentation
+com.ibm.wsspi.wssecurity.auth.callback.NonPromptCallbackHandler. Indiquez un ID utilisateur BasicAuth
+et un mot de passe se trouvant sur un serveur en aval et qui sont dignes de confiance pour un composant TrustedIDEvaluator.</p>
+<p>Pour configurer les informations de mappage de connexion, suivez la proc&eacute;dure
+ci-apr&egrave;s.<ol>
+
+<li>Cliquez sur <strong>Serveur &gt; Serveurs d'application &gt; </strong><em>nom_serveur</em>. </li>
+
+<li>Dans la section Propri&eacute;t&eacute;s suppl&eacute;mentaires, cliquez sur <strong>Services Web : Liaisons par d&eacute;faut
+pour la s&eacute;curit&eacute; des services Web &gt; Mappage de connexion</strong>.</li>
+
+</ol>
+</p>
+</div>
+
+<div>
+<a name="idasserttrust"></a>
+<p class="sectiontitle">
+<b>Authentification par d&eacute;claration d'identit&eacute; (ID), avec TrustMode "signature"</b>
+</p>
+<p>Configurez les informations de
+signature dans le fichier de liaisons avec un cl&eacute; de signature associ&eacute;e &agrave;
+un localisateur de cl&eacute;. L'adresse de cl&eacute; contient le certificat
+X.509 qui sera accept&eacute; par le serveur en aval.</p>
+<p>Pour configurer les informations de mappage de connexion, suivez la proc&eacute;dure
+ci-apr&egrave;s.<ol>
+
+<li>Cliquez sur <strong>Serveur &gt; Serveurs d'application &gt; </strong><em>nom_serveur</em>. </li>
+
+<li>Dans la section Propri&eacute;t&eacute;s suppl&eacute;mentaires, cliquez sur <strong>Services Web : Liaisons par d&eacute;faut
+pour la s&eacute;curit&eacute; des services Web &gt; Mappage de connexion</strong>.</li>
+
+</ol>
+</p>
+<p>
+<samp>WSLogin</samp>
+correspond au nom de la configuration de connexion utilis&eacute;e par le service
+JAAS (Java Authentication and Authorization Service). Pour configurer
+le service JAAS, cliquez sur <strong>S&eacute;curit&eacute; &gt; Configuration JAAS &gt;
+Connexions des applications</strong>.</p>
+<p>La valeur de la balise
+<samp>&lt;TrustedIDEvaluatorRef&gt;</samp> dans la liaison doit
+correspondre
+&agrave; la valeur du nom <samp>&lt;TrustedIDEvaluator&gt;</samp>.</p>
+<p>Pour configurer
+les &eacute;valuateur d'ID dignes de confiance, proc&eacute;dez comme suit.<ol>
+
+<li>Cliquez sur <strong>Serveurs &gt; Serveurs d'applications &gt; </strong><em>nom_serveur</em>.</li>
+
+<li>Dans la section Services suppl&eacute;mentaires, cliquez sur <strong>Services Web : Liaisons par
+d&eacute;faut pour la s&eacute;curit&eacute; des services Web &gt; Evaluateurs d'ID dignes de confiance</strong>.</li>
+
+</ol>
+</p>
+</div>
+
+<div>
+<a name="respsign"></a>
+<p class="sectiontitle">
+<b>Signature des r&eacute;ponses</b>
+</p>
+<p>Si vous
+avez d&eacute;fini des contraintes d'int&eacute;grit&eacute; (signature num&eacute;rique), v&eacute;rifiez
+que les informations de signature sont configur&eacute;es dans les fichiers de
+liaisons.</p>
+<p>Pour d&eacute;finir les informations de signature, proc&eacute;dez
+comme suit.<ol>
+
+<li>Cliquez sur <strong>Applications &gt; Applications d'entreprise &gt; </strong><em>nom_application</em>. </li>
+
+<li>Dans la section Articles
+li&eacute;s, cliquez sur <strong>Modules Web &gt; </strong><em>nom_fichier_URI</em> <strong>&gt;
+Services Web : Liaisons de s&eacute;curit&eacute; du serveur</strong>. </li>
+
+<li>Dans la colonne Liaison de r&eacute;cepteur de
+demande, cliquez sur <strong>Editer &gt; Informations relatives &agrave; la
+signature</strong>.</li>
+
+</ol>
+</p>
+<p>Pour configurer les adresses de cl&eacute;, suivez la proc&eacute;dure ci-apr&egrave;s.<ol>
+
+<li>Cliquez sur <strong>Serveurs &gt; Serveurs d'applications &gt; </strong><em>nom_serveur</em>.</li>
+
+<li>Dans la
+section Propri&eacute;t&eacute;s suppl&eacute;mentaires, cliquez sur <strong>Services Web :
+Liaisons par d&eacute;faut pour la s&eacute;curit&eacute; des services Web &gt;
+Adresse de cl&eacute;s</strong>.</li>
+
+</ol>
+</p>
+</div>
+
+<div>
+<a name="respencr"></a>
+<p class="sectiontitle">
+<b>Chiffrement des r&eacute;ponses</b>
+</p>
+<p>Si vous
+avez d&eacute;fini des contraintes de confidentialit&eacute; (chiffrement), v&eacute;rifiez que
+les informations de chiffrement sont d&eacute;finies. </p>
+<p>Pour configurer les
+informations de chiffrement, proc&eacute;dez comme suit:<ol>
+
+<li>Cliquez sur <strong>Applications d'entreprise &gt; </strong><em>nom_application</em>.</li>
+
+<li>Dans la section Articles li&eacute;s, cliquez sur <strong>Module Web</strong>. </li>
+
+<li>Dans la section
+Propri&eacute;t&eacute;s suppl&eacute;mentaires, cliquez sur <strong>Services Web : Liaisons de
+s&eacute;curit&eacute; du serveur</strong>. </li>
+
+<li>Dans la section Liaison de r&eacute;cepteur de
+demande, cliquez sur <strong>Editer &gt; Informations de chiffrement</strong>.</li>
+
+</ol>
+</p>
+<p>Pour configurer les adresses de cl&eacute;, suivez la proc&eacute;dure ci-apr&egrave;s.<ol>
+
+<li>Cliquez sur <strong>Serveurs &gt; Serveurs d'applications &gt; </strong><em>nom_serveur</em>.</li>
+
+<li>Dans la
+section Propri&eacute;t&eacute;s suppl&eacute;mentaires, cliquez sur <strong>Services Web :
+Liaisons par d&eacute;faut pour la s&eacute;curit&eacute; des services Web &gt;
+Adresse de cl&eacute;s</strong>.</li>
+
+</ol>
+</p>
+</div>
+
+<div>
+<p>
+<strong>Informations connexes</strong>
+</p>
+<a href="uwbs_websvcb.html">Services Web : Liaisons par d&eacute;faut pour la collection Web Services Security</a>
+<br>
+
+<a href="uwbs_vwcdd.html">Affichage du descripteur de d&eacute;ploiement du client des services Web</a>
+<br>
+
+</div>
+</body>
+</html>

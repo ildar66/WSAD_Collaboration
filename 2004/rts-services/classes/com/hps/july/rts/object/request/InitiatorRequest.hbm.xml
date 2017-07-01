@@ -1,0 +1,145 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://dtdserver/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.hps.july.rts.object.request">
+
+	<class name="InitiatorRequest" table="rts_request">
+
+		<id name="requestId" column="requestid">
+			<generator class="native"/>
+		</id>
+
+		<version name="version" column="version" type="integer"/>
+
+		<property name="statusId" column="status" type="integer"/>
+		<property name="rtsRequestTypeId" column="reqtype" type="integer"/>
+
+		<many-to-one name="equipmentA" lazy="no-proxy"
+			column="equipmentA" cascade="none"
+			class="com.hps.july.storageplace.object.Equipment"/>
+
+		<many-to-one name="positionA"
+			column="positiona" cascade="none"
+			class="com.hps.july.storageplace.object.Position"/>
+
+		<property name="portA" column="portA"/>
+
+<!--
+Перенесены в ConsolidatedRequest.hbm.xml - уточнение: это атрибуты Консол. заявки 
+		<many-to-one name="transEquipmentA" update="true" insert="true"
+			column="transequipmentA" cascade="none"
+			class="com.hps.july.storageplace.object.Equipment"/>
+
+        <property name="transPortA" column="transportA"/>
+-->        
+
+<!-- TODO deprecated
+		<property name="positionA" column="positionA"/>
+		<property name="transPositionA" column="transpositionA"/>
+		<property name="beenetIdA" column="beenetidA"/>
+		<property name="extraddrA" column="extraddrA"/>
+ -->
+	
+		<many-to-one name="equipmentB" lazy="no-proxy"
+			column="equipmentB" cascade="none"
+			class="com.hps.july.storageplace.object.Equipment"/>
+
+		<many-to-one name="positionB"
+			column="positionb" cascade="none"
+			class="com.hps.july.storageplace.object.Position"/>
+
+		<property name="portB" column="portB"/>
+
+<!--
+Перенесены в ConsolidatedRequest.hbm.xml - уточнение: атрибуты Консол. заявки 
+		<many-to-one name="transEquipmentB" update="true" insert="true" 
+			column="transequipmentB" cascade="none"
+			class="com.hps.july.storageplace.object.Equipment"/>
+
+		<property name="transPortB" column="transportB"/>
+-->
+
+<!-- TODO deprecated
+		<property name="positionB" column="positionB"/>
+        <property name="transPositionB" column="transpositionB"/>
+        <property name="beenetIdB" column="beenetidB"/>
+        <property name="extraddrB" column="extraddrB"/>
+ -->
+
+		<many-to-one name="channelSetting" lazy="no-proxy"
+			column="channelstlmnt"
+			class="com.hps.july.rts.object.channelsetting.ChannelSetting" />
+
+		<property name="initLabel" column="initlabel"/>
+		<property name="number" column="number" type="string"/>
+
+        <property name="modified" column="modified" type="timestamp"/>
+        <property name="created" column="created" type="timestamp"/>
+        
+        <many-to-one name="createdBy" lazy="no-proxy"
+            column="createdBy"
+            class="com.hps.april.auth.object.Person" update="false"/>
+
+        <many-to-one name="modifiedBy" lazy="no-proxy"
+            column="modifiedBy"
+            class="com.hps.april.auth.object.Person"/>
+
+		<many-to-one name="initiator" lazy="no-proxy"
+			column="initid"
+			class="com.hps.july.rts.auth.object.RTSGroup"/>
+
+		<many-to-one name="initiatorPerson" lazy="no-proxy"
+			column="initman"
+			class="com.hps.april.auth.object.Person"/>
+
+<!--
+abaykov 10.04.2006
+		<property name="createDate" column="createdate" type="date"/>
+-->
+		<property name="factComplDate" column="factcompldate" type="date"/>
+		<property name="planComplDate" column="plancompldate" type="date"/>
+		<property name="completeDate" column="completedate" type="date"/>
+
+		<many-to-one name="channelType" lazy="no-proxy"
+			column="channeltype"
+			class="com.hps.july.rts.object.channeltype.ChannelType"/>
+
+		<many-to-one name="channelInterface" lazy="no-proxy"
+			column="interfaceid"
+			class="com.hps.july.rts.object.channelinterface.ChannelInterface"/>
+
+		<property name="initCapacity" column="capacity" type="string"/>
+
+		<many-to-one name="capacity" lazy="no-proxy"
+			column="capacityid" cascade="none"
+			class="com.hps.july.rts.object.capacity.Capacity"/>
+
+		<property name="canBeCompressed" column="canBeCompressed" type="integer"/>
+		<property name="reason" column="reason" type="string"/>
+		<property name="comment" column="comment" type="string"/>
+
+		<property name="inWorkDate" column="inworkdate" type="date"/>
+		<property name="priority" column="priority" type="integer"/>
+		<property name="contactNameA" column="contactnameA" type="string"/>
+		<property name="contactPhoneA" column="contactphoneA" type="string"/>
+		<property name="contactNameB" column="contactnameB" type="string"/>
+		<property name="contactPhoneB" column="contactphoneB" type="string"/>
+
+        <property name="revisionComment" column="revision_comment" type="string"/>
+
+        <many-to-one name="keyManager" lazy="no-proxy"
+            column="keymanager"
+            class="com.hps.april.auth.object.Person" />
+
+        <many-to-one name="regManager" lazy="no-proxy"
+            column="regmanager"
+            class="com.hps.april.auth.object.Person" />
+
+        <many-to-one name="consolidatedRequest" lazy="no-proxy"
+            column="consReqId"
+            class="com.hps.july.rts.object.request.ConsolidatedRequest"/>
+	</class>
+
+</hibernate-mapping>

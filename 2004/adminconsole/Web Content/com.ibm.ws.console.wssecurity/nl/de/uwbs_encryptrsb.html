@@ -1,0 +1,189 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Konfigurationseinstellungen f&uuml;r Verschl&uuml;sselungsdaten</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_encryptrsb"></a>
+<h2>
+<img alt="[Release 5.1 und h&ouml;her]" src="v51.gif" border="0">Konfigurationseinstellungen f&uuml;r Verschl&uuml;sselungsdaten</h2>
+
+<p>Verwenden Sie diese Seite, um die Ver- und Entschl&uuml;sselungsparameter zu konfigurieren.
+</p>
+
+<p>Die auf dieser Seite aufgelisteten Spezifikationen f&uuml;r die Signaturmethode, Digest-Methode
+und Kanonisierungsmethode finden Sie im W3C-Dokument (World Wide Web Consortium) mit dem Titel
+<em>XML Encryption Syntax and Processing: W3C Recommendation
+10 Dec 2002</em>. </p>
+
+<p>Gehen Sie zum Anzeigen dieser Seite der Administrationskonsole wie folgt vor:<ol>
+
+<li>Klicken Sie auf <strong>Anwendungen &gt; Enterprise-Anwendungen &gt; </strong><em>Anwendungsname</em>. </li>
+
+<li>Klicken Sie unter "Zugeh&ouml;rige Elemente" auf <strong>Webmodul &gt; </strong><em>Name_der_URI-Datei</em> &gt; <strong>Web Services:
+Sicherheitsbindungen des Servers</strong>.
+</li>
+
+<li>Klicken Sie unter "Bindung des Antwortsenders" auf <strong>Bearbeiten &gt; Verschl&uuml;sselungsdaten</strong>.</li>
+
+<li>Wenn die Verschl&uuml;sselungsdaten nicht verf&uuml;gbar sind, w&auml;hlen Sie <strong>Keine</strong> aus.</li>
+
+<li>Wenn die Verschl&uuml;sselungsdaten verf&uuml;gbar sind, w&auml;hlen Sie
+<strong>Dedizierte Verschl&uuml;sselungsdaten</strong> aus. </li>
+
+</ol>
+</p>
+
+<p></p>
+
+<p>F&uuml;llen Sie anschlie&szlig;end die folgenden Konfigurationsfelder aus:</p>
+
+<dl>
+<dt>
+<strong><a name="sec_name"></a>Name der Verschl&uuml;sselungsdaten</strong>
+</dt>
+<dd>Der Name der Verschl&uuml;sselungsdaten.</dd>
+<dt>
+<strong><a name="sec_klr"></a>Referenz auf Key Locator</strong>
+</dt>
+<dd>Der Name, mit dem auf den Key Locator verwiesen wird. 
+<p>Klicken Sie zum Angeben von Referenzen auf den Key Locator auf <strong>Server &gt; Anwendungsserver
+&gt; </strong><em>Servername</em>. Klicken Sie unter "Weitere Merkmale" auf <strong>Web Services:
+Standardbindungen f&uuml;r die Sicherheit von Web Services &gt; Key Locator</strong>.</p>
+
+</dd>
+<dt>
+<strong><a name="sec_ekn"></a>Name des Verschl&uuml;sselungsschl&uuml;ssels</strong>
+</dt>
+<dd>Der Name des Verschl&uuml;sselungsschl&uuml;ssels, der vom angegebenen Key Locator in den echten Schl&uuml;ssel aufgel&ouml;st wird.</dd>
+<dt>
+<strong><a name="sec_eka"></a>Verschl&uuml;sselungsalgorithmus f&uuml;r Schl&uuml;ssel </strong>
+</dt>
+<dd>Der URI des Algorithmus f&uuml;r die Schl&uuml;sselverschl&uuml;sselungsmethode. 
+<p>Die folgenden Algorithmen werden unterst&uuml;tzt:<ul>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#rsa-1_5</samp>
+</li>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#kw-tripledes</samp>
+</li>
+
+</ul>
+</p>
+
+<p>Zus&auml;tzlich werden die folgenden Algorithmen unterst&uuml;tzt:<ul>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#kw-aes128</samp>
+</li>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#kw-aes256</samp>
+</li>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#kw-aes192</samp>
+</li>
+
+</ul>
+</p>
+
+<p>Standardm&auml;&szlig;ig wird JCE (Java Cryptography Extension) mit eingeschr&auml;nkten
+Chiffriergraden oder beschr&auml;nkten Schl&uuml;ssell&auml;ngen geliefert.
+Wenn Sie die 192-Bit- und 256-Bit-AES-Verschl&uuml;sselungsalgorithmen (Advanced Encryption
+Standard) verwenden m&ouml;chten, m&uuml;ssen Sie Policy-Dateien anwenden, die keinen gesetzlichen Einschr&auml;nkungen unterliegen.
+Sichern Sie vor dem Download dieser Policy-Dateien die vorhandenen
+Policy-Dateien (local_policy.jar und US_export_policy.jar im Verzeichnis jre/lib/security/), da diese Dateien &uuml;berschrieben werden und
+f&uuml;r den Fall, dass die Originaldateien wiedergeherstellt werden m&uuml;ssten, sonst nicht mehr zur Verf&uuml;gung st&uuml;nden.
+Gehen Sie wie folgt vor, um die Policy-Dateien herunterzuladen:<ul>
+
+<li>Die Policy-Dateien mit uneingeschr&auml;nkter Gerichtsbarkeit f&uuml;r WebSphere Application Server-Plattformen,
+die IBM Developer Kit, Java Technology Edition Version 1.4.1 verwenden (dazu geh&ouml;ren AIX, Linux und Windows),
+k&ouml;nnen Sie wie folgt herunterladen:
+<ul>
+
+<li>Rufen Sie die folgende Website auf: http://www.ibm.com/developerworks/java/jdk/security/index.html </li>
+
+<li>Klicken Sie auf <strong>Policy Files</strong>. <p>Die Datei unrestrict.jar
+wird auf Ihre Maschine heruntergeladen.</p>
+</li>
+
+</ul>
+</li>
+
+<li>Die Policy-Dateien mit uneingeschr&auml;nkter Gerichtsbarkeit f&uuml;r WebSphere Application Server-Plattformen, die das Sun-basierte Java Development
+Kit (JDK) Version 1.4.1 verwenden (dazu geh&ouml;ren die Solaris-Umgebungen und HP-UX),
+k&ouml;nnen Sie wie folgt herunterladen:
+<ul>
+
+<li>Rufen Sie die folgende Website auf: http://java.sun.com/j2se/1.4.1/download.html</li>
+
+<li>Klicken Sie unten auf der Webseite neben
+"Java Cryptography Extension (JCE) Unlimited Strength Jurisdiction Policy Files 1.4.1" auf auf "Download". Daraufhin wird die Datei
+jce_policy-1_4_1.zip auf Ihre Maschine heruntergeladen.
+</li>
+
+</ul>
+</li>
+
+</ul>Nachdem Sie diese Schritte ausgef&uuml;hrt haben, befinden sich zwei JAR-Dateien (Java Archive)
+im JVM-Verzeichnis jre/lib/security/. </p>
+
+</dd>
+<dt>
+<strong><a name="sec_dea"></a>Algorithmus f&uuml;r Datenverschl&uuml;sselung</strong>
+</dt>
+<dd>Der Algorithmus-URI (Uniform Resource Identifiers) der Datenverschl&uuml;sselungsmethode.
+
+<p>Der folgende Algorithmus wird unterst&uuml;tzt:<ul>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#tripledes-cbc</samp>
+</li>
+
+</ul>
+</p>
+
+<p>Zus&auml;tzlich werden die folgenden Algorithmen unterst&uuml;tzt:<ul>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#aes128-cbc</samp>
+</li>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#aes256-cbc</samp>
+</li>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#aes192-cbc</samp>
+</li>
+
+</ul>
+</p>
+
+<p>Standardm&auml;&szlig;ig wird JCE (Java Cryptography Extension) mit eingeschr&auml;nkten
+Chiffriergraden oder beschr&auml;nkten Schl&uuml;ssell&auml;ngen geliefert.
+Wenn Sie die 192-Bit- und 256-Bit-AES-Verschl&uuml;sselungsalgorithmen (Advanced Encryption
+Standard) verwenden m&ouml;chten, m&uuml;ssen Sie Policy-Dateien anwenden, die keinen gesetzlichen Einschr&auml;nkungen unterliegen.
+</p>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>Zugeh&ouml;rige Informationen</strong>
+</p>
+<a href="uwbs_encrypt.html">Verschl&uuml;sselungsdaten</a>
+<br>
+
+<a href="uwbs_keyl.html">Key Locator</a>
+<br>
+
+</div>
+</body>
+</html>

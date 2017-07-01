@@ -1,0 +1,127 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Impostazioni della cache EJB</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uejbcash"></a>
+<h2>Impostazioni della cache EJB</h2>
+
+<p>Utilizzare questa pagina per configurare e gestire la cache di un contenitore EJB specifico. Per determinare il limite assoluto della cache, moltiplicare il numero dei bean enterprise attivi in una determinata transazione per il numero totale delle transazioni simultanee previste. Quindi, aggiungere il numero di istanze di bean di sessione attive. &Egrave; possibile utilizzare il Visualizzatore prestazioni Tivoli per visualizzare le informazioni sulle
+prestazioni dei bean.</p>
+
+<p>Per visualizzare questa pagina della console di gestione, fare clic su <strong>Server</strong>
+<strong>&gt;</strong> <strong>Server delle applicazioni</strong> <strong>&gt;</strong> <em>serverName</em> <strong>&gt;</strong>
+<strong>Contenitore EJB</strong> <strong>&gt;</strong> <strong>Impostazioni della cache EJB</strong>.</p>
+
+<div>
+<p>
+<strong>Scheda Configurazione</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="EJBCache_cleanupInterval_description"></a>Intervallo di pulitura</strong>
+</dt>
+<dd>Specifica l'intervallo durante il quale il contenitore tenter&agrave; di rimuovere
+le voci non utilizzate dalla cache per ridurne il numero al valore limite stabilito per
+la cache.
+<p>Il gestore cache effettua un tentativo di mantenere alcune voci non assegnate, operazione che pu&ograve; essere eseguita
+velocemente, se necessario. Un thread in background tenta di cancellare alcune voci durante la gestione di alcune voci non assegnate. Se il thread &egrave; in esecuzione durante il periodo di inattivit&agrave; del server delle applicazioni, quando questo dovr&agrave; assegnare nuove voci della cache, non dovr&agrave; pagare il costo in termini di prestazioni nell'eliminare le voci. In genere, aumentare questo parametro con l'incremento della dimensione della cache.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Numero intero</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&agrave;</td>
+<td align="left" valign="top" class="base">Millisecondi</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo</td>
+<td align="left" valign="top" class="base">Maggiore di 0</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">3000</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="EJBCache_cacheSize_description"></a>Dimensione cache</strong>
+</dt>
+<dd>Specifica il numero di bucket nell'elenco istanze attive all'interno del contenitore EJB.
+<p>Un bucket pu&ograve; contenere pi&ugrave; di un'istanza di bean enterprise attiva, ma le
+prestazioni sono ottimizzate se a ciascun bucket nella tabelle viene assegnato un numero
+minimo di istanze. Se il numero di istanze attive all'interno del
+contenitore supera il numero di bucket, ovvero, le dimensioni della cache, il contenitore tenta periodicamente di
+ridurre il numero di istanze attive nella tabella rendendone passive alcune. Per un bilanciamento ottimale tra
+prestazioni e memoria, impostare questo valore sul numero massimo di istanze attive previste per un carico di
+lavoro tipico.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Numero intero</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&agrave;</td>
+<td align="left" valign="top" class="base">Bucket nella tabella hash</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo</td>
+<td align="left" valign="top" class="base">Maggiore di 0. Il contenitore seleziona il successivo numero principale pari o
+superiore al valore specificato.</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">2053</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informazioni correlate</strong>
+</p>
+<a href="rcon_buttons.html">Pulsanti della console di gestione</a>
+<br>
+
+<a href="uejb_recnt.html">Impostazioni del contenitore EJB</a>
+<br>
+
+</div>
+</body>
+</html>

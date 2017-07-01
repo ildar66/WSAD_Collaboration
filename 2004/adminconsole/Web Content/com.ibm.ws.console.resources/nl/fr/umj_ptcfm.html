@@ -1,0 +1,940 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Param&egrave;tres de fabrique de connexions de rubriques WebSphere MQ</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="MQTopicConnectionFactory"></a>
+<h2>
+<img alt="[Release 5.1 and later]" src="v51.gif" border="0">Param&egrave;tres de fabrique de connexions de rubriques WebSphere MQ</h2>
+
+<p>Utilisez cet &eacute;cran pour afficher ou modifier les propri&eacute;t&eacute;s de
+configuration de la fabrique de connexions de rubriques s&eacute;lectionn&eacute;e
+pour une utilisation avec le fournisseur WebSphere MQ JMS.
+Ces propri&eacute;t&eacute;s de
+configuration contr&ocirc;lent le mode de cr&eacute;ation des connexions vers la
+destination de rubrique JMS associ&eacute;e.</p>
+
+<p>Une fabrique de connexions de rubriques est utilis&eacute;e pour cr&eacute;er des connexions JMS vers des destinations
+de rubriques.
+La fabrique de connexions de rubriques est cr&eacute;&eacute;e par le fournisseur WebSphere MQ JMS.
+Une fabrique de connexions de rubriques du fournisseur WebSphere MQ JMS
+est dot&eacute;e des propri&eacute;t&eacute;s suivantes.<p>
+<b>Important: </b>
+<ul>
+
+<li>Les valeurs de propri&eacute;t&eacute; que vous sp&eacute;cifiez doivent correspondre
+aux valeurs que vous avez sp&eacute;cifi&eacute;es lors de la configuration des
+ressources WebSphere MQ JMS. Pour plus d'informations sur la configuration des ressources
+WebSphere MQ JMS, reportez-vous au document <cite>Using Java</cite> de WebSphere MQ.</li>
+
+<li>Dans WebSphere MQ, les noms peuvent comporter un maximum de 48 caract&egrave;res, &agrave;
+l'exception des canaux dont la longueur maximum est de 20 caract&egrave;res.</li>
+
+<li>
+<img alt="[Release 5.1 and later]" src="v51.gif" border="0">Vous pouvez acc&eacute;der &agrave; la page Propri&eacute;t&eacute;s personnalis&eacute;es pour d&eacute;finir un sous-ensemble de propri&eacute;t&eacute;s
+WebSphere MQ. Pour plus de d&eacute;tails sur ces propri&eacute;t&eacute;s personnalis&eacute;es, reportez-vous &agrave; la section <a href="#ConnectionFactory_customProperties">Propri&eacute;t&eacute;s personnalis&eacute;es</a>.</li>
+
+</ul>
+</p>
+</p>
+
+<p>Pour afficher cette page de la console d'administration, cliquez
+sur <strong>Ressources-&gt; Fournisseur WebSphere MQ JMS-&gt; (Dans la
+sous-fen&ecirc;tre de contenu, sous les propri&eacute;t&eacute;s additionnelles)
+Fabriques de connexions de rubrique WebSphere MQ-&gt;
+<em>fabrique_connexions</em></strong>
+</p>
+
+<dl>
+<dt>
+<strong><a name="MQTopicConnectionFactory_name"></a>Nom</strong>
+</dt>
+<dd>Nom sous lequel cette fabrique de connexions topic est connue pour l'administration d'IBM
+WebSphere Application Server. Ce nom doit &ecirc;tre unique dans le fournisseur JMS.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopicConnectionFactory_jndiName"></a>Nom JNDI</strong>
+</dt>
+<dd>Nom JNDI utilis&eacute; pour lier la fabrique de connexions de rubrique &agrave; l'espace nom du
+serveur d'applications.
+<p>Par convention, utilisez le nom JNDI complet, par exemple sous la forme jms/<em>Nom</em>, <em>Nom</em>
+correspondant au nom logique de la ressource.</p>
+
+<p>Ce nom est utilis&eacute; pour lier les informations relatives &agrave; la
+liaison des plateformes. La liaison associe les ressources d&eacute;finies dans le descripteur de d&eacute;ploiement du
+module aux ressources r&eacute;elles (physiques) li&eacute;es sous JNDI par la plateforme.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopicConnectionFactory_description"></a>Description</strong>
+</dt>
+<dd>Description de cette fabrique de connexions de rubrique dans IBM WebSphere Application
+Server &agrave; des fins d'administration.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopicConnectionFactory_category"></a>Cat&eacute;gorie</strong>
+</dt>
+<dd>Cat&eacute;gorie utilis&eacute;e pour classer ou grouper cette fabrique de connexions de rubrique dans
+le cadre de l'administration d'IBM WebSphere Application Server.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="AuthDataAlias"></a>Alias d'authentification g&eacute;r&eacute; par composant</strong>
+</dt>
+<dd>Cet alias sp&eacute;cifie un ID utilisateur et un mot de passe &agrave; utiliser pour authentifier la connexion &agrave; un fournisseur JMS pour l'authentification g&eacute;r&eacute;e par l'application.
+<p>Cette propri&eacute;t&eacute; fournit la liste des alias des entr&eacute;es de donn&eacute;es d'authentification
+J2C d&eacute;finis pour WebSphere Application Server. Vous pouvez s&eacute;lectionner un alias d'entr&eacute;e de donn&eacute;es pour authentifier la cr&eacute;ation d'une connexion au fournisseur JMS.</p>
+
+<p>Si vous avez activ&eacute; la s&eacute;curit&eacute; globale de WebSphere Application Server, s&eacute;lectionnez l'alias qui sp&eacute;cifie l'ID  utilisateur et le mot de passe utilis&eacute;s pour authentifier la cr&eacute;ation d'une connexion au fournisseur JMS. L'utilisation de cet alias d&eacute;pend du param&eacute;trage de l'authentification de la ressource
+(res-auth) d&eacute;clar&eacute; dans la r&eacute;f&eacute;rence de ressource de la fabrique de connexions des
+descripteurs de d&eacute;ploiement du composant d'application.</p>
+
+<p>
+<b>Important: </b>Les ID utilisateur de plus de 12 caract&egrave;res ne peuvent pas &ecirc;tre utilis&eacute;s pour l'authentification avec le fournisseur int&eacute;gr&eacute; JMS WebSphere. Par exemple, l'ID utilisateur par d&eacute;faut de Windows
+NT, <strong>Administrator</strong>, n'est pas valable avec la messagerie int&eacute;gr&eacute;e WebSphere car il comporte 13 caract&egrave;res. Par cons&eacute;quent, un alias d'authentification pour une fabrique de connexion au fournisseur JMS WebSphere doit sp&eacute;cifier un ID utilisateur de moins de 13 caract&egrave;res.</p>
+
+</dd>
+<dt>
+<strong><a name="mappingAuthDataAlias"></a>Alias d'authentification g&eacute;r&eacute; par conteneur</strong>
+</dt>
+<dd>Cet alias sp&eacute;cifie un ID utilisateur et un mot de passe &agrave; utiliser pour authentifier la connexion &agrave; un fournisseur JMS pour l'authentification g&eacute;r&eacute;e par conteneur.
+<p>Cette propri&eacute;t&eacute; fournit la liste des alias des entr&eacute;es de donn&eacute;es d'authentification
+J2C d&eacute;finis pour WebSphere Application Server. Vous pouvez s&eacute;lectionner un alias d'entr&eacute;e de donn&eacute;es pour authentifier la cr&eacute;ation d'une connexion au fournisseur JMS.</p>
+
+<p>Si vous avez activ&eacute; la s&eacute;curit&eacute; globale de WebSphere Application Server, s&eacute;lectionnez l'alias qui sp&eacute;cifie l'ID  utilisateur et le mot de passe utilis&eacute;s pour authentifier la cr&eacute;ation d'une connexion au fournisseur JMS. L'utilisation de cet alias d&eacute;pend du param&eacute;trage de l'authentification de la ressource
+(res-auth) d&eacute;clar&eacute; dans la r&eacute;f&eacute;rence de ressource de la fabrique de connexions des
+descripteurs de d&eacute;ploiement du composant d'application.</p>
+
+<p>
+<b>Important: </b>Les ID utilisateur de plus de 12 caract&egrave;res ne peuvent pas &ecirc;tre utilis&eacute;s pour l'authentification avec le fournisseur int&eacute;gr&eacute; JMS WebSphere. Par exemple, l'ID utilisateur par d&eacute;faut de Windows
+NT, <strong>Administrator</strong>, n'est pas valable avec la messagerie int&eacute;gr&eacute;e WebSphere car il comporte 13 caract&egrave;res. Par cons&eacute;quent, un alias d'authentification pour une fabrique de connexion au fournisseur JMS WebSphere doit sp&eacute;cifier un ID utilisateur de moins de 13 caract&egrave;res.</p>
+
+</dd>
+<dt>
+<strong><a name="MQTopicConnectionFactory_queueManager"></a>Gestionnaire de files d'attente</strong>
+</dt>
+<dd>Le nom du gestionnaire de files d'attente WebSphere MQ pour cette fabrique de connexions. Les connexions cr&eacute;&eacute;es par cette rubrique se connectent &agrave; ce gestionnaire de files d'attente.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Plage</td>
+<td align="left" valign="top" class="base">Un nom de gestionnaire de file d'attente WebSphere valide, comportant de 1 &agrave; 48 caract&egrave;res ASCII</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopicConnectionFactory_host"></a>H&ocirc;te</strong>
+</dt>
+<dd>Le nom de l'h&ocirc;te sur lequel s'ex&eacute;cute le gestionnaire de files d'attente WebSphere MQ, uniquement pour la connexion client.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Plage</td>
+<td align="left" valign="top" class="base">Un nom d'h&ocirc;te TCP/IP valide</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopicConnectionFactory_port"></a>Port</strong>
+</dt>
+<dd>Num&eacute;ro de port TCP/IP utilis&eacute; pour la connexion au gestionnaire de
+files d'attente WebSphere MQ, uniquement pour la connexion client.
+<p>Ce port doit &ecirc;tre configur&eacute; sur le gestionnaire de files d'attente
+WebSphere MQ.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Entier</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Plage</td>
+<td align="left" valign="top" class="base">Un num&eacute;ro de port TCP/IP valide, configur&eacute; dans le gestionnaire de files d'attente WebSphere MQ.</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopicConnectionFactory_channel"></a>Canal</strong>
+</dt>
+<dd>Le nom du canal utilis&eacute; pour la connexion au gestionnaire de files d'attente WebSphere MQ, uniquement pour la connexion client.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Plage</td>
+<td align="left" valign="top" class="base">1 &agrave; 20 caract&egrave;res ASCII</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopicConnectionFactory_transportType"></a>Type de transport</strong>
+</dt>
+<dd>Indique si la connexion client WebSphere MQ ou les liaisons JNDI
+sont utilis&eacute;es pour la connexion au gestionnaire de files d'attente WebSphere MQ. Le fournisseur JMS externe contr&ocirc;le les protocoles de communication entre les clients et les serveurs JMS. Ajustez le type de
+transport lorsque vous utilisez des fonctions de messagerie non-ASF, non persistantes, non durables et non
+transactionnelles ou pour r&eacute;pondre aux exigences de s&eacute;curit&eacute; lorsque le client est install&eacute; en local sur le
+noeud du gestionnaire de files d'attente.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Enum&eacute;ration</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&eacute;</td>
+<td align="left" valign="top" class="base">Non applicable</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">LIAISONS</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Plage</td>
+<td align="left" valign="top" class="base">
+<dl>
+<dt>
+<strong>LIAISONS</strong>
+</dt>
+<dd>Les liaisons JNI sont utilis&eacute;es pour se connecter
+au gestionnaire de files d'attente. BINDINGS est un protocole de m&eacute;moire partag&eacute;e utilisable uniquement
+lorsque le gestionnaire de files d'attente est sur le m&ecirc;me noeud que le client JMS et pr&eacute;sente quelques
+risques au niveau de la s&eacute;curit&eacute; qu'il est possible de g&eacute;rer par le biais des r&ocirc;les EJB.</dd>
+<dt>
+<strong>CLIENT</strong>
+</dt>
+<dd>Une connexion client WebSphere MQ est utilis&eacute;e pour la connexion au gestionnaire de files d'attente.
+Un CLIENT est un protocole TCP type. </dd>
+<dt>
+<strong>DIRECT</strong>
+</dt>
+<dd>Indique que WebSphere MQ Event Broker utilise le mode DIRECT. DIRECT est un protocole de socket partiel
+utilis&eacute; avec les fonctions de messagerie de publication/abonnement non transactionnelles, non durables et
+non persistantes. DIRECT fonctionne uniquement pour les clients et les beans g&eacute;r&eacute;s par message utilisant le protocole non-ASF.</dd>
+<dt>
+<strong>QUEUED</strong>
+</dt>
+<dd>QUEUED est un protocole standard TCP.</dd>
+</dl>
+</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Recommandation</td>
+<td align="left" valign="top" class="base">
+<dl>
+<dt>
+<strong>Type de transport de fabrique de connexions de file d'attente</strong>
+</dt>
+<dd>BINDINGS est 30 %
+plus rapide mais n'offre pas un niveau de s&eacute;curit&eacute; suffisant. Si la s&eacute;curit&eacute; est un facteur important, il
+est conseill&eacute; d'utiliser le protocole BINDINGS plut&ocirc;t que CLIENT.</dd>
+<dt>
+<strong>Type de transport de fabrique de connexions de rubrique</strong>
+</dt>
+<dd>DIRECT est le protocole le plus rapide et doit &ecirc;tre utilis&eacute; aussi souvent que possible. Utilisez le protocole BINDINGS pour effectuer des t&acirc;ches de s&eacute;curit&eacute;
+suppl&eacute;mentaires et lorsque le gestionnaire de files d'attente est install&eacute; en local sur le client JMS. L'utilisation du protocole QUEUED est r&eacute;serv&eacute;e &agrave; tous les autres cas de figure. WebSphere MQ 5.3 avant CSD2, dot&eacute; du param&egrave;tre DIRECT, peut entra&icirc;ner une perte des messages lorsqu'il est utilis&eacute; avec les beans g&eacute;r&eacute;s par message en cas de forte charge de travail. Cela se produit &eacute;galement pour les applications c&ocirc;t&eacute; client &agrave; moins que la valeur 0 soit
+affect&eacute;e au param&egrave;tre maxClientQueueSize de la fonction Broker. Pour affecter la valeur 0
+&agrave; ce param&egrave;tre, lancez la commande <samp>#wempschangeproperties NomNoeud_WAS_serveur1 -e
+default -o MoteurAbonnementDynamique -n TailleMaxFileAttenteClient -v 0 -x
+UUIDGroupeEx&eacute;cution</samp>, la valeur de UUIDGroupeEx&eacute;cution pouvant &ecirc;tre obtenue en
+d&eacute;marrant le courtier et en recherchant l'&eacute;v&eacute;nement 2201 dans les applications/journaux
+d'&eacute;v&eacute;nements. Il s'agit g&eacute;n&eacute;ralement de la valeur ffffffff-0000-0000-000000000000.</dd>
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopicConnectionFactory_brokerControlQueue"></a>File d'attente de contr&ocirc;le du courtier</strong>
+</dt>
+<dd>Le nom de la file d'attente de contr&ocirc;le du courtier vers laquelle tous les messages de
+commande (sauf les publications et les demandes de suppression de publications) sont
+envoy&eacute;s.
+<p>Nom de la file d'attente de contr&ocirc;le du courtier. Les applications de
+publication et d'abonnement, et d'autres courtiers, envoient tous les
+messages de commande (sauf les publications et les demandes de suppression
+de publications) vers cette file d'attente.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&eacute;</td>
+<td align="left" valign="top" class="base">Caract&egrave;res ASCII En_US</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Plage</td>
+<td align="left" valign="top" class="base">Caract&egrave;res ASCII 1 &agrave; 48</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopicConnectionFactory_brokerQueueManager"></a>Gestionnaire de files d'attente de courtier</strong>
+</dt>
+<dd>Le nom du gestionnaire de files d'attente WebSphere MQ qui fournit le courtier
+de messages par publication/abonnement.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&eacute;</td>
+<td align="left" valign="top" class="base">Caract&egrave;res ASCII En_US</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Plage</td>
+<td align="left" valign="top" class="base">Caract&egrave;res ASCII 1 &agrave; 48</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopicConnectionFactory_brokerPubQueue"></a>File d'attente de publication de courtier</strong>
+</dt>
+<dd>Nom de la file d'attente d'entr&eacute;e du courtier qui re&ccedil;oit tous les messages de
+publication pour le flot par d&eacute;faut.
+<p>Nom de la file d'attente d'entr&eacute;e du courtier (file d'attente de flot) qui re&ccedil;oit
+tous les messages de publication pour le flot par d&eacute;faut. Les
+applications peuvent &eacute;galement envoyer des requ&ecirc;tes pour supprimer des
+publications sur le flot par d&eacute;faut vers cette file d'attente.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&eacute;</td>
+<td align="left" valign="top" class="base">Caract&egrave;res ASCII En_US</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Plage</td>
+<td align="left" valign="top" class="base">Caract&egrave;res ASCII 1 &agrave; 48</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopicConnectionFactory_brokerSubQueue"></a>File d'attente d'abonnement de courtier</strong>
+</dt>
+<dd>Nom de la file d'attente de courtier de laquelle des messages d'abonnement non
+durables sont extraits.
+<p>Nom de la file d'attente de courtier de laquelle des messages d'abonnement non
+durables sont extraits. L'abonn&eacute; sp&eacute;cifie le nom de la file d'attente lorsqu'il s'inscrit pour un abonnement.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&eacute;</td>
+<td align="left" valign="top" class="base">Caract&egrave;res ASCII En_US</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Plage</td>
+<td align="left" valign="top" class="base">Caract&egrave;res ASCII 1 &agrave; 48</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopicConnectionFactory_brokerCCSubQueue"></a>File d'attente d'abonnement de courtier CC</strong>
+</dt>
+<dd>Nom de la file d'attente du courtier de laquelle les messages d'abonnement non
+durables sont extraits pour un ConnectionConsumer. Cette propri&eacute;t&eacute; s'applique uniquement
+au conteneur Web.
+<p>Nom de la file d'attente du courtier de laquelle les messages d'abonnement non
+durables sont extraits pour un ConnectionConsumer. Cette propri&eacute;t&eacute; s'applique uniquement
+au conteneur Web.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&eacute;</td>
+<td align="left" valign="top" class="base">Caract&egrave;res ASCII En_US</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Plage</td>
+<td align="left" valign="top" class="base">Caract&egrave;res ASCII 1 &agrave; 48</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopicConnectionFactory_brokerVersion"></a>Version courtier</strong>
+</dt>
+<dd>Indique si le courtier de message est fourni par WebSphere MA0C Supportpac
+ou par des versions plus r&eacute;centes de produits de courtage de messages WebSphere
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Enum&eacute;ration</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&eacute;</td>
+<td align="left" valign="top" class="base">Non applicable</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">Avanc&eacute;</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Plage</td>
+<td align="left" valign="top" class="base">
+<dl>
+<dt>
+<strong>Avanc&eacute;</strong>
+</dt>
+<dd>Le courtier de message est fourni par des versions
+plus r&eacute;centes de produits de courtage de messages WebSphere (WebsSphere MQ
+Integrator et EventBroker). </dd>
+<dt>
+<strong>De base</strong>
+</dt>
+<dd>Le courtier de message est fourni par WebSphere MQ MA0C SupportPac
+(MQSeries - Publication/Abonnement) ou MQSI fonctionnant en mode de compatibilit&eacute; MA0C. </dd>
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopicConnectionFactory_tempModel"></a>D&eacute;finition de la file d'attente mod&egrave;le</strong>
+</dt>
+<dd>Le nom de la d&eacute;finition de file d'attente mod&egrave;le utilisable par le courtier
+pour cr&eacute;er des files d'attente dynamiques, pour les flots qui ne sont pas
+des flots par d&eacute;faut, s'il n'existe pas de file d'attente de flot.
+<p>Le nom de la d&eacute;finition de file d'attente mod&egrave;le utilisable par le courtier
+pour cr&eacute;er des files d'attente dynamiques afin de recevoir des publications
+pour les flots autres que le flot par d&eacute;faut. Cette file d'attente est uniquement utilis&eacute;e s'il n'existe pas de file d'attente de flot. Si cette d&eacute;finition de file d'attente mod&egrave;le n'existe pas, toutes les files d'attente de flot doivent &ecirc;tre d&eacute;finies par l'administrateur.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&eacute;</td>
+<td align="left" valign="top" class="base">Caract&egrave;res ASCII En_US</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Plage</td>
+<td align="left" valign="top" class="base">Caract&egrave;res ASCII 1 &agrave; 48</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopicConnectionFactory_CCSID"></a>CCSID</strong>
+</dt>
+<dd>L'ID de jeu de caract&egrave;res cod&eacute;s &agrave; utiliser avec le gestionnaire de files d'attente WebSphere MQ.
+<p>Cet ID de jeu de caract&egrave;res cod&eacute;s (CCSID) doit figurer parmi les CCSID pris
+en charge par WebSphere MQ.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&eacute;</td>
+<td align="left" valign="top" class="base">Entier</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Plage</td>
+<td align="left" valign="top" class="base">1 &agrave; 65535</td>
+
+</tr>
+
+</table>
+
+<p>Pour plus d'informations sur les CCSID pris en charge et sur la conversion des donn&eacute;es d'un message d'un jeu de caract&egrave;res cod&eacute;s &agrave; un autre, reportez-vous aux documents <cite>WebSphere MQ System Administration</cite>
+et <cite>WebSphere MQ Application Programming Reference</cite>. Ces documents sont disponibles dans les pages Web de la messagerie WebSphere MQ multiplateforme et sp&eacute;cifique &agrave; chaque plateforme (Par exemple, &agrave; l'adresse <img border="0" alt="Vous ne pouvez acc&eacute;der &agrave; la cible que si cette rubrique est li&eacute;e au Web" src="web.gif">&nbsp;&nbsp;               
+   <a target="_blank" href="http://www-3.ibm.com/software/ts/mqseries/library/manualsa/manuals/crosslatest.html.html"><strong>http://www-3.ibm.com/software/ts/mqseries/library/manualsa/manuals/platspecific.html</strong></a>
+),
+aupr&egrave;s d'<img border="0" alt="Vous ne pouvez acc&eacute;der &agrave; la cible que si cette rubrique est li&eacute;e au Web" src="web.gif">&nbsp;&nbsp;               
+   <a target="_blank" href="http://www.elink.ibmlink.ibm.com/public/applications/publications/cgibin/pbi.cgi"><strong>IBM Publications Center</strong></a>
+ ou
+dans le kit de collection WebSphere MQ, SK2T-0730.</p>
+
+</dd>
+<dt>
+<strong><a name="MQTopicConnectionFactory_cloneSupport"></a>Support de clone</strong>
+</dt>
+<dd>Cochez cette case pour activer le support de clone afin de permettre le m&ecirc;me abonnement durable
+sur tous les clones de rubriques.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Enum&eacute;ration</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&eacute;</td>
+<td align="left" valign="top" class="base">Non applicable</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">Effac&eacute;</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Plage</td>
+<td align="left" valign="top" class="base">
+<dl>
+<dt>
+<strong>S&eacute;lectionn&eacute;</strong>
+</dt>
+<dd>Le support du clone est activ&eacute;.</dd>
+<dt>
+<strong>Effac&eacute;</strong>
+</dt>
+<dd>Le support du clone est d&eacute;sactiv&eacute;.</dd>
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+<p>Si vous s&eacute;lectionnez cette propri&eacute;t&eacute;, vous devez &eacute;galement indiquer une valeur pour la propri&eacute;t&eacute; <strong>ID
+client</strong>.</p>
+
+</dd>
+<dt>
+<strong><a name="MQTopicConnectionFactory_clientID"></a>ID client</strong>
+</dt>
+<dd>L'ID du client JMS utilis&eacute; pour les connexions au gestionnaire de files
+d'attente.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Plage</td>
+<td align="left" valign="top" class="base">Un ID client JMS valide, sous forme de caract&egrave;res ASCII</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASTopicConnectionFactory_type"></a>Compatible XA</strong>
+</dt>
+<dd>Indique si la fabrique de connexions concerne la coordination XA ou non-XA des messages et contr&ocirc;le si le serveur d'applications utilise XA QCF/TCF. Activez XA si plusieurs ressources ne sont pas utilis&eacute;es dans la m&ecirc;me transaction.
+<p>Si vous affectez la valeur <samp>NON_XA</samp> &agrave; cette propri&eacute;t&eacute;, la session JMS figure
+encore dans une transaction, mais utilise les appels de transaction locale du
+gestionnaire de ressources (session.commit et session.rollback) au lieu des appels XA. Ceci peut entra&icirc;ner un am&eacute;lioration des performances. Cependant, cela signifie que, dans WebSphere Application Server, une seule ressource peut
+figurer dans une transaction. Dans WebSphere Application Server Enterprise, le support du dernier participant vous
+permet d'inscrire une ressource non-XA avec d'autres ressources compatibles avec XA.</p>
+
+<p>Cette
+propri&eacute;t&eacute; ne s'applique pas aux fabriques de connexions de rubrique dont la propri&eacute;t&eacute; <strong>Port</strong> a la valeur <samp>DIRECT</samp> ; elle prend toujours la
+valeur <samp>NON_XA</samp>. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Enum&eacute;ration</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&eacute;</td>
+<td align="left" valign="top" class="base">Non applicable</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">Compatible XA</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Plage</td>
+<td align="left" valign="top" class="base">
+<dl>
+<dt>
+<strong>XA</strong>
+</dt>
+<dd>La fabrique de connexions concerne la coordination XA des messages</dd>
+<dt>
+<strong>NON_XA</strong>
+</dt>
+<dd>La fabrique de connexions concerne la non-coordination XA des messages</dd>
+</dl>
+</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Recommandation</td>
+<td align="left" valign="top" class="base">N'activez pas XA lorsque la file d'attente
+ou la rubrique du message re&ccedil;ue est la seule ressource de la transaction. Activez XA lorsque d'autres ressources, y compris d'autres files d'attente ou rubriques, sont concern&eacute;es.</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopicConnectionFactory_connectionPool"></a>Pool de connexion</strong>
+</dt>
+<dd>Indique un ensemble facultatif de param&egrave;tres de pool de
+connexion. 
+<p>Les propri&eacute;t&eacute;s du pool de connexion sont communes &agrave; tous les connecteurs
+J2C. </p>
+
+<p>Le serveur d'applications met en pool les connexions et les sessions avec le fournisseur JMS afin d'am&eacute;liorer les performances. Ceci est ind&eacute;pendant de tout regroupement de connexions WebSphere MQ. Vous devez configurer les propri&eacute;t&eacute;s du pool de connexions et de sessions de fa&ccedil;on appropri&eacute;e pour vos applications, sinon, vous risquez de ne pas obtenir le comportement de connexion et de session que vous souhaitez.</p>
+
+<p>Modifiez la taille du pool de connexion si l'acc&egrave;s concurrent c&ocirc;te serveur &agrave; la ressource JMS d&eacute;passe la valeur par d&eacute;faut. La taille du pool de connexion est d&eacute;finie sur la base d'une file d'attente ou d'une rubrique individuelle. Pour plus de d&eacute;tails, reportez-vous au tableau ci-apr&egrave;s.</p>
+
+</dd>
+<dt>
+<strong><a name="MQTopicConnectionFactory_sessionPool"></a>Pool de session</strong>
+</dt>
+<dd>Un ensemble optionnel de param&egrave;tres de pool de session.
+<p>Ce lien fournit un &eacute;cran de propri&eacute;t&eacute;s de pool de connexion optionnelles, communes &agrave; tous les connecteurs J2C.</p>
+
+<p>Le serveur d'applications met en pool les connexions et les sessions avec le fournisseur JMS afin d'am&eacute;liorer les performances. Ceci est ind&eacute;pendant de tout regroupement de connexions WebSphere MQ. Vous devez configurer les propri&eacute;t&eacute;s du pool de connexions et de sessions de fa&ccedil;on appropri&eacute;e pour vos applications, sinon, vous risquez de ne pas obtenir le comportement de connexion et de session que vous souhaitez.</p>
+
+</dd>
+<dt>
+<strong><a name="ConnectionFactory_customProperties"></a>Propri&eacute;t&eacute;s personnalis&eacute;es</strong>
+</dt>
+<dd>Ensemble facultatif de paires nom et valeur pour des propri&eacute;t&eacute;s personnalis&eacute;es et transmises &agrave; WebSphere MQ. 
+<p>Vous pouvez acc&eacute;der &agrave; la page Propri&eacute;t&eacute;s personnalis&eacute;es pour d&eacute;finir les propri&eacute;t&eacute;s
+WebSphere MQ suivantes. Ces propri&eacute;t&eacute;s s'appliquent uniquement si vous d&eacute;finissez la propri&eacute;t&eacute; <a href="#MQTopicConnectionFactory_transportType">Transport
+type=CLIENT</a>.</p>
+
+<ul>
+
+<li>
+<a href="#SSLCIPHERSUITE">SSLCIPHERSUITE</a>
+</li>
+
+<li>
+<a href="#SSLCRL">SSLCRL</a>
+</li>
+
+<li>
+<a href="#SSLCRL">SSLPEERNAME</a>
+</li>
+
+<li>
+<a href="#MSGSELECTION">MSGSELECTION</a>
+</li>
+
+<li>
+<a href="#SUBSTORE">SUBSTORE</a>
+</li>
+
+</ul>
+
+<p>Pour plus d'informations sur la d&eacute;finition des propri&eacute;t&eacute;s SSL, reportez-vous &agrave; la section
+<a href="http://publibfp.boulder.ibm.com/epubs/html/csqzaw11/csqzaw1116.htm#HDRJSSLPR">Propri&eacute;t&eacute;s
+SSL</a> dans le manuel <cite>WebSphere MQ Using Java</cite>.</p>
+
+</dd>
+</dl>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Server security settings</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecrgswc"></a>
+<h2>Server security settings</h2>
+
+<p>Use this page to configure server security and override the global
+security settings. If you need to revert to the global security defaults,
+deselect the appropriate check box in the administrative console.</p>
+
+<p>To view this administrative console page, click <strong>Servers</strong> &gt; <strong>Application
+servers</strong> &gt; <em>server_name</em> &gt; <strong>Server Security</strong>. Note that these
+settings only apply to Network Deployment.</p>
+
+<p>You can disable security on individual application servers while global
+security is enabled. However, you cannot enable security on an individual
+application server while global security is disabled. While application server
+security is disabled for user requests, administrative and naming security
+is still enabled for that application server so that the administrative and
+naming infrastructure remains secure. To avoid problems, verify that the naming
+security has <strong>Everyone</strong> access to the naming function that you use within
+your user code. You do not need to configure administrative security, because
+user code does not directly access administrative functions. User code accesses
+administrative functions through the supported scripting tools.</p>
+
+<div>
+<p>
+<strong>Configuration tab</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="ServerSecurity_overrideCellSecurity_description"></a>Server Level Security</strong>
+</dt>
+<dd>Specifies whether the server overrides cell defaults for security.
+<p>To revert to the call defaults for Server Level Security,
+click <strong>Use Cell Security</strong>. Click <strong>Apply</strong> and then select <strong>Save</strong> to
+validate the changes at the server level.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">False</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ServerSecurity_overrideCellCSI_description"></a>CSI</strong>
+</dt>
+<dd>Specifies whether the server overrides cell defaults for the CSI
+protocol.
+<p>To revert back to the cell defaults for the CSI protocol, click <strong>Use
+Cell CSI</strong> . Click <strong>Apply</strong> and then select <strong>Save</strong> to validate
+the changes at the server level.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">False</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ServerSecurity_overrideCellIBM_description"></a>SAS</strong>
+</dt>
+<dd>Specifies whether the server overrides cell defaults for the  protocol.
+<p>To revert back to the cell defaults for the SAS protocol, click <strong>Use
+Cell SAS</strong>. Click <strong>Apply</strong> and then select <strong>Save</strong> to validate the
+changes at the server level.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">False</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Related information</strong>
+</p>
+<a href="rcon_buttons.html">Administrative console buttons</a>
+<br>
+
+<a href="rcon_pageusage.html">Administrative console page features</a>
+<br>
+
+<a href="rcon_scope.html">Administrative console scope settings</a>
+<br>
+
+<a href="rcon_filter.html">Administrative console filter settings</a>
+<br>
+
+<a href="rcon_preferences.html">Administrative console preference settings</a>
+<br>
+
+</div>
+</body>
+</html>

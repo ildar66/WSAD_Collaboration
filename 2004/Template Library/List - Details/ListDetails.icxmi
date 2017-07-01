@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<core:RADComponent xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:core="core.xmi" xmi:id="ListDetails" version="1" name="ListDetails" isPattern="false" Default="ComponentEntryPoint_1">
+  <BusinessLogicUnits xmi:id="BusinessLogicUnit_1" version="1" name="FillList">
+    <Sequence xmi:id="Sequence_1" version="1">
+        <Statements xmi:type="core:Action" xmi:id="Action_1" returnedValue="DataViewVariable_2">
+              <ActionDescriptor xmi:type="core:DomainActionDescriptor" href="models\Users.dsxmi#DomainActionDescriptor_4"/>
+              <reciever xmi:type="core:DataSource" href="models\Users.dsxmi#DataSource_1"/>
+        </Statements>
+    </Sequence>
+    <EntryPoint xmi:id="EntryPoint_1" version="1" name="In"/>
+    <ErrorState xmi:id="ErrorState_1" version="1" name="Error"/>
+    <ExitStates xmi:id="ExitState_1" version="1" name="OK"/>
+  </BusinessLogicUnits>
+  <RADLinks xmi:id="RADLink_1" version="1">
+    <Source xmi:id="FlowExitReference_1" ExitPoint="ExitState_1" FlowOccurrence="BusinessLogicUnit_1"/>
+    <Target xmi:id="FlowEntryReference_2" EntryPoint="EntryPoint_3"/>
+  </RADLinks>
+  <RADLinks xmi:id="RADLink_100" version="1">
+    <Source xmi:id="FlowExitReference_100" ExitPoint="FlowExitPoint_50" FlowOccurrence="InteractionUnit_1"/>
+    <Target xmi:id="FlowEntryReference_200" EntryPoint="EntryPoint_1"/>
+  </RADLinks>
+  <RADLinks xmi:id="RADLink_4" version="1">
+    <Source xmi:id="FlowExitReference_4" ExitPoint="FlowExitPoint_4" FlowOccurrence="BusinessLogicUnit_2"/>
+    <Target xmi:id="FlowEntryReference_5" EntryPoint="EntryPoint_1"/>
+  </RADLinks>
+  <RADLinks xmi:id="RADLink_2" version="1">
+    <Source xmi:id="FlowExitReference_2" ExitPoint="FlowExitPoint_2" FlowOccurrence="InteractionUnit_1"/>
+    <Target xmi:id="FlowEntryReference_3" EntryPoint="EntryPoint_4"/>
+  </RADLinks>
+  <ExitPoints xmi:id="FlowExitPoint_1" version="1" name="OK"/>
+  <InteractionUnits xmi:id="InteractionUnit_1" version="1" name="List">
+    <BusinessLogicUnits xmi:id="BusinessLogicUnit_3" version="1" name="CollectSelectedInfo">
+     <Variables xmi:id="RADExpression_3" expression="[Data Views]$[ListDetails]$[List]$[SelectedItem]_[nickname]"/>
+     <Sequence xmi:id="Sequence_3" version="1">
+  	<Statements xmi:type="core:Action" xmi:id="Action_5" reciever="ListView_1" returnedValue="DataViewVariable_100">
+	      <ActionDescriptor xmi:type="core:CoreActionDescriptor" href="ListDetails.prjxmi#CoreActionDescriptor_4"/>
+        </Statements>
+  	<Statements xmi:type="core:Action" xmi:id="Action_6">
+             <parameters  xmi:id="ActionParameter_5">
+                 <parameter href="models\Users.dsxmi#PersistentField_1"/>
+	      </parameters>
+              <parameters  xmi:id="ActionParameter_6" parameter="RADExpression_3"/>
+	      <ActionDescriptor xmi:type="core:CoreActionDescriptor" href="ListDetails.prjxmi#CoreActionDescriptor_1"/>
+        </Statements>
+     	<Statements xmi:type="core:Action" xmi:id="Action_7">
+              <ActionDescriptor xmi:type="core:DomainActionDescriptor" href="models\Users.dsxmi#DomainActionDescriptor_5"/>
+              <reciever xmi:type="core:DataSource" href="models\Users.dsxmi#DataSource_1"/>
+        </Statements>
+     </Sequence>
+      <EntryPoint xmi:id="EntryPoint_5" version="1" name="In"/>
+      <ErrorState xmi:id="ErrorState_3" version="1" name="Error"/>
+      <ExitStates xmi:id="ExitState_3" version="1" name="OK"/>
+    </BusinessLogicUnits>
+    <BusinessLogicUnits xmi:id="BusinessLogicUnit_2" version="1" name="Delete Item">
+      <Variables xmi:id="RADExpression_2" expression="[Data Views]$[ListDetails]$[List]$[SelectedItem]_[nickname]"/>
+      <Sequence xmi:id="Sequence_2" version="1">
+  	<Statements xmi:type="core:Action" xmi:id="Action_2" reciever="ListView_1" returnedValue="DataViewVariable_100">
+	      <ActionDescriptor xmi:type="core:CoreActionDescriptor" href="ListDetails.prjxmi#CoreActionDescriptor_4"/>
+        </Statements>
+  	<Statements xmi:type="core:Action" xmi:id="Action_3">
+             <parameters  xmi:id="ActionParameter_3">
+                 <parameter href="models\Users.dsxmi#PersistentField_1"/>
+	      </parameters>
+              <parameters  xmi:id="ActionParameter_4" parameter="RADExpression_2"/>
+	      <ActionDescriptor xmi:type="core:CoreActionDescriptor" href="ListDetails.prjxmi#CoreActionDescriptor_1"/>
+        </Statements>
+       	<Statements xmi:type="core:Action" xmi:id="Action_4">
+              <ActionDescriptor xmi:type="core:DomainActionDescriptor" href="models\Users.dsxmi#DomainActionDescriptor_3"/>
+              <reciever xmi:type="core:DataSource" href="models\Users.dsxmi#DataSource_1"/>
+        </Statements>
+      </Sequence>
+      <EntryPoint xmi:id="EntryPoint_52" version="1" name="In"/>
+      <ErrorState xmi:id="ErrorState_2" version="1" name="Error"/>
+      <ExitStates xmi:id="ExitState_2" version="1" name="OK"/>
+    </BusinessLogicUnits>
+    <RADLinks xmi:id="RADLink_5" version="1">
+      <Source xmi:id="FlowExitReference_6" ExitPoint="Trigger_1" FlowOccurrence="ListView_1"/>
+      <Target xmi:id="FlowEntryReference_6" EntryPoint="EntryPoint_5"/>
+    </RADLinks>
+    <RADLinks xmi:id="RADLink_51" version="1">
+      <Source xmi:id="FlowExitReference_6" ExitPoint="Trigger_6" FlowOccurrence="ListView_1"/>
+      <Target xmi:id="FlowEntryReference_6" EntryPoint="EntryPoint_52"/>
+    </RADLinks>
+    <RADLinks xmi:id="RADLink_6" version="1">
+      <Source xmi:id="FlowExitReference_7"/>
+      <Target xmi:id="FlowEntryReference_7" EntryPoint="EntryPoint_3"/>
+    </RADLinks>
+    <RADLinks xmi:id="RADLink_52" version="1">
+      <Source xmi:id="FlowExitReference_60" ExitPoint="ErrorState_3" FlowOccurrence="BusinessLogicUnit_3"/>
+      <Target xmi:id="FlowEntryReference_60" EntryPoint="EntryPoint_3"/>
+    </RADLinks>
+    <RADLinks xmi:id="RADLink_53" version="1">
+      <Source xmi:id="FlowExitReference_61" ExitPoint="ErrorState_2" FlowOccurrence="BusinessLogicUnit_2"/>
+      <Target xmi:id="FlowEntryReference_61" EntryPoint="EntryPoint_3"/>
+    </RADLinks>
+
+    <ExitPoints xmi:id="FlowExitPoint_2" version="1" name="OK">
+      <FlowExitReferences xmi:id="FlowExitReference_8" ExitPoint="ExitState_3" FlowOccurrence="BusinessLogicUnit_3"/>
+      <FlowExitReferences xmi:id="FlowExitReference_9" ExitPoint="Trigger_8" FlowOccurrence="ListView_1"/>
+    </ExitPoints>
+    <ExitPoints xmi:id="FlowExitPoint_50" version="1" name="Delete">
+      <FlowExitReferences xmi:id="FlowExitReference_50" ExitPoint="ExitState_2" FlowOccurrence="BusinessLogicUnit_2"/>
+    </ExitPoints>
+
+
+    <Variables xmi:type="core:DataViewVariable" xmi:id="DataViewVariable_100" version="1" name="SelectedItem">
+      <DataSourceTypeDescriptor href="models\Users.dsxmi#DataSourceTypeDescriptor_1"/>
+      <DataSource href="models\Users.dsxmi#DataSource_1"/>
+    </Variables>
+    <Variables xmi:type="core:DataViewVariable" xmi:id="DataViewVariable_1" version="1" name="Table"/>
+    <Variables xmi:type="core:DataViewVariable" xmi:id="DataViewVariable_2" version="1" name="Table">
+      <DataSourceTypeDescriptor href="models\Users.dsxmi#DataSourceTypeDescriptor_1"/>
+      <DataSource href="models\Users.dsxmi#DataSource_1"/>
+      <ViewFields xmi:id="ViewField_1">
+        <Field xmi:type="core:PersistentField" href="models\Users.dsxmi#PersistentField_1"/>
+      </ViewFields>
+    </Variables>
+    <EntryPoint xmi:id="EntryPoint_3" version="1" name="In"/>
+    <DataViews xmi:type="core:ListView" xmi:id="ListView_1" version="1" name="List" DataViewVariable="DataViewVariable_2">
+      <headerColor xmi:id="RGBValue_1" red="0" green="0" blue="0"/>
+      <cellColor xmi:id="RGBValue_2" red="0" green="0" blue="0"/>
+      <Triggers xmi:id="Trigger_1" version="1" name="Details" TriggerDisplay="TriggerDisplay_1"/>
+      <Triggers xmi:id="Trigger_6" version="1" name="Delete" TriggerDisplay="TriggerDisplay_6"/>
+      <Triggers xmi:id="Trigger_8" version="1" name="Create" TriggerDisplay="TriggerDisplay_8"/>
+      <RADDisplays xmi:type="core:FieldDisplay" xmi:id="FieldDisplay_1" version="1" name="nickname" displayType="OUTPUT" ViewField="ViewField_1">
+        <Caption xmi:id="Caption_1" version="1" caption="nickname" isConstant="false">
+          <CaptionParameter href="ListDetails.prjxmi#CaptionParameter_1"/>
+        </Caption>
+      </RADDisplays>
+      <RADDisplays xmi:type="core:TriggerDisplay" xmi:id="TriggerDisplay_1" version="1" name="Details" displayType="SUBMIT" Trigger="Trigger_1">
+        <Caption xmi:id="Caption_2" version="1" caption="Trigger" isConstant="false">
+          <CaptionParameter href="ListDetails.prjxmi#CaptionParameter_2"/>
+        </Caption>
+      </RADDisplays>
+      <RADDisplays xmi:type="core:TriggerDisplay" xmi:id="TriggerDisplay_6" version="1" name="Delete" displayType="SUBMIT" Trigger="Trigger_6">
+        <Caption xmi:id="Caption_8" version="1" caption="Trigger" isConstant="false">
+          <CaptionParameter href="ListDetails.prjxmi#CaptionParameter_7"/>
+        </Caption>
+      </RADDisplays>
+      <RADDisplays xmi:type="core:TriggerDisplay" xmi:id="TriggerDisplay_8" version="1" name="Create" displayType="BUTTON" Trigger="Trigger_8">
+        <Caption xmi:id="Caption_10" version="1" caption="Trigger0" isConstant="false">
+          <CaptionParameter href="ListDetails.prjxmi#CaptionParameter_4"/>
+        </Caption>
+      </RADDisplays>
+    </DataViews>
+    <Title xmi:id="Title_1" version="1" title="List"/>
+  </InteractionUnits>
+  <InteractionUnits xmi:id="InteractionUnit_2" version="1" name="Details">
+    <BusinessLogicUnits xmi:id="BusinessLogicUnit_5" version="1" name="Read">
+      <Sequence xmi:id="Sequence_5" version="1">
+        <Statements xmi:type="core:Action" xmi:id="Action_10">
+              <ActionDescriptor xmi:type="core:DomainActionDescriptor" href="models\Users.dsxmi#DomainActionDescriptor_5"/>
+              <reciever xmi:type="core:DataSource" href="models\Users.dsxmi#DataSource_1"/>
+        </Statements>
+      </Sequence>
+      <EntryPoint xmi:id="EntryPoint_7" version="1" name="In"/>
+      <ErrorState xmi:id="ErrorState_5" version="1" name="Error"/>
+      <ExitStates xmi:id="ExitState_5" version="1" name="OK"/>
+    </BusinessLogicUnits>
+    <BusinessLogicUnits xmi:id="BusinessLogicUnit_6" version="1" name="Update">
+      <Sequence xmi:id="Sequence_6" version="1">
+        <Statements xmi:type="core:Action" xmi:id="Action_11">
+              <ActionDescriptor xmi:type="core:DomainActionDescriptor" href="models\Users.dsxmi#DomainActionDescriptor_2"/>
+              <reciever xmi:type="core:DataSource" href="models\Users.dsxmi#DataSource_1"/>
+        </Statements>
+      </Sequence>
+      <EntryPoint xmi:id="EntryPoint_8" version="1" name="In"/>
+      <ErrorState xmi:id="ErrorState_6" version="1" name="Error"/>
+      <ExitStates xmi:id="ExitState_6" version="1" name="OK"/>
+    </BusinessLogicUnits>
+    <BusinessLogicUnits xmi:id="BusinessLogicUnit_7" version="1" name="Delete">
+      <Sequence xmi:id="Sequence_7" version="1">
+        <Statements xmi:type="core:Action" xmi:id="Action_12">
+              <ActionDescriptor xmi:type="core:DomainActionDescriptor" href="models\Users.dsxmi#DomainActionDescriptor_3"/>
+              <reciever xmi:type="core:DataSource" href="models\Users.dsxmi#DataSource_1"/>
+        </Statements>
+      </Sequence>
+      <EntryPoint xmi:id="EntryPoint_9" version="1" name="In"/>
+      <ErrorState xmi:id="ErrorState_7" version="1" name="Error"/>
+      <ExitStates xmi:id="ExitState_7" version="1" name="OK"/>
+    </BusinessLogicUnits>
+    <BusinessLogicUnits xmi:id="BusinessLogicUnit_8" version="1" name="Create">
+      <Sequence xmi:id="Sequence_8" version="1">
+        <Statements xmi:type="core:Action" xmi:id="Action_13">
+              <ActionDescriptor xmi:type="core:DomainActionDescriptor" href="models\Users.dsxmi#DomainActionDescriptor_1"/>
+              <reciever xmi:type="core:DataSource" href="models\Users.dsxmi#DataSource_1"/>
+        </Statements>
+      </Sequence>
+      <EntryPoint xmi:id="EntryPoint_10" version="1" name="In"/>
+      <ErrorState xmi:id="ErrorState_8" version="1" name="Error"/>
+      <ExitStates xmi:id="ExitState_8" version="1" name="OK"/>
+    </BusinessLogicUnits>
+    <RADLinks xmi:id="RADLink_13" version="1">
+      <Source xmi:id="FlowExitReference_15" ExitPoint="Trigger_3" FlowOccurrence="BusinessLogicUnit_5"/>
+      <Target xmi:id="FlowEntryReference_14" EntryPoint="EntryPoint_7"/>
+    </RADLinks>
+    <RADLinks xmi:id="RADLink_130" version="1">
+      <Source xmi:id="FlowExitReference_150" ExitPoint="Trigger_10" FlowOccurrence="FormView_1"/>
+      <Target xmi:id="FlowEntryReference_140" EntryPoint="EntryPoint_10"/>
+    </RADLinks>
+    <RADLinks xmi:id="RADLink_14" version="1">
+      <Source xmi:id="FlowExitReference_16" ExitPoint="Trigger_4" FlowOccurrence="BusinessLogicUnit_6"/>
+      <Target xmi:id="FlowEntryReference_15" EntryPoint="EntryPoint_8"/>
+    </RADLinks>
+    <RADLinks xmi:id="RADLink_15" version="1">
+      <Source xmi:id="FlowExitReference_17" ExitPoint="Trigger_5" FlowOccurrence="BusinessLogicUnit_7"/>
+      <Target xmi:id="FlowEntryReference_16" EntryPoint="EntryPoint_9"/>
+    </RADLinks>
+    <RADLinks xmi:id="RADLink_17" version="1">
+      <Source xmi:id="FlowExitReference_21" ExitPoint="ExitState_5"/>
+      <Target xmi:id="FlowEntryReference_18" EntryPoint="EntryPoint_4"/>
+    </RADLinks>
+    <ExitPoints xmi:id="FlowExitPoint_4" version="1" name="ReturnToList">
+      <FlowExitReferences xmi:id="FlowExitReference_19" ExitPoint="Trigger_7" FlowOccurrence="FormView_1"/>
+      <FlowExitReferences xmi:id="FlowExitReference_14" ExitPoint="ExitState_7" FlowOccurrence="BusinessLogicUnit_7"/>
+      <FlowExitReferences xmi:id="FlowExitReference_18" ExitPoint="ExitState_6" FlowOccurrence="BusinessLogicUnit_6"/>
+      <FlowExitReferences xmi:id="FlowExitReference_30" ExitPoint="ExitState_8" FlowOccurrence="BusinessLogicUnit_8"/>
+    </ExitPoints>
+    <Variables xmi:type="core:DataViewVariable" xmi:id="DataViewVariable_3" version="1" name="DetailsView"/>
+    <Variables xmi:type="core:DataViewVariable" xmi:id="DataViewVariable_4" version="1" name="DetailsView">
+      <DataSourceTypeDescriptor href="models\Users.dsxmi#DataSourceTypeDescriptor_1"/>
+      <DataSource href="models\Users.dsxmi#DataSource_1"/>
+      <ViewFields xmi:id="ViewField_2">
+        <Field xmi:type="core:PersistentField" href="models\Users.dsxmi#PersistentField_1"/>
+      </ViewFields>
+    </Variables>
+    <Variables xmi:type="core:DataViewVariable" xmi:id="DataViewVariable_5" version="1" name="ErrorView"/>
+    
+
+
+    <EntryPoint xmi:id="EntryPoint_4" version="1" name="In"/>
+    <DataViews xmi:type="core:FormView" xmi:id="FormView_1" version="1" name="DetailsView" DataViewVariable="DataViewVariable_4">
+      <labelColor xmi:id="RGBValue_3" red="0" green="0" blue="0"/>
+      <Triggers xmi:id="Trigger_3" version="1" name="Read" TriggerDisplay="TriggerDisplay_3"/>
+      <Triggers xmi:id="Trigger_4" version="1" name="Update" TriggerDisplay="TriggerDisplay_4"/>
+      <Triggers xmi:id="Trigger_5" version="1" name="Delete" TriggerDisplay="TriggerDisplay_5"/>
+      <Triggers xmi:id="Trigger_10" version="1" name="Create" TriggerDisplay="TriggerDisplay_10"/>
+      <Triggers xmi:id="Trigger_7" version="1" name="Trigger" TriggerDisplay="TriggerDisplay_7"/>
+      <RADDisplays xmi:type="core:FieldDisplay" xmi:id="FieldDisplay_2" version="1" name="nickname" displayType="INPUT" ViewField="ViewField_2">
+        <Caption xmi:id="Caption_3" version="1" caption="nickname" isConstant="false">
+          <CaptionParameter href="ListDetails.prjxmi#CaptionParameter_1"/>
+        </Caption>
+      </RADDisplays>
+     <RADDisplays xmi:type="core:TriggerDisplay" xmi:id="TriggerDisplay_10" version="1" name="Create" displayType="SUBMIT" Trigger="Trigger_10">
+        <Caption xmi:id="Caption_10" version="1" caption="Create" isConstant="false">
+           <CaptionParameter href="ListDetails.prjxmi#CaptionParameter_4"/>
+        </Caption>
+      </RADDisplays>
+     <RADDisplays xmi:type="core:TriggerDisplay" xmi:id="TriggerDisplay_3" version="1" name="Read" displayType="SUBMIT" Trigger="Trigger_3">
+        <Caption xmi:id="Caption_5" version="1" caption="Trigger0" isConstant="false">
+           <CaptionParameter href="ListDetails.prjxmi#CaptionParameter_5"/>
+        </Caption>
+      </RADDisplays>
+      <RADDisplays xmi:type="core:TriggerDisplay" xmi:id="TriggerDisplay_4" version="1" name="Update" displayType="SUBMIT" Trigger="Trigger_4">
+        <Caption xmi:id="Caption_6" version="1" caption="Trigger1" isConstant="false">
+          <CaptionParameter href="ListDetails.prjxmi#CaptionParameter_6"/>
+        </Caption>
+      </RADDisplays>
+      <RADDisplays xmi:type="core:TriggerDisplay" xmi:id="TriggerDisplay_5" version="1" name="Delete" displayType="SUBMIT" Trigger="Trigger_5">
+        <Caption xmi:id="Caption_7" version="1" caption="Trigger2" isConstant="false">
+          <CaptionParameter href="ListDetails.prjxmi#CaptionParameter_7"/>
+        </Caption>
+      </RADDisplays>
+     <RADDisplays xmi:type="core:TriggerDisplay" xmi:id="TriggerDisplay_7" version="1" name="Return To List" displayType="BUTTON" Trigger="Trigger_7">
+        <Caption xmi:id="Caption_9" version="1" caption="Return To List" isConstant="true"/>
+      </RADDisplays>
+    </DataViews>
+    <Title xmi:id="Title_2" version="1" title="Details"/>
+  </InteractionUnits>
+  <DataInterface xmi:id="DataInterface_1" version="1"/>
+  <EntryPoints xmi:id="ComponentEntryPoint_1" version="1" name="In">
+    <FirstEntityReference xmi:id="FlowEntryReference_1" EntryPoint="EntryPoint_1" FlowOccurrence="BusinessLogicUnit_1"/>
+  </EntryPoints>
+</core:RADComponent>

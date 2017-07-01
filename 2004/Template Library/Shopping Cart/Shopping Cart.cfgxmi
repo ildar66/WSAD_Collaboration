@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model:ProjectConfiguration xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:model="model.xmi" xmlns:core="core.xmi" xmlns:roles="roles.xmi" xmlns:visual="visual.xmi" xmi:id="ProjectConfiguration_1" isRoleConfigurable="true" isStylesheetConfigurable="true" isLogoConfigurable="true">
+  <Configuration xmi:type="model:DataSourceConfiguration" xmi:id="DataSourceConfiguration_1" isExtensible="true" canBeMapped="true">
+   <description>This data source stores details on items the user placed in the shopping cart. Aside from the fields that appear listed here, you can add custom fields that provide users with additional information on the cart items.
+This data source includes the following fields: nickname of type string, product_name of type string, units_on_order of type integer and price of type float.
+   </description>
+   <Role href="Shopping Cart.rolxmi#Role_2"/>
+    <RADBase xmi:type="core:DataSource" href="models\Cart.dsxmi#DataSource_1"/>
+  </Configuration>
+  <Configuration xmi:type="model:DataSourceConfiguration" xmi:id="DataSourceConfiguration_2" isExtensible="true" canBeMapped="true">
+    <RADBase xmi:type="core:DataSource" href="models\Catalog.dsxmi#DataSource_2"/>
+   <description>This data source stores a list of all available products and their details. Aside from the fields that appear listed here, you can add custom fields that provide users with additional information on the products.
+This data source includes the following fields: product_name of type string, category of type string and cost of type float.
+   </description>
+  </Configuration>
+  <Configuration xmi:type="model:DataSourceConfiguration" xmi:id="DataSourceConfiguration_3" isExtensible="true" canBeMapped="true">
+   <Role href="Shopping Cart.rolxmi#Role_2"/>
+    <RADBase xmi:type="core:DataSource" href="models\Orders.dsxmi#DataSource_3"/>
+   <description>This data source stores billing information. Aside from the fields that appear listed here, you can add custom fields that provide users with additional information on the products.
+This data source includes the following fields: nickname of type string and amount_to_pay of type float.
+   </description>
+  </Configuration>
+  <Configuration xmi:type="model:DataSourceConfiguration" xmi:id="DataSourceConfiguration_4" isExtensible="true" canBeMapped="true">
+    <RADBase xmi:type="core:DataSource" href="models\Users.dsxmi#DataSource_4"/>
+   <description>This data source stores information on users that have access to this application. Aside from the fields that appear listed here, you can add custom fields that provide users with additional information on the products.
+This data source includes the following fields: nickname of type string and passwd of type string.
+   </description>
+  </Configuration>
+
+  <Configuration xmi:id="Configuration_1" isExtensible="false" description="...">
+    <RADBase xmi:type="core:InteractionUnit" href="Shopping Cart.icxmi#InteractionUnit_1"/>
+  </Configuration>
+  <Configuration xmi:id="Configuration_2" isExtensible="true" description="This page prompts users to log in by entering their user name and password.">
+    <RADBase xmi:type="core:Title" href="Shopping Cart.icxmi#Title_1"/>
+  </Configuration>
+
+
+  <Configuration xmi:id="Configuration_4" isExtensible="true" description="This is the first page users see when they open the application. The page prompts users to either log in or register as a new user.">
+    <RADBase xmi:type="core:Title" href="Shopping Cart.icxmi#Title_2"/>
+  </Configuration>
+  <Configuration xmi:id="Configuration_5" isExtensible="true" description="...">
+    <Role href="Shopping Cart.rolxmi#Role_1"/>
+    <RADBase xmi:type="core:InteractionUnit" href="Shopping Cart.icxmi#InteractionUnit_3"/>
+  </Configuration>
+  <Configuration xmi:id="Configuration_6" isExtensible="true" description="New users are prompted to enter their personal details in order to register.">
+    <Role href="Shopping Cart.rolxmi#Role_1"/>
+    <RADBase xmi:type="core:Title" href="Shopping Cart.icxmi#Title_3"/>
+  </Configuration>
+  <Configuration xmi:id="Configuration_7" isExtensible="true" description="...">
+    <RADBase xmi:type="core:InteractionUnit" href="Shopping Cart.icxmi#InteractionUnit_4"/>
+  </Configuration>
+  <Configuration xmi:id="Configuration_8" isExtensible="true" description="This page presents the user with the catalog contents. Users can search for items, view items details, or add items to their shopping cart (if this feature is implemented).">
+    <RADBase xmi:type="core:Title" href="Shopping Cart.icxmi#Title_4"/>
+  </Configuration>
+  <Configuration xmi:id="Configuration_9" isExtensible="true" description="...">
+    <RADBase xmi:type="core:BusinessLogicUnit" href="Shopping Cart.icxmi#BusinessLogicUnit_1"/>
+  </Configuration>
+  <Configuration xmi:id="Configuration_10" isExtensible="true" description="...">
+    <RADBase xmi:type="core:BusinessLogicUnit" href="Shopping Cart.icxmi#BusinessLogicUnit_2"/>
+  </Configuration>
+
+ <Configuration xmi:id="Configuration_11" isExtensible="true" description="...">
+    <Role href="Shopping Cart.rolxmi#Role_1"/>
+    <RADBase xmi:type="core:Trigger" href="Shopping Cart.icxmi#Trigger_1"/>
+  </Configuration>
+
+  <Configuration xmi:id="Configuration_12" isExtensible="true" description="...">
+    <Role href="Shopping Cart.rolxmi#Role_1"/>
+    <RADBase xmi:type="core:TriggerDisplay" href="Shopping Cart.icxmi#TriggerDisplay_1"/>
+  </Configuration>
+
+  <Configuration xmi:id="Configuration_13" isExtensible="true" description="...">
+    <RADBase xmi:type="core:TriggerDisplay" href="Shopping Cart.icxmi#TriggerDisplay_2"/>
+  </Configuration>
+  <Configuration xmi:id="Configuration_14" isExtensible="false" description="Users are prompted to enter their user name and password. If you previously defined custom fields for the Users data source, you can add these fields to the Login view.">
+    <RADBase xmi:type="core:FormView" href="Shopping Cart.icxmi#FormView_2"/>
+  </Configuration>
+
+  <Configuration xmi:id="Configuration_16" isExtensible="true" description="...">
+    <RADBase xmi:type="core:TriggerDisplay" href="Shopping Cart.icxmi#TriggerDisplay_3"/>
+  </Configuration>
+  <Configuration xmi:id="Configuration_17" isExtensible="true" description="...">
+    <RADBase xmi:type="core:BusinessLogicUnit" href="Shopping Cart.icxmi#BusinessLogicUnit_3"/>
+  </Configuration>
+  <Configuration xmi:id="Configuration_18" isExtensible="true" description="Users are presented with a registration form in which they can enter their personal details. If you previously defined custom fields for the Users data source, you can add these fields to this view.">
+    <Role href="Shopping Cart.rolxmi#Role_1"/>
+    <RADBase xmi:type="core:FormView" href="Shopping Cart.icxmi#FormView_4"/>
+  </Configuration>
+
+  <Configuration xmi:id="Configuration_20" isExtensible="true" description="...">
+    <RADBase xmi:type="core:TriggerDisplay" href="Shopping Cart.icxmi#TriggerDisplay_4"/>
+  </Configuration>
+  <Configuration xmi:id="Configuration_21" isExtensible="true" description="...">
+    <Role href="Shopping Cart.rolxmi#Role_1"/>
+    <RADBase xmi:type="core:BusinessLogicUnit" href="Shopping Cart.icxmi#BusinessLogicUnit_4"/>
+  </Configuration>
+  <Configuration xmi:id="Configuration_22" isExtensible="true" description="...">
+    <Role href="Shopping Cart.rolxmi#Role_1"/>
+    <RADBase xmi:type="core:BusinessLogicUnit" href="Shopping Cart.icxmi#BusinessLogicUnit_5"/>
+  </Configuration>
+  <Configuration xmi:id="Configuration_24" isExtensible="true" description="Users are presented with a list of catalog products. If you previously defined custom fields for the Catalog data source, you can add these fields to this view.">
+    <RADBase xmi:type="core:ListView" href="Shopping Cart.icxmi#ListView_1"/>
+  </Configuration>
+  <Configuration xmi:id="Configuration_25" isExtensible="true" description="...">
+    <RADBase xmi:type="core:TriggerDisplay" href="Shopping Cart.icxmi#TriggerDisplay_5"/>
+  </Configuration>
+  <Configuration xmi:id="Configuration_26" isExtensible="true" description="...">
+    <RADBase xmi:type="core:TriggerDisplay" href="Shopping Cart.icxmi#TriggerDisplay_6"/>
+  </Configuration>
+  <Configuration xmi:id="Configuration_27" isExtensible="true" description="...">
+    <RADBase xmi:type="core:TriggerDisplay" href="Shopping Cart.icxmi#TriggerDisplay_7"/>
+  </Configuration>
+  <Configuration xmi:id="Configuration_28" isExtensible="true" description="...">
+    <RADBase xmi:type="core:TriggerDisplay" href="Shopping Cart.icxmi#TriggerDisplay_8"/>
+  </Configuration>
+  <Configuration xmi:id="Configuration_29" isExtensible="true" description="...">
+    <Role href="Shopping Cart.rolxmi#Role_2"/>
+    <RADBase xmi:type="core:TriggerDisplay" href="Shopping Cart.icxmi#TriggerDisplay_9"/>
+  </Configuration>
+  <Configuration xmi:id="Configuration_30" isExtensible="true" description="...">
+    <RADBase xmi:type="core:TriggerDisplay" href="Shopping Cart.icxmi#TriggerDisplay_10"/>
+  </Configuration>
+  <Configuration xmi:id="Configuration_31" isExtensible="true" description="...">
+    <RADBase xmi:type="core:BusinessLogicUnit" href="Shopping Cart.icxmi#BusinessLogicUnit_6"/>
+  </Configuration>
+  <Configuration xmi:id="Configuration_32" isExtensible="true" description="...">
+    <RADBase xmi:type="core:BusinessLogicUnit" href="Shopping Cart.icxmi#BusinessLogicUnit_7"/>
+  </Configuration>
+  <Configuration xmi:id="Configuration_33" isExtensible="true" description="...">
+    <RADBase xmi:type="core:BusinessLogicUnit" href="Shopping Cart.icxmi#BusinessLogicUnit_8"/>
+  </Configuration>
+  <Configuration xmi:id="Configuration_34" isExtensible="true" description="...">
+    <RADBase xmi:type="core:BusinessLogicUnit" href="Shopping Cart.icxmi#BusinessLogicUnit_9"/>
+  </Configuration>
+  <Configuration xmi:id="Configuration_35" isExtensible="true" description="...">
+    <Role href="Shopping Cart.rolxmi#Role_2"/>
+    <RADBase xmi:type="core:BusinessLogicUnit" href="Shopping Cart.icxmi#BusinessLogicUnit_10"/>
+  </Configuration>
+  <Configuration xmi:id="Configuration_36" isExtensible="true" description="...">
+    <RADBase xmi:type="core:BusinessLogicUnit" href="Shopping Cart.icxmi#BusinessLogicUnit_11"/>
+  </Configuration>
+  <Configuration xmi:id="Configuration_37" isExtensible="true" description="...">
+    <RADBase xmi:type="core:InteractionUnit" href="Shopping Cart.icxmi#InteractionUnit_5"/>
+  </Configuration>
+
+  <Configuration xmi:id="Configuration_38" isExtensible="true" description="This page displays the details for an item selected from the catalog.">
+     <RADBase xmi:type="core:Title" href="Shopping Cart.icxmi#Title_5"/>
+  </Configuration>
+
+  <Configuration xmi:id="Configuration_39" isExtensible="true" description="Users can view details of a selected catalog item. If you previously defined custom fields for the Catalog data source, you can add these fields to this view. ">
+    <RADBase xmi:type="core:FormView" href="Shopping Cart.icxmi#FormView_7"/>
+  </Configuration>
+  <Configuration xmi:id="Configuration_40" isExtensible="true" description="...">
+    <Role href="Shopping Cart.rolxmi#Role_2"/>
+    <RADBase xmi:type="core:TriggerDisplay" href="Shopping Cart.icxmi#TriggerDisplay_11"/>
+  </Configuration>
+  <Configuration xmi:id="Configuration_333" isExtensible="true" description="...">
+    <Role href="Shopping Cart.rolxmi#Role_2"/>
+    <RADBase xmi:type="core:Trigger" href="Shopping Cart.icxmi#Trigger_11"/>
+  </Configuration>
+  <Configuration xmi:id="Configuration_41" isExtensible="true" description="...">
+    <Role href="Shopping Cart.rolxmi#Role_2"/>
+    <RADBase xmi:type="core:BusinessLogicUnit" href="Shopping Cart.icxmi#BusinessLogicUnit_12"/>
+  </Configuration>
+  <Configuration xmi:id="Configuration_42" isExtensible="true" description="...">
+    <Role href="Shopping Cart.rolxmi#Role_2"/>
+    <RADBase xmi:type="core:InteractionUnit" href="Shopping Cart.icxmi#InteractionUnit_6"/>
+  </Configuration>
+  <Configuration xmi:id="Configuration_43" isExtensible="true" description="This page allows users to order a selected item by adding it to their shopping cart. Users can also specify the amount of items they wish to order.">
+    <Role href="Shopping Cart.rolxmi#Role_2"/>
+    <RADBase xmi:type="core:Title" href="Shopping Cart.icxmi#Title_6"/>
+  </Configuration>
+  <Configuration xmi:id="Configuration_44" isExtensible="true" description="Users can view purchasing information and specify the number of units for an item they wish to buy.If you previously defined custom fields for the Cart data source, you can add these fields to this view.">
+    <Role href="Shopping Cart.rolxmi#Role_2"/>
+    <RADBase xmi:type="core:FormView" href="Shopping Cart.icxmi#FormView_8"/>
+  </Configuration>
+  <Configuration xmi:id="Configuration_45" isExtensible="true" description="...">
+    <RADBase xmi:type="core:TriggerDisplay" href="Shopping Cart.icxmi#TriggerDisplay_12"/>
+  </Configuration>
+  <Configuration xmi:id="Configuration_46" isExtensible="true" description="...">
+    <RADBase xmi:type="core:TriggerDisplay" href="Shopping Cart.icxmi#TriggerDisplay_13"/>
+  </Configuration>
+  <Configuration xmi:id="Configuration_47" isExtensible="true" description="...">
+    <Role href="Shopping Cart.rolxmi#Role_2"/>
+    <RADBase xmi:type="core:BusinessLogicUnit" href="Shopping Cart.icxmi#BusinessLogicUnit_13"/>
+  </Configuration>
+  <Configuration xmi:id="Configuration_48" isExtensible="true" description="...">
+    <Role href="Shopping Cart.rolxmi#Role_2"/>
+    <RADBase xmi:type="core:BusinessLogicUnit" href="Shopping Cart.icxmi#BusinessLogicUnit_14"/>
+  </Configuration>
+  <Configuration xmi:id="Configuration_49" isExtensible="true" description="...">
+    <Role href="Shopping Cart.rolxmi#Role_2"/>
+    <RADBase xmi:type="core:InteractionUnit" href="Shopping Cart.icxmi#InteractionUnit_7"/>
+  </Configuration>
+  <Configuration xmi:id="Configuration_50" isExtensible="true" description="This page presents a list of all items ordered. Users can choose to purchase the items or clear the contents of the cart.">
+    <Role href="Shopping Cart.rolxmi#Role_2"/>
+    <RADBase xmi:type="core:Title" href="Shopping Cart.icxmi#Title_7"/>
+  </Configuration>
+  <Configuration xmi:id="Configuration_51" isExtensible="true" description="Users can view the contents of their shopping cart. If you previously defined custom fields for the Cart data source, you can add these fields to this view.">
+    <Role href="Shopping Cart.rolxmi#Role_2"/>
+    <RADBase xmi:type="core:ListView" href="Shopping Cart.icxmi#ListView_2"/>
+  </Configuration>
+  <Configuration xmi:id="Configuration_52" isExtensible="true" description="...">
+    <Role href="Shopping Cart.rolxmi#Role_2"/>
+    <RADBase xmi:type="core:BusinessLogicUnit" href="Shopping Cart.icxmi#BusinessLogicUnit_15"/>
+  </Configuration>
+  <Configuration xmi:id="Configuration_53" isExtensible="true" description="...">
+    <RADBase xmi:type="core:TriggerDisplay" href="Shopping Cart.icxmi#TriggerDisplay_14"/>
+  </Configuration>
+  <Configuration xmi:id="Configuration_54" isExtensible="true" description="...">
+    <RADBase xmi:type="core:TriggerDisplay" href="Shopping Cart.icxmi#TriggerDisplay_15"/>
+  </Configuration>
+  <Configuration xmi:id="Configuration_55" isExtensible="true" description="...">
+    <Role href="Shopping Cart.rolxmi#Role_2"/>
+    <RADBase xmi:type="core:InteractionUnit" href="Shopping Cart.icxmi#InteractionUnit_8"/>
+  </Configuration>
+  <Configuration xmi:id="Configuration_56" isExtensible="true" description="This page presents users with the total cost of their purchase and prompts them to submit their order for billing.">
+    <Role href="Shopping Cart.rolxmi#Role_2"/>
+    <RADBase xmi:type="core:Title" href="Shopping Cart.icxmi#Title_8"/>
+  </Configuration>
+  <Configuration xmi:id="Configuration_57" isExtensible="true" description="Users are presented with the total price of their cart contents and any other information they need to submit their order. If you previously defined custom fields for the Orders data source, you can add these fields to this view.">
+    <Role href="Shopping Cart.rolxmi#Role_2"/>
+    <RADBase xmi:type="core:FormView" href="Shopping Cart.icxmi#FormView_9"/>
+  </Configuration>
+  <Configuration xmi:id="Configuration_58" isExtensible="true" description="...">
+    <Role href="Shopping Cart.rolxmi#Role_2"/>
+    <RADBase xmi:type="core:BusinessLogicUnit" href="Shopping Cart.icxmi#BusinessLogicUnit_16"/>
+  </Configuration>
+  <Configuration xmi:id="Configuration_59" isExtensible="true" description="...">
+    <RADBase xmi:type="core:TriggerDisplay" href="Shopping Cart.icxmi#TriggerDisplay_16"/>
+  </Configuration>
+
+
+  <Configuration xmi:id="Configuration_60" isExtensible="true" description="...">
+    <Role href="Shopping Cart.rolxmi#Role_1"/>
+    <RADBase xmi:type="core:FlowExitPoint" href="Shopping Cart.icxmi#FlowExitPoint_3"/>
+  </Configuration>
+
+  <Configuration xmi:id="Configuration_61" isExtensible="true" description="...">
+    <Role href="Shopping Cart.rolxmi#Role_2"/>
+    <RADBase xmi:type="core:Trigger" href="Shopping Cart.icxmi#Trigger_102"/>
+  </Configuration>
+  <Configuration xmi:id="Configuration_62" isExtensible="true" description="...">
+    <Role href="Shopping Cart.rolxmi#Role_2"/>
+    <RADBase xmi:type="core:Trigger" href="Shopping Cart.icxmi#Trigger_103"/>
+  </Configuration>
+  <Configuration xmi:id="Configuration_63" isExtensible="true" description="...">
+    <Role href="Shopping Cart.rolxmi#Role_2"/>
+    <RADBase xmi:type="core:Trigger" href="Shopping Cart.icxmi#Trigger_9"/>
+  </Configuration>
+  <Configuration xmi:id="Configuration_64" isExtensible="true" description="...">
+    <Role href="Shopping Cart.rolxmi#Role_2"/>
+    <RADBase xmi:type="core:FlowExitPoint" href="Shopping Cart.icxmi#FlowExitPoint_9"/>
+  </Configuration>
+  <Configuration xmi:id="Configuration_65" isExtensible="true" description="...">
+    <Role href="Shopping Cart.rolxmi#Role_2"/>
+    <RADBase xmi:type="core:FlowExitPoint" href="Shopping Cart.icxmi#FlowExitPoint_10"/>
+  </Configuration>
+  <Configuration xmi:id="Configuration_66" isExtensible="true" description="...">
+    <Role href="Shopping Cart.rolxmi#Role_2"/>
+    <RADBase xmi:type="core:RADMenuItem" href="Shopping Cart.icxmi#RADMenuItem_2"/>
+  </Configuration>
+  <Configuration xmi:id="Configuration_67" isExtensible="true" description="...">
+    <Role href="Shopping Cart.rolxmi#Role_2"/>
+    <RADBase xmi:type="core:RADMenuItem" href="Shopping Cart.icxmi#RADMenuItem_3"/>
+  </Configuration>
+  <Configuration xmi:id="Configuration_70" isExtensible="true" description="...">
+    <Role href="Shopping Cart.rolxmi#Role_2"/>
+    <RADBase xmi:type="core:Sequence" href="Shopping Cart.icxmi#Sequence_801"/>
+  </Configuration>
+  <Configuration xmi:id="Configuration_71" isExtensible="true" description="Users can view the contents of their shopping cart. If you previously defined custom fields for the Cart data source, you can add these fields to this view.">
+    <Role href="Shopping Cart.rolxmi#Role_2"/>
+    <RADBase xmi:type="core:Sequence" href="Shopping Cart.icxmi#ListView_800"/>
+  </Configuration>
+  <Configuration xmi:id="Configuration_72" isExtensible="true" description="...">
+    <Role href="Shopping Cart.rolxmi#Role_2"/>
+    <RADBase xmi:type="core:Sequence" href="Shopping Cart.icxmi#BusinessLogicUnit_802"/>
+  </Configuration>
+  <Configuration xmi:id="Configuration_73" isExtensible="true" description="...">
+    <Role href="Shopping Cart.rolxmi#Role_1"/>
+    <RADBase xmi:type="core:BusinessLogicUnit" href="Shopping Cart.icxmi#BusinessLogicUnit_81"/>
+  </Configuration>
+
+  <RADProject href="Shopping Cart.prjxmi#RADProject_1"/>
+  <configurableCaptionParameters href="Shopping Cart.prjxmi#CaptionParameter_2"/>
+  <configurableCaptionParameters href="Shopping Cart.prjxmi#CaptionParameter_3"/>
+
+  <configurableCaptionParameters href="Shopping Cart.prjxmi#CaptionParameter_5"/>
+  <configurableCaptionParameters href="Shopping Cart.prjxmi#CaptionParameter_6"/>
+
+
+
+
+  <configurableCaptionParameters href="Shopping Cart.prjxmi#CaptionParameter_17"/>
+  <configurableCaptionParameters href="Shopping Cart.prjxmi#CaptionParameter_18"/>
+  <configurableCaptionParameters href="Shopping Cart.prjxmi#CaptionParameter_20"/>
+  <configurableCaptionParameters href="Shopping Cart.prjxmi#CaptionParameter_21"/>
+  <configurableCaptionParameters href="Shopping Cart.prjxmi#CaptionParameter_22"/>
+  <configurableCaptionParameters href="Shopping Cart.prjxmi#CaptionParameter_19"/>
+
+
+  <configurableCaptionParameters href="Shopping Cart.prjxmi#CaptionParameter_26"/>
+
+  <configurableCaptionParameters href="Shopping Cart.prjxmi#CaptionParameter_28"/>
+  <configurableCaptionParameters href="Shopping Cart.prjxmi#CaptionParameter_29"/>
+
+
+  <configurableCaptionParameters href="Shopping Cart.prjxmi#CaptionParameter_36"/>
+
+  <configurableCaptionParameters href="Shopping Cart.prjxmi#CaptionParameter_38"/>
+  <configurableCaptionParameters href="Shopping Cart.prjxmi#CaptionParameter_39"/>
+
+
+  <configurableCaptionParameters href="Shopping Cart.prjxmi#CaptionParameter_43"/>
+  <configurableCaptionParameters href="Shopping Cart.prjxmi#CaptionParameter_44"/>
+  <configurableCaptionParameters href="Shopping Cart.prjxmi#CaptionParameter_45"/>
+
+  <configurableCaptionParameters href="Shopping Cart.prjxmi#CaptionParameter_49"/>
+  <configurableCaptionParameters href="Shopping Cart.prjxmi#CaptionParameter_135"/>
+  <configurableCaptionParameters href="Shopping Cart.prjxmi#CaptionParameter_136"/>
+
+  <configurableCaptionParameters href="Shopping Cart.prjxmi#CaptionParameter_138"/>
+  <configurableCaptionParameters href="Shopping Cart.prjxmi#CaptionParameter_140"/>
+  <GenerationConfiguration xmi:id="GenerationConfiguration_1" isTargetPlatformConfigurable="true" targetPlatformID="com.ibm.etools.rad.codegen.struts" targetPlatformName="Struts"/>
+  <defaultStylesheet  xmi:type="visual:WebVisualPart" href="Shopping Cart.visxmi#WebVisualPart_3"/>
+  <defaultLogo  xmi:type="visual:WebVisualPart" href="Shopping Cart.visxmi#WebVisualPart_4"/>
+  <ActiveRoles  href="Shopping Cart.rolxmi#Role_1"/>
+  <ActiveRoles  href="Shopping Cart.rolxmi#Role_2"/>
+</model:ProjectConfiguration>

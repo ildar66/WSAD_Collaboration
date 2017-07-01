@@ -1,0 +1,264 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Visualizzazione del descrittore di distribuzione del client dei servizi Web </title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_vwcdd"></a>
+<h2>
+<img alt="[Fix Pack 5.0.2 e successive]" src="v502.gif" border="0">Visualizzazione del descrittore di distribuzione del client dei servizi Web </h2>
+
+<p>Utilizzare questa pagina per visualizzare il descrittore di distribuzione del client.</p>
+
+<p>Per visualizzare questa pagina della console di gestione, completare le seguenti operazioni:<ol>
+
+<li>Fare clic su <strong>Applicazioni &gt; Applicazioni enterprise &gt; </strong><em>nome_applicazione</em>. </li>
+
+<li>In Elementi correlati, fare clic su <strong>Moduli Web</strong> &gt; <em>nome_file_URI</em> &gt; <strong>Visualizzazione del descrittore di distribuzione del client dei servizi Web</strong>.</li>
+
+</ol>
+</p>
+
+<p>WebSphere Application Server offre due livelli di collegamenti:  a livello dell'applicazione e a livello del server. WebSphere Application Server Network Deployment offre tre livelli di collegamenti: a livello dell'applicazione, a livello del server e a livello della cella. Le informazioni contenute nelle seguenti descrizioni, relative all'implementazione, indicano come configurare i collegamenti a livello dell'applicazione. Per configurare i collegamenti a livello del server, ossia quelli predefiniti, completare le seguenti operazioni:<ol>
+
+<li>Fare clic su <strong>Server &gt; Server delle applicazioni &gt; </strong><em>nome_server</em>.</li>
+
+<li>In Elementi correlati, fare clic su <strong>Servizi Web: collegamenti predefiniti per la sicurezza dei servizi Web (WS-Security, Web Services Security)</strong>.</li>
+
+<li>Per configurare i collegamenti a livello della cella, fare clic su <strong>Sicurezza &gt; Servizi Web</strong>.</li>
+
+</ol> 
+<p>
+<b>Nota: </b>Se il server Web funziona come un client, vengono utilizzati i collegamenti predefiniti.</p>Se si sta utilizzando una qualsiasi delle seguenti configurazioni, verificare che il descrittore di distribuzione sia configurato in maniera appropriata:<ul>
+
+<li>
+<a href="#reqsign">Firma della richiesta</a>
+</li>
+
+<li>
+<a href="#reqencrypt">Codifica della richiesta</a>
+</li>
+
+<li>
+<a href="#basicauth">Autenticazione BasicAuth</a>
+</li>
+
+<li>
+<a href="#idassert">Autenticazione asserzione di identit&agrave; (ID)</a>
+</li>
+
+<li>
+<a href="#idasserttrust">Autenticazione asserzione di identit&agrave; (ID) con la firma TrustMode</a>
+</li>
+
+<li>
+<a href="#respdsig">Verifica della firma digitale di risposta</a>
+</li>
+
+<li>
+<a href="#respdecr">Decodifica risposta</a>
+</li>
+
+</ul>
+</p>
+
+<div>
+<a name="reqsign"></a>
+<p class="sectiontitle">
+<b>Firma della richiesta</b>
+</p>
+<p>Se sono stati specificati dei vincoli di integrit&agrave; (firma digitale), verificare di aver configurato le informazioni relative alla firma nei file di collegamento.</p>
+<p>Per configurare i parametri di firma, completare le seguenti operazioni:<ol>
+
+<li>Fare clic su <strong>Applicazioni &gt; Applicazioni enterprise &gt; </strong><em>nome_applicazione</em>. </li>
+
+<li>In Elementi correlati, fare clic su <strong>Moduli Web &gt; </strong><em>nome_file_URI</em> <strong>Servizi Web: collegamenti sicurezza client</strong>. </li>
+
+<li>Nella colonna Collegamento ricevente risposta, fare clic su <strong>Modifica &gt; Informazioni sulla firma &gt; Nuovo</strong>. </li>
+
+</ol>
+</p>
+<p>Per configurare gli indicatori di posizione della chiave, completare le seguenti operazioni:<ol>
+
+<li>Fare clic su <strong>Server &gt; Server delle applicazioni &gt; </strong><em>nome_server</em>.</li>
+
+<li>In Ulteriori propriet&agrave;, fare clic su <strong>Servizi Web: collegamenti predefiniti per la sicurezza dei servizi Web (WS-Security, Web Services Security) &gt; Indicatore di posizione della chiave</strong>.</li>
+
+</ol>
+</p>
+</div>
+
+<div>
+<a name="reqencrypt"></a>
+<p class="sectiontitle">
+<b>Codifica della richiesta</b>
+</p>
+<p>Se sono stati specificati i vincoli di riservatezza (codifica), verificare di aver configurato le informazioni sulla codifica nei file di collegamento.</p>
+<p>Per configurare i parametri di codifica, completare le seguenti operazioni:<ol>
+
+<li>Fare clic su <strong>Applicazioni &gt; Applicazioni Enterprise &gt; </strong><em>nome_applicazione</em>. </li>
+
+<li>In Elementi correlati, fare clic su <strong>Moduli Web &gt; </strong><em>nome_file_URI</em> <strong>&gt; Servizi Web: collegamenti sicurezza client</strong>. </li>
+
+<li>Nella colonna Collegamento ricevente risposta, fare clic su <strong>Modifica &gt; Informazioni sulla codifica &gt; Nuovo</strong>. </li>
+
+</ol>
+</p>
+<p>Per configurare gli indicatori di posizione della chiave, completare le seguenti operazioni:</p>
+<p>Fare clic su <strong>Server &gt; Server delle applicazioni &gt; </strong><em>nome_server</em>.</p>
+<p>In Ulteriori propriet&agrave;, fare clic su <strong>Servizi Web: collegamenti predefiniti per la sicurezza dei servizi Web (WS-Security, Web Services Security) &gt; Indicatore di posizione della chiave</strong>.</p>
+</div>
+
+<div>
+<a name="basicauth"></a>
+<p class="sectiontitle">
+<b>Autenticazione BasicAuth</b>
+</p>
+<p>Se BasicAuth viene configurato come il token di sicurezza necessario, specificare CallbackHandler nel file di collegamento in modo da raccogliere i dati di autenticazione di base. Il seguente elenco contiene le implementazioni di supporto CallBack:<dl>
+<dt>
+<strong>com.ibm.wsspi.wssecurity.auth.callback.GuiPromptCallbackHandler</strong>
+</dt>
+<dd>L'implementazione richiede informazioni BasicAuth (nome utente e password) in un'interfaccia.</dd>
+<dt>
+<strong>com.ibm.wsspi.wssecurity.auth.callback.NonPromptCallbackHandler</strong>
+</dt>
+<dd>Questa implementazione legge le informazioni su BasicAuth dal file di collegamento.</dd>
+<dt>
+<strong>com.ibm.wsspi.wssecurity.auth.callback.StdPromptCallbackHandler</strong>
+</dt>
+<dd>Questa implementazione richiede un nome utente e una password utilizzando standard in (stdin).</dd>
+</dl>
+</p>
+<p>Per configurare le informazioni sul collegamento di login, completare le seguenti operazioni:<ol>
+
+<li>Fare clic su <strong>Applicazioni &gt; Applicazioni enterprise &gt; </strong><em>nome_applicazione</em>. </li>
+
+<li>In Elementi correlati, fare clic su <strong>Modulo Web &gt; </strong><em>nome_file_URI</em> <strong> &gt;
+Servizi Web: collegamenti sicurezza client</strong>. </li>
+
+<li>In Collegamenti mittente richiesta, fare clic su <strong>Modifica &gt; Collegamento di login</strong>.</li>
+
+</ol>
+</p>
+</div>
+
+<div>
+<a name="idassert"></a>
+<p class="sectiontitle">
+<b>Autenticazione asserzione d'identit&agrave; (ID) con BasicAuth TrustMode</b>
+</p>
+<p>Configurare un collegamento di login nel file di collegamenti con un'implementazione com.ibm.wsspi.wssecurity.auth.callback.NonPromptCallbackHandler. Specificare un ID utente e una password BasicjAuth considerati attendibili da un TrustedIDEvaluator su un server downstream.</p>
+<p>Per configurare le informazioni sul collegamento di login, completare le seguenti operazioni:<ol>
+
+<li>Fare clic su <strong>Applicazioni &gt; Applicazioni enterprise &gt; </strong><em>nome_applicazione</em>. </li>
+
+<li>In Elementi correlati, fare clic su <strong>Modulo Web &gt; </strong><em>nome_file_URI</em><strong> &gt;
+Servizi Web: collegamenti sicurezza client</strong>. </li>
+
+<li>In <strong>Collegamenti mittente richiesta</strong>, fare clic su <strong>Modifica &gt; Collegamento di login</strong>.</li>
+
+</ol>
+</p>
+</div>
+
+<div>
+<a name="idasserttrust"></a>
+<p class="sectiontitle">
+<b>Autenticazione asserzione di identit&agrave; (ID) con la firma TrustMode</b>
+</p>
+<p>Configurare le informazioni relative alla firma nel file di collegamenti con una chiave di firma che indica un indicatore di posizione della chiave. L'indicatore di posizione della chiave contiene il certificato X.509 considerato affidabile dal server downstream.</p>
+<p>Per configurare l'asserzione ID, completare le seguenti operazioni:<ol>
+
+<li>Fare clic su <strong>Server &gt; Server delle applicazioni &gt; </strong><em>nome_server</em>.</li>
+
+<li>In Ulteriori propriet&agrave;, fare clic su <strong>Servizi Web: collegamenti predefiniti per la sicurezza dei servizi Web (WS-Security, Web Services Security) &gt; Mappature di login &gt; Asserzione ID</strong>.</li>
+
+</ol>
+</p>
+<p>Per configurare le informazioni sul collegamento di login, completare le seguenti operazioni:<ol>
+
+<li>Fare clic su <strong>Applicazioni &gt; Applicazioni enterprise &gt; </strong><em>nome_applicazione</em>. </li>
+
+<li>In Elementi correlati, fare clic su <strong>Modulo Web &gt; </strong><em>nome_file_URI</em> <strong> &gt;
+Servizi Web: collegamenti sicurezza client</strong>. </li>
+
+<li>In Collegamenti mittente richiesta, fare clic su <strong>Modifica &gt; Collegamento di login</strong>.</li>
+
+</ol>
+</p>
+</div>
+
+<div>
+<a name="respdsig"></a>
+<p class="sectiontitle">
+<b>Verifica della firma digitale di risposta</b>
+</p>
+<p>Se sono stati definiti i vincoli di integrit&agrave; (firma necessaria), verificare di aver configurato le informazioni relative alla firma nei file di collegamento.</p>
+<p>Per configurare i parametri di firma, completare le seguenti operazioni:<ol>
+
+<li>Fare clic su <strong>Applicazioni &gt; Applicazioni Enterprise &gt; </strong><em>nome_applicazione</em>. </li>
+
+<li>In Elementi correlati, fare clic su <strong>Moduli Web &gt; </strong><em>nome_file_URI</em> <strong>&gt; Servizi Web: collegamenti sicurezza client</strong>. </li>
+
+<li>Nella colonna Collegamento ricevente risposta, fare clic su <strong>Modifica &gt; Informazioni sulla firma &gt; Nuovo</strong>. </li>
+
+</ol>
+</p>
+<p>Per configurare ancoraggi sicuri, completare le seguenti operazioni:<ol>
+
+<li>Fare clic su <strong>Server &gt; Server delle applicazioni &gt; </strong><em>nome_server</em>.</li>
+
+<li>In Ulteriori propriet&agrave;,
+fare clic su <strong>Servizi Web: collegamenti predefiniti per la sicurezza dei servizi Web (WS-Security, Web Services Security) &gt; Ancoraggi sicuri &gt; Nuovo</strong>.</li>
+
+</ol>
+</p>
+<p>Per configurare Raccolta archivio certificati, completare le seguenti operazioni:<ol>
+
+<li>Fare clic su <strong>Server &gt; Server delle applicazioni &gt; </strong><em>nome_server</em>.</li>
+
+<li>In Ulteriori propriet&agrave;, fare clic su <strong>Servizi Web: collegamenti predefiniti per la sicurezza dei servizi Web (WS-Security, Web Services Security) &gt; Raccolta archivio certificati &gt; Nuovo</strong>.</li>
+
+</ol>
+</p>
+</div>
+
+<div>
+<a name="respdecr"></a>
+<p class="sectiontitle">
+<b>Decodifica della risposta</b>
+</p>
+<p>Se sono stati specificati i vincoli di riservatezza (codifica), verificare di aver definito le informazioni sulla codifica.</p>
+<p>Per configurare le informazioni di codifica, completare le seguenti operazioni:<ol>
+
+<li>Fare clic su <strong>Applicazioni &gt; Applicazioni enterprise &gt; </strong><em>nome_applicazione</em>. </li>
+
+<li>In Elementi correlati, fare clic su <strong>Moduli Web &gt; </strong>&lt;<em>nome_file_URI</em> <strong>&gt; Servizi Web: collegamenti sicurezza client</strong>.</li>
+
+<li>Nella colonna Collegamento ricevente risposta, fare clic su <strong>Modifica &gt; Informazioni sulla codifica &gt; Nuovo</strong>. </li>
+
+</ol>
+</p>
+<p>Per configurare gli indicatori di posizione della chiave, completare le seguenti operazioni:<ol>
+
+<li>Fare clic su <strong>Server &gt; Server delle applicazioni &gt; </strong><em>nome_server</em>.</li>
+
+<li>In Ulteriori propriet&agrave;, fare clic su <strong>Servizi Web: collegamenti predefiniti per la sicurezza dei servizi Web (WS-Security, Web Services Security) &gt; Indicatore di posizione della chiave</strong>.</li>
+
+</ol>
+</p>
+</div>
+
+<div>
+<p>
+<strong>Informazioni correlate</strong>
+</p>
+<a href="uwbs_websvcb.html">Servizi Web: collegamenti predefiniti per la sicurezza dei servizi Web (WS-Security, Web Services Security)</a>
+<br>
+
+</div>
+</body>
+</html>

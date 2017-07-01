@@ -1,0 +1,259 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Einstellungen des WebSphere-internen JMS-Servers</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="JMSServer"></a>
+<h2>Einstellungen des WebSphere-internen JMS-Servers</h2>
+
+<p>Die JMS-Funktionen auf einem Knoten innerhalb der
+Administrationsdom&auml;ne des WebSphere Application Server werden vom
+JMS-Server auf diesem Knoten bereitgestellt.  Verwenden Sie diese Anzeige,
+um die Konfigurationsmerkmale des ausgew&auml;hlten JMS-Servers anzuzeigen oder zu &auml;ndern.</p>
+
+<p>In dieser Anzeige k&ouml;nnen Sie allgemeine Merkmale des JMS-Servers konfigurieren, die den Standardmerkmalwerten
+hinzugef&uuml;gt werden, die automatisch f&uuml;r den in WebSphere eingebetteten JMS-Provider konfiguriert werden. </p>
+
+
+<p>
+<b>Anmerkung: </b>Im Allgemeinen k&ouml;nnen die Standardwerte von WebSphere MQ f&uuml;r interne WebSphere-JMS-Server
+verwendet werden. Wenn Sie jedoch gro&szlig;e Nachrichtenmengen laden, m&uuml;ssen Sie m&ouml;glicherweise einige
+WebSphere-MQ-Merkmale &auml;ndern, z. B. Merkmale f&uuml;r Verzeichnisse von Protokolldateien, Dateiseiten und
+Pufferseiten. Weitere Informationen zur Konfiguration von WebSphere-MQ-Merkmalen enth&auml;lt die
+Ver&ouml;ffentlichung <cite>WebSphere MQ System Administration</cite>, IBM Form SC33-1873, die &uuml;ber
+das <img border="0" alt="Zugriff auf das Ziel ist nur m&ouml;glich, wenn dieses Topic mit dem World Wide Web verlinkt ist " src="web.gif">&nbsp;&nbsp;               
+   <a target="_blank" href="http://www.elink.ibmlink.ibm.com/public/applications/publications/cgibin/pbi.cgi"><strong>IBM Publications Center</strong></a>
+ oder &uuml;ber das
+WebSphere MQ Collection Kit, SK2T-0730, verf&uuml;gbar ist. </p>
+
+<dl>
+<dt>
+<strong><a name="JMSServer_name"></a>Name</strong>
+</dt>
+<dd>Der Name, unter dem der JMS-Server f&uuml;r die Administration in IBM WebSphere Application Server
+gef&uuml;hrt wird. 
+<p>Dieser Name darf nicht ge&auml;ndert werden.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Einheiten</td>
+<td align="left" valign="top" class="base">Nicht anwendbar</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">Interner WebSphere-JMS-Server</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">Nicht anwendbar</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JMSServer_description"></a>Beschreibung</strong>
+</dt>
+<dd>Eine Beschreibung des JMS-Servers f&uuml;r die Administration in IBM WebSphere Application Server.
+
+<p>Diese Zeichenfolge darf nicht ge&auml;ndert werden.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+
+
+
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">Interner WebSphere-JMS-Server</td>
+
+</tr>
+
+
+
+
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JMSServer_numThreads"></a>Anzahl der Threads</strong>
+            &nbsp;
+            </dt>
+<dd>Die Anzahl gleichzeitig ablaufender Threads, die von der
+Steuerkomponente f&uuml;r den Pub/Sub-Abgleich verwendet werden soll.
+<p>Die Anzahl gleichzeitig ablaufender Threads sollte niedrig sein.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Einheiten</td>
+<td align="left" valign="top" class="base">Threads</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">1</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">Gr&ouml;&szlig;er-gleich 1</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JMSServer_queueNames"></a>Namen der Warteschlangen</strong>
+</dt>
+<dd>Die Namen der Warteschlangen, die auf diesem JMS-Server definiert sind.
+Jeder Warteschlangenname muss in einer separaten Zeile hinzugef&uuml;gt werden.
+<p>Jede in diesem Feld aufgelistete Warteschlange muss ein separates
+Administrationsobjekt f&uuml;r die Warteschlange mit demselben Administrationsnamen besitzen. Wenn
+Sie eine Warteschlange f&uuml;r Anwendungen verf&uuml;gbar machen m&ouml;chten, m&uuml;ssen Sie eine
+WebSphere-Warteschlange definieren und deren Namen im Feld der Anzeige "JMS-Server"
+des Host hinzuf&uuml;gen, auf dem die Warteschlange installiert werden soll.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">ASCII</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Einheiten</td>
+<td align="left" valign="top" class="base">Name der Warteschlange</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">Nicht anwendbar</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">Jeder Eintrag in diesem Feld ist der Name einer Warteschlange, der mit
+maximal 45 Zeichen angegeben wird. Dieser Name muss genau (unter Beachtung der
+Gro&szlig;-/Kleinschreibung) mit dem Administrationsobjekt der WebSphere-Warteschlange
+&uuml;bereinstimmen.</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JMSServer_executionState"></a>Ausgangsstatus</strong>
+</dt>
+<dd>Der Ausf&uuml;hrungsstatus, den der JMS-Server haben soll, wenn
+er beim n&auml;chsten Mal erneut gestartet wird.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Einheiten</td>
+<td align="left" valign="top" class="base">Nicht anwendbar</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">Gestartet</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>Gestartet</strong>
+</dt>
+<dd>Der JMS-Server wird automatisch gestartet.</dd>
+
+<dt>
+<strong>Gestoppt</strong>
+</dt>
+<dd>Der JMS-Server wird nicht automatisch gestartet. Wenn
+implementierte (Deployment) Enterprise-Anwendungen Funktionen des JMS-Servers, die vom
+JMS-Server
+bereitgestellt werden, verwenden sollen, muss der Systemadministrator den
+JMS-Server manuell starten oder den Wert "Gestartet" dieses Merkmals
+ausw&auml;hlen
+und den JMS-Server anschlie&szlig;end erneut starten.</dd>
+
+</dl>
+<p>Wenn Sie den JMS-Server f&uuml;r einen
+Anwendungsserver erneut starten m&ouml;chten, stoppen Sie den Anwendungsserver,
+und starten Sie ihn dann erneut.</p>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</body>
+</html>

@@ -1,0 +1,231 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>WebSphere 内部 JMS 服务器设置</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="JMSServer"></a>
+<h2>WebSphere 内部 JMS 服务器设置</h2>
+
+<p>WebSphere Application Server 管理域中节点上的 JMS 服务器为该节点上的 JMS 函数提供服务。使用此面板查看或更改所选 JMS 服务器的配置属性。</p>
+
+<p>您可以使用此面板来配置一组常规的 JMS 服务器属性，其添加到为嵌入式 WebSphere JMS 提供程序自动配置的属性缺省值。</p>
+
+
+<p>
+<b>注: </b>通常，WebSphere MQ 属性的缺省值对于 WebSphere 内部 JMS 服务器是足够的。但是，如果您正在运行高消息传递负载，则需要更改一些 WebSphere MQ 属性；例如，日志文件位置、文件页面和缓冲区页面的属性。要获得有关配置 WebSphere MQ 属性的更多信息，请参阅 <cite>WebSphere MQ System Administration</cite> 一书（SC33-1873），可从 <img border="0" alt="仅当此主题链接到万维网时可以访问目标" src="web.gif">&nbsp;&nbsp;               
+   <a target="_blank" href="http://www.elink.ibmlink.ibm.com/public/applications/publications/cgibin/pbi.cgi"><strong>IBM 出版物中心</strong></a>
+或从 WebSphere MQ collection kit（SK2T-0730）获得。</p>
+
+<dl>
+<dt>
+<strong><a name="JMSServer_name"></a>名称</strong>
+</dt>
+<dd>在 IBM WebSphere Application Server 中出于管理目的，用于标识 JMS 服务器的名称。
+<p>此名称不能更改。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">单位</td>
+<td align="left" valign="top" class="base">不适用</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">WebSphere 内部 JMS 服务器</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">范围</td>
+<td align="left" valign="top" class="base">不适用</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JMSServer_description"></a>描述</strong>
+</dt>
+<dd>在 IBM WebSphere Application Server 中出于管理目的，对 JMS 服务器的描述。
+<p>此字符串不能更改。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+
+
+
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">WebSphere 内部 JMS 服务器</td>
+
+</tr>
+
+
+
+
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JMSServer_numThreads"></a>线程数</strong>
+            &nbsp;
+            </dt>
+<dd>发布／预订匹配引擎使用的并发线程数
+<p>并发线程数应该仅设置为较小的数。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">整型</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">单位</td>
+<td align="left" valign="top" class="base">线程</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">1</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">范围</td>
+<td align="left" valign="top" class="base">大于或等于 1。</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JMSServer_queueNames"></a>队列名称</strong>
+</dt>
+<dd>此 JMS 服务器主管的队列名。每个队列名必须添加在单个行上。
+<p>此字段中列出的每个队列都必须有相同管理名称的独立队列管理对象。要使队列对应用程序是可用的，
+定义一个 WebSphere 队列，并为主管队列的主机将这个 WebSphere 队列的名称添加到 JMS 服务器面板上的这个字段。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">ASCII</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">单位</td>
+<td align="left" valign="top" class="base">队列名称</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">不适用</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">范围</td>
+<td align="left" valign="top" class="base">此字段中的每个条目都是一个长达 45 个字符的队列名称，这个名称
+必须完全匹配为这个队列而定义的 WebSphere 队列管理对象（包括大写和小写字符的使用）。</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JMSServer_executionState"></a>初始状态</strong>
+</dt>
+<dd>当 JMS 服务器下一次重新启动时，您要它所处的状态。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">枚举</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">单位</td>
+<td align="left" valign="top" class="base">不适用</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">已启动</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">范围</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>已启动</strong>
+</dt>
+<dd>自动启动 JMS 服务器。</dd>
+
+<dt>
+<strong>已停止</strong>
+</dt>
+<dd>不自动启动 JMS 服务器。如果任何部署的企业应用程序使用 JMS 服务器提供的 JMS 服务器功能，则系统管理员必须手工启动 JMS 服务器，或选择此属性的&ldquo;已启动&rdquo;值，然后重新启动 JMS 服务器。</dd>
+
+</dl>
+<p>要重新启动应用程序服务器的 JMS 服务器，则停止，然后重新启动此应用程序服务器。</p>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/************************************************************************
+ * Licensed Materials - Property of IBM
+ * (c) Copyright IBM Corp. 2003.  All rights reserved.
+ *
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM
+ * Corp.
+ *
+ * DISCLAIMER OF WARRANTIES.  The following [enclosed] code is
+ * sample code created by IBM Corporation.  This sample code is
+ * not part of any standard or IBM product and is provided to you
+ * solely for the purpose of assisting you in the development of
+ * your applications.  The code is provided "AS IS", without
+ * warranty of any kind.  IBM shall not be liable for any damages
+ * arising out of your use of the sample code, even if they have
+ * been advised of the possibility of such damages.
+ *************************************************************************/
+-->
+<mappings>
+  <EPackage name="Portfolio">
+
+    <EClassMap app_class="com.ibm.odcb.tutorial.businessobjects.Stock" eclass_name="Stock" export="Stock">
+      <EFeatureMap efeature_name="symbol"      iD="true"  get="getSymbol()" />
+      <EFeatureMap efeature_name="currentPrice" get="getCurrentPrice()" />
+      <EFeatureMap efeature_name="volume"          get="getVolume()" />
+      <EFeatureMap efeature_name="change"               get="getChange()" />
+      <CalculateAttribute attribute_name="percentage" iD="false"  expression="this.getCurrentPrice()-this.getChange()==0?0:this.getChange()/(this.getCurrentPrice()-this.getChange())" type="double"/>
+    </EClassMap>
+
+    <EClassMap app_class="com.ibm.odcb.tutorial.businessobjects.Root" eclass_name="Root" export="Root">
+      <EFeatureMap efeature_name="name"                          get="getName()" />
+      <EFeatureMap efeature_name="users"                         get="getUsers()" />
+      <EFeatureMap efeature_name="stocks"                       get="getStocks()" />
+      <EFeatureMap efeature_name="placeHolderStock"   get="getPlaceHolderStock()" />
+    </EClassMap>
+
+    <EClassMap app_class="com.ibm.odcb.tutorial.businessobjects.User" eclass_name="User" export="User">
+      <EFeatureMap efeature_name="refNum"         iD="true" get="getRefNum()" />
+      <EFeatureMap efeature_name="lastName"       get="getLastName()" />
+      <EFeatureMap efeature_name="id"                  get="getId()" />
+      <EFeatureMap efeature_name="portfolios"   get="getPortfolios()" />
+    </EClassMap>
+
+    <EClassMap app_class="com.ibm.odcb.tutorial.businessobjects.Portfolio" eclass_name="Portfolio" export="Portfolio">
+      <EFeatureMap efeature_name="portfolioName"  iD="true" get="getPortfolioName()" />
+      <EFeatureMap efeature_name="positions"           get="getPositions()" />
+      <EFeatureMap efeature_name="user"                   iD="true" get="getUser()" />
+    </EClassMap>
+
+    <EClassMap app_class="com.ibm.odcb.tutorial.businessobjects.Position" eclass_name="Position" export="Position">
+      <EFeatureMap efeature_name="refNum"        iD="true" get="getRefNum()" />
+      <EFeatureMap efeature_name="price"           get="getPrice()" />
+      <EFeatureMap efeature_name="quantity"     get="getQuantity()" />
+      <EFeatureMap efeature_name="user"             get="getUser()" />
+      <EFeatureMap efeature_name="portfolio"   get="getPortfolio()" />
+      <EFeatureMap efeature_name="stock"           get="getStock()" />
+      <EFeatureMap efeature_name="symbol"           get="getSymbol()" />
+      <CalculateAttribute attribute_name="value"        iD="false"        expression="this.getPrice()*this.getQuantity()"                 type="double"/>  
+      <CalculateAttribute attribute_name="currentPrice" iD="false"  expression="this.getStock().getCurrentPrice()"                  type="double"/>   
+      <CalculateAttribute attribute_name="gains"        iD="false"         expression="(this.getStock().getCurrentPrice()-this.getPrice())*this.getQuantity()" type="double"/>     
+      <CalculateAttribute attribute_name="currentValue" iD="false"  expression="this.getStock().getCurrentPrice()*this.getQuantity()"         type="double"/>
+      <CalculateAttribute attribute_name="label"        iD="false"        expression="this.getStock().getSymbol()+': $'+Math.round((this.getStock().getCurrentPrice()*this.getQuantity())*100)/100.0" type="string"/>
+      <EFeatureMap efeature_name="purchaseDate"  iD="true" get="getPurchaseDate()" />   
+    </EClassMap>
+
+  </EPackage>
+</mappings>

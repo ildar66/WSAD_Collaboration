@@ -1,0 +1,128 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Signing information configuration settings</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_signinfon"></a>
+<h2>Signing information configuration settings</h2>
+
+<p>Use this page to configure new signing parameters.</p>
+
+<p>The specifications listed on this page for the signature method, digest
+method, and canonicalization method are located in the W3C document entitled,
+"XMLSignature Syntax and Specification: W3C Recommendation 12 Feb 2002".</p>
+
+<p>To view this administrative console page, click <strong>Enterprise Applications
+&gt; </strong><em>application_name</em>. Under Related Items, click <strong>Web Modules &gt; </strong><em>URI_file_name</em> <strong>&gt;
+Web Services: Server Security Bindings </strong>. In the Request Receiver Binding
+column, click <strong>Edit &gt; Signing Information &gt; New</strong>.</p>
+
+<p>Click <strong>New</strong> to create a signing parameter.</p>
+
+<p>Click <strong>Delete</strong> to delete a signing parameter.</p>
+
+<dl>
+<dt>
+<strong><a name="sec_sigmeth"></a>Signature Method</strong>
+</dt>
+<dd>Specifies the algorithm URI of the signature method. This method
+contains the actual value of the digital signature encoded using base64.
+<p>The following algorithms are supported:<ul>
+
+<li>
+<samp>http://www.w3.org/2000/09/xmldsig#rsa-sha1</samp>
+</li>
+
+<li>
+<samp>http://www.w3.org/2000/09/xmldsig#dsa-sha1</samp>
+</li>
+
+</ul>
+</p>
+
+</dd>
+<dt>
+<strong><a name="sec_digestmeth"></a>Digest Method</strong>
+</dt>
+<dd>Specifies the algorithm URI of the digest method. 
+<p>The <samp>http://www.w3.org/2000/09/xmldsig#sha1</samp> algorithm is supported.</p>
+
+</dd>
+<dt>
+<strong><a name="sec_cancmeth"></a>Canonicalization Method</strong>
+</dt>
+<dd>Specifies the algorithm URI of the canonicalization method.
+<p>The following algorithms are supported:<ul>
+
+<li>
+<samp>http://www.w3.org/2001/10/xml-exc-c14n#</samp>
+</li>
+
+<li>
+<samp>http://www.w3.org/2001/10/xml-exc-c14n#WithComments</samp>
+</li>
+
+<li>
+<samp>http://www.w3.org/TR/2001/REC-xml-c14n-20010315</samp>
+</li>
+
+<li>
+<samp>http://www.w3.org/TR/2001/REC-xml-c14n-20010315#WithComments</samp>
+</li>
+
+</ul>
+</p>
+
+</dd>
+<dt>
+<strong><a name="sec_signk"></a>Signing Key</strong>
+</dt>
+<dd>Specifies the key information that is used for signing. These fields
+are ignored in receiver-side configuration. 
+<p>If you specify a <strong>Key Name</strong> and a <strong>Key Locator Reference</strong>, select <strong>None</strong> for
+the Certificate Path.</p>
+
+</dd>
+<dt>
+<strong><a name="sec_certpath"></a>Certificate Path</strong>
+</dt>
+<dd> Specifies the settings for the certificate path validation. When
+you select <strong>Trust Any</strong>, this validation is skipped and all the incoming
+certificates are trusted. These fields are ignored in sender-side configuration. 
+<p>If you click <strong>Trust Any</strong> or select a <strong>Trust Anchor</strong> and a <strong>Certificate
+Store</strong>, select <strong>None</strong> for the Signing Key in the previous field.</p>
+
+<p>
+<strong>Trust Anchor</strong>
+</p>
+
+<p>The selections available for Trust Anchor are specified by clicking <strong>Servers
+&gt; Application Servers &gt; </strong><em>server_name</em>. Under Additional Properties,
+click <strong>Web Services: Default bindings for Web Services Security &gt; Trust
+Anchors</strong>.</p>
+
+<p>
+<strong>Certificate Store</strong>
+</p>
+
+<p>The selections available for the Collection Store are specified by clicking <strong>Servers
+&gt; Application Servers &gt;</strong><em> server_name</em>. Under Related Items, click <strong>Web
+Services: Default bindings for Web Services Security &gt; Collection Certificate
+Store</strong>.</p>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>Related information</strong>
+</p>
+<a href="uwbs_signinfo.html">Signing information collection</a>
+<br>
+
+</div>
+</body>
+</html>

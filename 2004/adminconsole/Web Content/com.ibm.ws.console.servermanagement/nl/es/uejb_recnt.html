@@ -1,0 +1,121 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Valores de contenedor de EJB</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uejbecnt"></a>
+<h2>Valores de contenedor de EJB</h2>
+
+<p>Utilice esta p&aacute;gina para configurar y gestionar un contenedor de EJB espec&iacute;fico.</p>
+
+<p>Para ver esta p&aacute;gina de la consola administrativa, pulse <strong>Servidores</strong>
+<strong>&gt;</strong> <strong>Servidores de aplicaciones</strong> <strong>&gt;</strong> <em>nombreServidor</em> <strong>&gt;</strong> <strong>Contenedor de EJB</strong>.</p>
+
+<div>
+<p>
+<strong>Pesta&ntilde;a Configuraci&oacute;n</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="EJBContainer_passivationDirectory_description"></a>Directorio de desactivaci&oacute;n</strong>
+</dt>
+<dd>Especifica el directorio donde el contenedor guarda el estado persistente de los
+beans de sesi&oacute;n con estados desactivados.
+<p>Los beans se desactivan cuando el n&uacute;mero de instancias del bean activas supera el tama&ntilde;o de antememoria especificado en la configuraci&oacute;n del contenedor. Cuando se desactiva un bean con estado, el contenedor serializa la instancia del bean en un archivo del directorio de desactivaci&oacute;n y descarta la instancia de la antememoria del bean. Si en el &uacute;ltimo momento llega una petici&oacute;n para la instancia del bean desactivado el contenedor lo recupera del directorio de desactivaci&oacute;n, los deserializa y lo devuelve a la antememoria pas&aacute;ndole la petici&oacute;n. Si alguno de estos pasos falla (por ejemplo, si la instancia del bean ya no est&aacute; en el directorio de desactivaci&oacute;n) la invocaci&oacute;n al m&eacute;todo tambi&eacute;n fallar&aacute;.</p>
+
+</dd>
+<dt>
+<strong><a name="EJBContainer_inactivePoolCleanupInterval_description"></a>Intervalo de limpieza de la agrupaci&oacute;n inactiva</strong>
+</dt>
+<dd>Especifica el intervalo durante el cual el contenedor examina las agrupaciones de
+las instancias del bean disponibles para determinar si se pueden suprimir algunas y reducir as&iacute;
+el uso de memoria.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unidades</td>
+<td align="left" valign="top" class="base">Milisegundos</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">Mayor que 0</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="EJBContainer_defaultDatasourceJNDIName_description"></a>Nombre JNDI del origen de datos por omisi&oacute;n</strong>
+</dt>
+<dd>Especifica el nombre JNDI de un origen de datos que se debe utilizar cuando no se ha
+especificado un origen de datos durante el despliegue de la aplicaci&oacute;n. Este valor no se aplica a beans CMP compatibles con EJB 2.x.
+<p>Los servlets y los enterprise beans utilizan <em>or&iacute;genes de datos</em> para obtener estas conexiones.
+Al configurar un contenedor, puede especificar un origen de datos por omisi&oacute;n para el contenedor. Este origen de datos se convierte en el origen de datos por omisi&oacute;n que utilizan los beans de entidad instalados en el contenedor que usan CMP (persistencia gestionada por contenedor).</p>
+
+<p>El origen de datos por omisi&oacute;n de un contenedor est&aacute; protegido. Al especificarlo, debe proporcionar un ID de usuario y una contrase&ntilde;a para acceder a &eacute;l.</p>
+
+<p>La especificaci&oacute;n de un origen de datos por omisi&oacute;n es opcional si cada bean de entidad CMP del contenedor tiene un origen de datos especificado en su configuraci&oacute;n. Si no se ha especificado un origen de datos por omisi&oacute;n y se instala un bean de entidad CMP en el contenedor sin especificar un origen de datos para ese bean, las aplicaciones no pueden utilizar dicho bean de entidad CMP.</p>
+
+</dd>
+<dt>
+<strong><a name="StateManageable_initialState_description"></a>Estado inicial</strong>
+</dt>
+<dd>Especifica el estado de ejecuci&oacute;n solicitado cuando se inicia el servidor por
+primera vez.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">Iniciado</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">Los valores v&aacute;lidos son <samp>Iniciado</samp> y <samp>Detenido</samp></td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informaci&oacute;n relacionada</strong>
+</p>
+<a href="rcon_buttons.html">Botones de la consola de administraci&oacute;n</a>
+<br>
+
+<a href="uejb_rcash.html">Valores de antememoria de EJB</a>
+<br>
+
+</div>
+</body>
+</html>

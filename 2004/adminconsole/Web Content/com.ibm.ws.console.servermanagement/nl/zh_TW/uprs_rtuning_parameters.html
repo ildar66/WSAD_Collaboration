@@ -1,0 +1,241 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>調整參數設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="tune_para"></a>
+<h2>調整參數設定</h2>
+
+<p>請利用這個頁面來設定分散式階段作業的調整參數。</p>
+
+<p>如果要檢視這個管理主控台頁面，請按一下<strong>伺服器</strong> &gt; <strong>應用程式伺服器</strong> &gt; <em>server_name</em> &gt; <strong>Web 儲存區</strong> &gt; <strong>階段作業管理</strong> &gt; <strong>分散式環境設定</strong> &gt; <strong>自訂調整參數</strong>。
+</p>
+
+<div>
+<p>
+<strong>「配置」標籤</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="Tuning_level_description"></a>調整層次</strong>
+</dt>
+<dd>指定階段作業管理機能要提供會影響效能的某些預先定義的設定。
+<p>請選取這些預先定義的設定之一，或自訂一個設定。如果要自訂一個設定，請選取預先定義的設定之一，它必須最接近您想要的設定，按一下<strong>自訂設定</strong>，進行變更，再按一下<strong>確定</strong>。
+</p>
+
+<div>
+<p class="sectiontitle">
+<b>非常高（針對效能最佳化）</b>
+</p>
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">寫入頻率 </td>
+<td align="left" valign="top" class="base">以時間為基礎</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">寫入間隔 </td>
+<td align="left" valign="top" class="base">300 秒</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">寫入內容</td>
+<td align="left" valign="top" class="base">僅更新的屬性</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">排定階段作業清除時程表
+</td>
+<td align="left" valign="top" class="base">true
+</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">一日的第一次預設值</td>
+<td align="left" valign="top" class="base">0</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">一日的第二次預設值</td>
+<td align="left" valign="top" class="base">2</td>
+
+</tr>
+
+</table>
+</div>
+
+<div>
+<p class="sectiontitle">
+<b>高</b>
+</p>
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">寫入頻率 </td>
+<td align="left" valign="top" class="base">以時間為基礎</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">寫入間隔 </td>
+<td align="left" valign="top" class="base">300 秒</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">寫入內容</td>
+<td align="left" valign="top" class="base">所有階段作業屬性</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">排定階段作業清除時程表
+</td>
+<td align="left" valign="top" class="base">false</td>
+
+</tr>
+
+</table>
+</div>
+
+<div>
+<p class="sectiontitle">
+<b>中</b>
+</p>
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">寫入頻率 </td>
+<td align="left" valign="top" class="base">Servlet 服務結束</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">寫入內容</td>
+<td align="left" valign="top" class="base">僅更新的屬性</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">排定階段作業清除時程表
+</td>
+<td align="left" valign="top" class="base">false</td>
+
+</tr>
+
+</table>
+</div>
+
+<div>
+<p class="sectiontitle">
+<b>低（針對失效接手最佳化）</b>
+</p>
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">寫入頻率 </td>
+<td align="left" valign="top" class="base">Servlet 服務結束</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">寫入內容</td>
+<td align="left" valign="top" class="base">所有階段作業屬性</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">排定階段作業清除時程表
+</td>
+<td align="left" valign="top" class="base">false</td>
+
+</tr>
+
+</table>
+</div>
+
+<div>
+<p class="sectiontitle">
+<b>自訂設定</b>
+</p>
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">寫入頻率預設值</td>
+<td align="left" valign="top" class="base">以時間為基礎</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">寫入間隔預設值</td>
+<td align="left" valign="top" class="base">10 秒</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">寫入內容預設值</td>
+<td align="left" valign="top" class="base">所有階段作業屬性</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">排定階段作業清除時程表預設值</td>
+<td align="left" valign="top" class="base">false</td>
+
+</tr>
+
+</table>
+</div>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>相關資訊</strong>
+</p>
+<a href="rcon_buttons.html">管理主控台按鈕</a>
+<br>
+
+<a href="rcon_pageusage.html">管理主控台頁面特性</a>
+<br>
+
+<a href="rcon_preferences.html">管理主控台喜好設定</a>
+<br>
+
+<a href="uprs_rtuning_custom.html">調整參數自訂設定</a>
+<br>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin id="com.ibm.ws.console.servermanagement" 
+        name="servermanagement" 
+        version="1.0.0" 
+        provider-name="IBM Corp. - WebSphere Server Group"
+        embedded="true"
+        context-root="servermanagement">  
+   
+<requires>
+    <import plugin="com.ibm.ws.console.core"/>
+</requires>
+
+<extension point="com.ibm.ws.console.core.navigatorTask">
+    <tasks>
+        <categoryDefinition id="servermanagement" icon="images/onepix.gif" parent="root" label="nav.webSphere.servers" weight="10"/>
+        <task id="appserver" icon="images/onepix.gif" label="nav.view.ApplicationServer" view="ApplicationServer.content.main" external="false" weight="10">
+            <category id="servermanagement"/>
+        </task>
+    </tasks>    
+</extension>   
+
+<extension point="com.ibm.ws.console.core.help">
+  <toc file="toc.xml" primary="true" />
+</extension>
+
+</plugin>
+

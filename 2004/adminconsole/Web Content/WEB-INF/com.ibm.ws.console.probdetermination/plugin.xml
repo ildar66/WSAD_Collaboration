@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin id="com.ibm.ws.console.probdetermination"
+        name="probdetermination"
+        version="1.0.0"
+        provider-name="IBM Corp. - WebSphere Server Group"
+        embedded="true"
+        context-root="probdetermination">  
+
+<requires>
+    <import plugin="com.ibm.ws.console.core"/>
+</requires>
+
+<extension point="com.ibm.ws.console.core.navigatorTask">
+    <tasks>
+        <categoryDefinition id="probmanagementcategory" parent="root" icon="images/onepix.gif" label="category.problem.determination" weight="70"/>
+        <task id="probdeterminationtask" icon="images/onepix.gif" label="task.problem.determination" view="Logsandtrace.content.main" external="false" weight="10">
+            <category id="probmanagementcategory"/>
+        </task>
+        <task id="configproblems" icon="images/onepix.gif" label="configproblems.main.label" view="configproblems.content.main" external="false" weight="20">
+            <category id="probmanagementcategory"/>
+        </task>
+       <task id="pmirm" icon="images/onepix.gif" label="pmi.main.label" view="PMIRequestMetrics.config.view" external="false" weight="30">
+            <category id="probmanagementcategory"/>
+        </task>
+    
+    </tasks>
+</extension>
+
+<extension point="com.ibm.ws.console.core.status">
+    <statusItems>
+        <statusItem id="configproblems.events"
+            contextType="configproblems"
+            title=""
+            link=""
+            rendererUri="/com.ibm.ws.console.probdetermination/config_problems.jsp"
+            refresh="60000"
+            largeIcon=" "
+            smallIcon=" "/>
+    </statusItems>    
+</extension>
+
+<extension point="com.ibm.ws.console.core.help">
+  <toc file="toc.xml" primary="true" />
+</extension>
+
+</plugin>
+

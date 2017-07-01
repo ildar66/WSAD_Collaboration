@@ -1,0 +1,103 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Trust anchor configuration settings</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_trstancn"></a>
+<h2>Trust anchor configuration settings</h2>
+
+<p>Use this information to configure a trust anchor. Trust anchors
+point to key stores that contain trusted root or self-signed certificates.
+This information enables you to specify a name for the trust anchor and the
+information needed to access a key store. The application binding uses this
+name to reference a predefined trust anchor definition in the binding file
+(or the default).</p>
+
+<p>To view this administrative console page, complete the following steps: <ol>
+
+<li>Click <strong>Servers &gt; Application Servers &gt; </strong><em>server_name</em>.</li>
+
+<li>Under Additional Properties, click <strong>Web Services: Default bindings for
+Web Services Security &gt; Trust Anchors &gt; New</strong>.</li>
+
+</ol>
+</p>
+
+<dl>
+<dt>
+<strong><a name="sec_trstancname"></a>Trust Anchor Name   </strong>
+</dt>
+<dd>Specifies the unique name used by the application binding to reference
+a predefined trust anchor definition in the default binding.</dd>
+<dt>
+<strong><a name="sec_keystpass"></a>Key Store Password </strong>
+</dt>
+<dd>Specifies the password needed to access the keystore file.</dd>
+<dt>
+<strong><a name="sec_keystpath"></a>Key Store Path </strong>
+</dt>
+<dd>Specifies the location of the keystore file.
+<p>Use ${USER_INSTALL_ROOT} as this path expands to the WebSphere Application
+Server path on your machine.</p>
+
+</dd>
+<dt>
+<strong><a name="sec_keysttype"></a>Key Store Type</strong>
+</dt>
+<dd>Specifies the type of key store file.
+<p>The value in this field is either <strong>JKS</strong> or <strong>JCEKS</strong>.<dl>
+
+<dt>
+<strong>JKS</strong>
+</dt>
+<dd>Specify this option if you are not using Java Cryptography Extensions
+(JCE).</dd>
+<dt>
+<strong>JCEKS</strong>
+</dt>
+<dd>Specify this option if you are using Java Cryptography Extensions. Although
+the JCEKS key store format is more secure, it decreases performance.</dd>
+</dl>
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">JKS</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range</td>
+<td align="left" valign="top" class="base">JKS, JCEKS</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>Related information</strong>
+</p>
+<a href="uwbs_trstanc.html">Trust anchors collection</a>
+<br>
+
+</div>
+</body>
+</html>

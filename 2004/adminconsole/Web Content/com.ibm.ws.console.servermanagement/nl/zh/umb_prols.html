@@ -1,0 +1,194 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>消息侦听器服务</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="MessageListenerService"></a>
+<h2>消息侦听器服务</h2>
+
+<p>消息侦听器服务是 JMS 提供程序 JNS 功能的扩展。它提供侦听器管理器，控制和监控一个或多个 JMS 侦听器，每个 JMS 侦听器代表部署的消息驱动 bean 监控 JMS 目的。</p>
+
+<p>此面板为消息侦听器服务显示到侦听器端口、线程池和定制属性的&ldquo;其它属性&rdquo;页面的链接。</p>
+
+<p>要查看此管理控制台页面，单击<strong>服务器 -&gt; <em>application_server</em> -&gt; 消息侦听器服务</strong>
+</p>
+
+<dl>
+<dt>
+<strong><a name="MessageListenerService_name"></a>名称</strong>
+</dt>
+<dd>为了管理目的用于标识消息侦听器服务的名称。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+
+
+
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">MsgLService</td>
+
+</tr>
+
+
+
+
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MessageListenerService_description"></a>描述</strong>
+</dt>
+<dd>用于管理目的，消息侦听器服务的描述
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+
+
+
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">空</td>
+
+</tr>
+
+
+
+
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MessageListenerService_threadPool"></a>线程池</strong>
+            &nbsp;
+            </dt>
+<dd>控制消息侦听器服务允许运行的最大线程数。选择此链接以显示服务线程池属性。
+<p>当在同一应用程序服务器上部署多个消息驱动 bean，而且其最大会话值总数超出缺省值 10 时，调整此参数。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">整型</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">单位</td>
+<td align="left" valign="top" class="base">不适用</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">最小：10，最大 50</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">范围</td>
+<td align="left" valign="top" class="base">不适用</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">建议</td>
+<td align="left" valign="top" class="base">设置最小值为所有消息驱动 bean 最大会话值的和数。将最大值设置为等于或大于最小值的任意值。</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MessageListenerService_custom"></a>定制属性</strong>
+</dt>
+<dd>消息侦听器服务的定制属性。JMS 服务器具有两个操作方式，应用程序服务器设备（ASF）和非应用程序服务器设备。ASF 意味着为应用程序提供并发和事务性支持。非 ASF 忽略此支持，以线形化路径长度。
+<p>使用非 ASF，如果：<ul>
+
+<li>消息订单是严格要求</li>
+
+<li>期望并发 PTP 消息</li>
+
+<li>属性 <samp>non.asf.receive.timeout</samp> 存在，而且具有大于 0 的值</li>
+
+</ul>如果期望并发发行和预订消息，则不要使用非 ASF，因为 ASF 提供较好的吞吐量。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">整型</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">单位</td>
+<td align="left" valign="top" class="base">毫秒</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">ASF 方式（定制属性未创建）</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">范围</td>
+<td align="left" valign="top" class="base"></td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">建议</td>
+<td align="left" valign="top" class="base">此值是传递消息所花费的毫秒数。如果发生超时，它必须回收导致额外工作。这应该设置为小于事务超时，但是接近它，节省数秒（10 秒或更多）。如果在严重负载（其中线程长时间等待获取 CPU 循环）下，要节省的秒数应该更多。</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>相关信息</strong>
+</p>
+<a href="umb_smlp.html">消息侦听器端口集合</a>
+<br>
+
+</div>
+</body>
+</html>

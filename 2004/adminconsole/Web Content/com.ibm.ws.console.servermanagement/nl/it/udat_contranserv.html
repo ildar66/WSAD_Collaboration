@@ -1,0 +1,360 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Impostazioni del servizio transazioni</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="Transaction_service"></a>
+<h2>Impostazioni del servizio transazioni</h2>
+
+<p>Utilizzare questa pagina per modificare le impostazioni
+del servizio transazioni.</p>
+
+<p>Per visualizzare questa pagina della console di gestione, fare clic su <strong>Server</strong> &gt; <strong>Server delle applicazioni</strong> &gt; <em>server</em> &gt; <strong>Servizio transazioni</strong>.</p>
+
+<div>
+<p>
+<strong>Scheda Configurazione</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="TransactionService_transactionLogDirectory_displayName"></a>Directory log transazioni</strong>
+</dt>
+<dd> Specifica il nome di una directory
+per questo server dove il servizio transazioni memorizza i file di log per il
+recupero.
+<p>Se nella configurazione del server non viene specificata alcuna directory, il log delle transazioni imposta all'avvio la directory (<em>root_installazione</em>)/tranlog/(<em>nome_server</em>).</p>
+
+<p>Quando l'applicazione in esecuzione sul prodotto WebSphere accede a pi&ugrave; di una risorsa, il prodotto WebSphere memorizza le informazioni relative alla transazione per coordinare e gestire correttamente la transazione distribuita. In un carico di transazione pi&ugrave; elevato, questa persistenza riduce le prestazioni del server
+delle applicazioni a causa della dipendenza dal sistema operativo e dai sistemi di
+archiviazione sottostante.</p>
+
+<p>Per ottenere migliori prestazioni, spostare i file
+di log transazioni in un dispositivo di memorizzazione con pi&ugrave; unit&agrave; disco fisiche o
+preferibilmente con unit&agrave; disco RAID. Quando i file di log vengono spostati sui file system su
+dischi RAID, l'attivit&agrave; di scrittura dei dati sul supporto fisico viene condivisa tra le
+diverse unit&agrave; disco. Ci&ograve; consente un accesso pi&ugrave; simultaneo per conservare le
+informazioni sulle transazioni e consentire un accesso pi&ugrave; veloce a questi dati dai log. A
+seconda del progetto dell'applicazione e del sottosistema di archiviazione, l'incremento delle
+prestazioni pu&ograve; variare dal 10% al 100%, e in alcuni casi anche di pi&ugrave;. </p>
+
+<p>Questa modifica si applica solo alla configurazione in cui l'applicazione utilizza le risorse distribuite o le transazioni XA, ad esempio, si accede a pi&ugrave; database e risorse all'interno di un'unica transazione. Impostare
+questa propriet&agrave; quando il server delle applicazioni mostra uno o pi&ugrave; dei seguenti segni:  <ul>
+
+<li>L'uso della CPU rimane basso nonostante l'aumento delle transazioni</li>
+
+<li>Le transazioni hanno esito negativo con diversi timeout</li>
+
+<li>I rollback delle transazioni si verificano con un'eccezione <em>impossibile elencare la transazione</em>
+</li>
+
+<li>Il server delle applicazioni si blocca durante un'esecuzione e deve essere riavviato</li>
+
+<li>Il disco su cui viene eseguito un server delle applicazioni mostra un uso elevato</li>
+
+</ul>
+</p>
+
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">Il valore iniziale &egrave; la directory <em>%WAS_HOME%</em>/tranlog/(<em>nome_server</em>)
+e la dimensione predefinita &egrave; di 1MB. </td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Consigliato</td>
+<td align="left" valign="top" class="base">Creare un file system con almeno 3-4 unit&agrave; disco RAID in una configurazione RAID-0. Quindi, creare il log delle transazioni su questo file system con le dimensioni predefinite. Quando il server viene eseguito sotto carico, verificare i tempi di input e output sul disco. Se sono maggiori del 5%, aggiungere pi&ugrave; dischi fisici per ridurre questo valore. Se il
+tempo di input e output sul disco &egrave; basso, ma il server &egrave; sufficientemente veloce, aumentare
+le dimensioni dei file di log. </td>
+
+</tr>
+
+</table>
+
+
+
+
+</dd>
+<dt>
+<strong><a name="TransactionService_totalTranLifetimeTimeout_displayName"></a>Timeout durata totale della
+transazione </strong>
+</dt>
+<dd>Specifica la durata massima, in secondi, per le transazioni in questo server delle applicazioni.  
+
+<p>Viene eseguito il rollback delle eventuali transazioni che non devono essere
+completate prima di questo timeout. Se &egrave; impostato su 0 non
+esistono limiti di timeout.</p>
+
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Numero intero</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&agrave;</td>
+<td align="left" valign="top" class="base">Secondi</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">120</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo</td>
+<td align="left" valign="top" class="base">Da 0 a 2 147 483 647</td>
+
+</tr>
+
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="TransactionService_clientInactivityTimeout_displayName"></a>Timeout di inattivit&agrave; client  </strong>
+</dt>
+<dd>Specifica la durata massima in secondi tra le richieste di transazioni
+provenienti da un client remoto. 
+<p>Un periodo qualsiasi di inattivit&agrave; del client che supera questo timeout determina
+l'esecuzione del rollback della transazione in questo server delle applicazioni. Se &egrave; impostato su 0 non esistono
+limiti di timeout.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Numero intero</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&agrave;</td>
+<td align="left" valign="top" class="base">Secondi</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">60</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo</td>
+<td align="left" valign="top" class="base">Da 0 a 2 147 483 647</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Scheda Runtime</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="TransactionService_transactionLogDirectory_displayName"></a>Directory log transazioni</strong>
+</dt>
+<dd> Specifica il nome di una directory
+per questo server dove il servizio transazioni memorizza i file di log per il
+recupero.
+<p>Se nella configurazione del server non viene specificata alcuna directory, il log delle transazioni imposta all'avvio la directory (<em>root_installazione</em>)/tranlog/(<em>nome_server</em>).</p>
+
+<p>Quando l'applicazione in esecuzione sul prodotto WebSphere accede a pi&ugrave; di una risorsa, il prodotto WebSphere memorizza le informazioni relative alla transazione per coordinare e gestire correttamente la transazione distribuita. In un carico di transazione pi&ugrave; elevato, questa persistenza riduce le prestazioni del server
+delle applicazioni a causa della dipendenza dal sistema operativo e dai sistemi di
+archiviazione sottostante.</p>
+
+<p>Per ottenere migliori prestazioni, spostare i file
+di log transazioni in un dispositivo di memorizzazione con pi&ugrave; unit&agrave; disco fisiche o
+preferibilmente con unit&agrave; disco RAID. Quando i file di log vengono spostati sui file system su
+dischi RAID, l'attivit&agrave; di scrittura dei dati sul supporto fisico viene condivisa tra le
+diverse unit&agrave; disco. Ci&ograve; consente un accesso pi&ugrave; simultaneo per conservare le
+informazioni sulle transazioni e consentire un accesso pi&ugrave; veloce a questi dati dai log. A
+seconda del progetto dell'applicazione e del sottosistema di archiviazione, l'incremento delle
+prestazioni pu&ograve; variare dal 10% al 100%, e in alcuni casi anche di pi&ugrave;. </p>
+
+<p>Questa modifica si applica solo alla configurazione in cui l'applicazione utilizza le risorse distribuite o le transazioni XA, ad esempio, si accede a pi&ugrave; database e risorse all'interno di un'unica transazione. Impostare
+questa propriet&agrave; quando il server delle applicazioni mostra uno o pi&ugrave; dei seguenti segni:  <ul>
+
+<li>L'uso della CPU rimane basso nonostante l'aumento delle transazioni</li>
+
+<li>Le transazioni hanno esito negativo con diversi timeout</li>
+
+<li>I rollback delle transazioni si verificano con un'eccezione <em>impossibile elencare la transazione</em>
+</li>
+
+<li>Il server delle applicazioni si blocca durante un'esecuzione e deve essere riavviato</li>
+
+<li>Il disco su cui viene eseguito un server delle applicazioni mostra un uso elevato</li>
+
+</ul>
+</p>
+
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">Il valore iniziale &egrave; la directory <em>%WAS_HOME%</em>/tranlog/(<em>nome_server</em>)
+e la dimensione predefinita &egrave; di 1MB. </td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Consigliato</td>
+<td align="left" valign="top" class="base">Creare un file system con almeno 3-4 unit&agrave; disco RAID in una configurazione RAID-0. Quindi, creare il log delle transazioni su questo file system con le dimensioni predefinite. Quando il server viene eseguito sotto carico, verificare i tempi di input e output sul disco. Se sono maggiori del 5%, aggiungere pi&ugrave; dischi fisici per ridurre questo valore. Se il
+tempo di input e output sul disco &egrave; basso, ma il server &egrave; sufficientemente veloce, aumentare
+le dimensioni dei file di log. </td>
+
+</tr>
+
+</table>
+
+
+
+
+</dd>
+<dt>
+<strong><a name="TransactionService_totalTranLifetimeTimeout_displayName"></a>Timeout durata totale della
+transazione </strong>
+</dt>
+<dd>Specifica la durata massima, in secondi, per le transazioni in questo server delle applicazioni.  
+
+<p>Viene eseguito il rollback delle eventuali transazioni che non devono essere
+completate prima di questo timeout. Se &egrave; impostato su 0 non
+esistono limiti di timeout.</p>
+
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Numero intero</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&agrave;</td>
+<td align="left" valign="top" class="base">Secondi</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">120</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo</td>
+<td align="left" valign="top" class="base">Da 0 a 2 147 483 647</td>
+
+</tr>
+
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="TransactionService_clientInactivityTimeout_displayName"></a>Timeout di inattivit&agrave; client  </strong>
+</dt>
+<dd>Specifica la durata massima in secondi tra le richieste di transazioni
+provenienti da un client remoto. 
+<p>Un periodo qualsiasi di inattivit&agrave; del client che supera questo timeout determina
+l'esecuzione del rollback della transazione in questo server delle applicazioni. Se &egrave; impostato su 0 non esistono
+limiti di timeout.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Numero intero</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&agrave;</td>
+<td align="left" valign="top" class="base">Secondi</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">60</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo</td>
+<td align="left" valign="top" class="base">Da 0 a 2 147 483 647</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informazioni correlate</strong>
+</p>
+<a href="rcon_buttons.html">Pulsanti della console di gestione</a>
+<br>
+
+<a href="rcon_pageusage.html">Funzioni della pagina della console di gestione</a>
+<br>
+
+</div>
+</body>
+</html>

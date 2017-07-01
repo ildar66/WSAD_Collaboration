@@ -1,0 +1,306 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Preparing for application installation settings</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="urun_rapp_instw"></a>
+<h2>Preparing for application installation settings</h2>
+
+<p>Use this page to install an application (EAR file) or module (JAR
+ or  WAR file).</p>
+
+<p>To view this administrative console page, click <strong>Applications &gt; Install
+ New Application</strong>.</p>
+
+<p>Follow the steps on this page to install an application or module. You
+ must complete, at minimum, the first step; you must complete some or all of
+ the later steps, depending on whether you are installing an application,
+ EJB module, or Web module.</p>
+
+<dl>
+<dt>
+<strong><a name="app_deploy_path"></a>Path</strong>
+</dt>
+<dd>Specifies the fully qualified path to the .ear, .jar, or .war file
+ for the enterprise application.
+<p>Use <strong>Local path</strong> if the browser and application files are on the
+ same machine (whether or not the server is on that machine, too).</p>
+
+<p>Use <strong>Server path</strong> if the application file resides on any node in the
+ current cell context. You can browse the entire file system of a node if
+ the node agent or deployment manager is running on that selected node. 
+ Only .ear, .jar, or .war files are shown during the browsing. </p>
+
+<p>During application installation, application files are typically uploaded
+ from a client machine running the browser to the server machine running 
+ the administrative console, where they are deployed. In such cases, the Web
+ browser running the administrative console is used to select EAR, WAR, or
+ JAR  modules to upload to the server machine.</p>
+
+<p>In some cases, however, the application files reside on the file  system
+ of any of the nodes in a cell. To have the application server  install these
+ files, use the <strong>Server path</strong> option.</p>
+
+<p>You can also use this option to specify an application file already residing
+ on the machine running the application server. For example, the field value
+ on Windows NT might be <samp>C:\WebSphere\AppServer\installableApps\test.ear</samp>.
+ If you are installing a stand-alone WAR module, then you also must specify
+ the  context root.</p>
+
+</dd>
+<dt>
+<strong><a name="app_deploy_contextRoot"></a>Context Root</strong>
+</dt>
+<dd>Specifies the context root of the Web application (WAR).
+<p>This field is used only to install a stand-alone WAR file.
+ The context root is combined with the defined servlet mapping (from the WAR
+ file) to compose the full URL that users type to access the servlet. For
+ example, if the context root is /gettingstarted and the servlet mapping is
+ MySession, then the URL is <samp>http://host:port/gettingstarted/MySession</samp>.</p>
+
+</dd>
+<dt>
+<strong><a name="app_deploy_genDefBindings"></a>Generate Default Bindings</strong>
+</dt>
+<dd>Specifies whether to generate default bindings. If you place a
+ checkmark in the check box, then any incomplete bindings in the application
+ are filled in with default values. Existing bindings are not altered.
+<p>By choosing this option, you can directly jump to the Summary step and
+ install the application if none of the steps have a red asterisk (*) next
+ to them. A red asterisk denotes that the step has incomplete data and requires
+ a valid value. On the Summary panel, verify the cell, node and server on
+ which  the application is installed.</p>
+
+<p>Bindings are generated as follows:</p>
+
+<ul>
+
+<li>EJB JNDI names are generated of the form <em>prefix</em>/<em>ejb-name</em>.
+ The default prefix is <samp>ejb</samp>, but can be overridden. The <em>ejb-name</em> is
+ as specified in the deployment descriptors <samp>&lt;ejb-name&gt;</samp> tag.</li>
+
+<li>EJB references are bound as follows: If an &lt;ejb-link&gt; is found,
+ it is honored. Otherwise, if a unique enterprise bean is found with a matching
+ home (or local home) interface as the referenced bean, the reference is 
+ resolved automatically.</li>
+
+<li>Resource reference bindings are derived from the &lt;res-ref-name&gt; tag.
+ Note that this action assumes that the java:comp/env name is the same as
+ the resource global JNDI name.</li>
+
+<li>Connection factory bindings (for EJB 2.0 JAR files) are generated based
+ on the JNDI name and authorization information provided. This action results
+ in default connection factory settings for each EJB 2.0 JAR file in the application
+ being installed. No bean-level connection factory bindings are generated.</li>
+
+<li>Data source bindings (for EJB 1.1 JAR files) are generated based on the
+ JNDI name, data source user name password options. This results in default
+ data source settings for each EJB JAR file. No bean-level data source bindings
+ are generated.</li>
+
+<li>Message Driven Bean (MDB) listener ports are derived from the MDB &lt;ejb-name&gt; 
+ tag with the string <samp>Port</samp> appended.</li>
+
+<li>For .war files, the virtual host is set as <samp>default_host</samp> unless
+ otherwise specified.</li>
+
+</ul>
+
+<p>The default strategy suffices for most applications or at least for  most
+ bindings in most applications. However, it does not work if:</p>
+
+<ul>
+
+<li>You want to explicitly control the global JNDI names of one or more EJB
+ files.</li>
+
+<li>You need tighter control of data source bindings for CMPs. That is,  you
+ have multiple data sources and need more than one global data source.</li>
+
+<li>You must map resource references to global resource JNDI names that are
+ different from the java:comp/env name.</li>
+
+</ul>
+
+<p>In such cases, you can alter the behavior with an XML document (a custom
+ strategy). Use the <strong>Specific bindings file</strong> field to specify a custom
+ strategy and see the field's help for examples.</p>
+
+</dd>
+<dt>
+<strong><a name="app_deploy_prefixes"></a>Prefixes</strong>
+</dt>
+<dd>Specifies prefixes to use for generated JNDI names.
+
+</dd>
+<dt>
+<strong><a name="app_deploy_override"></a>Override</strong>
+</dt>
+<dd>Specifies whether to override existing bindings.
+<p>If this check box is checked, the existing bindings are overridden by the
+ generated ones.</p>
+
+</dd>
+<dt>
+<strong><a name="app_deploy_ejbCmpBindings"></a>EJB 1.1 CMP bindings</strong>
+</dt>
+<dd>Specifies the default data source JNDI name.
+<p>If the <strong>Default Bindings for EJB 1.1 CMPs</strong> radio button is selected,
+ specify the JNDI name for the default data source to be used with the CMP
+ 1.1 beans. Also specify the user ID and password for this default data source.</p>
+
+</dd>
+<dt>
+<strong><a name="app_deploy_connFacBindings"></a>Connection Factory Bindings</strong>
+</dt>
+<dd>Specifies the default data source JNDI name.
+<p>If the <strong>Default connection factory bindings</strong> radio button is selected,
+ specify the JNDI name for the default data source to be used with the bindings.
+ Also specify the  resource authorization.</p>
+
+</dd>
+<dt>
+<strong><a name="app_deploy_virtualHost"></a>Virtual Host</strong>
+</dt>
+<dd>Specifies the virtual host for WAR modules.
+
+</dd>
+<dt>
+<strong><a name="app_deploy_specificBindingsFile"></a>Specific bindings file</strong>
+</dt>
+<dd>Specifies a bindings file that overrides the default binding.
+<p>Alter the behavior of the default binding with an XML document (<em>aka</em> 
+ custom strategy). Custom strategies extend the default strategy so you  only
+ need to customize those areas where the default strategy is insufficient.
+ That is, you only need to describe how you want to change the bindings  generated
+ by the default strategy; you do not have to define bindings for the entire
+ application. </p>
+
+<p>Brief examples of how to override various aspects of the default bindings
+ generator follow:</p>
+
+<p>
+<strong>Controlling an EJB JNDI name</strong> 
+</p>
+
+<pre>&lt;?xml version="1.0"?&gt;
+&lt;!DOCTYPE dfltbndngs SYSTEM "dfltbndngs.dtd"&gt;
+&lt;dfltbndngs&gt;
+  &lt;module-bindings&gt;
+    &lt;ejb-jar-binding&gt;
+      &lt;jar-name&gt;helloEjb.jar&lt;/jar-name&gt;
+&lt;!-- this name must match the module name in the .ear file --&gt;
+      &lt;ejb-bindings&gt;
+        &lt;ejb-binding&gt;
+         &lt;ejb-name&gt;HelloEjb&lt;/ejb-name&gt;
+&lt;!-- this must match the &lt;ejb-name&gt; entry in the EJB jar DD --&gt;
+         &lt;jndi-name&gt;com/acme/ejb/HelloHome&lt;/jndi-name&gt;
+        &lt;/ejb-binding&gt;
+      &lt;/ejb-bindings&gt;
+    &lt;/ejb-jar-binding&gt;
+  &lt;/module-bindings&gt;
+&lt;/dfltbndngs&gt;</pre>
+
+<p> 
+<strong>Setting the connection factory binding for an EJB JAR file</strong> 
+</p>
+
+<pre>&lt;!DOCTYPE dfltbndngs SYSTEM "dfltbndngs.dtd"&gt;
+&lt;dfltbndngs&gt;
+  &lt;module-bindings&gt;
+    &lt;ejb-jar-binding&gt;
+      &lt;jar-name&gt;yourEjb20.jar&lt;/jar-name&gt;
+      &lt;connection-factory&gt;
+        &lt;jndi-name&gt;eis/jdbc/YourData_CMP&lt;/jndi-name&gt;
+        &lt;res-auth&gt;Container&lt;/res-auth&gt;
+      &lt;/connection-factory&gt;
+    &lt;/ejb-jar-binding&gt;
+  &lt;/module-bindings&gt;
+&lt;/dfltbndngs&gt;</pre>
+
+<p> 
+<strong>Setting the connection factory binding for an EJB file</strong> 
+</p>
+
+<pre>&lt;?xml version="1.0"&gt;
+&lt;!DOCTYPE dfltbndngs SYSTEM "dfltbndngs.dtd"&gt;
+&lt;dfltbndngs&gt;
+  &lt;module-bindings&gt;
+    &lt;ejb-jar-binding&gt;
+      &lt;jar-name&gt;yourEjb20.jar&lt;/jar-name&gt;
+      &lt;ejb-bindings&gt;
+        &lt;ejb-binding&gt;
+          &lt;ejb-name&gt;YourCmp20&lt;/ejb-name&gt;
+&lt;!-- this matches the ejb-name tag in the DD --&gt;
+          &lt;connection-factory&gt;
+           &lt;jndi-name&gt;eis/jdbc/YourData_CMP&lt;/jndi-name&gt;
+           &lt;res-auth&gt;PerConnFact&lt;/res-auth&gt;
+          &lt;/connection-factory&gt;
+        &lt;/ejb-binding&gt;
+      &lt;/ejb-bindings&gt;
+    &lt;/ejb-jar-binding&gt;
+ &lt;/module-bindings&gt;
+&lt;/dfltbndngs&gt;</pre>
+
+<p> 
+<strong>Overriding a Resource Ref Binding from a WAR, EJB JAR file, or J2EE
+ client JAR file</strong> 
+</p>
+
+<p>Example code for overriding a Resource Ref Binding from a WAR file follows.
+ Use similar code to override a Resource Ref Binding from an EJB JAR file
+ or a J2EE client  JAR file.</p>
+
+<pre>&lt;?xml version="1.0"?&gt;
+&lt;!DOCTYPE dfltbndngs SYSTEM "dfltbndngs.dtd"&gt;
+&lt;dfltbndngs&gt;
+  &lt;module-bindings&gt;
+    &lt;war-binding&gt;
+      &lt;jar-name&gt;hello.war&lt;/jar-name&gt;
+      &lt;resource-ref-bindings&gt;
+        &lt;resource-ref-binding&gt;
+          &lt;!-- the following must match the resource-ref in the DD --&gt;
+          &lt;resource-ref-name&gt;jdbc/MyDataSrc&lt;/resource-ref-name&gt;
+          &lt;jndi-name&gt;war/override/dataSource&lt;/jndi-name&gt;
+        &lt;/resource-ref-binding&gt;
+      &lt;/resource-ref-bindings&gt;
+    &lt;/war-binding&gt;
+  &lt;/module-bindings&gt;
+&lt;/dfltbndngs&gt;</pre>
+
+<p> 
+<strong>Overriding MDB JMS listener ports</strong> 
+</p>
+
+<pre>&lt;?xml version="1.0"?&gt;
+&lt;!DOCTYPE dfltbndngs SYSTEM "dfltbndngs.dtd"&gt;
+&lt;dfltbndngs&gt;
+  &lt;module-bindings&gt;
+    &lt;ejb-jar-binding&gt;
+      &lt;jar-name&gt;YourEjbJar.jar&lt;/jar-name&gt;
+      &lt;ejb-bindings&gt;
+        &lt;ejb-binding&gt;
+          &lt;ejb-name&gt;YourMDB&lt;/ejb-name&gt;
+          &lt;listener-port&gt;yourMdbListPort&lt;/listener-port&gt;
+        &lt;/ejb-binding&gt;
+      &lt;/ejb-bindings&gt;
+    &lt;/ejb-jar-binding&gt;
+  &lt;/module-bindings&gt;
+&lt;/dfltbndngs&gt;</pre>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>Related information</strong>
+</p>
+<a href="rcon_buttons.html">Administrative console buttons</a>
+<br>
+
+</div>
+</body>
+</html>

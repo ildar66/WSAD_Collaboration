@@ -1,0 +1,335 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Valores de puerto receptor</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="ListenerPort"></a>
+<h2>Valores de puerto receptor</h2>
+
+<p>Se utiliza un puerto receptor para simplificar la administraci&oacute;n de la asociaci&oacute;n entre una f&aacute;brica de conexiones, un destino y un bean desplegado controlado por mensajes.</p>
+
+<p>Utilice este panel para ver o modificar las propiedades de configuraci&oacute;n del puerto receptor seleccionado.</p>
+
+<p>Para ver esta p&aacute;gina de la consola administrativa, pulse <strong>Servidores-&gt;
+Servicio de receptor de mensajes-&gt; Puertos receptores-&gt; <em>puerto_receptor</em></strong>
+</p>
+
+<dl>
+<dt>
+<strong><a name="ListenerPort_name"></a>Nombre</strong>
+</dt>
+<dd>Nombre por el que se conoce el puerto receptor por razones administrativas.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ListenerPort_initialState"></a>Estado inicial</strong>
+</dt>
+<dd>Estado que desea que tenga el puerto receptor cuando el servidor de aplicaciones se vuelva a iniciar la pr&oacute;xima vez.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unidades</td>
+<td align="left" valign="top" class="base">No se aplica</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">Iniciado</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">
+<dl>
+<dt>
+<strong>Iniciado</strong>
+</dt>
+<dd>La pr&oacute;xima vez que se inicie el servidor de aplicaciones, el puerto receptor se inicia
+autom&aacute;ticamente.</dd>
+<dt>
+<strong>Detenido</strong>
+</dt>
+<dd>La pr&oacute;xima vez que se inicie el servidor de aplicaciones, el puerto receptor no se inicia
+autom&aacute;ticamente. Si los beans controlados por mensajes van a utilizar este puerto receptor en
+el servidor de aplicaciones, el administrador del sistema debe iniciar el puerto manualmente o
+seleccionar el valor Iniciado de esta propiedad y despu&eacute;s reiniciar el servidor de
+aplicaciones.</dd>
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ListenerPort_description"></a>Descripci&oacute;n</strong>
+</dt>
+<dd>Descripci&oacute;n del puerto
+receptor, para fines administrativos dentro de IBM WebSphere
+Application Server.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ListenerPort_connectionFactoryJNDIName"></a>Nombre JNDI de la f&aacute;brica de conexiones</strong>
+</dt>
+<dd>Nombre JNDI de la f&aacute;brica de conexiones de JMS que va a utilizar el puerto receptor; por ejemplo, <samp>jms/connFactory1</samp>.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ListenerPort_destinationJNDIName"></a>Nombre JNDI de destino</strong>
+</dt>
+<dd>Nombre JNDI de destino que va a utilizar el puerto receptor; por ejemplo, <samp>jms/destn1</samp>.
+<p>Si el servicio Extended Messaging va a utilizar este puerto receptor para manejar las
+respuestas con demora, el valor de esta propiedad debe coincidir con el destino de respuesta de
+JMS del puerto de salida utilizado por el bean emisor. Tampoco puede utilizar un destino temporal para las respuestas con demora.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ListenerPort_maxSessions"></a>N&uacute;mero m&aacute;ximo de sesiones</strong>
+</dt>
+<dd>Especifica el n&uacute;mero m&aacute;ximo de sesiones simult&aacute;neas de
+servidor JMS que utiliza un receptor para procesar mensajes. 
+<p>Cada sesi&oacute;n corresponde a una sola hebra receptora, pero no se
+controla el n&uacute;mero de mensajes procesados a la vez. Ajuste este par&aacute;metro cuando la m&aacute;quina que ejecuta la aplicaci&oacute;n de proceso no observa la capacidad disponible y su rendimiento es menor debido a procesos de larga ejecuci&oacute;n. </p>
+
+<p>Este par&aacute;metro tambi&eacute;n sirve para a&ntilde;adir alg&uacute;n nivel de simultaneidad
+para que los mensajes se reciban de forma simult&aacute;nea antes de que se
+produzca la parte sincronizada de recepci&oacute;n del mensaje. El rendimiento
+puede aumentar hasta un 40% en una aplicaci&oacute;n con procesos de larga
+ejecuci&oacute;n en un sistema NetFinity 5500 a 500 MHz, cuatro direcciones y
+4 GB de RAM. </p>
+
+<p>Una alternativa a realizar este cambio en la consola administrativa
+es modificar el valor de n&uacute;mero m&aacute;ximo de sesiones en el archivo
+<samp>server.xml</samp> en la secci&oacute;n de puertos receptores, del modo siguiente:<pre>&lt;listenerPorts xmi:id="ListenerPort_1" name="bpeIntListenerPort" 
+description="Internal Listener Port for Process Choreographer" 
+connectionFactoryJNDIName="jms/bpeCF" destinationJNDIName="jms/bpeIntQueue" 
+<strong>maxSessions="5"</strong> maxRetries="10" maxMessages="1"&gt;
+&lt;stateManagement xmi:id="StateManageable_5" initialState="START"/&gt;
+&lt;/listenerPorts&gt;</pre>
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unidades</td>
+<td align="left" valign="top" class="base">Sesiones</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">1 </td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">1 a 2147483647</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Recomendado</td>
+<td align="left" valign="top" class="base">Si est&aacute; habilitada la simultaneidad de mensajes, es decir
+varios mensajes se procesan a la vez, si lo desea, puede establecer el
+valor en 2 a 4 sesiones por procesador del sistema. Mantenga el valor lo m&aacute;s bajo posible para eliminar la hiperpaginaci&oacute;n del cliente. Si se desea una orden de mensaje estricta,
+establezca el valor en 4, de modo que siempre haya una hebra en espera en estado activo, bloqueado o recibiendo el
+mensaje. </td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ListenerPort_maxRetries"></a>N&uacute;mero m&aacute;ximo de reintentos</strong>
+</dt>
+<dd>N&uacute;mero m&aacute;ximo de veces que el receptor intenta enviar un mensaje antes de detenerse. El rango es de 0 a
+2147483647.
+<p>N&uacute;mero m&aacute;ximo de veces que el receptor intenta enviar un mensaje a una instancia de bean controlado por mensajes antes
+de detenerse.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unidades</td>
+<td align="left" valign="top" class="base">Reintentos</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">0 (ning&uacute;n reintento)</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">0 (ning&uacute;n reintento) a 2147483647</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ListenerPort_maxMessages"></a>N&uacute;mero m&aacute;ximo de mensajes</strong>
+</dt>
+<dd>N&uacute;mero m&aacute;ximo de mensajes que el receptor puede procesar en una sesi&oacute;n de servidor JMS.
+<p>Ajuste este valor cuando la orden del mensaje no es un requisito estricto. Este
+par&aacute;metro controla el nivel de simultaneidad en el servicio receptor. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unidades</td>
+<td align="left" valign="top" class="base">N&uacute;mero de mensajes</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">1</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">1 a 2147483647</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Recomendado</td>
+<td align="left" valign="top" class="base">Si est&aacute; habilitada la simultaneidad de mensajes, es decir
+varios mensajes se procesan a la vez, si lo desea, puede establecer el
+valor en 2 a 4 sesiones por procesador del sistema. Mantenga el valor lo m&aacute;s bajo posible para eliminar la hiperpaginaci&oacute;n del cliente. Si se desea una orden de mensaje estricta,
+establezca el valor en 1. </td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</body>
+</html>

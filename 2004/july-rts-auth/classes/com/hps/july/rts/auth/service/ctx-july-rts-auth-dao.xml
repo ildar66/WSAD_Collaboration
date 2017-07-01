@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+    <bean id="july.rts.auth.dao.personDAO" 
+          class="com.hps.july.rts.auth.service.dao.RTSPersonDAOHibernate"
+          parent="july.hibernateJdbcDaoSupport"/>
+
+    <bean id="july.rts.auth.dao.rtsRoleAlias" 
+          class="com.hps.july.rts.auth.service.dao.RTSRoleAliases"/>
+
+    <bean id="july.rts.auth.dao.rtsRoleDAO" 
+          class="com.hps.july.rts.auth.service.dao.RTSRoleDAOHibernate"
+          parent="july.hibernateDaoSupport">
+		<property name="roleAliases" ref="july.rts.auth.dao.rtsRoleAlias"/>
+    </bean>
+
+    <bean id="july.rts.auth.dao.rtsGroupDAO"
+          class="com.hps.july.rts.auth.service.dao.RTSGroupDAOHibernate"
+          parent="july.hibernateDaoSupport">
+    </bean>
+
+</beans>

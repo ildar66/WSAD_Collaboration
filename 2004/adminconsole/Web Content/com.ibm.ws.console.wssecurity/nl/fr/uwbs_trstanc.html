@@ -1,0 +1,80 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Collection d'ancres de s&eacute;curisation</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_trstanc"></a>
+<h2>
+<img alt="[Fix Pack 5.0.2 and later]" src="v502.gif" border="0">Collection d'ancres de s&eacute;curisation</h2>
+
+<p>Cette page permet d'afficher une liste des objets du magasin
+de cl&eacute;s contenant des certificats racine dignes de confiance. Ces objets sont utilis&eacute;s pour la validation du chemin des certificats
+des jetons de s&eacute;curit&eacute; X.509 entrants. Au sein d'une ancre de
+s&eacute;curisation, les objets du magasin de
+cl&eacute;s contiennent des certificats racine dignes de confiance utilis&eacute;s par
+l'API CertPath pour valider l'acceptation d'une cha&icirc;ne de certificats.</p>
+
+<p>Pour cr&eacute;er le fichier du magasin de cl&eacute;s, utilisez l'outil disponible dans le r&eacute;pertoire<samp><em>rep_install</em>\java\jre\bin\keytool</samp>.</p>
+
+<p>Pour afficher cette page de la console d'administration, cliquez sur <strong>Serveurs &gt; Serveurs
+d'applications &gt; </strong><em>nom_serveur</em>. Dans la section Propri&eacute;t&eacute;s suppl&eacute;mentaires,
+cliquez sur <strong>Services Web : Liaisons par d&eacute;faut pour la s&eacute;curit&eacute;
+des services Web &gt; Ancres de s&eacute;curisation</strong>.</p>
+
+<p>Cliquez sur <strong>Nouveau</strong> pour cr&eacute;er une ancre de s&eacute;curisation.</p>
+
+<p>Cliquez sur <strong>Supprimer</strong> pour supprimer une ancre de
+s&eacute;curisation. </p>
+
+<p>Lorsque vous cliquez sur <strong>Mettre &agrave; jour l'ex&eacute;cution</strong>, l'environnement d'ex&eacute;cution de la
+s&eacute;curit&eacute; Web est mis &agrave; jour avec les informations de liaison par d&eacute;faut qui sont contenues dans le fichier
+<samp>ws-security.xml</samp> pr&eacute;c&eacute;demment sauvegard&eacute;. Si vous apportez des modifications dans ce panneau, vous
+devez suivre la proc&eacute;dure ci-apr&egrave;s. <ol>
+
+<li>Sauvegardez vos modifications en cliquant sur <strong>Sauvegarder</strong> dans la partie sup&eacute;rieure de
+la console d'administration. Lorsque vous cliquez sur <strong>Sauvegarder</strong>, vous revenez au panneau
+d'accueil de la console d'administration. </li>
+
+<li>Retournez au panneau d'ancres de
+s&eacute;curisation et cliquez sur <strong>Mettre &agrave; jour l'ex&eacute;cution</strong>. <p>
+<b>Important: </b>Lorsque vous cliquez sur <strong>Mettre &agrave; jour l'ex&eacute;cution</strong>, les modifications de configuration apport&eacute;es aux autres services Web sont &eacute;galement mis &agrave; jour dans l'environnement d'ex&eacute;cution de s&eacute;curit&eacute; des services Web.</p>
+</li>
+
+</ol>
+</p>
+
+<dl>
+<dt>
+<strong><a name="sec_trstancname"></a>Nom
+de l'ancre de s&eacute;curisation</strong>
+</dt>
+<dd>Indique un nom unique utilis&eacute; pour identifier
+l'ancre de s&eacute;curisation.</dd>
+<dt>
+<strong><a name="sec_keystpath"></a>Chemin d'acc&egrave;s au magasin de cl&eacute;s</strong>
+</dt>
+<dd>Indique l'emplacement du magasin de cl&eacute;s contenant les ancres de
+s&eacute;curisation. </dd>
+<dt>
+<strong><a name="sec_keysttype"></a>Type de magasin de cl&eacute;s</strong>
+</dt>
+<dd>Indique le type du fichier du magasin de cl&eacute;s.
+<p>La valeur de cette zone correspond
+&agrave; <strong>JKS</strong> ou <strong>JCEKS</strong>.</p>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>Informations connexes</strong>
+</p>
+<a href="uwbs_trstancn.html">Param&egrave;tres de configuration des ancres de s&eacute;curisation</a>
+<br>
+
+</div>
+</body>
+</html>

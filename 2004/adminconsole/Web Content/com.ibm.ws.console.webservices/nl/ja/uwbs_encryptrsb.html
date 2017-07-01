@@ -1,0 +1,165 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>暗号化情報構成の設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_encryptrsb"></a>
+<h2>
+<img alt="[リリース 5.1 以降]" src="v51.gif" border="0">暗号化情報構成の設定</h2>
+
+<p>このページを使用して、暗号化パラメーターおよび暗号化解除パラメーターを構成します。
+</p>
+
+<p>このページにリストされているシグニチャー・メソッド、ダイジェスト・メソッド、および正規化メソッドの仕様は、World Wide Web Consortium (W3C) の文書「<em>XML Encryption Syntax and Processing: W3C Recommendation 10 Dec 2002</em> 」に記述されています。</p>
+
+<p>この管理コンソール・ページを表示するには、以下のステップを実行します。<ol>
+
+<li>「<strong>アプリケーション</strong>」&gt;「<strong>エンタープライズ・アプリケーション</strong>」&gt;「<em>application_name</em> 」をクリックします。</li>
+
+<li>「Related Items」の下の「<strong>Web モジュール</strong>」&gt;「<em>URI_file_name</em> 」&gt;「<strong>Web Services: Server Security Bindings</strong>」をクリックします。
+</li>
+
+<li>「Response Sender Binding」の下の「<strong>編集</strong>」&gt;「<strong>Encryption Information</strong>」をクリックします。</li>
+
+<li>暗号化情報が使用不可の場合は「<strong>なし</strong>」を選択してください。</li>
+
+<li>暗号化情報が使用可能な場合は、「<strong>Dedicated Encryption Information</strong>」を選択します。</li>
+
+</ol>
+</p>
+
+<p></p>
+
+<p>その上で、以下のフィールドで構成を指定してください。</p>
+
+<dl>
+<dt>
+<strong><a name="sec_name"></a>Encryption Information Name</strong>
+</dt>
+<dd>暗号化情報の名前を指定します。</dd>
+<dt>
+<strong><a name="sec_klr"></a>Key Locator Reference</strong>
+</dt>
+<dd>鍵ロケーターの参照に使用する名前を指定します。
+<p>鍵ロケーター参照を指定するには、「<strong>サーバー</strong>」&gt;「<strong>アプリケーション・サーバー</strong>」&gt;「<em>server_name</em>」をクリックします。「追加プロパティー」の下の「<strong>Web Services: Default bindings for Web Services Security</strong>」&gt;「<strong>Key Locators</strong>」をクリックします。</p>
+
+</dd>
+<dt>
+<strong><a name="sec_ekn"></a>Encryption Key Name</strong>
+</dt>
+<dd>暗号鍵の名前を指定します。この暗号鍵は、指定された鍵ロケーターによって実際の鍵に解決されます。</dd>
+<dt>
+<strong><a name="sec_eka"></a>Key Encryption Algorithm </strong>
+</dt>
+<dd>鍵暗号化メソッドのアルゴリズムを示す URI を指定します。
+<p>以下のアルゴリズムがサポートされています。<ul>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#rsa-1_5</samp>
+</li>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#kw-tripledes</samp>
+</li>
+
+</ul>
+</p>
+
+<p>以下の追加アルゴリズムがサポートされています。<ul>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#kw-aes128</samp>
+</li>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#kw-aes256</samp>
+</li>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#kw-aes192</samp>
+</li>
+
+</ul>
+</p>
+
+<p>デフォルトでは、Java Cryptography Extension (JCE) は、効果が制限または限定された暗号に付属しています。192 ビットおよび 256 ビット Advanced Encryption Standard (AES) 暗号化アルゴリズムを使用するには、無制限の管轄権ポリシー・ファイルを適用する必要があります。これらのポリシー・ファイルをダウンロードする前に、既存のポリシー・ファイル
+(jre/lib/security/ ディレクトリー の local_policy.jar および US_export_policy.jar) をバックアップしてから上書きし、後でオリジナル・ファイルを復元できるようにしてください。
+ポリシー・ファイルをダウンロードするには、次のいずれかのステップを行います。<ul>
+
+<li>WebSphere Application Server プラットフォームで IBM Developer Kit、Java Technology Edition バージョン 1.4.1 を使用する場合
+(AIX、Linux、および Windows プラットフォームを含む)、次のステップにより、無制限の管轄権ポリシー・ファイルを入手できます。<ul>
+
+<li>次の Web サイトに移動します。http://www.ibm.com/developerworks/java/jdk/security/index.html </li>
+
+<li>「<strong>Policy Files</strong>」をクリックします。<p> unrestrict.jar ファイルがマシンにダウンロードされます。</p>
+</li>
+
+</ul>
+</li>
+
+<li>WebSphere Application Server プラットフォームで Sun ベースの Java Development Kit (JDK) バージョン 1.4.1 を使用する場合
+(Solaris 環境および HP-UX プラットフォームを含む)、次のステップにより、無制限の管轄権ポリシー・ファイルを入手できます。<ul>
+
+<li>次の Web サイトに移動します。http://java.sun.com/j2se/1.4.1/download.html</li>
+
+<li>Web ページ下部の「Download」(Java Cryptography Extension (JCE) Unlimited Strength Jurisdiction Policy Files
+1.4.1 の隣) をクリックします。 jce_policy-1_4_1.zip ファイルがマシンにダウンロードされます。</li>
+
+</ul>
+</li>
+
+</ul>これらのいずれかのステップを実行すると、2 つの Java Archive (JAR)
+ファイルが JVM jre/lib/security/ ディレクトリーに置かれます。</p>
+
+</dd>
+<dt>
+<strong><a name="sec_dea"></a>Data Encryption Algorithm</strong>
+</dt>
+<dd>データ暗号化方式のアルゴリズム Uniform Resource Identifier (URI) を指定します。
+<p>以下のアルゴリズムがサポートされています。<ul>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#tripledes-cbc</samp>
+</li>
+
+</ul>
+</p>
+
+<p>以下の追加アルゴリズムがサポートされています。<ul>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#aes128-cbc</samp>
+</li>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#aes256-cbc</samp>
+</li>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#aes192-cbc</samp>
+</li>
+
+</ul>
+</p>
+
+<p>デフォルトでは、JCE は、効果が制限または限定された暗号に付属しています。192 ビットおよび 256 ビット AES 暗号化アルゴリズムを使用するには、無制限の管轄権ポリシー・ファイルを適用する必要があります。</p>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>関連情報</strong>
+</p>
+<a href="uwbs_encrypt.html">暗号化情報コレクション</a>
+<br>
+
+<a href="uwbs_keyl.html">鍵ロケーターのコレクション</a>
+<br>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Impostazioni del contenitore EJB</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uejbecnt"></a>
+<h2>Impostazioni del contenitore EJB</h2>
+
+<p>Utilizzare questa pagina per configurare e gestire un contenitore EJB specifico.</p>
+
+<p>Per visualizzare questa pagina della console di gestione, fare clic su <strong>Server</strong>
+<strong>&gt;</strong> <strong>Server delle applicazioni</strong> <strong>&gt;</strong> <em>serverName</em> <strong>&gt;</strong>
+<strong>Contenitore EJB</strong>.</p>
+
+<div>
+<p>
+<strong>Scheda Configurazione</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="EJBContainer_passivationDirectory_description"></a>Directory di modalit&agrave; passiva</strong>
+</dt>
+<dd>Specifica la directory in cui il contenitore salva lo stato persistente dei
+bean di sessione in modalit&agrave; stateful passiva.
+<p>I bean sono in modalit&agrave; passiva quando il numero di istanze bean attive diventa maggiore della dimensione di cache specificata nella configurazione del contenitore. Quando un bean stateful &egrave; stato reso passivo, il contenitore serializza l'istanza bean in un file nella directory di
+modalit&agrave; passiva e scarica l'istanza dalla cache del bean. Se, in un secondo momento, arriva una richiesta per
+un'istanza del bean in modalit&agrave; passiva, il contenitore la richiama dalla relativa directory, la deserializza, la
+restituisce alla cache e le invia la richiesta. Se un'operazione non riesce (ad esempio, se l'istanza bean non si trova pi&ugrave; nella directory di passivazione), il metodo di richiamo non riesce.</p>
+
+</dd>
+<dt>
+<strong><a name="EJBContainer_inactivePoolCleanupInterval_description"></a>Intervallo di eliminazione dei lotti non attivi</strong>
+</dt>
+<dd>Specifica l'intervallo in cui il contenitore esamina i lotti delle istanze
+bean disponibili per stabilire se &egrave; possibile eliminare alcune istanze e limitare l'uso
+della memoria.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Numero intero</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&agrave;</td>
+<td align="left" valign="top" class="base">Millisecondi</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo</td>
+<td align="left" valign="top" class="base">Maggiore di 0</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="EJBContainer_defaultDatasourceJNDIName_description"></a>Nome JNDI dell'origine dati predefinito</strong>
+</dt>
+<dd>Specifica il nome JNDI di un'origine dati da utilizzare se non ne &egrave; stata
+specificata una durante la distribuzione dell'applicazione. Questa impostazione non &egrave;
+applicabile per i bean CMP compatibili con EJB 2.x.
+<p>I servlet e i bean enterprise utilizzano le <em>origini dati </em> per ottenere queste connessioni.
+Durante la configurazione di un contenitore, &egrave; possibile specificare un'origine dati predefinita per il contenitore. Questa origine dati diventa quella predefinita, utilizzata poi da qualunque bean di entit&agrave; installato nel contenitore che utilizza CMP (container-managed persistence).</p>
+
+<p>L'origine dati predefinita di un contenitore &egrave; protetta. Specificandola, &egrave; necessario fornire anche un ID utente e la password per accedervi.</p>
+
+<p>La specifica di un'origine dati predefinita &egrave; facoltativa qualora ogni bean di entit&agrave; CMP, presente nel contenitore, disponga di un'origine dati specificata nella configurazione. Se non viene specificata alcuna origine dati predefinita, e un bean di entit&agrave; CMP viene
+installato nel contenitore senza specificare un'origine dati per quel bean, le
+applicazioni non possono utilizzare quel bean di entit&agrave; CMP.</p>
+
+</dd>
+<dt>
+<strong><a name="StateManageable_initialState_description"></a>Stato iniziale</strong>
+</dt>
+<dd>Specifica lo stato di esecuzione necessario quando il server viene avviato
+per la prima volta.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">Avviato</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo</td>
+<td align="left" valign="top" class="base">I valori validi sono <samp>Avviato</samp> e <samp>Arrestato</samp></td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informazioni correlate</strong>
+</p>
+<a href="rcon_buttons.html">Pulsanti della console di gestione</a>
+<br>
+
+<a href="uejb_rcash.html">Impostazioni della cache EJB</a>
+<br>
+
+</div>
+</body>
+</html>

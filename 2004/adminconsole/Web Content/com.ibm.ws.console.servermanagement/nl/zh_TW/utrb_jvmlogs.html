@@ -1,0 +1,254 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>JVM 日誌設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="JVMLogs_description"></a>
+<h2>JVM 日誌設定</h2>
+
+<p>請利用這個頁面來檢視和修改 Java 虛擬機器 (JVM) <samp>System.out</samp> 和 <samp>System.err</samp> 日誌的設定。
+</p>
+
+<p>如果要檢視這個管理主控台頁面，請按一下<strong>疑難排解 &gt; 日誌記載和追蹤 &gt; <cite>伺服器</cite> &gt; JVM 日誌</strong>。
+</p>
+
+<div>
+<p>
+<strong>「配置」標籤</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="system_out_file_description"></a>檔案名稱</strong>
+</dt>
+<dd>指定這個頁面所說明的其中一個日誌檔的名稱。
+
+<p>第一個檔案名稱欄位指定 <samp>System.out</samp> 日誌的名稱。
+第二個檔案名稱欄位指定 <samp>System.err</samp> 檔的名稱。</p>
+
+<p>請按「執行時期」標籤中的<strong>檢視</strong>按鈕來檢視所選日誌檔的內容。</p>
+
+<p>指定給 <samp>System.out</samp> 日誌或 <samp>System.err</samp> 日誌的檔案名稱必須有下列值之一：<dl>
+
+<dt>
+<strong><em>檔案名稱</em></strong>
+</dt>
+<dd>檔案系統中某個檔案的名稱。
+建議您使用完整檔案名稱。
+如果不是完整檔案名稱，就會將它視為相對於伺服器現行工作目錄。
+每個串流都必須配置一個專用檔案。
+比方說，您不能將 <samp>System.out</samp> 和 <samp>System.err</samp> 重新導向到相同的實體檔中。
+<p>如果已有包含檔案的目錄存在，用來執行伺服器的使用者 ID 需要這個目錄的讀取/寫入權。
+如果目錄不存在，就會以適當的許可權來建立它。
+用來執行伺服器的使用者 ID 必須有建立這個目錄的專用權。</p>
+</dd>
+
+<dt>
+<strong>主控台</strong>
+</dt>
+<dd>這是用來將串流重新導向至對應程序串流的特殊檔案名稱。
+如果這個值是指定給 <samp>System.out</samp>，檔案就會重新導向到 <samp>stdout</samp> 中。
+如果這個值是指定給 <samp>System.err</samp>，檔案就會重新導向到 <samp>stderr</samp> 中。
+</dd>
+
+<dt>
+<strong>none</strong>
+</dt>
+<dd>捨棄所有寫入串流的資料。
+指定<strong>無</strong>相當於將串流重新導向到 UNIX 系統的 dev/null。
+</dd>
+
+</dl>
+</p>
+
+</dd>
+<dt>
+<strong><a name="system_out_file_formatting_description"></a>檔案格式化</strong>
+</dt>
+<dd>指定用來儲存 <samp>System.out</samp> 檔的格式。
+</dd>
+<dt>
+<strong><a name="log_file_rotation"></a>日誌檔循環</strong>
+</dt>
+<dd>
+
+<p>請利用這一組配置屬性，將 <samp>System.out</samp> 或 <samp>System.err</samp> 日誌檔配置成進行自我管理。</p>
+
+<p>自行管理的日誌檔會將訊息寫入檔案中，直到到達時間或大小準則為止。
+到了指定時間或檔案已達指定大小之時，會暫停記載作業來輪替日誌檔，其中包括關閉儲存的檔案，將它重新命名。
+新的儲存檔名稱是以檔案的原始名稱為基礎，再加上時間戳記限定元來指出重新命名的時間。
+重新命名完成之後，就會重新開啟有原始名稱的新空白日誌檔，且會回復記載作業。
+所有訊息都會保存到日誌檔輸替為止，不過，有可能出現單一訊息跨越儲存的檔案和現行檔案的情況。
+</p>
+
+<p>只有在對應的串流重新導向至檔案時，您才能將日誌配置成自我管理的。<dl>
+
+<dt>
+<strong>檔案大小</strong>
+</dt>
+<dd>請按一下這個屬性，使日誌檔根據它的檔案大小來管理它自己。
+當檔案到達大小上限欄位所指定的大小時，會自動輪替。
+</dd>
+
+<dt>
+<strong>大小上限</strong>
+</dt>
+<dd>請指定檔案的大小上限 (MB)。
+當檔案到達這個大小時，就會輪替。
+<p>您必須按一下「檔案大小」，這個屬性才會有效。</p>
+</dd>
+
+<dt>
+<strong>時間</strong>
+</dt>
+<dd>請按一下這個屬性，使日誌檔會根據日期時間來管理它自己。
+到了起始時間欄位所指定的時間時，檔案就會輪替。
+</dd>
+
+<dt>
+<strong>開始時間</strong>
+</dt>
+<dd>指定在 Application Server 重新啟動之後，第一次啟動定期輪替演算法的當日時數（1-24）。
+在 Application Server 啟動時，會載入演算法。
+過了（啟動時間欄位）小時開始作業之後，輪替演算法會每隔（重複時間欄位）小時輪替一次日誌檔。
+這個輪替型樣會在沒有調整的情況下繼續運作，直到 Application Server 停止。
+</dd>
+
+<dt>
+<strong>重複時間</strong>
+</dt>
+<dd>請指定進行定期輪替的小時數 (1-24)。</dd>
+
+<dt>
+<strong>重複時間</strong>
+</dt>
+<dd>指定日誌檔輪替之前所經歷的小時數。
+有效值是 1 至 24。</dd>
+
+</dl>
+</p>
+
+<p>請配置依時間、大小或時間及大小來輪替的日誌檔。
+請按一下<strong>檔案大小</strong>和<strong>時間</strong>，使檔案依照第一個相符準則輪替。
+比方說，如果重複時間欄位是 5 小時，檔案大小上限是 2 MB，除非在到達間隔之前已達 2 MB，否則，檔案會每隔 5 小時輪替一次。
+在大小輪替之後，檔案會繼續依照間隔來輪替。
+</p>
+
+</dd>
+<dt>
+<strong><a name="max_historical_files"></a>歷程日誌檔數目上限</strong>
+</dt>
+<dd>
+
+<p>指定要保留的歷程（輪替）檔數目。
+串流會寫入現行檔案，直到輪替為止。
+在輪替時，會關閉現行檔案，並用現行名稱加上輪替時間戳記組成的新名稱來將它另存新檔。
+之後，串流會用原始名稱來重開新檔案，繼續寫入。
+歷程檔的數目會從零開始增長，直到歷程檔欄位的數目上限值為止。
+下次輪替會刪除最舊的歷程檔。
+</p>
+
+</dd>
+<dt>
+<strong><a name="installed_application_output"></a>已安裝的應用程式輸出</strong>
+</dt>
+<dd>
+
+<p>指定要不要記載和格式化從應用程式碼發出的 <samp>System.out</samp> 或 <samp>System.err</samp> 列印陳述式。<dl>
+
+<dt>
+<strong>顯示應用程式列印陳述式
+</strong>
+</dt>
+<dd>請按一下這個欄位來顯示應用程式利用 <strong>print</strong> 和 <strong>println</strong> 串流方法寫入串流的訊息。
+這時會顯示 WebSphere Application Server 系統訊息。
+</dd>
+
+<dt>
+<strong>格式化列印陳述式
+</strong>
+</dt>
+<dd>請按一下這個欄位來格式化應用程式列印陳述式，如同 WebSphere Application Server 系統訊息。</dd>
+
+</dl>
+</p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>「執行時期」標籤</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="system_out_file_description"></a>檔案名稱</strong>
+</dt>
+<dd>指定這個頁面所說明的其中一個日誌檔的名稱。
+
+<p>第一個檔案名稱欄位指定 <samp>System.out</samp> 日誌的名稱。
+第二個檔案名稱欄位指定 <samp>System.err</samp> 檔的名稱。</p>
+
+<p>請按「執行時期」標籤中的<strong>檢視</strong>按鈕來檢視所選日誌檔的內容。</p>
+
+<p>指定給 <samp>System.out</samp> 日誌或 <samp>System.err</samp> 日誌的檔案名稱必須有下列值之一：<dl>
+
+<dt>
+<strong><em>檔案名稱</em></strong>
+</dt>
+<dd>檔案系統中某個檔案的名稱。
+建議您使用完整檔案名稱。
+如果不是完整檔案名稱，就會將它視為相對於伺服器現行工作目錄。
+每個串流都必須配置一個專用檔案。
+比方說，您不能將 <samp>System.out</samp> 和 <samp>System.err</samp> 重新導向到相同的實體檔中。
+<p>如果已有包含檔案的目錄存在，用來執行伺服器的使用者 ID 需要這個目錄的讀取/寫入權。
+如果目錄不存在，就會以適當的許可權來建立它。
+用來執行伺服器的使用者 ID 必須有建立這個目錄的專用權。</p>
+</dd>
+
+<dt>
+<strong>主控台</strong>
+</dt>
+<dd>這是用來將串流重新導向至對應程序串流的特殊檔案名稱。
+如果這個值是指定給 <samp>System.out</samp>，檔案就會重新導向到 <samp>stdout</samp> 中。
+如果這個值是指定給 <samp>System.err</samp>，檔案就會重新導向到 <samp>stderr</samp> 中。
+</dd>
+
+<dt>
+<strong>none</strong>
+</dt>
+<dd>捨棄所有寫入串流的資料。
+指定<strong>無</strong>相當於將串流重新導向到 UNIX 系統的 dev/null。
+</dd>
+
+</dl>
+</p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>相關資訊</strong>
+</p>
+<a href="rcon_buttons.html">管理主控台按鈕</a>
+<br>
+
+<a href="rcon_scope.html">管理主控台範圍設定</a>
+<br>
+
+<a href="rcon_filter.html">管理主控台過濾器設定</a>
+<br>
+
+<a href="rcon_preferences.html">管理主控台喜好設定</a>
+<br>
+
+<a href="rcon_pageusage.html">管理主控台頁面特性</a>
+<br>
+
+</div>
+</body>
+</html>

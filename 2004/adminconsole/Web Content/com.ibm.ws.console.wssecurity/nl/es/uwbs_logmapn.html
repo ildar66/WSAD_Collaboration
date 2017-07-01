@@ -1,0 +1,227 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Valores de configuraci&oacute;n de enlaces de correlaciones de inicio de sesi&oacute;n</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_logmapn"></a>
+<h2>
+<img alt="[Release 5.1 y posterior]" src="v51.gif" border="0">Valores de configuraci&oacute;n de enlaces de correlaciones de inicio de sesi&oacute;n</h2>
+
+<p>Utilice esta p&aacute;gina para especificar los valores de
+configuraci&oacute;n de inicio de sesi&oacute;n de JAAS (Java Authentication and
+Authorization Service) que se utilizan para validar los s&iacute;mbolos de
+seguridad contenidos en los mensajes de entrada.</p>
+
+<p>Para ver esta p&aacute;gina de la consola administrativa, realice los pasos siguientes:<ol>
+
+<li>Pulse <strong>Servidores &gt; Servidores de aplicaciones &gt; </strong><em>nombre_servidor</em>.
+</li>
+
+<li>En Propiedades adicionales, pulse <strong>Servicios Web: Enlaces por omisi&oacute;n
+para Web Services Security &gt; Correlaciones de inicio de sesi&oacute;n &gt; Nuevo</strong>.</li>
+
+</ol>
+</p>
+
+<dl>
+<dt>
+<strong><a name="sec_logmapauth"></a>M&eacute;todo de autenticaci&oacute;n </strong>
+</dt>
+<dd>Especifica el m&eacute;todo de autenticaci&oacute;n.
+<p>Puede utilizar cualquier serie pero &eacute;sta debe coincidir con el elemento de
+la configuraci&oacute;n en el nivel de servidor. Los siguientes t&eacute;rminos est&aacute;n reservados y tienen significados especiales:<dl>
+
+<dt>
+<strong>BasicAuth</strong>
+</dt>
+<dd>Utiliza un nombre de usuario y una contrase&ntilde;a</dd>
+<dt>
+<strong>IDAssertion</strong>
+</dt>
+<dd>Utiliza s&oacute;lo un nombre de usuario; sin embargo, es necesario que se establezca confianza adicional en el servidor receptor mediante un TrustedIDEvaluator</dd>
+<dt>
+<strong>Signatura</strong>
+</dt>
+<dd>Utiliza el nombre distinguido (DN) del firmante.</dd>
+<dt>
+<strong>LTPA</strong>
+</dt>
+<dd>Valida un s&iacute;mbolo</dd>
+</dl>
+</p>
+
+</dd>
+<dt>
+<strong><a name="sec_jaas"></a>Nombre de la configuraci&oacute;n de JAAS</strong>
+</dt>
+<dd>Especifica el nombre de la configuraci&oacute;n de JAAS (Java
+Authentication and Authorization Service).
+<p>Especifique las configuraciones JAAS pulsando en la consola administrativa
+<strong>Seguridad &gt; Configuraci&oacute;n JAAS &gt; Aplicaci&oacute;n</strong>.</p>
+
+</dd>
+<dt>
+<strong><a name="sec_class"></a>Nombre de la clase de la f&aacute;brica del manejador de retorno de
+llamada</strong>
+</dt>
+<dd>Especifica el nombre de la f&aacute;brica de la clase CallbackHandler.
+<p>Debe implementar la clase <samp>com.ibm.wsspi.wssecurity.auth.callback.CallbackHandlerFactory</samp> en
+este campo.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n: </td>
+<td align="left" valign="top" class="base">com.ibm.wsspi.wssecurity.auth.callback.CallbackHandlerFactory</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="sec_tokenuri"></a>URI del tipo de s&iacute;mbolo </strong>
+</dt>
+<dd>Especifica el URI (Uniform Resource Identifiers) del espacio de nombres que indica el tipo de s&iacute;mbolo de seguridad aceptado. 
+<p>Si se aceptan los s&iacute;mbolos binarios, el valor debe indicar el atributo ValueType en el elemento. El elemento ValueType identifica el tipo de s&iacute;mbolo de seguridad y su espacio de nombres. Si se aceptan los s&iacute;mbolos XML (eXtensible Markup Language), el valor indica el nombre del elemento de nivel superior del s&iacute;mbolo XML. </p>
+
+<p>Si anteriormente se han especificado las palabras reservadas en el campo <strong>M&eacute;todo de autenticaci&oacute;n</strong>, se ignorar&aacute; este campo. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos: </td>
+<td align="left" valign="top" class="base">Caracteres Unicode excepto los caracteres que no sean ASCII
+aunque quedan incluidos el s&iacute;mbolo de almohadilla (#), el s&iacute;mbolo de
+porcentaje (%) y las llaves ([ ]).</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="sec_tokenlname"></a>Nombre local del tipo de s&iacute;mbolo </strong>
+</dt>
+<dd>Especifica el nombre local del tipo de s&iacute;mbolo de seguridad, por ejemplo,
+X509v3.
+<p>Si se aceptan los s&iacute;mbolos binarios, el valor debe indicar el atributo ValueType en el elemento. El atributo ValueType identifica el tipo de s&iacute;mbolo de seguridad y su espacio de nombres. Si se aceptan los s&iacute;mbolos XML (eXtensible Markup Language), el valor indica el nombre del elemento de nivel superior del s&iacute;mbolo XML. </p>
+
+<p>Si anteriormente se han especificado las palabras reservadas en el campo <strong>M&eacute;todo de autenticaci&oacute;n</strong>, se ignorar&aacute; este campo. </p>
+
+</dd>
+<dt>
+<strong><a name="sec_lognoncemaxage"></a>Antig&uuml;edad m&aacute;xima de Nonce</strong>
+            &nbsp;
+            <img alt="[Release 5.1 y posterior]" src="v51.gif" border="0"></dt>
+<dd>Especifica la cantidad de tiempo en segundos antes de que
+caduque la indicaci&oacute;n de la hora de Nonce. 
+Nonce es un valor generado aleatoriamente. 
+<p>Debe especificar un m&iacute;nimo de 300 segundos para el campo <strong>Antig&uuml;edad
+m&aacute;xima de Nonce</strong>. Sin embargo, el valor m&aacute;ximo no puede exceder el n&uacute;mero
+de segundos especificado en el campo <strong>Tiempo de espera de antememoria de
+Nonce</strong> tanto para el nivel de servidor como de c&eacute;lula. Para especificar el
+valor <strong>Antig&uuml;edad m&aacute;xima de Nonce</strong> para el nivel de servidor, pulse
+<strong>Servidores &gt; Servidores de aplicaciones  &gt; </strong><em>nombre_servidor</em>. En Propiedades
+adicionales, pulse <strong>Servicios Web: Enlaces por omisi&oacute;n para Web
+Services Security</strong>. Para especificar el valor <strong>Antig&uuml;edad m&aacute;xima de
+Nonce</strong> para el nivel de c&eacute;lula, pulse <strong>Seguridad &gt; Servicios Web  &gt;
+Propiedades</strong>. </p>
+
+<p>
+<strong>Importante:</strong> el campo <strong>Antig&uuml;edad m&aacute;xima de Nonce</strong> de este panel
+es opcional y s&oacute;lo es v&aacute;lido si se especifica el m&eacute;todo de autenticaci&oacute;n BasicAuth. Si especifica otro m&eacute;todo de autenticaci&oacute;n e
+intenta especificar valores para este campo, aparece el siguiente mensaje de
+error y debe eliminar el valor especificado: <samp>Nonce s&oacute;lo est&aacute; soportado para
+el m&eacute;todo de autenticaci&oacute;n BasicAuth.</samp> Si
+especifica BasicAuth, pero no especifica valores para
+el campo <strong>Antig&uuml;edad m&aacute;xima de Nonce</strong>, el tiempo de ejecuci&oacute;n de Web
+Services Security busca un valor de <strong>Antig&uuml;edad m&aacute;xima de Nonce</strong> en el
+nivel de servidor. Si no se encuentra un valor en el nivel de servidor, m&oacute;dulo de
+ejecuci&oacute;n busca en el nivel de c&eacute;lula. Si no se encuentra un valor ni en el
+nivel de servidor ni de c&eacute;lula, el valor por omisi&oacute;n es 300 segundos. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">300 segundos</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">300 segundos a <strong>Tiempo de espera de antememoria de Nonce</strong></td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="sec_lognonceclockskew"></a>Desfase horario de Nonce</strong>
+            &nbsp;
+            <img alt="[Release 5.1 y posterior]" src="v51.gif" border="0"></dt>
+<dd>Especifica el valor de desfase horario en segundos a tener en cuenta
+cuando WebSphere Application Server comprueba lo reciente que es el mensaje. 
+Nonce es un valor generado aleatoriamente. 
+<p>Debe especificar un m&iacute;nimo de 0 segundos para el campo <strong>Desfase horario de
+Nonce</strong>. Sin embargo, el valor m&aacute;ximo no puede exceder el n&uacute;mero de segundos
+especificado en <strong>Antig&uuml;edad m&aacute;xima de Nonce</strong> del panel Correlaciones de
+inicio de sesi&oacute;n. </p>
+
+<p>
+<strong>Importante:</strong> el campo <strong>Desfase horario de Nonce</strong> de este panel
+es opcional y s&oacute;lo es v&aacute;lido si se especifica el m&eacute;todo de autenticaci&oacute;n
+BasicAuth. Si especifica otro m&eacute;todo de autenticaci&oacute;n e
+intenta especificar valores para este campo, aparece el siguiente mensaje de
+error y debe eliminar el valor especificado: <samp>Nonce s&oacute;lo est&aacute; soportado para
+el m&eacute;todo de autenticaci&oacute;n BasicAuth.</samp> Si
+especifica BasicAuth, pero no especifica valores para
+el campo <strong>Desfase horario de Nonce</strong>, el tiempo de ejecuci&oacute;n de Web
+Services Security busca un valor de <strong>Desfase horario de Nonce</strong> en el nivel
+de servidor. Si no se encuentra un valor en el nivel de servidor, el m&oacute;dulo
+de ejecuci&oacute;n busca en el nivel de c&eacute;lula. Si no se encuentra un valor ni en el
+nivel de servidor ni de c&eacute;lula, el valor por omisi&oacute;n es 0 segundos. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">0 segundos</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">0 segundos a <strong>Antig&uuml;edad m&aacute;xima de Nonce</strong></td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>Informaci&oacute;n relacionada</strong>
+</p>
+<a href="uwbs_logmap.html">Grupo de correlaciones de inicio de sesi&oacute;n</a>
+<br>
+
+<a href="uwbs_noncecellprop.html">Propiedades en el nivel de c&eacute;lula de Nonce</a>
+<br>
+
+</div>
+</body>
+</html>

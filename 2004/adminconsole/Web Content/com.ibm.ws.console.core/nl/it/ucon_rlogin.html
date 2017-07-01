@@ -1,0 +1,124 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Impostazioni di login</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="urun_rlogin"></a>
+<h2>Impostazioni di login</h2>
+
+<p>Utilizzare questa pagina per specificare l'utente della console di gestione di WebSphere
+Application Server. Se si sta utilizzando la
+sicurezza globale, &egrave; necessario specificare anche una password.</p>
+
+<p>La specifica di un utente consente di poter riprendere il lavoro effettuato in
+precedenza nel prodotto.
+Dopo aver digitato un ID utente, fare clic su <strong>OK</strong> per passare alla pagina successiva e accedere alla console di gestione.</p>
+
+<p>Per visualizzare questa pagina, avviare la console di gestione.</p>
+
+<dl>
+<dt>
+<strong><a name="logon_desc"></a>ID utente</strong>
+</dt>
+<dd>Specifica una stringa che identifica l'utente. L'ID utente deve essere univoco sul server di gestione.
+<p>Il lavoro elaborato con il prodotto e salvato prima della chiusura verr&agrave; salvato in una configurazione identificata dall'ID utente immesso.
+ Per accedere successivamente al lavoro con tale ID utente, specificare l'ID utente nella pagina Login.</p>
+
+<p>Se si sta effettuando il collegamento da una macchina client che ha attualmente un browser aperto sulla console di gestione e viene contattato lo stesso server, le due connessioni potrebbero condividere lo stesso oggetto sessione HTTP, indipendentemente dal fatto che il collegamento avvenga utilizzando ID utente diversi. &Egrave; necessario utilizzare due diversi tipi di browser (ad esempio, Microsoft Internet Explorer e Netscape Communicator) per collegarsi alla console di gestione dalla stessa macchina client, per poter lavorare da due oggetti sessione HTTP diversi, a prescindere dall'utilizzo o meno dello stesso ID utente. In altre parole, per utilizzare due sessioni simultanee sulla stessa macchina client, accedere alla console di gestione da due tipi diversi di browser.</p>
+
+<p>Notare che &egrave; possibile utilizzare lo stesso tipo di browser per collegarsi due volte alla console ma &egrave; necessario collegarsi da host fisici diversi e utilizzare ID utente differenti.  Ad esempio, si supponga che l'utente Joe si colleghi alla console di gestione utilizzando l'ID utente <em>joe</em> sull'host fisico <em>myhost1</em> utilizzando il browser Internet Explorer. Joe pu&ograve; collegarsi alla stessa console una seconda volta, utilizzando il browser Internet Explorer ma deve utilizzare un diverso ID utente (ad esempio <em>peggy</em>) e un host fisico differente (come <em>myhost2</em>).</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="UserExists_information"></a>Un altro utente &egrave; attualmente collegato con lo stesso identificativo</strong>
+</dt>
+<dd>Indica se disconnettere l'utente e proseguire con lo stesso ID utente
+specificato, se tornare alla pagina Login e specificare un altro ID utente oppure
+attendere fino a quando l'utente non chiuder&agrave; la connessione.
+<p>Questo campo viene visualizzato se l'utente ha chiuso un browser Web mentre eseguiva
+una ricerca sulla console di gestione, senza terminare il collegamento, ha riaperto un
+nuovo browser e ha cercato di accedere alla console di gestione.</p>
+
+</dd>
+<dt>
+<strong><a name="ChangesFound_restore"></a>Uso della configurazione principale</strong>
+</dt>
+<dd>Quando abilitato, indica che l'utente desidera utilizzare la configurazione di
+gestione predefinita e non quella utilizzata pi&ugrave; di recente per la sessione dell'utente.
+ Le modifiche apportate alla sessione dell'utente, dopo l'ultimo salvataggio della
+configurazione di gestione, andranno perdute.
+<p>Questo campo viene visualizzato soltanto se l'utente ha modificato la configurazione
+di gestione e ha chiuso la connessione senza salvare le modifiche.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Valore booleano</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">false</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ChangesFound_recover"></a>Ripristino delle modifiche effettuate nella sessione precedente</strong>
+</dt>
+<dd>Quando abilitato, indica che l'utente desidera utilizzare la stessa
+configurazione di gestione utilizzata nell'ultima sessione dell'utente. Ripristina le modifiche effettuate dall'utente dopo l'ultimo salvataggio della configurazione di gestione per la sessione dell'utente.
+<p>Questo campo viene visualizzato soltanto se l'utente ha modificato la configurazione
+di gestione e ha chiuso la connessione senza salvare le modifiche.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Valore booleano</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">vero</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>Informazioni correlate</strong>
+</p>
+<a href="rcon_buttons.html">Pulsanti della console di gestione</a>
+<br>
+
+</div>
+</body>
+</html>

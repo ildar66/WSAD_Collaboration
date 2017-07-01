@@ -1,0 +1,336 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>트랜잭션 서비스 설정</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="Transaction_service"></a>
+<h2>트랜잭션 서비스 설정</h2>
+
+<p>이 페이지를 참조하여 트랜잭션 서비스 설정을 수정하십시오. </p>
+
+<p>이 관리 콘솔 페이지를 보려면 <strong>서버</strong> &gt; <strong>Application
+Servers</strong> &gt; <em>server</em> &gt; <strong>트랜잭션 서비스</strong>를 클릭하십시오. </p>
+
+<div>
+<p>
+<strong>구성 탭</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="TransactionService_transactionLogDirectory_displayName"></a>트랜잭션 로그 디렉토리</strong>
+</dt>
+<dd>트랜잭션 서비스가 복구를 위해 로그 파일을 저장하는 이 서버에 대한
+디렉토리 이름을 지정합니다. 
+<p>서버 구성의 공백 값은 트랜잭션 로그에 의해 시작 시 디렉토리(<em>install_root</em>)/tranlog/(<em>server_name</em>)로 확장됩니다. </p>
+
+<p>
+WebSphere 제품에서 실행 중인 응용프로그램이 둘 이상의 자원에 액세스할 경우,
+WebSphere 제품은 트랜잭션 정보를 저장하여 분산 트랜잭션을 적절히 조정하고 관리합니다. 트랜잭션 로드가 더 크면, 이 지속성으로 인해 Application Server의 성능이 저하됩니다. 운영 체제와 배경이 되는 기억장치 시스템에 의존하기 때문입니다. </p>
+
+<p>더 나은 성능을 얻으려면 트랜잭션 로그 파일을 실제 디스크 드라이브가 더 있는 기억장치로 이동하십시오. RAID 디스크 드라이브가 있으면 더 좋습니다. 로그 파일을 RAID 디스크로 이동하면 실제 매체로 데이터를 쓰는 타스크는 다중 디스크 드라이브 사이에 공유됩니다. 이렇게 하면 트랜잭션 정보 저장에 동시 액세스가 더 가능하고 로그의 해당 데이터에 액세스할 때 더 빠릅니다. 응용프로그램과 기억장치 서브시스템의 설계에 따라 성능 향상은 10%에서 100%까지 가능하고, 어떤 경우는 그보다 훨씬 더 큽니다. </p>
+
+<p>이 변경은 응용프로그램이 분산 자원이나 XA 트랜잭션을 사용하는 구성에만 적용 가능합니다. 예를 들어, 하나의 트랜잭션 안에서 다중 데이터베이스와 자원에 액세스할 때입니다. Application Server가 다음 현상 중 하나 이상을 보일 때 이 등록 정보 설정에 대해 고려하십시오. <ul>
+
+<li>트랜잭션 증가에도 불구하고 CPU 사용이 계속 낮습니다</li>
+
+<li>제한시간을 여러 번 초과하면서 트랜잭션이 실패합니다</li>
+
+<li>
+<em>트랜잭션 등록 불가능</em>이라는 예외와 함께 트랜잭션 롤백이 발생합니다.</li>
+
+<li>Application Server가 실행 중간에 정지하고 다시 시작하도록 요구합니다</li>
+
+<li>Application Server가 실행 중인 디스크의 이용도가 더 높습니다</li>
+
+</ul>
+</p>
+
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">문자열</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">기본값</td>
+<td align="left" valign="top" class="base">초기 값은 <em>%WAS_HOME%</em>/tranlog/(<em>server_name</em>)이고 기본 크기는 1MB입니다. </td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">권장</td>
+<td align="left" valign="top" class="base">RAID-0 구성으로 적어도 3-4개의 디스크 드라이브를 연결한 파일 시스템을 작성하십시오. 그런 다음 이 파일 시스템에 기본 크기로 트랜잭션 로그를 작성하십시오. 서버가 로드를 받으면서 실행 중일 때, 디스크 입력과 출력을 확인하십시오. 디스크 입력과 출력 시간이 5% 이상이면, 실제 디스크를 추가하여 값을 낮추십시오. 디스크 입력과 출력이 낮지만 서버 부하가 여전히 높으면, 로그 파일의 크기 증가를 고려하십시오.</td>
+
+</tr>
+
+</table>
+
+
+
+
+</dd>
+<dt>
+<strong><a name="TransactionService_totalTranLifetimeTimeout_displayName"></a>전체 트랜잭션 지속 시간 제한시간</strong>
+</dt>
+<dd>이 Application Server의 트랜잭션에
+대한 최대 지속 기간(초)을 지정합니다.  
+
+<p>이 제한시간 전에 완료하도록 요청되지 않는 모든 트랜잭션이 롤백됩니다.
+0으로 설정되는 경우 제한시간 한계가 없습니다. </p>
+
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">정수</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">
+단위</td>
+<td align="left" valign="top" class="base">초</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">기본값</td>
+<td align="left" valign="top" class="base">120</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">범위</td>
+<td align="left" valign="top" class="base">0 - 2 147 483 647</td>
+
+</tr>
+
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="TransactionService_clientInactivityTimeout_displayName"></a>클라이언트 비활성화 제한시간</strong>
+</dt>
+<dd>원격 클라이언트로부터의 트랜잭션 요청 사이의
+최대 지속 기간(초)을 지정합니다. 
+<p>이 제한시간을 초과하는 모든 클라이언트 비활동 기간은 이
+Application Server에서 트랜잭션이 롤백되게 합니다. 0으로 설정되는 경우 제한시간 한계가 없습니다. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">정수</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">
+단위</td>
+<td align="left" valign="top" class="base">초</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">기본값</td>
+<td align="left" valign="top" class="base">60</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">범위</td>
+<td align="left" valign="top" class="base">0 - 2 147 483 647</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>런타임 탭</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="TransactionService_transactionLogDirectory_displayName"></a>트랜잭션 로그 디렉토리</strong>
+</dt>
+<dd>트랜잭션 서비스가 복구를 위해 로그 파일을 저장하는 이 서버에 대한
+디렉토리 이름을 지정합니다. 
+<p>서버 구성의 공백 값은 트랜잭션 로그에 의해 시작 시 디렉토리(<em>install_root</em>)/tranlog/(<em>server_name</em>)로 확장됩니다. </p>
+
+<p>
+WebSphere 제품에서 실행 중인 응용프로그램이 둘 이상의 자원에 액세스할 경우,
+WebSphere 제품은 트랜잭션 정보를 저장하여 분산 트랜잭션을 적절히 조정하고 관리합니다. 트랜잭션 로드가 더 크면, 이 지속성으로 인해 Application Server의 성능이 저하됩니다. 운영 체제와 배경이 되는 기억장치 시스템에 의존하기 때문입니다. </p>
+
+<p>더 나은 성능을 얻으려면 트랜잭션 로그 파일을 실제 디스크 드라이브가 더 있는 기억장치로 이동하십시오. RAID 디스크 드라이브가 있으면 더 좋습니다. 로그 파일을 RAID 디스크로 이동하면 실제 매체로 데이터를 쓰는 타스크는 다중 디스크 드라이브 사이에 공유됩니다. 이렇게 하면 트랜잭션 정보 저장에 동시 액세스가 더 가능하고 로그의 해당 데이터에 액세스할 때 더 빠릅니다. 응용프로그램과 기억장치 서브시스템의 설계에 따라 성능 향상은 10%에서 100%까지 가능하고, 어떤 경우는 그보다 훨씬 더 큽니다. </p>
+
+<p>이 변경은 응용프로그램이 분산 자원이나 XA 트랜잭션을 사용하는 구성에만 적용 가능합니다. 예를 들어, 하나의 트랜잭션 안에서 다중 데이터베이스와 자원에 액세스할 때입니다. Application Server가 다음 현상 중 하나 이상을 보일 때 이 등록 정보 설정에 대해 고려하십시오. <ul>
+
+<li>트랜잭션 증가에도 불구하고 CPU 사용이 계속 낮습니다</li>
+
+<li>제한시간을 여러 번 초과하면서 트랜잭션이 실패합니다</li>
+
+<li>
+<em>트랜잭션 등록 불가능</em>이라는 예외와 함께 트랜잭션 롤백이 발생합니다.</li>
+
+<li>Application Server가 실행 중간에 정지하고 다시 시작하도록 요구합니다</li>
+
+<li>Application Server가 실행 중인 디스크의 이용도가 더 높습니다</li>
+
+</ul>
+</p>
+
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">문자열</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">기본값</td>
+<td align="left" valign="top" class="base">초기 값은 <em>%WAS_HOME%</em>/tranlog/(<em>server_name</em>)이고 기본 크기는 1MB입니다. </td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">권장</td>
+<td align="left" valign="top" class="base">RAID-0 구성으로 적어도 3-4개의 디스크 드라이브를 연결한 파일 시스템을 작성하십시오. 그런 다음 이 파일 시스템에 기본 크기로 트랜잭션 로그를 작성하십시오. 서버가 로드를 받으면서 실행 중일 때, 디스크 입력과 출력을 확인하십시오. 디스크 입력과 출력 시간이 5% 이상이면, 실제 디스크를 추가하여 값을 낮추십시오. 디스크 입력과 출력이 낮지만 서버 부하가 여전히 높으면, 로그 파일의 크기 증가를 고려하십시오.</td>
+
+</tr>
+
+</table>
+
+
+
+
+</dd>
+<dt>
+<strong><a name="TransactionService_totalTranLifetimeTimeout_displayName"></a>전체 트랜잭션 지속 시간 제한시간</strong>
+</dt>
+<dd>이 Application Server의 트랜잭션에
+대한 최대 지속 기간(초)을 지정합니다.  
+
+<p>이 제한시간 전에 완료하도록 요청되지 않는 모든 트랜잭션이 롤백됩니다.
+0으로 설정되는 경우 제한시간 한계가 없습니다. </p>
+
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">정수</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">
+단위</td>
+<td align="left" valign="top" class="base">초</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">기본값</td>
+<td align="left" valign="top" class="base">120</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">범위</td>
+<td align="left" valign="top" class="base">0 - 2 147 483 647</td>
+
+</tr>
+
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="TransactionService_clientInactivityTimeout_displayName"></a>클라이언트 비활성화 제한시간</strong>
+</dt>
+<dd>원격 클라이언트로부터의 트랜잭션 요청 사이의
+최대 지속 기간(초)을 지정합니다. 
+<p>이 제한시간을 초과하는 모든 클라이언트 비활동 기간은 이
+Application Server에서 트랜잭션이 롤백되게 합니다. 0으로 설정되는 경우 제한시간 한계가 없습니다. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">정수</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">
+단위</td>
+<td align="left" valign="top" class="base">초</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">기본값</td>
+<td align="left" valign="top" class="base">60</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">범위</td>
+<td align="left" valign="top" class="base">0 - 2 147 483 647</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>관련 정보</strong>
+</p>
+<a href="rcon_buttons.html">관리 콘솔 단추</a>
+<br>
+
+<a href="rcon_pageusage.html">관리 콘솔 페이지 기능</a>
+<br>
+
+</div>
+</body>
+</html>

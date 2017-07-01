@@ -1,0 +1,99 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>トラスト・アンカー構成の設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_trstancn"></a>
+<h2>
+<img alt="[修正パッケージ 5.0.2 以降]" src="v502.gif" border="0">トラスト・アンカー構成の設定</h2>
+
+<p>この情報を使用して、トラスト・アンカーを構成します。トラスト・アンカーとは、トラステッド・ルート証明書または自己署名証明書を含む鍵ストアのことを
+指しています。
+この情報で、トラスト・アンカーの名前、および鍵ストアにアクセスする
+場合に必要となる情報を指定できます。アプリケーション・バインディングはこの名前を使用して、バインディング・ファイル
+(またはデフォルト) の事前定義のトラスト・アンカー定義を参照します。</p>
+
+<p>この管理コンソール・ページを表示するには、以下のステップを実行します。<ol>
+
+<li>「<strong>サーバー</strong>」&gt;「<strong>アプリケーション・サーバー</strong>」&gt;「<em>server_name</em> 」をクリックします。</li>
+
+<li>「追加プロパティー」の下の「<strong>Web Services: Default bindings for Web Services Security</strong>」&gt;「<strong>Trust Anchors</strong>」&gt;「<strong>新規</strong>」をクリックします。</li>
+
+</ol>
+</p>
+
+<dl>
+<dt>
+<strong><a name="sec_trstancname"></a>Trust Anchor Name</strong>
+</dt>
+<dd>デフォルト・バインディング内の事前定義されたトラスト・アンカー定義を参照するために、
+アプリケーション・バインディングが使用する固有の名前を指定します。</dd>
+<dt>
+<strong><a name="sec_keystpass"></a>鍵ストア・パスワード</strong>
+</dt>
+<dd>鍵ストア・ファイルにアクセスするために必要なパスワードを指定します。</dd>
+<dt>
+<strong><a name="sec_keystpath"></a>Key Store Path</strong>
+</dt>
+<dd>鍵ストア・ファイルのロケーションを指定します。
+<p>${USER_INSTALL_ROOT} を使用します。このパスは、ご使用のマシンの WebSphere Application Server のパスに変換されます。</p>
+
+</dd>
+<dt>
+<strong><a name="sec_keysttype"></a>Key Store Type</strong>
+</dt>
+<dd>鍵ストア・ファイルのタイプを指定します。
+<p>このフィールドの値は、<strong>JKS</strong> または <strong>JCEKS</strong> のいずれかです。<dl>
+
+<dt>
+<strong>JKS</strong>
+</dt>
+<dd>このオプションは、Java Cryptography Extensions (JCE) を使用していない場合に指定します。</dd>
+<dt>
+<strong>JCEKS</strong>
+</dt>
+<dd>このオプションは、Java Cryptography Extensions を使用している場合に指定します。JCEKS 鍵ストア形式の方が安全ですが、パフォーマンスは劣ります。</dd>
+</dl>
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">JKS</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">JKS、JCEKS</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>関連情報</strong>
+</p>
+<a href="uwbs_trstanc.html">トラスト・アンカー・コレクション</a>
+<br>
+
+</div>
+</body>
+</html>

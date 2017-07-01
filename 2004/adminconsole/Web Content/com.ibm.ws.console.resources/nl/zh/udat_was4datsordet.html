@@ -1,0 +1,211 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>数据源（V4）设置</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="WAS40_Data_source_detail"></a>
+<h2>数据源（V4）设置</h2>
+
+<p>使用此页面创建 V4.0 样式的数据源。此数据源使用 WebSphere Application Server V4.0 连接管理器体系结构。所有 EJB1.x 模块必须使用这个数据源。</p>
+
+<p>要查看此管理控制台页面，单击<strong>资源</strong> &gt; <strong>JDBC 提供程序</strong> &gt; <em>JDBC_provider</em> &gt; <strong>数据源（V4）</strong> &gt; <em>data_source</em>。</p>
+
+<div>
+<p>
+<strong>&ldquo;配置&rdquo;选项卡</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="WAS40DataSource_detail_contextID"></a>作用域</strong>
+</dt>
+<dd>指定可看到此资源定义的级别 － 单元、节点或服务器级别。
+<p>资源（如 JDBC 提供程序、名称空间绑定或共享库）可以在多个作用域上定义，在较特定的作用域上定义的资源覆盖较一般作用域上定义的重复项。</p>
+
+<p>注意，无论定义的资源的作用域是什么，资源的属性仅在单个服务器级别上应用。例如，如果您在单元级别上定义数据源的作用域（它在该单元内是唯一的），则该单元中的所有用户都可以查找和使用该数据源。然而，资源属性设置对于单元中的每台服务器是本地的。例如，如果您定义<em>最大连接数</em>为 10，那么该单元中的每台服务器都可以有 10 个连接。<dl>
+
+<dt>
+<strong>单元</strong>
+</dt>
+<dd>最常规的作用域。在&ldquo;单元&rdquo;作用域上定义的资源对于所有节点和服务器都是可见的，除非它们被覆盖了。
+要查看单元作用域中定义的资源，不要在作用域选择表单中指定服务器或节点名。</dd>
+
+<dt>
+<strong>节点</strong>
+</dt>
+<dd>多数资源类型的缺省作用域。在&ldquo;节点&rdquo;作用域上定义的资源覆盖任何在&ldquo;单元&rdquo;作用域上定义的重复项，并且对于相同节点上的所有服务器都是可见的，除非它们在该节点上的服务器作用域中被覆盖了。要查看节点作用域中定义的资源，不要指定服务器，但是要在作用域选择表单中选择节点名。</dd>
+
+<dt>
+<strong>服务器</strong>
+</dt>
+<dd>定义资源的最特定作用域。在&ldquo;服务器&rdquo;作用域上定义的资源覆盖任何在&ldquo;单元&rdquo;作用域或父&ldquo;节点&rdquo;作用域上定义的重复资源定义，并且它们仅对于特定服务器是可见的。要查看服务器作用域中定义的资源，在作用域选择表单中指定服务器名和节点名。
+</dd>
+
+</dl>
+</p>
+
+<p>当创建资源时，它们总是创建到面板中所选的当前作用域中。要在其它作用域中查看作用域，在作用域选择表单中指定不同的节点或服务器。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WAS40DataSource_databasename_description"></a>名称</strong>
+</dt>
+<dd>指定资源的显示名称。
+<p>例如，您可将该字段设置为<em>测试数据源</em>。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WAS40DataSource_jndiName_description"></a>JNDI 名称</strong>
+</dt>
+<dd>指定 Java 命名与目录接口（JNDI）名称。
+<p>分布式计算环境经常使用命名和目录服务来获取共享组件和资源。命名和目录服务将名称与位置、服务、信息和资源关联起来。</p>
+
+<p>命名服务提供名称到对象映射。目录服务提供对象的信息和定位那些对象必需的搜索工具。</p>
+
+<p>有很多命名和目录服务实现，它们的接口也各不相同。JNDI 提供用于访问各种命名和目录服务的公共接口。
+</p>
+
+<p>例如，您可使用名称 <em>jdbc/markSection</em>。</p>
+
+<p>如果您将此字段保留为空白，则将从数据源的名称生成一个 JNDI 名称。例如，markSection 的数据源名称生成 <em>jdbc/markSection</em> 的 JNDI 名称。</p>
+
+<p>设置此值后，保存它并重新启动服务器，当您运行 <em>dumpnamespace</em> 时，您可以看到此字符串。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WAS40DataSource_Description_Description"></a>描述</strong>
+</dt>
+<dd>指定资源的文本描述。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WAS40DataSource_Category_Description"></a>类别</strong>
+</dt>
+<dd>指定可用于分类或分组资源的类别字符串。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WAS40DataSource_databaseName_displayName"></a>数据库名</strong>
+</dt>
+<dd>指定此数据源访问的数据库名。
+<p>例如，您可调用数据库 <em>SAMPLE</em>。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WAS40DataSource_defaultUser_displayName"></a>缺省用户标识</strong>
+</dt>
+<dd>指定用于连接到数据库的用户名。
+<p>例如，您可使用标识 <em>db2admin</em>。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WAS40DataSource_defaultPassword_displayName"></a>缺省密码</strong>
+</dt>
+<dd>指定用于连接数据库的密码。
+<p>例如，您可使用密码 <em>db2admin</em>。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>相关信息</strong>
+</p>
+<a href="rcon_buttons.html">管理控制台按钮</a>
+<br>
+
+<a href="rcon_pageusage.html">管理控制台页面功能</a>
+<br>
+
+</div>
+</body>
+</html>

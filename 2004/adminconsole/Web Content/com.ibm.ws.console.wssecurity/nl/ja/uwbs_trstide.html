@@ -1,0 +1,64 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>トラステッド ID エバリュエーター・コレクション</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_trstide"></a>
+<h2>
+<img alt="[修正パッケージ 5.0.2 以降]" src="v502.gif" border="0">トラステッド ID エバリュエーター・コレクション</h2>
+
+<p>このページを使用して、トラステッド識別 (ID) エバリュエーターのリストを表示します。
+トラステッド ID エバリュエーターは、識別表明権限を信頼するかどうかを決定します。ID が信頼されると、WebSphere Application Server は適切な信任状を発行します。この信任状は、リソースの起動をダウンストリームに要求する際に使用されます。
+トラステッド ID エバリュエーターは、com.ibm.wsspi.wssecurity.id.TrustedIDEvaluator インターフェースをインプリメントしています。</p>
+
+<p>この管理コンソール・ページを表示するには、以下のステップを実行します。<ol>
+
+<li>「<strong>サーバー</strong>」&gt;「<strong>アプリケーション・サーバー</strong>」&gt;「<em>server_name</em> 」をクリックします。</li>
+
+<li>「Additional Services」の下の「<strong>Web Services: Default bindings for Web Services Security</strong>」&gt;「<strong>Trusted ID Evaluators</strong>」をクリックします。</li>
+
+</ol>
+</p>
+
+<p>トラステッド ID エバリュエーターを作成する場合は、「<strong>新規</strong>」をクリックします。</p>
+
+<p>トラステッド ID エバリュエーターを削除する場合は、「<strong>削除</strong>」をクリックします。</p>
+
+<p>このパネルを使用して、次のステップを実行します。<ol>
+
+<li>トラステッド ID エバリュエーター名およびトラステッド ID エバリュエーター・クラス名を指定します。</li>
+
+<li>管理コンソールの上部にある「<strong>保管</strong>」をクリックして変更を保管してください。「<strong>保管</strong>」をクリックすると、管理コンソールのホーム・パネルに戻ります。</li>
+
+<li>「Trusted ID Evaluator collection」パネルに戻り、<samp>ws-security.xml</samp> ファイルに含まれている
+デフォルトのバインディング情報で Web サービス・セキュリティー・ランタイムを更新します。</li>
+
+<li>「<strong>Update runtime</strong>」をクリックします。他の Web サービスに加えられた構成も、Web サービス・セキュリティー・ランタイムで更新されます。</li>
+
+</ol>
+</p>
+
+<dl>
+<dt>
+<strong><a name="sec_trstname"></a>Trusted ID Evaluator Name</strong>
+</dt>
+<dd>トラステッド ID エバリュエーターの固有の名前を指定します。</dd>
+<dt>
+<strong><a name="sec_trstclname"></a>Trusted ID Evaluator Classname</strong>
+</dt>
+<dd>トラステッド ID エバリュエーターのクラス名を指定します。</dd>
+</dl>
+<div>
+<p>
+<strong>関連情報</strong>
+</p>
+<a href="uwbs_trstiden.html">トラステッド ID エバリュエーター構成の設定</a>
+<br>
+
+</div>
+</body>
+</html>

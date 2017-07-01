@@ -1,0 +1,283 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>J2C 连接工厂设置</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="J2C_connection_factory"></a>
+<h2>J2C 连接工厂设置</h2>
+
+<p>使用此页面指定连接工厂的设置。</p>
+
+<p>要查看此管理控制台页面，单击<strong>资源</strong> &gt; <strong>资源适配器</strong> &gt; <em>resource_adapter</em> &gt; <strong>J2C 连接工厂</strong> &gt; <em>connection_factory</em>。</p>
+
+<div>
+<p>
+<strong>&ldquo;配置&rdquo;选项卡</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="J2CConnectionfactory_detail_contextID"></a>作用域</strong>
+</dt>
+<dd>指定可看到此资源定义的级别 － 单元、节点或服务器级别。
+<p>资源（如 JDBC 提供程序、名称空间绑定或共享库）可以在多个作用域上定义，在较特定的作用域上定义的资源覆盖较一般作用域上定义的重复项。</p>
+
+<p>注意，无论定义的资源的作用域是什么，资源的属性仅在单个服务器级别上应用。例如，如果您在单元级别上定义数据源的作用域（它在该单元内是唯一的），则该单元中的所有用户都可以查找和使用该数据源。然而，资源属性设置对于单元中的每台服务器是本地的。例如，如果您定义<em>最大连接数</em>为 10，那么该单元中的每台服务器都可以有 10 个连接。<dl>
+
+<dt>
+<strong>单元</strong>
+</dt>
+<dd>最常规的作用域。在&ldquo;单元&rdquo;作用域上定义的资源对于所有节点和服务器都是可见的，除非它们被覆盖了。
+要查看单元作用域中定义的资源，不要在作用域选择表单中指定服务器或节点名。</dd>
+
+<dt>
+<strong>节点</strong>
+</dt>
+<dd>多数资源类型的缺省作用域。在&ldquo;节点&rdquo;作用域上定义的资源覆盖任何在&ldquo;单元&rdquo;作用域上定义的重复项，并且对于相同节点上的所有服务器都是可见的，除非它们在该节点上的服务器作用域中被覆盖了。要查看节点作用域中定义的资源，不要指定服务器，但是要在作用域选择表单中选择节点名。</dd>
+
+<dt>
+<strong>服务器</strong>
+</dt>
+<dd>定义资源的最特定作用域。在&ldquo;服务器&rdquo;作用域上定义的资源覆盖任何在&ldquo;单元&rdquo;作用域或父&ldquo;节点&rdquo;作用域上定义的重复资源定义，并且它们仅对于特定服务器是可见的。要查看服务器作用域中定义的资源，在作用域选择表单中指定服务器名和节点名。
+</dd>
+
+</dl>
+</p>
+
+<p>当创建资源时，它们总是创建到面板中所选的当前作用域中。要在其它作用域中查看作用域，在作用域选择表单中指定不同的节点或服务器。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2CConnectionFactory_displayName"></a>名称</strong>
+</dt>
+<dd>指定连接工厂显示名称的列表。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2CConnectionFactory_jndiName_displayName"></a>JNDI 名称</strong>
+</dt>
+<dd>指定此连接工厂的 JNDI 名称。
+<p>例如，名称可以为 <em>eis/myECIConnection</em>。</p>
+
+<p>设置此值后，保存它并重新启动服务器。当您运行 <em>dumpNameSpace</em> 时，您可以看到此字符串。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">eis/<em>display name</em></td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2CConnectionFactory_description_displayName"></a>描述</strong>
+</dt>
+<dd>指定此连接工厂的文本描述。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2CConnectionFactory_category_displayName"></a>类别</strong>
+</dt>
+<dd>指定可用于对这个连接工厂进行分类或分组的字符串。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2CConnectionFactory_authMechanismPreference_displayName"></a>认证首选项</strong>
+</dt>
+<dd>指定为该连接工厂定义的认证机制。
+<p>此设置指定了哪些为相应资源适配器定义的认证机制应用于此连接工厂。根据资源适配器的性能，公共值是：<em>KERBEROS</em>、<em>BASIC_PASSWORD</em> 和 <em>None</em>。</p>
+
+<p>如果选择 None，期望应用程序组件来管理认证（&lt;res-auth&gt;Application&lt;/res-auth&gt;）。在这种情况下，按以下方式之一获取用户标识和密码：<ul>
+
+<li>组件管理的认证别名</li>
+
+<li>用户名、密码定制属性</li>
+
+<li>以 getConnection 方法传递的字符串</li>
+
+</ul>
+</p>
+
+<p>例如，如果已在 <em>xa.xml</em> 文档中为一个资源适配器定义了两个认证机制条目：<ul>
+
+<li>&lt;authentication-mechanism-type&gt;BasicPassword&lt;/authentication-mechanism-type&gt;</li>
+
+<li>&lt;authentication-mechanism-type&gt;Kerbv5&lt;/authentication-mechanism-type&gt;</li>
+
+</ul>认证首选项指定用于容器管理的认证的机制。如果选择了资源适配器不支持的机制，服务器启动期间会发生异常。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">挑选列表</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">BASIC_PASSWORD </td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2CConnectionFactory_authDataAlias_displayName"></a>组件管理的认证别名</strong>
+</dt>
+<dd>指定组件管理的注册到资源的认证数据。
+从<strong>安全性</strong> &gt; <strong>JAAS 配置</strong> &gt; <strong>J2C 认证数据</strong>下定义的别名中选择。
+<p>要定义还未出现在选取列表中的新别名：<ul>
+
+<li>单击<strong>应用</strong>陈列&ldquo;相关项&rdquo;。</li>
+
+<li>单击 <strong>J2C 认证数据条目</strong>。</li>
+
+<li>定义别名。</li>
+
+<li>单击位于 <em>J2C 认证数据条目</em>页面顶部的连接工厂名称，返回到连接工厂页面。</li>
+
+<li>选择别名。</li>
+
+</ul> 
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">挑选列表</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2CConnectionFactory_mappingModule_authDataAlias_displayName"></a>容器管理的认证别名</strong>
+</dt>
+<dd>为到资源的容器管理的注册指定认证数据（转换到用户标识和密码的字符串路径）。
+从<strong>安全性</strong> &gt; <strong>JAAS 配置</strong> &gt; <strong>J2C 认证数据</strong>下定义的别名中选择。
+<p>要定义还未出现在选取列表中的新别名：<ul>
+
+<li>单击<strong>应用</strong>陈列&ldquo;相关项&rdquo;。</li>
+
+<li>单击 <strong>J2C 认证数据条目</strong>。</li>
+
+<li>定义别名。</li>
+
+<li>单击位于 <em>J2C 认证数据条目</em>页面顶部的连接工厂名称，返回到连接工厂页面。</li>
+
+<li>选择别名。</li>
+
+</ul> 
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">挑选列表</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2C_mappingConfigAlias"></a>映射配置别名</strong>
+</dt>
+<dd>允许用户从<strong>安全性</strong> &gt; <strong>JAAS 配置</strong> &gt; <strong>应用程序登录配置</strong>列表中进行选择。
+
+<p>
+<strong>DefaultPrincipalMapping</strong> JAAS 配置映射认证别名到用户标识和密码。
+您可定义和使用其它映射配置。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">挑选列表</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>相关信息</strong>
+</p>
+<a href="rcon_buttons.html">管理控制台按钮</a>
+<br>
+
+<a href="rcon_pageusage.html">管理控制台页面功能</a>
+<br>
+
+</div>
+</body>
+</html>

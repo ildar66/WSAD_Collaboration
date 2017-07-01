@@ -1,0 +1,94 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>信任锚配置设置</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_trstancn"></a>
+<h2>
+<img alt="[Fix Pack 5.0.2 and later]" src="v502.gif" border="0">信任锚配置设置</h2>
+
+<p>使用此信息配置信任锚。信任锚指向包含可信根或自签署证书的密钥存储。此信息使您能够指定信任锚的名称，以及访问密钥存储所需的信息。应用程序绑定使用此名称来引用绑定文件中预定义的信任锚定义（或缺省）。</p>
+
+<p>要查看此管理控制台页面，完成以下步骤：<ol>
+
+<li>单击<strong>服务器 &gt; 应用程序服务器 &gt; </strong><em>server_name</em>。</li>
+
+<li>在&ldquo;其它属性&rdquo;下，单击 <strong>Web 服务：Web 服务安全性的缺省绑定 &gt; 信任锚 &gt; 新建</strong>。</li>
+
+</ol>
+</p>
+
+<dl>
+<dt>
+<strong><a name="sec_trstancname"></a>信任锚名</strong>
+</dt>
+<dd>指定应用程序绑定用于引用缺省绑定中的预定义信任锚定义的唯一名称。</dd>
+<dt>
+<strong><a name="sec_keystpass"></a>密钥存储密码</strong>
+</dt>
+<dd>指定访问密钥存储文件所需的密码。</dd>
+<dt>
+<strong><a name="sec_keystpath"></a>密钥存储路径</strong>
+</dt>
+<dd>指定密钥存储文件的位置。
+<p>使用 ${USER_INSTALL_ROOT} 作为此路径扩展到您机器上的 WebSphere Application Server 路径。</p>
+
+</dd>
+<dt>
+<strong><a name="sec_keysttype"></a>密钥存储类型</strong>
+</dt>
+<dd>指定密钥存储文件的类型。
+<p>此字段中的值是 <strong>JKS</strong> 或 <strong>JCEKS</strong>。<dl>
+
+<dt>
+<strong>JKS</strong>
+</dt>
+<dd>如果您未使用 Java 密码术扩展（JCE），则指定此选项。</dd>
+<dt>
+<strong>JCEKS</strong>
+</dt>
+<dd>如果您使用 Java 密码术扩展，则指定此选项。尽管 JCEKS 密钥存储格式更安全，但是它减少的性能。</dd>
+</dl>
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">JKS</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">范围</td>
+<td align="left" valign="top" class="base">JKS，JCEKS</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>相关信息</strong>
+</p>
+<a href="uwbs_trstanc.html">信任锚集合</a>
+<br>
+
+</div>
+</body>
+</html>

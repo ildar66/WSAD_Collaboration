@@ -1,0 +1,111 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Param&egrave;tres du registre d'utilisateurs du syst&egrave;me d'exploitation local</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecrpseclos"></a>
+<h2>Param&egrave;tres du registre d'utilisateurs du syst&egrave;me d'exploitation local</h2>
+
+<p>Cette page permet de configurer les param&egrave;tres du registre
+d'utilisateurs du syst&egrave;me d'exploitation local.</p>
+
+<p>Pour afficher cette page de la console d'administration, cliquez sur <strong>S&eacute;curit&eacute;</strong> &gt; <strong>Registres d'utilisateurs</strong> &gt; <strong>Syst&egrave;me d'exploitation local</strong>.</p>
+
+<div>
+<p>
+<strong>Onglet Configuration</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="UserRegistry_serverId_description"></a>ID utilisateur administrateur </strong>
+</dt>
+<dd>Indique un ID utilisateur valide dans le registre du
+syst&egrave;me d'exploitation local.
+<p>Cet ID correspond &agrave; l'ID de serveur de s&eacute;curit&eacute;, qui est utilis&eacute;
+uniquement pour la s&eacute;curit&eacute; WebSphere Application Server et qui n'est
+pas associ&eacute; au processus syst&egrave;me qui ex&eacute;cute le serveur. Le serveur appelle le registre du
+syst&egrave;me d'exploitation local pour authentifier et obtenir des
+informations sur les droits des utilisateurs en appelant les API natives dans ce registre. L'acc&egrave;s
+API est g&eacute;n&eacute;ralement limit&eacute; aux utilisateurs disposant de droits sp&eacute;ciaux
+(par exemple, <strong>root</strong> dans les syst&egrave;mes UNIX et <strong>Agir comme partie
+du syst&egrave;me d'exploitation</strong> sous Windows). Pour utiliser la s&eacute;curit&eacute;
+dans le serveur d'applications, l'ID de processus (et non l'ID du serveur
+de s&eacute;curit&eacute;) sur lequel WebSphere Application Server s'ex&eacute;cute doit
+disposer des droits suffisants pour appeler les API syst&egrave;me. Les droits
+sp&eacute;ciaux signifient que le processus ex&eacute;cutant WebSphere Application Server
+doit appartenir au groupe <strong>Administrateurs</strong> et disposer du droit
+<strong>Agir comme partie du syst&egrave;me d'exploitation</strong> sous Windows et &ecirc;tre
+<strong>root</strong> ou disposer du droit root sur des syst&egrave;mes UNIX.</p>
+
+<p>Si vous utilisez un registre syst&egrave;me Windows, cet ID ne peut pas
+correspondre au nom de la machine Windows. En effet, pour les syst&egrave;mes
+Windows, le nom de machine <strong>bob</strong> poss&egrave;de un compte similaire &agrave;
+l'utilisateur <strong>bob</strong>.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es :</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&eacute;s :</td>
+<td align="left" valign="top" class="base">Caract&egrave;res alphanum&eacute;riques</td>
+
+</tr>
+
+</table>
+
+
+</dd>
+<dt>
+<strong><a name="UserRegistry_serverPassword_description"></a> Mot de passe administrateur</strong>
+</dt>
+<dd>Indique un mot de passe utilisateur valide correspondant &agrave; un ID utilisateur valide dans le registre du syst&egrave;me
+d'exploitation local.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+</table>
+
+<p></p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informations connexes</strong>
+</p>
+<a href="rcon_buttons.html">Boutons de la console administrative</a>
+<br>
+
+<a href="rcon_pageusage.html">Caract&eacute;ristiques de la page de la console d'administration</a>
+<br>
+
+<a href="rcon_scope.html">Param&egrave;tres de la port&eacute;e de la console administrative</a>
+<br>
+
+<a href="rcon_filter.html">Param&egrave;tres de filtrage de la console administrative</a>
+<br>
+
+<a href="rcon_preferences.html">Param&egrave;tres des pr&eacute;f&eacute;rences de la console administrative</a>
+<br>
+
+</div>
+</body>
+</html>

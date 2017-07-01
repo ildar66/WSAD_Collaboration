@@ -1,0 +1,361 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Valores de or&iacute;genes de datos</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="Data_source_detail"></a>
+<h2>Valores de or&iacute;genes de datos</h2>
+
+<p>Utilice esta p&aacute;gina para crear un origen de datos bajo un proveedor JDBC que proporcione la clase de implementaci&oacute;n del controlador JDBC espec&iacute;fica. </p>
+
+<p>Aseg&uacute;rese de que desea utilizar un origen de datos de la versi&oacute;n 5.0. Si est&aacute; utilizando el modelo de componente Enterprise JavaBean versi&oacute;n 1.0 y servlets 2.2, deber&aacute; utilizar un origen de datos de la versi&oacute;n 4.0.</p>
+
+<p>Para ver esta p&aacute;gina de la consola administrativa, pulse <strong>Recursos</strong> &gt;
+<strong>Proveedores JDBC</strong> &gt; <em>proveedor_JDBC</em> &gt; <strong>Or&iacute;genes de datos</strong> &gt;
+<em>origen_datos</em>.</p>
+
+<div>
+<p>
+<strong>Pesta&ntilde;a Configuraci&oacute;n</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="DataSource_detail_contextID"></a>&Aacute;mbito</strong>
+</dt>
+<dd>Especifica el nivel hasta el cual puede visualizarse esta definici&oacute;n de recurso --
+nivel de c&eacute;lula, nodo o servidor.
+<p>Los recursos tales como los proveedores JDBC, enlaces de espacio de nombres o
+bibliotecas compartidas se pueden definir en varios &aacute;mbitos, de tal modo que los recursos
+definidos en &aacute;mbitos m&aacute;s espec&iacute;ficos alteren temporalmente los duplicados definidos en
+&aacute;mbitos m&aacute;s generales.</p>
+
+<p>Tenga en cuenta que, independientemente del &aacute;mbito de un recurso definido, las propiedades
+de dicho recurso s&oacute;lo se aplican a nivel de servidor individual. Por ejemplo, si define el
+&aacute;mbito de un origen de datos a nivel de c&eacute;lula, todos los usuarios de la c&eacute;lula pueden buscar
+y utilizar dicho origen de datos, que es exclusivo en esa c&eacute;lula. Sin
+embargo, los valores de propiedades de recursos son locales para cada
+servidor de la c&eacute;lula. 
+Por ejemplo, si define <em>n&uacute;mero m&aacute;ximo de conexiones</em> en 10, cada servidor de la c&eacute;lula
+puede tener 10 conexiones.<dl>
+
+<dt>
+<strong>C&eacute;lula</strong>
+</dt>
+<dd>El &aacute;mbito m&aacute;s general.  Los recursos definidos en el &aacute;mbito de c&eacute;lula son visibles desde todos los nodos y servidores, a menos que se alteren temporalmente. Para ver los recursos definidos en el &aacute;mbito de c&eacute;lula, no especifique ning&uacute;n servidor o nombre nodo en el formulario de selecci&oacute;n de &aacute;mbito.</dd>
+
+<dt>
+<strong>Nodo</strong>
+</dt>
+<dd>En &aacute;mbito por omisi&oacute;n de la mayor&iacute;a de tipos de recurso.  Los recursos
+definidos en el &aacute;mbito de nodo alteran temporalmente cualquier duplicado definido en el
+&aacute;mbito de c&eacute;lula y son visibles en todos los servidores del mismo nodo, a menos que se
+alteren temporalmente en un &aacute;mbito de servidor de ese nodo. Para ver los recursos definidos en un &aacute;mbito de nodo, no especifique ning&uacute;n servidor, sino que seleccione un nombre de nodo en el formulario de selecci&oacute;n de &aacute;mbito.</dd>
+
+<dt>
+<strong>Servidor</strong>
+</dt>
+<dd>El &aacute;mbito m&aacute;s espec&iacute;fico para definir recursos.  Los recursos definidos en
+el &aacute;mbito de servidor alteran temporalmente cualquier definici&oacute;n de recurso duplicado definida
+en el &aacute;mbito de c&eacute;lula o &aacute;mbito de nodo padre y s&oacute;lo son visibles en un servidor determinado. Para ver los recursos definidos en un &aacute;mbito de servidor, especifique un nombre de servidor, adem&aacute;s de un nombre de nodo en el formulario de selecci&oacute;n de &aacute;mbito.</dd>
+
+</dl>
+</p>
+
+<p>Al crear recursos, estos siempre se crean en el &aacute;mbito actual seleccionado en el panel.   Para ver recursos de otros &aacute;mbitos, especifique un nodo o servidor distinto en el formulario de selecci&oacute;n de &aacute;mbito.  </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2EEResourceFactory_name_displayName"></a>Nombre</strong>
+</dt>
+<dd>Especifica el nombre de visualizaci&oacute;n del origen de datos. 
+<p>Por ejemplo, puede establecer este campo en <em>Probar origen de datos</em>.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2EEResourceFactory_jndiName_displayName"></a>Nombre JNDI</strong>
+</dt>
+<dd>Especifica el nombre de la interfaz JNDI (Java Naming and Directory Interface).
+<p>Los entornos de sistemas distribuidos suelen emplear los servicios
+de directorios y denominaci&oacute;n para obtener los recursos y componentes
+compartidos. Los servicios de directorios y denominaci&oacute;n asocian los nombres a ubicaciones, servicios, informaci&oacute;n y recursos.  </p>
+
+<p>Los servicios de denominaci&oacute;n sirven para correlacionar nombres con objetos. Los servicios de directorios proporcionan informaci&oacute;n sobre
+objetos y las herramientas de b&uacute;squeda necesarias para localizar estos
+objetos.</p>
+
+<p>Hay muchas implementaciones de los servicios de directorios y denominaci&oacute;n y las interfaces
+con los mismos son diferentes.   JNDI proporciona una interfaz com&uacute;n que se
+utiliza para acceder a los distintos servicios de directorios y denominaci&oacute;n.</p>
+
+<p>Por ejemplo, puede utilizar el nombre <em>jdbc/markSection</em>.</p>
+
+<p>Si deja este campo en blanco, se genera un nombre JNDI a partir del nombre del origen de datos. Por ejemplo, un nombre de origen de datos de markSection genera un nombre JNDI de <em>jdbc/markSection</em>.</p>
+
+<p>Una vez establecido y guardado este valor, y despu&eacute;s de reiniciar el
+servidor, deber&aacute; poder ver esta serie cuando ejecute <em>dumpnamespace</em>.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="DataSource_isUsedByCmp_displayName"></a>Persistencia gestiona por contenedor </strong>
+</dt>
+<dd>Especifica si este origen de datos se utiliza para la persistencia gestiona por contenedor de enterprise beans. 
+<p>&gt;Si este recuadro de selecci&oacute;n est&aacute; seleccionado, se crea una f&aacute;brica de conectores CMP
+correspondiente a este origen de datos para el adaptador de recursos relacionales.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Recuadro de selecci&oacute;n</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">Sin marca de selecci&oacute;n</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2EEResourceFactory_description_displayName"></a>Descripci&oacute;n</strong>
+</dt>
+<dd>Especifica una descripci&oacute;n de texto del recurso. 
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2EEResourceFactory_category_displayName"></a>Categor&iacute;a</strong>
+</dt>
+<dd>Especifica una serie de categor&iacute;as que puede utilizarse para clasificar o agrupar el recurso. 
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="DataSource_statementCacheSize_displayName"></a>Tama&ntilde;o de la antememoria de la sentencia </strong>
+</dt>
+<dd>Especifica el n&uacute;mero de sentencias libres que se colocan en antememoria por conexi&oacute;n.
+<p>El origen de datos de WebSphere Application Server optimiza el proceso de sentencias
+preparadas. Una sentencia preparada es una sentencia SQL precompilada que se almacena en un
+objeto de sentencia preparada. Este objeto se utiliza despu&eacute;s para ejecutar eficazmente
+la sentencia SQL determinada en m&uacute;ltiples ocasiones. </p>
+
+<p>Si la antememoria no es lo suficientemente grande, se
+descartar&aacute;n las entradas &uacute;tiles para hacer sitio a las entradas nuevas. 
+Para determinar cu&aacute;l es el valor m&aacute;s grande de tama&ntilde;o de la antememoria
+para as&iacute; evitar que se descarten entradas en la antememoria, a&ntilde;ada el
+n&uacute;mero de sentencias preparadas de forma exclusiva, sentencias a las que
+se puede llamar (seg&uacute;n queda determinado por la serie <em>sql</em>, la
+simultaneidad y el tipo de desplazamiento) a cada aplicaci&oacute;n que
+utilice esta fuente de datos en un servidor determinado. Este valor es el n&uacute;mero m&aacute;ximo de sentencias preparadas posibles que
+pueden colocarse en antememoria en una conexi&oacute;n determinada durante la
+vida &uacute;til del servidor. Si
+se establece el tama&ntilde;o de la antememoria en este valor significa que en ning&uacute;n caso se
+descartar&aacute; la antememoria. En general, cuantas m&aacute;s sentencias tenga su aplicaci&oacute;n, mayor debe
+ser la antememoria.
+Por ejemplo, si la aplicaci&oacute;n tiene 5 sentencias SQL, establezca el
+tama&ntilde;o de antememoria de sentencias en 5, para que cada conexi&oacute;n tenga 5 sentencias. </p>
+
+<p>Tambi&eacute;n puede utilizar Tivoli
+Performance Viewer para minimizar las veces que se descarta de
+antememoria. Utilice una carga de trabajo est&aacute;ndar que
+represente un n&uacute;mero t&iacute;pico de peticiones de cliente entrantes, utilice un n&uacute;mero fijo de
+iteraciones y utilice un conjunto est&aacute;ndar de valores de configuraci&oacute;n. <strong>Nota: </strong>cuanto mayor sea la antememoria de sentencias, m&aacute;s recursos del sistema se retardar&aacute;n. Por lo tanto, si establece el n&uacute;mero demasiado alto, podr&iacute;an faltarle recursos porque su sistema no puede abrir tantas sentencias preparadas.</p>
+
+<p>En aplicaciones de prueba, el ajuste de la antememoria de sentencias aument&oacute;
+el rendimiento en un 10-20%. No obstante, debido a las limitaciones potenciales de recursos, no siempre es posible.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">Depende de la base de datos. Por lo general es de 10.  Las versiones 7.3, 9.2 &oacute;
+9.3 de Informix sin el &uacute;ltimo arreglo tambi&eacute;n deben ser 0. Un valor por omisi&oacute;n de 0
+significa que no hay ninguna sentencia en antememoria.</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="DataSource_datasourceHelperClassname_displayName"></a>Nombre de clase DataStoreHelper </strong>
+</dt>
+<dd>Especifica la clase DataStoreHelper que se utiliza para realizar funciones
+espec&iacute;ficas de la base de datos.  
+<p> El adaptador de recursos relacionales utiliza esta opci&oacute;n durante el tiempo de ejecuci&oacute;n.
+La clase de implementaci&oacute;n de DataStoreHelper por omisi&oacute;n se establece a partir de la clase de
+implementaci&oacute;n del controlador JDBC mediante la estructura:
+<em>com.ibm.websphere.rsadapter.&lt;base de datos&gt;DataStoreHelper</em>.
+Por ejemplo, si el proveedor JDBC es DB2, la clase de DataStoreHelper por omisi&oacute;n es <em>com.ibm.websphere.rsadapter.DB2DataStoreHelper</em>. Puede cambiar a la subclase de esta clase DataStoreHelper, si es necesario.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">Depende de la clase de implementaci&oacute;n del controlador JDBC</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="DataSource_authDataAlias_displayName"></a>Alias de autenticaci&oacute;n gestionado por componentes</strong>
+</dt>
+<dd>Este alias sirve para autenticar bases de datos durante el tiempo de ejecuci&oacute;n. 
+<p>Si la autenticaci&oacute;n de recursos (res-auth) est&aacute; establecida en <em>Aplicaci&oacute;n</em>, establezca el alias de Alias de autenticaci&oacute;n gestionado por componentes. </p>
+
+<p>Si no establece este campo y la base de datos exige que el ID de usuario y contrase&ntilde;a obtengan una conexi&oacute;n, recibir&aacute; una excepci&oacute;n durante el tiempo de ejecuci&oacute;n.</p>
+
+<p>Si la base de datos (por ejemplo, Cloudscape) no da soporte a <em>ID de usuario</em> y
+<em>contrase&ntilde;a</em>, no establezca el alias en los campos Alias de autenticaci&oacute;n gestionado por componentes ni Alias de autenticaci&oacute;n gestionado por contenedor. De lo contrario, aparece el
+mensaje de aviso en las anotaciones cronol&oacute;gicas del sistema que indica que el usuario y la
+contrase&ntilde;as no son propiedades v&aacute;lidas. Este mensaje es s&oacute;lo de aviso y, por lo tanto, el origen de datos se crea correctamente.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Lista de selecci&oacute;n</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="DataSource_mappingModule_authDataAlias_displayName"></a>Alias de autenticaci&oacute;n gestionado por contenedor</strong>
+</dt>
+<dd>Este alias sirve para autenticar bases de datos durante el tiempo de ejecuci&oacute;n. 
+<p>Si res-auth est&aacute; establecido en <em>Contenedor</em>, establezca Alias de autenticaci&oacute;n gestionado por contenedor.</p>
+
+<p>Si no establece este campo y la base de datos exige que el ID de usuario y contrase&ntilde;a obtengan una conexi&oacute;n, recibir&aacute; una excepci&oacute;n durante el tiempo de ejecuci&oacute;n.</p>
+
+<p>Si la base de datos (por ejemplo, Cloudscape) no da soporte a <em>ID de usuario</em> y
+<em>contrase&ntilde;a</em>, no establezca el alias en los campos Alias de autenticaci&oacute;n gestionado por componentes ni Alias de autenticaci&oacute;n gestionado por contenedor. De lo contrario, aparece el
+mensaje de aviso en las anotaciones cronol&oacute;gicas del sistema que indica que el usuario y la
+contrase&ntilde;as no son propiedades v&aacute;lidas. Este mensaje es s&oacute;lo de aviso y, por lo tanto, el origen de datos se crea correctamente.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Lista de selecci&oacute;n</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="DataSource_mappingConfigAlias"></a>Alias de correlaci&oacute;n-configuraci&oacute;n</strong>
+</dt>
+<dd>Permite a los usuarios seleccionar de la lista
+<strong>Seguridad</strong> &gt; <strong>Configuraci&oacute;n de JAAS</strong> &gt; <strong>Configuraci&oacute;n de inicio de sesi&oacute;n de la aplicaci&oacute;n</strong>.
+
+<p>La configuraci&oacute;n JAAS de <strong>DefaultPrincipalMapping</strong>
+ establece la correlaci&oacute;n del alias de autenticaci&oacute;n con el ID de usuario y la contrase&ntilde;a . Puede
+definir y utilizar otras configuraciones de correlaci&oacute;n.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Lista de selecci&oacute;n</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informaci&oacute;n relacionada</strong>
+</p>
+<a href="rcon_buttons.html">Botones de la consola de administraci&oacute;n</a>
+<br>
+
+</div>
+</body>
+</html>

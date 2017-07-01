@@ -1,0 +1,175 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Impostazioni utenti console e impostazioni utenti servizio di denominazione CORBA</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecconuser"></a>
+<h2>Impostazioni utenti console e impostazioni utenti servizio di denominazione CORBA</h2>
+
+<p>Utilizzare la pagina delle impostazioni utenti console per fornire agli utenti
+l'autorizzazione necessaria per gestire WebSphere Application Server, utilizzando strumenti come la
+console di gestione o lo script wsadmin. Le richieste di autorizzazioni sono effettive solo quando la sicurezza
+globale &egrave; abilitata. Utilizzare la pagina delle impostazioni utenti servizio di denominazione
+CORBA per la relativa gestione.</p>
+
+<p>Per visualizzare la pagina della console di gestione Utenti console, fare clic su
+<strong>Amministrazione di sistema</strong> &gt; <strong>Utenti console</strong>.</p>
+
+<p>Per visualizzare la pagina della console di gestione Utenti servizio di denominazione CORBA,
+fare clic su <strong>Ambiente &gt; Denominazione &gt; Utenti del servizio di denominazione CORBA</strong>.</p>
+
+<dl>
+<dt>
+<strong><a name="desc_users_title"></a>Utente (Utenti console)</strong>
+</dt>
+<dd>Specifica gli utenti.
+<p>Gli utenti immessi devono essere presenti nel registro configurato degli utenti attivi.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati:</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="corba_desc_users_title"></a> Utente  (Utenti del servizio di denominazione CORBA)</strong>
+</dt>
+<dd>Specifica gli utenti del servizio di denominazione CORBA.
+<p>Gli utenti immessi devono essere presenti nel registro configurato degli utenti attivi.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati:</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="label_role_desc"></a>Ruolo (Utenti console)</strong>
+</dt>
+<dd>Specifica i ruoli utente.
+<p>I seguenti ruoli di gestione forniscono diversi gradi di autorizzazione per eseguire  determinate funzioni di gestione di WebSphere Application Server:<dl>
+<dt>
+<strong>Amministratore</strong>
+</dt>
+<dd>Il ruolo administrator dispone di autorizzazioni operator,
+configurator e dell'autorizzazione necessaria per accedere ai dati che distinguono tra maiuscole e minuscole che comprendono la password del server, le chiavi e la password LTPA e cos&igrave; via.</dd>
+<dt>
+<strong>Configurator</strong>
+</dt>
+<dd>Il ruolo configurator dispone di autorizzazioni monitor e ha la capacit&agrave; di modificare la configurazione di WebSphere Application Server.</dd>
+<dt>
+<strong>Operator</strong>
+</dt>
+<dd>Il ruolo operator dispone di autorizzazioni monitor e ha la capacit&agrave; di modificare lo stato di runtime. Ad esempio, l'operator pu&ograve; avviare o arrestare i servizi.</dd>
+<dt>
+<strong>Monitor</strong>
+</dt>
+<dd>Il ruolo monitor dispone delle autorizzazioni minori. Questo ruolo consente all'utente di visualizzare lo stato corrente e la configurazione di WebSphere Application Server.</dd>
+</dl>
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati:</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo:</td>
+<td align="left" valign="top" class="base">Administrator, Configurator, Operator e Monitor</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="corba_label_role_desc"></a>Ruolo (Utenti del servizio di denominazione CORBA)</strong>
+</dt>
+<dd>Specifica i ruoli utente del servizio di denominazione.
+<p>Sono stati definiti alcuni ruoli di denominazione per fornire i gradi di autorizzazione necessari per eseguire determinate funzioni del servizio di denominazione di WebSphere. Le politiche di autorizzazione
+vengono applicate solo quando &egrave; abilitata la sicurezza globale. I seguenti ruoli sono validi: CosNamingRead, CosNamingWrite, CosNamingCreate e CosNamingDelete.</p>
+
+<p> I nomi dei quattro ruoli sono identici a quelli presenti in WebSphere Application Server Advanced Edition Versione 4.0.2. Tuttavia, i ruoli ora dispongono
+dei livelli di autorizzazione a partire dal basso verso l'alto, come segue:<dl>
+<dt>
+<strong>CosNamingRead</strong>
+</dt>
+<dd>Gli utenti possono richiedere lo spazio nome di WebSphere utilizzando, ad esempio, il metodo di ricerca JNDI (Java Naming and Directory Interface). L'oggetto speciale <strong>EVERYONE</strong> &egrave; la politica predefinita di questo ruolo.</dd>
+<dt>
+<strong>CosNamingWrite</strong>
+</dt>
+<dd>Gli utenti possono eseguire operazioni di scrittura, quali operazioni di collegamento (bind), ricollegamento (rebind) o di annullamento del collegamento (unbind) e CosNamingRead JNDI. L'oggetto speciale <strong>ALL AUTHENTICATED</strong> &egrave; la politica predefinita di questo ruolo.</dd>
+<dt>
+<strong>CosNamingCreate</strong>
+</dt>
+<dd>Gli utenti possono creare nuovi oggetti nello spazio nome tramite le operazioni createSubcontext e CosNamingWrite JNDI. L'oggetto speciale <strong>ALL AUTHENTICATED</strong> &egrave; la politica predefinita di questo ruolo.</dd>
+<dt>
+<strong>CosNamingDelete</strong>
+</dt>
+<dd>Gli utenti possono distruggere gli oggetti nello spazio nome, ad esempio utilizzando il metodo destroySubcontext e le operazioni CosNamingCreate JNDI. L'oggetto speciale <strong>ALL AUTHENTICATED</strong> &egrave; la politica predefinita di questo ruolo.</dd>
+</dl>
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati:</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo:</td>
+<td align="left" valign="top" class="base">CosNamingRead, CosNamingWrite, CosNamingCreate e CosNamingDelete</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>Informazioni correlate</strong>
+</p>
+<a href="rcon_buttons.html">Pulsanti della console di gestione</a>
+<br>
+
+<a href="rcon_pageusage.html">Funzioni della pagina della console di gestione</a>
+<br>
+
+<a href="rcon_scope.html">Impostazioni ambito della console di gestione</a>
+<br>
+
+<a href="rcon_filter.html">Impostazioni di filtro della console di gestione</a>
+<br>
+
+<a href="rcon_preferences.html">Impostazioni delle preferenze della console di gestione</a>
+<br>
+
+</div>
+</body>
+</html>

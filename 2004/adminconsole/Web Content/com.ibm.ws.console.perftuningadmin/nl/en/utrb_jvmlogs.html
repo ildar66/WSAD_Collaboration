@@ -1,0 +1,245 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Java virtual machine (JVM) log settings</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="JVMLogs_description"></a>
+<h2>Java virtual machine (JVM) log settings</h2>
+
+<p>Use this page to view and modify the settings for the Java virtual
+machine (JVM) <samp>System.out</samp> and <samp>System.err</samp> logs.</p>
+
+<p>To view this administrative console page, click <strong>Troubleshooting &gt; Logs
+and Trace &gt;<cite>server</cite> &gt; JVM Logs</strong>.</p>
+
+<div>
+<p>
+<strong>Configuration tab</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="system_out_file_description"></a>File Name</strong>
+</dt>
+<dd>Specifies the name of one of the log file described on this page. 
+<p>The first file name field specifies the name of the <samp>System.out</samp> log.
+The second file name field specifies the name of the <samp>System.err</samp> file. </p>
+
+<p>Press the <strong>View</strong> button on the Runtime tab to view the contents of
+a selected log file.</p>
+
+<p>The file name specified for the <samp>System.out</samp> log or the <samp>System.err</samp> log
+must have one of the following values:<dl>
+<dt>
+<strong><em>filename</em></strong>
+</dt>
+<dd>The name of a file in the file system. It is recommended that you use
+a fully qualified file name. If the file name is not fully qualified, it is
+considered to be relative to the current working directory for the server.
+Each stream must be configured with a dedicated file. For example, you cannot
+redirect both <samp>System.out</samp> and <samp>System.err</samp> to the same physical
+file.<p>If the directory containing the file already exists, the user ID under
+which the server is running requires read/write access to the directory. If
+the directory does not exist, it will be created with the proper permissions.
+The user id under which the server is running must have authority to create
+the directory.</p>
+</dd>
+<dt>
+<strong>console</strong>
+</dt>
+<dd>This is a special file name used to redirect the stream to the corresponding
+process stream. If this value is specified for <samp>System.out</samp>, the file
+is redirected to <samp>stdout</samp>. If this value is specified for <samp>System.err</samp>,
+the file is redirected to <samp>stderr</samp>.</dd>
+<dt>
+<strong>none</strong>
+</dt>
+<dd>Discards all data written to the stream. Specifying <strong>none</strong> is equivalent
+to redirecting the stream to dev/null on a UNIX system.</dd>
+</dl>
+</p>
+
+</dd>
+<dt>
+<strong><a name="system_out_file_formatting_description"></a>File formatting</strong>
+</dt>
+<dd>Specifies the format to use in saving the <samp>System.out</samp> file.</dd>
+<dt>
+<strong><a name="log_file_rotation"></a>Log file rotation</strong>
+</dt>
+<dd>
+
+<p>Use this set of configuration attributes to configure the <samp>System.out</samp> or <samp>System.err</samp> log
+ file to be self-managing.</p>
+
+<p>A self-managing log file writes messages to a file until reaching either
+the time or size criterion. At the specified time or when the file reaches
+the specified size, logging temporarily suspends while the log file rolls
+over, which involves closing and renaming the saved file. The new saved file
+name is based on the original name of the file plus a timestamp qualifier
+that indicates when the renaming occurs. Once the renaming completes, a new,
+empty log file with the original name reopens and logging resumes. All messages
+remain after the log file rollover, although a single message can split across
+the saved and the current file.</p>
+
+<p>You can only configure a log to be self-managing if the corresponding stream
+is redirected to a file.<dl>
+<dt>
+<strong>File Size</strong>
+</dt>
+<dd>Click this attribute for the log file to manage itself based on its file
+size. Automatic roll over occurs when the file reaches the specified size
+you specify in the maximum size field.</dd>
+<dt>
+<strong>Maximum Size</strong>
+</dt>
+<dd>Specify the maximum size of the file in megabytes. When the file reaches
+this size, it rolls over.<p>This attribute is only valid if you click File
+size.</p>
+</dd>
+<dt>
+<strong>Time</strong>
+</dt>
+<dd>Click this attribute for the log file to manage itself based on the time
+of day. At the time specified in the start time field, the file rolls over.</dd>
+<dt>
+<strong>Start Time</strong>
+</dt>
+<dd>Specify the hour of the day, from 1 to 24, when the periodic rollover
+algorithm starts for the first time after an Application Server restart. The
+algorithm loads at Application Server startup. Once started at the (start
+time field) hour, the rollover algorithm rolls the file every (repeat time
+field) hours. This rollover pattern continues without adjustment until the
+Application Server stops. </dd>
+<dt>
+<strong>Repeat Time</strong>
+</dt>
+<dd>Specify the number of hours, from 1 to 24, when a periodic rollover occurs.</dd>
+<dt>
+<strong>Repeat time</strong>
+</dt>
+<dd>Specifies the number of hours after which the log file rolls over. Valid
+values range from 1 to 24. </dd>
+</dl>
+</p>
+
+<p>Configure a log file to roll over by time, by size, or by time and size.
+Click <strong>File Size</strong> and <strong>Time</strong> to roll the file at the first matching
+criterion. For example, if the repeat time field is 5 hours and the maximum
+file size is 2 MB, the file rolls every 5 hours, unless it reaches 2 MB before
+the interval elapses. After the size rollover, the file continues to roll
+at each interval.</p>
+
+</dd>
+<dt>
+<strong><a name="max_historical_files"></a>Maximum Number of Historical Log Files</strong>
+</dt>
+<dd>
+
+<p>Specifies the number of historical (rolled) files to keep. The stream writes
+to the current file until it rolls. At rollover, the current file closes and
+is saved as a new name consisting of the current name plus the rollover timestamp.
+The stream then reopens a new file with the original name to continue writing.
+The number of historical files grows from zero to the value of the maximum
+number of historical files field. The next rollover deletes the oldest historical
+file.</p>
+
+</dd>
+<dt>
+<strong><a name="installed_application_output"></a>Installed Application Output</strong>
+</dt>
+<dd>
+
+<p>Specifies whether <samp>System.out</samp> or <samp>System.err</samp> print statements
+issued from application code are logged and formatted.<dl>
+<dt>
+<strong>Show application print statements</strong>
+</dt>
+<dd>Click this field to show messages that applications write to the stream
+using <strong>print</strong> and <strong>println</strong> stream methods. WebSphere Application
+Server system messages always appear.</dd>
+<dt>
+<strong>Format print statements</strong>
+</dt>
+<dd>Click this field to format application print statement like WebSphere
+Application Server system messages.</dd>
+</dl>
+</p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Runtime tab</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="system_out_file_description"></a>File Name</strong>
+</dt>
+<dd>Specifies the name of one of the log file described on this page. 
+<p>The first file name field specifies the name of the <samp>System.out</samp> log.
+The second file name field specifies the name of the <samp>System.err</samp> file. </p>
+
+<p>Press the <strong>View</strong> button on the Runtime tab to view the contents of
+a selected log file.</p>
+
+<p>The file name specified for the <samp>System.out</samp> log or the <samp>System.err</samp> log
+must have one of the following values:<dl>
+<dt>
+<strong><em>filename</em></strong>
+</dt>
+<dd>The name of a file in the file system. It is recommended that you use
+a fully qualified file name. If the file name is not fully qualified, it is
+considered to be relative to the current working directory for the server.
+Each stream must be configured with a dedicated file. For example, you cannot
+redirect both <samp>System.out</samp> and <samp>System.err</samp> to the same physical
+file.<p>If the directory containing the file already exists, the user ID under
+which the server is running requires read/write access to the directory. If
+the directory does not exist, it will be created with the proper permissions.
+The user id under which the server is running must have authority to create
+the directory.</p>
+</dd>
+<dt>
+<strong>console</strong>
+</dt>
+<dd>This is a special file name used to redirect the stream to the corresponding
+process stream. If this value is specified for <samp>System.out</samp>, the file
+is redirected to <samp>stdout</samp>. If this value is specified for <samp>System.err</samp>,
+the file is redirected to <samp>stderr</samp>.</dd>
+<dt>
+<strong>none</strong>
+</dt>
+<dd>Discards all data written to the stream. Specifying <strong>none</strong> is equivalent
+to redirecting the stream to dev/null on a UNIX system.</dd>
+</dl>
+</p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Related information</strong>
+</p>
+<a href="rcon_buttons.html">Administrative console buttons</a>
+<br>
+
+<a href="rcon_scope.html">Administrative console scope settings</a>
+<br>
+
+<a href="rcon_filter.html">Administrative console filter settings</a>
+<br>
+
+<a href="rcon_preferences.html">Administrative console preference settings</a>
+<br>
+
+<a href="rcon_pageusage.html">Administrative console page features</a>
+<br>
+
+</div>
+</body>
+</html>

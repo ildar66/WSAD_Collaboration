@@ -1,0 +1,217 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>服务器级别安全性设置</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecrsecserv"></a>
+<h2>服务器级别安全性设置</h2>
+
+<p>使用此页面启用服务器级别安全性并指定其它服务器级别安全性配置。</p>
+
+<p>要查看此管理控制台页面，单击<strong>服务器</strong> &gt; <strong>应用程序服务器</strong> &gt; <em>server_name</em> &gt; <strong>服务器安全性</strong> &gt; <strong>服务器级别安全性</strong>。</p>
+
+<div>
+<p>
+<strong>&ldquo;配置&rdquo;选项卡</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="SecurityS_enabled_description"></a>已启用</strong>
+</dt>
+<dd>当启用全局安全性时，使用此标志禁用或重新启用此应用程序服务器的安全性。缺省情况下当启用全局安全性时，启用服务器安全性。
+当禁用全局安全性时，您无法启用应用程序服务器上的安全性。当启用全局安全性时无论此标志的状态是什么，管理（管理控制台和 wsadmin）和命名安全性保持启用的。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">禁用</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecurityS_enforceJava2Security_description"></a>执行 Java 2 安全性</strong>
+</dt>
+<dd> 指定服务器在服务器级别上执行 Java 2 安全性许可权检查。未选中时，不安装 Java 2 服务器级别安全性管理器，并且在服务器级别上禁用所有 Java 2 安全性许可权检查。
+<p>如果您的应用程序策略文件未正确设置，请参阅<a href="tsec_waspolicyfile.html">配置 was.policy</a>，以获得有关如何配置应用程序策略文件的信息。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">禁用的</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">范围</td>
+<td align="left" valign="top" class="base">启用的或禁用的</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecurityS_useDomainQualifiedUserNames_description"></a>使用域限定的用户标识</strong>
+</dt>
+<dd>指定由 getUserPrincipal()-like 调用返回的用户标识是否将用它们所驻留的服务器级别安全性域来限定。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">禁用的</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">范围</td>
+<td align="left" valign="top" class="base">启用或禁用</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecurityS_cacheTimeout_description"></a>高速缓存超时
+</strong>
+</dt>
+<dd>指定服务器级别安全性高速缓存的超时值（以秒为单位）。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">整型</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">单位</td>
+<td align="left" valign="top" class="base">秒</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">600</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">范围</td>
+<td align="left" valign="top" class="base">大于 30 秒。避免将高速缓存超时值设置为 30 秒或更少。</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecurityS_issuePermissionWarning_description"></a>发出许可权警告</strong>
+</dt>
+<dd>指定在应用程序安装期间，当应用程序需要通常不应授予应用程序的 Java 2 许可权时，是否发出警告。
+<p>WebSphere Application Server 提供策略文件管理的支持。
+有很多策略文件包含在 WebSphere Application Server 中。
+这些策略文件中有些是静态的而有些是动态的。动态策略是特殊类型资源的许可权模板。
+在动态策略文件中，代码库是在运行时使用配置数据求值的。您可以按需为每个代码库添加或除去许可权。然而，不要添加、除去或修改现有代码库。实际的代码库是从配置和运行时数据中动态创建的。<samp>filter.policy</samp> 文件包含根据 J2EE 1.3 规范应用程序不应该具有的许可权的列表。要获取更多有关许可权的信息，请参阅信息中心中的 Java 2 安全性策略管理章节。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">启用的</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">范围</td>
+<td align="left" valign="top" class="base">启用或禁用</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecurityS_activeProtocol_description"></a>活动协议</strong>
+</dt>
+<dd>指定启用服务器级别安全性时的活动服务器级别安全性认证协议。
+<p>您可以使用调用公共安全互操作性 V2（CSIv2）的对象管理组（OMG）用于更多的供应商互操作性和附加功能部件。如果在整个安全性域中的所有服务器都是 V5.0 服务器，最好指定 <strong>CSI</strong> 作为您的协议。如果一些服务器是 V3.x 或 V4.x 服务器，最好指定 <strong>CSI 和 SAS</strong>。然而，通过指定 <strong>CSI 和SAS</strong>，现在每个请求有两个拦截器调用。 然而，通过指定 <strong>CSI 和 zSAS</strong>，现在每个请求有两个拦截器调用。 </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">CSI 和 SAS</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">范围</td>
+<td align="left" valign="top" class="base">CSI，CSI 和 SAS
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+</body>
+</html>

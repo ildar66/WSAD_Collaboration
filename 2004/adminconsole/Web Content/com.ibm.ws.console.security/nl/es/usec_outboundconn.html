@@ -1,0 +1,135 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Valores de salida de transporte CSI (Common secure interoperability)</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecoutboundconn"></a>
+<h2>Valores de salida de transporte CSI (Common secure interoperability)</h2>
+
+<p>Utilice esta p&aacute;gina para especificar qu&eacute; transportes y valores
+SSL (Secure Sockets Layer) utiliza este servidor cuando se comunica con
+los servidores en sentido descendente para las peticiones de salida.</p>
+
+<p>Para ver esta p&aacute;gina de la consola administrativa, pulse
+<strong>Seguridad &gt; Protocolo de autenticaci&oacute;n &gt; Transporte de salida
+CSI</strong>.</p>
+
+<div>
+<p>
+<strong>Pesta&ntilde;a Configuraci&oacute;n</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="Transport_o_description"></a>Transporte</strong>
+</dt>
+<dd>Especifica si los procesos de cliente se conectan al servidor utilizando uno de los
+transportes conectados del servidor. 
+<p>Puede elegir si desea utilizar <strong>SSL</strong>, <strong>TCP/IP</strong> o <strong>Ambos</strong> tipos de conexi&oacute;n como transporte de salida al que da soporte el servidor. Si especifica <strong>TCP/IP</strong>, el
+servidor s&oacute;lo da soporte a TCP/IP y no puede iniciar conexiones SSL con los servidores en
+sentido descendente. Si especifica <strong>SSL soportado</strong>, este servidor puede iniciar las
+conexiones TCP/IP o SSL indistintamente. Si especifica <strong>SSL necesario</strong>, dicho servidor debe utilizar SSL para iniciar las conexiones con servidores en sentido descendente. Cuando
+especifique SSL, decida qu&eacute; conjunto de valores de configuraci&oacute;n SSL desea utilizar para la
+configuraci&oacute;n de salida. Esta decisi&oacute;n determina qu&eacute; archivo de claves y archivo de confianza
+se utilizan para las conexiones de salida con el servidor en sentido descendente. Por ejemplo, tenga en cuenta lo siguiente:<dl>
+
+<dt>
+<strong>TCP/IP</strong>
+</dt>
+<dd>Este servidor s&oacute;lo abre conexiones TCP/IP con
+servidores en sentido descendente.</dd>
+
+<dt>
+<strong>SSL soportado</strong>
+</dt>
+<dd>Este servidor abre las conexiones SSL con
+cualquier servidor en sentido descendente que las soporte, adem&aacute;s de las
+conexiones TCP/IP con servidores en sentido descendente que no las soporte.</dd>
+
+<dt>
+<strong>SSL necesario</strong>
+</dt>
+<dd>Este servidor siempre abre conexiones TCP/IP con
+servidores en sentido descendente.</dd>
+
+</dl>
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n:</td>
+<td align="left" valign="top" class="base">SSL soportado</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango:</td>
+<td align="left" valign="top" class="base">TCP/IP, SSL necesario, SSL soportado</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SSLSettings_ibm_o_description"></a>Valores SSL</strong>
+</dt>
+<dd>Especifica una lista de valores SSL predefinidos para las conexiones de salida.
+ 
+Estos valores se configuran en el panel Repertorios de configuraci&oacute;n SSL.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos:</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n:</td>
+<td align="left" valign="top" class="base">DefaultSSLSettings</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango:</td>
+<td align="left" valign="top" class="base">Cualquier valor SSL que est&eacute; configurado en panel Repertorios de configuraci&oacute;n SSL</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informaci&oacute;n relacionada</strong>
+</p>
+<a href="rcon_buttons.html">Botones de la consola de administraci&oacute;n</a>
+<br>
+
+<a href="rcon_pageusage.html">Caracter&iacute;sticas de la p&aacute;gina de la consola administrativa</a>
+<br>
+
+<a href="rcon_scope.html">Valores de &aacute;mbito de la consola administrativa</a>
+<br>
+
+<a href="rcon_filter.html">Valores de filtro de la consola administrativa</a>
+<br>
+
+<a href="rcon_preferences.html">Valores de preferencias de la consola administrativa</a>
+<br>
+
+</div>
+</body>
+</html>

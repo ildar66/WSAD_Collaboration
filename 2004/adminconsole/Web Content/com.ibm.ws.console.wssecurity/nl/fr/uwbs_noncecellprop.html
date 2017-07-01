@@ -1,0 +1,163 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Propri&eacute;t&eacute;s
+au niveau de la cellule Nonce</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_noncecellprop"></a>
+<h2>
+<img alt="[Release 5.1 and later]" src="v51.gif" border="0">Propri&eacute;t&eacute;s
+au niveau de la cellule Nonce</h2>
+
+<p>Utilisez cette page
+pour indiquer la configuration nonce au niveau de la cellule dans un
+environnement WebSphere Application Server Network Deployment.</p>
+
+<p>Pour afficher cette page de la console d'administration, cliquez sur <strong>S&eacute;curit&eacute; &gt; Services Web
+&gt; Propri&eacute;t&eacute;s</strong>.</p>
+
+<p>D&eacute;finissez la configuration nonce c&ocirc;t&eacute; serveur en cliquant que
+<strong>Serveurs &gt; Serveurs d'applications &gt;
+</strong><em>nom_serveur</em>. Dans Propri&eacute;t&eacute;s suppl&eacute;mentaires, cliquez sur <strong>Services Web :
+Liaisons par d&eacute;faut pour la s&eacute;curit&eacute; des services Web</strong>.</p>
+
+<p>
+<img alt="[Release 5.1 and later]" src="v51.gif" border="0"><em>Nonce</em> correspond &agrave; un num&eacute;ro
+cryptographique ins&eacute;r&eacute; dans un message pour permettre d'arr&ecirc;ter
+des attaques &agrave; r&eacute;p&eacute;tition et non autoris&eacute;es des jetons de noms
+utilisateur.
+Dans un environnement WebSphere Application Server Network
+Deployment, vous devez renseigner les zones <strong>D&eacute;lai d'expiration
+du cache</strong>, <strong>D&eacute;lai maximal Nonce</strong> et <strong>D&eacute;calage d'horloge</strong>
+pour le niveau de la cellule. </p>
+
+<dl>
+<dt>
+<strong><a name="sec_cellnoncecachetimeout"></a>D&eacute;lai
+d'expiration du cache</strong>
+</dt>
+<dd>Indique le d&eacute;lai d'expiration en secondes pour le cache sur le
+serveur. Nonce est une valeur g&eacute;n&eacute;r&eacute;e de mani&egrave;re al&eacute;atoire.
+<p>Vous devez entrer un minimum de 300 secondes dans la zone <strong>D&eacute;lai
+d'expiration du cache</strong>.
+Si vous ne renseignez pas cette zone, la valeur par d&eacute;faut est de 600
+secondes.</p>
+
+<p>La zone <strong>D&eacute;lai d'expiration du cache</strong> pour le niveau de la
+cellule est obligatoire dans l'environnement WebSphere Application Server Network Deployment.</p>
+
+<p>
+<b>Important: </b>Si vous apportez des modifications &agrave; la valeur de d&eacute;lai du cache nonce, vous
+devez red&eacute;marrer WebSphere Application Server pour que les modifications soient effectives.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">600 secondes</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Minimum</td>
+<td align="left" valign="top" class="base">300 secondes</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="sec_cellnoncemaxage"></a>D&eacute;lai maximal Nonce</strong>
+</dt>
+<dd>Indique le temps en secondes avant expiration de l'horodatage nonce.
+Nonce est une valeur g&eacute;n&eacute;r&eacute;e de mani&egrave;re al&eacute;atoire.
+<p>Vous devez entrer un minimum de 300 secondes dans la zone <strong>D&eacute;lai
+maximal Nonce</strong>.
+Toutefois, la valeur maximale ne peut d&eacute;passer le nombre de secondes
+figurant dans la zone <strong>D&eacute;lai maximal Nonce</strong> au niveau de la cellule. Si vous ne renseignez pas cette zone, la valeur par d&eacute;faut est de 300
+secondes. La valeur entr&eacute;e est aussi la valeur maximale possible pour
+la zone <strong>D&eacute;lai maximal Nonce</strong> au niveau du serveur. Vous pouvez entrer la valeur <strong>D&eacute;lai maximal Nonce</strong> pour le
+serveur en cliquant sur <strong>Serveurs &gt; Serveurs d'applications &gt;
+</strong><em>nom_serveur</em>.
+Dans Propri&eacute;t&eacute;s suppl&eacute;mentaires, cliquez sur <strong>Services Web :
+Liaisons par d&eacute;faut pour la s&eacute;curit&eacute; des services Web</strong>.</p>
+
+<p>La zone <strong>D&eacute;lai maximal Nonce</strong> pour le niveau de la
+cellule est obligatoire dans l'environnement WebSphere Application
+Server Network Deployment.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">300 secondes</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Plage</td>
+<td align="left" valign="top" class="base">300 &agrave; <strong>D&eacute;lai maximal Nonce</strong> secondes</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="sec_nonceclockskew"></a>D&eacute;calage d'horloge</strong>
+</dt>
+<dd>Indique en secondes la valeur de d&eacute;calage d'horloge &agrave; prendre en
+compte lorsque WebSphere Application Server v&eacute;rifie l'anciennet&eacute; du
+message. Nonce est une valeur g&eacute;n&eacute;r&eacute;e de mani&egrave;re al&eacute;atoire.
+<p>Vous devez entrer un minimum de 0 secondes dans la zone
+<strong>D&eacute;calage d'horloge</strong>.
+Toutefois, la valeur maximale ne peut d&eacute;passer le nombre de secondes
+figurant dans la zone <strong>D&eacute;lai maximal Nonce</strong>. Si vous ne renseignez pas cette zone, la valeur par d&eacute;faut est de 0
+secondes.</p>
+
+<p>La zone <strong>D&eacute;calage d'horloge</strong> pour le niveau de la
+cellule est obligatoire dans l'environnement WebSphere Application
+Server Network Deployment.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">0 secondes</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Plage</td>
+<td align="left" valign="top" class="base">0 &agrave; <strong>D&eacute;lai maximal Nonce</strong> secondes</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>Informations connexes</strong>
+</p>
+<a href="uwbs_websvcb.html">Services Web : Liaisons par d&eacute;faut pour la collection Web Services Security</a>
+<br>
+
+<a href="uwbs_logmapn.html">Param&egrave;tres de configuration des mappages de connexion</a>
+<br>
+
+</div>
+</body>
+</html>

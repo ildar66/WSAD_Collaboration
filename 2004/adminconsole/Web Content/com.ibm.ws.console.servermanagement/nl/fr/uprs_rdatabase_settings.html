@@ -1,0 +1,104 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Param&egrave;tres de base de donn&eacute;es</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="database_settings"></a>
+<h2>Param&egrave;tres de base de donn&eacute;es</h2>
+
+<p>Cette page permet d'indiquer les param&egrave;tres de support de
+la session de base de donn&eacute;es.</p>
+
+<p>Pour afficher cette page de la console d'administration, cliquez sur <strong>Serveurs</strong> &gt; <strong>Serveurs
+d'applications</strong> &gt; <em>nom_serveur</em> &gt; &gt; <strong>Conteneur Web</strong> &gt; <strong>Gestion de session</strong> &gt; <strong>Param&egrave;tres
+de l'environnement distribu&eacute;</strong> &gt; <strong>Base de donn&eacute;es</strong>.</p>
+
+<div>
+<p>
+<strong>Onglet Configuration</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="SessionDatabasePersistence_datasourceJNDIName_description"></a>Nom JNDI de la source de donn&eacute;es</strong>
+</dt>
+<dd>Indique la description des la source de donn&eacute;es
+<p>Nom JNDI de la source de donn&eacute;es non XA &agrave; partir de laquelle
+l'utilitaire de gestion de session obtient des
+connexions &agrave; la base de donn&eacute;es.   Par exemple, si le nom JNDI de la
+source de donn&eacute;es est "jdbc/sessions", sp&eacute;cifiez "jdbc/sessions".  La source de donn&eacute;es repr&eacute;sente &agrave; la fois un pool de connexions &agrave; une base de donn&eacute;es et les param&egrave;tres de configuration de ce pool (par exemple, sa taille). La source de donn&eacute;es doit d&eacute;j&agrave; exister en tant que ressource configur&eacute;e dans l'environnement. </p>
+
+</dd>
+<dt>
+<strong><a name="SessionDatabasePersistence_userId_description"></a>ID utilisateur</strong>
+            &nbsp;
+            </dt>
+<dd>Indique l'ID utilisateur pour l'acc&egrave;s &agrave; la base de donn&eacute;es.</dd>
+<dt>
+<strong><a name="SessionDatabasePersistence_password_description"></a>Mot de passe</strong>
+            &nbsp;
+            </dt>
+<dd>Indique le mot de passe permettant
+d'acc&eacute;der &agrave; la base de donn&eacute;es.</dd>
+<dt>
+<strong><a name="SessionDatabasePersistence_password2_description"></a>Confirmation du mot de passe</strong>
+            &nbsp;
+            </dt>
+<dd>Indique le mot de passe une seconde fois pour vous
+garantir qu'il est correctement enregistr&eacute;.</dd>
+<dt>
+<strong><a name="SessionDatabasePersistence_db2RowSize_description"></a>Taille de ligne DB2</strong>
+            &nbsp;
+            </dt>
+<dd>Indique la taille de page d'espace table configur&eacute;e pour la table des sessions, si vous utilisez une base de donn&eacute;es DB2. Valeurs possibles: 4, 8, 16 et 32 kilo-octets (ko).   La taille de
+ligne par d&eacute;faut est 4 ko.
+<p>La taille de ligne par d&eacute;faut est 4 ko. Dans DB2, elle peut &ecirc;tre
+modifi&eacute;e pour une valeur sup&eacute;rieure.
+Cela permet d'am&eacute;liorer les performances de la base de
+donn&eacute;es dans certains environnements.  Si vous choisissez une valeur autre que 4, vous devez sp&eacute;cifier le nom de l'espace table &agrave; utiliser. Pour les pages de 4 ko, l'indication d'un nom d'espace table est
+facultative. </p>
+
+</dd>
+<dt>
+<strong><a name="SessionDatabasePersistence_tableSpaceName_description"></a>Nom de l'espace table</strong>
+            &nbsp;
+            </dt>
+<dd>Indique l'espace table &agrave; utiliser pour la table des sessions. 
+<p>Cette valeur est requise lorsque la taille des pages DB2 est
+diff&eacute;rente de 4 ko.</p>
+
+</dd>
+<dt>
+<strong><a name="TuningParams_usingRowSchema_description"></a>Utiliser des sessions multilignes  </strong>
+</dt>
+<dd>Indique que chaque instance de donn&eacute;es d'application doit
+&ecirc;tre plac&eacute;e dans une ligne distincte de la base de donn&eacute;es,
+autorisant ainsi le stockage d'une plus grande quantit&eacute; de donn&eacute;es
+pour chaque session. Cette op&eacute;ration peut am&eacute;liorer les performances
+dans certains cas. Si l'utilisation d'un sch&eacute;ma multiligne n'est pas
+activ&eacute;e, les diff&eacute;rentes instances de donn&eacute;es d'application pourront
+&ecirc;tre plac&eacute;es sur la m&ecirc;me ligne.</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informations connexes</strong>
+</p>
+<a href="rcon_buttons.html">Boutons de la console administrative</a>
+<br>
+
+<a href="rcon_pageusage.html">Caract&eacute;ristiques de la page de la console d'administration</a>
+<br>
+
+<a href="rcon_filter.html">Param&egrave;tres de filtrage de la console administrative</a>
+<br>
+
+<a href="rcon_preferences.html">Param&egrave;tres des pr&eacute;f&eacute;rences de la console administrative</a>
+<br>
+
+</div>
+</body>
+</html>

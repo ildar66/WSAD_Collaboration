@@ -1,0 +1,438 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Globale Sicherheitseinstellungen</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecrgsp"></a>
+<h2>
+<img alt="[Fixpack 5.0.2 und h&ouml;her]" src="v502.gif" border="0">Globale Sicherheitseinstellungen</h2>
+
+<p>Diese Seite unterst&uuml;tzt Sie beim Konfigurieren der Sicherheit. Wenn Sie die Sicherheit aktivieren, werden die
+Sicherheitseinstellungen auf globaler Ebene aktiviert. Sie erzielen in WebSphere Application Server
+eine Leistungssteigerung von 10 - 20 %, wenn die Sicherheit inaktiviert ist.Deshalb sollte Sie die Sicherheit nur bei Bedarf
+aktivieren. </p>
+
+<p>Klicken Sie, um diese Seite der Administrationskonsole anzuzeigen, auf
+<strong>Sicherheit</strong> &gt; <strong>Globale Sicherheit</strong>.</p>
+
+<div>
+<p>Wenn Sie die Sicherheitseinrichtung zum ersten Mal konfigurieren, f&uuml;hren Sie die im Abschnitt
+"Globale Sicherheit konfigurieren" in der Dokumentation beschriebenen Schritte durch, um Fehler zu vermeiden. Wenn
+die Sicherheitseinrichtung konfiguriert ist, empfiehlt es sich, alle &Auml;nderungen in den Anzeigen der
+Registry  bzw. des Authentifizierungsverfahrens zu &uuml;berpr&uuml;fen.
+Klicken Sie auf <strong>Anwenden</strong>, um die Einstellungen der Benutzer-Registry zu &auml;ndern. Es wird versucht, die Server-ID f&uuml;r die
+konfigurierte Benutzer-Registry zu authentifizieren. Wenn Sie die Einstellungen der
+Benutzer-Registry nach der Aktivierung der globalen Sicherheitseinrichtung &uuml;berpr&uuml;fen, k&ouml;nnen Sie Fehler
+vermeiden, wenn Sie den Server zum ersten Mal erneut starten. </p>
+</div>
+
+<div>
+<p>
+<strong>Register "Konfiguration"</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="Security_enabled_description"></a>Aktiviert </strong>
+</dt>
+<dd>Gibt an, dass der Server Sicherheitssubsysteme aktiviert. 
+<p>Diese Markierung wird in der Dokumentation zu WebSphere Application Server allgemein als <em>globales
+Sicherheits-Flag</em> bezeichnet. Bei der Aktivierung der Sicherheitseinrichtung m&uuml;ssen Sie auch die
+Konfiguration eines Authentifizierungsverfahrens festlegen und eine g&uuml;ltige Kombination aus Benutzer-ID
+und Kennwort in der ausgew&auml;hlten Konfiguration der Benutzer-Registry angeben. </p>
+
+
+
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">Inaktiviert</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="Security_enforceJava2Security_description"></a>Java-2-Sicherheit erzwingen</strong>
+</dt>
+<dd>Legt fest, ob die &Uuml;berpr&uuml;fung der Java-2-Sicherheitsberechtigung aktiviert oder inaktiviert wird.
+Die Java-2-Sicherheitseinrichtung ist standardm&auml;&szlig;ig inaktiviert.
+Wenn Sie jedoch die globale Sicherheit aktivieren, wird automatisch auch die Java-2-Sicherheit aktiviert. Sie k&ouml;nnen festlegen, dass die Java-2-Sicherheitseinrichtung auch bei Aktivierung der
+globalen Sicherheit inaktiviert werden soll. 
+<p>Wenn die Java-2-Sicherheit aktiviert ist und eine Anwendung mehr
+Java-2-Sicherheitsberechtigungen ben&ouml;tigt, als in der Standard-Policy angegeben sind, wird die Anwendung
+m&ouml;glicherweise erst richtig ausgef&uuml;hrt, wenn die erforderlichen Berechtigungen in der Datei
+<samp>app.policy</samp> oder <samp>was.policy</samp> der Anwendung erteilt werden. AccessControl-Ausnahmebedingungen werden von
+Anwendungen generiert, denen nicht alle erforderlichen Berechtigungen erteilt wurden. Wenn Sie mit
+der Java-2-Sicherheitseinrichtung nicht vertraut sind, lesen Sie im InfoCenter die Abschnitte zur
+Java-2-Sicherheitseinrichtung und zur dynamischen Policy. </p>
+
+<p>Sollte der Server nach dem Aktivieren der globalen Sicherheit nicht starten, k&ouml;nnen Sie die Sicherheit
+inaktivieren.
+Wechseln Sie in das Verzeichnis <samp>$&lt;install_root&gt;\bin</samp> und f&uuml;hren Sie den Befehl
+<samp>wsadmin -conntype NONE</samp> aus. Geben Sie an der <samp>wsadmin&gt;</samp>-Eingabeaufforderung
+den Befehl <samp>securityoff</samp> und dann <samp>exit</samp> ein, um zu einer Eingabeaufforderung zur&uuml;ckzukehren. Starten
+Sie den Server mit inaktivierter Sicherheit erneut, um mit der Administrationskonsole festzustellen,
+ob Einstellungen ung&uuml;ltig sind. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">Inaktiviert</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">Aktiviert oder inaktiviert</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="Security_useDomainQualifiedUserNames_description"></a>&Uuml;ber Dom&auml;ne qualifizierte Benutzernamen verwenden</strong>
+</dt>
+<dd>Die Benutzernamen
+f&uuml;r die Qualifikation in der Sicherheitsdom&auml;ne, in der sie sich befinden.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">Inaktiviert</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">Aktiviert oder inaktiviert</td>
+
+</tr>
+
+</table>
+
+
+<p>
+<img alt="[nur 5.0]" src="v50x.gif" border="0"><img alt="[Fixpack 5.0.1]" src="v501x.gif" border="0">Wenn Sie in der
+Konfigurationsanzeige <strong>Sicherheit &gt; Globale Sicherheit</strong> die Option
+<strong>In der Dom&auml;ne qualifizierte Benutzer-IDs verwenden</strong> ausw&auml;hlen, gibt der Aufruf von getCallerPrincipal()
+zur Laufzeit durch eine Enterprise-Bean den qualifizierten Namen zur&uuml;ck, dem der Realm-Name zwei Mal vorangestellt ist.
+Das zur&uuml;ckgegebene Format ist "Realm/Realm/Benutzer". Sie k&ouml;nnen den ersten Realm-Namen aus dem zur&uuml;ckgegebenen Wert
+entfernen, wenn Sie API-Aufrufe absetzen.
+Sie Servlet-API "getUserPrincipal()" funktioniert ordnungsgem&auml;&szlig;.
+</p>
+
+</dd>
+<dt>
+<strong><a name="Security_cacheTimeout_description"></a>Cache-Zeitlimit
+</strong>
+</dt>
+<dd>Gibt das Zeitlimit f&uuml;r den Sicherheits-Cache an (in Sekunden). Dieser Wert stellt ein relatives
+Zeitlimit dar. 
+<p>Wenn die Sicherheit von WebSphere Application Server aktiviert ist, kann das Zeitlimit des Sicherheits-Cache
+Einfluss auf den Durchsatz haben. Das Zeitlimit gibt an, wie oft die sicherheitsbezogenen Caches aktualisiert werden.
+Sicherheitsinformationen, die sich auf Beans, Rechte und Berechtigungsnachweise beziehen, werden im
+Cache gespeichert. Wenn das Cache-Zeitlimit abl&auml;uft, werden alle im Cache befindlichen Informationen ung&uuml;ltig. Werden
+die Informationen nach Ablauf des Zeitlimits angefordert, muss die Datenbank durchsucht werden.
+Manchmal muss zum Abrufen der Informationen eine
+LDAP-gebundene (Lightweight Directory Access Protocol) oder native Authentifizierung aufgerufen werden. Beide Aufrufe
+sind relativ leistungsintensiv.
+Pr&uuml;fen Sie die Nutzungsmuster der Anwendung und die Sicherheitsanforderungen der Site, um einen f&uuml;r die Anwendung
+optimalen Kompromiss zu finden.
+</p>
+
+<p>Wenn Sie in einem 20-min&uuml;tigen Leistungstest das Cache-Zeitlimit so einstellen, dass keine Zeitlimit&uuml;berschreitung auftritt,
+k&ouml;nnen Sie eine Leistungsverbesserung von 40 % erzielen. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Einheiten</td>
+<td align="left" valign="top" class="base">Sekunden</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">600</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">Mehr als 30 Sekunden</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="Security_issuePermissionWarning_description"></a>Warnung zu Berechtigung ausgeben</strong>
+</dt>
+<dd>Gibt bei aktivierter Option an, dass die
+Sicherheitseinrichtung beim Deployment und beim Start der Anwendung eine Warnung ausgibt, wenn
+Anwendungen benutzerdefinierte Berechtigungen erteilt werden. Benutzerdefinierte Berechtigungen sind
+Berechtigungen, die von Benutzeranwendungen, nicht JDK-Berechtigungen, definiert werden. JDK-Berechtigungen
+sind Berechtigungen in den Dateien <samp>package java.*</samp> und <samp>javax.*</samp>.
+<p>WebSphere bietet Unterst&uuml;tzung f&uuml;r die Verwaltung von Policy-Dateien. Es gibt in diesem Produkt
+eine Reihe von
+Policy-Dateien, von denen einige statisch und andere dynamisch sind. Eine dynamische Policy ist eine Schablone mit Berechtigungen f&uuml;r
+einen bestimmten Ressourcentyp. In der Schablone der dynamischen Policy ist keine
+Codebasis oder relative Codebasis definiert. Die reale
+Codebasis wird aus den Konfigurations- und Laufzeitdaten dynamisch erstellt.  Die
+Datei <samp>filter.policy</samp> enth&auml;lt eine Liste der Berechtigungen, die Anwendungen gem&auml;&szlig; der
+J2EE-1.3-Spezifikation nicht haben d&uuml;rfen. Weitere Informationen zu Berechtigungen enth&auml;lt der Abschnitt
+"Verwaltung mit Java-2-Sicherheits-Policy".</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">Inaktiviert</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">Aktiviert oder inaktiviert</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="Security_activeProtocol_description"></a>Aktives Protokoll
+</strong>
+</dt>
+<dd>Gibt bei aktivierter Sicherheitseinrichtung das aktive Authentifizierungsprotokoll f&uuml;r RMI/IIOP-Anforderungen an. In
+den vorherigen Releases war Security
+Authentication Service (SAS)  das einzige verf&uuml;gbare Protokoll. 
+<p>Ein OMG-Protokoll (Object Management Group) mit dem Namen Common Secure Interoperability
+Version 2 (CSIv2) unterst&uuml;tzt eine verst&auml;rkte Interoperabilit&auml;t mit Lieferanten und weitere Features. Wenn
+alle Server in der Sicherheitsdom&auml;ne Server der Version 5 sind, geben Sie
+<strong>CSI</strong> als Protokoll an. Sollten Server der Version 3.x
+oder der Version 4.x in der Dom&auml;ne enthalten sein, geben Sie <strong>CSI und SAS</strong> an.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">BOTH</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">CSI und SAS, CSI</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="Security_activeAuthMechanism_description"></a>Aktives Authentifizierungsverfahren </strong>
+</dt>
+<dd>Gibt das aktive Authentifizierungsverfahren an, wenn die Sicherheitseinrichtung aktiviert ist.
+
+<p>WebSphere Application Server Version 5 unterst&uuml;tzt die folgenden
+Authentifizierungsverfahren: Simple WebSphere Authentication Mechanism
+(SWAM) und Lightweight Third Party Authentication (LTPA).</p>
+
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">SWAM (WebSphere Application Server)</td>
+
+</tr>
+
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">SWAM, LTPA</td>
+
+</tr>
+
+</table>
+
+
+</dd>
+<dt>
+<strong><a name="Security_activeUserRegistry_description"></a>Aktive Benutzer-Registry</strong>
+</dt>
+<dd>Gibt die aktive Benutzer-Registry an, wenn die Sicherheitseinrichtung aktiviert ist.
+<p>Sie k&ouml;nnen f&uuml;r eine der folgenden Benutzer-Registrys Einstellungen konfigurieren:<ul>
+
+
+<li>Lokales Betriebssystem</li>
+
+<li>LDAP-Benutzer-Registry. Die Einstellungen der LDAP-Benutzer-Registry werden verwendet, wenn Benutzer und
+Gruppen sich in einem externen LDAP-Verzeichnis befinden. Wenn bei aktivierter Sicherheitseinrichtung eines dieser Merkmale ge&auml;ndert wird,
+m&uuml;ssen Sie in die Anzeige <strong>Globale Sicherheit</strong> wechseln und auf <strong>Anwenden</strong>
+oder <strong>OK</strong> klicken, um die &Auml;nderungen zu &uuml;berpr&uuml;fen.  </li>
+
+<li>Angepasste Benutzer-Registry </li>
+
+</ul>
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">LocalOS</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">LocalOS, LDAP, Benutzerdefiniert</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="Security_fips"></a>FIPS verwenden</strong>
+            &nbsp;
+            <img alt="[Fixpack 5.0.2 und h&ouml;her]" src="v502.gif" border="0"></dt>
+<dd>Wenn Sie diese Option ausw&auml;hlen, k&ouml;nnen FIPS (Federal Information Processing Standard)-Verschl&uuml;sselungsalgorithmen
+verwendet werden.
+<p>Wenn die Option <strong>FIPS verwenden</strong> ausgew&auml;hlt ist, verwendet die LTPA-Implementierung (Lightweight Third Party Authentication)
+IBMJCEFIPS. IBMJCEFIPS unterst&uuml;tzt die vom Federal Information
+Processing Standard (FIPS) anerkannten Verschl&uuml;sselungsalgorithmen f&uuml;r DES, Triple
+DES und AES. Im Gegensatz zu den LTPA-Schl&uuml;sseln ist das LTPA-Token nicht mit fr&uuml;heren Releases von
+WebSphere Application Server abw&auml;rtskompatibel.
+</p>
+
+<p>WebSphere Application Server stellt einen von FIPS anerkannten JSSE-Provider (Java Secure Socket
+Extension) mit dem Namen IBMJSSEFIPS bereit. Eine von FIPS anerkannte JSSE erfordert das Protokoll
+Transport Layer Security (TLS), weil sie das Protokoll
+Secure Sockets Layer (SSL) nicht unterst&uuml;tzt. Wenn Sie vor der Angabe eines FIPS-JSSE-Providers
+und eines TLS-Protokolls die Option <strong>FIPS verwenden</strong> ausw&auml;hlen,
+erscheint oben in der Anzeige <strong>Globale Sicherheit</strong> die folgende Fehlernachricht: <pre class="program">
+<font style="font-family: arial"><samp>Die Sicherheits-Policy ist f&uuml;r FIPS-konforme Verschl&uuml;sselungsalgorithmen konfiguriert.
+Mindestens eine SSL-Konfiguration verwendet keinen FIPS-konformen JSSE-Provider.
+In solchen F&auml;llen k&ouml;nnen keine FIPS-konformen Verschl&uuml;sselungsalgorithmen verwendet werden.
+</samp></font>
+</pre>Sie k&ouml;nnen diesen Fehler beheben, indem Sie in der Anzeige
+<strong>SSL-Konfigurationsrepertoires</strong> mit einer der folgenden
+Tasks Ihren JSSE-Provider und das Sicherheitsprotokoll konfigurieren:<ul>
+
+<li>Klicken Sie auf <strong>Sicherheit &gt; SSL</strong> und &auml;ndern Sie eine vorhandene Konfiguration.</li>
+
+<li>Klicken Sie auf <strong>Neu</strong> und erstellen Sie eine neue Konfiguration. </li>
+
+</ul>
+</p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Zugeh&ouml;rige Informationen</strong>
+</p>
+<a href="rcon_buttons.html">Kn&ouml;pfe in der Adminstrationskonsole</a>
+<br>
+
+<a href="rcon_pageusage.html">Funktionen auf den Seiten der Administrationskonsole</a>
+<br>
+
+<a href="rcon_scope.html">Geltungsbereichseinstellungen f&uuml;r die Administrationskonsole</a>
+<br>
+
+<a href="rcon_filter.html">Filtereinstellungen f&uuml;r die Administrationskonsole</a>
+<br>
+
+<a href="rcon_preferences.html">Vorgaben f&uuml;r die Administrationskonsole</a>
+<br>
+
+</div>
+</body>
+</html>

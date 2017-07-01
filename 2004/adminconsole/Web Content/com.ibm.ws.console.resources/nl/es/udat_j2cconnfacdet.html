@@ -1,0 +1,310 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Valores de f&aacute;bricas de conexiones de J2C</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="J2C_connection_factory"></a>
+<h2>Valores de f&aacute;bricas de conexiones de J2C</h2>
+
+<p>Utilice esta p&aacute;gina para especificar los valores de una f&aacute;brica de conexiones. </p>
+
+<p>Para ver esta p&aacute;gina de la consola administrativa, pulse <strong>Recursos</strong> &gt;
+<strong>Adaptadores de recursos</strong> &gt; <em>adaptador_recursos</em> &gt; <strong>F&aacute;bricas de conexiones
+de J2C</strong> &gt; <em>f&aacute;brica_conexiones</em>.</p>
+
+<div>
+<p>
+<strong>Pesta&ntilde;a Configuraci&oacute;n</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="J2CConnectionfactory_detail_contextID"></a>&Aacute;mbito</strong>
+</dt>
+<dd>Especifica el nivel hasta el cual puede visualizarse esta definici&oacute;n de recurso --
+nivel de c&eacute;lula, nodo o servidor.
+<p>Los recursos tales como los proveedores JDBC, enlaces de espacio de nombres o
+bibliotecas compartidas se pueden definir en varios &aacute;mbitos, de tal modo que los recursos
+definidos en &aacute;mbitos m&aacute;s espec&iacute;ficos alteren temporalmente los duplicados definidos en
+&aacute;mbitos m&aacute;s generales.</p>
+
+<p>Tenga en cuenta que, independientemente del &aacute;mbito de un recurso definido, las propiedades
+de dicho recurso s&oacute;lo se aplican a nivel de servidor individual. Por ejemplo, si define el
+&aacute;mbito de un origen de datos a nivel de c&eacute;lula, todos los usuarios de la c&eacute;lula pueden buscar
+y utilizar dicho origen de datos, que es exclusivo en esa c&eacute;lula. Sin
+embargo, los valores de propiedades de recursos son locales para cada
+servidor de la c&eacute;lula. 
+Por ejemplo, si define <em>n&uacute;mero m&aacute;ximo de conexiones</em> en 10, cada servidor de la c&eacute;lula
+puede tener 10 conexiones.<dl>
+
+<dt>
+<strong>C&eacute;lula</strong>
+</dt>
+<dd>El &aacute;mbito m&aacute;s general.  Los recursos definidos en el &aacute;mbito de c&eacute;lula son visibles desde todos los nodos y servidores, a menos que se alteren temporalmente. Para ver los recursos definidos en el &aacute;mbito de c&eacute;lula, no especifique ning&uacute;n servidor o nombre nodo en el formulario de selecci&oacute;n de &aacute;mbito.</dd>
+
+<dt>
+<strong>Nodo</strong>
+</dt>
+<dd>En &aacute;mbito por omisi&oacute;n de la mayor&iacute;a de tipos de recurso.  Los recursos
+definidos en el &aacute;mbito de nodo alteran temporalmente cualquier duplicado definido en el
+&aacute;mbito de c&eacute;lula y son visibles en todos los servidores del mismo nodo, a menos que se
+alteren temporalmente en un &aacute;mbito de servidor de ese nodo. Para ver los recursos definidos en un &aacute;mbito de nodo, no especifique ning&uacute;n servidor, sino que seleccione un nombre de nodo en el formulario de selecci&oacute;n de &aacute;mbito.</dd>
+
+<dt>
+<strong>Servidor</strong>
+</dt>
+<dd>El &aacute;mbito m&aacute;s espec&iacute;fico para definir recursos.  Los recursos definidos en
+el &aacute;mbito de servidor alteran temporalmente cualquier definici&oacute;n de recurso duplicado definida
+en el &aacute;mbito de c&eacute;lula o &aacute;mbito de nodo padre y s&oacute;lo son visibles en un servidor determinado. Para ver los recursos definidos en un &aacute;mbito de servidor, especifique un nombre de servidor, adem&aacute;s de un nombre de nodo en el formulario de selecci&oacute;n de &aacute;mbito.</dd>
+
+</dl>
+</p>
+
+<p>Al crear recursos, estos siempre se crean en el &aacute;mbito actual seleccionado en el panel.   Para ver recursos de otros &aacute;mbitos, especifique un nodo o servidor distinto en el formulario de selecci&oacute;n de &aacute;mbito.  </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2CConnectionFactory_displayName"></a>Nombre</strong>
+</dt>
+<dd>Especifica una lista de los nombres de visualizaci&oacute;n de las f&aacute;bricas de
+conexiones.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2CConnectionFactory_jndiName_displayName"></a>Nombre JNDI</strong>
+</dt>
+<dd>Especifica el nombre JNDI de esta f&aacute;brica de conexiones.
+<p>Por ejemplo, el nombre puede ser <em>eis/myECIConnection</em>.</p>
+
+<p>Cuando haya establecido este valor, gu&aacute;rdelo y reinicie el servidor. Podr&aacute; ver esta
+serie cuando ejecute <em>dumpNameSpace</em>. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">eis/<em>nombre de visualizaci&oacute;n</em></td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2CConnectionFactory_description_displayName"></a>Descripci&oacute;n</strong>
+</dt>
+<dd>Especifica una descripci&oacute;n de texto de esta f&aacute;brica de conexiones.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2CConnectionFactory_category_displayName"></a>Categor&iacute;a</strong>
+</dt>
+<dd>Especifica una serie que puede utilizarse para clasificar o agrupar esta f&aacute;brica de conexiones.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2CConnectionFactory_authMechanismPreference_displayName"></a>Preferencia de autenticaci&oacute;n</strong>
+</dt>
+<dd>Especifica los mecanismos de autenticaci&oacute;n definidos para esta f&aacute;brica de
+conexiones. 
+<p>Este valor especifica cu&aacute;l de los mecanismos de autenticaci&oacute;n definidos para el adaptador
+de recursos correspondiente se aplica a esta f&aacute;brica de conexiones.  Los valores comunes, dependiendo de las posibilidades del adaptador de recursos, son:  <em>KERBEROS</em>, <em>BASIC_PASSWORD</em> y <em>Ninguno</em>.  </p>
+
+<p>Si se selecciona Ninguno, el componente de aplicaci&oacute;n debe gestionar la autenticaci&oacute;n
+(&lt;res-auth&gt;Application&lt;/res-auth&gt;).  En este caso, el ID de usuario y la contrase&ntilde;a se toman de uno de los siguientes: <ul>
+
+<li>El alias de autenticaci&oacute;n gestionado por componentes</li>
+
+<li>Nombre de usuario, propiedades personalizadas de contrase&ntilde;a</li>
+
+<li>Las series que se pasan en el m&eacute;todo getConnection</li>
+
+</ul>
+</p>
+
+<p>Por ejemplo, si se han definido dos entradas de mecanismos de autenticaci&oacute;n para un
+adaptador de recursos en el documento <em>ra.xml</em>: <ul>
+
+<li>&lt;tipo_mecanismo_autenticaci&oacute;n&gt;BasicPassword&lt;/tipo_mecanismo_autenticaci&oacute;n&gt;</li>
+
+<li>&lt;tipo_mecanismo_autenticaci&oacute;n&gt;Kerbv5&lt;/tipo_mecanismo_autenticaci&oacute;n&gt;</li>
+
+</ul>entonces la preferencia de autenticaci&oacute;n especifica el mecanismo que se debe utilizar para
+la autenticaci&oacute;n gestionada por contenedor.  Se genera una excepci&oacute;n durante el arranque del servidor si se selecciona un mecanismo que el adaptador de recursos no soporta.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Lista de selecci&oacute;n</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">BASIC_PASSWORD </td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2CConnectionFactory_authDataAlias_displayName"></a>Alias de autenticaci&oacute;n gestionado por componentes</strong>
+</dt>
+<dd>Especifica los datos de autenticaci&oacute;n para el inicio de sesi&oacute;n gestionado por componente al recurso. 
+Seleccione un alias entre los definidos en
+<strong>Seguridad</strong> &gt; <strong>Configuraci&oacute;n de JAAS</strong> &gt; <strong>Datos de autenticaci&oacute;n de J2C</strong>.
+<p>Para definir un alias nuevo que todav&iacute;a no aparece en la lista de selecci&oacute;n:<ul>
+
+<li>Pulse <strong>Aplicar</strong> para visualizar Elementos relacionados. </li>
+
+<li>Pulse <strong>Entradas de datos de autenticaci&oacute;n de J2C</strong>.</li>
+
+<li>Defina un alias.</li>
+
+<li>Pulse el nombre de la f&aacute;brica de conexiones de la parte superior de la p&aacute;gina <em>Entradas
+de datos de autenticaci&oacute;n de J2C</em> para regresar a la p&aacute;gina de la f&aacute;brica de conexiones.</li>
+
+<li>Seleccione el alias.</li>
+
+</ul> 
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Lista de selecci&oacute;n</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2CConnectionFactory_mappingModule_authDataAlias_displayName"></a>Alias de autenticaci&oacute;n gestionado por contenedor</strong>
+</dt>
+<dd>Especifica datos de autenticaci&oacute;n (una v&iacute;a de acceso de serie convertida en identificaci&oacute;n de usuario y contrase&ntilde;a) para el inicio de sesi&oacute;n gestionado por contenedor en el recurso.
+Seleccione un alias entre los definidos en
+<strong>Seguridad</strong> &gt; <strong>Configuraci&oacute;n de JAAS</strong> &gt; <strong>Datos de autenticaci&oacute;n de J2C</strong>.
+<p>Para definir un alias nuevo que todav&iacute;a no aparece en la lista de selecci&oacute;n:<ul>
+
+<li>Pulse <strong>Aplicar</strong> para visualizar Elementos relacionados. </li>
+
+<li>Pulse <strong>Entradas de datos de autenticaci&oacute;n de J2C</strong>.</li>
+
+<li>Defina un alias.</li>
+
+<li>Pulse el nombre de la f&aacute;brica de conexiones de la parte superior de la p&aacute;gina <em>Entradas
+de datos de autenticaci&oacute;n de J2C</em> para regresar a la p&aacute;gina de la f&aacute;brica de conexiones.</li>
+
+<li>Seleccione el alias.</li>
+
+</ul> 
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Lista de selecci&oacute;n</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2C_mappingConfigAlias"></a>Alias de correlaci&oacute;n-configuraci&oacute;n</strong>
+</dt>
+<dd>Permite a los usuarios seleccionar de la lista
+<strong>Seguridad</strong> &gt; <strong>Configuraci&oacute;n de JAAS</strong> &gt; <strong>Configuraci&oacute;n de inicio de sesi&oacute;n de la aplicaci&oacute;n</strong>.
+
+<p>La configuraci&oacute;n JAAS de <strong>DefaultPrincipalMapping</strong>
+ establece la correlaci&oacute;n del alias de autenticaci&oacute;n con el ID de usuario y la contrase&ntilde;a . Puede
+definir y utilizar otras configuraciones de correlaci&oacute;n.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Lista de selecci&oacute;n</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informaci&oacute;n relacionada</strong>
+</p>
+<a href="rcon_buttons.html">Botones de la consola de administraci&oacute;n</a>
+<br>
+
+<a href="rcon_pageusage.html">Caracter&iacute;sticas de la p&aacute;gina de la consola administrativa</a>
+<br>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RDBSchema:RDBTable xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:RDBSchema="RDBSchema.xmi" xmi:id="RDBTable_1097047310750" name="INIT_AS" primaryKey="SQLReference_1097047310750">
+  <database href="models/TWWizardConnection1_IBANK.dbxmi#RDBDatabase_1097047310203"/>
+  <schema href="models/TWWizardConnection1_IBANK_ILDAR.schxmi#RDBSchema_1097047310203"/>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1097047310750" name="BRANCH_ID" allowNull="false" comments="Идентификатор банка в рамках системы">
+    <type xmi:type="RDBSchema:SQLCharacterStringType" xmi:id="SQLCharacterStringType_1097047310750" characterSet="800" length="20">
+      <originatingType xmi:type="RDBSchema:SQLCharacterStringType" href="DB2UDBNT_V72_Primitives.xmi#SQLCharacterStringType_3"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1097047310751" name="BIK" allowNull="false" comments="БИК банка">
+    <type xmi:type="RDBSchema:SQLCharacterStringType" xmi:id="SQLCharacterStringType_1097047310751" characterSet="800" length="9">
+      <originatingType xmi:type="RDBSchema:SQLCharacterStringType" href="DB2UDBNT_V72_Primitives.xmi#SQLCharacterStringType_1"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1097047310752" name="VERSION" allowNull="true" comments="Версия системы iBank">
+    <type xmi:type="RDBSchema:SQLCharacterStringType" xmi:id="SQLCharacterStringType_1097047310752" characterSet="800" length="60">
+      <originatingType xmi:type="RDBSchema:SQLCharacterStringType" href="DB2UDBNT_V72_Primitives.xmi#SQLCharacterStringType_3"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1097047310766" name="ENG_NAME" allowNull="true" comments="Наименование банка на английском">
+    <type xmi:type="RDBSchema:SQLCharacterStringType" xmi:id="SQLCharacterStringType_1097047310766" characterSet="800" length="140">
+      <originatingType xmi:type="RDBSchema:SQLCharacterStringType" href="DB2UDBNT_V72_Primitives.xmi#SQLCharacterStringType_3"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1097047310767" name="APP_NAME" allowNull="true" comments="Наименование приложения">
+    <type xmi:type="RDBSchema:SQLCharacterStringType" xmi:id="SQLCharacterStringType_1097047310767" characterSet="800" length="30">
+      <originatingType xmi:type="RDBSchema:SQLCharacterStringType" href="DB2UDBNT_V72_Primitives.xmi#SQLCharacterStringType_3"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1097047310768" name="CONTENT_TYPE" allowNull="true" comments="Тип содержимого">
+    <type xmi:type="RDBSchema:SQLCharacterStringType" xmi:id="SQLCharacterStringType_1097047310768" characterSet="800" length="255">
+      <originatingType xmi:type="RDBSchema:SQLCharacterStringType" href="DB2UDBNT_V72_Primitives.xmi#SQLCharacterStringType_3"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1097047310769" name="CONTENT" allowNull="true" comments="Содержимое (профиль приложения по умолчанию)">
+    <type xmi:type="RDBSchema:SQLCharacterLargeObject" xmi:id="SQLCharacterLargeObject_1097047310766" characterSet="800" length="32700">
+      <originatingType xmi:type="RDBSchema:SQLCharacterLargeObject" href="DB2UDBNT_V72_Primitives.xmi#SQLCharacterLargeObject_3"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1097047310770" name="SWIFT" allowNull="true" comments="SWIFT код банка">
+    <type xmi:type="RDBSchema:SQLCharacterStringType" xmi:id="SQLCharacterStringType_1097047310769" characterSet="800" length="11">
+      <originatingType xmi:type="RDBSchema:SQLCharacterStringType" href="DB2UDBNT_V72_Primitives.xmi#SQLCharacterStringType_1"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1097047310771" name="ADDRESS" allowNull="true" comments="Адрес банка">
+    <type xmi:type="RDBSchema:SQLCharacterStringType" xmi:id="SQLCharacterStringType_1097047310770" characterSet="800" length="200">
+      <originatingType xmi:type="RDBSchema:SQLCharacterStringType" href="DB2UDBNT_V72_Primitives.xmi#SQLCharacterStringType_3"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1097047310772" name="CITY_LATIN" allowNull="true" comments="Город банка на английском языке (Требуется указывать если отсутствует SWIFT код банка)">
+    <type xmi:type="RDBSchema:SQLCharacterStringType" xmi:id="SQLCharacterStringType_1097047310771" characterSet="800" length="40">
+      <originatingType xmi:type="RDBSchema:SQLCharacterStringType" href="DB2UDBNT_V72_Primitives.xmi#SQLCharacterStringType_3"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1097047310773" name="ADDRESS_LATIN" allowNull="true" comments="Адрес банка на английском языке (требуется указывать если отсутствует SWIFT код банка)">
+    <type xmi:type="RDBSchema:SQLCharacterStringType" xmi:id="SQLCharacterStringType_1097047310772" characterSet="800" length="200">
+      <originatingType xmi:type="RDBSchema:SQLCharacterStringType" href="DB2UDBNT_V72_Primitives.xmi#SQLCharacterStringType_3"/>
+    </type>
+  </columns>
+  <namedGroup xmi:type="RDBSchema:SQLReference" xmi:id="SQLReference_1097047310750" name="XPKINIT_AS" members="RDBColumn_1097047310750" constraint="SQLConstraint_1097047310766">
+    <referenceByKey href="models/TWWizardConnection1_IBANK_ILDAR_ACCOUNTS.tblxmi#RDBReferenceByKey_1097047310766"/>
+  </namedGroup>
+  <constraints xmi:id="SQLConstraint_1097047310766" name="XPKINIT_AS" type="PRIMARYKEY" primaryKey="SQLReference_1097047310750"/>
+</RDBSchema:RDBTable>

@@ -1,0 +1,226 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Login mapping configuration settings</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_logmapn"></a>
+<h2>
+<img alt="[Release 5.1 and later]" src="v51x.gif" border="0">Login mapping configuration settings</h2>
+
+<p>Use this page to specify the Java Authentication and Authorization
+Service (JAAS) login configuration settings used to validate security tokens
+within incoming messages.</p>
+
+<p>To view this administrative console page, complete the following steps: <ol>
+
+<li>Click <strong>Servers &gt; Application Servers &gt; </strong><em>server_name</em>. </li>
+
+<li>Under Additional Properties, click <strong>Web Services: Default bindings for
+Web Services Security &gt; Login Mappings &gt; New</strong>.</li>
+
+</ol>
+</p>
+
+<dl>
+<dt>
+<strong><a name="sec_logmapauth"></a>Authentication Method </strong>
+</dt>
+<dd>Specifies the method of authentication.
+<p>You can use any string, but the string must match the element in the service-level
+configuration. The following words are reserved and have special meanings: <dl>
+
+<dt>
+<strong>BasicAuth</strong>
+</dt>
+<dd>Uses both a user name and a password</dd>
+<dt>
+<strong>IDAssertion</strong>
+</dt>
+<dd>Uses only a user name, but requires that additional trust is established
+on the receiving server using a TrustedIDEvaluator</dd>
+<dt>
+<strong>Signature</strong>
+</dt>
+<dd>Uses the distinguished name (DN) of the signer.</dd>
+<dt>
+<strong>LTPA</strong>
+</dt>
+<dd>Validates a token</dd>
+</dl>
+</p>
+
+</dd>
+<dt>
+<strong><a name="sec_jaas"></a>JAAS Configuration Name</strong>
+</dt>
+<dd>Specifies the name of the Java Authentication and Authorization
+Service (JAAS) configuration.
+<p>Specify your JAAS configurations using the administrative console by clicking <strong>Security
+&gt; JAAS Configuration &gt; Application</strong>.</p>
+
+</dd>
+<dt>
+<strong><a name="sec_class"></a>Callback Handler Factory Class Name</strong>
+</dt>
+<dd>Specifies the name of the factory for the CallbackHandler class.
+<p>You must implement the <samp>com.ibm.wsspi.wssecurity.auth.callback.CallbackHandlerFactory</samp> class
+in this field.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default: </td>
+<td align="left" valign="top" class="base">com.ibm.wsspi.wssecurity.auth.callback.CallbackHandlerFactory</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="sec_tokenuri"></a>Token Type URI </strong>
+</dt>
+<dd>Specifies the namespace Uniform Resource Identifiers (URI), which
+denotes the type of security token accepted. 
+<p>If binary security tokens are accepted, the value denotes the ValueType
+attribute in the element. The ValueType element identifies the type of security
+token and its namespace. If eXtensible Markup Language (XML) tokens are accepted,
+the value denotes the top-level element name of the XML token. </p>
+
+<p>If the reserved words are specified previously in the <strong>Authentication
+Method</strong> field, this field is ignored. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type: </td>
+<td align="left" valign="top" class="base">Unicode characters except for non-ASCII characters, but including
+the number sign (#), the percent sign (%), and the square brackets ([ ]).</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="sec_tokenlname"></a>Token Type Local Name </strong>
+</dt>
+<dd>Specifies the local name of the security token type, for example,
+X509v3.
+<p>If binary security tokens are accepted, the value denotes the ValueType
+attribute in the element. The ValueType attribute identifies the type of security
+token and its namespace. If eXtensible Markup Language (XML) tokens are accepted,
+the value denotes the top-level element name of the XML token. </p>
+
+<p>If the reserved words are specified previously in the <strong>Authentication
+Method</strong> field, this field is ignored. </p>
+
+</dd>
+<dt>
+<strong><a name="sec_lognoncemaxage"></a>Nonce Maximum Age</strong>
+            &nbsp;
+            <img alt="[Release 5.1 and later]" src="v51x.gif" border="0"></dt>
+<dd>Specifies the time, in seconds, before the nonce time stamp expires.
+Nonce is a randomly generated value.
+<p>You must specify a minimum of 300 seconds for the <strong>Nonce Maximum Age</strong> field.
+However, the maximum value cannot exceed the number of seconds specified in
+the <strong>Nonce Cache Timeout</strong> field for either the server level
+or the cell level. You can specify the <strong>Nonce Maximum Age</strong> value for
+the server level by clicking <strong>Servers &gt; Application Servers  &gt; </strong><em>server_name</em>.
+Under Additional Properties, click <strong>Web Services: Default bindings for Web
+Services Security</strong>. You can specify the <strong>Nonce Maximum Age</strong> value
+for the cell level by clicking <strong>Security &gt; Web Services &gt; Properties</strong>. </p>
+
+<p>
+<strong>Important:</strong> The <strong>Nonce Maximum Age</strong> field on this panel is optional
+and only valid if the BasicAuth authentication method
+is specified. If you specify another authentication method and attempt to
+specify values for this field, the following error message displays and you
+must remove the specified value: <samp>Nonce is not supported for authentication
+methods other than BasicAuth.</samp> If you specify BasicAuth, but do not specify values for the <strong>Nonce
+Maximum Age</strong> field, the Web services security run time searches for a <strong>Nonce
+Maximum Age</strong> value on the server level. If a value is not found on the
+server level, the run time searches the cell level. If a value is not found
+on either the server level or the cell level, the default is 300 seconds.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">300 seconds</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range</td>
+<td align="left" valign="top" class="base">300 to <strong>Nonce Cache Timeout</strong> seconds</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="sec_lognonceclockskew"></a>Nonce Clock Skew</strong>
+            &nbsp;
+            <img alt="[Release 5.1 and later]" src="v51x.gif" border="0"></dt>
+<dd>Specifies the clock skew value, in seconds, to consider when WebSphere
+Application Server checks the freshness of the message. Nonce is a randomly
+generated value.
+<p>You must specify a minimum of 0 seconds for the <strong>Nonce Clock Skew</strong> field.
+However, the maximum value cannot exceed the number of seconds specified in
+the <strong>Nonce Maximum Age</strong> on this Login Mappings panel. </p>
+
+<p>
+<strong>Important:</strong> The <strong>Nonce Clock Skew</strong> field on this panel is optional
+and only valid if the BasicAuth authentication method
+is specified. If you specify another authentication method and attempt to
+specify values for this field, the following error message displays and you
+must remove the specified value: <samp>Nonce is not supported for authentication
+methods other than BasicAuth.</samp> If you specify BasicAuth, but do not specify values for the <strong>Nonce
+Clock Skew</strong> field, the Web services security run time searches for a <strong>Nonce
+Clock Skew</strong> value on the server level. If a value is not found on the server
+level, the run time searches the cell level. If a value is not found on either
+the server level or the cell level, the default is 0 seconds.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">0 seconds</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range</td>
+<td align="left" valign="top" class="base">0 to <strong>Nonce Maximum Age</strong> seconds</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>Related information</strong>
+</p>
+<a href="uwbs_logmap.html">Login mappings collection</a>
+<br>
+
+<a href="uwbs_noncecellprop.html">Nonce cell-level properties</a>
+<br>
+
+</div>
+</body>
+</html>

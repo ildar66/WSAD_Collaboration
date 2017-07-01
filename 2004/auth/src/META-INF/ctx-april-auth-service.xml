@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+    <!-- Auth services -->
+    <bean id="april.auth.authService" parent="april.txProxyTemplate">
+        <property name="proxyInterfaces"
+            value="com.hps.april.auth.service.AuthService"/>
+        <property name="target" ref="april.auth.authService_target"/>
+    </bean>
+
+    <bean id="april.auth.authService_target" class="com.hps.april.auth.service.impl.AuthServiceImpl">
+	    <property name="personDao" ref="april.auth.dao.personDAO"/>
+	    <property name="roleDAO" ref="april.auth.dao.roleDAO"/>
+        <property name="operatorDAO" ref="april.auth.dao.operatorDAO"/>
+        <property name="pluginList" ref="april.auth.authPlugInList"/>
+    </bean>
+
+	<!-- Нужно переопределять этот лист в других модулях -->
+	<bean id="april.auth.authPlugInList" class="org.springframework.beans.factory.config.ListFactoryBean">
+		<property name="sourceList">
+			<list>
+				<!-- 
+				<bean class="com.hps.april.auth.service.plugin.JulyAuthPlugIn">
+					<property name=""></property>
+				</bean>
+				 -->
+			</list>
+		</property>
+	</bean>
+
+
+
+<!--    <bean id="april.authProxyTemplate" abstract="true"-->
+<!--        class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">-->
+<!--        <property name="transactionManager">-->
+<!--            <ref bean="april.transactionManager"/>-->
+<!--        </property>-->
+<!--        <property name="transactionAttributes">-->
+<!--            <props>-->
+<!--                <prop key="save*">PROPAGATION_REQUIRED</prop>-->
+<!--                <prop key="store*">PROPAGATION_REQUIRED</prop>-->
+<!--                <prop key="get*">PROPAGATION_REQUIRED,readOnly</prop>-->
+<!--                <prop key="read*">PROPAGATION_REQUIRED,readOnly</prop>-->
+<!--                <prop key="load*">PROPAGATION_REQUIRED,readOnly</prop>-->
+<!--                <prop key="*">PROPAGATION_REQUIRED</prop>-->
+<!--            </props>-->
+<!--        </property>-->
+<!---->
+<!--			-->
+<!--        <property name="preInterceptors">-->
+<!--            <list>-->
+<!---->
+<!--            </list>-->
+<!--        </property>-->
+<!---->
+<!--        <property name="postInterceptors">-->
+<!--            <list>-->
+<!---->
+<!--            </list>-->
+<!--        </property>-->
+<!--    </bean>-->
+
+ 
+    <!-- sample
+        <bean id="rssManager" parent="april.txProxyTemplate">
+            <property name="proxyInterfaces"
+                value="com.example.jsf.hibernate.example.manager.FeedManager"/>
+            <property name="target">
+               <bean class="com.example.jsf.hibernate.example.manager.FeedManagerImpl">
+                    <property name="rssDAO" ref="rssDAO"/>
+               </bean>
+            </property>
+        </bean>
+    -->
+
+</beans>

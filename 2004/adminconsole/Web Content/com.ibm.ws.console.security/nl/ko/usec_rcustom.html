@@ -1,0 +1,151 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>사용자 정의 사용자 레지스트리 설정</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecrcustom"></a>
+<h2>사용자 정의 사용자 레지스트리 설정</h2>
+
+<p>이 페이지를 참조하여 사용자 정의 사용자 레지스트리를 구성하십시오.</p>
+
+<p>이 관리 콘솔 페이지를 보려면 <strong>보안</strong> &gt; <strong>사용자 레지스트리</strong> &gt; <strong>사용자 정의</strong>를 클릭하십시오.</p>
+
+<p>이 패널에서 등록 정보가 설정된 후 <strong>적용</strong>을 클릭하십시오. 사용자 정의 레지스트리에서
+필요한 추가 등록 정보를 위해 <strong>등록 정보</strong> 패널을 사용하십시오. 보안이
+사용 가능하고 이 등록 정보 중 하나가 변경되는 경우 <strong>글로벌 보안</strong> 패널로 이동하여
+<strong>적용</strong>을 클릭하여 변경사항의 유효성을 검증하십시오.</p>
+
+<div>
+<p>
+<strong>구성 탭</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="UserRegistry_serverId_description"></a>서버 사용자 ID</strong>
+</dt>
+<dd>서버가 실행될 때 보안 목적으로 사용되는 사용자 ID를 지정합니다.
+
+<p>이 서버 ID는 사용자 정의 레지스트리의 유효한 사용자를 표시합니다.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형:</td>
+<td align="left" valign="top" class="base">문자열</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="UserRegistry_serverPassword_description"></a>서버 사용자 암호</strong>
+</dt>
+<dd>보안 서버 ID에 해당하는 암호를 지정합니다.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형:</td>
+<td align="left" valign="top" class="base">문자열</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="CustomUserRegistry_customRegistryClassName_description"></a>사용자 정의 레지스트리 클래스 이름</strong>
+</dt>
+<dd>
+<samp>com.ibm.websphere.security.UserRegistry 인터페이스</samp>를 구현하는 점 분리
+클래스 이름을 지정합니다.
+<p>사용자 정의 레지스트리 클래스 이름을 클래스 경로에 넣으십시오. 제안되는 위치는
+<samp>%install_root%/lib/ext</samp> 디렉토리입니다. 사용자 정의 레지스트리가 뒤로 호환성을 위해
+<samp>com.ibm.websphere.security.UserRegistry</samp> 인터페이스를 구현하는 경우에도
+사용자 레지스트리가 대신 <samp>com.ibm.websphere.security.CustomRegistry</samp> 인터페이스를 구현할 수 있습니다.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형:</td>
+<td align="left" valign="top" class="base">문자열</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">기본값:</td>
+<td align="left" valign="top" class="base">com.ibm.websphere.security.FileRegistrySample</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="CustomUserRegistry_ignoreCase_description"></a>대소문자 구분 안함</strong>
+</dt>
+<dd>권한 확인 시 대소문자 구분 여부를 지정합니다.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">기본값:</td>
+<td align="left" valign="top" class="base">사용 가능</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">범위:</td>
+<td align="left" valign="top" class="base">사용 가능 또는 사용 불가능</td>
+
+</tr>
+
+</table>
+
+<div>
+<strong>사용자 정의 등록 정보</strong> 링크를 사용하여 사용자 정의 레지스트리 초기화에 필요한
+추가 등록 정보를 추가하십시오. 다음 등록 정보는 제품에 의해 사전 정의되며 필요할 때에만 이 등록 정보를 설정합니다. <ul>
+
+<li>WAS_UseDisplayName--<samp>true</samp>로 설정하는 경우, getCallerPrincipal(),
+getUserPrincipal(), getRemoteUser() 메소드가 표시 이름을 리턴합니다.
+기본적으로 사용자의 <samp>securityName</samp>이
+리턴됩니다이는 주로 버전 4.0 사용자 정의 레지스트리와의
+백워드 호환성을 지원하기 위해 사용됩니다. </li>
+
+</ul>
+</div>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>관련 정보</strong>
+</p>
+<a href="rcon_buttons.html">관리 콘솔 단추</a>
+<br>
+
+<a href="rcon_pageusage.html">관리 콘솔 페이지 기능</a>
+<br>
+
+<a href="rcon_scope.html">관리 콘솔 범위 설정</a>
+<br>
+
+<a href="rcon_filter.html">관리 콘솔 필터 설정</a>
+<br>
+
+<a href="rcon_preferences.html">관리 콘솔 환경 설정</a>
+<br>
+
+</div>
+</body>
+</html>

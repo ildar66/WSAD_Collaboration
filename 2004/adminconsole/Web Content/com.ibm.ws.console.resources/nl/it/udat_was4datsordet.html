@@ -1,0 +1,251 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Impostazioni delle origini dati (Versione 4)</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="WAS40_Data_source_detail"></a>
+<h2>Impostazioni delle origini dati (Versione 4)</h2>
+
+<p>Utilizzare questa pagina per creare un'origine dati stile della Versione 4.0. Quest'origine dati utilizza l'architettura del gestore connessioni WebSphere Application Server
+Version 4.0. Tutti i moduli EJB1.x devono utilizzare
+questa origine dati.</p>
+
+<p>Per visualizzare questa pagina della console di gestione, fare clic su <strong>Risorse</strong>
+&gt; <strong> Provider JDBC</strong> &gt; <em>provider_JDBC</em> &gt; <strong>Origini dati (Versione
+4)</strong> &gt; <em>origine_dati</em>.</p>
+
+<div>
+<p>
+<strong>Scheda Configurazione</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="WAS40DataSource_detail_contextID"></a>Ambito</strong>
+</dt>
+<dd>Specifica il livello in cui &egrave; visibile questa definizione di risorsa -- il
+livello cella, nodo o server.
+<p>&Egrave; possibile definire in pi&ugrave; ambiti, risorse quali provider di JDBC, collegamenti
+spazio nome o librerie condivise, insieme a risorse definite in ambiti pi&ugrave; specifici che
+sovrascrivono i duplicati definiti in ambiti pi&ugrave; generali.</p>
+
+<p>Notare che non &egrave; importante l'ambito di una risorsa definita, le propriet&agrave; della
+risorsa si applicano solo ad un singolo livello del server. Ad esempio, se si definisce
+l'ambito di un'origine dati al livello Cella, tutti gli utenti possono ricercare e
+utilizzare quella origine dati che risulta univoca all'interno di quella cella. Tuttavia,
+le impostazioni delle propriet&agrave; di risorsa sono locali per ogni server
+all'interno della Cella. Ad esempio, se si imposta <em>numero massimo connessioni</em> su
+10, ogni server in quella cella pu&ograve; disporre di 10 connessioni.<dl>
+
+<dt>
+<strong>Cella</strong>
+</dt>
+<dd>L'ambito pi&ugrave; generale.  Le risorse definite nell'ambito cella sono
+visibili da tutti i nodi e i server, a meno che non siano state sovrascritte. Per visualizzare le risorse definite nell'ambito cella, non specificare il nome di un
+server o di un nodo nel modulo di selezione dell'ambito.</dd>
+
+<dt>
+<strong>Nodo</strong>
+</dt>
+<dd>L'ambito predefinito per la maggior parte dei tipi
+di risorse.  Le risorse definite nell'ambito nodo sovrascrivono
+gli eventuali duplicati definiti nell'ambito cella e sono
+visibili a tutti i server sullo stesso nodo, a meno che non siano
+state sovrascritte in un ambito server sul quel nodo. Per
+visualizzare le risorse definite in un ambito nodo, non specificare
+un server ma selezionare il nome di un nodo nel modulo di selezione
+dell'ambito.</dd>
+
+<dt>
+<strong>Server</strong>
+</dt>
+<dd>L'ambito pi&ugrave; specifico per la definizione delle
+risorse.  Le risorse definite nell'ambito server sovrascrivono eventuali
+definizioni di risorse duplicate specificate nell'ambito cella o
+nell'ambito nodo parent e sono visibili solo in un determinato server. Per
+visualizzare le risorse definite in un ambito server, specificare il
+nome di un server e il nome di un nodo nel modulo di selezione
+dell'ambito.</dd>
+
+</dl>
+</p>
+
+<p>Quando le risorse vengono generate, vengono sempre create nell'ambito corrente
+selezionato nel pannello.   Per visualizzare le
+risorse in altri ambiti, specificare un nodo o un server diverso nel
+modulo di selezione dell'ambito.  </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WAS40DataSource_databasename_description"></a>Nome</strong>
+</dt>
+<dd>Specifica il nome visualizzato della risorsa. 
+<p>Ad esempio &egrave; possibile impostare questa campo su <em>Test origini dati</em>.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WAS40DataSource_jndiName_description"></a>Nome JNDI</strong>
+</dt>
+<dd>Specifica il nome JNDI (Java Naming and Directory Interface). 
+<p>Gli ambienti informatici distribuiti utilizzano spesso i servizi directory e
+di
+denominazione per ottenere dei componenti e delle risorse condivise. Questi servizi
+associano i nomi con le ubicazioni, i servizi, le informazioni e le
+risorse.  </p>
+
+<p>I servizi di denominazione forniscono le associazioni nome-oggetto. I servizi
+directory, invece, forniscono le informazioni relative agli oggetti e agli strumenti
+di ricerca necessari per localizzare tali oggetti. </p>
+
+<p>Esistono molte implementazioni di servizi directory e di denominazione e interfacce
+per modificarle.   JNDI fornisce un'interfaccia comune utilizzata per accedere ai diversi
+servizi di directory e denominazione.</p>
+
+<p>&Egrave; possibile, ad esempio, utilizzare il nome <em>jdbc/markSection</em>.</p>
+
+<p>Se si lascia questo campo vuoto, viene generato un nome JNDI dal nome dell'origine
+dati. Ad esempio, il nome markSection di un'origine
+dati genera un nome JNDI <em>jdbc/markSection</em>.</p>
+
+<p>Una volta impostato e salvato questo valore e riavviato il server, &egrave; possibile
+visualizzare questa stringa quando viene eseguito <em>dumpnamespace</em>.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WAS40DataSource_Description_Description"></a>Descrizione</strong>
+</dt>
+<dd>Specifica una descrizione della risorsa. 
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WAS40DataSource_Category_Description"></a>Categoria</strong>
+</dt>
+<dd>Specifica una stringa di categoria che pu&ograve; essere utilizzata per classificare
+o raggruppare la risorsa. 
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WAS40DataSource_databaseName_displayName"></a>Nome database </strong>
+</dt>
+<dd>Specifica il nome del database a cui accede quest'origine dati. 
+<p>Ad esempio, &egrave; possibile chiamare il database <em>SAMPLE</em>. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WAS40DataSource_defaultUser_displayName"></a>ID utente predefinito</strong>
+</dt>
+<dd>Specifica il nome utente da utilizzare per la connessione al database.
+<p>Ad esempio, &egrave; possibile utilizzare l'ID <em>db2admin</em>. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WAS40DataSource_defaultPassword_displayName"></a>Password predefinita </strong>
+</dt>
+<dd>Specifica la password utilizzata per la connessione al database. 
+<p>Ad esempio, &egrave; possibile utilizzare la password <em>db2admin</em>.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informazioni correlate</strong>
+</p>
+<a href="rcon_buttons.html">Pulsanti della console di gestione</a>
+<br>
+
+<a href="rcon_pageusage.html">Funzioni della pagina della console di gestione</a>
+<br>
+
+</div>
+</body>
+</html>

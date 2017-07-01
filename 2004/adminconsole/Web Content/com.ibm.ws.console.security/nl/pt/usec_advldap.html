@@ -1,0 +1,283 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Lightweight Directory Access Protocol advanced settings</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecadvldap"></a>
+<h2>Lightweight Directory Access Protocol advanced settings</h2>
+
+<p>Use this page to configure advanced Lightweight Directory Access
+Protocol (LDAP) user registry settings when users and groups reside in an
+external LDAP directory.</p>
+
+<p>To view this administrative page, click <strong>Security</strong> &gt; <strong>User Registries</strong> &gt; <strong>LDAP </strong> <strong>Advanced
+LDAP settings</strong>.</p>
+
+<p>Default values for all the user and group related filters are already completed
+in the appropriate fields. You can change these values depending on your requirements.
+These default values are based on the type of LDAP server selected in the <strong>LDAP
+settings</strong> panel. If this type changes (for example from NETSCAPE to SECUREWAY)
+the default filters automatically change. When the default filter values change,
+the LDAP server type changes to <strong>Custom</strong> to indicate that custom filters
+are used. When security is enabled and any of these properties change, go
+to the <strong>Global Security</strong> panel and click <strong>Apply</strong> or <strong>OK</strong> to
+validate the changes.</p>
+
+<div>
+<p>
+<strong>Configuration tab</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="LDAPSearchFilter_userFilter_description"></a>User Filter </strong>
+</dt>
+<dd>Specifies the LDAP user filter that searches the registry for users.
+<p>This option is typically used for Security Role to User assignments. It
+specifies the property by which to look up users in the directory service.
+For example, to look up users based on their user IDs, specify <samp>(ampersand(uid=%v)(objectclass=inetOrgPerson)</samp> where <samp>ampersand</samp> is
+the ampersand symbol (&amp;).  For more information about this syntax, see
+the LDAP directory service documentation.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type:</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LDAPSearchFilter_groupFilter_description"></a>Group Filter</strong>
+</dt>
+<dd>Specifies the LDAP group filter that searches the registry for
+groups 
+<p>This option is typically used for Security Role to Group assignments. It
+specifies the property by which to look up groups in the directory service.
+For more information about this syntax, see the LDAP directory service documentation.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type:</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LDAPSearchFilter_userIdMap_description"></a>User ID Map</strong>
+</dt>
+<dd>Specifies the LDAP filter that maps the short name of a user to
+an LDAP entry.
+<p>Specifies the piece of information that represents users when users appear.
+For example, to display entries of the type <samp>object class = inetOrgPerson</samp> by
+their IDs, specify <samp>inetOrgPerson:uid</samp>. This field takes multiple objectclass:property
+pairs delimited by a semicolon (;).</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type:</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LDAPSearchFilter_groupIdMap_description"></a>Group ID Map</strong>
+</dt>
+<dd>Specifies the LDAP filter that maps the short name of a group to
+an LDAP entry.
+<p>Specifies the piece of information that represents groups when groups appear.
+For example, to display groups by their names, specify <samp>*:cn</samp>. The
+asterisk (<samp>*</samp>) is a wildcard character that searches on any object
+class in this case. This field takes multiple <samp>objectclass:property</samp> pairs
+delimited by a semicolon (;). </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type:</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LDAPSearchFilter_groupMemberIdMap_description"></a>Group Member ID Map </strong>
+</dt>
+<dd>Specifies the LDAP filter which identifies user to group relationships.
+<p>For directory types SecureWay, NetScape, and Domino, this field takes multiple
+objectclass:property pairs, delimited by a semicolon (;). In an objectclass:property
+pair, the objectclass value is the same objectclass defined in Group Filter,
+and the property is the member attribute. If the objectclass value does not
+match the objectclass in Group Filter, authorization might fail if groups
+are mapped to security roles. For more information about this syntax, see
+your LDAP directory service documentation.</p>
+
+<p>For IBM Directory Server, iPlanet Directory Server and Active
+Directory, this field takes multiple (<samp>group attribute:member attribute</samp>)
+pairs delimited by a semicolon (;). They are used to find the group memberships
+of a user by enumerating all the group attributes possessed by a given user.
+For example, attribute pair <samp>(memberof:member)</samp> is used by Active Directory,
+and (ibm-allGroup:member) is used by IBM Directory Server . This field also
+specifies which property of an objectclass stores the list of members belonging
+to the group represented by the objectclass. For supported LDAP directory
+servers, see the InfoCenter article, "Supported directory services."</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type:</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LDAPSearchFilter_certificateMapMode_description"></a>Certificate Map Mode</strong>
+</dt>
+<dd>Specifies whether to map X.509 certificates into an LDAP directory
+by EXACT_DN or CERTIFICATE_FILTER. Specify CERTIFICATE_FILTER to use the specified
+certificate filter for the mapping.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type:</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LDAPSearchFilter_certificateFilter_description"></a>Certificate Filter</strong>
+</dt>
+<dd>Specifies whether to use the filter certificate mapping property
+to specify the LDAP filter, which is used to map attributes in the client
+certificate to entries in the LDAP registry.
+<p> To enable this field, click <strong>CERTIFICATE_FILTER</strong> for the certificate
+mapping. If more than one LDAP entry matches the filter specification at run
+time, then authentication fails because it results in an ambiguous match.
+The syntax or structure of this filter is: <samp>LDAP attribute=${Client certificate
+attribute}</samp> (for example, <samp>uid=${SubjectCN}</samp>). The left side of
+the filter specification is an LDAP attribute that depends on the schema that
+your LDAP server is configured to use. The right side of the filter specification
+is one of the public attributes in your client certificate. The right side
+must begin with a dollar sign ($) and open bracket ({) and end with a close
+bracket (}). You can use the following certificate attribute values on
+the right side of the filter specification. The case of the strings is important:
+  <ul>
+
+<li>
+<samp>${UniqueKey} </samp>
+</li>
+
+<li>
+<samp>${PublicKey}</samp>
+</li>
+
+<li>
+<samp>${PublicKey}</samp>
+</li>
+
+<li>
+<samp>${Issuer}</samp>
+</li>
+
+<li>
+<samp>${NotAfter}</samp>
+</li>
+
+<li>
+<samp>${NotBefore}</samp>
+</li>
+
+<li>
+<samp>${SerialNumber}</samp>
+</li>
+
+<li>
+<samp>${SigAlgName}</samp>
+</li>
+
+<li>
+<samp>${SigAlgOID}</samp>
+</li>
+
+<li>
+<samp>${SigAlgParams}</samp>
+</li>
+
+<li>
+<samp>${SubjectCN}</samp>
+</li>
+
+<li>
+<samp>${Version}</samp>
+</li>
+
+</ul>
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type:</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Related information</strong>
+</p>
+<a href="rcon_buttons.html">Administrative console buttons</a>
+<br>
+
+<a href="rcon_pageusage.html">Administrative console page features</a>
+<br>
+
+<a href="rcon_scope.html">Administrative console scope settings</a>
+<br>
+
+<a href="rcon_filter.html">Administrative console filter settings</a>
+<br>
+
+<a href="rcon_preferences.html">Administrative console preference settings</a>
+<br>
+
+<a href="usec_rprdap.html">Lightweight Directory Access Protocol settings</a>
+<br>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Process execution settings</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="urun_rprocexec"></a>
+<h2>Process execution settings</h2>
+
+<p>Use this page to view or change command-line information for starting
+or  initializing a UNIX process.</p>
+
+<p>To view this administrative console page, click <strong>Servers &gt; Application
+Servers  &gt; </strong><em>server_name</em><strong> &gt; Process Definition &gt; Process
+Execution</strong>.</p>
+
+<div>
+<p>
+<strong>Configuration tab</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="ProcessExecution_processPriority_description"></a>Process Priority</strong>
+</dt>
+<dd>Specifies the operating system priority for the process. Only root
+users  can change this value.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">1000 for WebSphere Application Server on most operating systems. On OS/400,  the default
+is 25.</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ProcessExecution_umask_description"></a>UMASK</strong>
+</dt>
+<dd>Specifies the user mask under which the process runs (the file-mode
+ permission mask).
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ProcessExecution_runAsUser_description"></a>Run As User</strong>
+</dt>
+<dd>Specifies the user that the process runs as.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ProcessExecution_runAsGroup_description"></a>Run As Group</strong>
+</dt>
+<dd>Specifies the group that the process is a member of and runs as.
+<p>On OS/400, the Run As Group setting is ignored.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ProcessExecution_runInProcessGroup_description"></a>Run In Process Group</strong>
+</dt>
+<dd>Specifies a specific process group for the process. This process
+group  is useful for such things as processor partitioning. A system admininistor
+can assign  a process group to run on, for example, 6 of 12 processors. The
+default (0) is not  to assign the process to any specific group.
+<p>On OS/400, the Run In Process Group setting is ignored.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">0</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Related information</strong>
+</p>
+<a href="rcon_buttons.html">Administrative console buttons</a>
+<br>
+
+<a href="rcon_pageusage.html">Administrative console page features</a>
+<br>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,238 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>조정 매개변수 설정</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="tune_para"></a>
+<h2>조정 매개변수 설정</h2>
+
+<p>이 페이지를 참조하여 분배 세션에 대한 조정 매개변수를 설정하십시오. </p>
+
+<p>이 관리 콘솔 페이지를 보려면 <strong>서버</strong> &gt; <strong> Application
+Servers</strong> &gt; <em>server_name</em> &gt; <strong>웹 컨테이너</strong> &gt; <strong>세션 관리</strong> &gt; <strong>분배 환경 설정</strong> &gt; <strong>조정 매개변수 사용자 정의</strong>를 클릭하십시오. </p>
+
+<div>
+<p>
+<strong>구성 탭</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="Tuning_level_description"></a>조정 레벨</strong>
+</dt>
+<dd>세션 관리 기능이 성능에 영향을 미치는 사전 정의된 특정 설정을 제공하도록 지정합니다.
+
+<p>이들 사전 정의된 설정 중 하나를 선택하거나 설정을 사용자 정의하십시오.
+설정을 사용자 정의하려면, 원하는 설정에 가장 근접한 사전 정의된 설정 중 하나를 선택한 후 <strong>설정 사용자 정의</strong>를 클릭하여 설정을 변경한 다음 <strong>확인</strong>을 클릭하십시오. </p>
+
+<div>
+<p class="sectiontitle">
+<b>매우 높음(성능을 위해 최적화)</b>
+</p>
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">쓰기 빈도</td>
+<td align="left" valign="top" class="base">기본 시간</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">쓰기 간격 </td>
+<td align="left" valign="top" class="base">300초</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">쓰기 내용</td>
+<td align="left" valign="top" class="base">갱신된 속성만</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">저장 정리하기 스케줄</td>
+<td align="left" valign="top" class="base">true</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">하루 중 첫 번째 시간 기본값 </td>
+<td align="left" valign="top" class="base">0</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">하루 중 두 번째 시간 기본값 </td>
+<td align="left" valign="top" class="base">2</td>
+
+</tr>
+
+</table>
+</div>
+
+<div>
+<p class="sectiontitle">
+<b>고
+</b>
+</p>
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">쓰기 빈도</td>
+<td align="left" valign="top" class="base">기본 시간</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">쓰기 간격 </td>
+<td align="left" valign="top" class="base">300초</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">쓰기 내용</td>
+<td align="left" valign="top" class="base">모든 세션 속성</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">저장 정리하기 스케줄</td>
+<td align="left" valign="top" class="base">false</td>
+
+</tr>
+
+</table>
+</div>
+
+<div>
+<p class="sectiontitle">
+<b>중간</b>
+</p>
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">쓰기 빈도</td>
+<td align="left" valign="top" class="base">Servlet 서비스 종료</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">쓰기 내용</td>
+<td align="left" valign="top" class="base">갱신된 속성만</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">저장 정리하기 스케줄</td>
+<td align="left" valign="top" class="base">false</td>
+
+</tr>
+
+</table>
+</div>
+
+<div>
+<p class="sectiontitle">
+<b>저(장애복구에 대해 최적화)</b>
+</p>
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">쓰기 빈도</td>
+<td align="left" valign="top" class="base">Servlet 서비스 종료</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">쓰기 내용</td>
+<td align="left" valign="top" class="base">모든 세션 속성</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">저장 정리하기 스케줄</td>
+<td align="left" valign="top" class="base">false</td>
+
+</tr>
+
+</table>
+</div>
+
+<div>
+<p class="sectiontitle">
+<b>설정 사용자 정의</b>
+</p>
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">쓰기 빈도 기본값</td>
+<td align="left" valign="top" class="base">기본 시간</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">쓰기 간격 기본값</td>
+<td align="left" valign="top" class="base">10초</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">쓰는 내용 기본값</td>
+<td align="left" valign="top" class="base">모든 세션 속성</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">세션 정리 스케줄 기본값</td>
+<td align="left" valign="top" class="base">false</td>
+
+</tr>
+
+</table>
+</div>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>관련 정보</strong>
+</p>
+<a href="rcon_buttons.html">관리 콘솔 단추</a>
+<br>
+
+<a href="rcon_pageusage.html">관리 콘솔 페이지 기능</a>
+<br>
+
+<a href="rcon_preferences.html">관리 콘솔 환경 설정</a>
+<br>
+
+<a href="uprs_rtuning_custom.html">매개변수 사용자 정의 설정 조정</a>
+<br>
+
+</div>
+</body>
+</html>

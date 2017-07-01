@@ -1,0 +1,253 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>WebSphere internal JMS server settings</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="JMSServer"></a>
+<h2>WebSphere internal JMS server settings</h2>
+
+<p>The JMS functions on a node within the WebSphere Application Server
+administration domain are served by the JMS server on that node.  Use this
+panel to view or change the configuration properties of the selected JMS server.</p>
+
+<p>You can use this panel to configure a general set of JMS server properties,
+which add to the default values of properties configured automatically for
+the embedded WebSphere JMS provider.</p>
+
+
+<p>
+<b>Note: </b>In general, the default values of WebSphere
+MQ properties are adequate for WebSphere internal JMS servers. However, if
+you are running high messaging loads, you may need to change some WebSphere
+MQ properties; for example, properties for log file locations, file pages,
+and buffer pages. For more information about configuring WebSphere MQ properties,
+see the <cite>WebSphere MQ System Administration</cite> book, SC33-1873, which
+is available from the <img border="0" alt="Target can be accessed only when this topic is linked to the World Wide Web" src="web.gif">&nbsp;&nbsp;               
+   <a target="_blank" href="http://www.elink.ibmlink.ibm.com/public/applications/publications/cgibin/pbi.cgi"><strong>IBM Publications Center</strong></a>
+ or from the
+WebSphere MQ collection kit, SK2T-0730.</p>
+
+<dl>
+<dt>
+<strong><a name="JMSServer_name"></a>Name</strong>
+</dt>
+<dd>The name by which the JMS server is known for administrative purposes
+within IBM WebSphere Application Server.
+<p>This name should not be changed.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Units</td>
+<td align="left" valign="top" class="base">Not applicable</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">WebSphere Internal JMS Server</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range</td>
+<td align="left" valign="top" class="base">Not applicable</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JMSServer_description"></a>Description</strong>
+</dt>
+<dd>A description of the JMS server, for administrative purposes within IBM WebSphere Application Server.
+<p>This string should not be changed.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+
+
+
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">WebSphere Internal JMS Server</td>
+
+</tr>
+
+
+
+
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JMSServer_numThreads"></a>Number of threads</strong>
+            &nbsp;
+            </dt>
+<dd>The number of concurrent threads to be used by the publish/subscribe
+matching engine
+<p>The number of concurrent threads should only be set to a small number.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Units</td>
+<td align="left" valign="top" class="base">Threads</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">1</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range</td>
+<td align="left" valign="top" class="base">Greater than or equal to 1.</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JMSServer_queueNames"></a>Queue Names</strong>
+</dt>
+<dd>The names of the queues hosted by this JMS server. Each queue name
+must be added on a separate line.
+<p>Each queue listed in this field must have a separate queue administrative
+object with the same administrative name. To make a queue available to applications,
+define a WebSphere queue and add its name to this field on the JMS Server
+panel for the host on which you want the queue to be hosted.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">ASCII</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Units</td>
+<td align="left" valign="top" class="base">Queue name</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">Not applicable</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range</td>
+<td align="left" valign="top" class="base">Each entry in this field is a queue name of up to 45 characters,
+which must match exactly (including use of upper- and lowercase characters)
+the WebSphere queue administrative object defined for the queue.</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JMSServer_executionState"></a>Initial state</strong>
+</dt>
+<dd>The state that you want the JMS server to have when it is next
+restarted.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Units</td>
+<td align="left" valign="top" class="base">Not applicable</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">Started</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>Started</strong>
+</dt>
+<dd>The JMS server is started automatically.</dd>
+
+<dt>
+<strong>Stopped</strong>
+</dt>
+<dd>The JMS server is not started automatically. If any deployed
+enterprise applications are to use JMS server functions provided by the JMS
+server, the system administrator must start the JMS server manually or select
+the Started value of this property then restart the JMS server.</dd>
+
+</dl>
+<p>To restart the JMS server for an application server,
+stop then restart that application server.</p>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</body>
+</html>

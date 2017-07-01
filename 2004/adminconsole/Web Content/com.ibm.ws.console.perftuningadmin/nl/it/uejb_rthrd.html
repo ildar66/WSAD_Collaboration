@@ -1,0 +1,166 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Impostazioni del lotto thread</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uejb_rthrd"></a>
+<h2>Impostazioni del lotto thread</h2>
+
+<p>Utilizzare questa pagina per configurare un gruppo di thread utilizzato da un
+server delle applicazioni. Le richieste vengono inviate al server attraverso un qualsiasi
+trasporto HTTP.
+Un lotto di thread consente ai componenti server di riutilizzare i thread per eliminare la necessit&agrave; di creare
+nuovi thread durante il run time. La creazione di nuovi thread richiede tempo e risorse.</p>
+
+<p>Per visualizzare questa pagina della console di gestione, fare clic su <strong>Server &gt; Gestisci
+server delle applicazioni &gt; </strong><em>nome_server</em><strong> &gt; Servizio ORB &gt; Lotto thread</strong>. (&Egrave; possibile accedere a questa pagina tramite pi&ugrave; percorsi di
+navigazione).</p>
+
+<div>
+<p>
+<strong>Scheda Configurazione</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="ThreadPool_minimumSize_description"></a>Dimensione minima</strong>
+</dt>
+<dd>Specifica il numero minimo di thread consentiti nel lotto.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Numero intero</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">10</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ThreadPool_maximumSize_description"></a>Dimensione massima</strong>
+</dt>
+<dd>Specifica il numero massimo di thread consentiti nel lotto. 
+<p>Se il Visualizzatore di prestazioni Tivoli visualizza la metrica Raggiunta percentuale
+massima con una cifra doppia, aumentare la dimensione Massima. La metrica Raggiunta percentuale massima indica l'intervallo di tempo utilizzato dai thread configurati. Se sono
+presenti diversi client simultanei collegati all'ORB lato server, aumentare le dimensioni per
+supportare fino a 1000 client.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Numero intero</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">50</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Consigliato	</td>
+<td align="left" valign="top" class="base"><a href="rprf_troubleshoot.html">50
+ (25 sui sistemi Linux)</a></td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ThreadPool_inactivityTimeout_description"></a>Timeout di inattivit&agrave; thread</strong>
+</dt>
+<dd>Specifica il numero di millisecondi di inattivit&agrave;
+che devono scadere prima che venga recuperato un thread. Un valore 0 vuol dire che non &egrave;
+necessario attendere, mentre un valore negativo (inferiore a 0) indica un'attesa
+indefinita.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Numero intero</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&agrave;</td>
+<td align="left" valign="top" class="base">Millisecondi</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">3500</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ThreadPool_isGrowable_description"></a>Incrementabile</strong>
+</dt>
+<dd>Specifica se il numero di thread pu&ograve; aumentare oltre la
+dimensione massima configurata per il lotto di thread.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Valore booleano</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">Non abilitato (false)</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo</td>
+<td align="left" valign="top" class="base">I valori validi sono Consente l'assegnazione thread oltre la dimensione massima del
+thread o Non abilitato.</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informazioni correlate</strong>
+</p>
+<a href="rcon_buttons.html">Pulsanti della console di gestione</a>
+<br>
+
+<a href="rcon_pageusage.html">Funzioni della pagina della console di gestione</a>
+<br>
+
+</div>
+</body>
+</html>

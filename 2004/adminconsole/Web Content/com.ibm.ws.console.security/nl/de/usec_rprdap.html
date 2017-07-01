@@ -1,0 +1,268 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>LDAP-Einstellungen</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecrprdap"></a>
+<h2>
+<img alt="[Release 5.1 und h&ouml;her]" src="v51.gif" border="0">LDAP-Einstellungen</h2>
+
+<p>Auf dieser Seite k&ouml;nnen Sie LDAP-Einstellungen konfigurieren, wenn sich Benutzer und
+Gruppen in einem externen LDAP-Verzeichnis befinden.
+</p>
+
+<p>Klicken Sie zum Anzeigen dieser Seite der Administrationskonsole auf <strong>Sicherheit</strong> &gt; <strong>Benutzer-Registrys</strong> &gt;
+<strong>LDAP</strong>.</p>
+
+<p>Wenn bei aktivierter Sicherheitseinrichtung eines dieser Merkmale ge&auml;ndert wird, m&uuml;ssen Sie in die Anzeige
+<strong>Globale Sicherheit</strong> wechseln und auf <strong>Anwenden</strong> klicken, um die &Auml;nderungen zu &uuml;berpr&uuml;fen.  </p>
+
+<div>
+<p>
+<strong>Register "Konfiguration"</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="UserRegistry_serverId_description"></a>Benutzer-ID des Servers</strong>
+</dt>
+<dd>Gibt die Benutzer-ID an, unter der der Server aus Sicherheitsgr&uuml;nden ausgef&uuml;hrt wird.
+
+<p>Obwohl diese ID nicht die Benutzer-ID des LDAP-Administrators ist, geben Sie einen g&uuml;ltigen Eintrag
+im LDAP-Verzeichnis unter dem definierten Basisnamen an.</p>
+
+</dd>
+<dt>
+<strong><a name="UserRegistry_serverPassword_description"></a>Benutzerkennwort des Servers</strong>
+</dt>
+<dd>Gibt das Kennwort an, das der ID des Sicherheitsservers entspricht.</dd>
+<dt>
+<strong><a name="LDAPUserRegistry_type_description"></a>Typ</strong>
+</dt>
+<dd>Gibt den typ des LDAP-Servers an, zu dem Sie die Verbindung herstellen.
+<p>
+<img alt="[nur 5.0]" src="v50x.gif" border="0"><img alt="[Fixpack 5.0.1]" src="v501x.gif" border="0"><img alt="[Fixpack 5.0.2]" src="v502x.gif" border="0">Der Typ wird verwendet, um LDAP-Standardmerkmale vorher zu laden. Benutzer von IBM Directory Server
+k&ouml;nnen <samp>IBM_Directory_Server</samp> oder <samp>SecureWay</samp> als Verzeichnistyp ausw&auml;hlen. Verwenden
+Sie den Verzeichnistyp <samp>IBM_ Directory_server</samp>, um einen besseren Durchsatz zu erzielen. Benutzer von
+iPlanet Directory Server k&ouml;nnen iPlanet Directory Server oder NetScape als Verzeichnistyp ausw&auml;hlen.
+Um einen besseren Durchsatz zu erzielen, verwenden Sie den Verzeichnistyp iPlanet
+Directory Server, nachdem Sie iPlanet so konfiguriert haben, dass
+<samp>role</samp> <samp>(nsRole)</samp> als Gruppierungsmethode verwendet wird.</p>
+
+<p>
+<img alt="[Release 5.1 und h&ouml;her]" src="v51.gif" border="0"> IBM
+SecureWay Directory Server wird nicht unterst&uuml;tzt. </p>
+
+<p>Eine Liste der unterst&uuml;tzten LDAP-Server finden Sie im Artikel "Unterst&uuml;tzte Verzeichnisservices" in der Dokumentation.
+</p>
+
+</dd>
+<dt>
+<strong><a name="LDAPUserRegistry_host_description"></a>Host</strong>
+</dt>
+<dd>Gibt die Host-ID (IP-Adresse oder DNS-Name) des LDAP-Servers an.</dd>
+<dt>
+<strong><a name="LDAPUserRegistry_port_description"></a>Port</strong>
+</dt>
+<dd>Gibt den Host-Port des LDAP-Servers an. 
+<p>Wenn mehrere WebSphere Application Server installiert und f&uuml;r die Ausf&uuml;hrung in derselben SSO-Dom&auml;ne
+konfiguriert sind oder wenn der WebSphere Application Server mit einer &auml;lteren Version des WebSphere
+Application Server interagiert, muss die Port-Nummer in allen Konfigurationen identisch sein. Beispiel: Wenn
+der LDAP-Port in einer 4.0.x-Konfiguration explizit auf <strong>389</strong> eingestellt ist und ein
+WebSphere Application Server Version 5 mit dem 4.0.x-Server interagieren soll, muss der Port <strong>389</strong>
+auch explizit f&uuml;r den Server der Version 5 angegeben werden. <table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">389</td>
+
+</tr>
+
+</table>
+<p>
+<b>Anmerkung: </b>Wenn der Port ,einschlie&szlig;lich der Standard-Port-Nummer, in einer Serverkonfiguration explizit
+angegeben ist, muss er auch explizit
+in allen anderen Serverkonfigurationen angegeben werden. </p>
+</p>
+
+</dd>
+<dt>
+<strong><a name="LDAPUserRegistry_baseDN_description"></a>Definierter Basisname</strong>
+</dt>
+<dd>Gibt den definierten Basisnamen des Verzeichnisservice an und legt den Ausgangspunkt
+f&uuml;r LDAP-Suchvorg&auml;nge des Verzeichnisservice fest. 
+<p>Beispiel: F&uuml;r einen Benutzer mit dem definierten Basisnamen cn=John Doe, ou=Rochester, o=IBM, c=US kann
+der definierte Basisname wie folgt angegeben werden (die Verwendung des Suffix c=us wird
+vorausgesetzt): ou=Rochester, o=IBM, c=us  o=IBM, c=us  c=us. Bei den Werten in diesem Feld
+wird f&uuml;r die Autorisierung zwischen Gro&szlig;- und Kleinschreibung unterschieden.
+Wenn beispielsweise ein Token von einer anderen Zelle oder von Domino empfangen wird,
+muss also der Basis-DN des Servers exakt mit dem Basis-DN der anderen Zelle oder von Domino &uuml;bereinstimmen.
+Falls die Unterscheidung von Gro&szlig;-/Kleinschreibung bei der Autorisierung unerw&uuml;nscht ist,
+k&ouml;nnen Sie das Feld <strong>Gro&szlig;-/Kleinschreibung ignorieren</strong> aktivieren. Dieses Feld ist f&uuml;r alle LDAP-Verzeichnisse au&szlig;er Domino Directory
+erforderlich. Bei Domino Directory ist das Feld optional.
+</p>
+
+</dd>
+<dt>
+<strong><a name="LDAPUserRegistry_bindDN_description"></a>Definierter BIND-Name</strong>
+</dt>
+<dd>Gibt den definierten Namen des Anwendungsservers an, der bei der Bindung an
+den Verzeichnisservice verwendet werden soll.
+<p>Falls keine Name angegeben wird,
+stellt der Anwendungsserver die Bindung anonym her. In der Beschreibung des
+Feldes "Definierter Basis-Name" finden Sie Beispiele f&uuml;r definierte Namen.</p>
+
+</dd>
+<dt>
+<strong><a name="LDAPUserRegistry_bindPassword_description"></a>BIND-Kennwort</strong>
+</dt>
+<dd>Gibt das Kennwort des Anwendungsservers an, das bei der Bindung an den
+Verzeichnisservice verwendet werden soll.</dd>
+<dt>
+<strong><a name="LDAPUserRegistry_searchTimeout_description"></a>Suchzeitlimit</strong>
+</dt>
+<dd>Gibt das Zeitlimit eines LDAP-Servers f&uuml;r die Reaktion auf eine Anforderung an (in Sekunden). Nach
+Erreichen des Zeitlimits wird die Anforderung abgebrochen.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">120</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LDAPUserRegistry_reuseConnection_description"></a>Verbindung wieder verwenden</strong>
+</dt>
+<dd>Gibt an, ob der Server die LDAP-Verbindung wieder verwenden soll. Inaktivieren Sie diese Option in
+den seltenen F&auml;llen, in denen eine Router Anforderungen an mehrere
+LDAP-Server absetzt oder keine Affinit&auml;t unterst&uuml;tzt. 
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">Aktiviert </td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">Aktiviert oder inaktiviert</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LDAPUserRegistry_ignoreCase_description"></a>Gro&szlig;-/Kleinschreibung ignorieren</strong>
+</dt>
+<dd>Gibt an, dass eine Berechtigungspr&uuml;fung ohne Ber&uuml;cksichtigung der Gro&szlig;-/Kleinschreibung
+durchgef&uuml;hrt wird. 
+<p>In dieses Feld muss ein Wert eingegeben werden, wenn IBM Directory Server als LDAP-Verzeichnisserver ausgew&auml;hlt
+ist. </p>
+
+<p>
+<img alt="[Release 5.1 und h&ouml;her]" src="v51.gif" border="0">In dieses Feld muss ein Wert eingegeben werden, wenn Sun ONE Directory Server als LDAP-Verzeichnisserver ausgew&auml;hlt
+ist. Weitere Informationen hierzu finden Sie im Artikel "Spezifische Verzeichnisserver als LDAP-Server verwenden" in der Dokumentation.
+</p>
+
+<p>Andernfalls ist das Feld optional und kann aktiviert werden, wenn im Hinblick auf die
+Autorisierung eine &Uuml;berpr&uuml;fung der Gro&szlig;-/Kleinschreibung erfolgen soll.
+Beispiel: Sie verwenden Zertifikate, und der Zertifikatinhalt stimmt nicht mit der Gro&szlig;-/Kleinschreibung
+des Eintrags im LDAP-Server &uuml;berein. Sie k&ouml;nnen das Feld <strong>Gro&szlig;-/Kleinschreibung ignorieren</strong> aktivieren, wenn SIe
+zwischen WebSphere Application Server und Lotus Domino SSO (Single Sign-On).
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">Inaktiviert</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">Aktiviert oder inaktiviert</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LDAPUserRegistry_sslEnabled_description"></a>SSL aktiviert</strong>
+</dt>
+<dd> Gibt an, ob die SSL-&Uuml;bertragung f&uuml;r den LDAP-Server aktiviert ist.
+Bei Aktivierung werden die angegebenen SSL-Einstellungen f&uuml;r LDAP verwendet.</dd>
+<dt>
+<strong><a name="LDAPUserRegistry_sslConfig_description"></a>SSL-Konfiguration</strong>
+</dt>
+<dd>Gibt die SSL-Konfiguration an, die f&uuml;r die LDAP-Verbindung
+verwendet werden soll. Diese Konfiguration wird nur verwendet, wenn SSL f&uuml;r LDAP aktiviert ist. 
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">SSL-Standardeinstellungen</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LDAPUserRegistry_enableTAM_description"></a>Tivoli Access Manager f&uuml;r Account-Policys verwenden
+</strong>
+</dt>
+<dd>W&auml;hlen Sie diese Option aus, wenn Tivoli Access Manager f&uuml;r die Authentifizierung von Kennwort- und Account-Policys verwendet werden soll. Diese Option erfordert, dass Tivoli Access Manager installiert ist.
+
+<p>W&auml;hlen Sie diese Option nur dann aus, wenn Tivoli Access Manager Server
+installiert und f&uuml;r die Verwendung durch WebSphere Application Server konfiguriert ist. Der von
+Tivoli Access Manager verwendete LDAP-Verzeichnisserver muss mit dem von WebSphere Application Server
+verwendeten LDAP-Verzeichnisserver identisch sein.
+</p>
+
+<p>
+<b>Anmerkung: </b>Wenn Sie diese Option ausw&auml;hlen, wird IBM SecureWay Directory
+Server als LDAP-Verzeichnisserver nicht unterst&uuml;tzt.</p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Zugeh&ouml;rige Informationen</strong>
+</p>
+<a href="rcon_buttons.html">Kn&ouml;pfe in der Adminstrationskonsole</a>
+<br>
+
+<a href="rcon_pageusage.html">Funktionen auf den Seiten der Administrationskonsole</a>
+<br>
+
+<a href="rcon_scope.html">Geltungsbereichseinstellungen f&uuml;r die Administrationskonsole</a>
+<br>
+
+<a href="rcon_filter.html">Filtereinstellungen f&uuml;r die Administrationskonsole</a>
+<br>
+
+<a href="rcon_preferences.html">Vorgaben f&uuml;r die Administrationskonsole</a>
+<br>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+    <bean id="july.rts.dao.commentDAO" 
+          class="com.hps.july.rts.service.impl.dao.CommentDAOHibernate" 
+          parent="july.hibernateDaoSupport"/>
+
+    <bean id="july.rts.dao.initiatorRequestDAO"
+          class="com.hps.july.rts.service.impl.dao.impl.InitiatorRequestDAOHibernate"
+          parent="july.hibernateDaoSupport">
+        <property name="operatorService" ref="july.rts.service.operatorService"/>
+    </bean>
+
+    <bean id="july.rts.dao.requestNumerationDAO" 
+          class="com.hps.july.rts.service.impl.dao.impl.RTSRequestNumerationDAOHibernate"
+          parent="july.hibernateDaoSupport"/>
+
+    <bean id="july.rts.dao.consolidatedRequestDAO" 
+          class="com.hps.july.rts.service.impl.dao.impl.ConsolidatedRequestDAOHibernate" 
+          parent="july.hibernateDaoSupport">
+        <property name="operatorService" ref="july.rts.service.operatorService"/>
+    </bean>
+
+    <bean id="july.rts.dao.elementaryRequestDAO"
+          class="com.hps.july.rts.service.impl.dao.impl.ElementaryRequestDAOHibernate"
+          parent="july.hibernateDaoSupport">
+        <property name="operatorService" ref="july.rts.service.operatorService"/>
+    </bean>
+
+    <bean id="july.rts.dao.rentElementaryRequestDAO"
+          class="com.hps.july.rts.service.impl.dao.impl.RentElementaryRequestDAOHibernate"
+          parent="july.hibernateDaoSupport">
+        <property name="operatorService" ref="july.rts.service.operatorService"/>
+    </bean>
+
+    <bean id="july.rts.dao.notificationDAO"
+          class="com.hps.july.rts.service.impl.dao.impl.NotificationDAOHibernate"
+          parent="july.hibernateDaoSupport">
+        <property name="operatorService" ref="july.rts.service.operatorService"/>
+    </bean>
+</beans>
+

@@ -1,0 +1,138 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Impostazioni di trasporto in uscita di CSI (Common secure interoperability)</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecoutboundconn"></a>
+<h2>Impostazioni di trasporto in uscita di CSI (Common secure interoperability)</h2>
+
+<p>Utilizzare questa pagina per specificare le impostazioni dei trasporti e di
+SSL, che il server utilizza durante le comunicazioni con i
+server downstream per le richieste in uscita.</p>
+
+<p>Per visualizzare questa pagina della console di gestione, fare clic su <strong>Sicurezza &gt;
+Protocollo di autenticazione &gt; Trasporto in uscita CSI</strong>.</p>
+
+<div>
+<p>
+<strong>Scheda Configurazione</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="Transport_o_description"></a>Trasporto</strong>
+</dt>
+<dd>Specifica se i processi del client si collegano al server utilizzando uno dei
+trasporti collegati del server. 
+<p>&Egrave; possibile scegliere di utilizzare <strong>SSL</strong>, <strong>TCP/IP</strong> o <strong>entrambi</strong> come
+trasporto in uscita supportato da un server. Se si
+specifica <strong>TCP/IP</strong>, il server supporta solo TCP/IP e non pu&ograve; inizializzare le
+connessioni SSL con i server downstream. Se si specifica <strong>SSL
+supportato</strong>, questo server pu&ograve; inizializzare le connessioni TCP/IP o SSL. Se si specifica
+<strong>SSL obbligatorio</strong>, il server deve utilizzare SSL per inizializzare le
+connessioni ai server downstream. Quando viene specificato SSL, decidere
+quali gruppi di impostazioni di configurazione SSL si desidera
+utilizzare per la configurazione in uscita. Tale decisione stabilisce quale file di
+chiavi e quale file sicuro utilizzare per le connessioni in
+uscita sui server downstream. Considerare, ad esempio, quanto segue:<dl>
+
+<dt>
+<strong>TCP/IP</strong>
+</dt>
+<dd>Questo server apre solo le connessioni TCP/IP con i server downstream.</dd>
+
+<dt>
+<strong>SSL Supportato</strong>
+</dt>
+<dd>Questo server apre le connessioni SSL con
+qualsiasi server downstream che le supporta e le connessioni TCP/IP con qualsiasi server
+downstream che non le supporta.</dd>
+
+<dt>
+<strong>SSL obbligatorio</strong>
+</dt>
+<dd>Questo server apre sempre le connessioni SSL
+con server downstream.</dd>
+
+</dl>
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito:</td>
+<td align="left" valign="top" class="base">SSL-Supportato</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo:</td>
+<td align="left" valign="top" class="base">TCP/IP, SSL-Obbligatorio, SSL-Supportato</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SSLSettings_ibm_o_description"></a>Impostazioni SSL</strong>
+</dt>
+<dd>Specifica un elenco di impostazioni SSL predefinite
+per le connessioni in uscita.
+ Queste impostazioni vengono configurate nel pannello Repertori di configurazione SSL.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati:</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito:</td>
+<td align="left" valign="top" class="base">DefaultSSLSettings</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo:</td>
+<td align="left" valign="top" class="base">Qualsiasi impostazione SSL configurata nel pannello Repertori di configurazione
+SSL</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informazioni correlate</strong>
+</p>
+<a href="rcon_buttons.html">Pulsanti della console di gestione</a>
+<br>
+
+<a href="rcon_pageusage.html">Funzioni della pagina della console di gestione</a>
+<br>
+
+<a href="rcon_scope.html">Impostazioni ambito della console di gestione</a>
+<br>
+
+<a href="rcon_filter.html">Impostazioni di filtro della console di gestione</a>
+<br>
+
+<a href="rcon_preferences.html">Impostazioni delle preferenze della console di gestione</a>
+<br>
+
+</div>
+</body>
+</html>

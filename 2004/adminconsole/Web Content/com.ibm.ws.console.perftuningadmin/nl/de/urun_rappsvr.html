@@ -1,0 +1,295 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Einstellungen f&uuml;r Anwendungsserver</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="urun_rappsvr"></a>
+<h2>Einstellungen f&uuml;r Anwendungsserver</h2>
+
+<p>Auf dieser Seite k&ouml;nnen Sie die Einstellungen einer Anwendungsserverinstanz anzeigen oder
+&auml;ndern. </p>
+
+<p>Klicken Sie zum Anzeigen dieser Seite der Administrationskonsole auf <strong>Server &gt; Anwendungsserver &gt; </strong><em>Servername</em>. </p>
+
+<p>Unter dem Register <strong>Konfiguration</strong> der Seite befinden
+sich editierbare Felder. Unter dem Register
+<strong>Laufzeit</strong> befinden sich schreibgesch&uuml;tzte Informationen. Das Register
+<strong>Laufzeit</strong> ist nur verf&uuml;gbar, wenn der Server ausgef&uuml;hrt wird.</p>
+
+<div>
+<p>
+<strong>Register "Konfiguration"</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="Server_name_description"></a>Name</strong>
+</dt>
+<dd>Gibt einen logischen Namen f&uuml;r den Server an. Servernamen m&uuml;ssen auf einem Knoten eindeutig
+sein.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">server1</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="StateManageable_initialState_description"></a>Ausgangsstatus</strong>
+</dt>
+<dd>Der Ausf&uuml;hrungsstatus der Komponente, der beim ersten Start des Servers angefordert wird.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">Gestartet</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationServer_classloaderPolicy_description"></a>Klassenlader-Policy der Anwendung</strong>
+</dt>
+<dd>Gibt an, ob ein einziger Klassenlader zum Laden aller Anwendungen oder ob
+f&uuml;r jede Anwendung ein anderer Klassenlader verwendet werden soll.
+<p>Die Optionen sind SINGLE und MULTIPLE. Der Standardwert sieht vor, dass f&uuml;r alle Anwendungen
+(MULTIPLE)
+ein separater Klassenlader verwendet wird. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">MULTIPLE</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationServer_classloaderMode_description"></a>Modus f&uuml;r Klassenlader der Anwendung</strong>
+</dt>
+<dd>Gibt an, ob der Klassenlader zuerst im &uuml;bergeordneten Klassenlader oder im Klassenlader der
+Anwendung suchen soll, um eine Klasse zu laden. Der Standardwert f&uuml;r JDK-Klassenlader
+und WebSphere-Klassenlader ist PARENT_FIRST. Durch Angabe von PARENT_LAST kann die Anwendung Klassen, die im &uuml;bergeordneten Klassenlader enthalten
+sind, &uuml;berschreiben. Wenn &uuml;berschriebene und nicht &uuml;berschriebene Klassen gemischt verwendet werden, besteht
+jedoch die M&ouml;glichkeit, dass eine ClassCastException ausgel&ouml;st wird bzw. Verkn&uuml;pfungsfehler (LinkageErrors)
+auftreten.  
+<p>Die Optionen lauten PARENT_FIRST und PARENT_LAST. Der Standardwert sieht
+vor, dass zuerst im &uuml;bergeordneten Klassenlader und dann im Klassenlader der
+Anwendung gesucht werden soll, um eine Klasse zu laden.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">PARENT_FIRST</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Register "Laufzeit"</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="rappsvr-rt1"></a>Prozess-ID</strong>
+            &nbsp;
+            </dt>
+<dd>Gibt eine Zeichenfolge zur Bezeichnung des Prozesses an.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="rappsvr-rt2"></a>Zellenname</strong>
+            &nbsp;
+            </dt>
+<dd>Gibt den Namen der Zelle f&uuml;r den Anwendungsserver an.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base"><em>Hostname</em>Network</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="rappsvr-rt3"></a>Knotenname</strong>
+            &nbsp;
+            </dt>
+<dd>Gibt den Namen des Knotens f&uuml;r den Anwendungsserver an.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="rappsvr-rt4"></a>Status</strong>
+            &nbsp;
+            </dt>
+<dd>Gibt an, ob der Anwendungsserver gestartet oder gestoppt wurde.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">Gestartet</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Zugeh&ouml;rige Informationen</strong>
+</p>
+<a href="rcon_buttons.html">Kn&ouml;pfe in der Adminstrationskonsole</a>
+<br>
+
+<a href="rcon_pageusage.html">Funktionen auf den Seiten der Administrationskonsole</a>
+<br>
+
+<a href="uagt_radmin.html">Einstellungen f&uuml;r Administrationsservices</a>
+<br>
+
+<a href="urun_rclassloader.html">Klassenlader</a>
+<br>
+
+<a href="urun_rapp.html">Enterprise-Anwendungen</a>
+<br>
+
+<a href="urun_rsvr_services.html">Benutzerdefinierte Services</a>
+<br>
+
+<a href="utrb_debugsvc.html">Einzelheiten zum Debugging Service</a>
+<br>
+
+<a href="udyn_rcachesettings.html">Einstellungen des Dynamic Cache Service </a>
+<br>
+
+<a href="uejb_recnt.html">Einstellungen f&uuml;r EJB-Container</a>
+<br>
+
+<a href="urun_rendpoint.html">Endpunkte</a>
+<br>
+
+<a href="utrb_servicelogs.html">Einstellungen des IBM Serviceprotokolls</a>
+<br>
+
+<a href="utrb_logtrace.html">Einstellungen f&uuml;r Protokolle und Trace</a>
+<br>
+
+<a href="umb_smlp.html">Gruppe der Message-Listener-Ports </a>
+<br>
+
+<a href="uorb_rsetg.html">Einstellungen f&uuml;r ORB-Service in Administrationskonsole</a>
+<br>
+
+<a href="uprf_rmonitorsettings.html">Einstellungen des Leistungs&uuml;berwachungsservice </a>
+<br>
+
+<a href="urun_rconfproc.html">Einstellungen f&uuml;r Prozessdefinitionen </a>
+<br>
+
+<a href="urun_rproperty.html">Benutzerdefinierte Merkmale</a>
+<br>
+
+<a href="urun_rsvrcomp.html">Serverkomponenten </a>
+<br>
+
+<a href="utrb_traceservice.html">Einstellungen des Diagnostic Trace Service</a>
+<br>
+
+<a href="udat_contranserv.html">Einstellungen f&uuml;r Transaktionsservice</a>
+<br>
+
+<a href="uweb_rcont.html">Einstellungen f&uuml;r Webcontainer </a>
+<br>
+
+</div>
+</body>
+</html>

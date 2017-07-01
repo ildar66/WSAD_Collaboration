@@ -1,0 +1,158 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>轻量级第三方认证设置</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecrltpa"></a>
+<h2>轻量级第三方认证设置</h2>
+
+<p>使用此页面配置轻量级第三方认证（LTPA）设置。</p>
+
+<p>要查看此管理控制台页面，单击<strong>安全性</strong> &gt; <strong>认证机制</strong> &gt; <strong>LTPA</strong>。</p>
+
+<p>如果首次配置安全性，则仅密码是必需的。一旦输入了密码，单击<strong>应用</strong>。单击<strong>单次注册</strong>（SSO）并输入域名。确保启用了 SSO。
+单击<strong>应用</strong>。 要完成安全性设置，确保设置了相应的注册表，并从&ldquo;全局安全性&rdquo;面板中单击<strong>应用</strong>。当启用了安全性并且更改任
+何这些属性时，请转至&ldquo;全局安全性&rdquo;面板并单击<strong>应用</strong>确认这些更改。</p>
+
+<div>
+<p>
+<strong>&ldquo;配置&rdquo;选项卡</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="button"></a>生成密钥</strong>
+</dt>
+<dd>指定服务器是否将生成新的 LTPA 密钥。
+<p>第一次用 LTPA 打开安全性作为认证机制时，用面板中输入的密码自动生成 LTPA 密钥。如果您需要使用先前设置的密码生成新的密钥集，那么单击<strong>生成密钥</strong>。如果使用新密码，那么不要单击此按钮。一旦输入新密码并单击<strong>确定</strong>或<strong>应用</strong>，就生成新的密钥集。<em>无论新的密钥集是何时生成的，在您保存之前都不会使用它们。</em> 
+</p>
+
+</dd>
+<dt>
+<strong><a name="LTPA_password_description"></a>导入密钥</strong>
+</dt>
+<dd>指定服务器是否将导入新的 LTPA 密钥。
+<p>要支持跨多个 WebSphere 域（单元）的 WebSphere 产品中的单次注册（SSO），在这些域中共享 LTPA 密钥和密码。<strong>导入密钥</strong>按钮可用于从其它域导入 LTPA 密钥。先前应该已从一个单元导出 LTPA 密钥到文件。要导入新的 LTPA 密钥集，输入找到 LTPA 密钥处的适当的密码和文件名。
+仅单击<strong>导入密钥</strong>并且<strong><em>不要单击</em></strong><strong>确定</strong>或<strong>应用</strong>。</p>
+
+</dd>
+<dt>
+<strong><a name="LTPA_password_description"></a>导出密钥</strong>
+</dt>
+<dd>指定服务器是否将导出 LTPA 密钥。
+<p>要支持跨多个 WebSphere 域（单元）的 WebSphere 产品中的单次注册（SSO），在这些域中共享 LTPA 密钥和密码。<strong>导出密钥</strong>按钮可用于将 LTPA 密钥导出到其它域。</p>
+
+<p>要导出 LTPA 密钥，确保系统正在以启用了安全性的方式运行，并且正在使用 LTPA。在<strong>密钥文件名</strong>字段中输入文件名并单击<strong>导出密钥</strong>。加密的密钥将存储在指定的文件中。</p>
+
+</dd>
+<dt>
+<strong><a name="LTPA_password_description"></a>密码</strong>
+</dt>
+<dd>指定对 LTPA 密钥进行加密和解密的密码。将这些密钥导入其它 WebSphere Application Server 管理域配置（如果有的话）并在配置 Domino 服务器的 SSO 时，使用此密码。
+<p>一旦生成或导入了密钥，这些密钥用于加密和解密 LTPA 令牌。只要更改了密码，当您单击<strong>确定</strong>或<strong>应用</strong>时就自动生成新的 LTPA 密钥集。仅当您保存时才使用这些新的密钥集。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LTPA_confirmPassword_description"></a>确认密码</strong>
+</dt>
+<dd>指定用于对 LTPA 密钥进行加密和解密的确认密码。
+<p>将这些密钥导入其它 WebSphere Application Server 管理域配置（如果有的话）并在配置 Domino Server 的 SSO 时，使用此密码。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LTPA_timeout_description"></a>超时</strong>
+</dt>
+<dd>指定 LTPA 令牌将到期的时间周期（以分钟为单位）。确保此时间周期比在&ldquo;全局安全性&rdquo;面板中配置的高速缓存超时长。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">整型</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">单位</td>
+<td align="left" valign="top" class="base">分钟</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">120</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LTPA_keyFilename_description"></a>密钥文件名</strong>
+</dt>
+<dd>指定导入或导出密钥时使用的文件名。
+<p>输入全限定密钥文件名，并单击<strong>导入密钥</strong>或<strong>导出密钥</strong>。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>相关信息</strong>
+</p>
+<a href="rcon_buttons.html">管理控制台按钮</a>
+<br>
+
+<a href="rcon_pageusage.html">管理控制台页面功能</a>
+<br>
+
+<a href="rcon_scope.html">管理控制台作用域设置</a>
+<br>
+
+<a href="rcon_filter.html">管理控制台过滤器设置</a>
+<br>
+
+<a href="rcon_preferences.html">管理控制台首选项设置</a>
+<br>
+
+</div>
+</body>
+</html>

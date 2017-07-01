@@ -1,0 +1,70 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Einstellungen des Dynamic Cache Service </title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="udyn_rcachesettings"></a>
+<h2>Einstellungen des Dynamic Cache Service </h2>
+
+<p>Auf dieser Seite k&ouml;nnen Sie die Einstellungen f&uuml;r den dynamischen
+Cache-Service konfigurieren und verwalten. </p>
+
+<p>Klicken Sie, um diese Seite der Administrationskonsole anzuzeigen, auf <strong>Server</strong> &gt;
+<strong>Anwendungsserver</strong> &gt; <em>Server</em> &gt; <strong>Dynamischer Cache-Service</strong>.</p>
+
+<div>
+<p>
+<strong>Register "Konfiguration"</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="DynamicCache__startup_description"></a>Startstatus</strong>
+</dt>
+<dd>Gibt an, ob der dynamische Cache aktiviert ist. </dd>
+<dt>
+<strong><a name="DynamicCache_cacheSize_description"></a>Cache-Gr&ouml;&szlig;e
+</strong>
+</dt>
+<dd>Eine positive ganze Zahl als Wert f&uuml;r die Maximalanzahl der im Cache gespeicherten Eintr&auml;ge. 
+<p>Geben Sie in diesem Feld die Cache-Gr&ouml;&szlig;e ein. Der g&uuml;ltige Wertebereich liegt zwischen 100 und
+200.000. </p>
+
+</dd>
+<dt>
+<strong><a name="DynamicCache_defaultPriority_description"></a>Standadrdpriorit&auml;t</strong>
+</dt>
+<dd>Gibt die Standardpriorit&auml;t f&uuml;r Cache-Eintr&auml;ge an und legt fest, wie lange ein Eintrag in einem
+vollen Cache bleibt. 
+<table border="1" cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base">Standardwert</td>
+<td align="left" valign="top" class="base">1</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="DynamicCache_enableDiskOffload_description"></a>Plattenauslagerung</strong>
+</dt>
+<dd>Gibt an, ob die Plattenauslagerung aktiviert ist.  
+<p>Standardm&auml;&szlig;ig verwaltet der dynamische Cache die Anzahl der im
+Speicher konfigurierten Eintr&auml;ge. Wenn neue Eintr&auml;ge erstellt werden und der Cache
+voll ist, werden Eintr&auml;ge nach bestimmten Regeln aus dem Cache entfernt. Diese basieren auf
+der f&uuml;r die einzelnen Cache-Eintr&auml;ge konfigurierten Priorit&auml;t und einem Algorithmus
+f&uuml;r den Zeitpunkt der letzten Verwendung. Sie haben auch die M&ouml;glichkeit, eine Plattenauslagerung zu
+konfigurieren. Die Eintr&auml;ge werden dann nicht aus dem Speicher entfernt, sondern in das Dateisystem kopiert
+(die Speicherposition ist konfigurierbar), so dass ein sp&auml;terer Zugriff m&ouml;glich ist.</p>
+
+</dd>
+</dl>
+</div>
+</body>
+</html>

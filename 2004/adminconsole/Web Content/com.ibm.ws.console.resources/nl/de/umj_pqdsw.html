@@ -1,0 +1,475 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Einstellungen f&uuml;r WebSphere-Warteschlangen</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="WASQueue"></a>
+<h2>Einstellungen f&uuml;r WebSphere-Warteschlangen</h2>
+
+<p>Verwenden Sie diese Anzeige, um die Konfigurationsmerkmale der
+ausgew&auml;hlten Zieladresse f&uuml;r eine Warteschlange, das mit dem
+WebSphere-JMS-Provider verwendet werden soll, anzuzeigen oder zu &auml;ndern.</p>
+
+<p>Die Zieladresse f&uuml;r eine Warteschlange wird verwendet, um die Merkmale einer
+JMS-Warteschlange zu konfigurieren.
+Die Verbindungen zu der Warteschlange werden von der zugeordneten
+Verbindungs-Factory f&uuml;r eine Warteschlange, die mit dem eingebetteten
+WebSphere-JMS-Provider verwendet werden soll, erstellt. Eine
+Warteschlange, die mit dem internen WebSphere-JMS-Provider verwendet werden soll, hat
+die
+folgenden Merkmale:</p>
+
+<p>
+<b>Anmerkung: </b>Sie m&uuml;ssen den Warteschlangennamen der Liste der Warteschlangennamen in der
+Konfiguration der JMS-Server hinzuf&uuml;gen, auf denen die entsprechenden Warteschlangen definiert sind.</p>
+
+<p>Klicken Sie zum Anzeigen dieser Seite der Administrationskonsole auf
+<strong>Ressourcen -&gt; WebSphere-JMS-Provider-&gt; (im Inhaltsteilfenster unter "Weitere Merkmale")
+Zieladressen f&uuml;r WebSphere-Warteschlangen -&gt; <em>Zieladresse</em></strong>.</p>
+
+<div>
+<p>
+<strong>Register "Konfiguration"</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="WASQueue_contextId"></a>Bereich</strong>
+</dt>
+<dd>Gibt die Ebene an, bis zu der diese Ressourcendefinition sichtbar ist - Zelle, Knoten oder Server.
+<p>Ressourcen, wie z. B. JMS-Provider, Namespace-Bindungen oder gemeinsam
+benutzte Bibliotheken k&ouml;nnen in mehreren Bereichen definiert werden. Dabei &uuml;berschreiben Ressourcen, die in
+spezifischeren Bereichen
+definiert wurden, Ressourcen, die in allgemeineren Bereichen definiert wurden. </p>
+
+<p>Die Merkmale einer Ressource gelten nur f&uuml;r eine bestimmte Serverebene, unabh&auml;ngig vom
+Geltungsbereich einer definierten Ressource.
+Wenn Sie beispielsweise den Geltungsbereich einer Datenquelle auf Zellenebene definieren,
+k&ouml;nnen alle Benutzer in dieser Zelle diese Datenquelle durchsuchen und verwenden.
+Die Einstellungen von Ressourcenmerkmalen gelten jedoch lokal f&uuml;r jeden Server in der Zelle.
+Wenn Sie beispielsweise die <strong>maximale Anzahl von Verbindungen</strong> auf 10 setzen, kann jeder
+Server in dieser Zelle 10 Verbindungen haben.<dl>
+<dt>
+<strong>Zelle</strong>
+</dt>
+<dd>Der allgemeinste Bereich. Ressourcen, die im Zellenbereich definiert werden, sind auf
+allen Knoten und Servern sichtbar, vorausgesetzt, sie wurden nicht &uuml;berschrieben.
+M&ouml;chten Sie Ressourcen anzeigen, die im Zellenbereich definiert wurden, d&uuml;rfen Sie
+keinen Server oder Knotennamen im Formular f&uuml;r die Bereichsauswahl angeben.</dd>
+<dt>
+<strong>Knoten</strong>
+</dt>
+<dd>Der Standardbereich f&uuml;r die meisten Ressourcentypen.  Ressourcen, die im Knotenbereich
+definiert werden, &uuml;berschreiben alle Duplikate im Zellenbereich und sind auf allen Servern, die sich auf
+demselben
+Knoten befinden, sichtbar, vorausgesetzt, sie wurden nicht in einem Serverbereich auf diesem Knoten
+&uuml;berschrieben. M&ouml;chten Sie Ressourcen anzeigen, die in einem Knotenbereich
+definiert
+wurden, d&uuml;rfen Sie keinen Server angeben, sondern m&uuml;ssen einen Knotennamen im Formular f&uuml;r
+die Bereichsauswahl ausw&auml;hlen.</dd>
+<dt>
+<strong>Server</strong>
+</dt>
+<dd>Der spezifischste Bereich f&uuml;r die Definition von Ressourcen.  Ressourcen,
+die im Serverbereich definiert werden, &uuml;berschreiben alle Duplikate von
+Ressourcendefinitionen, die im Zellenbereich oder im &uuml;bergeordneten
+Knotenbereich definiert wurden, und k&ouml;nnen nur von einem spezifischen Server erkannt werden. M&ouml;chten
+Sie Ressourcen anzeigen, die in einem Serverbereich definiert wurden, m&uuml;ssen Sie im
+Formular f&uuml;r die Bereichsauswahl einen Servernamen und einen Knotennamen ausw&auml;hlen.</dd>
+</dl>
+</p>
+
+<p>Wenn Ressourcen erstellt werden, werden sie immer im aktuellen, in der Anzeige ausgew&auml;hlten Bereich
+erstellt. M&ouml;chten Sie Ressourcen in anderen Bereichen anzeigen,
+geben Sie einen anderen Knoten oder Server im Formular f&uuml;r die Bereichsauswahl an.  </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASQueue_name"></a>Name</strong>
+</dt>
+<dd>Der Name, unter dem diese Warteschlange f&uuml;r die Administration in IBM WebSphere Application Server
+gef&uuml;hrt wird. 
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASQueue_jndiName"></a>JNDI-Name</strong>
+</dt>
+<dd>Der JNDI-Name, der zum Binden der Warteschlange an den
+Namespace des Anwendungsservers verwendet wird.
+<p>Verwenden Sie als Konvention den vollst&auml;ndig qualifizierten JNDI-Namen, z. B.
+im Format jms/<em>Name</em>. Dabei bezeichnet <em>Name</em>
+den logischen Namen der Ressource.</p>
+
+<p>Dieser Name wird verwendet, um
+die Bindungsinformationen f&uuml;r die Plattform zu verlinken. Die Bindung ordnet die im Deployment-Deskriptor des Moduls definierten
+Ressourcen den "echten" (physischen) Ressourcen zu, die &uuml;ber die Plattform
+an JNDI gebunden sind.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASQueue_description"></a>Beschreibung</strong>
+</dt>
+<dd>Eine Beschreibung der Warteschlange f&uuml;r die Administration.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">Keiner</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASQueue_category"></a>Kategorie </strong>
+</dt>
+<dd>Eine Kategorie, die verwendet wird, um
+diese Warteschlange f&uuml;r Ihre Administrationsdaten unter IBM WebSphere Application Server zu
+klassifizieren bzw. zu gruppieren.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASQueue_persistence"></a>Persistenz</strong>
+</dt>
+<dd>Gibt an, ob alle Nachrichten, die an die
+Zieladresse
+gesendet werden, persistent oder nicht persistent sind bzw. ob deren
+Persistenz von der Anwendung definiert wurde.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">VON ANWENDUNG DEFINIERT</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">
+<dl>
+<dt>
+<strong>VON ANWENDUNG DEFINIERT</strong>
+</dt>
+<dd>Die Persistenz von Nachrichten, die sich an der
+Zieladresse befinden, wird
+von der Anwendung, die die Nachrichten in die Warteschlange gestellt hat, definiert.</dd>
+<dt>
+<strong>NICHT PERSISTENT</strong>
+</dt>
+<dd>Die Nachrichten an der Zieladresse sind nicht
+persistent.</dd>
+<dt>
+<strong>PERSISTENT</strong>
+</dt>
+<dd>Die Nachrichten an der Zieladresse sind persistent.</dd>
+<dt>
+<strong>DEFINITION DURCH WARTESCHLANGE</strong>
+</dt>
+<dd>[Nur Zieladressen f&uuml;r MQSeries-JMS-Warteschlange]
+Die Persistenz der an der Zieladresse befindlichen Nachrichten wird von den Merkmalen der
+WebSphere-MQ-Warteschlangendefinition definiert.</dd>
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASQueue_priority"></a>Priorit&auml;t</strong>
+</dt>
+<dd>Gibt an, ob die Nachrichtenpriorit&auml;t
+f&uuml;r diese Zieladresse von der Anwendung oder vom Merkmal
+<strong>Angegebene Priorit&auml;t</strong> angegeben wurde.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Einheiten</td>
+<td align="left" valign="top" class="base">Nicht anwendbar</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">DEFINITION DURCH ANWENDUNG</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">
+<dl>
+<dt>
+<strong>DEFINITION DURCH ANWENDUNG</strong>
+</dt>
+<dd>Die Priorit&auml;t von Nachrichten,
+die sich an dieser Zieladresse befinden, wird von der Anwendung, die die Nachrichten
+an die Zieladresse gestellt hat, definiert.</dd>
+<dt>
+<strong>QUEUE DEFINED</strong>
+</dt>
+<dd>[Nur Zieladressen f&uuml;r MQSeries-JMS-Warteschlange]
+Die Persistenz der an der Zieladresse befindlichen Nachrichten wird von den Merkmalen der
+WebSphere-MQ-Warteschlangendefinition definiert.</dd>
+<dt>
+<strong>ANGEGEBEN </strong>
+</dt>
+<dd>Die Priorit&auml;t von Nachrichten, die sich an dieser Zieladresse
+befinden, wird vom Merkmal <strong>Angegebene Priorit&auml;t</strong> definiert.
+<em>Wenn Sie diese
+Option ausw&auml;hlen, m&uuml;ssen Sie eine Priorit&auml;t f&uuml;r das Merkmal
+<strong>Angegebene Priorit&auml;t</strong> definieren.</em>
+</dd>
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASQueue_specifiedPriority"></a>Angegebene Priorit&auml;t</strong>
+</dt>
+<dd>Wird f&uuml;r das Merkmal <strong>Priorit&auml;t</strong> der Wert <samp>Angegeben</samp> definiert, geben Sie hier die
+Nachrichtenpriorit&auml;t im Bereich von 0 (niedrigste Priorit&auml;t) bis 9 (h&ouml;chste Priorit&auml;t) an.
+<p>Wird f&uuml;r das Merkmal <strong>Priorit&auml;t</strong> der Wert <samp>Angegeben</samp>
+definiert, haben Nachrichten, die in diese Warteschlange gestellt
+werden, den vom Merkmal angegebenen Priorit&auml;tswert.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Einheiten</td>
+<td align="left" valign="top" class="base">Nachrichtenpriorit&auml;tsstufe</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">0</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">0 (niedrigste Priorit&auml;t) bis 9 (h&ouml;chste Priorit&auml;t)</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASQueue_expiry"></a>Verfallszeit</strong>
+</dt>
+<dd>Gibt an, ob die Verfallszeit
+von der Anwendung oder vom Merkmal <strong>Angegebene
+Verfallszeit</strong> definiert wird, oder ob Nachrichten in der
+Warteschlange nicht ung&uuml;ltig werden (eine unbegrenzte Verfallszeit haben).
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Einheiten</td>
+<td align="left" valign="top" class="base">Nicht anwendbar</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">DEFINITION DURCH ANWENDUNG</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">
+<dl>
+<dt>
+<strong>DEFINITION DURCH ANWENDUNG</strong>
+</dt>
+<dd>Das Zeitlimit f&uuml;r die G&uuml;ltigkeitsdauer von
+Nachrichten, die sich in dieser Warteschlange befinden, wird von der
+Anwendung, die die Nachrichten in die Warteschlange gestellt hat, definiert.</dd>
+<dt>
+<strong>UNBEGRENZT</strong>
+</dt>
+<dd>Nachrichten, die sich in dieser
+Warteschlange befinden, haben keine Verfallszeit,
+die Nachrichten werden also nicht ung&uuml;ltig.</dd>
+<dt>
+<strong>ANGEGEBEN </strong>
+</dt>
+<dd>Die Verfallszeit f&uuml;r Nachrichten, die sich in dieser Warteschlange befinden, wird vom Merkmal
+<strong>Angegebene Verfallszeit</strong> definiert.
+<em>Wenn Sie diese Option ausw&auml;hlen, m&uuml;ssen Sie ein
+Zeitlimit f&uuml;r das Merkmal <strong>Angegebene Verfallszeit</strong>
+definieren.</em>
+</dd>
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASQueue_specifiedExpiry"></a>Angegebene Verfallszeit</strong>
+</dt>
+<dd>Wenn f&uuml;r das Merkmal <strong>Verfallszeit</strong> der Wert
+<samp>Angegeben</samp> definiert wird,
+geben Sie den Zeitraum in Millisekunden (gr&ouml;&szlig;er als 0) an. Nach
+Ablauf dieses Zeitraums werden Nachrichten, die sich in dieser Warteschlange befinden, ung&uuml;ltig.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Einheiten</td>
+<td align="left" valign="top" class="base">Millisekunden</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">0</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">Gr&ouml;&szlig;er-gleich 0
+<ul>
+
+<li>Der Wert 0 zeigt an, dass f&uuml;r die Nachrichten kein Zeitlimit
+festgelegt wurde.</li>
+
+<li>Abgesehen von 0 k&ouml;nnen ganzzahlige Werte angegeben werden, die
+einen Zeitraum in Millisekunden angeben.</li>
+
+</ul> 
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Zugeh&ouml;rige Informationen</strong>
+</p>
+<a href="rcon_buttons.html">Kn&ouml;pfe in der Adminstrationskonsole</a>
+<br>
+
+<a href="rcon_scope.html">Geltungsbereichseinstellungen f&uuml;r die Administrationskonsole</a>
+<br>
+
+</div>
+</body>
+</html>

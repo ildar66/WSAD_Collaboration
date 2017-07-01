@@ -1,0 +1,111 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Collection de mappages de connexion</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_logmap"></a>
+<h2>
+<img alt="[Fix Pack 5.0.2 and later]" src="v502.gif" border="0">Collection de mappages de connexion</h2>
+
+<p>Cette page permet d'afficher la liste des configurations pour
+la validation des jetons de s&eacute;curit&eacute; dans les messages entrants. Les
+mappages de connexion mappent une m&eacute;thode d'authentification vers une
+configuration de connexion JAAS (Java Authentication and Authorization
+Service) pour valider le jeton de s&eacute;curit&eacute;. Quatre m&eacute;thodes d'authentification
+sont pr&eacute;d&eacute;finies dans WebSphere Application Server : BasicAuth (authentification de base), Signature, IDAssertion (v&eacute;rification d'identit&eacute;) et LTPA.</p>
+
+<p>Pour afficher cette page de la console d'administration, suivez la proc&eacute;dure ci-apr&egrave;s. <ol>
+
+<li>Cliquez sur <strong>Serveur &gt; Serveurs d'application &gt; </strong><em>nom_serveur</em>. </li>
+
+<li>Dans la section Propri&eacute;t&eacute;s suppl&eacute;mentaires, cliquez sur <strong>Services Web : Liaisons par d&eacute;faut
+pour la s&eacute;curit&eacute; des services Web &gt; Mappage de connexion</strong>.</li>
+
+</ol>
+</p>
+
+<p>Cliquez sur <strong>Nouveau</strong> pour cr&eacute;er un mappage de connexions.</p>
+
+<p>Cliquez sur <strong>Supprimer</strong> pour supprimer un mappage de connexions.</p>
+
+<p>Lorsque vous cliquez sur <strong>Mettre &agrave; jour l'ex&eacute;cution</strong>, l'environnement d'ex&eacute;cution de la
+s&eacute;curit&eacute; Web est mis &agrave; jour avec les informations de liaison par d&eacute;faut qui sont contenues dans le fichier
+<samp>ws-security.xml</samp> pr&eacute;c&eacute;demment sauvegard&eacute;. Une fois que vous avez d&eacute;fini la m&eacute;thode d'authentification,
+le nom de configuration JAAS (Java Authentication and Authorization Service) et le nom de la classe de fabrique du
+gestionnaire de rappel dans ce panneau, vous devez suivre la proc&eacute;dure ci-apr&egrave;s.</p>
+
+<p>Cliquez sur <strong>Sauvegarder</strong> dans la partie sup&eacute;rieure de la console d'administration. Lorsque vous cliquez sur <strong>Sauvegarder</strong>, vous revenez au panneau d'accueil de la console d'administration. </p>
+
+<p>Retournez au panneau de collection de mappages de connexion et cliquez sur <strong>Mettre &agrave; jour l'ex&eacute;cution</strong>.</p>
+
+<p>
+<b>Important: </b>Lorsque vous cliquez sur <strong>Mettre &agrave; jour l'ex&eacute;cution</strong>, les modifications de configuration apport&eacute;es aux autres services Web sont &eacute;galement mis &agrave; jour dans l'environnement d'ex&eacute;cution de s&eacute;curit&eacute; des services Web.</p>
+
+<dl>
+<dt>
+<strong><a name="sec_authmeth"></a>M&eacute;thode d'authentification</strong>
+</dt>
+<dd>Indique la m&eacute;thode d'authentification utilis&eacute;e pour valider les
+jetons de s&eacute;curit&eacute;.
+<p>Les m&eacute;thodes d'authentification suivantes sont disponibles :<dl>
+<dt>
+<strong>BasicAuth (authentification de base)</strong>
+</dt>
+<dd>L'authentification de base inclut &agrave;
+la fois un nom d'utilisateur et un mot de passe dans le jeton de s&eacute;curit&eacute;. Les
+informations du jeton sont authentifi&eacute;es par le serveur de
+r&eacute;ception et utilis&eacute;es pour cr&eacute;er un justificatif.</dd>
+<dt>
+<strong>Signature</strong>
+</dt>
+<dd>Lorsque la m&eacute;thode d'authentification est signature, un certificat X.509 est envoy&eacute; en tant
+que jeton de s&eacute;curit&eacute;. Pour les
+registres LDAP (Lightweight Directory Access Protocol), le nom distinctif
+est mapp&eacute; vers un justificatif, fond&eacute; sur les param&egrave;tres de filtre du
+certificat LDAP. Pour les registres du syst&egrave;me d'exploitation local, le
+premier attribut du certificat, correspondant g&eacute;n&eacute;ralement au nom commun,
+est mapp&eacute; directement vers un ID utilisateur du registre.</dd>
+<dt>
+<strong>V&eacute;rification d'ID</strong>
+</dt>
+<dd>La v&eacute;rification d'identit&eacute; mappe une
+identit&eacute; (ID) digne de confiance vers un justificatif WebSphere.
+Cette
+m&eacute;thode d'authentification inclut uniquement un nom d'utilisateur dans
+le jeton de s&eacute;curit&eacute;.
+Un jeton suppl&eacute;mentaire est inclus dans le message
+pour l'&eacute;tablissement de relations de confiance. Lorsque le jeton
+suppl&eacute;mentaire est digne de confiance, le nom d'utilisateur du jeton de
+v&eacute;rification d'ID est mapp&eacute; vers un justificatif. </dd>
+<dt>
+<strong>LTPA</strong>
+</dt>
+<dd>L'authentification LTPA (Lightweight Third Party Authentication) valide un jeton LTPA.</dd>
+</dl>
+</p>
+
+</dd>
+<dt>
+<strong><a name="sec_jaasconfg"></a>Nom de configuration JAAS</strong>
+</dt>
+<dd>Indique le nom de la configuration JAAS (Java Authentication
+and Authorization Service).</dd>
+<dt>
+<strong><a name="sec_classname"></a>Nom de classe de la fabrique du gestionnaire de rappel</strong>
+</dt>
+<dd>D&eacute;finit le nom de la fabrique pour la classe CallbackHandler.</dd>
+</dl>
+<div>
+<p>
+<strong>Informations connexes</strong>
+</p>
+<a href="uwbs_logmapn.html">Param&egrave;tres de configuration des mappages de connexion</a>
+<br>
+
+</div>
+</body>
+</html>

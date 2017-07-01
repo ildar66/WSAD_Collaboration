@@ -1,0 +1,444 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Impostazioni della coda di WebSphere</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="WASQueue"></a>
+<h2>Impostazioni della coda di WebSphere</h2>
+
+<p>Utilizzare questo pannello per visualizzare o modificare le propriet&agrave; di configurazione della
+destinazione coda selezionata da utilizzare con il provider JMS di WebSphere.</p>
+
+<p>Una destinazione coda viene utilizzata per configurare le propriet&agrave; di una coda JMS.
+Le connessioni alla coda vengono create dalla produzione connessioni code associata
+per il provider JMS interno di WebSphere. Una coda da utilizzare con il provider JMS interno di
+WebSphere possiede le seguenti propriet&agrave;.</p>
+
+<p>
+<b>Nota: </b>&egrave; necessario aggiungere il nome della coda al relativo elenco nella configurazione
+dei server JMS che devono ospitare la coda.</p>
+
+<p>Per visualizzare questa pagina della console di gestione, fare clic su <strong>Risorse-&gt; Provider JMS
+WebSphere-&gt; (Nel pannello contenuto, in Ulteriori propriet&agrave;) Destinazioni code WebSphere-&gt;
+<em>nome_destinazione</em></strong>
+</p>
+
+<div>
+<p>
+<strong>Scheda Configurazione</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="WASQueue_contextId"></a>Ambito</strong>
+</dt>
+<dd>Specifica il livello in cui &egrave; visibile questa definizione di risorsa -- il
+livello cella, nodo o server.
+<p>&Egrave; possibile definire in pi&ugrave; ambiti, risorse quali provider di JDBC, collegamenti spazio nome o
+librerie condivise, insieme a risorse definite in ambiti pi&ugrave; specifici che sovrascrivono i
+duplicati definiti in ambiti pi&ugrave; generali. </p>
+
+<p>Notare che non &egrave; importante l'ambito di una risorsa definita, le propriet&agrave; della
+risorsa si applicano solo ad un singolo livello del server. Ad esempio, se si definisce
+l'ambito di un'origine dati al livello Cella, tutti gli utenti possono ricercare e
+utilizzare quella origine dati che risulta univoca all'interno di quella cella. Tuttavia,
+le impostazioni delle propriet&agrave; di risorsa sono locali per ogni server
+all'interno della Cella. Ad esempio, se <strong>Numero massimo connessioni</strong> viene impostato su 10,
+ciascun server all'interno di quella cella pu&ograve; avere 10 connessioni.<dl>
+<dt>
+<strong>Cella</strong>
+</dt>
+<dd>L'ambito pi&ugrave; generale.  Le risorse definite nell'ambito cella sono
+visibili da tutti i nodi e i server, a meno che non siano state sovrascritte. Per visualizzare le risorse definite nell'ambito cella, non specificare il nome di un
+server o di un nodo nel modulo di selezione dell'ambito.</dd>
+<dt>
+<strong>Nodo</strong>
+</dt>
+<dd>L'ambito predefinito per la maggior parte dei tipi
+di risorse.  Le risorse definite nell'ambito nodo sovrascrivono
+gli eventuali duplicati definiti nell'ambito cella e sono
+visibili a tutti i server sullo stesso nodo, a meno che non siano
+state sovrascritte in un ambito server sul quel nodo. Per
+visualizzare le risorse definite in un ambito nodo, non specificare
+un server ma selezionare il nome di un nodo nel modulo di selezione
+dell'ambito.</dd>
+<dt>
+<strong>Server</strong>
+</dt>
+<dd>L'ambito pi&ugrave; specifico per la definizione delle
+risorse.  Le risorse definite nell'ambito server sovrascrivono eventuali
+definizioni di risorse duplicate specificate nell'ambito cella o
+nell'ambito nodo parent e sono visibili solo in un determinato server.
+Per
+visualizzare le risorse definite in un ambito server, specificare il
+nome di un server e il nome di un nodo nel modulo di selezione
+dell'ambito.</dd>
+</dl>
+</p>
+
+<p>Quando le risorse vengono generate, vengono sempre create nell'ambito corrente
+selezionato nel pannello.   Per visualizzare le
+risorse in altri ambiti, specificare un nodo o un server diverso nel
+modulo di selezione dell'ambito.  </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASQueue_name"></a>Nome</strong>
+</dt>
+<dd>Il nome attribuito alla coda per scopi di gestione all'interno di IBM WebSphere Application Server.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASQueue_jndiName"></a>Nome JNDI</strong>
+</dt>
+<dd>Il nome JNDI utilizzato per collegare la coda allo spazio nome del server delle applicazioni.
+<p>Per convenzione, utilizzare il nome completo JNDI; ad esempio,
+nel formato jms/<em>Nome</em>, dove <em>Nome</em>
+&egrave; il nome logico della risorsa.</p>
+
+<p>Tale nome viene utilizzato per il collegamento alle informazioni specifiche della
+piattaforma. Il collegamento associa le risorse definite dal descrittore di distribuzione del modulo alle risorse effettive (fisiche) collegate a JNDI dalla piattaforma.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASQueue_description"></a>Descrizione</strong>
+</dt>
+<dd>Una descrizione della coda, per scopi di gestione
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">Nullo</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASQueue_category"></a>Categoria</strong>
+</dt>
+<dd>Una categoria utilizzata per classificare o raggruppare questa coda per i record di gestione IBM
+WebSphere Application Server.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASQueue_persistence"></a>Persistenza</strong>
+</dt>
+<dd>Se tutti i messaggi inviati alla destinazione sono o non sono persistenti o se la persistenza &egrave; definita dall'applicazione
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">APPLICAZIONE DEFINITA</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo</td>
+<td align="left" valign="top" class="base">
+<dl>
+<dt>
+<strong>APPLICAZIONE DEFINITA</strong>
+</dt>
+<dd>I messaggi sulla destinazione hanno la persistenza definita dall'applicazione che li ha inseriti nella coda.</dd>
+<dt>
+<strong>NON PERSISTENTE</strong>
+</dt>
+<dd>I messaggi sulla destinazione non sono persistenti.</dd>
+<dt>
+<strong>PERSISTENTE</strong>
+</dt>
+<dd>I messaggi sulla destinazione sono persistenti.</dd>
+<dt>
+<strong>CODA DEFINITA</strong>
+</dt>
+<dd>[Solo una destinazione WebSphere MQ] I messaggi sulla
+destinazione hanno la persistenza definita dalle propriet&agrave; di definizione delle code di
+WebSphere MQ.</dd>
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASQueue_priority"></a>Priorit&agrave;</strong>
+</dt>
+<dd>Se la priorit&agrave; messaggio di questa destinazione viene definita dall'applicazione o dalla propriet&agrave;
+<strong>Priorit&agrave; specificata</strong>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&agrave;</td>
+<td align="left" valign="top" class="base">Non applicabile</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">APPLICAZIONE DEFINITA</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo</td>
+<td align="left" valign="top" class="base">
+<dl>
+<dt>
+<strong>APPLICAZIONE DEFINITA</strong>
+</dt>
+<dd>La priorit&agrave; dei messaggi su questa destinazione viene definita dall'applicazione che li ha inseriti nella destinazione.</dd>
+<dt>
+<strong>CODA DEFINITA</strong>
+</dt>
+<dd>[Solo una destinazione WebSphere MQ] I messaggi sulla
+destinazione hanno la persistenza definita dalle propriet&agrave; di definizione delle code di
+WebSphere MQ.</dd>
+<dt>
+<strong>SPECIFICATO</strong>
+</dt>
+<dd>La priorit&agrave; dei messaggi su questa destinazione viene definita dalla
+propriet&agrave; <strong>Priorit&agrave; specificata</strong>. <em>Se viene selezionata quest'opzione, &egrave;
+necessario definire una priorit&agrave; sulla propriet&agrave; <strong>Priorit&agrave; specificata</strong>.</em>
+</dd>
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASQueue_specifiedPriority"></a>Priorit&agrave; specificata</strong>
+</dt>
+<dd>Se la propriet&agrave; <strong>Priorit&agrave;</strong> &egrave; impostata su <samp>Specified</samp>, immettere
+qui la priorit&agrave; da applicare ai messaggi di questa coda nell'intervallo compreso tra 0
+(il valore pi&ugrave; basso) a 9 (il valore pi&ugrave; alto)
+<p>Se la propriet&agrave; <strong>Priorit&agrave;</strong> &egrave; impostata su <samp>Specificata</samp>, i messaggi inviati a questa coda hanno il valore di priorit&agrave; specificato da questa propriet&agrave;.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Numero intero</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&agrave;</td>
+<td align="left" valign="top" class="base">Livello di priorit&agrave; messaggio</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">0</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo</td>
+<td align="left" valign="top" class="base">Da 0 (priorit&agrave; minore) a 9 (priorit&agrave; maggiore)</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASQueue_expiry"></a>Scadenza</strong>
+</dt>
+<dd>Se il timeout di scadenza della coda prescelta &egrave; definito dall'applicazione o dalla propriet&agrave;
+<strong>Scadenza specificata</strong>, oppure se il messaggio sulla coda &egrave; permanente (cio&egrave; ha un timeout
+illimitato)
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&agrave;</td>
+<td align="left" valign="top" class="base">Non applicabile</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">APPLICAZIONE DEFINITA</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo</td>
+<td align="left" valign="top" class="base">
+<dl>
+<dt>
+<strong>APPLICAZIONE DEFINITA</strong>
+</dt>
+<dd>Il timeout di scadenza dei messaggi presenti in questa coda viene definito dall'applicazione che li ha inseriti nella coda.</dd>
+<dt>
+<strong>ILLIMITATO</strong>
+</dt>
+<dd>I messaggi presenti in questa coda non hanno un timeout di scadenza, dunque tali messaggi non scadono mai.</dd>
+<dt>
+<strong>SPECIFICATO</strong>
+</dt>
+<dd>Il timeout di scadenza dei messaggi su questa coda viene definito dalla
+propriet&agrave; <strong>Scadenza specificata</strong>.<em>Se viene selezionata questa opzione, &egrave;
+necessario definire un timeout sulla propriet&agrave; <strong>Scadenza specificata</strong>.</em>
+</dd>
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASQueue_specifiedExpiry"></a>Scadenza specificata</strong>
+</dt>
+<dd>Se la propriet&agrave; <strong>Timeout di scadenza</strong> viene impostata su <samp>Specificato</samp>, digitare qui il numero di millisecondi (maggiore di 0) trascorsi i quali i messaggi presenti in questa coda scadono
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Numero intero</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&agrave;</td>
+<td align="left" valign="top" class="base">Millisecondi</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">0</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo</td>
+<td align="left" valign="top" class="base">Maggiore o pari a 0 <ul>
+
+<li>0 indica i messaggi che non scadono mai</li>
+
+<li>Gli altri valori sono un numero intero di millisecondi</li>
+
+</ul> 
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informazioni correlate</strong>
+</p>
+<a href="rcon_buttons.html">Pulsanti della console di gestione</a>
+<br>
+
+<a href="rcon_scope.html">Impostazioni ambito della console di gestione</a>
+<br>
+
+</div>
+</body>
+</html>

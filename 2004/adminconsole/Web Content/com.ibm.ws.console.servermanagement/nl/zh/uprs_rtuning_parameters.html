@@ -1,0 +1,237 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>调整参数设置</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="tune_para"></a>
+<h2>调整参数设置</h2>
+
+<p>使用此页面设置分布式会话的调整参数。</p>
+
+<p>要查看此管理控制台页面，单击<strong>服务器</strong> &gt; <strong>应用程序服务器</strong> &gt; <em>server_name</em> &gt; <strong>Web 容器</strong> &gt; <strong>会话管理</strong> &gt; <strong>分布式环境设置</strong> &gt; <strong>定制调整参数</strong>。</p>
+
+<div>
+<p>
+<strong>&ldquo;配置&rdquo;选项卡</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="Tuning_level_description"></a>调整级别</strong>
+</dt>
+<dd>指定会话管理工具提供一些影响性能的预定义的设置。
+<p>在这些预定义的设置中选择一个或定制一个设置。要定制设置，在预定义的设置中选择一个最贴近您需要的设置，单击<strong>定制设置</strong>，进行更改，然后单击<strong>确定</strong>。</p>
+
+<div>
+<p class="sectiontitle">
+<b>非常高（优化性能）</b>
+</p>
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">写频率</td>
+<td align="left" valign="top" class="base">基于时间的</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">写间隔</td>
+<td align="left" valign="top" class="base">300 秒</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">写内容</td>
+<td align="left" valign="top" class="base">仅更新的属性</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">调度会话清除</td>
+<td align="left" valign="top" class="base">true</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">一天的第一时间缺省值</td>
+<td align="left" valign="top" class="base">0</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">一天的第二时间缺省值</td>
+<td align="left" valign="top" class="base">2</td>
+
+</tr>
+
+</table>
+</div>
+
+<div>
+<p class="sectiontitle">
+<b>高</b>
+</p>
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">写频率</td>
+<td align="left" valign="top" class="base">基于时间的</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">写间隔</td>
+<td align="left" valign="top" class="base">300 秒</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">写内容
+</td>
+<td align="left" valign="top" class="base">所有会话属性</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">调度会话清除</td>
+<td align="left" valign="top" class="base">false</td>
+
+</tr>
+
+</table>
+</div>
+
+<div>
+<p class="sectiontitle">
+<b>中</b>
+</p>
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">写频率</td>
+<td align="left" valign="top" class="base">结束 servlet 服务</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">写内容
+</td>
+<td align="left" valign="top" class="base">仅更新的属性</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">调度会话清除</td>
+<td align="left" valign="top" class="base">false</td>
+
+</tr>
+
+</table>
+</div>
+
+<div>
+<p class="sectiontitle">
+<b>低（优化故障转移）</b>
+</p>
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">写频率</td>
+<td align="left" valign="top" class="base">结束 servlet 服务</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">写内容
+</td>
+<td align="left" valign="top" class="base">所有会话属性</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">调度会话清除</td>
+<td align="left" valign="top" class="base">false</td>
+
+</tr>
+
+</table>
+</div>
+
+<div>
+<p class="sectiontitle">
+<b>定制设置</b>
+</p>
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">写频率缺省值</td>
+<td align="left" valign="top" class="base">基于时间的</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">写时间间隔缺省值</td>
+<td align="left" valign="top" class="base">10 秒</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">写内容缺省值</td>
+<td align="left" valign="top" class="base">所有会话属性</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">调度会话清除缺省值</td>
+<td align="left" valign="top" class="base">false</td>
+
+</tr>
+
+</table>
+</div>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>相关信息</strong>
+</p>
+<a href="rcon_buttons.html">管理控制台按钮</a>
+<br>
+
+<a href="rcon_pageusage.html">管理控制台页面功能</a>
+<br>
+
+<a href="rcon_preferences.html">管理控制台首选项设置</a>
+<br>
+
+<a href="uprs_rtuning_custom.html">调整参数定制设置</a>
+<br>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>登录设置</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="urun_rlogin"></a>
+<h2>登录设置</h2>
+
+<p>使用此页面指定 WebSphere Application Server 管理控制台的用户。如果使用全局安全性，则您也要指定密码。</p>
+
+<p>指定用户允许您继续产品先前所执行的工作。在您输入用户标识后，单击<strong>确定</strong>继续至下一页并访问管理控制台。</p>
+
+<p>要查看此页面，启动管理控制台。</p>
+
+<dl>
+<dt>
+<strong><a name="logon_desc"></a>用户标识</strong>
+</dt>
+<dd>指定标识用户的字符串。用户标识对于管理服务器必须是唯一的。
+<p>退出产品之前使用此产品和保存时所执行的操作，将保存到由您输入的用户标识确定的配置中。要稍候在用户标识下访问已执行的工作，指定&ldquo;登录&rdquo;页面的用户标识。</p>
+
+<p>如果您正从客户机上当前打开的管理控制台浏览器登录，同时连接到同一台服务器，您的两个连接可以共享相同的 HTTP 会话对象，而不管是否使用不同的用户标识登录。要从两个不同的 HTTP 会话对象操作，您必须在同一台客户机上使用两种不同的浏览器（例如，Microsoft Internet Explorer 和 Netscape Communicator）登录到管理控制台，而不管是否使用相同的用户标识。即，如果您在同一台客户机上需要两个并行的会话，那么要从两个不同类型的浏览器访问管理控制台。</p>
+
+<p>注意，您可以使用相同类型的浏览器登录控制台两次，但必须从不同的物理主机并使用不同的用户标识登录。例如，假设小杨在物理主机 <em>myhost1</em> 上使用 IE 浏览器以用户标识 <em>yang</em> 登录管理控制台。小杨可以使用 IE 浏览器登录同一个控制台两次，但他必须使用不同的用户标识（如 <em>xiaoyang</em>）和不同的物理主机（如 <em>myhost2</em>）。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="UserExists_information"></a>当前使用相同用户名登录的另一个用户</strong>
+</dt>
+<dd>指定是否要注销用户，并使用指定的用户标识继续操作，或返回&ldquo;登录&rdquo;页面指定不同的用户标识，或等待用户注销。
+<p>如果用户在浏览管理控制台时关闭 Web 浏览器且没有注销，随后打开一个新的浏览器并尝试访问管理控制台时出现该字段。</p>
+
+</dd>
+<dt>
+<strong><a name="ChangesFound_restore"></a>使用主配置</strong>
+</dt>
+<dd>在已启用时，指定希望使用缺省的管理配置，而不使用用户会话上次使用的配置。自上次对管理配置的保存之后对用户的会话的更改将丢失。
+<p>此字段仅出现在用户更改管理配置并未保存更改就进行注销的情况下。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">false</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ChangesFound_recover"></a>恢复前一次会话中的更改</strong>
+</dt>
+<dd>在已启用时，指定希望使用与上次用户会话相同的管理配置。恢复上次已保存的用户会话更改的管理配置。
+<p>此字段仅出现在用户更改管理配置并未保存更改就进行注销的情况下。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">true</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>相关信息</strong>
+</p>
+<a href="rcon_buttons.html">管理控制台按钮</a>
+<br>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Valores de agrupaci&oacute;n de hebras</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uejb_rthrd"></a>
+<h2>Valores de agrupaci&oacute;n de hebras</h2>
+
+<p>Utilice esta p&aacute;gina para configurar una agrupaci&oacute;n de hebras que utiliza el servidor de aplicaciones. Las peticiones se env&iacute;an al servidor por medio de cualquier transporte HTTP.
+Una agrupaci&oacute;n de hebras permite a los componentes del servidor volver a utilizar hebras para eliminar la necesidad de crear nuevas hebras durante el tiempo de ejecuci&oacute;n. 
+Durante la creaci&oacute;n de nuevas hebras se emplean tiempo y recursos.</p>
+
+<p>Para ver esta p&aacute;gina de la consola administrativa, pulse <strong>Servidores &gt;
+Gestionar servidores de aplicaciones &gt;</strong><em>nombre_servidor</em><strong> &gt; Servicio
+ORB &gt; Agrupaci&oacute;n de hebras</strong>. (Puede llegar a esta p&aacute;gina utilizando diferentes rutas de navegaci&oacute;n).</p>
+
+<div>
+<p>
+<strong>Pesta&ntilde;a Configuraci&oacute;n</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="ThreadPool_minimumSize_description"></a>Tama&ntilde;o m&iacute;nimo</strong>
+</dt>
+<dd>Especifica el n&uacute;mero m&iacute;nimo de hebras permitidas en la agrupaci&oacute;n.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">10</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ThreadPool_maximumSize_description"></a>Tama&ntilde;o m&aacute;ximo</strong>
+</dt>
+<dd>Especifica el n&uacute;mero m&aacute;ximo de hebras permitidas en la agrupaci&oacute;n. 
+<p>Si Tivoli Performance Viewer muestra la medida Percent Maxed (porcentaje alcanzado) para seguir
+coherentemente en los d&iacute;gitos dobles, considere aumentar el tama&ntilde;o m&aacute;ximo. La medida Percent Maxed (porcentaje alcanzado) indica la
+cantidad de tiempo que est&aacute;n en uso las hebras configuradas. Si hay varios clientes conectando simult&aacute;neamente al
+ORB del servidor, aumente el tama&ntilde;o para dar soporte hasta 1000 clientes.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">50</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Recomendado	</td>
+<td align="left" valign="top" class="base"><a href="rprf_troubleshoot.html">50
+ (25 en sistemas Linux)</a></td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ThreadPool_inactivityTimeout_description"></a>Tiempo excedido de inactividad de hebra</strong>
+</dt>
+<dd>Especifica el tiempo en milisegundos de inactividad que debe trascurrir antes de que se reclame una hebra. Un valor igual a 0 indica que no hay espera mientras que un valor
+negativo (inferior a 0) indica una espera permanente.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unidades</td>
+<td align="left" valign="top" class="base">Milisegundos</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">3500</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ThreadPool_isGrowable_description"></a>Con posibilidad de crecimiento</strong>
+</dt>
+<dd>Especifica si el n&uacute;mero de hebras puede aumentar por encima del tama&ntilde;o m&aacute;ximo configurado para la agrupaci&oacute;n de hebras.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">No habilitado (false)</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">Los valores v&aacute;lidos son Permitir asignaci&oacute;n de hebras por encima del tama&ntilde;o m&aacute;ximo de hebra o No habilitado.</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informaci&oacute;n relacionada</strong>
+</p>
+<a href="rcon_buttons.html">Botones de la consola de administraci&oacute;n</a>
+<br>
+
+<a href="rcon_pageusage.html">Caracter&iacute;sticas de la p&aacute;gina de la consola administrativa</a>
+<br>
+
+</div>
+</body>
+</html>

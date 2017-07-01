@@ -1,0 +1,153 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Konfigurationseinstellung f&uuml;r Key locator</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_keyln"></a>
+<h2>
+<img alt="[Fixpack 5.0.2 und h&ouml;her]" src="v502.gif" border="0">Konfigurationseinstellung f&uuml;r Key locator</h2>
+
+<p>Verwenden Sie diese Seite, um die Einstellungen f&uuml;r Key Locator festzulegen. </p>
+
+<p>Gehen Sie zum Anzeigen dieser Seite der Administrationskonsole wie folgt vor:<ol>
+
+<li>Klicken Sie auf <strong>Server &gt; Anwendungsserver &gt; </strong><em>Servername</em>.</li>
+
+<li>Klicken Sie unter "Weitere Merkmale" auf <strong>Web Services: Standardbindungen f&uuml;r
+die Sicherheit von Web Services &gt; Key Locator &gt; Neu</strong>.</li>
+
+</ol>
+</p>
+
+<dl>
+<dt>
+<strong><a name="sec_keylname"></a>Name des Key Locator</strong>
+</dt>
+<dd>Der Name des Key Locator.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="sec_keylclass"></a>Klassenname des Key Locator</strong>
+</dt>
+<dd>Der Name der Implementierungsklasse des Key Locator. 
+<p>WebSphere Application Server hat die folgenden Standardklassenimplementierungen f&uuml;r Key Locator: <dl>
+<dt>
+<strong>com.ibm.wsspi.wssecurity.config.WSldKeyStoreMapKeyLocator</strong>
+</dt>
+<dd>Diese Klasse
+wird vom Antwortsender verwendet und ordnet einem Schl&uuml;ssel eine authentifizierte ID zu.
+Falls mit Verschl&uuml;sselung gearbeitet wird,
+wird diese Klasse verwendet, um einen Schl&uuml;ssel f&uuml;r die Verschl&uuml;sselung der Antwortnachricht zu suchen. Die
+Klasse com.ibm.wsspi.wssecurity.config.WSldKeyStoreMapKeyLocator kann einem Schl&uuml;ssel, der zum Verschl&uuml;sseln der Nachricht
+verwendet wird, eine authentifizierte ID aus dem Aufrufberechtigungsnachweis des aktuellen Thread zuordnen. Wenn
+im aktuellen Thread eine authentifizierte ID enthalten ist, ordnet die Klasse die ID dem zugeordneten Namen zu. Beispiel:
+Benutzer1 wird <samp>zugeordneterName_1</samp> oder name="default" zugeordnet. Ist kein &uuml;bereinstimmender Schl&uuml;ssel
+vorhanden, wird die authentifizierte ID dem im der Bindungsdatei angegebenen Standardschl&uuml;ssel zugeordnet. </dd>
+<dt>
+<strong>com.ibm.wsspi.wssecurity.config.KeyStoreKeyLocator</strong>
+</dt>
+<dd>Diese Klasse wird vom Antwortempf&auml;nger, Anforderungssender
+und Anforderungsempf&auml;nger verwendet und ordnet einen Namen einem Aliasnamen zu. Der Verschl&uuml;sselungsprozess
+verwendet diese Klasse, um einen Schl&uuml;ssel f&uuml;r die Verschl&uuml;sselung einer Nachricht anzufordern. Der Prozess f&uuml;r
+digitale Signatur verwendet diese Klasse, um einen Schl&uuml;ssel f&uuml;r die Unterzeichnung einer Nachricht anzufordern.
+Die Klasse
+com.ibm.wsspi.wssecurity.config.KeyStoreKeyLocator ordnet einen logischen Namen einem Schl&uuml;sselaliasnamen in der Keystore-Datei zu.
+Beispiel: Der Schl&uuml;ssel #105115176771 wird <samp>CN=Alice, O=IBM, c=US</samp> zugeordnet.</dd>
+</dl>
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwerte</td>
+<td align="left" valign="top" class="base">com.ibm.wsspi.wssecurity.config.KeyStoreKeyLocator</td>
+<td align="left" valign="top" class="base">com.ibm.wsspi.wssecurity.config.WSldKeyStoreMayKeyLocator</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="sec_keystpass"></a>Kennwort des Keystore</strong>
+</dt>
+<dd>Das Kennwort f&uuml;r den Zugriff auf die Keystore-Datei. </dd>
+<dt>
+<strong><a name="sec_keystpath"></a>Pfad des Keystore</strong>
+</dt>
+<dd>Das Verzeichnis der Keystore-Datei. 
+<p>Verwenden Sie ${USER_INSTALL_ROOT}, weil dieser Pfad den WAS-Pfad auf Ihrer Maschine angibt. </p>
+
+</dd>
+<dt>
+<strong><a name="sec_keysttype"></a>Typ des Keystore</strong>
+</dt>
+<dd>Der Typ der Keystore-Datei. 
+<p>G&uuml;ltige Werte f&uuml;r dieses Feld sind <strong>JKS</strong> und <strong>JCEKS</strong>: <dl>
+
+<dt>
+<strong>JKS</strong>
+</dt>
+<dd>Verwenden Sie diese Option, wenn Sie JCE (Java Cryptography Extensions) nicht verwenden.</dd>
+<dt>
+<strong>JCEKS</strong>
+</dt>
+<dd>Verwenden Sie diese Option, wenn Sie JCE (Java Cryptography Extensions) verwenden.</dd>
+</dl>
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert </td>
+<td align="left" valign="top" class="base">JKS</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">JKS, JCEKS</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>Zugeh&ouml;rige Informationen</strong>
+</p>
+<a href="uwbs_keyl.html">Key Locator</a>
+<br>
+
+<a href="uwbs_keylak.html">Schl&uuml;ssel</a>
+<br>
+
+</div>
+</body>
+</html>

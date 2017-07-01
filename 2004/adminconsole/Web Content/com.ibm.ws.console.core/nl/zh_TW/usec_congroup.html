@@ -1,0 +1,198 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>主控台群組和 CORBA 命名服務群組</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="useccongroup"></a>
+<h2>主控台群組和 CORBA 命名服務群組</h2>
+
+<p>請利用主控台群組頁面來提供特定權限給群組，讓他們利用管理主控台或 wsadmin Scripting 之類的工具來管理 WebSphere Application Server。
+只有在啟用廣域安全時，權限需求才有效。
+請利用 CORBA 命名服務群組頁面來管理 CORBA 命名服務群組設定。
+</p>
+
+<p>如果要檢視「主控台群組」管理主控台頁面，請按一下<strong>系統管理</strong> &gt; <strong>主控台群組</strong>。
+</p>
+
+<p>如果要檢視 CORBA 命名服務群組管理主控台頁面，請按一下<strong>環境</strong> &gt; <strong>命名</strong> &gt; <strong>CORBA 命名服務群組</strong>。</p>
+
+<dl>
+<dt>
+<strong><a name="desc_groups_title"></a>群組（主控台群組）</strong>
+</dt>
+<dd>指定群組。
+<p>ALL_AUTHENTICATED 和 EVERYONE 群組可以有下列角色專用權：管理者、配置者、操作員和監視者。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型：</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍：</td>
+<td align="left" valign="top" class="base">ALL_AUTHENTICATED, EVERYONE</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="CORBA_desc_groups_title"></a>群組（CORBA 命名服務群組）</strong>
+</dt>
+<dd>識別 CORBA 命名服務群組。
+<p>ALL_AUTHENTICATED 群組有下列角色專用權：CosNamingRead、CosNamingWrite、CosNamingCreate 和 CosNamingDelete。EVERYONE 群組表示這個群組中的使用者只有 CosNamingRead 專用權。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型：</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍：</td>
+<td align="left" valign="top" class="base">ALL_AUTHENTICATED, EVERYONE</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="label_role_desc"></a>角色（主控台群組）</strong>
+</dt>
+<dd>指定使用者角色。
+<p>下列管理角色提供不同程度的必要權限，用來執行特定 WebSphere Application Server 管理功能：
+<dl>
+<dt>
+<strong>管理者</strong>
+</dt>
+<dd>管理者角色有操作員許可權、配置員許可權和存取機密資料（包括伺服器密碼、LTPA 密碼和金鑰...等）所需要的許可權。</dd>
+<dt>
+<strong>配置者</strong>
+</dt>
+<dd>配置器角色有監視者許可權和變更 WebSphere Application Server 配置的能力。</dd>
+<dt>
+<strong>操作員</strong>
+</dt>
+<dd>操作員角色有監視者許可權和變更執行時期狀態的能力。比方說，操作員可以啟動或停止服務。</dd>
+<dt>
+<strong>監視者</strong>
+</dt>
+<dd>監視者角色有最少的許可權。這個角色將使用者限制在檢視 WebSphere Application Server 配置和現行狀態。</dd>
+</dl>
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型：</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍：</td>
+<td align="left" valign="top" class="base">管理者、配置者、操作員和監視者</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="CORBA_label_role_desc"></a>角色（CORBA 命名服務群組）</strong>
+</dt>
+<dd>識別命名服務群組角色。
+<p>系統定義了許多命名角色來提供不同程度的必要權限，以執行特定的 WebSphere 命名服務功能。
+僅當您啟用廣域安全時，才會強制執行
+授權原則。</p>
+
+<p>可用的名稱空間安全角色有四個：CosNamingRead、CosNamingWrite、CosNamingCreate 和 CosNamingDelete。
+這四個角色的名稱與 WebSphere Advanced Edition 4.0.2 版相同。
+不過，這些角色現在有如下所示由低而高的授權層次：
+<dl>
+<dt>
+<strong>CosNamingRead</strong>
+</dt>
+<dd>使用者可以利用例如 Java 命名和目錄介面 (JNDI) 查閱方法來查詢 WebSphere 名稱空間。
+<strong>EVERYONE</strong> 這個特殊主題是這個角色的預設原則。
+</dd>
+<dt>
+<strong>CosNamingWrite</strong>
+</dt>
+<dd>使用者可以執行 JNDI bind、rebind 或 unbind 之類的作業，以及 CosNamingRead 作業。
+<strong>ALL_AUTHENTICATED</strong> 這個特殊主題是這個角色的預設原則。
+</dd>
+<dt>
+<strong>CosNamingCreate</strong>
+</dt>
+<dd>使用者可以利用 JNDI createSubcontext 和 CosNamingWrite 之類的作業，在名稱空間中建立新物件。
+<strong>ALL_AUTHENTICATED</strong> 這個特殊主題是這個角色的預設原則。
+</dd>
+<dt>
+<strong>CosNamingDelete</strong>
+</dt>
+<dd>使用者可以毀損名稱空間中的物件，比方說，使用 JNDI destroySubcontext 方法和 CosNamingCreate 作業。
+<strong>ALL_AUTHENTICATED</strong> 這個特殊主題是這個角色的預設原則。
+</dd>
+</dl>
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型：</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍：</td>
+<td align="left" valign="top" class="base">CosNamingRead、CosNamingWrite、CosNamingCreate 和 CosNamingDelete</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>相關資訊</strong>
+</p>
+<a href="rcon_buttons.html">管理主控台按鈕</a>
+<br>
+
+<a href="rcon_pageusage.html">管理主控台頁面特性</a>
+<br>
+
+<a href="rcon_scope.html">管理主控台範圍設定</a>
+<br>
+
+<a href="rcon_filter.html">管理主控台過濾器設定</a>
+<br>
+
+<a href="rcon_preferences.html">管理主控台喜好設定</a>
+<br>
+
+</div>
+</body>
+</html>

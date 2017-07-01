@@ -1,0 +1,104 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Grupo de correlaciones de inicio de sesi&oacute;n</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_logmap"></a>
+<h2>
+<img alt="[Fix Pack 5.0.2 y posterior]" src="v502.gif" border="0">Grupo de correlaciones de inicio de sesi&oacute;n</h2>
+
+<p>Utilice esta p&aacute;gina para ver una lista de configuraciones para validar los s&iacute;mbolos de seguridad en los mensajes de entrada. Las correlaciones de inicio de sesi&oacute;n correlacionan un m&eacute;todo de
+autenticaci&oacute;n con la configuraci&oacute;n de inicio de sesi&oacute;n JAAS (Java
+Authentication and Authorization Service) para validar el s&iacute;mbolo de
+seguridad. Hay cuatro m&eacute;todos de autenticaci&oacute;n definidos previamente en WebSphere Application Server: BasicAuth, Signatura, IDAssertion y LTPA.</p>
+
+<p>Para ver esta p&aacute;gina de la consola administrativa, realice los pasos siguientes:<ol>
+
+<li>Pulse <strong>Servidor &gt; Servidores de aplicaciones &gt; </strong><em>nombre_servidor</em>.
+</li>
+
+<li>En Propiedades adicionales, pulse <strong>Servicios Web: Enlaces por omisi&oacute;n
+para Web Services Security &gt; Correlaciones de inicio de sesi&oacute;n</strong>.</li>
+
+</ol>
+</p>
+
+<p>Pulse <strong>Nuevo</strong> para crear una correlaci&oacute;n de inicio de sesi&oacute;n.</p>
+
+<p>Pulse <strong>Suprimir</strong> para suprimir una correlaci&oacute;n de inicio de sesi&oacute;n.</p>
+
+<p>Si Pulsa <strong>Actualizar el tiempo de ejecuci&oacute;n</strong>, se actualiza el
+tiempo de ejecuci&oacute;n de Web Services Security con la
+informaci&oacute;n de enlace por omisi&oacute;n, que se encuentra en el archivo
+<samp>ws-security.xml</samp> que se ha guardado previamente. Despu&eacute;s de especificar el m&eacute;todo de autenticaci&oacute;n, el nombre de
+configuraci&oacute;n de JAAS (Java Authentication and Authorization Service) y el
+nombre de la clase de la f&aacute;brica del manejador de retorno de llamada en
+este panel, debe realizar los pasos siguientes:</p>
+
+<p>Pulse <strong>Guardar</strong> en la parte superior de la consola administrativa. Cuando pulse <strong>Guardar</strong>, volver&aacute; al panel de inicio de la consola administrativa. </p>
+
+<p>Vuelva al panel de colecciones Correlaciones de inicio de sesi&oacute;n y pulse <strong>Actualizar el tiempo de ejecuci&oacute;n</strong>.</p>
+
+<p>
+<b>Nota: </b>Al
+pulsar <strong>Actualizar el tiempo de ejecuci&oacute;n</strong>, los cambios de tiempo
+de configuraci&oacute;n realizados en los dem&aacute;s servicios Web se actualizan
+durante el tiempo de ejecuci&oacute;n de Web Services Security.</p>
+
+<dl>
+<dt>
+<strong><a name="sec_authmeth"></a>M&eacute;todo de autenticaci&oacute;n</strong>
+</dt>
+<dd>Especifica el m&eacute;todo de autenticaci&oacute;n que se utiliza para validar los s&iacute;mbolos de seguridad.
+<p>Est&aacute;n disponibles los siguientes m&eacute;todos de autenticaci&oacute;n<dl>
+<dt>
+<strong>BasicAuth</strong>
+</dt>
+<dd>La autenticaci&oacute;n b&aacute;sica que incluye un nombre de usuario y una contrase&ntilde;a en el s&iacute;mbolo de seguridad. La informaci&oacute;n que contiene el s&iacute;mbolo la autentica el servidor receptor y la utiliza para crear una credencial.</dd>
+<dt>
+<strong>Signatura</strong>
+</dt>
+<dd>Cuando el m&eacute;todo de autenticaci&oacute;n es de signatura, se env&iacute;a un certificado X.509 como s&iacute;mbolo de seguridad. Para los registros LDAP (Lightweight Directory Access
+Protocol), se correlaciona el DN (nombre distinguido) con una credencial,
+la cual est&aacute; basada en la configuraci&oacute;n del filtro de certificado LDAP. Para los registros LocalOS, se correlaciona el primer
+atributo del certificado, generalmente el CN (nombre com&uacute;n), directamente con un ID de usuario del registro.</dd>
+<dt>
+<strong>IDAssertion</strong>
+</dt>
+<dd>La confirmaci&oacute;n de identidad correlaciona un ID de
+confianza con una credencial de WebSphere.
+Este m&eacute;todo de autenticaci&oacute;n solamente incluye un nombre de usuario en el s&iacute;mbolo de seguridad.
+Se incluye un s&iacute;mbolo adicional en el mensaje para fines de confianza. Cuando se conf&iacute;a en el s&iacute;mbolo adicional, se correlaciona el nombre de usuario del s&iacute;mbolo IDAssertion con una credencial. </dd>
+<dt>
+<strong>LTPA</strong>
+</dt>
+<dd>LTPA (Lightweight Third Party Authentication) valida un s&iacute;mbolo LTPA.</dd>
+</dl>
+</p>
+
+</dd>
+<dt>
+<strong><a name="sec_jaasconfg"></a>Nombre de la configuraci&oacute;n de JAAS</strong>
+</dt>
+<dd>Especifica el nombre de la configuraci&oacute;n de JAAS (Java
+Authentication and Authorization Service).</dd>
+<dt>
+<strong><a name="sec_classname"></a>Nombre de la clase de la f&aacute;brica del manejador de retorno de
+llamada</strong>
+</dt>
+<dd>Especifica el nombre de la f&aacute;brica de la clase CallbackHandler.</dd>
+</dl>
+<div>
+<p>
+<strong>Informaci&oacute;n relacionada</strong>
+</p>
+<a href="uwbs_logmapn.html">Valores de configuraci&oacute;n de enlaces de correlaciones de inicio de sesi&oacute;n</a>
+<br>
+
+</div>
+</body>
+</html>

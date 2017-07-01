@@ -1,0 +1,187 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>コンソール・ユーザー設定および CORBA ネーミング・サービス・ユーザー設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecconuser"></a>
+<h2>コンソール・ユーザー設定および CORBA ネーミング・サービス・ユーザー設定</h2>
+
+<p>「Console Users Settings」ページを使用して、管理コンソールまたは wsadmin スクリプトなどのツールを使用する WebSphere Application Server を管理するための特定の権限をユーザーに与えます。この権限の要件は、グローバル・セキュリティーが
+使用可能になっている場合にのみ有効です。CORBA ネーミング・サービスのユーザー設定ページは、CORBA ネーミング・サービスのユーザー設定の管理に使用します。</p>
+
+<p>「Console Users」管理コンソール・ページを表示するには、「<strong>System Administration</strong>」&gt;「<strong>Console Users</strong>」をクリックします。</p>
+
+<p>「CORBA Naming Service Users」管理コンソール・ページを表示するには、「<strong>環境</strong>」&gt;「<strong>Naming</strong>&gt;「<strong>CORBA Naming Service users</strong>」をクリックします。</p>
+
+<dl>
+<dt>
+<strong><a name="desc_users_title"></a>ユーザー (コンソール・ユーザー)</strong>
+</dt>
+<dd>ユーザーを指定します。
+<p>入力されるユーザーは、構成されたアクティブ・ユーザー・レジストリーに存在している必要があります。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型:</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="corba_desc_users_title"></a> ユーザー (CORBA ネーミング・サービス・ユーザー)</strong>
+</dt>
+<dd>CORBA ネーミング・サービス・ユーザーを指定します。
+<p>入力されるユーザーは、構成されたアクティブ・ユーザー・レジストリーに存在している必要があります。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型:</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="label_role_desc"></a>役割 (コンソール・ユーザー)</strong>
+</dt>
+<dd>ユーザーの役割を指定します。
+<p>以下の管理役割は、WebSphere Application Server の特定の管理機能を実行するために必要な
+さまざまな範囲の権限を備えています。<dl>
+<dt>
+<strong>管理者</strong>
+</dt>
+<dd>管理者の役割には、オペレーターに与えられる許可、コンフィギュレーターに与えられる許可、
+およびサーバー・パスワード、LTPA パスワード、鍵など、重要データへのアクセスに必要な許可
+が与えられます。
+</dd>
+<dt>
+<strong>コンフィギュレーター</strong>
+</dt>
+<dd>コンフィギュレーター役割には、モニターに与えられる許可、
+および WebSphere Application Server 構成を変更する権限が与えられます。
+</dd>
+<dt>
+<strong>オペレーター</strong>
+</dt>
+<dd>オペレーター役割には、モニターに与えられる許可、
+およびランタイム状態を変更する権限が与えられます。
+例えば、オペレーターはサービスを開始または停止することができます。
+</dd>
+<dt>
+<strong>モニター</strong>
+</dt>
+<dd>モニターの役割には、最も狭い範囲の許可が与えられます。
+この役割は主として、ユーザーに WebSphere Application Server の構成および現行状態を見ることのみを許すものです。
+</dd>
+</dl>
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型:</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲:</td>
+<td align="left" valign="top" class="base">管理者、コンフィギュレーター、オペレーター、およびモニター</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="corba_label_role_desc"></a>役割 (CORBA ネーミング・サービス・ユーザー)</strong>
+</dt>
+<dd>ネーミング・サービス・ユーザーの役割を指定します。
+<p>特定の WebSphere ネーミング・サービス機能の実行に必要なさまざまなレベルの権限を提供
+するために、いくつかのネーミングの役割が定義されています。
+許可ポリシーは、グローバル・セキュリティーが使用可能になっている場合にのみ有効です。
+有効な役割は、CosNamingRead、CosNamingWrite、CosNamingCreate、および CosNamingDelete です。</p>
+
+<p> 4 つの役割の名前は、WebSphere Application Server アドバンスド版バージョン 4.0.2 で使用される名前と同じです。ただし、今回の役割には、以下のように低から高への権限レベルがあります。<dl>
+<dt>
+<strong>CosNamingRead</strong>
+</dt>
+<dd>ユーザーは、例えば Java Naming and Directory Interface (JNDI) ルックアップ・メソッドを使用して WebSphere ネーム・スペースを照会できます。
+特別な対象の <strong>EVERYONE</strong> が、この役割のデフォルト・ポリシーです。</dd>
+<dt>
+<strong>CosNamingWrite</strong>
+</dt>
+<dd>ユーザーは、JNDI バインド、再バインド、またはアンバインド、および CosNamingRead 操作
+といった書き込み操作を実行できます。特別な対象の <strong>ALL_AUTHENTICATED</strong> が、この役割のデフォルト・ポリシーです。</dd>
+<dt>
+<strong>CosNamingCreate</strong>
+</dt>
+<dd>ユーザーは、JNDI createSubcontext および CosNamingWrite 操作といった操作を介して
+ネーム・スペースに新規オブジェクトを作成できます。
+特別な対象の <strong>ALL_AUTHENTICATED</strong> が、この役割のデフォルト・ポリシーです。</dd>
+<dt>
+<strong>CosNamingDelete</strong>
+</dt>
+<dd>ユーザーは、例えば、JNDI の destroySubcontext メソッドおよび CosNamingCreate 操作を使用して、
+ネーム・スペース内のオブジェクトを破棄することができます。
+特別な対象の <strong>ALL_AUTHENTICATED</strong> が、この役割のデフォルト・ポリシーです。</dd>
+</dl>
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型:</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲:</td>
+<td align="left" valign="top" class="base">CosNamingRead、CosNamingWrite、CosNamingCreate、および CosNamingDelete</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>関連情報</strong>
+</p>
+<a href="rcon_buttons.html">管理コンソールのボタン</a>
+<br>
+
+<a href="rcon_pageusage.html">管理コンソール・ページのフィーチャー</a>
+<br>
+
+<a href="rcon_scope.html">管理コンソールの有効範囲設定</a>
+<br>
+
+<a href="rcon_filter.html">管理コンソールのフィルター設定</a>
+<br>
+
+<a href="rcon_preferences.html">管理コンソールの設定の変更</a>
+<br>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>단일 사인온 설정</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecsso"></a>
+<h2>단일 사인온 설정</h2>
+
+<p>이 페이지를 참조하여 단일 사인온(SSO)에 대한 구성 값을 설정하십시오.</p>
+
+<p>이 관리 콘솔 페이지를 보려면 <strong>보안</strong> &gt; <strong>인증 메커니즘</strong> &gt; <strong>LTPA</strong> &gt; <strong>SSO(Single Signon)</strong>를 클릭하십시오.</p>
+
+<div>
+<p>
+<strong>구성 탭</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="SingleSignon_requiresSSL_description"></a>SSL 필요</strong>
+</dt>
+<dd>HTTPS SSL(Secure Socket Layer) 연결을 통해 요청하는 경우에만 단일 사인온 기능을
+사용할 수 있도록 지정합니다.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형:</td>
+<td align="left" valign="top" class="base">부울</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">기본값:</td>
+<td align="left" valign="top" class="base">사용 불가능</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">범위:</td>
+<td align="left" valign="top" class="base">사용 가능 또는 사용 불가능</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SingleSignon_domainName_description"></a>도메인 이름</strong>
+</dt>
+<dd>모든 단일 사인온 호스트에 대한 도메인 이름(예: .ibm.com, for example)을 지정합니다.
+<p>값이 지정되지 않은 경우, 사용자 웹 브라우저의 기본값은 웹 응용프로그램이 실행 중인 호스트 이름의
+값입니다. 이것은
+HTTP 쿠키(SSO용으로 생성됨)를 원래 생성한 호스트에만 제한합니다.SSO 도메인에 참여하는 호스트가 둘 이상인 경우,
+HTTP 쿠키를 제한하는 것이 바람직하지 않을 수 있습니다. 도메인 이름이 다른 여러 가상 호스트가
+동일한 실제 호스트에서 실행 중인 경우에만 도메인 이름 속성을
+공백으로 두는 것이 좋습니다.이 필드를 공백으로 두면 웹 브라우저가 도메인 이름의 기본값을
+서로 다른 각각의 가상 호스트로 설정할 수 있습니다.이 필드에서 도메인 이름이 명확하게 지정된 경우,
+해당 값이 모든 가상 호스트에 사용되므로 이것을 단일 도메인으로 제한하는 것은 어떤 상황에서는
+바람직하지 않을 수 있습니다.</p>
+
+<p>도메인 이름이 명확히 지정된 경우, 보호 설정된 웹 자원에 액세스하기 위해 사용된
+모든 URL은 서버 DNS(Domain Name System) 호스트 이름을 포함합니다.
+예를 들어, 일단 글로벌 보안이 LTPA에 대해 구성되고 명시 SSO 도메인 이름이 지정되면 관리 콘솔은
+다음 URL에 액세스할 수 있습니다. <strong>http://yourhost.austin.ibm.com:9090/admin</strong>. 여기서 <em>yourhost.austin.ibm.com</em>은
+사용자 서버 DNS 호스트 이름으로 대체됩니다.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형:</td>
+<td align="left" valign="top" class="base">문자열</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SingleSignon_enabled_description"></a>사용 가능</strong>
+</dt>
+<dd>단일 사인온 기능이 사용 가능하도록 지정합니다.
+<p>J2EE FormLogin 양식 로그인 페이지을 사용하는 웹 응용프로그램(WebSphere Application Server 관리 콘솔)은
+단일 사인온(SSO)이 사용 가능이 필요합니다. LTPA SSO 유형 쿠키가 필요하지 않은 임의의 고급 구성에 대해서만
+SSO를 사용 불가능하게 하십시오.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형:</td>
+<td align="left" valign="top" class="base">부울</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">기본값:</td>
+<td align="left" valign="top" class="base">사용 가능</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">범위:</td>
+<td align="left" valign="top" class="base">사용 가능 또는 사용 불가능</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>관련 정보</strong>
+</p>
+<a href="rcon_buttons.html">관리 콘솔 단추</a>
+<br>
+
+<a href="rcon_pageusage.html">관리 콘솔 페이지 기능</a>
+<br>
+
+<a href="rcon_scope.html">관리 콘솔 범위 설정</a>
+<br>
+
+<a href="rcon_filter.html">관리 콘솔 필터 설정</a>
+<br>
+
+<a href="rcon_preferences.html">관리 콘솔 환경 설정</a>
+<br>
+
+</div>
+</body>
+</html>

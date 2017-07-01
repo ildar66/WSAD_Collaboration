@@ -1,0 +1,96 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Publication des param&egrave;tres de fichiers WSDL</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_publishwsdl"></a>
+<h2>
+<img alt="[Fix Pack 5.0.2 and later]" src="v502.gif" border="0">Publication des param&egrave;tres de fichiers WSDL</h2>
+
+<p>Cette page permet de publier des fichiers WSDL (Web Services Description Language).      </p>
+
+<p>Pour afficher cette page, cliquez sur <strong>Applications</strong> &gt;<strong>Applications d'entreprise</strong> &gt; <em>instance_application</em> &gt; <strong>Publier WSDL</strong>. </p>
+
+<p>Lorsque vous cliquez sur <strong>OK</strong>, un fichier zip contenant tous les modules g&eacute;n&eacute;r&eacute;s par
+les services Web de l'application est g&eacute;n&eacute;r&eacute;. Le nom du fichier zip publi&eacute; correspond &agrave; <samp>nom_application_WSDLFiles.zip</samp>.
+Dans
+le fichier zip publi&eacute;, la structure de r&eacute;pertoires correspond &agrave;
+<em>nom_application/module_name/[META-INF|WEB-INF]/wsdl/nom_fichier_wsdl</em>.
+ </p>
+
+<p>Dans un fichier WSDL publi&eacute;, l'attribut location d'une section
+<samp>soap:address</samp> contient l'adresse URL &agrave; l'aide de laquelle il est
+possible d'acc&eacute;der au service. Vous pouvez indiquer la partie de l'adresse URL &agrave; utiliser pour les
+services Web dans chaque module. Vous pouvez acc&eacute;der aux services Web d'un module en utilisant le
+transport HTTP et/ou JMS. Vous pouvez indiquer l'adresse URL pour ces deux types de transport.   </p>
+
+<div>
+<p>
+<strong>Onglet Configuration</strong>
+</p>
+<dl>
+<dt>
+<strong>Sp&eacute;cifier les pr&eacute;fixes d'URL pour les services Web </strong>
+</dt>
+<dd>Indique le <em>protocole</em> (http ou https), le <em>nom_h&ocirc;te</em>
+et le <em>num&eacute;ro_port</em> &agrave; utiliser dans l'URL. 
+<p>Le pr&eacute;fixe de l'adresse URL poss&egrave;de le format
+protocole://<em>nom_h&ocirc;te:num&eacute;ro_port</em>,
+par exemple, http://<em>mon_h&ocirc;te</em>:9045. L'adresse URL r&eacute;elle qui
+appara&icirc;t dans un fichier WSDL publi&eacute; se compose du pr&eacute;fixe
+qui pr&eacute;c&egrave;de la racine de contexte du module et le sch&eacute;ma de l'URL du service Web, par
+exemple, http://<em>mon_h&ocirc;te</em>:9045/services/<em>mon_service</em> .</p>
+
+</dd>
+<dt>
+<strong>S&eacute;lectionner un pr&eacute;fixe d'URL HTTP </strong>
+</dt>
+<dd>D&eacute;finit la liste d&eacute;roulante associ&eacute;e &agrave; la liste par d&eacute;faut de
+pr&eacute;fixes d'URL. Cette liste est l'intersection entre l'ensemble de ports de l'h&ocirc;te virtuel du module et l'ensemble des ports et celui du serveur d'applications du module. Utilisez les &eacute;l&eacute;ments de la liste s'il est possible d'acc&eacute;der directement
+au serveur d'applications du service Web. 
+<p>Pour d&eacute;finir un pr&eacute;fixe HTTP, s&eacute;lectionnez <strong>Pr&eacute;fixe d'URL HTTP</strong> ou <strong>Pr&eacute;fixe
+d'URL HTTP personnalis&eacute;</strong>, entrez la valeur, s&eacute;lectionnez la case &agrave; cocher des modules
+devant utiliser le pr&eacute;fixe et cliquez sur <strong>Valider</strong>. Lorsque vous cliquez sur <strong>Valider</strong>,
+l'entr&eacute;e des zones <strong>S&eacute;lectionner un pr&eacute;fixe d'URL HTTP</strong> ou <strong>Pr&eacute;fixe d'URL HTTP personnalis&eacute;</strong>
+(selon la zone s&eacute;lectionn&eacute;e) est copi&eacute;e dans la zone <strong>Pr&eacute;fixe d'URL HTTP</strong> des modules
+dont la case &agrave; cocher (dans la colonne de gauche) est s&eacute;lectionn&eacute;e. Le pr&eacute;fixe HTTP
+n'est pas appliqu&eacute; aux zones de la colonne Pr&eacute;fixe d'URL JMS.</p>
+
+</dd>
+<dt>
+<strong>Personnaliser un pr&eacute;fixe d'URL HTTP </strong>
+</dt>
+<dd>Indique le <em>protocole</em>, l'<em>h&ocirc;te</em> et le <em>num&eacute;ro de
+port</em> du service interm&eacute;diaire, si l'acc&egrave;s aux services Web d'un
+module est effectu&eacute; via un noeud interm&eacute;diaire, par exemple la
+passerelle de services Web ou un serveur IHS. 
+<p>Pour d&eacute;finir un pr&eacute;fixe HTTP, s&eacute;lectionnez <strong>Pr&eacute;fixe d'URL HTTP</strong> ou <strong>Pr&eacute;fixe
+d'URL HTTP personnalis&eacute;</strong>, entrez la valeur, s&eacute;lectionnez la case &agrave; cocher des modules
+devant utiliser le pr&eacute;fixe et cliquez sur <strong>Valider</strong>. Lorsque vous cliquez sur <strong>Valider</strong>,
+l'entr&eacute;e des zones <strong>S&eacute;lectionner un pr&eacute;fixe d'URL HTTP</strong> ou <strong>Pr&eacute;fixe d'URL HTTP personnalis&eacute;</strong>
+(selon la zone s&eacute;lectionn&eacute;e) est copi&eacute;e dans la zone <strong>Pr&eacute;fixe d'URL HTTP</strong> des modules
+dont la case &agrave; cocher (dans la colonne de gauche) est s&eacute;lectionn&eacute;e. Le pr&eacute;fixe HTTP
+n'est pas appliqu&eacute; aux zones de la colonne Pr&eacute;fixe d'URL JMS.</p>
+
+</dd>
+<dt>
+<strong>Pr&eacute;fixe d'URL JMS</strong>
+</dt>
+<dd>Indique la cha&icirc;ne du pr&eacute;fixe d'URL JMS utilis&eacute;e pour chaque module. 
+<p>Le pr&eacute;fixe d'URL sp&eacute;cifi&eacute; doit contenir les propri&eacute;t&eacute;s destination et connectionFactory. Il peut contenir d'autres paires propri&eacute;t&eacute;-valeur, mais ne doit pas contenir de propri&eacute;t&eacute; targetService, ajout&eacute;e par le syst&egrave;me lorsque les fichiers WSDL publi&eacute;s sont  g&eacute;n&eacute;r&eacute;s. Le
+format du pr&eacute;fixe URL JMS est
+jms:/[<em>file_attente&amp;rubrique</em>]?destination=<em>file_attente_ou_nom_jndi_rubrique</em>&amp;connectionFactory=<em>nom_jndi_fabrique</em>,
+par exemple jms:/queue?destination=jms/Q1&amp;connectionFactory=jms/QCF.
+L'adresse URL r&eacute;elle qui appara&icirc;t dans le fichier WSDL publi&eacute; se
+compose du pr&eacute;fixe plac&eacute; devant la propri&eacute;t&eacute; targetService du service
+Web, par exemple jms:/queue?destination=jms/Q1&amp;connectionFactory=jms/QCF&amp;targetService=StockQuote.</p>
+
+</dd>
+</dl>
+</div>
+</body>
+</html>

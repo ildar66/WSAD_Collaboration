@@ -1,0 +1,260 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Einstellungen des JVM-Protokolls</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="JVMLogs_description"></a>
+<h2>Einstellungen des JVM-Protokolls</h2>
+
+<p>Auf dieser Seite k&ouml;nnen Sie die Einstellungen f&uuml;r das <samp>System.out</samp>- und das
+<samp>System.err</samp>-Protokoll der JVM (Java Virtual Machine) anzeigen und &auml;ndern.</p>
+
+<p>Klicken Sie zum Anzeigen dieser Seite der Administrationskonsole auf <strong>Fehlerbehebung &gt; Protokolle
+und Trace &gt;<cite>Server</cite> &gt; JVM-Protokolle</strong>.</p>
+
+<div>
+<p>
+<strong>Register "Konfiguration"</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="system_out_file_description"></a>Dateiname</strong>
+</dt>
+<dd>Der Name einer der auf dieser Seite beschriebenen Protokolldateien. 
+<p>Das erste Dateinamensfeld gibt den Namen des Protokolls <samp>System.out</samp> an.
+Das zweite Dateinamensfeld gibt den Namen des Protokolls <samp>System.err</samp> an. </p>
+
+<p>Klicken Sie unter dem Register "Laufzeit" auf <strong>Anzeigen</strong>, um
+den Inhalt dieser Datei anzuzeigen. </p>
+
+<p>Der f&uuml;r das Protokoll <samp>System.out</samp> oder das Protokoll <samp>System.err</samp>
+angegebene Dateiname muss einen der folgenden Werte haben: <dl>
+
+<dt>
+<strong><em>Dateiname</em></strong>
+</dt>
+<dd>Der Name einer Datei in einem Dateisystem. Es empfiehlt sich, einen vollst&auml;ndig
+qualifizierten Dateinamen zu verwenden. Wenn der Dateiname nicht vollst&auml;ndig qualifiziert ist, wird davon
+ausgegangen, dass er sich auf das aktuelle Arbeitsverzeichnis f&uuml;r den Server bezieht.
+Jeder Datenstrom muss mit einer dedizierten Datei konfiguriert werden. Sie k&ouml;nnen z. B. nicht
+<samp>System.out</samp> und <samp>System.err</samp> in dieselbe physische Datei umleiten. <p>Wenn das Verzeichnis,
+das die Datei enth&auml;lt, bereits vorhanden ist, muss der Benutzer-ID, unter der der Server ausgef&uuml;hrt wird, die
+Lese-/Schreibberechtigung f&uuml;r das Verzeichnis erteilt werden. Wenn das Verzeichnis nicht vorhanden ist, wird es mit den
+entsprechenden Berechtigungen erstellt. Die Benutzer-ID, unter der der Server ausgef&uuml;hrt wird, muss die
+Berechtigung haben, das Verzeichnis zu erstellen. </p>
+</dd>
+
+<dt>
+<strong>Konsole</strong>
+</dt>
+<dd>Das ist ein besonderer Dateiname, der verwendet wird, um den Datenstrom in den
+entsprechenden Prozessdatenstrom umzuleiten. Wenn dieser Wert f&uuml;r <samp>System.out</samp> angegeben wurde, wird
+die Datei in <samp>stdout</samp> umgeleitet. Wenn dieser Wert f&uuml;r <samp>System.err</samp> angegeben wurde, wird die
+Datei in
+<samp>stderr</samp> umgeleitet. </dd>
+
+<dt>
+<strong>Keine</strong>
+</dt>
+<dd>L&ouml;scht alle Daten, die in den Datenstrom geschrieben wurden. Wenn Sie <strong>Keine</strong> angeben,
+bedeutet das bei einem UNIX-System, dass Sie den Datenstrom in dev/null umleiten. </dd>
+
+</dl>
+</p>
+
+</dd>
+<dt>
+<strong><a name="system_out_file_formatting_description"></a>Dateiformat</strong>
+</dt>
+<dd>Gibt das Format an, in dem die <samp>System.out</samp>-Datei gespeichert werden soll.</dd>
+<dt>
+<strong><a name="log_file_rotation"></a>Fortf&uuml;hrung der Protokolldatei </strong>
+</dt>
+<dd>
+
+<p>Sie k&ouml;nnen die Protokolldatei <samp>System.out</samp> oder <samp>System.err</samp> mit dieser Gruppe von Konfigurationsattributen so konfigurieren, dass sie
+sich selbst verwaltet. </p>
+
+<p>Ein sich selbst verwaltendes Protokoll schreibt so lange Nachrichten, bis das Zeit- oder Gr&ouml;&szlig;enlimit erreicht ist. Wenn das Zeit- oder
+Gr&ouml;&szlig;enlimit erreicht ist, wird die Protokollierung vor&uuml;bergehend ausgesetzt, w&auml;hrend die Protokolldatei geschlossen
+und die gespeicherte Datei umbenannt wird. Der neue
+Name der gespeicherten Datei basiert auf dem urspr&uuml;nglichen Namen der Datei und beinhaltet zus&auml;tzlich eine Zeitmarke, die angibt,
+wann die Umbenennung erfolgt ist. Nach der Umbenennung wird eine neue, leere
+Protokolldatei mit dem urspr&uuml;nglichen Namen erneut ge&ouml;ffnet, und die Protokollierung wird wieder aufgenommen. Alle Nachrichten
+bleiben nach dem Rollover erhalten. Es kann jedoch sein, dass eine einzelne Nachricht geteilt und ein Teil in der gespeicherten
+und der andere in der aktuellen Datei enthalten sind. </p>
+
+<p>Ein Protokoll kann nur als selbstverwaltet konfiguriert werden, wenn der entsprechende Datenstrom in
+eine Datei umgeleitet wird. <dl>
+
+<dt>
+<strong>Dateigr&ouml;&szlig;e</strong>
+</dt>
+<dd>Klicken Sie auf dieses Attribut, damit sich die Protokolldatei basierend auf der Dateigr&ouml;&szlig;e selbst
+verwaltet. Automatisches Rollover findet statt, wenn die Datei die angegebene Gr&ouml;&szlig;e erreicht, die Sie im Feld
+"Maximale Gr&ouml;&szlig;e" festgelegt haben. </dd>
+
+<dt>
+<strong>Maximale Gr&ouml;&szlig;e</strong>
+</dt>
+<dd>Geben Sie die maximale Gr&ouml;&szlig;e der Datei in MB an.
+Wenn die Datei diese Gr&ouml;&szlig;e erreicht, findet das Rollover statt. <p>Dieses Attribut ist nur g&uuml;ltig,
+wenn Sie auf das Attribut "Dateigr&ouml;&szlig;e" klicken. </p>
+</dd>
+
+<dt>
+<strong>Zeit</strong>
+</dt>
+<dd>Klicken Sie auf dieses Attribut, damit sich die Protokolldatei basierend auf der Tageszeit selbst
+verwaltet. Zu der im Feld "Startzeit" angegebenen Zeit findet das Rollover statt. </dd>
+
+<dt>
+<strong>Startzeit</strong>
+</dt>
+<dd>Geben Sie die Uhrzeit (Stunde zwischen 1 und 24) an, zu der der Algorithmus f&uuml;r
+regelm&auml;&szlig;iges Rollover nach dem Neustart von Application Server zum ersten Mal gestartet wird. Der
+Algorithmus wird beim Starten des Application Server geladen. Sobald der Algorithmus zur angegebenen Stunde
+gestartet wurde, wird der Rollover-Algorithmus f&uuml;r die Datei in dem im Feld "Wiederholungsintervall" angegebenen Intervall
+wiederholt. Das Rollover-Muster wird ohne Anpassung so lange wiederholt, bis der Application Server gestoppt wird. </dd>
+
+<dt>
+<strong>Wiederholungsintervall</strong>
+</dt>
+<dd>Geben Sie das Wiederholungsintervall (1 bis 24 Stunden) f&uuml;r das regelm&auml;&szlig;ige Rollover an. </dd>
+
+<dt>
+<strong>Wiederholungsintervall</strong>
+</dt>
+<dd>Gibt die Anzahl der Stunden an, nach denen das Rollover f&uuml;r die Protokolldatei
+durchgef&uuml;hrt wird. Die g&uuml;ltigen Werte liegen im Bereich zwischen 1 und 24. </dd>
+
+</dl>
+</p>
+
+<p>Sie k&ouml;nnen eine Protokolldatei so konfigurieren, dass basieren auf Zeit, Gr&ouml;&szlig;e oder Zeit und Gr&ouml;&szlig;e ein Rollover durchgef&uuml;hrt wird. Wenn
+Sie auf <strong>Dateigr&ouml;&szlig;e</strong> und <strong>Zeit</strong> klicken, wird das Rollover nach dem ersten &uuml;bereinstimmenden Kriterium durchgef&uuml;hrt. Wenn
+im Feld "Wiederholungsintervall" 5 Stunden und im Feld "Maximale Gr&ouml;&szlig;e" 2 MB angegeben sind, wird das Rollover
+alle 5 Stunden durchgef&uuml;hrt, sofern nicht vor Ablauf des Intervalls die Maximalgr&ouml;&szlig;e von 2 MB erreicht ist. Nach dem
+zeitbasierten Rollover wird das Rollover weiter im angegebenen Zeitintervall durchgef&uuml;hrt. </p>
+
+</dd>
+<dt>
+<strong><a name="max_historical_files"></a>Maximale Anzahl aufzubewahrender Protokolldateien </strong>
+</dt>
+<dd>
+
+<p>Die Anzahl der aufzubewahrenden Archivdateien. Der Datenstrom wird so lange in die aktuelle Datei geschrieben,
+bis das Rollover stattfindet. Beim Rollover wird die aktuelle Datei geschlossen und unter einem neuen Namen gespeichert,
+der sich aus dem aktuellen Dateinamen und der Zeitmarke des Rollover zusammensetzt.
+Anschlie&szlig;end &ouml;ffnet der Datenstrom eine neue Datei mit dem urspr&uuml;nglichen Namen, um das Schreiben fortzusetzen.
+Es werden maximal so viele Archivdateien erstellt, wie im Feld "Maximale Anzahl der Archivdateien" festgelegt ist. Beim
+darauf folgenden Rollover wird die &auml;lteste Archivdatei gel&ouml;scht. </p>
+
+</dd>
+<dt>
+<strong><a name="installed_application_output"></a>Ausgabe der installierten Anwendung </strong>
+</dt>
+<dd>
+
+<p>Gibt an, ob die vom Anwendungscode abgesetzten Druckanweisungen f&uuml;r die Protokolle
+<samp>System.out</samp> und <samp>System.err</samp> protokolliert und formatiert werden. <dl>
+
+<dt>
+<strong>Anweisungen f&uuml;r die Anwendungsausgabe anzeigen</strong>
+</dt>
+<dd>Klicken Sie auf dieses Feld, um Nachrichten anzuzeigen,
+die Anwendungen mit den Datenstrommethoden <strong>print</strong> und <strong>println</strong> in den Datenstrom schreiben. Systemnachrichten
+von WebSphere
+Application Server werden immer angezeigt. </dd>
+
+<dt>
+<strong>Anweisungen f&uuml;r Formatausgabe </strong>
+</dt>
+<dd>Klicken Sie auf dieses Feld, um die Druckanweisungen der Anwendung
+wie die Systemnachrichten von WebSphere Application Server zu formatieren.</dd>
+
+</dl>
+</p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Register "Laufzeit"</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="system_out_file_description"></a>Dateiname</strong>
+</dt>
+<dd>Der Name einer der auf dieser Seite beschriebenen Protokolldateien. 
+<p>Das erste Dateinamensfeld gibt den Namen des Protokolls <samp>System.out</samp> an.
+Das zweite Dateinamensfeld gibt den Namen des Protokolls <samp>System.err</samp> an. </p>
+
+<p>Klicken Sie unter dem Register "Laufzeit" auf <strong>Anzeigen</strong>, um
+den Inhalt dieser Datei anzuzeigen. </p>
+
+<p>Der f&uuml;r das Protokoll <samp>System.out</samp> oder das Protokoll <samp>System.err</samp>
+angegebene Dateiname muss einen der folgenden Werte haben: <dl>
+
+<dt>
+<strong><em>Dateiname</em></strong>
+</dt>
+<dd>Der Name einer Datei in einem Dateisystem. Es empfiehlt sich, einen vollst&auml;ndig
+qualifizierten Dateinamen zu verwenden. Wenn der Dateiname nicht vollst&auml;ndig qualifiziert ist, wird davon
+ausgegangen, dass er sich auf das aktuelle Arbeitsverzeichnis f&uuml;r den Server bezieht.
+Jeder Datenstrom muss mit einer dedizierten Datei konfiguriert werden. Sie k&ouml;nnen z. B. nicht
+<samp>System.out</samp> und <samp>System.err</samp> in dieselbe physische Datei umleiten. <p>Wenn das Verzeichnis,
+das die Datei enth&auml;lt, bereits vorhanden ist, muss der Benutzer-ID, unter der der Server ausgef&uuml;hrt wird, die
+Lese-/Schreibberechtigung f&uuml;r das Verzeichnis erteilt werden. Wenn das Verzeichnis nicht vorhanden ist, wird es mit den
+entsprechenden Berechtigungen erstellt. Die Benutzer-ID, unter der der Server ausgef&uuml;hrt wird, muss die
+Berechtigung haben, das Verzeichnis zu erstellen. </p>
+</dd>
+
+<dt>
+<strong>Konsole</strong>
+</dt>
+<dd>Das ist ein besonderer Dateiname, der verwendet wird, um den Datenstrom in den
+entsprechenden Prozessdatenstrom umzuleiten. Wenn dieser Wert f&uuml;r <samp>System.out</samp> angegeben wurde, wird
+die Datei in <samp>stdout</samp> umgeleitet. Wenn dieser Wert f&uuml;r <samp>System.err</samp> angegeben wurde, wird die
+Datei in
+<samp>stderr</samp> umgeleitet. </dd>
+
+<dt>
+<strong>Keine</strong>
+</dt>
+<dd>L&ouml;scht alle Daten, die in den Datenstrom geschrieben wurden. Wenn Sie <strong>Keine</strong> angeben,
+bedeutet das bei einem UNIX-System, dass Sie den Datenstrom in dev/null umleiten. </dd>
+
+</dl>
+</p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Zugeh&ouml;rige Informationen</strong>
+</p>
+<a href="rcon_buttons.html">Kn&ouml;pfe in der Adminstrationskonsole</a>
+<br>
+
+<a href="rcon_scope.html">Geltungsbereichseinstellungen f&uuml;r die Administrationskonsole</a>
+<br>
+
+<a href="rcon_filter.html">Filtereinstellungen f&uuml;r die Administrationskonsole</a>
+<br>
+
+<a href="rcon_preferences.html">Vorgaben f&uuml;r die Administrationskonsole</a>
+<br>
+
+<a href="rcon_pageusage.html">Funktionen auf den Seiten der Administrationskonsole</a>
+<br>
+
+</div>
+</body>
+</html>

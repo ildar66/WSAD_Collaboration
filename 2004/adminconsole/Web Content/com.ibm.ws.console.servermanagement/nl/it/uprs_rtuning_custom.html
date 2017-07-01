@@ -1,0 +1,152 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Impostazioni personalizzate di parametri di ottimizzazione</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="tune_para_custom"></a>
+<h2>Impostazioni personalizzate di parametri di ottimizzazione</h2>
+
+<p>Utilizzare questa pagina per personalizzare i parametri di ottimizzazione per le
+sessioni distribuite.</p>
+
+<p>Per visualizzare questa pagina della console di gestione, fare clic su <strong>Server</strong> &gt; <strong>
+Server delle applicazioni</strong> &gt; <em>nome_server</em> &gt; <strong>Contenitore Web</strong> &gt; <strong>Gestione
+sessioni</strong> &gt; <strong>Impostazioni ambiente distribuito</strong> &gt; <strong>Parametri di ottimizzazione
+personalizzati</strong> &gt; <strong>Impostazioni personalizzate</strong>.</p>
+
+<div>
+<p>
+<strong>Scheda Configurazione</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="TuningParams_writeFrequency_description"></a>Frequenza di scrittura</strong>
+</dt>
+<dd>Specifica quando la sessione viene scritta nella memoria persistente.
+<p></p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Fine del servizio servlet</td>
+<td align="left" valign="top" class="base">Una sessione viene scritta sul database o su un'altra istanza di WebSphere
+Application Server dopo l'esecuzione del server.</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Aggiornamento manuale</td>
+<td align="left" valign="top" class="base">&Egrave; necessaria  una sincronizzazione programmatica sull'oggetto IBMSession per
+scrivere i dati della sessione sul database o su un'altra istanza di WebSphere
+Application Server</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">In base all'ora</td>
+<td align="left" valign="top" class="base">I dati della sessione vengono scritti sul database o su un'altra istanza di
+WebSphere Application Server basata sul valore Intervallo scrittura specificato. Valore
+predefinito: 10 secondi</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="TuningParams_writeContents_description"></a>Contenuti di scrittura  </strong>
+</dt>
+<dd>Specifica se sull'ubicazione esterna devono essere scritti solo gli attributi
+aggiornati o tutti gli attributi di sessione, che siano stati modificati o meno. L'ubicazione esterna pu&ograve; essere un database o un'altra istanza del server delle
+applicazioni.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Solo attributi aggiornati</td>
+<td align="left" valign="top" class="base">Nella memoria persistente vengono scritti solo gli attributi aggiornati.</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tutti gli attributi sessione</td>
+<td align="left" valign="top" class="base">Nella memoria persistente vengono scritti tutti gli attributi.</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="TuningParams_scheduleInvalidation_description"></a>Pianificazione ripulitura sessioni</strong>
+</dt>
+<dd> Specifica quando ripulire le sessioni non valide dal database o dall'istanza
+del server delle applicazioni. 
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Specifica pianificazione di ripulitura sessioni distribuite</td>
+<td align="left" valign="top" class="base">Abilita il
+processo di scadenza validit&agrave; pianificato per ripulire le sessioni HTTP scadute
+dall'ubicazione esterna. Abilitare questa opzione per ridurre il numero di aggiornamenti
+su un database o su un'altra istanza del server delle applicazione richiesti per
+mantenere attive le sessioni HTTP.   Se l'opzione non &egrave; attivata, le sessioni HTTP
+scadute vengono rimosse dopo alcuni minuti.<p>Se invece &egrave; abilitata, specificare
+le due ore al giorno in cui il processo ripulisce le sessioni scadute nell'ubicazione
+esterna. Specificare le ore di minore attivit&agrave; nei server delle applicazioni. Un'ubicazione esterna pu&ograve; essere un database o un'altra istanza del server delle
+applicazioni.  </p>
+</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Prima ora del giorno (0 - 23)</td>
+<td align="left" valign="top" class="base">Indica la prima ora, in GMT (Greenwich Mean
+Time), durante la quale le sessioni non convalidate verranno eliminate dall'ubicazione esterna. Specificare questo valore con un numero intero positivo compreso tra 0 e 23. Questo
+valore &egrave; valido solo quando la scadenza convalida pianificata viene attivata.</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Seconda ora del giorno (0 - 23)</td>
+<td align="left" valign="top" class="base">Indica la seconda ora, in
+GMT (Greenwich Mean Time), durante la quale le sessioni non convalidate verranno eliminate dall'ubicazione esterna. Specificare questo valore con un numero intero positivo compreso tra 0 e 23. Questo
+valore &egrave; valido solo quando la scadenza convalida pianificata viene attivata.</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informazioni correlate</strong>
+</p>
+<a href="rcon_buttons.html">Pulsanti della console di gestione</a>
+<br>
+
+<a href="rcon_pageusage.html">Funzioni della pagina della console di gestione</a>
+<br>
+
+<a href="rcon_preferences.html">Impostazioni delle preferenze della console di gestione</a>
+<br>
+
+<a href="uprs_rtuning_parameters.html">Impostazioni di parametri di ottimizzazione</a>
+<br>
+
+</div>
+</body>
+</html>

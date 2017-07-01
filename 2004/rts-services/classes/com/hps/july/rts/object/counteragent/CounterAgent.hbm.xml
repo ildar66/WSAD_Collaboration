@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+   "http://dtdserver/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.hps.july.rts.object.counteragent" >
+    <class name="CounterAgent" table="organizations"  >
+        <id name="id" column="organization" type="integer" unsaved-value="0">
+            <generator class="native"/>
+        </id>
+        <property name="name" column="name" type="string"/>
+        <property name="shortName" column="shortname" type="string"/>
+        <property name="contactName" column="contactlist" type="string"/>
+        <property name="renter" column="ischannalrenter" type="string"/>
+    </class>
+</hibernate-mapping>

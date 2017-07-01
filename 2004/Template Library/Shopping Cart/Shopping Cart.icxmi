@@ -1,0 +1,1311 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<core:RADComponent xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:core="core.xmi" xmi:id="Shopping Cart" version="1" name="Shopping Cart" isPattern="false"  Default="ComponentEntryPoint_1">
+  <Variables xmi:type="core:TransientField" xmi:id="TransientField_200" name="_user_name">
+    	<CoreTypeDescriptor href="Shopping Cart.prjxmi#CoreTypeDescriptor_8"/>
+    	<FieldDescriptor xmi:type="core:AlphanumFieldDescriptor" xmi:id="AlphanumFieldDescriptor_200" length="50">
+      		<CoreTypeDescriptor href="Shopping Cart.prjxmi#CoreTypeDescriptor_8"/>
+    	</FieldDescriptor>
+   </Variables>
+   <Variables xmi:type="core:TransientField" xmi:id="TransientField_201" name="_selected_item">
+    	<CoreTypeDescriptor href="Shopping Cart.prjxmi#CoreTypeDescriptor_8"/>
+    	<FieldDescriptor xmi:type="core:AlphanumFieldDescriptor" xmi:id="AlphanumFieldDescriptor_201" length="50">
+      		<CoreTypeDescriptor href="Shopping Cart.prjxmi#CoreTypeDescriptor_8"/>
+    	</FieldDescriptor>
+   </Variables>
+   <Variables xmi:type="core:TransientField" xmi:id="TransientField_202" name="_total_price">
+    	<CoreTypeDescriptor href="Shopping Cart.prjxmi#CoreTypeDescriptor_5"/>
+    	<FieldDescriptor xmi:type="core:NumFieldDescriptor" xmi:id="NumFieldDescriptor_202" rightDigit="2">
+      		<CoreTypeDescriptor href="Shopping Cart.prjxmi#CoreTypeDescriptor_5"/>
+    	</FieldDescriptor>
+   </Variables>
+   <Variables xmi:type="core:TransientField" xmi:id="TransientField_203" name="_product_price">
+    	<CoreTypeDescriptor href="Shopping Cart.prjxmi#CoreTypeDescriptor_5"/>
+    	<FieldDescriptor xmi:type="core:NumFieldDescriptor" xmi:id="NumFieldDescriptor_203" rightDigit="2">
+      		<CoreTypeDescriptor href="Shopping Cart.prjxmi#CoreTypeDescriptor_5"/>
+    	</FieldDescriptor>
+   </Variables>
+
+
+   <Variables xmi:type="core:TransientField" xmi:id="TransientField_204" name="_place_holder">
+    	<CoreTypeDescriptor href="Shopping Cart.prjxmi#CoreTypeDescriptor_8"/>
+    	<FieldDescriptor xmi:type="core:AlphanumFieldDescriptor" xmi:id="AlphanumFieldDescriptor_204" length="50">
+      		<CoreTypeDescriptor href="Shopping Cart.prjxmi#CoreTypeDescriptor_8"/>
+    	</FieldDescriptor>
+   </Variables>
+
+   <MenuView xmi:type="core:MenuView" xmi:id="MenuView_1" version="1" name="Menu">
+      <Triggers xmi:id="Trigger_101" version="1" name="Catalog" TriggerDisplay="RADMenuItem_1"/>
+      <Triggers xmi:id="Trigger_102" version="1" name="Cart" TriggerDisplay="RADMenuItem_2"/>
+      <Triggers xmi:id="Trigger_103" version="1" name="Bill" TriggerDisplay="RADMenuItem_3"/>
+      <Triggers xmi:id="Trigger_104" version="1" name="Logout" TriggerDisplay="RADMenuItem_4"/>
+      <menu xmi:type="core:RADSubMenu" xmi:id="RADSubMenu_1" version="1">
+        <RADMenuEntry  xmi:type="core:RADMenuItem" xmi:id="RADMenuItem_1" version="1" name="Catalog" displayType="BUTTON">
+           <Caption xmi:id="Caption_300" version="1" caption="Catalog" isConstant="false">
+          	<CaptionParameter href="Shopping Cart.prjxmi#CaptionParameter_135"/>
+           </Caption>
+        </RADMenuEntry>
+        <RADMenuEntry  xmi:type="core:RADMenuItem" xmi:id="RADMenuItem_2" version="1" name="Cart" displayType="BUTTON">
+           <Caption xmi:id="Caption_301" version="1" caption="Catalog" isConstant="false">
+          	<CaptionParameter href="Shopping Cart.prjxmi#CaptionParameter_136"/>
+           </Caption>
+        </RADMenuEntry>
+        <RADMenuEntry  xmi:type="core:RADMenuItem" xmi:id="RADMenuItem_3" version="1" name="Bill" displayType="BUTTON">
+           <Caption xmi:id="Caption_302" version="1" caption="Catalog" isConstant="false">
+          	<CaptionParameter href="Shopping Cart.prjxmi#CaptionParameter_43"/>
+           </Caption>
+        </RADMenuEntry>
+        <RADMenuEntry  xmi:type="core:RADMenuItem" xmi:id="RADMenuItem_4" version="1" name="Logout" displayType="BUTTON">
+           <Caption xmi:id="Caption_340" version="1" caption="Catalog" isConstant="false">
+          	<CaptionParameter href="Shopping Cart.prjxmi#CaptionParameter_140"/>
+           </Caption>
+        </RADMenuEntry>
+        <Caption xmi:id="Caption_303" version="1" caption="Menu" isConstant="false">
+           <CaptionParameter href="Shopping Cart.prjxmi#CaptionParameter_138"/>
+        </Caption>
+      </menu>
+   </MenuView>
+
+   <BusinessLogicUnits xmi:id="BusinessLogicUnit_91" version="1" name="ResetLoginPage">
+     <Variables xmi:id="RADExpression_91" expression=""/>
+     <Sequence xmi:id="Sequence_91" version="1">
+  	  <Statements xmi:type="core:Action" xmi:id="Action_91">
+              <parameters  xmi:id="ActionParameter_91">
+                 <parameter href="models/Users.dsxmi#PersistentField_1"/>
+	      </parameters>
+              <parameters  xmi:id="ActionParameter_92" parameter="RADExpression_91"/>
+	      <ActionDescriptor xmi:type="core:CoreActionDescriptor" href="Shopping Cart.prjxmi#CoreActionDescriptor_1"/>
+          </Statements>
+  	  <Statements xmi:type="core:Action" xmi:id="Action_92">
+              <parameters  xmi:id="ActionParameter_93" parameter="TransientField_100"/>
+              <parameters  xmi:id="ActionParameter_94" parameter="RADExpression_91"/>
+	      <ActionDescriptor xmi:type="core:CoreActionDescriptor" href="Shopping Cart.prjxmi#CoreActionDescriptor_1"/>
+          </Statements>
+  	  <Statements xmi:type="core:Action" xmi:id="Action_93">
+              <parameters  xmi:id="ActionParameter_94" parameter="TransientField_101"/>
+              <parameters  xmi:id="ActionParameter_95" parameter="RADExpression_91"/>
+	      <ActionDescriptor xmi:type="core:CoreActionDescriptor" href="Shopping Cart.prjxmi#CoreActionDescriptor_1"/>
+          </Statements>
+    </Sequence>
+    <EntryPoint xmi:id="EntryPoint_91" version="1" name="In"/>
+    <ErrorState xmi:id="ErrorState_91" version="1" name="Error"/>
+    <ExitStates xmi:id="ExitState_91" version="1" name="OK"/>
+   </BusinessLogicUnits>
+
+   <BusinessLogicUnits xmi:id="BusinessLogicUnit_81" version="1" name="ResetNewUserPage">
+     <Variables xmi:id="RADExpression_81" expression=""/>
+     <Sequence xmi:id="Sequence_81" version="1">
+  	  <Statements xmi:type="core:Action" xmi:id="Action_81">
+              <parameters  xmi:id="ActionParameter_81">
+                 <parameter href="models/Users.dsxmi#PersistentField_1"/>
+	      </parameters>
+              <parameters  xmi:id="ActionParameter_82" parameter="RADExpression_81"/>
+	      <ActionDescriptor xmi:type="core:CoreActionDescriptor" href="Shopping Cart.prjxmi#CoreActionDescriptor_1"/>
+          </Statements>
+  	  <Statements xmi:type="core:Action" xmi:id="Action_82">
+              <parameters  xmi:id="ActionParameter_83">
+                 <parameter href="models/Users.dsxmi#PersistentField_2"/>
+	      </parameters>
+              <parameters  xmi:id="ActionParameter_84" parameter="RADExpression_81"/>
+	      <ActionDescriptor xmi:type="core:CoreActionDescriptor" href="Shopping Cart.prjxmi#CoreActionDescriptor_1"/>
+          </Statements>
+  	  <Statements xmi:type="core:Action" xmi:id="Action_83">
+              <parameters  xmi:id="ActionParameter_84" parameter="TransientField_4"/>
+              <parameters  xmi:id="ActionParameter_85" parameter="RADExpression_81"/>
+	      <ActionDescriptor xmi:type="core:CoreActionDescriptor" href="Shopping Cart.prjxmi#CoreActionDescriptor_1"/>
+          </Statements>
+    </Sequence>
+    <EntryPoint xmi:id="EntryPoint_81" version="1" name="In"/>
+    <ErrorState xmi:id="ErrorState_81" version="1" name="Error"/>
+    <ExitStates xmi:id="ExitState_81" version="1" name="OK"/>
+  </BusinessLogicUnits>
+
+  <BusinessLogicUnits xmi:id="BusinessLogicUnit_1" version="1" name="ResetUserCart" description="This logic resets the previous user cart on login">
+     <Sequence xmi:id="Sequence_1" version="1">
+	<Statements xmi:type="core:Sequence" xmi:id="Sequence_801">
+  	  <Statements xmi:type="core:Action" xmi:id="Action_201">
+              <parameters  xmi:id="ActionParameter_201">
+                 <parameter href="models/Cart.dsxmi#PersistentField_1"/>
+	      </parameters>
+              <parameters  xmi:id="ActionParameter_202" parameter="TransientField_200"/>
+	      <ActionDescriptor xmi:type="core:CoreActionDescriptor" href="Shopping Cart.prjxmi#CoreActionDescriptor_1"/>
+          </Statements>
+          <Statements xmi:type="core:Action" xmi:id="Action_202">
+              <ActionDescriptor xmi:type="core:DomainActionDescriptor" href="models/Cart.dsxmi#DomainActionDescriptor_8"/>
+              <reciever xmi:type="core:DataSource" href="models/Cart.dsxmi#DataSource_1"/>
+              <parameters  xmi:id="ActionParameter_203">
+              		 <parameter href="models/Cart.dsxmi#PersistentField_1"/>
+	      </parameters>
+          </Statements>
+       </Statements>
+    </Sequence>
+    <EntryPoint xmi:id="EntryPoint_1" version="1" name="In"/>
+    <ErrorState xmi:id="ErrorState_1" version="1" name="Error"/>
+    <ExitStates xmi:id="ExitState_1" version="1" name="OK"/>
+  </BusinessLogicUnits>
+  <BusinessLogicUnits xmi:id="BusinessLogicUnit_2" version="1" name="Fill Catalog">
+    <Sequence xmi:id="Sequence_2" version="1">
+        <Statements xmi:type="core:Action" xmi:id="Action_203" returnedValue="DataViewVariable_11">
+              <ActionDescriptor xmi:type="core:DomainActionDescriptor" href="models/Catalog.dsxmi#DomainActionDescriptor_4"/>
+              <reciever xmi:type="core:DataSource" href="models/Catalog.dsxmi#DataSource_2"/>
+        </Statements>
+        <Statements xmi:type="core:Action" xmi:id="Action_253" returnedValue="DataViewVariable_10">
+              <ActionDescriptor xmi:type="core:DomainActionDescriptor" href="models/Catalog.dsxmi#DomainActionDescriptor_4"/>
+              <reciever xmi:type="core:DataSource" href="models/Catalog.dsxmi#DataSource_2"/>
+        </Statements>
+    </Sequence>
+    <EntryPoint xmi:id="EntryPoint_2" version="1" name="In"/>
+    <ErrorState xmi:id="ErrorState_2" version="1" name="Error"/>
+    <ExitStates xmi:id="ExitState_2" version="1" name="OK"/>
+  </BusinessLogicUnits>
+  <BusinessLogicUnits xmi:id="BusinessLogicUnit_11" version="1" name="FillProductDetails">
+    <Sequence xmi:id="Sequence_11" version="1">
+        <Statements xmi:type="core:Action" xmi:id="Action_226">
+            <parameters  xmi:id="ActionParameter_225">
+                 <parameter href="models/Catalog.dsxmi#PersistentField_1"/>
+            </parameters>
+            <parameters  xmi:id="ActionParameter_226" parameter="TransientField_201"/>
+	    <ActionDescriptor xmi:type="core:CoreActionDescriptor" href="Shopping Cart.prjxmi#CoreActionDescriptor_1"/>
+        </Statements>
+        <Statements xmi:type="core:Action" xmi:id="Action_204">
+              <ActionDescriptor xmi:type="core:DomainActionDescriptor" href="models/Catalog.dsxmi#DomainActionDescriptor_5"/>
+              <reciever xmi:type="core:DataSource" href="models/Catalog.dsxmi#DataSource_2"/>
+        </Statements>
+    </Sequence>
+    <EntryPoint xmi:id="EntryPoint_15" version="1" name="In"/>
+    <ErrorState xmi:id="ErrorState_11" version="1" name="Error"/>
+    <ExitStates xmi:id="ExitState_12" version="1" name="OK"/>
+  </BusinessLogicUnits>
+   <BusinessLogicUnits xmi:id="BusinessLogicUnit_12" version="1" name="FetchProduct">
+    <Sequence xmi:id="Sequence_12" version="1">
+       <Statements xmi:type="core:Action" xmi:id="Action_300">
+         <parameters  xmi:id="ActionParameter_300">
+             <parameter href="models/Catalog.dsxmi#PersistentField_1"/>
+         </parameters>
+         <parameters  xmi:id="ActionParameter_301" parameter="TransientField_201"/>
+	 <ActionDescriptor xmi:type="core:CoreActionDescriptor" href="Shopping Cart.prjxmi#CoreActionDescriptor_1"/>
+       </Statements>
+       <Statements xmi:type="core:Action" xmi:id="Action_301">
+          <ActionDescriptor xmi:type="core:DomainActionDescriptor" href="models/Catalog.dsxmi#DomainActionDescriptor_5"/>
+          <reciever xmi:type="core:DataSource" href="models/Catalog.dsxmi#DataSource_2"/>
+       </Statements>
+       <Statements xmi:type="core:Action" xmi:id="Action_302">
+         <parameters  xmi:id="ActionParameter_302" parameter="TransientField_203"/>
+         <parameters  xmi:id="ActionParameter_303">
+             <parameter href="models/Catalog.dsxmi#PersistentField_4"/>
+         </parameters>
+	 <ActionDescriptor xmi:type="core:CoreActionDescriptor" href="Shopping Cart.prjxmi#CoreActionDescriptor_1"/>
+       </Statements>
+
+    </Sequence>
+    <EntryPoint xmi:id="EntryPoint_17" version="1" name="In"/>
+    <ErrorState xmi:id="ErrorState_12" version="1" name="Error"/>
+    <ExitStates xmi:id="ExitState_13" version="1" name="OK"/>
+  </BusinessLogicUnits>
+  <BusinessLogicUnits xmi:id="BusinessLogicUnit_14" version="1" name="FillCart">
+    <Sequence xmi:id="Sequence_14" version="1">
+       <Statements xmi:type="core:Action" xmi:id="Action_550">
+         <parameters  xmi:id="ActionParameter_550">
+             <parameter href="models/Cart.dsxmi#PersistentField_1"/>
+         </parameters>
+         <parameters  xmi:id="ActionParameter_551" parameter="TransientField_200"/>
+	 <ActionDescriptor xmi:type="core:CoreActionDescriptor" href="Shopping Cart.prjxmi#CoreActionDescriptor_1"/>
+       </Statements>
+       <Statements xmi:type="core:Action" xmi:id="Action_540" returnedValue="DataViewVariable_17">
+            <ActionDescriptor xmi:type="core:DomainActionDescriptor" href="models/Cart.dsxmi#DomainActionDescriptor_7"/>
+            <reciever xmi:type="core:DataSource" href="models/Cart.dsxmi#DataSource_1"/>
+            <parameters  xmi:id="ActionParameter_541">
+               <parameter href="models/Cart.dsxmi#PersistentField_1"/>
+	    </parameters>
+        </Statements>
+    </Sequence>
+
+    <EntryPoint xmi:id="EntryPoint_20" version="1" name="In"/>
+    <ErrorState xmi:id="ErrorState_14" version="1" name="Error"/>
+    <ExitStates xmi:id="ExitState_15" version="1" name="OK"/>
+  </BusinessLogicUnits>
+
+  <BusinessLogicUnits xmi:id="BusinessLogicUnit_802" version="1" name="FillBill">
+    <Sequence xmi:id="Sequence_803" version="1">
+       <Statements xmi:type="core:Action" xmi:id="Action_803">
+         <parameters  xmi:id="ActionParameter_803">
+             <parameter href="models/Cart.dsxmi#PersistentField_1"/>
+         </parameters>
+         <parameters  xmi:id="ActionParameter_804" parameter="TransientField_200"/>
+	 <ActionDescriptor xmi:type="core:CoreActionDescriptor" href="Shopping Cart.prjxmi#CoreActionDescriptor_1"/>
+       </Statements>
+       <Statements xmi:type="core:Action" xmi:id="Action_804" returnedValue="DataViewVariable_800">
+            <ActionDescriptor xmi:type="core:DomainActionDescriptor" href="models/Cart.dsxmi#DomainActionDescriptor_7"/>
+            <reciever xmi:type="core:DataSource" href="models/Cart.dsxmi#DataSource_1"/>
+            <parameters  xmi:id="ActionParameter_805">
+               <parameter href="models/Cart.dsxmi#PersistentField_1"/>
+	    </parameters>
+        </Statements>
+    </Sequence>
+
+    <EntryPoint xmi:id="EntryPoint_701" version="1" name="In"/>
+    <ErrorState xmi:id="ErrorState_701" version="1" name="Error"/>
+    <ExitStates xmi:id="ExitState_701" version="1" name="OK"/>
+  </BusinessLogicUnits>
+
+
+
+  <RADLinks xmi:id="RADLink_1" version="1">
+    <Source xmi:id="FlowExitReference_1" ExitPoint="FlowExitPoint_6" FlowOccurrence="InteractionUnit_1"/>
+    <Target xmi:id="FlowEntryReference_2" EntryPoint="EntryPoint_91"/>
+  </RADLinks>
+  <RADLinks xmi:id="RADLink_91" version="1">
+    <Source xmi:id="FlowExitReference_91" ExitPoint="ExitState_91" FlowOccurrence="BusinessLogicUnit_91"/>
+    <Target xmi:id="FlowEntryReference_92" EntryPoint="EntryPoint_3"/>
+  </RADLinks>
+  <RADLinks xmi:id="RADLink_2" version="1">
+    <Source xmi:id="FlowExitReference_2" ExitPoint="FlowExitPoint_3" FlowOccurrence="InteractionUnit_3"/>
+    <Target xmi:id="FlowEntryReference_3" EntryPoint="EntryPoint_81"/>
+  </RADLinks>
+  <RADLinks xmi:id="RADLink_82" version="1">
+    <Source xmi:id="FlowExitReference_82" ExitPoint="ExitState_81" FlowOccurrence="BusinessLogicUnit_81"/>
+    <Target xmi:id="FlowEntryReference_83" EntryPoint="EntryPoint_5"/>
+  </RADLinks>
+  <RADLinks xmi:id="RADLink_3" version="1">
+    <Source xmi:id="FlowExitReference_3" ExitPoint="FlowExitPoint_2" FlowOccurrence="BusinessLogicUnit_1"/>
+    <Target xmi:id="FlowEntryReference_4" EntryPoint="EntryPoint_1"/>
+  </RADLinks>
+  <RADLinks xmi:id="RADLink_4" version="1">
+    <Source xmi:id="FlowExitReference_4" ExitPoint="FlowExitPoint_4" FlowOccurrence="BusinessLogicUnit_1"/>
+    <Target xmi:id="FlowEntryReference_5" EntryPoint="EntryPoint_2"/>
+  </RADLinks>
+  <RADLinks xmi:id="RADLink_5" version="1">
+    <Source xmi:id="FlowExitReference_5" ExitPoint="ExitState_1" FlowOccurrence="BusinessLogicUnit_2"/>
+    <Target xmi:id="FlowEntryReference_6" EntryPoint="EntryPoint_2"/>
+  </RADLinks>
+  <RADLinks xmi:id="RADLink_6" version="1">
+    <Source xmi:id="FlowExitReference_6" ExitPoint="ExitState_2" FlowOccurrence="InteractionUnit_4"/>
+    <Target xmi:id="FlowEntryReference_7" EntryPoint="EntryPoint_6"/>
+  </RADLinks>
+  <RADLinks xmi:id="RADLink_7" version="1">
+    <Source xmi:id="FlowExitReference_7" ExitPoint="FlowExitPoint_7" FlowOccurrence="InteractionUnit_2"/>
+    <Target xmi:id="FlowEntryReference_8" EntryPoint="EntryPoint_4"/>
+  </RADLinks>
+  <RADLinks xmi:id="RADLink_21" version="1">
+    <Source xmi:id="FlowExitReference_29" ExitPoint="FlowExitPoint_8" FlowOccurrence="BusinessLogicUnit_11"/>
+    <Target xmi:id="FlowEntryReference_22" EntryPoint="EntryPoint_15"/>
+  </RADLinks>
+  <RADLinks xmi:id="RADLink_22" version="1">
+    <Source xmi:id="FlowExitReference_30" ExitPoint="FlowExitPoint_5" FlowOccurrence="BusinessLogicUnit_2"/>
+    <Target xmi:id="FlowEntryReference_23" EntryPoint="EntryPoint_2"/>
+  </RADLinks>
+  <RADLinks xmi:id="RADLink_23" version="1">
+    <Source xmi:id="FlowExitReference_31" ExitPoint="ExitState_12" FlowOccurrence="InteractionUnit_5"/>
+    <Target xmi:id="FlowEntryReference_24" EntryPoint="EntryPoint_16"/>
+  </RADLinks>
+   <RADLinks xmi:id="RADLink_24" version="1">
+    <Source xmi:id="FlowExitReference_33" ExitPoint="FlowExitPoint_10" FlowOccurrence="BusinessLogicUnit_12"/>
+    <Target xmi:id="FlowEntryReference_25" EntryPoint="EntryPoint_17"/>
+  </RADLinks>
+  <RADLinks xmi:id="RADLink_240" version="1">
+    <Source xmi:id="FlowExitReference_240" ExitPoint="FlowExitPoint_9" FlowOccurrence="InteractionUnit_4"/>
+    <Target xmi:id="FlowEntryReference_240" EntryPoint="EntryPoint_17"/>
+  </RADLinks>
+  <RADLinks xmi:id="RADLink_25" version="1">
+    <Source xmi:id="FlowExitReference_34" ExitPoint="ExitState_13" FlowOccurrence="InteractionUnit_6"/>
+    <Target xmi:id="FlowEntryReference_26" EntryPoint="EntryPoint_18"/>
+  </RADLinks>
+  <RADLinks xmi:id="RADLink_27" version="1">
+    <Source xmi:id="FlowExitReference_38" ExitPoint="FlowExitPoint_11" FlowOccurrence="BusinessLogicUnit_2"/>
+    <Target xmi:id="FlowEntryReference_28" EntryPoint="EntryPoint_2"/>
+  </RADLinks>
+  <RADLinks xmi:id="RADLink_28" version="1">
+    <Source xmi:id="FlowExitReference_39" ExitPoint="ExitState_15" FlowOccurrence="InteractionUnit_7"/>
+    <Target xmi:id="FlowEntryReference_29" EntryPoint="EntryPoint_21"/>
+  </RADLinks>
+  <RADLinks xmi:id="RADLink_30" version="1">
+    <Source xmi:id="FlowExitReference_43" ExitPoint="FlowExitPoint_12" FlowOccurrence="BusinessLogicUnit_2"/>
+    <Target xmi:id="FlowEntryReference_31" EntryPoint="EntryPoint_2"/>
+  </RADLinks>
+  <RADLinks xmi:id="RADLink_31" version="1">
+    <Source xmi:id="FlowExitReference_44" ExitPoint="FlowExitPoint_13" FlowOccurrence="InteractionUnit_8"/>
+    <Target xmi:id="FlowEntryReference_32" EntryPoint="EntryPoint_701"/>
+  </RADLinks>
+  <RADLinks xmi:id="RADLink_100" version="1">
+    <Source xmi:id="FlowExitReference_100" ExitPoint="Trigger_101" FlowOccurrence="MenuView_1"/>
+    <Target xmi:id="FlowEntryReference_100" EntryPoint="EntryPoint_2"/>
+  </RADLinks>
+  <RADLinks xmi:id="RADLink_101" version="1">
+    <Source xmi:id="FlowExitReference_101" ExitPoint="Trigger_102" FlowOccurrence="MenuView_1"/>
+    <Target xmi:id="FlowEntryReference_101" EntryPoint="EntryPoint_20"/>
+  </RADLinks>
+  <RADLinks xmi:id="RADLink_102" version="1">
+    <Source xmi:id="FlowExitReference_102" ExitPoint="Trigger_103" FlowOccurrence="MenuView_1"/>
+    <Target xmi:id="FlowEntryReference_102" EntryPoint="EntryPoint_701"/>
+  </RADLinks>
+  <RADLinks xmi:id="RADLink_192" version="1">
+    <Source xmi:id="FlowExitReference_192" ExitPoint="Trigger_104" FlowOccurrence="MenuView_1"/>
+    <Target xmi:id="FlowEntryReference_192" EntryPoint="EntryPoint_4"/>
+  </RADLinks>
+  <RADLinks xmi:id="RADLink_103" version="1">
+    <Source xmi:id="FlowExitReference_103" ExitPoint="ExitState_701" FlowOccurrence="BusinessLogicUnit_802"/>
+    <Target xmi:id="FlowEntryReference_103" EntryPoint="EntryPoint_23"/>
+  </RADLinks>
+  <RADLinks xmi:id="RADLink_104" version="1">
+    <Source xmi:id="FlowExitReference_104" ExitPoint="FlowExitPoint_14" FlowOccurrence="InteractionUnit_8"/>
+    <Target xmi:id="FlowEntryReference_104" EntryPoint="EntryPoint_4"/>
+  </RADLinks>
+  <ExitPoints xmi:id="FlowExitPoint_1" version="1" name="OK"/>
+  <InteractionUnits xmi:id="InteractionUnit_1" version="1" name="Login" description="This is the login page">
+    <Variables xmi:type="core:TransientField" xmi:id="TransientField_100" name="password">
+    	<CoreTypeDescriptor href="Shopping Cart.prjxmi#CoreTypeDescriptor_8"/>
+    	<FieldDescriptor xmi:type="core:AlphanumFieldDescriptor" xmi:id="AlphanumFieldDescriptor_100" length="50">
+      		<CoreTypeDescriptor href="Shopping Cart.prjxmi#CoreTypeDescriptor_8"/>
+    	</FieldDescriptor>
+   </Variables>
+   <Variables xmi:type="core:TransientField" xmi:id="TransientField_101" name="loginErr">
+    	<CoreTypeDescriptor href="Shopping Cart.prjxmi#CoreTypeDescriptor_8"/>
+    	<FieldDescriptor xmi:type="core:AlphanumFieldDescriptor" xmi:id="AlphanumFieldDescriptor_101" length="50">
+      		<CoreTypeDescriptor href="Shopping Cart.prjxmi#CoreTypeDescriptor_8"/>
+    	</FieldDescriptor>
+   </Variables>
+   <Variables xmi:type="core:DataViewVariable" xmi:id="DataViewVariable_2" version="1" name="Login Info"/>
+    <Variables xmi:type="core:DataViewVariable" xmi:id="DataViewVariable_3" version="1" name="ErrorMsg">
+      <ViewFields xmi:id="ViewField_2" Field="TransientField_101"/>
+    </Variables>
+    <Variables xmi:type="core:TransientField" xmi:id="TransientField_2" version="1" name="Text" required="true">
+      <CoreTypeDescriptor href="Shopping Cart.prjxmi#CoreTypeDescriptor_8"/>
+      <FieldDescriptor xmi:type="core:AlphanumFieldDescriptor" xmi:id="AlphanumFieldDescriptor_2" version="1">
+        <CoreTypeDescriptor href="Shopping Cart.prjxmi#CoreTypeDescriptor_8"/>
+      </FieldDescriptor>
+    </Variables>
+    <Variables xmi:type="core:DataViewVariable" xmi:id="DataViewVariable_4" version="1" name="Login Info">
+      <DataSourceTypeDescriptor href="models/Users.dsxmi#DataSourceTypeDescriptor_1"/>
+      <DataSource href="models/Users.dsxmi#DataSource_4"/>
+      <ViewFields xmi:id="ViewField_3">
+        <Field xmi:type="core:PersistentField" href="models/Users.dsxmi#PersistentField_1"/>
+      </ViewFields>
+      <ViewFields xmi:id="ViewField_4" Field="TransientField_100"/>
+    </Variables>
+    <Variables xmi:type="core:TransientField" xmi:id="TransientField_3" version="1" name="List Box" required="true">
+      <CoreTypeDescriptor href="Shopping Cart.prjxmi#CoreTypeDescriptor_8"/>
+      <FieldDescriptor xmi:type="core:AlphanumFieldDescriptor" xmi:id="AlphanumFieldDescriptor_3" version="1">
+        <CoreTypeDescriptor href="Shopping Cart.prjxmi#CoreTypeDescriptor_8"/>
+      </FieldDescriptor>
+    </Variables>
+    <BusinessLogicUnits xmi:id="BusinessLogicUnit_3" version="1" name="Validate">
+      <Variables xmi:type="core:RADExpression" xmi:id="RADExpression_2" expression="[Data Sources]$[Users]$[nickname]"/>
+      <Variables xmi:type="core:RADExpression" xmi:id="RADExpression_3" expression="Error: Invalid Password"/>
+      <Variables xmi:type="core:RADExpression" xmi:id="RADExpression_30" expression="0"/>
+      <Variables xmi:id="RADExpression_121" expression="OK"/>
+      <Variables xmi:id="RADExpression_122" expression="NotValid"/>
+
+      <Sequence xmi:id="Sequence_3" version="1">
+         <Statements xmi:type="core:Action" xmi:id="Action_1">
+             <ActionDescriptor xmi:type="core:DomainActionDescriptor" href="models/Users.dsxmi#DomainActionDescriptor_5"/>
+             <reciever xmi:type="core:DataSource" href="models/Users.dsxmi#DataSource_4"/>
+         </Statements>
+	 <Statements xmi:type="core:Condition" xmi:id="Condition_101">
+          <RADExpression xmi:id="RADExpression_1" expression="[Data Sources]$[Users]$[passwd].trim().equals([Application Components]$[Shopping Cart]$[Login]$[password].trim())"/>
+	  <if xmi:id="Sequence_101">
+            <Statements xmi:type="core:Action" xmi:id="Action_101">
+              <parameters  xmi:id="ActionParameter_101" parameter="TransientField_200"/>
+              <parameters  xmi:id="ActionParameter_102" parameter="RADExpression_2"/>
+	      <ActionDescriptor xmi:type="core:CoreActionDescriptor" href="Shopping Cart.prjxmi#CoreActionDescriptor_1"/>
+            </Statements>
+            <Statements xmi:type="core:Action" xmi:id="Action_321">
+              <parameters  xmi:id="ActionParameter_321" parameter="TransientField_202"/>
+              <parameters  xmi:id="ActionParameter_322" parameter="RADExpression_30"/>
+	      <ActionDescriptor xmi:type="core:CoreActionDescriptor" href="Shopping Cart.prjxmi#CoreActionDescriptor_1"/>
+            </Statements>
+            <Statements xmi:type="core:Action" xmi:id="Action_121">
+              <parameters  xmi:id="ActionParameter_121" parameter="RADExpression_121"/>
+              <ActionDescriptor xmi:type="core:CoreActionDescriptor" href="Shopping Cart.prjxmi#CoreActionDescriptor_2"/>
+            </Statements>
+          </if>
+          <else xmi:id="Sequence_102">
+            <Statements xmi:type="core:Action" xmi:id="Action_102">
+              <parameters  xmi:id="ActionParameter_103" parameter="TransientField_101"/>
+              <parameters  xmi:id="ActionParameter_104" parameter="RADExpression_3"/>
+	      <ActionDescriptor xmi:type="core:CoreActionDescriptor" href="Shopping Cart.prjxmi#CoreActionDescriptor_1"/>
+            </Statements>
+            <Statements xmi:type="core:Action" xmi:id="Action_122">
+              <parameters  xmi:id="ActionParameter_122" parameter="RADExpression_122"/>
+              <ActionDescriptor xmi:type="core:CoreActionDescriptor" href="Shopping Cart.prjxmi#CoreActionDescriptor_2"/>
+            </Statements>
+          </else>
+        </Statements>
+      </Sequence>
+      <EntryPoint xmi:id="EntryPoint_7" version="1" name="In"/>
+      <ErrorState xmi:id="ErrorState_3" version="1" name="Error"/>
+      <ExitStates xmi:id="ExitState_3" version="1" name="OK"/>
+      <ExitStates xmi:id="ExitState_4" version="1" name="NotValid"/>
+    </BusinessLogicUnits>
+    <BusinessLogicUnits xmi:id="BusinessLogicUnit_850" version="1" name="NoUser">
+      <Variables xmi:type="core:RADExpression" xmi:id="RADExpression_850" expression="Error: User does not exist"/>
+      <Sequence xmi:id="Sequence_850" version="1">
+        <Statements xmi:type="core:Action" xmi:id="Action_850">
+            <parameters  xmi:id="ActionParameter_850" parameter="TransientField_101"/>
+            <parameters  xmi:id="ActionParameter_851" parameter="RADExpression_850"/>
+     	    <ActionDescriptor xmi:type="core:CoreActionDescriptor" href="Shopping Cart.prjxmi#CoreActionDescriptor_1"/>
+        </Statements>
+      </Sequence>
+      <EntryPoint xmi:id="EntryPoint_850" version="1" name="In"/>
+      <ErrorState xmi:id="ErrorState_850" version="1" name="Error"/>
+      <ExitStates xmi:id="ExitState_850" version="1" name="OK"/>
+    </BusinessLogicUnits>
+    <RADLinks xmi:id="RADLink_8" version="1">
+      <Source xmi:id="FlowExitReference_10" ExitPoint="Trigger_3" FlowOccurrence="BusinessLogicUnit_3"/>
+      <Target xmi:id="FlowEntryReference_9" EntryPoint="EntryPoint_7"/>
+    </RADLinks>
+    <RADLinks xmi:id="RADLink_850" version="1">
+      <Source xmi:id="FlowExitReference_850" ExitPoint="ErrorState_3" FlowOccurrence="BusinessLogicUnit_3"/>
+      <Target xmi:id="FlowEntryReference_850" EntryPoint="EntryPoint_850"/>
+    </RADLinks>
+    <RADLinks xmi:id="RADLink_851" version="1">
+      <Source xmi:id="FlowExitReference_851" ExitPoint="ExitState_850"/>
+      <Target xmi:id="FlowEntryReference_851" EntryPoint="EntryPoint_3"/>
+    </RADLinks>
+    <RADLinks xmi:id="RADLink_9" version="1">
+      <Source xmi:id="FlowExitReference_11" ExitPoint="ExitState_4"/>
+      <Target xmi:id="FlowEntryReference_10" EntryPoint="EntryPoint_3"/>
+    </RADLinks>
+    <ExitPoints xmi:id="FlowExitPoint_2" version="1" name="OK">
+      <FlowExitReferences xmi:id="FlowExitReference_12" ExitPoint="ExitState_3" FlowOccurrence="BusinessLogicUnit_3"/>
+    </ExitPoints>
+    <ExitPoints xmi:id="FlowExitPoint_7" version="1" name="Failed">
+      <FlowExitReferences xmi:id="FlowExitReference_13" FlowOccurrence="BusinessLogicUnit_3"/>
+    </ExitPoints>
+    <EntryPoint xmi:id="EntryPoint_3" version="1" name="In"/>
+    <DataViews xmi:type="core:FormView" xmi:id="FormView_3" version="1" name="ErrorMsg" DataViewVariable="DataViewVariable_3">
+      <labelColor xmi:id="RGBValue_3" red="0" green="0" blue="0"/>
+      <RADDisplays xmi:type="core:FieldDisplay" xmi:id="FieldDisplay_2" version="1" name="Text (not specified)" displayType="OUTPUT" ViewField="ViewField_2">
+        <Caption xmi:id="Caption_4" version="1" caption="" isConstant="true"/>
+      </RADDisplays>
+    </DataViews>
+    <DataViews xmi:type="core:FormView" xmi:id="FormView_2" version="1" name="Login Info" DataViewVariable="DataViewVariable_4">
+      <labelColor xmi:id="RGBValue_2" red="0" green="0" blue="0"/>
+      <Triggers xmi:id="Trigger_3" version="1" name="Login" TriggerDisplay="TriggerDisplay_3"/>
+      <RADDisplays xmi:type="core:FieldDisplay" xmi:id="FieldDisplay_3" version="1" name="nickname" displayType="INPUT" isRequired="true" ViewField="ViewField_3">
+        <Caption xmi:id="Caption_5" version="1" caption="Name" isConstant="false">
+          <CaptionParameter href="Shopping Cart.prjxmi#CaptionParameter_5"/>
+        </Caption>
+      </RADDisplays>
+      <RADDisplays xmi:type="core:FieldDisplay" xmi:id="FieldDisplay_4" version="1" name="Password" displayType="SECRET" isRequired="true" ViewField="ViewField_4">
+        <Caption xmi:id="Caption_6" version="1" caption="Password" isConstant="false">
+          <CaptionParameter href="Shopping Cart.prjxmi#CaptionParameter_6"/>
+        </Caption>
+      </RADDisplays>
+      <RADDisplays xmi:type="core:TriggerDisplay" xmi:id="TriggerDisplay_3" version="1" name="Login" displayType="SUBMIT" Trigger="Trigger_3">
+        <Caption xmi:id="Caption_7" version="1" caption="Trigger" isConstant="false">
+          <CaptionParameter href="Shopping Cart.prjxmi#CaptionParameter_3"/>
+        </Caption>
+      </RADDisplays>
+    </DataViews>
+    <Title xmi:id="Title_1" version="1" title="Login"/>
+  </InteractionUnits>
+  <InteractionUnits xmi:id="InteractionUnit_2" version="1" name="Welcome">
+    <ExitPoints xmi:id="FlowExitPoint_3" version="1" name="NewUser">
+      <FlowExitReferences xmi:id="FlowExitReference_8" ExitPoint="Trigger_1" FlowOccurrence="FormView_1"/>
+    </ExitPoints>
+    <ExitPoints xmi:id="FlowExitPoint_6" version="1" name="Login">
+      <FlowExitReferences xmi:id="FlowExitReference_9" ExitPoint="Trigger_2" FlowOccurrence="FormView_1"/>
+    </ExitPoints>
+    <Variables xmi:type="core:DataViewVariable" xmi:id="DataViewVariable_1" version="1" name="Welcome"/>
+    
+    <Variables xmi:type="core:DataViewVariable" xmi:id="DataViewVariable_399" version="1" name="Warning Msg">
+       <ViewFields xmi:id="ViewField_399" Field="TransientField_204"/>
+    </Variables>
+
+    <EntryPoint xmi:id="EntryPoint_4" version="1" name="In"/>
+    <DataViews xmi:type="core:FormView" xmi:id="FormView_399" version="1" name="Warning Msg" DataViewVariable="DataViewVariable_399">
+      <labelColor xmi:id="RGBValue_399" red="0" green="0" blue="0"/>
+      <RADDisplays xmi:type="core:FieldDisplay" xmi:id="FieldDisplay_399" version="1" name="Warning Message" displayType="OUTPUT" ViewField="ViewField_399">
+        <Caption xmi:id="Caption_399" version="1" caption="This application might not run properly on old browser versions." isConstant="true"/>
+      </RADDisplays>
+    </DataViews>
+    <DataViews xmi:type="core:FormView" xmi:id="FormView_1" version="1" name="Welcome" DataViewVariable="DataViewVariable_1">
+      <labelColor xmi:id="RGBValue_1" red="0" green="0" blue="0"/>
+      <Triggers xmi:id="Trigger_1" version="1" name="New User" TriggerDisplay="TriggerDisplay_1"/>
+      <Triggers xmi:id="Trigger_2" version="1" name="Login" TriggerDisplay="TriggerDisplay_2"/>
+      <RADDisplays xmi:type="core:TriggerDisplay" xmi:id="TriggerDisplay_1" version="1" name="New User" displayType="BUTTON" Trigger="Trigger_1">
+        <Caption xmi:id="Caption_2" version="1" caption="Trigger" isConstant="false">
+          <CaptionParameter href="Shopping Cart.prjxmi#CaptionParameter_2"/>
+        </Caption>
+      </RADDisplays>
+      <RADDisplays xmi:type="core:TriggerDisplay" xmi:id="TriggerDisplay_2" version="1" name="Login" displayType="BUTTON" Trigger="Trigger_2">
+         <Caption xmi:id="Caption_3" version="1" caption="Trigger0" isConstant="false">
+          <CaptionParameter href="Shopping Cart.prjxmi#CaptionParameter_3"/>
+        </Caption>
+      </RADDisplays>
+    </DataViews>
+
+
+    <Title xmi:id="Title_2" version="1" title="Welcome"/>
+  </InteractionUnits>
+  <InteractionUnits xmi:id="InteractionUnit_3" version="1" name="New User">
+    <BusinessLogicUnits xmi:id="BusinessLogicUnit_4" version="1" name="DisplayErrorMsg">
+     <Variables xmi:id="RADExpression_210" expression="Error: this user exists, try another name"/>
+     <Variables xmi:id="RADExpression_212" expression="OK"/>
+     <Sequence xmi:id="Sequence_4" version="1">
+   	<Statements xmi:type="core:Action" xmi:id="Action_211">
+          <parameters  xmi:id="ActionParameter_211" parameter="TransientField_4"/>
+          <parameters  xmi:id="ActionParameter_212" parameter="RADExpression_210"/>
+	  <ActionDescriptor xmi:type="core:CoreActionDescriptor" href="Shopping Cart.prjxmi#CoreActionDescriptor_1"/>
+        </Statements>
+        <Statements xmi:type="core:Action" xmi:id="Action_212">
+          <parameters  xmi:id="ActionParameter_212" parameter="RADExpression_212"/>
+          <ActionDescriptor xmi:type="core:CoreActionDescriptor" href="Shopping Cart.prjxmi#CoreActionDescriptor_2"/>
+        </Statements>
+      </Sequence>
+      <EntryPoint xmi:id="EntryPoint_8" version="1" name="In"/>
+      <ErrorState xmi:id="ErrorState_4" version="1" name="Error"/>
+      <ExitStates xmi:id="ExitState_5" version="1" name="OK"/>
+    </BusinessLogicUnits>
+    <BusinessLogicUnits xmi:id="BusinessLogicUnit_5" version="1" name="InsertUser">
+      <Variables xmi:id="RADExpression_220" expression="[Data Sources]$[Users]$[nickname]"/>
+      <Variables xmi:id="RADExpression_35" expression="0"/>
+      <Variables xmi:id="RADExpression_510" expression="Error: user name cannot be empty"/>
+      <Variables xmi:id="RADExpression_513" expression="Error: password cannot be empty"/>
+      <Variables xmi:id="RADExpression_512" expression="Empty"/>
+      <Sequence xmi:id="Sequence_5" version="1">
+	 <Statements xmi:type="core:Condition" xmi:id="Condition_501">
+          <RADExpression xmi:id="RADExpression_501" expression="[Data Sources]$[Users]$[nickname].equals(&#34;&#34;)"/>
+	  <if xmi:id="Sequence_501">
+   	   <Statements xmi:type="core:Action" xmi:id="Action_522">
+     	      <parameters  xmi:id="ActionParameter_522" parameter="TransientField_4"/>
+    	      <parameters  xmi:id="ActionParameter_523" parameter="RADExpression_510"/>
+	      <ActionDescriptor xmi:type="core:CoreActionDescriptor" href="Shopping Cart.prjxmi#CoreActionDescriptor_1"/>
+     	   </Statements>
+           <Statements xmi:type="core:Action" xmi:id="Action_512">
+          	<parameters  xmi:id="ActionParameter_512" parameter="RADExpression_512"/>
+          	<ActionDescriptor xmi:type="core:CoreActionDescriptor" href="Shopping Cart.prjxmi#CoreActionDescriptor_2"/>
+           </Statements>
+	  </if>
+	  <else xmi:id="Sequence_502">
+	    <Statements xmi:type="core:Condition" xmi:id="Condition_521">
+               <RADExpression xmi:id="RADExpression_521" expression="[Data Sources]$[Users]$[passwd].equals(&#34;&#34;)"/>
+	       <if xmi:id="Sequence_521">
+   	   	<Statements xmi:type="core:Action" xmi:id="Action_532">
+     	      		<parameters  xmi:id="ActionParameter_532" parameter="TransientField_4"/>
+    	      		<parameters  xmi:id="ActionParameter_533" parameter="RADExpression_513"/>
+	      		<ActionDescriptor xmi:type="core:CoreActionDescriptor" href="Shopping Cart.prjxmi#CoreActionDescriptor_1"/>
+     	   	</Statements>
+           	<Statements xmi:type="core:Action" xmi:id="Action_542">
+          		<parameters  xmi:id="ActionParameter_542" parameter="RADExpression_512"/>
+          		<ActionDescriptor xmi:type="core:CoreActionDescriptor" href="Shopping Cart.prjxmi#CoreActionDescriptor_2"/>
+           	</Statements>
+               </if>
+	       <else xmi:id="Sequence_522">
+	        <Statements xmi:type="core:Action" xmi:id="Action_220">
+        	      <ActionDescriptor xmi:type="core:DomainActionDescriptor" href="models/Users.dsxmi#DomainActionDescriptor_1"/>
+	              <reciever xmi:type="core:DataSource" href="models/Users.dsxmi#DataSource_4"/>
+        	</Statements>
+  		<Statements xmi:type="core:Action" xmi:id="Action_221">
+	              <parameters  xmi:id="ActionParameter_211" parameter="TransientField_200"/>
+        	      <parameters  xmi:id="ActionParameter_212" parameter="RADExpression_220"/>
+		      <ActionDescriptor xmi:type="core:CoreActionDescriptor" href="Shopping Cart.prjxmi#CoreActionDescriptor_1"/>
+        	</Statements>
+	        <Statements xmi:type="core:Action" xmi:id="Action_351">
+        	   <parameters  xmi:id="ActionParameter_351" parameter="TransientField_202"/>
+	           <parameters  xmi:id="ActionParameter_352" parameter="RADExpression_35"/>
+		     <ActionDescriptor xmi:type="core:CoreActionDescriptor" href="Shopping Cart.prjxmi#CoreActionDescriptor_1"/>
+	        </Statements>
+               </else>
+           </Statements>
+          </else>
+        </Statements>
+      </Sequence>
+      <EntryPoint xmi:id="EntryPoint_9" version="1" name="In"/>
+      <ErrorState xmi:id="ErrorState_5" version="1" name="Error"/>
+      <ExitStates xmi:id="ExitState_6" version="1" name="OK"/>
+      <ExitStates xmi:id="ExitState_506" version="1" name="Empty"/>
+    </BusinessLogicUnits>
+    <RADLinks xmi:id="RADLink_10" version="1">
+      <Source xmi:id="FlowExitReference_14" ExitPoint="Trigger_4" FlowOccurrence="FormView_4"/>
+      <Target xmi:id="FlowEntryReference_11" EntryPoint="EntryPoint_9"/>
+    </RADLinks>
+    <RADLinks xmi:id="RADLink_11" version="1">
+      <Source xmi:id="FlowExitReference_15" ExitPoint="ExitState_5"/>
+      <Target xmi:id="FlowEntryReference_12" EntryPoint="EntryPoint_5"/>
+    </RADLinks>
+    <RADLinks xmi:id="RADLink_511" version="1">
+      <Source xmi:id="FlowExitReference_515" ExitPoint="ExitState_506"/>
+      <Target xmi:id="FlowEntryReference_512" EntryPoint="EntryPoint_5"/>
+    </RADLinks>
+
+    <RADLinks xmi:id="RADLink_103" version="1">
+      <Source xmi:id="FlowExitReference_104" ExitPoint="ErrorState_5" FlowOccurrence="BusinessLogicUnit_5"/>
+      <Target xmi:id="FlowEntryReference_110" EntryPoint="EntryPoint_8"/>
+    </RADLinks>
+
+    <ExitPoints xmi:id="FlowExitPoint_4" version="1" name="OK">
+      <FlowExitReferences xmi:id="FlowExitReference_17" ExitPoint="ExitState_6" FlowOccurrence="BusinessLogicUnit_5"/>
+    </ExitPoints>
+    <Variables xmi:type="core:DataViewVariable" xmi:id="DataViewVariable_5" version="1" name="NewUser"/>
+    <Variables xmi:type="core:DataViewVariable" xmi:id="DataViewVariable_6" version="1" name="New User Error">
+      <ViewFields xmi:id="ViewField_5" Field="TransientField_4"/>
+    </Variables>
+    <Variables xmi:type="core:TransientField" xmi:id="TransientField_4" version="1" name="Text" required="true">
+      <CoreTypeDescriptor href="Shopping Cart.prjxmi#CoreTypeDescriptor_8"/>
+      <FieldDescriptor xmi:type="core:AlphanumFieldDescriptor" xmi:id="AlphanumFieldDescriptor_4" version="1">
+        <CoreTypeDescriptor href="Shopping Cart.prjxmi#CoreTypeDescriptor_8"/>
+      </FieldDescriptor>
+    </Variables>
+    <Variables xmi:type="core:DataViewVariable" xmi:id="DataViewVariable_7" version="1" name="NewUser">
+      <DataSourceTypeDescriptor href="models/Users.dsxmi#DataSourceTypeDescriptor_1"/>
+      <DataSource href="models/Users.dsxmi#DataSource_4"/>
+      <ViewFields xmi:id="ViewField_6">
+        <Field xmi:type="core:PersistentField" href="models/Users.dsxmi#PersistentField_1"/>
+      </ViewFields>
+      <ViewFields xmi:id="ViewField_7">
+        <Field xmi:type="core:PersistentField" href="models/Users.dsxmi#PersistentField_2"/>
+      </ViewFields>
+    </Variables>
+
+    <EntryPoint xmi:id="EntryPoint_5" version="1" name="In"/>
+    <DataViews xmi:type="core:FormView" xmi:id="FormView_5" version="1" name="New User Error" DataViewVariable="DataViewVariable_6">
+      <labelColor xmi:id="RGBValue_5" red="0" green="0" blue="0"/>
+      <RADDisplays xmi:type="core:FieldDisplay" xmi:id="FieldDisplay_5" version="1" name="Text (not specified)" displayType="OUTPUT" ViewField="ViewField_5">
+        <Caption xmi:id="Caption_8" version="1" caption="" isConstant="true"/>
+      </RADDisplays>
+    </DataViews>
+    <DataViews xmi:type="core:FormView" xmi:id="FormView_4" version="1" name="NewUser" DataViewVariable="DataViewVariable_7" description="This is the new user registration view">
+      <labelColor xmi:id="RGBValue_4" red="0" green="0" blue="0"/>
+      <Triggers xmi:id="Trigger_4" version="1" name="Submit" TriggerDisplay="TriggerDisplay_4"/>
+      <RADDisplays xmi:type="core:FieldDisplay" xmi:id="FieldDisplay_6" version="1" name="nickname" displayType="INPUT" isRequired="true" ViewField="ViewField_6">
+        <Caption xmi:id="Caption_9" version="1" caption="nickname" isConstant="false">
+          <CaptionParameter href="Shopping Cart.prjxmi#CaptionParameter_5"/>
+        </Caption>
+      </RADDisplays>
+      <RADDisplays xmi:type="core:FieldDisplay" xmi:id="FieldDisplay_7" version="1" name="passwd" displayType="SECRET" isRequired="true" ViewField="ViewField_7">
+        <Caption xmi:id="Caption_10" version="1" caption="passwd" isConstant="false">
+          <CaptionParameter href="Shopping Cart.prjxmi#CaptionParameter_6"/>
+        </Caption>
+      </RADDisplays>
+      <RADDisplays xmi:type="core:TriggerDisplay" xmi:id="TriggerDisplay_4" version="1" name="Submit" displayType="SUBMIT" Trigger="Trigger_4">
+        <Caption xmi:id="Caption_17" version="1" caption="Trigger" isConstant="false">
+          <CaptionParameter href="Shopping Cart.prjxmi#CaptionParameter_17"/>
+        </Caption>
+      </RADDisplays>
+    </DataViews>
+    <Title xmi:id="Title_3" version="1" title="New User"/>
+  </InteractionUnits>
+  <InteractionUnits xmi:id="InteractionUnit_4" version="1" name="Products Catalog" ReferencedMenuViews="MenuView_1">
+    <BusinessLogicUnits xmi:id="BusinessLogicUnit_6" version="1" name="SearchByProduct">
+      <Sequence xmi:id="Sequence_6" version="1">
+        <Statements xmi:type="core:Action" xmi:id="Action_230" returnedValue="DataViewVariable_11">
+            <ActionDescriptor xmi:type="core:DomainActionDescriptor" href="models/Catalog.dsxmi#DomainActionDescriptor_6"/>
+            <reciever xmi:type="core:DataSource" href="models/Catalog.dsxmi#DataSource_2"/>
+            <parameters  xmi:id="ActionParameter_230" parameter="TransientField_5"/>
+        </Statements>
+        <Statements xmi:type="core:Action" xmi:id="Action_263" returnedValue="DataViewVariable_10">
+              <ActionDescriptor xmi:type="core:DomainActionDescriptor" href="models/Catalog.dsxmi#DomainActionDescriptor_4"/>
+              <reciever xmi:type="core:DataSource" href="models/Catalog.dsxmi#DataSource_2"/>
+        </Statements>
+      </Sequence>
+      <EntryPoint xmi:id="EntryPoint_10" version="1" name="In"/>
+      <ErrorState xmi:id="ErrorState_6" version="1" name="Error"/>
+      <ExitStates xmi:id="ExitState_7" version="1" name="OK"/>
+    </BusinessLogicUnits>
+    <BusinessLogicUnits xmi:id="BusinessLogicUnit_7" version="1" name="SearchByCat">
+      <Sequence xmi:id="Sequence_7" version="1">
+	 <Statements xmi:type="core:Condition" xmi:id="Condition_900">
+            <RADExpression xmi:id="RADExpression_900" expression="[Data Sources]$[Catalog]$[category] != null"/>
+	    <if xmi:id="Sequence_900">
+	      <Statements xmi:type="core:Action" xmi:id="Action_240" returnedValue="DataViewVariable_11">
+                 <ActionDescriptor xmi:type="core:DomainActionDescriptor" href="models/Catalog.dsxmi#DomainActionDescriptor_7"/>
+                 <reciever xmi:type="core:DataSource" href="models/Catalog.dsxmi#DataSource_2"/>
+                 <parameters  xmi:id="ActionParameter_240">
+                    <parameter href="models/Catalog.dsxmi#PersistentField_5"/>
+	         </parameters>
+              </Statements>
+              <Statements xmi:type="core:Action" xmi:id="Action_273" returnedValue="DataViewVariable_10">
+                  <ActionDescriptor xmi:type="core:DomainActionDescriptor" href="models/Catalog.dsxmi#DomainActionDescriptor_4"/>
+                  <reciever xmi:type="core:DataSource" href="models/Catalog.dsxmi#DataSource_2"/>
+              </Statements>
+            </if>
+            <else xmi:id="Sequence_901">
+	      <Statements xmi:type="core:Action" xmi:id="Action_900" returnedValue="DataViewVariable_11">
+                  <ActionDescriptor xmi:type="core:DomainActionDescriptor" href="models/Catalog.dsxmi#DomainActionDescriptor_4"/>
+                  <reciever xmi:type="core:DataSource" href="models/Catalog.dsxmi#DataSource_2"/>
+              </Statements>
+              <Statements xmi:type="core:Action" xmi:id="Action_901" returnedValue="DataViewVariable_10">
+                  <ActionDescriptor xmi:type="core:DomainActionDescriptor" href="models/Catalog.dsxmi#DomainActionDescriptor_4"/>
+                  <reciever xmi:type="core:DataSource" href="models/Catalog.dsxmi#DataSource_2"/>
+              </Statements>
+            </else>
+         </Statements>
+      </Sequence>
+      <EntryPoint xmi:id="EntryPoint_11" version="1" name="In"/>
+      <ErrorState xmi:id="ErrorState_7" version="1" name="Error"/>
+      <ExitStates xmi:id="ExitState_8" version="1" name="OK"/>
+    </BusinessLogicUnits>
+    <BusinessLogicUnits xmi:id="BusinessLogicUnit_8" version="1" name="SearchNameAndCat">
+      <Sequence xmi:id="Sequence_8" version="1">
+	 <Statements xmi:type="core:Condition" xmi:id="Condition_910">
+            <RADExpression xmi:id="RADExpression_1" expression="[Data Sources]$[Catalog]$[category] != null"/>
+	    <if xmi:id="Sequence_910">
+        	<Statements xmi:type="core:Action" xmi:id="Action_241" returnedValue="DataViewVariable_11">
+            	  <ActionDescriptor xmi:type="core:DomainActionDescriptor" href="models/Catalog.dsxmi#DomainActionDescriptor_6"/>
+            	  <reciever xmi:type="core:DataSource" href="models/Catalog.dsxmi#DataSource_2"/>
+            	  <parameters  xmi:id="ActionParameter_241">
+               		<parameter href="models/Catalog.dsxmi#PersistentField_5"/>
+	    	  </parameters>
+            	  <parameters  xmi:id="ActionParameter_242" parameter="TransientField_5"/>
+        	</Statements>
+        	<Statements xmi:type="core:Action" xmi:id="Action_283" returnedValue="DataViewVariable_10">
+              	   <ActionDescriptor xmi:type="core:DomainActionDescriptor" href="models/Catalog.dsxmi#DomainActionDescriptor_4"/>
+              	   <reciever xmi:type="core:DataSource" href="models/Catalog.dsxmi#DataSource_2"/>
+        	</Statements>
+            </if>
+            <else xmi:id="Sequence_911">
+        	<Statements xmi:type="core:Action" xmi:id="Action_910" returnedValue="DataViewVariable_11">
+              	   <ActionDescriptor xmi:type="core:DomainActionDescriptor" href="models/Catalog.dsxmi#DomainActionDescriptor_4"/>
+              	   <reciever xmi:type="core:DataSource" href="models/Catalog.dsxmi#DataSource_2"/>
+        	</Statements>
+        	<Statements xmi:type="core:Action" xmi:id="Action_911" returnedValue="DataViewVariable_10">
+              	   <ActionDescriptor xmi:type="core:DomainActionDescriptor" href="models/Catalog.dsxmi#DomainActionDescriptor_4"/>
+              	   <reciever xmi:type="core:DataSource" href="models/Catalog.dsxmi#DataSource_2"/>
+        	</Statements>
+            </else>
+         </Statements>
+      </Sequence>
+      <EntryPoint xmi:id="EntryPoint_12" version="1" name="In"/>
+      <ErrorState xmi:id="ErrorState_8" version="1" name="Error"/>
+      <ExitStates xmi:id="ExitState_9" version="1" name="OK"/>
+    </BusinessLogicUnits>
+    <BusinessLogicUnits xmi:id="BusinessLogicUnit_9" version="1" name="Details">
+      <Variables xmi:id="RADExpression_216" expression="[Data Views]$[Shopping Cart]$[Products Catalog]$[SelectedProduct]_[product_name]"/>
+      <Sequence xmi:id="Sequence_9" version="1">
+   	<Statements xmi:type="core:Action" xmi:id="Action_215" reciever="ListView_1" returnedValue="DataViewVariable_100">
+	      <ActionDescriptor xmi:type="core:CoreActionDescriptor" href="Shopping Cart.prjxmi#CoreActionDescriptor_4"/>
+        </Statements>
+        <Statements xmi:type="core:Action" xmi:id="Action_216">
+            <parameters  xmi:id="ActionParameter_215" parameter="TransientField_201"/>
+            <parameters  xmi:id="ActionParameter_216" parameter="RADExpression_216"/>
+	    <ActionDescriptor xmi:type="core:CoreActionDescriptor" href="Shopping Cart.prjxmi#CoreActionDescriptor_1"/>
+        </Statements>
+     </Sequence>
+     <EntryPoint xmi:id="EntryPoint_13" version="1" name="In"/>
+      <ErrorState xmi:id="ErrorState_9" version="1" name="Error"/>
+      <ExitStates xmi:id="ExitState_10" version="1" name="OK"/>
+    </BusinessLogicUnits>
+    <BusinessLogicUnits xmi:id="BusinessLogicUnit_10" version="1" name="AddToCart">
+      <Variables xmi:id="RADExpression_116" expression="[Data Views]$[Shopping Cart]$[Products Catalog]$[SelectedProduct]_[product_name]"/>
+      <Sequence xmi:id="Sequence_10" version="1">
+    	<Statements xmi:type="core:Action" xmi:id="Action_125" reciever="ListView_1" returnedValue="DataViewVariable_100">
+	      <ActionDescriptor xmi:type="core:CoreActionDescriptor" href="Shopping Cart.prjxmi#CoreActionDescriptor_4"/>
+        </Statements>
+        <Statements xmi:type="core:Action" xmi:id="Action_126">
+            <parameters  xmi:id="ActionParameter_125" parameter="TransientField_201"/>
+            <parameters  xmi:id="ActionParameter_126" parameter="RADExpression_116"/>
+	    <ActionDescriptor xmi:type="core:CoreActionDescriptor" href="Shopping Cart.prjxmi#CoreActionDescriptor_1"/>
+        </Statements>
+     </Sequence>
+     <EntryPoint xmi:id="EntryPoint_14" version="1" name="In"/>
+      <ErrorState xmi:id="ErrorState_10" version="1" name="Error"/>
+      <ExitStates xmi:id="ExitState_11" version="1" name="OK"/>
+    </BusinessLogicUnits>
+    <RADLinks xmi:id="RADLink_13" version="1">
+      <Source xmi:id="FlowExitReference_18" ExitPoint="Trigger_5" FlowOccurrence="BusinessLogicUnit_6"/>
+      <Target xmi:id="FlowEntryReference_14" EntryPoint="EntryPoint_10"/>
+    </RADLinks>
+    <RADLinks xmi:id="RADLink_14" version="1">
+      <Source xmi:id="FlowExitReference_19" ExitPoint="Trigger_6" FlowOccurrence="BusinessLogicUnit_7"/>
+      <Target xmi:id="FlowEntryReference_15" EntryPoint="EntryPoint_11"/>
+    </RADLinks>
+    <RADLinks xmi:id="RADLink_15" version="1">
+      <Source xmi:id="FlowExitReference_20" ExitPoint="Trigger_7" FlowOccurrence="BusinessLogicUnit_8"/>
+      <Target xmi:id="FlowEntryReference_16" EntryPoint="EntryPoint_12"/>
+    </RADLinks>
+    <RADLinks xmi:id="RADLink_16" version="1">
+      <Source xmi:id="FlowExitReference_21" ExitPoint="Trigger_8" FlowOccurrence="BusinessLogicUnit_9"/>
+      <Target xmi:id="FlowEntryReference_17" EntryPoint="EntryPoint_13"/>
+    </RADLinks>
+    <RADLinks xmi:id="RADLink_17" version="1">
+      <Source xmi:id="FlowExitReference_22" ExitPoint="Trigger_9" FlowOccurrence="BusinessLogicUnit_10"/>
+      <Target xmi:id="FlowEntryReference_18" EntryPoint="EntryPoint_14"/>
+    </RADLinks>
+    <RADLinks xmi:id="RADLink_18" version="1">
+      <Source xmi:id="FlowExitReference_23" ExitPoint="ExitState_7"/>
+      <Target xmi:id="FlowEntryReference_19" EntryPoint="EntryPoint_6"/>
+    </RADLinks>
+    <RADLinks xmi:id="RADLink_19" version="1">
+      <Source xmi:id="FlowExitReference_24" ExitPoint="ExitState_8"/>
+      <Target xmi:id="FlowEntryReference_20" EntryPoint="EntryPoint_6"/>
+    </RADLinks>
+    <RADLinks xmi:id="RADLink_20" version="1">
+      <Source xmi:id="FlowExitReference_25" ExitPoint="ExitState_9"/>
+      <Target xmi:id="FlowEntryReference_21" EntryPoint="EntryPoint_6"/>
+    </RADLinks>
+    <RADLinks xmi:id="RADLink_200" version="1">
+      <Source xmi:id="FlowExitReference_250" ExitPoint="ErrorState_9"/>
+      <Target xmi:id="FlowEntryReference_210" EntryPoint="EntryPoint_6"/>
+    </RADLinks>
+    <RADLinks xmi:id="RADLink_201" version="1">
+      <Source xmi:id="FlowExitReference_251" ExitPoint="ErrorState_10"/>
+      <Target xmi:id="FlowEntryReference_211" EntryPoint="EntryPoint_6"/>
+    </RADLinks>
+    <ExitPoints xmi:id="FlowExitPoint_5" version="1" name="ShowAll">
+      <FlowExitReferences xmi:id="FlowExitReference_26" ExitPoint="Trigger_10" FlowOccurrence="ListView_1"/>
+    </ExitPoints>
+    <ExitPoints xmi:id="FlowExitPoint_8" version="1" name="Details">
+      <FlowExitReferences xmi:id="FlowExitReference_27" ExitPoint="ExitState_10" FlowOccurrence="BusinessLogicUnit_9"/>
+    </ExitPoints>
+    <ExitPoints xmi:id="FlowExitPoint_9" version="1" name="AddToCart">
+      <FlowExitReferences xmi:id="FlowExitReference_28" ExitPoint="ExitState_11" FlowOccurrence="BusinessLogicUnit_10"/>
+    </ExitPoints>
+    <Variables xmi:type="core:DataViewVariable" xmi:id="DataViewVariable_8" version="1" name="Search"/>
+    <Variables xmi:type="core:DataViewVariable" xmi:id="DataViewVariable_9" version="1" name="Catalog"/>
+    <Variables xmi:type="core:DataViewVariable" xmi:id="DataViewVariable_10" version="1" name="SearchProduct">
+      <DataSourceTypeDescriptor href="models/Catalog.dsxmi#DataSourceTypeDescriptor_1"/>
+      <DataSource href="models/Catalog.dsxmi#DataSource_2"/>
+      <ViewFields xmi:id="ViewField_14">
+        <Field xmi:type="core:PersistentField" href="models/Catalog.dsxmi#PersistentField_5"/>
+      </ViewFields>
+      <ViewFields xmi:id="ViewField_15" Field="TransientField_5"/>
+      <ViewFields xmi:id="ViewField_204" Field="TransientField_204"/>
+    </Variables>
+
+    <Variables xmi:type="core:DataViewVariable" xmi:id="DataViewVariable_100" version="1" name="SelectedProduct">
+      <DataSourceTypeDescriptor href="models/Catalog.dsxmi#DataSourceTypeDescriptor_1"/>
+      <DataSource href="models/Catalog.dsxmi#DataSource_2"/>
+    </Variables>
+
+    <Variables xmi:type="core:TransientField" xmi:id="TransientField_5" version="1" name="Text" required="true">
+      <CoreTypeDescriptor href="Shopping Cart.prjxmi#CoreTypeDescriptor_8"/>
+      <FieldDescriptor xmi:type="core:AlphanumFieldDescriptor" xmi:id="AlphanumFieldDescriptor_5" version="1">
+        <CoreTypeDescriptor href="Shopping Cart.prjxmi#CoreTypeDescriptor_8"/>
+      </FieldDescriptor>
+    </Variables>
+    <Variables xmi:type="core:DataViewVariable" xmi:id="DataViewVariable_11" version="1" name="Catalog">
+      <DataSourceTypeDescriptor href="models/Catalog.dsxmi#DataSourceTypeDescriptor_1"/>
+      <DataSource href="models/Catalog.dsxmi#DataSource_2"/>
+      <ViewFields xmi:id="ViewField_16">
+        <Field xmi:type="core:PersistentField" href="models/Catalog.dsxmi#PersistentField_1"/>
+      </ViewFields>
+
+      <ViewFields xmi:id="ViewField_19">
+        <Field xmi:type="core:PersistentField" href="models/Catalog.dsxmi#PersistentField_4"/>
+      </ViewFields>
+    </Variables>
+    <EntryPoint xmi:id="EntryPoint_6" version="1" name="In"/>
+    <DataViews xmi:type="core:FormView" xmi:id="FormView_6" version="1" name="SearchProduct" DataViewVariable="DataViewVariable_10">
+      <labelColor xmi:id="RGBValue_6" red="0" green="0" blue="0"/>
+      <Triggers xmi:id="Trigger_5" version="1" name="Search" TriggerDisplay="TriggerDisplay_5"/>
+      <Triggers xmi:id="Trigger_6" version="1" name="Search Category" TriggerDisplay="TriggerDisplay_6"/>
+      <Triggers xmi:id="Trigger_7" version="1" name="Search by Both" TriggerDisplay="TriggerDisplay_7"/>
+      <RADDisplays xmi:type="core:FieldDisplay" xmi:id="FieldDisplay_15" version="1" name="Text (not specified)" displayType="INPUT" ViewField="ViewField_15">
+        <Caption xmi:id="Caption_19" version="1" caption="Text (not specified)" isConstant="false">
+          <CaptionParameter href="Shopping Cart.prjxmi#CaptionParameter_19"/>
+        </Caption>
+      </RADDisplays>
+      <RADDisplays xmi:type="core:TriggerDisplay" xmi:id="TriggerDisplay_5" version="1" name="Search" displayType="SUBMIT" Trigger="Trigger_5">
+        <Caption xmi:id="Caption_20" version="1" caption="Trigger" isConstant="false">
+          <CaptionParameter href="Shopping Cart.prjxmi#CaptionParameter_20"/>
+        </Caption>
+      </RADDisplays>
+      <RADDisplays xmi:type="core:FieldDisplay" xmi:id="FieldDisplay_14" version="1" name="Category" displayType="SELECT_ONE" ViewField="ViewField_14">
+        <Caption xmi:id="Caption_18" version="1" caption="Category" isConstant="false">
+          <CaptionParameter href="Shopping Cart.prjxmi#CaptionParameter_18"/>
+        </Caption>
+      </RADDisplays>
+      <RADDisplays xmi:type="core:TriggerDisplay" xmi:id="TriggerDisplay_6" version="1" name="Search Category" displayType="SUBMIT" Trigger="Trigger_6">
+        <Caption xmi:id="Caption_21" version="1" caption="Trigger0" isConstant="false">
+          <CaptionParameter href="Shopping Cart.prjxmi#CaptionParameter_21"/>
+        </Caption>
+      </RADDisplays>
+      <RADDisplays xmi:type="core:FieldDisplay" xmi:id="FieldDisplay_204" version="1" name="Place holder" displayType="OUTPUT" ViewField="ViewField_204">
+        <Caption xmi:id="Caption_291" version="1" caption="" isConstant="true"/>
+      </RADDisplays>
+
+      <RADDisplays xmi:type="core:TriggerDisplay" xmi:id="TriggerDisplay_7" version="1" name="Search by Both" displayType="SUBMIT" Trigger="Trigger_7">
+        <Caption xmi:id="Caption_22" version="1" caption="Trigger1" isConstant="false">
+          <CaptionParameter href="Shopping Cart.prjxmi#CaptionParameter_22"/>
+        </Caption>
+      </RADDisplays>
+
+    </DataViews>
+    <DataViews xmi:type="core:ListView" xmi:id="ListView_1" version="1" name="Catalog" DataViewVariable="DataViewVariable_11">
+      <headerColor xmi:id="RGBValue_7" red="0" green="0" blue="0"/>
+      <cellColor xmi:id="RGBValue_8" red="0" green="0" blue="0"/>
+      <Triggers xmi:id="Trigger_8" version="1" name="Details" TriggerDisplay="TriggerDisplay_8"/>
+      <Triggers xmi:id="Trigger_9" version="1" name="Add To Cart" TriggerDisplay="TriggerDisplay_9"/>
+      <Triggers xmi:id="Trigger_10" version="1" name="Show All" TriggerDisplay="TriggerDisplay_10"/>
+      <RADDisplays xmi:type="core:FieldDisplay" xmi:id="FieldDisplay_16" version="1" name="product_name" displayType="OUTPUT" ViewField="ViewField_16">
+        <Caption xmi:id="Caption_23" version="1" caption="product_name" isConstant="false">
+          <CaptionParameter href="Shopping Cart.prjxmi#CaptionParameter_19"/>
+        </Caption>
+      </RADDisplays>
+      <RADDisplays xmi:type="core:FieldDisplay" xmi:id="FieldDisplay_19" version="1" name="cost" displayType="OUTPUT" ViewField="ViewField_19">
+        <Caption xmi:id="Caption_26" version="1" caption="cost" isConstant="false">
+          <CaptionParameter href="Shopping Cart.prjxmi#CaptionParameter_26"/>
+        </Caption>
+      </RADDisplays>
+      <RADDisplays xmi:type="core:TriggerDisplay" xmi:id="TriggerDisplay_8" version="1" name="Details" displayType="SUBMIT" Trigger="Trigger_8">
+        <Caption xmi:id="Caption_27" version="1" caption="Trigger" isConstant="false">
+          <CaptionParameter href="Shopping Cart.prjxmi#CaptionParameter_27"/>
+        </Caption>
+      </RADDisplays>
+      <RADDisplays xmi:type="core:TriggerDisplay" xmi:id="TriggerDisplay_9" version="1" name="Add To Cart" displayType="SUBMIT" Trigger="Trigger_9">
+        <Caption xmi:id="Caption_28" version="1" caption="Trigger0" isConstant="false">
+          <CaptionParameter href="Shopping Cart.prjxmi#CaptionParameter_28"/>
+        </Caption>
+      </RADDisplays>
+      <RADDisplays xmi:type="core:TriggerDisplay" xmi:id="TriggerDisplay_10" version="1" name="Show All" displayType="BUTTON" Trigger="Trigger_10">
+        <Caption xmi:id="Caption_29" version="1" caption="Trigger1" isConstant="false">
+          <CaptionParameter href="Shopping Cart.prjxmi#CaptionParameter_29"/>
+        </Caption>
+      </RADDisplays>
+    </DataViews>
+    <Title xmi:id="Title_4" version="1" title="Products Catalog"/>
+  </InteractionUnits>
+  <InteractionUnits xmi:id="InteractionUnit_5" version="1" name="Product Details" ReferencedMenuViews="MenuView_1">
+    <ExitPoints xmi:id="FlowExitPoint_10" version="1" name="AddToCart">
+      <FlowExitReferences xmi:id="FlowExitReference_32" ExitPoint="Trigger_11" FlowOccurrence="FormView_7"/>
+    </ExitPoints>
+    <Variables xmi:type="core:DataViewVariable" xmi:id="DataViewVariable_12" version="1" name="Form"/>
+    <Variables xmi:type="core:DataViewVariable" xmi:id="DataViewVariable_13" version="1" name="Product Details View">
+      <DataSourceTypeDescriptor href="models/Catalog.dsxmi#DataSourceTypeDescriptor_1"/>
+      <DataSource href="models/Catalog.dsxmi#DataSource_2"/>
+      <ViewFields xmi:id="ViewField_20">
+        <Field xmi:type="core:PersistentField" href="models/Catalog.dsxmi#PersistentField_1"/>
+      </ViewFields>
+      <ViewFields xmi:id="ViewField_23">
+        <Field xmi:type="core:PersistentField" href="models/Catalog.dsxmi#PersistentField_4"/>
+      </ViewFields>
+    </Variables>
+    <EntryPoint xmi:id="EntryPoint_16" version="1" name="In"/>
+    <DataViews xmi:type="core:FormView" xmi:id="FormView_7" version="1" name="Product Details View" DataViewVariable="DataViewVariable_13">
+      <labelColor xmi:id="RGBValue_9" red="0" green="0" blue="0"/>
+      <Triggers xmi:id="Trigger_11" version="1" name="AddToCart" TriggerDisplay="TriggerDisplay_11"/>
+      <RADDisplays xmi:type="core:FieldDisplay" xmi:id="FieldDisplay_20" version="1" name="product_name" displayType="OUTPUT" ViewField="ViewField_20">
+        <Caption xmi:id="Caption_30" version="1" caption="product_name" isConstant="false">
+          <CaptionParameter href="Shopping Cart.prjxmi#CaptionParameter_19"/>
+        </Caption>
+      </RADDisplays>
+      <RADDisplays xmi:type="core:FieldDisplay" xmi:id="FieldDisplay_23" version="1" name="cost" displayType="OUTPUT" ViewField="ViewField_23">
+        <Caption xmi:id="Caption_33" version="1" caption="cost" isConstant="false">
+          <CaptionParameter href="Shopping Cart.prjxmi#CaptionParameter_26"/>
+        </Caption>
+      </RADDisplays>
+      <RADDisplays xmi:type="core:TriggerDisplay" xmi:id="TriggerDisplay_11" version="1" name="AddToCart" displayType="SUBMIT" Trigger="Trigger_11">
+        <Caption xmi:id="Caption_34" version="1" caption="Trigger" isConstant="false">
+          <CaptionParameter href="Shopping Cart.prjxmi#CaptionParameter_28"/>
+        </Caption>
+      </RADDisplays>
+    </DataViews>
+    <Title xmi:id="Title_5" version="1" title="Product Details"/>
+  </InteractionUnits>
+    <InteractionUnits xmi:id="InteractionUnit_6" version="1" name="Add To Cart" ReferencedMenuViews="MenuView_1">
+    <BusinessLogicUnits xmi:id="BusinessLogicUnit_13" version="1" name="InsertToCart">
+      <Variables xmi:type="core:RADExpression" xmi:id="RADExpression_400" expression="[Application Components]$[Shopping Cart]$[_total_price].floatValue()+[Data Sources]$[Cart]$[price].floatValue()"/>
+      <Variables xmi:type="core:RADExpression" xmi:id="RADExpression_401" expression="[Data Sources]$[Cart]$[units_on_order].intValue()*[Application Components]$[Shopping Cart]$[_product_price].floatValue()"/>
+      <Variables xmi:type="core:RADExpression" xmi:id="RADExpression_950" expression="Error: Wrong Number of Units"/>
+      <Variables xmi:id="RADExpression_901" expression="UnitsError"/>
+      <Sequence xmi:id="Sequence_13" version="1">
+	 <Statements xmi:type="core:Condition" xmi:id="Condition_930">
+          <RADExpression xmi:id="RADExpression_930" expression="([Data Sources]$[Cart]$[units_on_order] != null) &#38;&#38; ([Data Sources]$[Cart]$[units_on_order].intValue() &#62; 0)"/>
+	  <if xmi:id="Sequence_930">
+  	     <Statements xmi:type="core:Action" xmi:id="Action_400">
+         	<parameters  xmi:id="ActionParameter_400">
+             	    <parameter href="models/Cart.dsxmi#PersistentField_1"/>
+         	</parameters>
+         	<parameters  xmi:id="ActionParameter_401" parameter="TransientField_200"/>
+	 	<ActionDescriptor xmi:type="core:CoreActionDescriptor" href="Shopping Cart.prjxmi#CoreActionDescriptor_1"/>
+       	     </Statements>
+             <Statements xmi:type="core:Action" xmi:id="Action_405">
+         	<parameters  xmi:id="ActionParameter_405">
+                    <parameter href="models/Cart.dsxmi#PersistentField_4"/>
+         	</parameters>
+         	<parameters  xmi:id="ActionParameter_406" parameter="RADExpression_401"/>
+	 	<ActionDescriptor xmi:type="core:CoreActionDescriptor" href="Shopping Cart.prjxmi#CoreActionDescriptor_1"/>
+       	     </Statements>
+       	     <Statements xmi:type="core:Action" xmi:id="Action_401">
+          	<ActionDescriptor xmi:type="core:DomainActionDescriptor" href="models/Catalog.dsxmi#DomainActionDescriptor_1"/>
+          	<reciever xmi:type="core:DataSource" href="models/Cart.dsxmi#DataSource_1"/>
+       	     </Statements>
+             <Statements xmi:type="core:Action" xmi:id="Action_402">
+         	<parameters  xmi:id="ActionParameter_402" parameter="TransientField_202"/>
+         	<parameters  xmi:id="ActionParameter_403" parameter="RADExpression_400"/>
+	 	<ActionDescriptor xmi:type="core:CoreActionDescriptor" href="Shopping Cart.prjxmi#CoreActionDescriptor_1"/>
+             </Statements>
+           </if>
+          <else xmi:id="Sequence_931">
+            <Statements xmi:type="core:Action" xmi:id="Action_950">
+              <parameters  xmi:id="ActionParameter_950" parameter="TransientField_900"/>
+              <parameters  xmi:id="ActionParameter_951" parameter="RADExpression_950"/>
+	      <ActionDescriptor xmi:type="core:CoreActionDescriptor" href="Shopping Cart.prjxmi#CoreActionDescriptor_1"/>
+            </Statements>
+            <Statements xmi:type="core:Action" xmi:id="Action_951">
+              <parameters  xmi:id="ActionParameter_952" parameter="RADExpression_901"/>
+              <ActionDescriptor xmi:type="core:CoreActionDescriptor" href="Shopping Cart.prjxmi#CoreActionDescriptor_2"/>
+            </Statements>
+          </else>
+         </Statements>
+    </Sequence>
+
+      <EntryPoint xmi:id="EntryPoint_19" version="1" name="In"/>
+      <ErrorState xmi:id="ErrorState_13" version="1" name="Error"/>
+      <ExitStates xmi:id="ExitState_14" version="1" name="OK"/>
+      <ExitStates xmi:id="ExitState_914" version="1" name="UnitsError"/>
+    </BusinessLogicUnits>
+    <RADLinks xmi:id="RADLink_26" version="1">
+      <Source xmi:id="FlowExitReference_35" ExitPoint="Trigger_12" FlowOccurrence="BusinessLogicUnit_13"/>
+      <Target xmi:id="FlowEntryReference_27" EntryPoint="EntryPoint_19"/>
+    </RADLinks>
+    <RADLinks xmi:id="RADLink_950" version="1">
+      <Source xmi:id="FlowExitReference_950" ExitPoint="ExitState_914" FlowOccurrence="BusinessLogicUnit_13"/>
+      <Target xmi:id="FlowEntryReference_951" EntryPoint="EntryPoint_18"/>
+    </RADLinks>
+    <ExitPoints xmi:id="FlowExitPoint_11" version="1" name="OK">
+      <FlowExitReferences xmi:id="FlowExitReference_36" ExitPoint="Trigger_13" FlowOccurrence="FormView_8"/>
+      <FlowExitReferences xmi:id="FlowExitReference_37" ExitPoint="ExitState_14" FlowOccurrence="BusinessLogicUnit_13"/>
+    </ExitPoints>
+    <Variables xmi:type="core:DataViewVariable" xmi:id="DataViewVariable_14" version="1" name="CartItem"/>
+    <Variables xmi:type="core:DataViewVariable" xmi:id="DataViewVariable_15" version="1" name="CartItem">
+      <DataSourceTypeDescriptor href="models/Cart.dsxmi#DataSourceTypeDescriptor_1"/>
+      <DataSource href="models/Cart.dsxmi#DataSource_1"/>
+      <ViewFields xmi:id="ViewField_24">
+        <Field xmi:type="core:PersistentField" href="models/Cart.dsxmi#PersistentField_2"/>
+      </ViewFields>
+      <ViewFields xmi:id="ViewField_25">
+        <Field xmi:type="core:PersistentField" href="models/Cart.dsxmi#PersistentField_3"/>
+      </ViewFields>
+      <ViewFields xmi:id="ViewField_26" Field="TransientField_203"/>
+    </Variables>
+    <Variables xmi:type="core:DataViewVariable" xmi:id="DataViewVariable_900" version="1" name="Error">
+      <ViewFields xmi:id="ViewField_900" Field="TransientField_900"/>
+    </Variables>
+   <Variables xmi:type="core:TransientField" xmi:id="TransientField_900" name="UnitErr">
+    	<CoreTypeDescriptor href="Shopping Cart.prjxmi#CoreTypeDescriptor_8"/>
+    	<FieldDescriptor xmi:type="core:AlphanumFieldDescriptor" xmi:id="AlphanumFieldDescriptor_900" length="50">
+      		<CoreTypeDescriptor href="Shopping Cart.prjxmi#CoreTypeDescriptor_8"/>
+    	</FieldDescriptor>
+   </Variables>
+    <EntryPoint xmi:id="EntryPoint_18" version="1" name="In"/>
+    <DataViews xmi:type="core:FormView" xmi:id="FormView_900" version="1" name="Units Error" DataViewVariable="DataViewVariable_900">
+      <labelColor xmi:id="RGBValue_900" red="0" green="0" blue="0"/>
+      <RADDisplays xmi:type="core:FieldDisplay" xmi:id="FieldDisplay_900" version="1" name="Text" displayType="OUTPUT" ViewField="ViewField_900">
+        <Caption xmi:id="Caption_900" version="1" caption="" isConstant="true"/>
+      </RADDisplays>
+    </DataViews>
+    <DataViews xmi:type="core:FormView" xmi:id="FormView_8" version="1" name="CartItem" DataViewVariable="DataViewVariable_15">
+      <labelColor xmi:id="RGBValue_10" red="0" green="0" blue="0"/>
+      <Triggers xmi:id="Trigger_12" version="1" name="Add" TriggerDisplay="TriggerDisplay_12"/>
+      <Triggers xmi:id="Trigger_13" version="1" name="Cancel" TriggerDisplay="TriggerDisplay_13"/>
+      <RADDisplays xmi:type="core:FieldDisplay" xmi:id="FieldDisplay_24" version="1" name="product_name" displayType="OUTPUT" ViewField="ViewField_24">
+        <Caption xmi:id="Caption_35" version="1" caption="product_name" isConstant="false">
+          <CaptionParameter href="Shopping Cart.prjxmi#CaptionParameter_19"/>
+        </Caption>
+      </RADDisplays>
+      <RADDisplays xmi:type="core:FieldDisplay" xmi:id="FieldDisplay_25" version="1" name="units_on_order" displayType="INPUT" ViewField="ViewField_25">
+        <Caption xmi:id="Caption_36" version="1" caption="units_on_order" isConstant="false">
+          <CaptionParameter href="Shopping Cart.prjxmi#CaptionParameter_36"/>
+        </Caption>
+      </RADDisplays>
+      <RADDisplays xmi:type="core:FieldDisplay" xmi:id="FieldDisplay_26" version="1" name="price" displayType="OUTPUT" ViewField="ViewField_26">
+        <Caption xmi:id="Caption_37" version="1" caption="price" isConstant="false">
+          <CaptionParameter href="Shopping Cart.prjxmi#CaptionParameter_26"/>
+        </Caption>
+      </RADDisplays>
+      <RADDisplays xmi:type="core:TriggerDisplay" xmi:id="TriggerDisplay_12" version="1" name="Add" displayType="SUBMIT" Trigger="Trigger_12">
+        <Caption xmi:id="Caption_38" version="1" caption="Trigger" isConstant="false">
+          <CaptionParameter href="Shopping Cart.prjxmi#CaptionParameter_38"/>
+        </Caption>
+      </RADDisplays>
+      <RADDisplays xmi:type="core:TriggerDisplay" xmi:id="TriggerDisplay_13" version="1" name="Cancel" displayType="BUTTON" Trigger="Trigger_13">
+        <Caption xmi:id="Caption_39" version="1" caption="Trigger0" isConstant="false">
+          <CaptionParameter href="Shopping Cart.prjxmi#CaptionParameter_39"/>
+        </Caption>
+      </RADDisplays>
+    </DataViews>
+    <Title xmi:id="Title_6" version="1" title="Add To Cart"/>
+  </InteractionUnits>
+  <InteractionUnits xmi:id="InteractionUnit_7" version="1" name="Cart Content" ReferencedMenuViews="MenuView_1">
+    <BusinessLogicUnits xmi:id="BusinessLogicUnit_15" version="1" name="ResetCart">
+      <Variables xmi:type="core:RADExpression" xmi:id="RADExpression_940" expression="0"/>
+      <Sequence xmi:id="Sequence_15" version="1">
+         <Statements xmi:type="core:Action" xmi:id="Action_501">
+              <parameters  xmi:id="ActionParameter_501">
+                 <parameter href="models/Cart.dsxmi#PersistentField_1"/>
+	      </parameters>
+              <parameters  xmi:id="ActionParameter_502" parameter="TransientField_200"/>
+	      <ActionDescriptor xmi:type="core:CoreActionDescriptor" href="Shopping Cart.prjxmi#CoreActionDescriptor_1"/>
+         </Statements>
+         <Statements xmi:type="core:Action" xmi:id="Action_502">
+              <ActionDescriptor xmi:type="core:DomainActionDescriptor" href="models/Cart.dsxmi#DomainActionDescriptor_8"/>
+              <reciever xmi:type="core:DataSource" href="models/Cart.dsxmi#DataSource_1"/>
+              <parameters  xmi:id="ActionParameter_503">
+                 <parameter href="models/Cart.dsxmi#PersistentField_1"/>
+	      </parameters>
+         </Statements>
+         <Statements xmi:type="core:Action" xmi:id="Action_940">
+            <parameters  xmi:id="ActionParameter_941" parameter="TransientField_202"/>
+            <parameters  xmi:id="ActionParameter_942" parameter="RADExpression_940"/>
+      	    <ActionDescriptor xmi:type="core:CoreActionDescriptor" href="Shopping Cart.prjxmi#CoreActionDescriptor_1"/>
+         </Statements>
+    </Sequence>
+      <EntryPoint xmi:id="EntryPoint_22" version="1" name="In"/>
+      <ErrorState xmi:id="ErrorState_15" version="1" name="Error"/>
+      <ExitStates xmi:id="ExitState_16" version="1" name="OK"/>
+    </BusinessLogicUnits>
+    <RADLinks xmi:id="RADLink_29" version="1">
+      <Source xmi:id="FlowExitReference_40" ExitPoint="Trigger_14" FlowOccurrence="BusinessLogicUnit_15"/>
+      <Target xmi:id="FlowEntryReference_30" EntryPoint="EntryPoint_22"/>
+    </RADLinks>
+    <ExitPoints xmi:id="FlowExitPoint_12" version="1" name="OK">
+      <FlowExitReferences xmi:id="FlowExitReference_41" ExitPoint="ExitState_16" FlowOccurrence="BusinessLogicUnit_15"/>
+    </ExitPoints>
+    <ExitPoints xmi:id="FlowExitPoint_13" version="1" name="bill">
+      <FlowExitReferences xmi:id="FlowExitReference_42" ExitPoint="Trigger_15" FlowOccurrence="ListView_2"/>
+    </ExitPoints>
+    <Variables xmi:type="core:DataViewVariable" xmi:id="DataViewVariable_16" version="1" name="CartDetails"/>
+    <Variables xmi:type="core:DataViewVariable" xmi:id="DataViewVariable_17" version="1" name="CartDetails">
+      <DataSourceTypeDescriptor href="models/Cart.dsxmi#DataSourceTypeDescriptor_1"/>
+      <DataSource href="models/Cart.dsxmi#DataSource_1"/>
+      <ViewFields xmi:id="ViewField_27">
+        <Field xmi:type="core:PersistentField" href="models/Cart.dsxmi#PersistentField_2"/>
+      </ViewFields>
+      <ViewFields xmi:id="ViewField_28">
+        <Field xmi:type="core:PersistentField" href="models/Cart.dsxmi#PersistentField_3"/>
+      </ViewFields>
+      <ViewFields xmi:id="ViewField_29">
+        <Field xmi:type="core:PersistentField" href="models/Cart.dsxmi#PersistentField_4"/>
+      </ViewFields>
+    </Variables>
+    <EntryPoint xmi:id="EntryPoint_21" version="1" name="In"/>
+    <DataViews xmi:type="core:ListView" xmi:id="ListView_2" version="1" name="CartDetails" DataViewVariable="DataViewVariable_17">
+      <headerColor xmi:id="RGBValue_11" red="0" green="0" blue="0"/>
+      <cellColor xmi:id="RGBValue_12" red="0" green="0" blue="0"/>
+      <Triggers xmi:id="Trigger_14" version="1" name="Clear Cart" TriggerDisplay="TriggerDisplay_14"/>
+      <Triggers xmi:id="Trigger_15" version="1" name="Bill" TriggerDisplay="TriggerDisplay_15"/>
+      <RADDisplays xmi:type="core:FieldDisplay" xmi:id="FieldDisplay_27" version="1" name="product_name" displayType="OUTPUT" ViewField="ViewField_27">
+        <Caption xmi:id="Caption_40" version="1" caption="product_name" isConstant="false">
+          <CaptionParameter href="Shopping Cart.prjxmi#CaptionParameter_19"/>
+        </Caption>
+      </RADDisplays>
+      <RADDisplays xmi:type="core:FieldDisplay" xmi:id="FieldDisplay_28" version="1" name="units_on_order" displayType="OUTPUT" ViewField="ViewField_28">
+        <Caption xmi:id="Caption_41" version="1" caption="units_on_order" isConstant="false">
+          <CaptionParameter href="Shopping Cart.prjxmi#CaptionParameter_36"/>
+        </Caption>
+      </RADDisplays>
+      <RADDisplays xmi:type="core:FieldDisplay" xmi:id="FieldDisplay_29" version="1" name="price" displayType="OUTPUT" ViewField="ViewField_29">
+        <Caption xmi:id="Caption_42" version="1" caption="price" isConstant="false">
+          <CaptionParameter href="Shopping Cart.prjxmi#CaptionParameter_26"/>
+        </Caption>
+      </RADDisplays>
+      <RADDisplays xmi:type="core:TriggerDisplay" xmi:id="TriggerDisplay_15" version="1" name="Bill" displayType="BUTTON" Trigger="Trigger_15">
+        <Caption xmi:id="Caption_43" version="1" caption="Trigger0" isConstant="false">
+          <CaptionParameter href="Shopping Cart.prjxmi#CaptionParameter_43"/>
+        </Caption>
+      </RADDisplays>
+      <RADDisplays xmi:type="core:TriggerDisplay" xmi:id="TriggerDisplay_14" version="1" name="Clear Cart" displayType="BUTTON" Trigger="Trigger_14">
+        <Caption xmi:id="Caption_44" version="1" caption="Trigger" isConstant="false">
+          <CaptionParameter href="Shopping Cart.prjxmi#CaptionParameter_44"/>
+        </Caption>
+      </RADDisplays>
+    </DataViews>
+    <Title xmi:id="Title_7" version="1" title="Cart Content"/>
+  </InteractionUnits>
+  <InteractionUnits xmi:id="InteractionUnit_8" version="1" name="Cashier" ReferencedMenuViews="MenuView_1">
+    <BusinessLogicUnits xmi:id="BusinessLogicUnit_16" version="1" name="CreateOrder">
+      <Sequence xmi:id="Sequence_16" version="1">
+         <Statements xmi:type="core:Action" xmi:id="Action_601">
+              <parameters  xmi:id="ActionParameter601">
+                 <parameter href="models/Orders.dsxmi#PersistentField_2"/>
+	      </parameters>
+              <parameters  xmi:id="ActionParameter_602" parameter="TransientField_202"/>
+	      <ActionDescriptor xmi:type="core:CoreActionDescriptor" href="Shopping Cart.prjxmi#CoreActionDescriptor_1"/>
+         </Statements>
+         <Statements xmi:type="core:Action" xmi:id="Action_621">
+              <parameters  xmi:id="ActionParameter621">
+                 <parameter href="models/Orders.dsxmi#PersistentField_1"/>
+	      </parameters>
+              <parameters  xmi:id="ActionParameter_622" parameter="TransientField_200"/>
+	      <ActionDescriptor xmi:type="core:CoreActionDescriptor" href="Shopping Cart.prjxmi#CoreActionDescriptor_1"/>
+         </Statements>
+         <Statements xmi:type="core:Action" xmi:id="Action_602">
+              <ActionDescriptor xmi:type="core:DomainActionDescriptor" href="models/Orders.dsxmi#DomainActionDescriptor_1"/>
+              <reciever xmi:type="core:DataSource" href="models/Orders.dsxmi#DataSource_3"/>
+         </Statements>
+      </Sequence>
+      <EntryPoint xmi:id="EntryPoint_24" version="1" name="In"/>
+      <ErrorState xmi:id="ErrorState_16" version="1" name="Error"/>
+      <ExitStates xmi:id="ExitState_17" version="1" name="OK"/>
+    </BusinessLogicUnits>
+    <RADLinks xmi:id="RADLink_32" version="1">
+      <Source xmi:id="FlowExitReference_46" ExitPoint="Trigger_16" FlowOccurrence="FormView_9"/>
+      <Target xmi:id="FlowEntryReference_33" EntryPoint="EntryPoint_24"/>
+    </RADLinks>
+    <ExitPoints xmi:id="FlowExitPoint_14" version="1" name="OK">
+      <FlowExitReferences xmi:id="FlowExitReference_47" ExitPoint="ExitState_17" FlowOccurrence="BusinessLogicUnit_16"/>
+    </ExitPoints>
+    <Variables xmi:type="core:DataViewVariable" xmi:id="DataViewVariable_19" version="1" name="BillInfo">
+      <DataSourceTypeDescriptor href="models/Orders.dsxmi#DataSourceTypeDescriptor_1"/>
+      <DataSource href="models/Orders.dsxmi#DataSource_3"/>
+      <ViewFields xmi:id="ViewField_30">
+        <Field xmi:type="core:PersistentField" href="models/Orders.dsxmi#PersistentField_2"/>
+      </ViewFields>
+      <ViewFields xmi:id="ViewField_34" Field="TransientField_202"/>
+    </Variables>
+    <Variables xmi:type="core:TransientField" xmi:id="TransientField_6" version="1" name="Text" required="true">
+      <CoreTypeDescriptor href="Shopping Cart.prjxmi#CoreTypeDescriptor_8"/>
+      <FieldDescriptor xmi:type="core:AlphanumFieldDescriptor" xmi:id="AlphanumFieldDescriptor_6" version="1">
+        <CoreTypeDescriptor href="Shopping Cart.prjxmi#CoreTypeDescriptor_8"/>
+      </FieldDescriptor>
+    </Variables>
+    <Variables xmi:type="core:DataViewVariable" xmi:id="DataViewVariable_800" version="1" name="CartList">
+      <DataSourceTypeDescriptor href="models/Cart.dsxmi#DataSourceTypeDescriptor_1"/>
+      <DataSource href="models/Cart.dsxmi#DataSource_1"/>
+      <ViewFields xmi:id="ViewField_827">
+        <Field xmi:type="core:PersistentField" href="models/Cart.dsxmi#PersistentField_2"/>
+      </ViewFields>
+      <ViewFields xmi:id="ViewField_828">
+        <Field xmi:type="core:PersistentField" href="models/Cart.dsxmi#PersistentField_3"/>
+      </ViewFields>
+      <ViewFields xmi:id="ViewField_829">
+        <Field xmi:type="core:PersistentField" href="models/Cart.dsxmi#PersistentField_4"/>
+      </ViewFields>
+    </Variables>
+
+    <EntryPoint xmi:id="EntryPoint_23" version="1" name="In"/>
+    <DataViews xmi:type="core:FormView" xmi:id="FormView_9" version="1" name="BillInfo" DataViewVariable="DataViewVariable_19">
+      <labelColor xmi:id="RGBValue_13" red="0" green="0" blue="0"/>
+      <Triggers xmi:id="Trigger_16" version="1" name="Submit" TriggerDisplay="TriggerDisplay_16"/>
+      <RADDisplays xmi:type="core:FieldDisplay" xmi:id="FieldDisplay_30" version="1" name="Price" displayType="OUTPUT" ViewField="ViewField_34">
+        <Caption xmi:id="Caption_45" version="1" caption="Total Price" isConstant="false">
+          <CaptionParameter href="Shopping Cart.prjxmi#CaptionParameter_45"/>
+        </Caption>
+      </RADDisplays>
+      <RADDisplays xmi:type="core:TriggerDisplay" xmi:id="TriggerDisplay_16" version="1" name="Submit" displayType="SUBMIT" Trigger="Trigger_16">
+        <Caption xmi:id="Caption_49" version="1" caption="Trigger" isConstant="false">
+          <CaptionParameter href="Shopping Cart.prjxmi#CaptionParameter_49"/>
+        </Caption>
+      </RADDisplays>
+    </DataViews>
+
+    <DataViews xmi:type="core:ListView" xmi:id="ListView_800" version="1" name="CartContent" DataViewVariable="DataViewVariable_800">
+      <headerColor xmi:id="RGBValue_811" red="0" green="0" blue="0"/>
+      <cellColor xmi:id="RGBValue_812" red="0" green="0" blue="0"/>
+      <RADDisplays xmi:type="core:FieldDisplay" xmi:id="FieldDisplay_827" version="1" name="product_name" displayType="OUTPUT" ViewField="ViewField_827">
+        <Caption xmi:id="Caption_840" version="1" caption="product_name" isConstant="false">
+          <CaptionParameter href="Shopping Cart.prjxmi#CaptionParameter_19"/>
+        </Caption>
+      </RADDisplays>
+      <RADDisplays xmi:type="core:FieldDisplay" xmi:id="FieldDisplay_828" version="1" name="units_on_order" displayType="OUTPUT" ViewField="ViewField_828">
+        <Caption xmi:id="Caption_841" version="1" caption="units_on_order" isConstant="false">
+          <CaptionParameter href="Shopping Cart.prjxmi#CaptionParameter_36"/>
+        </Caption>
+      </RADDisplays>
+      <RADDisplays xmi:type="core:FieldDisplay" xmi:id="FieldDisplay_829" version="1" name="price" displayType="OUTPUT" ViewField="ViewField_829">
+        <Caption xmi:id="Caption_842" version="1" caption="price" isConstant="false">
+          <CaptionParameter href="Shopping Cart.prjxmi#CaptionParameter_26"/>
+        </Caption>
+      </RADDisplays>
+    </DataViews>
+
+
+
+    <Title xmi:id="Title_8" version="1" title="Cashier"/>
+  </InteractionUnits>
+  <DataInterface xmi:id="DataInterface_1" version="1"/>
+  <EntryPoints xmi:id="ComponentEntryPoint_1" version="1" name="In">
+    <FirstEntityReference xmi:id="FlowEntryReference_1" EntryPoint="EntryPoint_4" FlowOccurrence="InteractionUnit_2"/>
+  </EntryPoints>
+</core:RADComponent>

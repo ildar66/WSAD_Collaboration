@@ -1,0 +1,150 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>自訂使用者登錄設定
+</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecrcustom"></a>
+<h2>自訂使用者登錄設定
+</h2>
+
+<p>您可利用這個頁面來配置自訂使用者登錄。</p>
+
+<p>如果要檢視這個管理主控台頁面，請按一下<strong>安全</strong> &gt; <strong>使用者登錄</strong> &gt; <strong>自訂</strong>。</p>
+
+<p>一旦在這個畫面設定內容，請按一下<strong>套用</strong>。請利用<strong>內容</strong>畫面來處理自訂登錄所需要的其他內容。
+當啟用安全且任何這些內容有了改變時，請進入<strong>廣域安全</strong>畫面，按一下<strong>套用</strong>來驗證變更。
+</p>
+
+<div>
+<p>
+<strong>「配置」標籤</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="UserRegistry_serverId_description"></a>伺服器使用者 ID
+</strong>
+</dt>
+<dd>指定為了安全而在伺服器執行時採用的使用者 ID。
+<p>這個伺服器 ID 代表自訂登錄中的有效使用者。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型：</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="UserRegistry_serverPassword_description"></a>伺服器使用者密碼</strong>
+</dt>
+<dd>指定安全伺服器 ID 所對應的密碼。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型：</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="CustomUserRegistry_customRegistryClassName_description"></a>自訂登錄類別名稱</strong>
+</dt>
+<dd>指定實作 <samp>com.ibm.websphere.security.UserRegistry 介面</samp>的帶點類別名稱。
+<p>請將自訂登錄類別名稱放在類別路徑中。
+建議的位置是 <samp>%install_root%/lib/ext</samp> 目錄。
+雖然自訂登錄實作 <samp>com.ibm.websphere.security.UserRegistry</samp> 介面，但為了與舊版相容，使用者登錄也可以另行實作 <samp>com.ibm.websphere.security.CustomRegistry</samp> 介面。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型：</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值：</td>
+<td align="left" valign="top" class="base">com.ibm.websphere.security.FileRegistrySample</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="CustomUserRegistry_ignoreCase_description"></a>不區分大小寫</strong>
+</dt>
+<dd>可指定執行不區分大小寫授權檢查。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值：</td>
+<td align="left" valign="top" class="base">啟用</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍：</td>
+<td align="left" valign="top" class="base">啟用或停用</td>
+
+</tr>
+
+</table>
+
+<div>請利用<strong>自訂內容</strong>鏈結來新增起始設定自訂登錄所需要的其他內容。
+以下是是產品預先定義的內容；請只在必要時才設定這個內容：
+<ul>
+
+<li>WAS_UseDisplayName--當設為 <samp>true</samp> 時，getCallerPrincipal()、getUserPrincipal()、getRemoteUser() 等方法會傳回顯示名稱。
+依預設，會傳回使用者的 <samp>securityName</samp>。
+此舉主要是為了支援與 4.0 版自訂登錄的反向相容性。
+</li>
+
+</ul>
+</div>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>相關資訊</strong>
+</p>
+<a href="rcon_buttons.html">管理主控台按鈕</a>
+<br>
+
+<a href="rcon_pageusage.html">管理主控台頁面特性</a>
+<br>
+
+<a href="rcon_scope.html">管理主控台範圍設定</a>
+<br>
+
+<a href="rcon_filter.html">管理主控台過濾器設定</a>
+<br>
+
+<a href="rcon_preferences.html">管理主控台喜好設定</a>
+<br>
+
+</div>
+</body>
+</html>

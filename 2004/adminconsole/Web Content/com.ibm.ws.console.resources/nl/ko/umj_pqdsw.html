@@ -1,0 +1,449 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>WebSphere 대기열 설정</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="WASQueue"></a>
+<h2>WebSphere 대기열 설정</h2>
+
+<p>WebSphere JMS 프로바이더에서 사용할 선택된 대기열 목적지의 구성 등록 정보를 보거나 변경하려면
+이 패널을 사용하십시오. </p>
+
+<p>대기열 목적지는 JMS 대기열의 등록 정보를 구성하기 위해 사용됩니다.
+대기열에 대한 연결은 임베드된 WebSphere JMS 프로바이더의 연관된 대기열 연결 팩토리에 의해
+작성됩니다. 내부 WebSphere JMS 프로바이더에서 사용할 대기열은 다음 등록 정보를 갖습니다. </p>
+
+<p>
+<b>참고: </b>대기열에 호스트된 JMS 서버의 구성에 있는 대기열 이름의 목록에 대기열 이름을 추가해야 합니다.
+</p>
+
+<p>이 관리 콘솔 페이지를 보려면 <strong>자원-&gt; WebSphere JMS 프로바이더-&gt; (내용 분할창의 추가 등록 정보 아래) WebSphere 대기열 목적지-&gt; <em>destination_name</em></strong>을 클릭하십시오. </p>
+
+<div>
+<p>
+<strong>구성 탭</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="WASQueue_contextId"></a>범위</strong>
+</dt>
+<dd>이 자원 정의가 표시될 수 있는 레벨(셀, 노드 또는 서버 레벨)을 지정합니다. 
+<p>JMS 프로바이더, 네임 스페이스 바인딩 또는 공유 라이브러리와 같은 자원은 일반적인 범위에서 정의된 중복을 대체하는, 좀 더 특정한 범위에서 정의된 자원을 가지는 다중 범위에서 정의될 수 있습니다.</p>
+
+<p>정의된 자원의 범위에 관계 없이, 자원의 등록 정보는
+개별 서버 레벨에서만 적용됩니다. 예를 들어 셀 레벨에서
+데이터소스의 범위를 정의하는 경우, 해당 셀의 모든 사용자는
+해당 데이터소스(셀 내에서 고유함)를 찾아보고 사용할 수 있습니다. 그러나
+자원 등록 정보 설정은 셀 내 각 서버에 로컬입니다. 예를 들어,
+<strong>최대 연결 수</strong>를 10으로 설정하면 해당 셀 내의 각 서버가 10개의 연결을 가질 수 있습니다. <dl>
+<dt>
+<strong>셀</strong>
+</dt>
+<dd>가장 일반적인 범위. 셀 범위에서 정의된 자원은 대체되지 않는 한
+모든 노드 및 서버에서 표시 가능합니다.
+셀 범위에서 정의되는 자원을 보려면 범위 선택사항 양식에서
+서버 또는 노드 이름을 지정하지 마십시오. </dd>
+<dt>
+<strong>Node</strong>
+</dt>
+<dd>대부분의 자원 유형에 대한 기본 범위. 노드 범위에서 정의된 자원은
+셀 범위에서 정의된 임의의 중복을 대체하고 해당 노드의 서버 범위에서 대체되지 않는
+한 동일한 노드의 모든 서버에 표시 가능합니다. 노드 범위에서 정의되는 자원을 보려면 서버를 지정하지
+말고 범위 선택사항 양식에서 노드 이름을 선택하십시오. </dd>
+<dt>
+<strong>서버</strong>
+</dt>
+<dd>자원 정의에 대한 가장 특정한 범위. 서버 범위에서 정의되는
+자원은 셀 범위 및 상위 노드 범위에서 정의되는 모든 중복 자원 정의를
+대체하고 특정 서버에서만 볼 수 있습니다. 서버 범위에서 정의되는 자원을
+보려면 범위 선택사항 양식에서 서버 이름뿐 아니라 노드 이름을 선택하십시오. </dd>
+</dl>
+</p>
+
+<p>자원이 작성되면, 항상 패널에서 선택된 현재 범위로 작성됩니다. 다른 범위에서 자원을 보려면 범위 선택사항 양식에
+다른 노드 또는 서버를 지정하십시오. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">문자열</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASQueue_name"></a>이름</strong>
+</dt>
+<dd>IBM WebSphere Application Server 내에서 대기열이
+관리 목적으로 알려진 이름. 
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">문자열</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASQueue_jndiName"></a>JNDI 이름</strong>
+</dt>
+<dd>대기열을 Application Server의 네임 스페이스에
+바인드하는 데 사용되는 JNDI 이름.
+
+<p>규칙에 따라, 완전한 JNDI 이름을
+사용하십시오(예: jms/<em>Name</em> 양식). 여기서
+<em>Name</em>은 자원의 논리 이름입니다.</p>
+
+<p>이 이름은 플랫폼의 바인딩 정보를 연결하는 데 사용됩니다.
+바인딩은 모듈 전개 설명자에서 정의한 자원을
+플랫폼에서 JNDI에 바인드한 실제(물리적) 자원에 연관시킵니다.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">문자열</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASQueue_description"></a>설명
+</strong>
+</dt>
+<dd>관리를 위한 대기열에 대한 설명
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">문자열</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">기본값</td>
+<td align="left" valign="top" class="base">널</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASQueue_category"></a>카테고리</strong>
+</dt>
+<dd>IBM WebSphere Application Server 관리 레코드에 대해
+이 대기열을 분류하거나 그룹화하는 데 사용되는 카테고리
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">문자열</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASQueue_persistence"></a>지속</strong>
+</dt>
+<dd>목적지로 전송된 모든 메시지가 지속적, 비지속적인지 또는 지속성을 응용프로그램에서 정의하는지 여부
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">기본값</td>
+<td align="left" valign="top" class="base">APPLICATION DEFINED</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">범위</td>
+<td align="left" valign="top" class="base">
+<dl>
+<dt>
+<strong>APPLICATION DEFINED</strong>
+</dt>
+<dd>대기열에 메시지를 송신한 응용프로그램에서
+목적지의 메시지에 대한 지속성을 정의합니다.
+</dd>
+<dt>
+<strong>NON-PERSISTENT</strong>
+</dt>
+<dd>목적지의 메시지가 지속적이지 않습니다.</dd>
+<dt>
+<strong>PERSISTENT</strong>
+</dt>
+<dd>목적지의 메시지가 지속적입니다.</dd>
+<dt>
+<strong>QUEUE DEFINED</strong>
+</dt>
+<dd>[WebSphere MQ 목적지만] 목적지의 메시지에는 WebSphere MQ
+대기열 정의 등록 정보에 의해 정의되는 지속이 있습니다. </dd>
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASQueue_priority"></a>우선순위</strong>
+</dt>
+<dd>목적지에 대한 메시지 우선순위를
+응용프로그램에서 정의하는지 아니면 <strong>지정된 우선순위</strong> 등록 정보에서 정의하는지
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">
+단위</td>
+<td align="left" valign="top" class="base">적용되지 않음</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">기본값</td>
+<td align="left" valign="top" class="base">APPLICATION DEFINED</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">범위</td>
+<td align="left" valign="top" class="base">
+<dl>
+<dt>
+<strong>APPLICATION DEFINED</strong>
+</dt>
+<dd>대기열의 메시지 우선순위를
+메시지를 목적지에 송신하는 응용프로그램에서 정의합니다.
+</dd>
+<dt>
+<strong>QUEUE DEFINED</strong>
+</dt>
+<dd>[WebSphere MQ 목적지만] 목적지의 메시지에는 WebSphere MQ
+대기열 정의 등록 정보에 의해 정의되는 지속이 있습니다. </dd>
+<dt>
+<strong>SPECIFIED</strong>
+</dt>
+<dd>이 목적지의 메시지 우선순위는
+<strong>지정된 우선순위</strong> 등록 정보에 의해 정의됩니다.<em>이 옵션을 선택한 경우,
+<strong>지정된 우선순위</strong> 등록 정보에 우선순위를 정의해야 합니다.</em>
+</dd>
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASQueue_specifiedPriority"></a>지정된 우선순위</strong>
+</dt>
+<dd>
+<strong>우선순위</strong> 등록 정보가 <samp>지정된</samp>으로
+설정되어 있으면 여기에 이 대기열의 메시지 우선순위를 입력하십시오(범위: 0 - 9).  
+<p>
+<strong>우선순위</strong> 등록 정보가 <samp>지정된</samp>으로 설정되어 있으면
+이 대기열로 전송된 메시지가 이 등록 정보로 지정된 우선순위 값을 가집니다.
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">정수</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">
+단위</td>
+<td align="left" valign="top" class="base">메시지 우선순위 레벨</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">기본값</td>
+<td align="left" valign="top" class="base">0</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">범위</td>
+<td align="left" valign="top" class="base">0(최저 우선순위) - 9(최고 우선순위)</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASQueue_expiry"></a>만기</strong>
+</dt>
+<dd>이 대기열의 만기 제한시간을 응용프로그램이 정의할 지
+또는 <strong>지정된 만기</strong> 등록 정보가 정의할 지, 대기열의 메시지가 만기되지 않을 지(만기
+제한시간의 제한이 없음) 여부
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">
+단위</td>
+<td align="left" valign="top" class="base">적용되지 않음</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">기본값</td>
+<td align="left" valign="top" class="base">APPLICATION DEFINED</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">범위</td>
+<td align="left" valign="top" class="base">
+<dl>
+<dt>
+<strong>APPLICATION DEFINED</strong>
+</dt>
+<dd>대기열에 메시지를 송신한 응용프로그램에서
+대기열의 메시지에 대한 만기 제한시간을 정의합니다.
+</dd>
+<dt>
+<strong>UNLIMITED</strong>
+</dt>
+<dd>이 대기열의 메시지에 만기 제한시간이 없으므로 해당 메시지가 만기되지 않습니다.
+</dd>
+<dt>
+<strong>SPECIFIED</strong>
+</dt>
+<dd>이 대기열의 메시지 만기 제한시간은
+<strong>지정된 만기</strong> 등록 정보에 의해 정의됩니다.<em>이 옵션을 선택한 경우,
+<strong>지정된 만기</strong> 등록 정보에 우선순위를 정의해야 합니다.</em>
+</dd>
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASQueue_specifiedExpiry"></a>지정된 만기</strong>
+</dt>
+<dd>
+<strong>만기 제한시간</strong> 등록 정보가 <samp>지정된</samp>으로 설정된 경우,
+여기에 이 대기열의 메시지가 만기되기 전까지의 시간을 0보다 큰 밀리초로 입력하십시오.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">정수</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">
+단위</td>
+<td align="left" valign="top" class="base">밀리초</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">기본값</td>
+<td align="left" valign="top" class="base">0</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">범위</td>
+<td align="left" valign="top" class="base">0보다 크거나 같음
+<ul>
+
+<li>0은 메시지가 시간 제한되지 않음을 나타냅니다.</li>
+
+<li>기타 값은 밀리초 단위의 정수입니다.</li>
+
+</ul> 
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>관련 정보</strong>
+</p>
+<a href="rcon_buttons.html">관리 콘솔 단추</a>
+<br>
+
+<a href="rcon_scope.html">관리 콘솔 범위 설정</a>
+<br>
+
+</div>
+</body>
+</html>

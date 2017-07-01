@@ -1,0 +1,141 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Common Secure Interoperability 傳輸入埠設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecinboundconn"></a>
+<h2>Common Secure Interoperability 傳輸入埠設定</h2>
+
+<p>請利用這個頁面來指定要開啟哪些接聽器埠及使用哪些 Secure Socket Layer (SSL) 設定。
+這些規格會決定用戶端或上游伺服器要用來與這個伺服器進行入埠要求通訊的傳輸。
+</p>
+
+<p>如果要檢視這個管理主控台頁面，請按一下<strong>安全</strong> &gt; <strong>鑑別通訊協定</strong> &gt; <strong>CSI 離埠傳輸</strong>。</p>
+
+<div>
+<p>
+<strong>「配置」標籤</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="Transport_i_description"></a>傳輸</strong>
+</dt>
+<dd>指定用戶端程序要不要利用伺服器所連接的傳輸來連接至伺服器。
+
+<p>您可以選擇利用 Secure Socket Layer (SSL)、TCP/IP 或這兩者來作為伺服器支援的入埠傳輸。
+如果您指定 <strong>TCP/IP</strong>，伺服器只會支援 TCP/IP，無法接受 SSL 連線。
+如果您指定<strong>支援 SSL</strong>，這個伺服器可以支援 TCP/IP 或 SSL 連線。
+如果您指定<strong>需要 SSL</strong>，與這個伺服器通訊的任何伺服器都必須使用 SSL。</p>
+
+<p>如果您指定<strong>支援 SSL</strong> 或<strong>需要 SSL</strong>，請決定入埠配置要用哪一組 SSL 配置設定。
+這個決定會確定這個伺服器的入埠連線所要使用的金鑰檔和信任檔。
+</p>
+
+<p>依預設，會動態產生 Common Secure Interoperability 第 2 版 (CSIv2) 和安全鑑別服務 (SAS) 的 SSL 埠。
+如果您需要在應用程式修正 SSL 埠，請按一下<strong>伺服器</strong> &gt; <strong>應用程式伺服器</strong> &gt; <em>server_name</em> &gt; <strong>端點</strong>。請配置要修正的下列埠。
+埠號零表示在執行時期動態指派。
+<pre class="program">
+<font style="font-family: arial">CSIV2_SSL_MUTUALAUTH_LISTENER_ADDRESS 
+CSIV2_SSL_SERVERAUTH_LISTENER_ADDRESS 
+SAS_SSL_SERVERAUTH_LISTENER_ADDRESS</font>
+</pre>
+</p>
+
+<p>
+<ul>
+
+<li>
+<strong>TCP/IP</strong>：只會開啟 TCP/IP 接聽器埠，且所有入埠要求都沒有 SSL 保護。</li>
+
+<li>
+<strong>支援 SSL</strong>：會開啟 TCP/IP 和 SSL 接聽器埠，且大部分要求都會利用 SSL 來入埠。</li>
+
+<li>
+<strong>需要 SSL</strong>：只會開啟 SSL 接聽器埠，所有要求都會利用 SSL 連線送達。
+如果您選擇<strong>需要 SSL</strong>，您也必須選擇 <strong>CSI</strong> 來作為作用中鑑別通訊協定。
+如果您選擇 <strong>CSI 和 SAS</strong>，SAS 需要開啟的 TCP/IP 埠，才能處理某些特殊要求。
+</li>
+
+</ul>
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值：</td>
+<td align="left" valign="top" class="base">支援 SSL</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍：</td>
+<td align="left" valign="top" class="base">TCP/IP、需要 SSL、支援 SSL</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SSLSettings_csi_i_description"></a>SSL 設定</strong>
+</dt>
+<dd>指定要從中選取的入埠連線預定 SSL 設定清單。
+這些設定是在「SSL 儲存庫」畫面中配置的。
+<p></p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型：</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值：</td>
+<td align="left" valign="top" class="base">DefaultSSLSettings</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍：</td>
+<td align="left" valign="top" class="base">SSL 配置儲存庫中所配置的 SSL 設定</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>相關資訊</strong>
+</p>
+<a href="rcon_buttons.html">管理主控台按鈕</a>
+<br>
+
+<a href="rcon_pageusage.html">管理主控台頁面特性</a>
+<br>
+
+<a href="rcon_scope.html">管理主控台範圍設定</a>
+<br>
+
+<a href="rcon_filter.html">管理主控台過濾器設定</a>
+<br>
+
+<a href="rcon_preferences.html">管理主控台喜好設定</a>
+<br>
+
+</div>
+</body>
+</html>

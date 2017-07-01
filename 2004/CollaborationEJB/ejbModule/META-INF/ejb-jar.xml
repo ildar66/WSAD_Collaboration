@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE ejb-jar PUBLIC "-//Sun Microsystems, Inc.//DTD Enterprise JavaBeans 2.0//EN" "http://java.sun.com/dtd/ejb-jar_2_0.dtd">
+<ejb-jar id="ejb-jar_ID">
+	<display-name>CollaborationEJB</display-name>
+	<enterprise-beans>
+		<session id="CollaborationClientNRI">
+			<ejb-name>CollaborationClientNRI</ejb-name>
+			<home>com.hps.july.sync.session.CollaborationClientNRIHome</home>
+			<remote>com.hps.july.sync.session.CollaborationClientNRI</remote>
+			<ejb-class>com.hps.july.sync.session.CollaborationClientNRIBean</ejb-class>
+			<session-type>Stateless</session-type>
+			<transaction-type>Container</transaction-type>
+		</session>
+		<session id="ReferencesFinder">
+			<ejb-name>ReferencesFinder</ejb-name>
+			<home>com.hps.july.sync.session.ReferencesFinderHome</home>
+			<remote>com.hps.july.sync.session.ReferencesFinder</remote>
+			<ejb-class>com.hps.july.sync.session.ReferencesFinderBean</ejb-class>
+			<session-type>Stateless</session-type>
+			<transaction-type>Container</transaction-type>
+			<env-entry>
+				<env-entry-name>session/dbdatasource</env-entry-name>
+				<env-entry-type>java.lang.String</env-entry-type>
+				<env-entry-value>java:comp/env/jdbc/informix</env-entry-value>
+			</env-entry>
+			<env-entry>
+				<description>param/DAODatabase</description>
+				<env-entry-name>param/DAODatabase</env-entry-name>
+				<env-entry-type>java.lang.String</env-entry-type>
+				<env-entry-value>informix</env-entry-value>
+			</env-entry>
+			<resource-ref id="ResourceRef_1097835240578">
+				<description></description>
+				<res-ref-name>jdbc/informix</res-ref-name>
+				<res-type>javax.sql.DataSource</res-type>
+				<res-auth>Container</res-auth>
+				<res-sharing-scope>Shareable</res-sharing-scope>
+			</resource-ref>
+			<resource-ref id="ResourceRef_1101288020984">
+				<description></description>
+				<res-ref-name>url/DAOSQLURL</res-ref-name>
+				<res-type>java.net.URL</res-type>
+				<res-auth>Container</res-auth>
+				<res-sharing-scope>Shareable</res-sharing-scope>
+			</resource-ref>
+		</session>
+		<session id="GenericFinder">
+			<ejb-name>GenericFinder</ejb-name>
+			<local-home>com.hps.july.sync.session.GenericFinderLocalHome</local-home>
+			<local>com.hps.july.sync.session.GenericFinderLocal</local>
+			<ejb-class>com.hps.july.sync.session.GenericFinderBean</ejb-class>
+			<session-type>Stateless</session-type>
+			<transaction-type>Container</transaction-type>
+			<env-entry>
+				<description></description>
+				<env-entry-name>param/GenericDAOClass</env-entry-name>
+				<env-entry-type>java.lang.String</env-entry-type>
+				<env-entry-value>com.hps.july.sync.model.dao.GenericDAO</env-entry-value>
+			</env-entry>
+			<env-entry>
+				<description></description>
+				<env-entry-name>param/DAODatabase</env-entry-name>
+				<env-entry-type>java.lang.String</env-entry-type>
+				<env-entry-value>informix</env-entry-value>
+			</env-entry>
+			<resource-ref id="ResourceRef_1103290083703">
+				<description></description>
+				<res-ref-name>jdbc/informix</res-ref-name>
+				<res-type>javax.sql.DataSource</res-type>
+				<res-auth>Container</res-auth>
+				<res-sharing-scope>Shareable</res-sharing-scope>
+			</resource-ref>
+		</session>
+	</enterprise-beans>
+</ejb-jar>

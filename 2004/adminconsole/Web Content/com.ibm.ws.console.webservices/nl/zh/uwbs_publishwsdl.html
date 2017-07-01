@@ -1,0 +1,59 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>发布 WSDL 文件设置</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_publishwsdl"></a>
+<h2>
+<img alt="[Fix Pack 5.0.2 and later]" src="v502.gif" border="0">发布 WSDL 文件设置</h2>
+
+<p>使用此页面发布 Web 服务描述性语言（WSDL）文件。     </p>
+
+<p>要查看此页面，单击<strong>应用程序</strong> &gt; <strong>企业应用程序</strong> &gt; <em>application_instance</em> &gt; <strong>发布 WSDL</strong>。</p>
+
+<p>当您单击<strong>确定</strong>时，产生一个应用程序中所有已启用 Web 服务的模型的 zip 文件。已发布 zip 文件名为 <samp>application_name_WSDLFiles.zip</samp>。在已发布 zip 文件中，目录结构为 <em>application_name/module_name/[META-INF|WEB-INF]/wsdl/wsdl_file_name</em>。</p>
+
+<p>在已发布 WSDL 文件中，服务 <samp>soap:address</samp> 节的位置属性包含通过其访问 Web 服务的 URL。您可指定在每个模块中为 Web 服务使用的 URl 部分。您可通过 HTTP 传输和／或 JMS 传输在模块中访问 Web 服务。您可为两种传输类型指定 URL 信息。</p>
+
+<div>
+<p>
+<strong>&ldquo;配置&rdquo;选项卡</strong>
+</p>
+<dl>
+<dt>
+<strong>指定 Web 服务的 URL 前缀</strong>
+</dt>
+<dd>指定用于 URL 的<em>协议</em>（http 或 https）、<em>主机名</em>和<em>端口号</em>。
+<p>URL 前缀格式为：protocol://<em>host_name:port_number</em>，例如，http://<em>myHost</em>:9045。已发布 WSDL 文件中出现的实际 URL 由附加到模块的上下文根和 Web 服务 url 模式的前缀组成，例如 http://<em>myHost</em>:9045/services/<em>myService</em>。</p>
+
+</dd>
+<dt>
+<strong>选择 HTTP URL 前缀</strong>
+</dt>
+<dd>指定与 URL 前缀的缺省列表相关联的下拉列表。此列表是模块的虚拟主机的端口集和模块的应用程序服务器的端口集的逻辑乘。如果直接访问 Web 服务应用程序服务器，则使用此列表中的项。
+<p>要设置 HTTP 前缀，选择 <strong>HTTP URL 前缀</strong>或<strong>定制 HTTP URL 前缀</strong>，输入值，选择要使用前缀的模块的复选框并单击<strong>应用</strong>。当您单击<strong>应用</strong>时，在<strong>选择 HTTP URL 前缀</strong>或<strong>定制 HTTP URL 前缀</strong>字段中的条目（这取决于您的选择）被复制到任何选择了其复选框（在最左列）的模块的 <strong>HTTP URL 前缀</strong>字段。不应用 HTTP 前缀到 JMS URL 前缀列中的字段。</p>
+
+</dd>
+<dt>
+<strong>定制 HTTP URL 前缀</strong>
+</dt>
+<dd>如果通过中间节点（例如 Web Service 网关或 IHS 服务器）访问模块中的 Web 服务，指定中间服务的<em>协议</em>、<em>主机</em>和<em>端口号</em>。
+<p>要设置 HTTP 前缀，选择 <strong>HTTP URL 前缀</strong>或<strong>定制 HTTP URL 前缀</strong>，输入值，选择要使用前缀的模块的复选框并单击<strong>应用</strong>。当您单击<strong>应用</strong>时，在<strong>选择 HTTP URL 前缀</strong>或<strong>定制 HTTP URL 前缀</strong>字段中的条目（这取决于您的选择）被复制到任何选择了其复选框（在最左列）的模块的 <strong>HTTP URL 前缀</strong>字段。不应用 HTTP 前缀到 JMS URL 前缀列中的字段。</p>
+
+</dd>
+<dt>
+<strong>JMS URL 前缀</strong>
+</dt>
+<dd>指定用于每个模块的 JMS URL 前缀字符串。
+<p>指定的 URL 前缀必须包含目标和 connectionFactory 属性。它可包含其它属性－值对，但是它不能包含 targetService 属性，其由系统在创建已发布 WSDL 文件时添加。JMS URL 前缀的格式为 jms:/[<em>queue&amp;topic</em>]?destination=<em>target_queue_or_topic_jndi_name</em>&amp;connectionFactory=<em>factory_jndi_name</em>, for example, jms:/queue?destination=jms/Q1&amp;connectionFactory=jms/QCF。
+已发布 WSDL 文件中出现的实际 URL 由附加到 Web 服务 targetService 的前缀组成，例如 jms:/queue?destination=jms/Q1&amp;connectionFactory=jms/QCF&amp;targetService=StockQuote。</p>
+
+</dd>
+</dl>
+</div>
+</body>
+</html>

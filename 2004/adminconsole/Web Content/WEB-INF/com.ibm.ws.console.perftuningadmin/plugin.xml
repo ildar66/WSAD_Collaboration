@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin id="com.ibm.ws.console.perftuningadmin"
+        name="perftuningadmin"
+        version="5.0.0"
+        provider-name="IBM Corp. - WebSphere Server Group"
+        embedded="true"
+        context-root="perfTuningAdmin">  
+
+    <requires>
+        <import plugin="com.ibm.ws.console.core"/>
+        <import plugin="com.ibm.ws.console.servermanagement"/>
+    </requires>
+    
+<!--        
+ <extension point="com.ibm.ws.console.core.link">
+    <link id="perfTuningAdmin.additionalLink.perfTuningAdmin"
+        contextType="ApplicationServer"
+        contextTypePluginId="com.ibm.ws.console.servermanagement"
+        icon=""
+        label="nav.webuiPerftuning.admin"
+        description="perfTuningAdmin.description"
+        actionView="com.ibm.ws.console.perfTuningAdmin.forwardCmd.do?forwardName=RPA.rules.content.main&amp;"/>
+</extension>
+                 
+   
+  <extension point="com.ibm.ws.console.core.link">
+    <link id="perfTuningAdmin.additionalLink.perfTuningAdmin2"
+        contextType="ApplicationServer"
+        contextTypePluginId="com.ibm.ws.console.servermanagement"
+        icon=""
+        label="nav.webuiPerftuning.admin2"
+        description="perfTuningAdmin.description"
+        actionView="com.ibm.ws.console.perfTuningAdmin.forwardCmd.do?forwardName=RPA.rules.main&amp;"/>
+  </extension>
+  
+     -->
+  <extension point="com.ibm.ws.console.core.link">
+    <link id="perfTuningAdmin.additionalLink.perfTuningAdmin"
+        contextType="ApplicationServer"
+        contextTypePluginId="com.ibm.ws.console.servermanagement"
+        icon=""
+        label="nav.webuiPerftuning.admin"
+        description="perfTuningAdmin.description"
+        actionView="com.ibm.ws.console.perfTuningAdmin.forwardCmd.do?forwardName=RPA.ruleEngine.view&amp;lastPage=ApplicationServer.config.view"/>
+  </extension>
+
+              
+               
+                 
+</plugin>
+
+

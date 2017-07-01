@@ -1,0 +1,190 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>階段作業管理設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uprs_rsession_manager"></a>
+<h2>階段作業管理設定</h2>
+
+<p>請利用這個頁面來管理 HTTP 階段作業支援。這個支援包括指定階段作業追蹤機制、設定記憶體內階段作業數目上限、控制溢位、配置階段作業逾時值，以及配置階段作業持續性。
+</p>
+
+<p>如果要檢視這個管理主控台頁面，請按一下<strong>伺服器 </strong> &gt; <strong>應用程式伺服器</strong> &gt; <em>server_name</em> &gt; <strong>Web 儲存區</strong> &gt; <strong>階段作業管理</strong>。
+</p>
+
+<div>
+<p>
+<strong>「配置」標籤</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="SessionManager_enable_description"></a>改寫階段作業管理（只適用於應用程式和 Web 模組層次）
+</strong>
+</dt>
+<dd>指定這些「階段作業管理」設定是不是比正常繼承自現行應用程式或 Web 模組較高層次的設定優先。
+<p>依預設，Web 模組會繼承在它上面的應用程式層次的「階段作業管理」設定，應用程式則會繼承在它上面的 Web 儲存區層次的「階段作業管理」設定。</p>
+
+</dd>
+<dt>
+<strong><a name="SessionManager_sessionTracking_description"></a>階段作業追蹤機制</strong>
+</dt>
+<dd>指定 HTTP 階段作業管理的機制。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">機制</td>
+<td align="left" valign="top" class="base">函數</td>
+<td align="left" valign="top" class="base">預設值</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">啟用 SSL ID 追蹤</td>
+<td align="left" valign="top" class="base">指定階段作業追蹤要利用 Secure Socket Layer (SSL) 資訊來作為階段作業 ID。啟用 SSL 追蹤的優先順序高於 Cookie 型的階段作業追蹤和 URL 重新編寫。
+<p>如果您啟用 SSL ID 追蹤，有兩個可用的參數：SSLV3Timeout 和安全關聯伺服器 (SAS)。
+SSLV3Timeout 指定 SSL 階段作業重新協議之前的時間間隔。
+這是一項高的設定，修改不會帶來任何明顯的效能影響。
+SAS 參數只有在離開 Java 虛擬機器 (JVM) 進入另一個 JVM 時，才會建立 SSL 連線。
+如果所有 Bean 都在相同 JVM 內，SAS 所用的 SSL 不會防礙效能。
+</p>
+<p>請編輯 <em>product_installation_root</em>\properties 目錄中的 <samp>sas.server.properties</samp> 和 <samp>sas.client.props</samp> 檔來設定這些，其中 <em>product_installation_root</em> 是 WebSphere Application Server 的安裝目錄。
+</p>
+</td>
+<td align="left" valign="top" class="base">9600 秒</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">啟用 Cookie</td>
+<td align="left" valign="top" class="base">指定階段作業追蹤要利用 Cookie 來攜帶階段作業 ID。
+如果啟用 Cookie 的話，階段作業追蹤會將送達的階段作業 ID 視為 Cookie，且會試圖利用 Cookie 來傳送階段作業 ID。
+如果沒有啟用 Cookie 的話，階段作業追蹤會使用 URL 重新編寫，而不用 Cookie（如果啟用 URL 重新編寫的話）。
+<p>啟用 Cookie 的優先順序高於 URL 重新編寫。
+請勿在執行管理應用程式的應用程式伺服器之階段作業管理機能中停用 Cookie，因為在伺服器重新啟動之後，這個動作會使管理應用程式無法運作。
+另一個方法是利用應用程式的個別程序來執行管理應用程式。
+</p>
+<p>請按一下<strong>修改</strong>來變更這些設定。
+</p>
+</td>
+<td align="left" valign="top" class="base"></td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">啟用 URL 重新編寫</td>
+<td align="left" valign="top" class="base">指定階段作業管理機能要用重新編寫的 URL 來攜帶階段作業 ID。
+如果啟用 URL 重新編寫，且在 Servlet 中呼叫了 encodeURL 方法的話，階段作業管理機能會辨識出隨著 URL 而送達的階段作業 ID。
+</td>
+<td align="left" valign="top" class="base"></td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">啟用通訊協定切換重新編寫
+</td>
+<td align="left" valign="top" class="base">指定當 URL 需要從 HTTP 切換至 HTTPS 或從 HTTPS 切換至 HTTP 時，要將階段作業 ID 新增到 URL 中。
+如果啟用重新編寫的話，必須有階段作業 ID，才能在 HTTP 和 HTTPS 之間移動。
+</td>
+<td align="left" valign="top" class="base"></td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SessionManager_overflow_description"></a>溢位</strong>
+</dt>
+<dd>指定記憶體內階段作業數目可以超出「記憶體內階段作業數目上限」內容所指定的值。
+這個選項只在非分散式階段作業模式中才有效。
+</dd>
+<dt>
+<strong><a name="TuningParams_maxInMemorySessionCount_description"></a>記憶體內階段作業數目上限</strong>
+</dt>
+<dd>指定記憶體內所維護的階段作業數目上限。
+
+<p>這個意義會隨著您是在使用記憶體內階段作業或分散式階段作業而不同。如果是記憶體內階段作業而言，這個值指定在基本階段作業表中的階段作業數目。
+請利用「容許溢位」內容來指定要將整個階段作業管理的階段作業限制在這個數目內，或允許其他階段作業儲存在次要表格中。
+如果是分散式階段作業，這個值會指定階段作業記憶體快取的大小。
+當快取記憶體已到達大小上限，且又另外要求一個新的階段作業時，階段作業管理機能會從快取記憶體中移除最久沒用的階段作業，將空間讓給新的階段作業使用。
+<p>
+<img alt="[修正套件 5.0.2 和更新版本]" src="v502.gif" border="0"><b>附註: </b>請勿將這個值設成小於伺服器執行緒儲存池大小上限的數字。
+</p>
+</p>
+
+</dd>
+<dt>
+<strong><a name="SessionManager_sessionTimeout_description"></a>階段作業逾時值</strong>
+</dt>
+<dd>指定階段作業未使用多久之後，就不再有效。
+指定<samp>設定逾時值</samp>或<samp>無逾時值</samp>。
+請指定大於或等於 2 的值（分鐘）。
+
+<p> 這個設定值是 Web 模組部署描述子中沒有指定階段作業逾時值時的預設值。
+請注意，為了維持效能，失效計時器不會準確到秒的層次。
+當寫入頻率是以時間為基礎時，請確定這個值至少是寫入間隔的兩倍大。
+</p>
+
+</dd>
+<dt>
+<strong><a name="SessionManager_securityIntegration_description"></a>安全整合</strong>
+</dt>
+<dd>指定在啟用安全整合時，階段作業管理機能會建立使用者身分與其 HTTP 階段作業的關聯性
+</dd>
+<dt>
+<strong><a name="SessionManager_serialAccess_description"></a>將階段作業存取序列化</strong>
+</dt>
+<dd>指定不允許在給定伺服器中並行存取階段作業。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">等待時間上限</td>
+<td align="left" valign="top" class="base">指定在繼續執行之前，Servlet 要求在 HTTP 階段作業中等待的時間上限。
+這是一個選用的參數，以秒來表示。
+預設值是 120，或 2 分鐘。
+在正常狀況之下，當要求完成時，目前擁有給定 HTTP 階段作業的要求會通知等待存取 HTTP 階段作業的 Servlet 要求。
+</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">允許逾時存取</td>
+<td align="left" valign="top" class="base">指定在逾時事件中，要正常執行或中止 Servlet。
+如果勾選這個框，就會正常執行 Servlet。
+如果沒有勾選這個框，就會中止執行 Servlet，且會產生錯誤日誌。</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>相關資訊</strong>
+</p>
+<a href="rcon_buttons.html">管理主控台按鈕</a>
+<br>
+
+<a href="rcon_pageusage.html">管理主控台頁面特性</a>
+<br>
+
+<a href="rcon_preferences.html">管理主控台喜好設定</a>
+<br>
+
+</div>
+</body>
+</html>

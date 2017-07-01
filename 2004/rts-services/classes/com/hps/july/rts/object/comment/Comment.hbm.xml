@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+   "http://dtdserver/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.hps.july.rts.object.comment" >
+    <class name="Comment" table="rts_reqcommunication">
+        <id name="id" column="id" type="int">
+            <generator class="native"/>
+        </id>
+    	
+        <property name="requestId" column="requestid" type="string" not-null="true"/>
+        <property name="type" column="type" type="string" not-null="true"/>
+        <property name="text" column="text" type="text" not-null="true"/>
+        <property name="date" column="date" type="date" not-null="true"/>
+
+		<many-to-one name="person" class="com.hps.april.auth.object.Person" insert="false"
+			update="false" column="man" not-null="true" lazy="false"/>
+		<property name="personId" column="man" not-null="true"/>
+
+    </class>
+</hibernate-mapping>

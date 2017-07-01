@@ -1,0 +1,124 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>EJB 快取設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uejbcash"></a>
+<h2>EJB 快取設定</h2>
+
+<p>請利用這個頁面來配置和管理特定 EJB 儲存區的快取。
+如果要判斷快取記憶體絕對限制，請將任何交易的作用中 Enterprise Bean 數目，乘以預期的並行交易總數。
+之後，再加入作用中 Session Bean 實例的數目。 您可以利用 Tivoli 效能檢視器來檢視 Bean 的效能資訊。</p>
+
+<p>如果要檢視這個管理主控台頁面，請按一下<strong>伺服器</strong> <strong>&gt;</strong> <strong>應用程式伺服器</strong> <strong>&gt;</strong> <em>serverName</em> <strong>&gt;</strong> <strong>EJB 儲存區</strong> <strong>&gt;</strong> <strong>EJB 快取設定</strong>。</p>
+
+<div>
+<p>
+<strong>「配置」標籤</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="EJBCache_cleanupInterval_description"></a>清除間隔</strong>
+</dt>
+<dd>指定儲存區嘗試從快取記憶體中移除未用項目，以將項目總數減少到快取記憶體大小的值之間隔。
+<p>快取記憶體管理程式會試圖維護某些未配置的項目，以便能視需要情況來快速配置。
+背景執行緒會試圖在維護某些未配置的項目時釋放某些項目。
+如果執行緒在應用程式伺服器閒置時執行作業，當應用程式伺服器需要配置新快取項目時，它就不需要付出從快取記憶體中移除項目的效能成本。
+一般而言，請隨著快取記憶體大小的增加而增加這個參數。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">整數</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">單位</td>
+<td align="left" valign="top" class="base">毫秒</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">大於 0</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">3000</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="EJBCache_cacheSize_description"></a>快取記憶體大小</strong>
+</dt>
+<dd>指定 EJB 儲存區內作用中的實例清單其中的儲存區數目。
+
+<p>雖然儲存區可含有多個作用中的 Enterprise Bean 實例，但如果指定給表格中每個儲存區的數目最少，效能就會最好。
+當儲存區內作用中的實例數目超出儲存區數目（也就是快取記憶體大小）時，儲存區會定期嘗試取消部分作用中的實例來減少表格中作用中的實例數目。
+為了使效能和記憶體有最好的平衡，請將這個值設為一般工作量期間所預期的作用中實例數目上限。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">整數</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">單位</td>
+<td align="left" valign="top" class="base">雜湊表中的儲存區數目。</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">大於 0。儲存區會選取下個等於或大於指定值的最大質數。</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">2053</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>相關資訊</strong>
+</p>
+<a href="rcon_buttons.html">管理主控台按鈕</a>
+<br>
+
+<a href="uejb_recnt.html">EJB 儲存區設定</a>
+<br>
+
+</div>
+</body>
+</html>

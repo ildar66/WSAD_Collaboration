@@ -1,0 +1,417 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Valores del servicio de rastreo de diagn&oacute;stico</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="TraceService_description"></a>
+<h2>Valores del servicio de rastreo de diagn&oacute;stico</h2>
+
+<p>Utilice esta p&aacute;gina para revisar y modificar las propiedades del servicio de rastreo de diagn&oacute;stico.</p>
+
+<p>Para ver esta p&aacute;gina de la consola administrativa, pulse
+<strong>Resoluci&oacute;n de problemas &gt; Anotaciones cronol&oacute;gicas y rastreo &gt;
+<em>servidor</em> &gt; Rastreo de diagn&oacute;stico</strong>.</p>
+
+<div>
+<p>
+<strong>Pesta&ntilde;a Configuraci&oacute;n</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="enable_trace_service_description"></a>Habilitar rastreo</strong>
+</dt>
+<dd>Habilita el servicio de rastreo.
+<p>Si esta opci&oacute;n no est&aacute; seleccionada, no se pasar&aacute;n las propiedades de configuraci&oacute;n siguientes al servicio de rastreo del servidor de aplicaciones durante el arranque del servidor.</p>
+
+</dd>
+<dt>
+<strong><a name="trace_spec_description"></a>Especificaci&oacute;n de rastreo</strong>
+</dt>
+<dd>Especifica los detalles de rastreo.
+<p>Escriba una serie de rastreo que especifique los componentes, paquetes o grupos que se han de rastrear. La serie de rastreo deben ajustarse a la sintaxis espec&iacute;fica que se describe a continuaci&oacute;n. La serie de rastreo se puede especificar directamente o se puede generar utilizando la interfaz gr&aacute;fica de rastreo. Pulse <strong>Modificar</strong> para iniciar la interfaz gr&aacute;fica de rastreo.</p>
+
+<p>Si inicia la interfaz gr&aacute;fica de rastreo desde la pesta&ntilde;a de configuraci&oacute;n, se visualizar&aacute; una lista de los grupos, paquetes y componentes m&aacute;s conocidos. Es posible que esta lista no sea completa.</p>
+
+<p>Si inicia la interfaz gr&aacute;fica de rastreo desde la pesta&ntilde;a de tiempo
+de ejecuci&oacute;n, la lista de componentes, paquetes y grupos mostrar&aacute; todos
+los componentes de este tipo que est&eacute;n registrados actualmente en el
+servidor que est&aacute; ejecut&aacute;ndose.</p>
+
+<p>El formato de la especificaci&oacute;n de rastreo es:<pre>
+&lt;<em>componente</em>&gt; = &lt;<em>tipo_rastreo</em>&gt;= enabled | disabled</pre> donde: &lt;<em>componente</em>&gt; es el componente para el que se habilita
+o se inhabilita el rastreo, y &lt;<em>tipo_rastreo</em>&gt; es el tipo de
+rastreo que se habilita o inhabilita. Separe las distintas especificaciones de rastreo con dos puntos (:).</p>
+
+<p>Los componentes se corresponden con clases y paquetes de Java o para las recopilaciones de paquetes Java. Utilice * como comod&iacute;n para indicar componentes que incluyan todas las clases en todos los paquetes contenidos en el componente especificado. Por ejemplo:<dl>
+<dt>
+<strong><samp>*</samp></strong>
+</dt>
+<dd>Especifica todo el c&oacute;digo rastreable que est&aacute;
+ejecut&aacute;ndose en el servidor de aplicaciones, incluido el c&oacute;digo de
+cliente y del sistema WebSphere Application Server.</dd>
+<dt>
+<strong><samp>com.ibm.ws.*</samp></strong>
+</dt>
+<dd>especifica todas las clases cuyo nombre de paquete empieza por <samp>com.ibm.ws</samp>.</dd>
+<dt>
+<strong><samp>com.ibm.ws.classloader.JarClassLoader</samp></strong>
+</dt>
+<dd>especifica s&oacute;lo la clase JarClassLoader.</dd>
+</dl>
+</p>
+
+<p>Para obtener informaci&oacute;n acerca de la sintaxis de las series de rastreo, consulte la secci&oacute;n
+<cite>C&oacute;mo habilitar el rastreo</cite> en InfoCenter de WebSphere Application Server.</p>
+
+<p>
+<b>Nota: </b>Se puede producir un error al establecer una especificaci&oacute;n de rastreo desde la consola
+administrativa si se realizan selecciones en las listas de Grupos y Componentes. En algunos casos, la selecci&oacute;n realizada en una lista no se pierde cuando se a&ntilde;ade una selecci&oacute;n de la otra lista. Para solucionar este problema, entre  directamente la especificaci&oacute;n de rastreo que desee en el campo de entrada Especificaci&oacute;n de rastreo.</p>
+
+</dd>
+<dt>
+<strong><a name="trace_output_description"></a>Salida de rastreo</strong>
+            &nbsp;
+            </dt>
+<dd>Especifica d&oacute;nde debe escribirse la salida de rastreo.
+<p>La salida de rastreo se puede escribir directamente en un archivo de
+salida, o bien almacenarse en la memoria y escribirse en un archivo a
+petici&oacute;n utilizando el bot&oacute;n Vuelco de la p&aacute;gina de tiempo de ejecuci&oacute;n.</p>
+
+<p>
+<dl>
+<dt>
+<strong>Almacenamiento intermedio de memoria</strong>
+</dt>
+<dd>Especifica que la salida de rastreo debe escribirse en un almacenamiento intermedio de memoria circular. Si selecciona esta opci&oacute;n deber&aacute; especificar los par&aacute;metros siguientes:<dl>
+<dt>
+<strong>Tama&ntilde;o m&aacute;ximo de almacenamiento intermedio</strong>
+</dt>
+<dd>Especifica el n&uacute;mero de entradas, en millares, que se puede colocar en antememoria en el almacenamiento intermedio. Si se sobrepasa este n&uacute;mero, las entradas nuevas sobrescriben a las entradas m&aacute;s antiguas.</dd>
+<dt>
+<strong>Nombre de archivo de vuelco</strong>
+</dt>
+<dd>El nombre del archivo en el que se escribir&aacute; el
+almacenamiento intermedio cuando se realice el vuelco. Esta opci&oacute;n
+solamente est&aacute; disponible desde la pesta&ntilde;a Tiempo de ejecuci&oacute;n.</dd>
+</dl>
+</dd>
+</dl>
+</p>
+
+<p>
+<dl>
+<dt>
+<strong>Archivo</strong>
+</dt>
+<dd>Especifica que se escriba la salida de rastreo en un archivo  de anotaciones cronol&oacute;gicas que se gestiona autom&aacute;ticamente.<p>El archivo de anotaciones
+cronol&oacute;gicas que se gestiona autom&aacute;ticamente escribe los mensajes en el archivo hasta que se
+alcance un criterio de tama&ntilde;o. Cuando el archivo alcanza el tama&ntilde;o especificado, se suspenden
+temporalmente las anotaciones cronol&oacute;gicas y el archivo de anotaciones
+cronol&oacute;gicas se cierra y su nombre se modifica. El nombre nuevo estar&aacute; basado en el nombre original del archivo, m&aacute;s el calificador de indicaci&oacute;n de la hora que indica cu&aacute;ndo se ha modificado el nombre. Cuando ha finalizado el cambio de nombre, se vuelve a abrir un archivo de anotaciones cronol&oacute;gicas vac&iacute;o y nuevo con el nombre original y se reanudan las anotaciones cronol&oacute;gicas. No se pierde ning&uacute;n mensaje como resultado de esta recuperaci&oacute;n aunque es
+posible que un mensaje individual quede dividido entre los dos archivos.</p>
+</dd>
+</dl>
+</p>
+
+<p>Si selecciona esta opci&oacute;n deber&aacute; especificar los par&aacute;metros siguientes:<dl>
+<dt>
+<strong>Tama&ntilde;o m&aacute;ximo de archivo</strong>
+</dt>
+<dd>Especifica el tama&ntilde;o m&aacute;ximo en
+megabytes que puede crecer el archivo de salida. <p>Este atributo s&oacute;lo es v&aacute;lido si se selecciona el atributo Tama&ntilde;o de archivo. Cuando el archivo alcanza este tama&ntilde;o, se recupera como se ha descrito anteriormente.</p>
+</dd>
+<dt>
+<strong>N&uacute;mero m&aacute;ximo de archivos hist&oacute;ricos</strong>
+</dt>
+<dd>Especifica el n&uacute;mero m&aacute;ximo de archivos recuperados que se pueden mantener.</dd>
+<dt>
+<strong>Nombre de archivo</strong>
+</dt>
+<dd>Especifica el nombre del archivo en el que se escribe la salida de rastreo.</dd>
+</dl>
+</p>
+
+</dd>
+<dt>
+<strong><a name="trace_format_description"></a>Formato de salida de rastreo</strong>
+            &nbsp;
+            </dt>
+<dd>Especifica el formato del archivo de salida de rastreo.
+<p>Puede especificar uno de los tres niveles de la salida de rastreo:<dl>
+
+<dt>
+<strong>B&aacute;sica (Compatible)</strong>
+</dt>
+<dd>Mantiene s&oacute;lo informaci&oacute;n de rastreo b&aacute;sica. Seleccione esta opci&oacute;n para minimizar la cantidad de espacio ocupado por la salida de rastreo.</dd>
+<dt>
+<strong>Avanzada</strong>
+</dt>
+<dd>Mantiene informaci&oacute;n m&aacute;s espec&iacute;fica de rastreo. Seleccione esta opci&oacute;n para ver informaci&oacute;n de rastreo detallada a fin de utilizarla en la determinaci&oacute;n y resoluci&oacute;n de problemas.</dd>
+<dt>
+<strong>Log Analyzer</strong>
+</dt>
+<dd>Mantiene la informaci&oacute;n de rastreo en un formato que es compatible con la herramienta Log Analyzer. Seleccione esta opci&oacute;n si desea utilizar la salida de rastreo como entrada para la herramienta Log Analyzer.</dd>
+</dl>
+</p>
+
+</dd>
+<dt>
+<strong><a name="trace_runtime_tab"></a>Pesta&ntilde;a Tiempo de ejecuci&oacute;n </strong>
+            &nbsp;
+            </dt>
+<dd>Especifica el formato del archivo de salida de rastreo.
+<dl>
+<dt>
+<strong>Guardar rastreo</strong>
+</dt>
+<dd>Guarda tambi&eacute;n los cambios efectuados en la pesta&ntilde;a de tiempo de ejecuci&oacute;n en la configuraci&oacute;n de rastreo.
+ <p>Seleccione este recuadro para copiar tambi&eacute;n los cambios de rastreo
+de tiempo de ejecuci&oacute;n en los valores de configuraci&oacute;n de rastreo. Si guarda estos cambios de la configuraci&oacute;n de rastreo, los cambios persistir&aacute;n incluso si se reinicia la aplicaci&oacute;n. </p>
+</dd>
+<dt>
+<strong>Especificaci&oacute;n de rastreo</strong>
+</dt>
+<dd>Especifica los detalles de rastreo.<p>Escriba una serie de rastreo que especifique los componentes, paquetes o grupos que se han de rastrear. La serie de rastreo deben ajustarse a la sintaxis espec&iacute;fica que se describe a continuaci&oacute;n. La serie de rastreo se puede especificar directamente o se puede generar utilizando la interfaz gr&aacute;fica de rastreo. Pulse <strong>Modificar</strong> para iniciar la interfaz gr&aacute;fica de rastreo. </p>
+<p>Si inicia la interfaz gr&aacute;fica de rastreo desde la pesta&ntilde;a de configuraci&oacute;n, se visualizar&aacute; una lista de los grupos, paquetes y componentes m&aacute;s conocidos. Es posible que esta lista no sea completa.</p>
+<p>El formato de la especificaci&oacute;n de rastreo es:<pre>&lt;componente&gt; = &lt;tipo_rastreo&gt; = enabled | disabled</pre>
+</p>
+<p>
+donde &lt;componente&gt; es el componente para el que se habilita o se
+inhabilita el rastreo, y &lt;tipo_rastreo&gt; es el tipo de rastreo que se
+habilita o inhabilita. Separe las distintas especificaciones de rastreo con dos puntos (:).</p>
+<p>Los componentes se corresponden con clases y paquetes de Java o para las recopilaciones de paquetes Java. Utilice * como comod&iacute;n para indicar componentes que incluyan todas las clases en todos los paquetes contenidos en el componente especificado. Por ejemplo:<dl>
+<dt>
+<strong>*</strong>
+</dt>
+<dd>Especifica todo el c&oacute;digo rastreable que est&aacute;
+ejecut&aacute;ndose en el servidor de aplicaciones, incluido el c&oacute;digo de
+cliente y del sistema WebSphere Application Server. </dd>
+<dt>
+<strong>com.ibm.ws.*</strong>
+</dt>
+<dd>especifica todas las clases cuyo nombre de paquete empieza por
+com.ibm.ws.</dd>
+<dt>
+<strong>com.ibm.ws.classloader.JarClassLoader</strong>
+</dt>
+<dd>especifica s&oacute;lo la clase JarClassLoader. </dd>
+</dl>
+</p>
+<p>Para obtener informaci&oacute;n acerca de la sintaxis
+de las series de rastreo, consulte la secci&oacute;n C&oacute;mo habilitar el
+rastreo en InfoCenter de WebSphere Application Server.<p>
+<b>Nota: </b>Se puede producir un error al establecer una especificaci&oacute;n de rastreo desde la consola
+administrativa si se realizan selecciones en las listas de Grupos y Componentes.
+En algunos casos, la selecci&oacute;n realizada en una lista no se pierde cuando se a&ntilde;ade una selecci&oacute;n de la otra lista. Para solucionar este problema, entre  directamente la especificaci&oacute;n de rastreo que desee en el campo de entrada Especificaci&oacute;n de rastreo.</p>
+</p> 
+</dd>
+</dl>
+
+</dd>
+<dt>
+<strong><a name="trace_output"></a>Salida de rastreo   </strong>
+            &nbsp;
+            </dt>
+<dd>Especifica d&oacute;nde debe escribirse la salida de rastreo.
+<p>Especifica d&oacute;nde debe escribirse la salida de rastreo.  </p>
+
+<p>La salida de rastreo se puede escribir directamente en un archivo de
+salida, o almacenarse en la memoria y escribirse en un archivo a petici&oacute;n
+utilizando el bot&oacute;n Vuelco de la p&aacute;gina de tiempo de ejecuci&oacute;n. <dl>
+<dt>
+<strong>Almacenamiento intermedio de memoria</strong>
+</dt>
+<dd>Especifica que la salida de rastreo debe escribirse en un almacenamiento intermedio de memoria circular. Si selecciona esta opci&oacute;n deber&aacute; especificar los par&aacute;metros siguientes:<dl>
+
+<dt>
+<strong>Tama&ntilde;o m&aacute;ximo de almacenamiento intermedio</strong>
+</dt>
+<dd>Especifica el n&uacute;mero de entradas, en millares, que se puede colocar en antememoria en el almacenamiento intermedio. Si se sobrepasa este n&uacute;mero, las entradas nuevas sobrescriben a las entradas m&aacute;s antiguas.</dd>
+<dt>
+<strong>Nombre de archivo de vuelco</strong>
+</dt>
+<dd>El nombre del archivo en el que se escribir&aacute; el
+almacenamiento intermedio cuando se realice el vuelco. Esta opci&oacute;n solamente est&aacute; disponible desde la pesta&ntilde;a de ejecuci&oacute;n.</dd>
+</dl>
+</dd>
+<dt>
+<strong>Archivo</strong>
+</dt>
+<dd>Especifica que se escriba la salida de rastreo en un archivo  de anotaciones cronol&oacute;gicas que se gestiona autom&aacute;ticamente. <p>El archivo de anotaciones
+cronol&oacute;gicas que se gestiona autom&aacute;ticamente escribe los mensajes en el archivo hasta que se
+alcance un criterio de tama&ntilde;o. Cuando el archivo alcanza el tama&ntilde;o especificado, se suspenden
+temporalmente las anotaciones cronol&oacute;gicas y el archivo de anotaciones
+cronol&oacute;gicas se cierra y su nombre se modifica. El nombre nuevo estar&aacute; basado en el nombre original del archivo, m&aacute;s el calificador de indicaci&oacute;n de la hora que indica cu&aacute;ndo se ha modificado el nombre. Cuando ha finalizado el cambio de nombre, se vuelve a abrir un archivo de anotaciones cronol&oacute;gicas vac&iacute;o y nuevo con el nombre original y se reanudan las anotaciones cronol&oacute;gicas. No se pierde ning&uacute;n mensaje como resultado de esta recuperaci&oacute;n aunque es
+posible que un mensaje individual quede dividido entre los dos archivos. </p> 
+<p>Si selecciona esta opci&oacute;n deber&aacute; especificar los par&aacute;metros siguientes:</p>
+<dl>
+<dt>
+<strong>Tama&ntilde;o m&aacute;ximo de archivo</strong>
+</dt>
+<dd>Especifica el tama&ntilde;o m&aacute;ximo en
+megabytes que puede crecer el archivo de salida.  <p>Este atributo s&oacute;lo es v&aacute;lido si se selecciona el atributo Tama&ntilde;o de archivo. Cuando el archivo alcanza este tama&ntilde;o, se recupera como se ha descrito anteriormente. </p>
+</dd>
+<dt>
+<strong>N&uacute;mero m&aacute;ximo de archivos hist&oacute;ricos</strong>
+</dt>
+<dd>Especifica el n&uacute;mero m&aacute;ximo de archivos recuperados que se pueden mantener. </dd>
+<dt>
+<strong>Nombre de archivo</strong>
+</dt>
+<dd>Especifica el nombre del archivo en el que se escribe la salida de rastreo.</dd>
+</dl>
+</dd>
+</dl>
+</p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Pesta&ntilde;a Tiempo de ejecuci&oacute;n</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="save_trace_to_config"></a>Guardar rastreo</strong>
+</dt>
+<dd>Guarda tambi&eacute;n los cambios efectuados en la pesta&ntilde;a de tiempo de ejecuci&oacute;n en la configuraci&oacute;n de rastreo.
+<p>Seleccione este recuadro para copiar tambi&eacute;n los cambios de rastreo de tiempo de ejecuci&oacute;n en los valores de configuraci&oacute;n de rastreo. Si guarda estos cambios de la configuraci&oacute;n de rastreo, los cambios persistir&aacute;n incluso si se reinicia la aplicaci&oacute;n.</p>
+
+</dd>
+<dt>
+<strong><a name="trace_spec_description"></a>Especificaci&oacute;n de rastreo</strong>
+</dt>
+<dd>Especifica los detalles de rastreo.
+<p>Escriba una serie de rastreo que especifique los componentes, paquetes o grupos que se han de rastrear. La serie de rastreo deben ajustarse a la sintaxis espec&iacute;fica que se describe a continuaci&oacute;n. La serie de rastreo se puede especificar directamente o se puede generar utilizando la interfaz gr&aacute;fica de rastreo. Pulse <strong>Modificar</strong> para iniciar la interfaz gr&aacute;fica de rastreo.</p>
+
+<p>Si inicia la interfaz gr&aacute;fica de rastreo desde la pesta&ntilde;a de configuraci&oacute;n, se visualizar&aacute; una lista de los grupos, paquetes y componentes m&aacute;s conocidos. Es posible que esta lista no sea completa.</p>
+
+<p>Si inicia la interfaz gr&aacute;fica de rastreo desde la pesta&ntilde;a de tiempo
+de ejecuci&oacute;n, la lista de componentes, paquetes y grupos mostrar&aacute; todos
+los componentes de este tipo que est&eacute;n registrados actualmente en el
+servidor que est&aacute; ejecut&aacute;ndose.</p>
+
+<p>El formato de la especificaci&oacute;n de rastreo es:<pre>
+&lt;<em>componente</em>&gt; = &lt;<em>tipo_rastreo</em>&gt;= enabled | disabled</pre> donde: &lt;<em>componente</em>&gt; es el componente para el que se habilita
+o se inhabilita el rastreo, y &lt;<em>tipo_rastreo</em>&gt; es el tipo de
+rastreo que se habilita o inhabilita. Separe las distintas especificaciones de rastreo con dos puntos (:).</p>
+
+<p>Los componentes se corresponden con clases y paquetes de Java o para las recopilaciones de paquetes Java. Utilice * como comod&iacute;n para indicar componentes que incluyan todas las clases en todos los paquetes contenidos en el componente especificado. Por ejemplo:<dl>
+<dt>
+<strong><samp>*</samp></strong>
+</dt>
+<dd>Especifica todo el c&oacute;digo rastreable que est&aacute;
+ejecut&aacute;ndose en el servidor de aplicaciones, incluido el c&oacute;digo de
+cliente y del sistema WebSphere Application Server.</dd>
+<dt>
+<strong><samp>com.ibm.ws.*</samp></strong>
+</dt>
+<dd>especifica todas las clases cuyo nombre de paquete empieza por <samp>com.ibm.ws</samp>.</dd>
+<dt>
+<strong><samp>com.ibm.ws.classloader.JarClassLoader</samp></strong>
+</dt>
+<dd>especifica s&oacute;lo la clase JarClassLoader.</dd>
+</dl>
+</p>
+
+<p>Para obtener informaci&oacute;n acerca de la sintaxis de las series de rastreo, consulte la secci&oacute;n
+<cite>C&oacute;mo habilitar el rastreo</cite> en InfoCenter de WebSphere Application Server.</p>
+
+<p>
+<b>Nota: </b>Se puede producir un error al establecer una especificaci&oacute;n de rastreo desde la consola
+administrativa si se realizan selecciones en las listas de Grupos y Componentes. En algunos casos, la selecci&oacute;n realizada en una lista no se pierde cuando se a&ntilde;ade una selecci&oacute;n de la otra lista. Para solucionar este problema, entre  directamente la especificaci&oacute;n de rastreo que desee en el campo de entrada Especificaci&oacute;n de rastreo.</p>
+
+</dd>
+<dt>
+<strong><a name="trace_output_description"></a>Salida de rastreo</strong>
+            &nbsp;
+            </dt>
+<dd>Especifica d&oacute;nde debe escribirse la salida de rastreo.
+<p>La salida de rastreo se puede escribir directamente en un archivo de
+salida, o bien almacenarse en la memoria y escribirse en un archivo a
+petici&oacute;n utilizando el bot&oacute;n Vuelco de la p&aacute;gina de tiempo de ejecuci&oacute;n.</p>
+
+<p>
+<dl>
+<dt>
+<strong>Almacenamiento intermedio de memoria</strong>
+</dt>
+<dd>Especifica que la salida de rastreo debe escribirse en un almacenamiento intermedio de memoria circular. Si selecciona esta opci&oacute;n deber&aacute; especificar los par&aacute;metros siguientes:<dl>
+<dt>
+<strong>Tama&ntilde;o m&aacute;ximo de almacenamiento intermedio</strong>
+</dt>
+<dd>Especifica el n&uacute;mero de entradas, en millares, que se puede colocar en antememoria en el almacenamiento intermedio. Si se sobrepasa este n&uacute;mero, las entradas nuevas sobrescriben a las entradas m&aacute;s antiguas.</dd>
+<dt>
+<strong>Nombre de archivo de vuelco</strong>
+</dt>
+<dd>El nombre del archivo en el que se escribir&aacute; el
+almacenamiento intermedio cuando se realice el vuelco. Esta opci&oacute;n
+solamente est&aacute; disponible desde la pesta&ntilde;a Tiempo de ejecuci&oacute;n.</dd>
+</dl>
+</dd>
+</dl>
+</p>
+
+<p>
+<dl>
+<dt>
+<strong>Archivo</strong>
+</dt>
+<dd>Especifica que se escriba la salida de rastreo en un archivo  de anotaciones cronol&oacute;gicas que se gestiona autom&aacute;ticamente.<p>El archivo de anotaciones
+cronol&oacute;gicas que se gestiona autom&aacute;ticamente escribe los mensajes en el archivo hasta que se
+alcance un criterio de tama&ntilde;o. Cuando el archivo alcanza el tama&ntilde;o especificado, se suspenden
+temporalmente las anotaciones cronol&oacute;gicas y el archivo de anotaciones
+cronol&oacute;gicas se cierra y su nombre se modifica. El nombre nuevo estar&aacute; basado en el nombre original del archivo, m&aacute;s el calificador de indicaci&oacute;n de la hora que indica cu&aacute;ndo se ha modificado el nombre. Cuando ha finalizado el cambio de nombre, se vuelve a abrir un archivo de anotaciones cronol&oacute;gicas vac&iacute;o y nuevo con el nombre original y se reanudan las anotaciones cronol&oacute;gicas. No se pierde ning&uacute;n mensaje como resultado de esta recuperaci&oacute;n aunque es
+posible que un mensaje individual quede dividido entre los dos archivos.</p>
+</dd>
+</dl>
+</p>
+
+<p>Si selecciona esta opci&oacute;n deber&aacute; especificar los par&aacute;metros siguientes:<dl>
+<dt>
+<strong>Tama&ntilde;o m&aacute;ximo de archivo</strong>
+</dt>
+<dd>Especifica el tama&ntilde;o m&aacute;ximo en
+megabytes que puede crecer el archivo de salida. <p>Este atributo s&oacute;lo es v&aacute;lido si se selecciona el atributo Tama&ntilde;o de archivo. Cuando el archivo alcanza este tama&ntilde;o, se recupera como se ha descrito anteriormente.</p>
+</dd>
+<dt>
+<strong>N&uacute;mero m&aacute;ximo de archivos hist&oacute;ricos</strong>
+</dt>
+<dd>Especifica el n&uacute;mero m&aacute;ximo de archivos recuperados que se pueden mantener.</dd>
+<dt>
+<strong>Nombre de archivo</strong>
+</dt>
+<dd>Especifica el nombre del archivo en el que se escribe la salida de rastreo.</dd>
+</dl>
+</p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informaci&oacute;n relacionada</strong>
+</p>
+<a href="rcon_buttons.html">Botones de la consola de administraci&oacute;n</a>
+<br>
+
+<a href="rcon_scope.html">Valores de &aacute;mbito de la consola administrativa</a>
+<br>
+
+<a href="rcon_filter.html">Valores de filtro de la consola administrativa</a>
+<br>
+
+<a href="rcon_preferences.html">Valores de preferencias de la consola administrativa</a>
+<br>
+
+<a href="rcon_pageusage.html">Caracter&iacute;sticas de la p&aacute;gina de la consola administrativa</a>
+<br>
+
+</div>
+</body>
+</html>

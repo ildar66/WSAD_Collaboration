@@ -1,0 +1,418 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>連線儲存池設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="Connection_pool_settings"></a>
+<h2>連線儲存池設定</h2>
+
+<p>請利用這個頁面來配置連線儲存池設定。</p>
+
+<p>這個管理主控台頁面是一個範圍的資源類型所共用的；比方說，JDBC 資料來源和 JMS Queue Connection Factory。
+如果要檢視這個頁面，路徑隨著資源類型而不同，但您通常會選取資源提供者的實例，再選取資源類型的實例，然後按一下<strong>連線儲存池</strong>。
+比方說：按一下<strong>資源</strong> &gt; <strong>JDBC 提供者</strong> &gt; <strong>JDBC_provider</strong> &gt; <strong>資料來源</strong> &gt; <strong>data_source</strong> &gt; <strong>連線儲存池</strong>。</p>
+
+<div>
+<p>
+<strong>「配置」標籤</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="Connectionpool_detail_contextID"></a>範圍</strong>
+</dt>
+<dd>指定這個資源定義的層次是可見的 -- Cell、節點或伺服器層次。
+
+<p>JDBC 提供者、名稱空間連結或共用程式庫之類的資源可以定義在多個範圍，定義在較明確範圍的資源會改寫定義在較一般範圍的複本。
+</p>
+
+<p>請注意，不管所定義的資源範圍是什麼，資源的內容只適用於個別的伺服器層次。
+比方說，如果您在 Cell 層次定義資料來源的範圍，則 Cell 中所有的使用者，都可以查閱以及使用這個資料來源，而這個資料來源在該 Cell 中是唯一的。
+但是，資源內容設定對於 Cell 中的每一個伺服器來說，是本端設定。
+比方說，如果您將<em>連線數上限</em>定義為 10，則該 Cell 中的每一個伺服器都可以有多達 10 個連線。
+<dl>
+<dt>
+<strong>Cell</strong>
+</dt>
+<dd>最一般的範圍。除非遭到置換，否則，所有節點和伺服器都能看到 Cell 範圍所定義的資源。
+如果要檢視 Cell 範圍中所定義的資源，請不要在範圍選擇表單中指定伺服器或節點名稱。</dd>
+<dt>
+<strong>節點</strong>
+</dt>
+<dd>大部分資源類型的預設範圍。定義在節點範圍的資源會置換任何定義在 Cell 範圍的複本，且相同節點中的所有伺服器都能看到它們，除非它們在這個節點的伺服器範圍中遭到置換。
+如果要檢視節點範圍中所定義的資源，請不要指定伺服器，但在範圍選擇表單中選取一個節點名稱。</dd>
+<dt>
+<strong>伺服器</strong>
+</dt>
+<dd>定義資源的最特定範圍。
+定義在「伺服器」範圍的資源會置換任何定義在 Cell 範圍或「母節點」範圍的重複資源定義，而且僅特定伺服器能夠看到它們。如果要檢視定義在伺服器範圍中的資源，請在範圍選擇表單中指定伺服器名稱和節點名稱。</dd>
+</dl>
+</p>
+
+<p>當建立資源時，始終都會將它們建立畫面中所選取的現行範圍內。
+如果要檢視其他範圍中的資源，請在範圍選擇表單中指定不同的節點或伺服器。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ConnectionPool_connectionTimeout_displayName"></a>連線逾時值</strong>
+</dt>
+<dd>指定以秒表示的間隔，在這個間隔後，連線要求將發生逾時，而且將擲出 ConnectionWaitTimeoutException。
+
+<p> 當到達特定連線儲存池的連線數目上限值（<em>連線數目上限</em>）時，需要等待。
+比方說，如果<em>連線逾時值</em>設為 300，且達到了連線數目上限，儲存池管理程式就會在 300 秒內等待可用的實體連線。
+如果在這段時間內，<em>沒有</em>可用的實體連線，儲存池管理程式就會擲出 ConnectionWaitTimeoutException。
+重試 <em>getConnection()</em> 方法通常沒有意義，因為如果需要較長的等待時間，您應該將<em>連線逾時值</em>設為較高的值。
+因此，如果應用程式捕捉到這個異常狀況，管理者應該檢視應用程式原預期的用法，再據此調整連線儲存池和資料庫。
+</p>
+
+<p>如果連線逾時值設成 0，儲存池管理程式會一直等到可以配置連線為止（這種情況發生在連線數目低於<em>連線數目上限</em>值時）。
+</p>
+
+<p>如果「連線數目上限」設成 0（啟用無限的實體連線數目），則系統不會處理「連線逾時值」。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">整數</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">單位</td>
+<td align="left" valign="top" class="base">秒</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">180</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">0 到最大整數</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ConnectionPool_maxConnections_displayName"></a>連線數目上限</strong>
+</dt>
+<dd>指定這個儲存池中所能建立的實體連線數目上限。
+
+<p>這些是後端資源的實體連線。
+達到這個數目之後，不會建立任何新的實體連線，且要求者將等到目前使用中的實體連線回到儲存池，或擲出 ConnectionWaitTimeoutException 為止。
+</p>
+
+<p>比方說，如果「連線數目上限」值設為 5，且有五個實體連線在使用中，儲存池管理程式就會在「連線逾時值」所指定的時間內，等待實體連線變成可以使用。
+</p>
+
+<p>如果「連線數目上限」設成 0，則系統不會處理「連線逾時值」。</p>
+
+<p>如果要有較好的效能，請將連線儲存池的值設成低於 Web 儲存區中的「連線數目上限」選項值。
+較低的設定（如 10-30 個連線）效能比較高的設定（如 100）好。
+</p>
+
+<p>如果使用複本，則每一個複本都會有一個資料儲存池。
+當配置資料庫連線數目上限時，知道資料儲存池的數目非常重要。
+</p>
+
+<p>您可以利用 Tivoli 效能檢視器來尋找儲存池中的最佳連線數目。
+如果並行等待者的數目大於 0，但 CPU 負荷沒有接近 100%，請考慮增加連線儲存池大小。
+如果「使用百分比」值始終比正常工作量低，請考慮減少儲存池中的連線數目。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">整數</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">10</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">0 到最大整數</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ConnectionPool_minConnections_displayName"></a>連線數目下限</strong>
+</dt>
+<dd>指定要維護的實體連線數目下限。
+
+<p>在到達到這個數目之前，儲存池維護執行緒不會捨棄實體連線。
+不過，不會嘗試使連線數目成為這個數目。
+如果您設定「經歷逾時值」，就不會維護下限值。
+這時會捨棄所有到期的連線。
+</p>
+
+<p>比方說，如果「連線數目下限」設為 3，且已建立一個實體連線，「未用逾時值」執行緒不會捨棄這個連線。
+經由相同的記號，執行緒不會自動建立兩個額外的實體連線，來達到「連線數目下限」設定。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">整數</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">1
+</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">0 到最大整數</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ConnectionPool_reapTime_displayName"></a>執行間隔時間
+</strong>
+</dt>
+<dd>指定儲存池維護執行緒的執行間隔（秒）。
+<p> 比方說，如果執行間隔時間設成 60，儲存池維護執行緒就會每隔 60 秒執行一次。
+<em>執行間隔時間</em>間隔會影響到<em>未用逾時值</em>及<em>經歷逾時值</em>設定的精確度。
+間隔越小，精確度就越高。如果啟用了儲存池維護執行緒，請將執行間隔時間值設成小於未用逾時值和經歷逾時值。
+當儲存池維護執行緒執行時，它會捨棄任何沒有使用的時間比未用逾時值所指定的時間值長的連線，直到到達<em>連線數目下限</em>所指定的連線數目為止。
+儲存池維護執行緒也會捨棄任何作用時間比經歷逾時值所指定的時間值長的連線。
+</p>
+
+<p> 「執行間隔時間」間隔也會影響效能。較小的間隔表示儲存池維護執行緒執行頻率比較高，會降低效能。
+</p>
+
+<p>如果要停用儲存池維護執行緒，請將執行間隔時間設成 0，或是將未用逾時值和經歷逾時值兩者都設成 0。停用儲存池維護執行緒的建議方法是將執行間隔時間設成 0，在這種情況下，系統不會處理未用逾時值和經歷逾時值。
+不過，如果未用逾時值和經歷逾時值都設成 0，雖然會執行儲存池維護執行緒，但這時只會捨棄因非零逾時值而發生逾時的實體連線。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">整數</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">單位</td>
+<td align="left" valign="top" class="base">秒</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">180</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">0 到最大整數</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ConnectionPool_unusedTimeout_displayName"></a>未用逾時值</strong>
+</dt>
+<dd>指定以秒表示的間隔，在這個間隔後，會捨棄未使用或閒置的連線。
+<p> 請將未用逾時值設成比執行間隔時間值高，以得到最佳效能。
+只有在未使用的現行連線數目超出連線數目下限設定時，才會捨棄未使用的實體連線。
+比方說，如果未用逾時值設成 120，且啟用了儲存池維護執行緒（執行間隔時間不是 0），這時會捨棄任何未使用達 2 分鐘的實體連線。
+請注意，這個逾時值的精確度以及效能都會受到「執行間隔時間」值的影響。
+如果需要詳細資訊，請參閱「執行間隔時間」。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">整數</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">單位</td>
+<td align="left" valign="top" class="base">秒</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">1800</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">0 到最大整數</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ConnectionPool_agedTimeout_displayName"></a>經歷逾時值</strong>
+</dt>
+<dd>指定捨棄實體連線之前的間隔（秒）。
+<p> 將<em>經歷逾時值</em>設成 0 支援作用中實體連線無限期留在儲存池中。
+請將經歷逾時值設成比執行間隔時間值高，以得到最佳效能。
+比方說，如果經歷逾時值設成 1200，且執行間隔時間值不是 0，這時會捨棄任何存在時間達 1200 秒（20 分鐘）的實體連線。
+請注意，這個逾時值的精確度以及效能都會受到「執行間隔時間」值的影響。
+如果需要詳細資訊，請參閱「執行間隔時間」。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">整數</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">單位</td>
+<td align="left" valign="top" class="base">秒</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">0</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">0 到最大整數</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ConnectionPool_purgePolicy_displayName"></a>清除原則</strong>
+</dt>
+<dd>  指定在偵測到<em>舊連線</em>或<em>嚴重連線錯誤</em>時如何清除連線。
+<p>有效值是 <strong>EntirePool</strong> 和 <strong>FailingConnectionOnly</strong>。JCA 資料來源可以有任一個選項。WebSphere 4.0 版資料來源的清除原則一律是 <strong>EntirePool</strong>。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">EntirePool</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">
+<dl>
+<dt>
+<strong>EntirePool</strong>
+</dt>
+<dd>在儲存池中的所有連線都標示為即將停擺。
+任何不在使用中的連線都會立即關閉。
+在這個連線的下個作業期間，會關閉使用中的連線，並擲出 <em>StaleConnectionException</em>。
+應用程式所發出的後續 <em>getConnection</em> 要求會開啟新的資料庫連線。
+當使用這個清除原則時，也有些可能不必要地將儲存池中不是陳舊的部分連線關閉。
+不過，這種情況很少。
+在大部分情況下，EntirePool 的清除原則是最佳選擇。</dd>
+<dt>
+<strong>FailingConnectionOnly</strong>
+</dt>
+<dd>只會關閉造成 <em>StaleConnectionException</em> 的連線。
+雖然這個設定會消除不必要地關閉有效連線的可能性，但它會使從應用程式視景回復的作業變成比較複雜。
+由於只關閉目前失敗的連線，因此，應用程式所發出的下個 <em>getConnection</em> 要求很可能傳回儲存池中也是陳舊的連線，從而造成更陳舊的連線異常狀況。</dd>
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>相關資訊</strong>
+</p>
+<a href="rcon_buttons.html">管理主控台按鈕</a>
+<br>
+
+<a href="rcon_pageusage.html">管理主控台頁面特性</a>
+<br>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,746 @@
+<form-validation>
+  <formset>
+    <form name="com.ibm.ws.console.resources.WAS40DataSourceDetailForm">
+      <field property="name" depends="required,mask">
+        <arg0 key="J2EEResourceFactory.name.displayName"/>
+        <var>
+          <var-name>mask</var-name>
+          <var-value>${was_name}</var-value>
+        </var>
+      </field>
+    </form>
+    <form name="com.ibm.ws.console.resources.DataSourceDetailForm">
+      <field property="name" depends="required,mask">
+        <arg0 key="J2EEResourceFactory.name.displayName"/>
+        <var>
+          <var-name>mask</var-name>
+          <var-value>${was_name}</var-value>
+        </var>
+      </field>
+      <field property="statementCacheSize" depends="integer,range">
+        <arg0 key="DataSource.statementCacheSize.displayName"/>
+        <arg1 name="range" key="${var:min}" resource="false"/>
+        <arg2 name="range" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <var>
+          <var-name>max</var-name>
+          <var-value>2147483647</var-value>
+        </var>
+      </field>
+    </form>
+    <form name="com.ibm.ws.console.resources.J2EEResourcePropertyDetailForm">
+      <field property="name" depends="required,mask">
+        <arg0 key="J2EEResourceProperty.name.displayName"/>
+        <var>
+          <var-name>mask</var-name>
+          <var-value>${was_name}</var-value>
+        </var>
+      </field>
+    </form>
+    <form name="com.ibm.ws.console.resources.J2CConnectionFactoryDetailForm">
+      <field depends="required,mask" property="name">
+        <arg0 key="J2EEResourceFactory.name.displayName"/>
+        <var>
+          <var-name>mask</var-name>
+          <var-value>${was_name}</var-value>
+        </var>
+      </field>
+    </form>
+
+    <form name="com.ibm.ws.console.resources.JDBCProviderDetailForm">
+      <field property="name" depends="required,mask">
+        <arg0 key="J2EEResourceProvider.name.displayName"/>
+        <var>
+          <var-name>mask</var-name>
+          <var-value>${was_name}</var-value>
+        </var>
+      </field>
+      <field property="classpath" depends="mask">
+        <arg0 key="J2EEResourceProvider.classpath.displayName"/>
+        <var>
+          <var-name>mask</var-name>
+          <var-value>${path}</var-value>
+        </var>
+      </field>
+      <field property="nativepath" depends="mask">
+        <arg0 key="J2EEResourceProvider.nativepath.displayName"/>
+        <var>
+          <var-name>mask</var-name>
+          <var-value>${path}</var-value>
+        </var>
+      </field>
+      <field property="implementationClassName" depends="required">
+        <arg0 key="JDBCProvider.implementationClassName.displayName"/>
+      </field>
+    </form>
+    <form name="com.ibm.ws.console.resources.ReferenceableDetailForm">
+      <field property="factoryClassname" depends="required">
+        <arg0 key="Referenceable.factoryClassname.displayName"/>
+      </field>
+      <field property="classname" depends="required">
+        <arg0 key="Referenceable.classname.displayName"/>
+      </field>
+    </form>
+    <form name="com.ibm.ws.console.resources.ResourceEnvEntryDetailForm">
+      <field property="name" depends="required,mask">
+        <arg0 key="J2EEResourceFactory.name.displayName"/>
+        <var>
+          <var-name>mask</var-name>
+          <var-value>${was_name}</var-value>
+        </var>
+      </field>
+      <field property="jndiName" depends="required">
+        <arg0 key="J2EEResourceFactory.jndiName.displayName"/>
+      </field>
+    </form>
+    <form name="com.ibm.ws.console.resources.ResourceEnvironmentProviderDetailForm">
+      <field property="name" depends="required,mask">
+        <arg0 key="J2EEResourceProvider.name.displayName"/>
+        <var>
+          <var-name>mask</var-name>
+          <var-value>${was_name}</var-value>
+        </var>
+      </field>
+    </form>
+    <form name="com.ibm.ws.console.resources.URLProviderDetailForm">
+      <field property="name" depends="required,mask">
+        <arg0 key="J2EEResourceProvider.name.displayName"/>
+        <var>
+          <var-name>mask</var-name>
+          <var-value>${was_name}</var-value>
+        </var>
+      </field>
+      <field property="classpath" depends="mask">
+        <arg0 key="J2EEResourceProvider.classpath.displayName"/>
+        <var>
+          <var-name>mask</var-name>
+          <var-value>${path}</var-value>
+        </var>
+      </field>
+      <field property="streamHandlerClassName" depends="required,mask">
+        <arg0 key="URLProvider.streamHandlerClassName.displayName"/>
+        <var>
+          <var-name>mask</var-name>
+          <var-value>${class_name}</var-value>
+        </var>
+      </field>
+      <field property="protocol" depends="required,mask">
+        <arg0 key="URLProvider.protocol.displayName"/>
+        <var>
+          <var-name>mask</var-name>
+          <var-value>${protocol}</var-value>
+        </var>
+      </field>
+    </form>
+    <form name="com.ibm.ws.console.resources.URLDetailForm">
+      <field property="name" depends="required,mask">
+        <arg0 key="J2EEResourceFactory.name.displayName"/>
+        <var>
+          <var-name>mask</var-name>
+          <var-value>${was_name}</var-value>
+        </var>
+      </field>
+      <field property="jndiName" depends="required">
+        <arg0 key="J2EEResourceFactory.jndiName.displayName"/>
+      </field>
+      <field property="spec" depends="required">
+        <arg0 key="URL.spec.displayName"/>
+      </field>
+    </form>
+    <form name="com.ibm.ws.console.resources.J2CResourceAdapterDetailForm">
+      <field property="classpath" depends="mask">
+        <arg0 key="J2EEResourceProvider.classpath.displayName"/>
+        <var>
+          <var-name>mask</var-name>
+          <var-value>${path}</var-value>
+        </var>
+      </field>
+      <field property="nativepath" depends="mask">
+        <arg0 key="J2EEResourceProvider.nativepath.displayName"/>
+        <var>
+          <var-name>mask</var-name>
+          <var-value>${path}</var-value>
+        </var>
+      </field>
+    </form>
+    <form name="com.ibm.ws.console.resources.WAS40ConnectionPoolDetailForm">
+      <field property="minimumPoolSize" depends="required,integer,range">
+        <arg0 key="WAS40ConnectionPool.minimumPoolSize.displayName"/>
+        <arg1 name="range" key="${var:min}" resource="false"/>
+        <arg2 name="range" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <var>
+          <var-name>max</var-name>
+          <var-value>2147483647</var-value>
+        </var>
+      </field>
+      <field property="maximumPoolSize" depends="required,integer,range">
+        <arg0 key="WAS40ConnectionPool.maximumPoolSize.displayName"/>
+        <arg1 name="range" key="${var:min}" resource="false"/>
+        <arg2 name="range" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <var>
+          <var-name>max</var-name>
+          <var-value>2147483647</var-value>
+        </var>
+      </field>
+      <field property="connectionTimeout" depends="required,integer,range">
+        <arg0 key="WAS40ConnectionPool.connectionTimeout.displayName"/>
+        <arg1 name="range" key="${var:min}" resource="false"/>
+        <arg2 name="range" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <var>
+          <var-name>max</var-name>
+          <var-value>2147483647</var-value>
+        </var>
+      </field>
+      <field property="idleTimeout" depends="required,integer,range">
+        <arg0 key="WAS40ConnectionPool.idleTimeout.displayName"/>
+        <arg1 name="range" key="${var:min}" resource="false"/>
+        <arg2 name="range" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <var>
+          <var-name>max</var-name>
+          <var-value>2147483647</var-value>
+        </var>
+      </field>
+      <field property="orphanTimeout" depends="required,integer,range">
+        <arg0 key="WAS40ConnectionPool.orphanTimeout.displayName"/>
+        <arg1 name="range" key="${var:min}" resource="false"/>
+        <arg2 name="range" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <var>
+          <var-name>max</var-name>
+          <var-value>2147483647</var-value>
+        </var>
+      </field>
+      <field property="statementCacheSize" depends="required,integer,range">
+        <arg0 key="WAS40ConnectionPool.statementCacheSize.displayName"/>
+        <arg1 name="range" key="${var:min}" resource="false"/>
+        <arg2 name="range" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <var>
+          <var-name>max</var-name>
+          <var-value>2147483647</var-value>
+        </var>
+      </field>
+    </form>
+    <form name="com.ibm.ws.console.resources.ConnectionPoolDetailForm">
+      <field property="connectionTimeout" depends="integer,range">
+        <arg0 key="ConnectionPool.connectionTimeout.displayName"/>
+        <arg1 name="range" key="${var:min}" resource="false"/>
+        <arg2 name="range" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <var>
+          <var-name>max</var-name>
+          <var-value>2147483647</var-value>
+        </var>
+      </field>
+      <field property="maxConnections" depends="integer,range">
+        <arg0 key="ConnectionPool.maxConnections.displayName"/>
+        <arg1 name="range" key="${var:min}" resource="false"/>
+        <arg2 name="range" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <var>
+          <var-name>max</var-name>
+          <var-value>2147483647</var-value>
+        </var>
+      </field>
+      <field property="minConnections" depends="integer,range">
+        <arg0 key="ConnectionPool.minConnections.displayName"/>
+        <arg1 name="range" key="${var:min}" resource="false"/>
+        <arg2 name="range" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <var>
+          <var-name>max</var-name>
+          <var-value>2147483647</var-value>
+        </var>
+      </field>
+      <field property="reapTime" depends="integer,range">
+        <arg0 key="ConnectionPool.reapTime.displayName"/>
+        <arg1 name="range" key="${var:min}" resource="false"/>
+        <arg2 name="range" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <var>
+          <var-name>max</var-name>
+          <var-value>2147483647</var-value>
+        </var>
+      </field>
+      <field property="unusedTimeout" depends="integer,range">
+        <arg0 key="ConnectionPool.unusedTimeout.displayName"/>
+        <arg1 name="range" key="${var:min}" resource="false"/>
+        <arg2 name="range" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <var>
+          <var-name>max</var-name>
+          <var-value>2147483647</var-value>
+        </var>
+      </field>
+      <field property="agedTimeout" depends="integer,range">
+        <arg0 key="ConnectionPool.agedTimeout.displayName"/>
+        <arg1 name="range" key="${var:min}" resource="false"/>
+        <arg2 name="range" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <var>
+          <var-name>max</var-name>
+          <var-value>2147483647</var-value>
+        </var>
+      </field>
+    </form>
+    <form name="com.ibm.ws.console.resources.GenericJMSConnectionFactoryDetailForm">
+      <field property="name" depends="required,mask">
+        <arg0 key="J2EEResourceFactory.name.displayName"/>
+        <var>
+          <var-name>mask</var-name>
+          <var-value>${was_name}</var-value>
+        </var>
+      </field>
+      <field property="jndiName" depends="required">
+        <arg0 key="J2EEResourceFactory.jndiName.displayName"/>
+      </field>
+      <field property="externalJNDIName" depends="required">
+        <arg0 key="GenericJMSConnectionFactory.externalJNDIName.displayName"/>
+      </field>
+    </form>
+    <form name="com.ibm.ws.console.resources.GenericJMSDestinationDetailForm">
+      <field property="name" depends="required,mask">
+        <arg0 key="J2EEResourceFactory.name.displayName"/>
+        <var>
+          <var-name>mask</var-name>
+          <var-value>${was_name}</var-value>
+        </var>
+      </field>
+      <field property="jndiName" depends="required">
+        <arg0 key="J2EEResourceFactory.jndiName.displayName"/>
+      </field>
+      <field property="externalJNDIName" depends="required">
+        <arg0 key="GenericJMSDestination.externalJNDIName.displayName"/>
+      </field>
+    </form>
+    <form name="com.ibm.ws.console.resources.JMSProviderDetailForm">
+      <field property="name" depends="required,mask">
+        <arg0 key="J2EEResourceProvider.name.displayName"/>
+        <var>
+          <var-name>mask</var-name>
+          <var-value>${was_name}</var-value>
+        </var>
+      </field>
+      <field property="classpath" depends="mask">
+        <arg0 key="J2EEResourceProvider.classpath.displayName"/>
+        <var>
+          <var-name>mask</var-name>
+          <var-value>${path}</var-value>
+        </var>
+      </field>
+      <field property="nativepath" depends="mask">
+        <arg0 key="J2EEResourceProvider.nativepath.displayName"/>
+        <var>
+          <var-name>mask</var-name>
+          <var-value>${path}</var-value>
+        </var>
+      </field>
+      <field property="externalInitialContextFactory" depends="required,mask">
+        <arg0 key="JMSProvider.externalInitialContextFactory.displayName"/>
+        <var>
+          <var-name>mask</var-name>
+          <var-value>${class_name}</var-value>
+        </var>
+      </field>
+      <field property="externalProviderURL" depends="required,mask">
+        <arg0 key="JMSProvider.externalProviderURL.displayName"/>
+        <var>
+          <var-name>mask</var-name>
+          <var-value>${URL}</var-value>
+        </var>
+      </field>
+    </form>
+    <form name="com.ibm.ws.console.resources.MailProviderDetailForm">
+      <field property="name" depends="required,mask">
+        <arg0 key="J2EEResourceProvider.name.displayName"/>
+        <var>
+          <var-name>mask</var-name>
+          <var-value>${was_name}</var-value>
+        </var>
+      </field>
+    </form>
+    <form name="com.ibm.ws.console.resources.MailSessionDetailForm">
+      <field property="name" depends="required,mask">
+        <arg0 key="J2EEResourceFactory.name.displayName"/>
+        <var>
+          <var-name>mask</var-name>
+          <var-value>${was_name}</var-value>
+        </var>
+      </field>
+      <field property="jndiName" depends="required">
+        <arg0 key="J2EEResourceFactory.jndiName.displayName"/>
+      </field>
+    </form>
+    <form name="com.ibm.ws.console.resources.ProtocolProviderDetailForm">
+      <field property="protocol" depends="required">
+        <arg0 key="ProtocolProvider.protocol.displayName"/>
+      </field>
+      <field property="classname" depends="required">
+        <arg0 key="ProtocolProvider.classname.displayName"/>
+      </field>
+    </form>
+    <form name="com.ibm.ws.console.resources.MQQueueConnectionFactoryDetailForm">
+      <field property="name" depends="required,mask">
+        <arg0 key="J2EEResourceFactory.name.displayName"/>
+        <var>
+          <var-name>mask</var-name>
+          <var-value>${was_name}</var-value>
+        </var>
+      </field>
+      <field property="jndiName" depends="required">
+        <arg0 key="J2EEResourceFactory.jndiName.displayName"/>
+      </field>
+      <field property="port" depends="integer,range">
+        <arg0 key="MQQueueConnectionFactory.port.displayName"/>
+        <arg1 name="range" key="${var:min}" resource="false"/>
+        <arg2 name="range" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <var>
+          <var-name>max</var-name>
+          <var-value>65535</var-value>
+        </var>
+      </field>
+      <field property="CCSID" depends="integer,range">
+        <arg0 key="MQQueueConnectionFactory.CCSID.displayName"/>
+        <arg1 name="range" key="${var:min}" resource="false"/>
+        <arg2 name="range" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <var>
+          <var-name>max</var-name>
+          <var-value>65536</var-value>
+        </var>
+      </field>
+    </form>
+    <form name="com.ibm.ws.console.resources.MQTopicConnectionFactoryDetailForm">
+      <field property="name" depends="required,mask">
+        <arg0 key="J2EEResourceFactory.name.displayName"/>
+        <var>
+          <var-name>mask</var-name>
+          <var-value>${was_name}</var-value>
+        </var>
+      </field>
+      <field property="jndiName" depends="required">
+        <arg0 key="J2EEResourceFactory.jndiName.displayName"/>
+      </field>
+      <field property="port" depends="integer,range">
+        <arg0 key="MQTopicConnectionFactory.port.displayName"/>
+        <arg1 name="range" key="${var:min}" resource="false"/>
+        <arg2 name="range" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <var>
+          <var-name>max</var-name>
+          <var-value>65535</var-value>
+        </var>
+      </field>
+      <field property="CCSID" depends="integer,range">
+        <arg0 key="MQTopicConnectionFactory.CCSID.displayName"/>
+        <arg1 name="range" key="${var:min}" resource="false"/>
+        <arg2 name="range" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <var>
+          <var-name>max</var-name>
+          <var-value>65536</var-value>
+        </var>
+      </field>
+    </form>
+    <form name="com.ibm.ws.console.resources.MQQueueDetailForm">
+      <field property="name" depends="required,mask">
+        <arg0 key="J2EEResourceFactory.name.displayName"/>
+        <var>
+          <var-name>mask</var-name>
+          <var-value>${was_name}</var-value>
+        </var>
+      </field>
+      <field property="jndiName" depends="required">
+        <arg0 key="J2EEResourceFactory.jndiName.displayName"/>
+      </field>
+      <field property="specifiedPriority" depends="integer,range">
+        <arg0 key="MQQueue.specifiedPriority.displayName"/>
+        <arg1 name="range" key="${var:min}" resource="false"/>
+        <arg2 name="range" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <var>
+          <var-name>max</var-name>
+          <var-value>9</var-value>
+        </var>
+      </field>
+      <field property="specifiedExpiry" depends="long,range">
+        <arg0 key="MQQueue.specifiedExpiry.displayName"/>
+        <arg1 name="range" key="${var:min}" resource="false"/>
+        <arg2 name="range" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <var>
+          <var-name>max</var-name>
+          <var-value>2147483647</var-value>
+        </var>
+      </field>
+      <field property="baseQueueName" depends="required">
+        <arg0 key="MQQueue.baseQueueName.displayName"/>
+      </field>
+      <field property="CCSID" depends="integer,range">
+        <arg0 key="MQQueue.CCSID.displayName"/>
+        <arg1 name="range" key="${var:min}" resource="false"/>
+        <arg2 name="range" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <var>
+          <var-name>max</var-name>
+          <var-value>65536</var-value>
+        </var>
+      </field>
+      <field property="queueManagerPort" depends="integer,range">
+        <arg0 key="MQQueue.queueManagerPort.displayName"/>
+        <arg1 name="range" key="${var:min}" resource="false"/>
+        <arg2 name="range" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <var>
+          <var-name>max</var-name>
+          <var-value>65535</var-value>
+        </var>
+      </field>
+    </form>
+    <form name="com.ibm.ws.console.resources.MQTopicDetailForm">
+      <field property="name" depends="required,mask">
+        <arg0 key="J2EEResourceFactory.name.displayName"/>
+        <var>
+          <var-name>mask</var-name>
+          <var-value>${was_name}</var-value>
+        </var>
+      </field>
+      <field property="jndiName" depends="required">
+        <arg0 key="J2EEResourceFactory.jndiName.displayName"/>
+      </field>
+      <field property="specifiedPriority" depends="integer,range">
+        <arg0 key="MQTopic.specifiedPriority.displayName"/>
+        <arg1 name="range" key="${var:min}" resource="false"/>
+        <arg2 name="range" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <var>
+          <var-name>max</var-name>
+          <var-value>9</var-value>
+        </var>
+      </field>
+      <field property="specifiedExpiry" depends="long,range">
+        <arg0 key="MQTopic.specifiedExpiry.displayName"/>
+        <arg1 name="range" key="${var:min}" resource="false"/>
+        <arg2 name="range" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <var>
+          <var-name>max</var-name>
+          <var-value>2147483647</var-value>
+        </var>
+      </field>
+      <field property="baseTopicName" depends="required">
+        <arg0 key="MQTopic.baseTopicName.displayName"/>
+      </field>
+      <field property="CCSID" depends="integer,range">
+        <arg0 key="MQTopic.CCSID.displayName"/>
+        <arg1 name="range" key="${var:min}" resource="false"/>
+        <arg2 name="range" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <var>
+          <var-name>max</var-name>
+          <var-value>65536</var-value>
+        </var>
+      </field>
+    </form>
+    <form name="com.ibm.ws.console.resources.WASQueueConnectionFactoryDetailForm">
+      <field property="name" depends="required,mask">
+        <arg0 key="J2EEResourceFactory.name.displayName"/>
+        <var>
+          <var-name>mask</var-name>
+          <var-value>${was_name}</var-value>
+        </var>
+      </field>
+      <field property="jndiName" depends="required">
+        <arg0 key="J2EEResourceFactory.jndiName.displayName"/>
+      </field>
+    </form>
+    <form name="com.ibm.ws.console.resources.WASTopicConnectionFactoryDetailForm">
+      <field property="name" depends="required,mask">
+        <arg0 key="J2EEResourceFactory.name.displayName"/>
+        <var>
+          <var-name>mask</var-name>
+          <var-value>${was_name}</var-value>
+        </var>
+      </field>
+      <field property="jndiName" depends="required">
+        <arg0 key="J2EEResourceFactory.jndiName.displayName"/>
+      </field>
+    </form>
+    <form name="com.ibm.ws.console.resources.WASTopicDetailForm">
+      <field property="name" depends="required,mask">
+        <arg0 key="J2EEResourceFactory.name.displayName"/>
+        <var>
+          <var-name>mask</var-name>
+          <var-value>${was_name}</var-value>
+        </var>
+      </field>
+      <field property="jndiName" depends="required">
+        <arg0 key="J2EEResourceFactory.jndiName.displayName"/>
+      </field>
+      <field property="topic" depends="required">
+        <arg0 key="WASTopic.topic.displayName"/>
+      </field>
+      <field property="specifiedPriority" depends="integer,range">
+        <arg0 key="WASTopic.specifiedPriority.displayName"/>
+        <arg1 name="range" key="${var:min}" resource="false"/>
+        <arg2 name="range" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <var>
+          <var-name>max</var-name>
+          <var-value>9</var-value>
+        </var>
+      </field>
+      <field property="specifiedExpiry" depends="long,range">
+        <arg0 key="WASTopic.specifiedExpiry.displayName"/>
+        <arg1 name="range" key="${var:min}" resource="false"/>
+        <arg2 name="range" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <var>
+          <var-name>max</var-name>
+          <var-value>2147483647</var-value>
+        </var>
+      </field>
+    </form>
+    <form name="com.ibm.ws.console.resources.WASQueueDetailForm">
+      <field property="name" depends="required,mask">
+        <arg0 key="J2EEResourceFactory.name.displayName"/>
+        <var>
+          <var-name>mask</var-name>
+          <var-value>${was_name}</var-value>
+        </var>
+      </field>
+      <field property="jndiName" depends="required">
+        <arg0 key="J2EEResourceFactory.jndiName.displayName"/>
+      </field>
+      <field property="specifiedPriority" depends="integer,range">
+        <arg0 key="WASQueue.specifiedPriority.displayName"/>
+        <arg1 name="range" key="${var:min}" resource="false"/>
+        <arg2 name="range" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <var>
+          <var-name>max</var-name>
+          <var-value>9</var-value>
+        </var>
+      </field>
+      <field property="specifiedExpiry" depends="long,range">
+        <arg0 key="WASQueue.specifiedExpiry.displayName"/>
+        <arg1 name="range" key="${var:min}" resource="false"/>
+        <arg2 name="range" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <var>
+          <var-name>max</var-name>
+          <var-value>2147483647</var-value>
+        </var>
+      </field>
+    </form>
+    <form name="com.ibm.ws.console.resources.ResourceEnvEntryDetailForm">
+      <field property="referenceable" depends="required">
+        <arg0 key="ResourceEnvEntry.referenceable.displayName"/>
+      </field>
+    </form>
+    <form name="com.ibm.ws.console.resources.MQSeriesQueueDetailForm">
+      <field property="defaultPriority" depends="integer,range">
+        <arg0 key="MQSeriesQueue.defaultPriority.displayName"/>
+        <arg1 name="range" key="${var:min}" resource="false"/>
+        <arg2 name="range" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <var>
+          <var-name>max</var-name>
+          <var-value>9</var-value>
+        </var>
+      </field>
+    </form>
+  </formset>
+</form-validation>

@@ -1,0 +1,211 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Param&egrave;tres de la gestion de session</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uprs_rsession_manager"></a>
+<h2>Param&egrave;tres de la gestion de session</h2>
+
+<p>Cette page permet de g&eacute;rer le support de session HTTP. Il s'agit d'indiquer un m&eacute;canisme de suivi de sessions, de d&eacute;finir le nombre maximal de sessions en m&eacute;moire, de contr&ocirc;ler les d&eacute;passements de capacit&eacute;, de configurer le d&eacute;lai d'expiration des sessions.</p>
+
+<p>Pour afficher cette page de la console d'administration, cliquez sur <strong>Serveurs</strong> &gt; <strong>Serveurs
+d'applications</strong> &gt; <em>nom_serveur</em> &gt; <strong>Conteneur Web</strong> &gt; <strong>Gestion de session</strong>.
+</p>
+
+<div>
+<p>
+<strong>Onglet Configuration</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="SessionManager_enable_description"></a>Remplacer la gestion des sessions (au niveau du module Web ou de l'application uniquement)</strong>
+</dt>
+<dd>Indique si ces param&egrave;tres de gestion de session sont
+prioritaires par rapport &agrave; ceux h&eacute;rit&eacute;s normalement d'un niveau
+sup&eacute;rieur pour l'application ou le module Web en cours.
+<p>Par d&eacute;faut, les modules Web h&eacute;ritent des param&egrave;tres de gestion de
+session issus du niveau d'application sup&eacute;rieur et les applications
+h&eacute;ritent des param&egrave;tres de gestion de session issus du niveau de
+conteneur Web sup&eacute;rieur.</p>
+
+</dd>
+<dt>
+<strong><a name="SessionManager_sessionTracking_description"></a>M&eacute;canisme de suivi de session </strong>
+</dt>
+<dd>Indique un m&eacute;canisme pour la gestion de session HTTP.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">M&eacute;canisme</td>
+<td align="left" valign="top" class="base">Fonction</td>
+<td align="left" valign="top" class="base">Valeur par d&eacute;faut</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Activer le suivi des ID SSL</td>
+<td align="left" valign="top" class="base">Indique que le m&eacute;canisme de suivi de session utilise des
+informations SSL (Secure Sockets Layer) comme ID de session. En cas
+d'activation du suivi SSL, celui-ci est prioritaire sur le suivi de
+session &agrave; l'aide de cookies et la r&eacute;&eacute;criture d'URL. <p>Si vous activez le suivi des ID SSL, deux param&egrave;tres sont disponibles : SSLV3Timeout et Secure Association Server (SAS). Le param&egrave;tre SSLV3Timeout d&eacute;finit le d&eacute;lai &agrave; l'issue duquel les sessions SSL sont ren&eacute;goci&eacute;es. Ce param&egrave;tre est associ&eacute; &agrave; une valeur &eacute;lev&eacute;e et sa modification n'a pas d'incidence r&eacute;elle sur les performances. Le param&egrave;tre SAS &eacute;tablit une connexion SSL uniquement si celle-ci relie une machine virtuelle Java (JVM) et une autre JVM. Si tous les beans se trouvent dans la machine virtuelle Java, la proc&eacute;dure SSL utilis&eacute;e par SAS ne ralentit pas les performances.</p>
+<p>Ces param&egrave;tres sont d&eacute;finis dans les fichiers <samp>sas.server.properties</samp> et <samp>sas.client.props</samp>
+disponibles dans le r&eacute;pertoire <em>racine_installation_produit</em>\properties, o&ugrave; <em>racine_installation_produit</em> repr&eacute;sente le r&eacute;pertoire o&ugrave;
+WebSphere Application Server est install&eacute;. </p>
+</td>
+<td align="left" valign="top" class="base">9600 secondes</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Activer les Cookies</td>
+<td align="left" valign="top" class="base">Indique que le m&eacute;canisme de suivi de session utilise
+des cookies pour v&eacute;hiculer les ID de session.
+Si les cookies sont
+activ&eacute;s, le m&eacute;canisme identifie les ID de session qui lui parviennent
+sous forme de cookies et tente d'utiliser ces derniers pour
+transmettre les ID de session. Si les cookies ne sont pas activ&eacute;s, le
+m&eacute;canisme utilise la r&eacute;&eacute;criture des URL (&agrave; condition que celle-ci
+soit elle-m&ecirc;me activ&eacute;e).<p>L'utilisation des cookies (si elle est
+activ&eacute;e) est prioritaire sur la r&eacute;&eacute;criture des URL.
+Ne d&eacute;sactivez pas
+de cookies dans l'utilitaire de gestion de session du serveur
+d'applications qui est en train d'ex&eacute;cuter l'application
+d'administration car il se peut que cette application ne fonctionne
+plus apr&egrave;s le red&eacute;marrage du serveur. L'autre solution consiste &agrave;
+ex&eacute;cuter l'application d'administration dans un processus distinct de
+vos applications. </p>
+<p>Cliquez sur <strong>Modifier</strong> pour modifier
+ces param&egrave;tres.</p>
+</td>
+<td align="left" valign="top" class="base"></td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Activer la r&eacute;&eacute;criture des URL</td>
+<td align="left" valign="top" class="base">Indique que l'utilitaire de gestion de session utilise des
+URL r&eacute;&eacute;crites pour transmettre les ID de session. Si la r&eacute;&eacute;criture
+des URL est activ&eacute;e, l'utilitaire de gestion de session identifie
+l'ID de session qui arrive dans l'URL, si la m&eacute;thode encodeURL est
+appel&eacute;e dans le servlet.</td>
+<td align="left" valign="top" class="base"></td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Activer la r&eacute;&eacute;criture des changements de protocole</td>
+<td align="left" valign="top" class="base">Indique que l'ID de session est ajout&eacute; &agrave; l'URL lorsque
+celle-ci requiert un changement de HTTP &agrave; HTTPS ou vice versa. Si la
+r&eacute;&eacute;criture est activ&eacute;e, l'ID de session est requis pour le passage de
+HTTP &agrave; HTTPS.</td>
+<td align="left" valign="top" class="base"></td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SessionManager_overflow_description"></a>D&eacute;passement  </strong>
+</dt>
+<dd>Indique que le nombre de sessions en m&eacute;moire peut d&eacute;passer
+la valeur sp&eacute;cifi&eacute;e par la propri&eacute;t&eacute; Nombre maximal de sessions
+en m&eacute;moire. Cette option est valide uniquement en mode de sessions non r&eacute;parties.</dd>
+<dt>
+<strong><a name="TuningParams_maxInMemorySessionCount_description"></a>Nombre de sessions maximal en m&eacute;moire  </strong>
+</dt>
+<dd>Indique le nombre maximal de sessions &agrave; conserver en m&eacute;moire.
+<p>Ce param&egrave;tre est interpr&eacute;t&eacute; diff&eacute;remment selon que vous utilisez des sessions en m&eacute;moire ou des sessions r&eacute;parties. Dans le cas de sessions en m&eacute;moire, cette valeur indique le nombre de
+sessions figurant dans la table de session de base. La propri&eacute;t&eacute;
+D&eacute;passement autoris&eacute; permet alors de sp&eacute;cifier s'il faut limiter les
+sessions &agrave; ce nombre pour la totalit&eacute; de l'utilitaire de gestion de
+session ou si vous autorisez le stockage de sessions suppl&eacute;mentaires
+dans des tables secondaires.  Dans le cas de sessions r&eacute;parties, cette
+valeur indique la taille de la m&eacute;moire cache des sessions.
+Lorsque la
+cache des sessions a atteint sa taille maximale et qu'une nouvelle
+session est demand&eacute;e, l'utilitaire de gestion de session supprime la
+session la plus ancienne de la cache afin de laisser place &agrave; la
+nouvelle. <p>
+<img alt="[Fix Pack 5.0.2 and later]" src="v502.gif" border="0"><b>Important: </b>Cette valeur doit &ecirc;tre un nombre sup&eacute;rieur &agrave; la taille maximale du pool d'unit&eacute;s d'ex&eacute;cution de votre serveur.</p>
+</p>
+
+</dd>
+<dt>
+<strong><a name="SessionManager_sessionTimeout_description"></a>D&eacute;lai d'expiration de la session  </strong>
+</dt>
+<dd>Indique le d&eacute;lai pendant lequel une session peut &ecirc;tre
+inutilis&eacute;e avant qu'elle ne soit plus valide.   Indiquez
+<samp>D&eacute;finir le d&eacute;lai d'expiration</samp> ou <samp>Aucun d&eacute;lai
+d'expiration</samp>. Indiquez la
+valeur en minutes, cette valeur devant &eacute;gale ou sup&eacute;rieure &agrave; deux. 
+<p> La valeur de ce param&egrave;tre est utilis&eacute;e comme valeur par d&eacute;faut
+lorsque le d&eacute;lai d'expiration de la session n'est pas sp&eacute;cifi&eacute;e dans
+un descripteur de d&eacute;ploiement du module Web.  Il est &agrave; noter que,
+pour de meilleures performances, le temporisateur d'invalidation
+n'offre pas une pr&eacute;cision &agrave; la seconde pr&egrave;s. Lorsque la valeur choisie pour la fr&eacute;quence d'&eacute;criture est TIME_BASED_WRITE (&eacute;criture p&eacute;riodique), assurez-vous que cette valeur est au moins deux fois plus &eacute;lev&eacute;e que celle de l'intervalle d'&eacute;criture. </p>
+
+</dd>
+<dt>
+<strong><a name="SessionManager_securityIntegration_description"></a>Int&eacute;gration de la s&eacute;curit&eacute;</strong>
+</dt>
+<dd>Indique que, lorsque l'int&eacute;gration de la s&eacute;curit&eacute; est
+activ&eacute;e, l'utilitaire de gestion de session associe l'identit&eacute; des
+utilisateurs &agrave; leurs sessions HTTP.</dd>
+<dt>
+<strong><a name="SessionManager_serialAccess_description"></a>S&eacute;rialiser l'acc&egrave;s aux sessions</strong>
+</dt>
+<dd>Indique que l'acc&egrave;s simultan&eacute; aux sessions d'un serveur
+donn&eacute; n'est pas autoris&eacute;.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Temps d'attente maximal</td>
+<td align="left" valign="top" class="base">Indique le d&eacute;lai d'attente maximal d'une demande de servlet
+au niveau d'une session HTTP avant la poursuite de l'ex&eacute;cution. Ce
+param&egrave;tre est facultatif et exprim&eacute; en secondes. La valeur par d&eacute;faut est 120, ou 2 minutes. Dans des conditions normales, une
+demande de servlet attendant l'acc&egrave;s &agrave; une session HTTP est notifi&eacute;e
+par la demande qui d&eacute;tient la session HTTP donn&eacute;e, une fois la
+demande termin&eacute;e.</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Autoriser l'acc&egrave;s &agrave; l'expiration du d&eacute;lai</td>
+<td align="left" valign="top" class="base">Indique si l'ex&eacute;cution du servlet est effectu&eacute;e normalement ou abandonn&eacute;e en cas d'expiration du d&eacute;lai. Si cette case est coch&eacute;e, le servlet est ex&eacute;cut&eacute; normalement.
+ Si elle ne l'est pas, l'ex&eacute;cution du servlet est abandonn&eacute;e et des journaux d'erreurs sont g&eacute;n&eacute;r&eacute;s.</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informations connexes</strong>
+</p>
+<a href="rcon_buttons.html">Boutons de la console administrative</a>
+<br>
+
+<a href="rcon_pageusage.html">Caract&eacute;ristiques de la page de la console d'administration</a>
+<br>
+
+<a href="rcon_preferences.html">Param&egrave;tres des pr&eacute;f&eacute;rences de la console administrative</a>
+<br>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,756 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.0//EN"
+                               "http://jakarta.apache.org/struts/dtds/struts-config_1_0.dtd">
+<!--  IBM Confidential OCO Source Material                                    -->
+<!--  5630-A36 (C) COPYRIGHT International Business Machines Corp. 2003       -->
+<!--  The source code for this program is not published or otherwise divested -->
+<!--  of its trade secrets, irrespective of what has been deposited with the  -->
+<!--  U.S. Copyright Office.                                                  -->
+
+<struts-config>
+    <form-beans>
+        <form-bean name="com.ibm.ws.console.wssecurity.WSSecurityDetailForm" type="com.ibm.ws.console.wssecurity.WSSecurityDetailForm"/>
+        <form-bean name="com.ibm.ws.console.wssecurity.WSServerSecurityDetailForm" type="com.ibm.ws.console.wssecurity.WSServerSecurityDetailForm"/>
+        <form-bean name="com.ibm.ws.console.wssecurity.CollectionCertStoreCollectionForm" type="com.ibm.ws.console.wssecurity.CollectionCertStoreCollectionForm"/>
+        <form-bean name="com.ibm.ws.console.wssecurity.CollectionCertStoreDetailForm" type="com.ibm.ws.console.wssecurity.CollectionCertStoreDetailForm"/>
+        <form-bean name="com.ibm.ws.console.wssecurity.EncryptionInfoCollectionForm" type="com.ibm.ws.console.wssecurity.EncryptionInfoCollectionForm"/>
+        <form-bean name="com.ibm.ws.console.wssecurity.EncryptionInfoDetailForm" type="com.ibm.ws.console.wssecurity.EncryptionInfoDetailForm"/>
+        <form-bean name="com.ibm.ws.console.wssecurity.DedicatedEncryptionInfoDetailForm" type="com.ibm.ws.console.wssecurity.DedicatedEncryptionInfoDetailForm"/>
+        <form-bean name="com.ibm.ws.console.wssecurity.KeyLocatorCollectionForm" type="com.ibm.ws.console.wssecurity.KeyLocatorCollectionForm"/>
+        <form-bean name="com.ibm.ws.console.wssecurity.KeyLocatorDetailForm" type="com.ibm.ws.console.wssecurity.KeyLocatorDetailForm"/>
+        <form-bean name="com.ibm.ws.console.wssecurity.KeyCollectionForm" type="com.ibm.ws.console.wssecurity.KeyCollectionForm"/>
+        <form-bean name="com.ibm.ws.console.wssecurity.KeyDetailForm" type="com.ibm.ws.console.wssecurity.KeyDetailForm"/>
+        <form-bean name="com.ibm.ws.console.wssecurity.LDAPCertStoreCollectionForm" type="com.ibm.ws.console.wssecurity.LDAPCertStoreCollectionForm"/>
+        <form-bean name="com.ibm.ws.console.wssecurity.LDAPCertStoreDetailForm" type="com.ibm.ws.console.wssecurity.LDAPCertStoreDetailForm"/>
+        <form-bean name="com.ibm.ws.console.wssecurity.LoginBindingDetailForm" type="com.ibm.ws.console.wssecurity.LoginBindingDetailForm"/>
+        <form-bean name="com.ibm.ws.console.wssecurity.LoginMappingCollectionForm" type="com.ibm.ws.console.wssecurity.LoginMappingCollectionForm"/>
+        <form-bean name="com.ibm.ws.console.wssecurity.LoginMappingDetailForm" type="com.ibm.ws.console.wssecurity.LoginMappingDetailForm"/>
+        <form-bean name="com.ibm.ws.console.wssecurity.SigningInfoCollectionForm" type="com.ibm.ws.console.wssecurity.SigningInfoCollectionForm"/>
+        <form-bean name="com.ibm.ws.console.wssecurity.SigningInfoDetailForm" type="com.ibm.ws.console.wssecurity.SigningInfoDetailForm"/>
+        <form-bean name="com.ibm.ws.console.wssecurity.DedicatedSigningInfoDetailForm" type="com.ibm.ws.console.wssecurity.DedicatedSigningInfoDetailForm"/>
+        <form-bean name="com.ibm.ws.console.wssecurity.TrustAnchorCollectionForm" type="com.ibm.ws.console.wssecurity.TrustAnchorCollectionForm"/>
+        <form-bean name="com.ibm.ws.console.wssecurity.TrustAnchorDetailForm" type="com.ibm.ws.console.wssecurity.TrustAnchorDetailForm"/>
+        <form-bean name="com.ibm.ws.console.wssecurity.TrustedIDEvaluatorCollectionForm" type="com.ibm.ws.console.wssecurity.TrustedIDEvaluatorCollectionForm"/>
+        <form-bean name="com.ibm.ws.console.wssecurity.TrustedIDEvaluatorDetailForm" type="com.ibm.ws.console.wssecurity.TrustedIDEvaluatorDetailForm"/>
+        <form-bean name="com.ibm.ws.console.wssecurity.DedicatedTrustedIDEvaluatorDetailForm" type="com.ibm.ws.console.wssecurity.DedicatedTrustedIDEvaluatorDetailForm"/>
+        <form-bean name="com.ibm.ws.console.wssecurity.X509CertificateCollectionForm" type="com.ibm.ws.console.wssecurity.X509CertificateCollectionForm"/>
+        <form-bean name="com.ibm.ws.console.wssecurity.X509CertificateDetailForm" type="com.ibm.ws.console.wssecurity.X509CertificateDetailForm"/>
+        <form-bean name="com.ibm.ws.console.wssecurity.WSPropertyCollectionForm" type="com.ibm.ws.console.wssecurity.WSPropertyCollectionForm"/>
+        <form-bean name="com.ibm.ws.console.wssecurity.WSPropertyDetailForm" type="com.ibm.ws.console.wssecurity.WSPropertyDetailForm"/>
+        <form-bean name="com.ibm.ws.console.wssecurity.WSServerBindingCollectionForm" type="com.ibm.ws.console.wssecurity.WSServerBindingCollectionForm"/>
+        <form-bean name="com.ibm.ws.console.wssecurity.RequestReceiverDetailForm" type="com.ibm.ws.console.wssecurity.RequestReceiverDetailForm"/>
+        <form-bean name="com.ibm.ws.console.wssecurity.ResponseSenderDetailForm" type="com.ibm.ws.console.wssecurity.ResponseSenderDetailForm"/>
+        <form-bean name="com.ibm.ws.console.wssecurity.WSClientBindingCollectionForm" type="com.ibm.ws.console.wssecurity.WSClientBindingCollectionForm"/>
+        <form-bean name="com.ibm.ws.console.wssecurity.ResponseReceiverDetailForm" type="com.ibm.ws.console.wssecurity.ResponseReceiverDetailForm"/>
+        <form-bean name="com.ibm.ws.console.wssecurity.BasicAuthDetailForm" type="com.ibm.ws.console.wssecurity.BasicAuthDetailForm"/>
+        <form-bean name="com.ibm.ws.console.wssecurity.SSLAliasDetailForm" type="com.ibm.ws.console.wssecurity.SSLAliasDetailForm"/>
+        <form-bean name="com.ibm.ws.console.wssecurity.RequestSenderDetailForm" type="com.ibm.ws.console.wssecurity.RequestSenderDetailForm"/>
+        <form-bean name="com.ibm.ws.console.wssecurity.WSServerDDDetailForm" type="com.ibm.ws.console.wssecurity.WSServerDDDetailForm"/>
+        <form-bean name="com.ibm.ws.console.wssecurity.WSClientDDDetailForm" type="com.ibm.ws.console.wssecurity.WSClientDDDetailForm"/>
+    </form-beans>
+
+    <global-forwards>
+    </global-forwards>
+
+    <action-mappings>
+
+       <action name="com.ibm.ws.console.wssecurity.forwardCmd"
+               path="/com.ibm.ws.console.wssecurity.forwardCmd"
+               type="com.ibm.ws.console.core.action.ForwardAction">
+           <forward name="WSSecurity.config.view" path="WSSecurity.config.view"/>
+           <forward name="WSServerSecurity.config.view" path="WSServerSecurity.config.view"/>
+           <forward name="CollectionCertStore.config.view" path="CollectionCertStore.config.view"/>
+           <forward name="CollectionCertStore.content.main" path="CollectionCertStore.content.main"/>
+           <forward name="WsCollectionCertStore.config.view" path="WsCollectionCertStore.config.view"/>
+           <forward name="WsCollectionCertStore.content.main" path="WsCollectionCertStore.content.main"/>
+           <forward name="WscCollectionCertStore.config.view" path="WscCollectionCertStore.config.view"/>
+           <forward name="WscCollectionCertStore.content.main" path="WscCollectionCertStore.content.main"/>
+           <forward name="EncryptionInfo.config.view" path="EncryptionInfo.config.view"/>
+           <forward name="EncryptionInfo.content.main" path="EncryptionInfo.content.main"/>
+           <forward name="WscEncryptionInfo.config.view" path="WscEncryptionInfo.config.view"/>
+           <forward name="WscEncryptionInfo.content.main" path="WscEncryptionInfo.content.main"/>
+           <forward name="DedicatedEncryptionInfo.config.view" path="DedicatedEncryptionInfo.config.view"/>
+           <forward name="KeyLocator.config.view" path="KeyLocator.config.view"/>
+           <forward name="KeyLocator.content.main" path="KeyLocator.content.main"/>
+           <forward name="WsKeyLocator.config.view" path="WsKeyLocator.config.view"/>
+           <forward name="WsKeyLocator.content.main" path="WsKeyLocator.content.main"/>
+           <forward name="WscKeyLocator.config.view" path="WscKeyLocator.config.view"/>
+           <forward name="WscKeyLocator.content.main" path="WscKeyLocator.content.main"/>
+           <forward name="Key.config.view" path="Key.config.view"/>
+           <forward name="Key.content.main" path="Key.content.main"/>
+           <forward name="WsKey.config.view" path="WsKey.config.view"/>
+           <forward name="WsKey.content.main" path="WsKey.content.main"/>
+           <forward name="WscKey.config.view" path="WscKey.config.view"/>
+           <forward name="WscKey.content.main" path="WscKey.content.main"/>
+           <forward name="LDAPCertStore.config.view" path="LDAPCertStore.config.view"/>
+           <forward name="LDAPCertStore.content.main" path="LDAPCertStore.content.main"/>
+           <forward name="LoginBinding.config.view" path="LoginBinding.config.view"/>
+           <forward name="LoginMapping.config.view" path="LoginMapping.config.view"/>
+           <forward name="LoginMapping.content.main" path="LoginMapping.content.main"/>
+           <forward name="WsLoginMapping.config.view" path="WsLoginMapping.config.view"/>
+           <forward name="WsLoginMapping.content.main" path="WsLoginMapping.content.main"/>
+           <forward name="SigningInfo.config.view" path="SigningInfo.config.view"/>
+           <forward name="SigningInfo.content.main" path="SigningInfo.content.main"/>
+           <forward name="WscSigningInfo.config.view" path="WscSigningInfo.config.view"/>
+           <forward name="WscSigningInfo.content.main" path="WscSigningInfo.content.main"/>
+           <forward name="DedicatedSigningInfo.config.view" path="DedicatedSigningInfo.config.view"/>
+           <forward name="TrustAnchor.config.view" path="TrustAnchor.config.view"/>
+           <forward name="TrustAnchor.content.main" path="TrustAnchor.content.main"/>
+           <forward name="WsTrustAnchor.config.view" path="WsTrustAnchor.config.view"/>
+           <forward name="WsTrustAnchor.content.main" path="WsTrustAnchor.content.main"/>
+           <forward name="WscTrustAnchor.config.view" path="WscTrustAnchor.config.view"/>
+           <forward name="WscTrustAnchor.content.main" path="WscTrustAnchor.content.main"/>
+           <forward name="TrustedIDEvaluator.config.view" path="TrustedIDEvaluator.config.view"/>
+           <forward name="TrustedIDEvaluator.content.main" path="TrustedIDEvaluator.content.main"/>
+           <forward name="DedicatedTrustedIDEvaluator.config.view" path="DedicatedTrustedIDEvaluator.config.view"/>
+           <forward name="X509Certificate.config.view" path="X509Certificate.config.view"/>
+           <forward name="X509Certificate.content.main" path="X509Certificate.content.main"/>
+           <forward name="WsX509Certificate.config.view" path="WsX509Certificate.config.view"/>
+           <forward name="WsX509Certificate.content.main" path="WsX509Certificate.content.main"/>
+           <forward name="WscX509Certificate.config.view" path="WscX509Certificate.config.view"/>
+           <forward name="WscX509Certificate.content.main" path="WscX509Certificate.content.main"/>
+           <forward name="WSSecurity.Property.config.view" path="WSSecurity.Property.config.view"/>
+           <forward name="WSSecurity.Property.content.main" path="WSSecurity.Property.content.main"/>
+           <forward name="WsWSSecurity.Property.config.view" path="WsWSSecurity.Property.config.view"/>
+           <forward name="WsWSSecurity.Property.content.main" path="WsWSSecurity.Property.content.main"/>
+           <forward name="WscWSSecurity.Property.config.view" path="WscWSSecurity.Property.config.view"/>
+           <forward name="WscWSSecurity.Property.content.main" path="WscWSSecurity.Property.content.main"/>
+           <forward name="WSServerBinding.content.main" path="WSServerBinding.content.main"/>
+           <forward name="RequestReceiver.config.view" path="RequestReceiver.config.view"/>
+           <forward name="ResponseSender.config.view" path="ResponseSender.config.view"/>
+           <forward name="WSClientBinding.content.main" path="WSClientBinding.content.main"/>
+           <forward name="ResponseReceiver.config.view" path="ResponseReceiver.config.view"/>
+           <forward name="wssBasicAuth.config.view" path="wssBasicAuth.config.view"/>
+           <forward name="sslalias.config.view" path="sslalias.config.view"/>
+           <forward name="RequestSender.config.view" path="RequestSender.config.view"/>
+           <forward name="WSServerDD.config.view" path="WSServerDD.config.view"/>
+           <forward name="WSClientDD.config.view" path="WSClientDD.config.view"/>
+           <forward name="ApplicationServer.config.view" path="ApplicationServer.config.view"/>
+       </action>
+
+        <action
+            name="com.ibm.ws.console.wssecurity.WSSecurityDetailForm"
+            path="/wSSecurityDetail"
+            type="com.ibm.ws.console.wssecurity.WSSecurityDetailAction"
+            input="WSSecurity.config.view">
+            <forward name="error" path="WSSecurity.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.wssecurity.forwardCmd.do?forwardName=WSSecurity.config.view"/>
+        </action>
+
+        <action
+            name="com.ibm.ws.console.wssecurity.WSServerSecurityDetailForm"
+            path="/wSServerSecurityDetail"
+            type="com.ibm.ws.console.wssecurity.WSServerSecurityDetailAction"
+            input="WSServerSecurity.config.view">
+            <forward name="error" path="WSServerSecurity.config.view"/>
+            <forward name="success" path="ApplicationServer.config.view"/>
+        </action>
+
+    <!-- The version for the security context -->
+        <action
+            name="com.ibm.ws.console.wssecurity.CollectionCertStoreCollectionForm"
+            path="/collectionCertStoreCollection"
+            type="com.ibm.ws.console.wssecurity.CollectionCertStoreCollectionAction">
+            <forward name="failure" path="/error.jsp"/>
+            <forward name="success" path="CollectionCertStore.config.view"/>
+            <forward name="collectionCertStoreCollection" path="CollectionCertStore.content.main"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.wssecurity.CollectionCertStoreDetailForm"
+            path="/collectionCertStoreDetail"
+            type="com.ibm.ws.console.wssecurity.CollectionCertStoreDetailAction"
+            input="CollectionCertStore.config.view">
+            <forward name="error" path="CollectionCertStore.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.wssecurity.forwardCmd.do?forwardName=CollectionCertStore.content.main"/>
+        </action>
+
+    <!-- The version for the web services context -->
+        <action
+            name="com.ibm.ws.console.wssecurity.CollectionCertStoreCollectionForm"
+            path="/wscollectionCertStoreCollection"
+            type="com.ibm.ws.console.wssecurity.WsCollectionCertStoreCollectionAction">
+            <forward name="failure" path="/error.jsp"/>
+            <forward name="success" path="WsCollectionCertStore.config.view"/>
+            <forward name="wscollectionCertStoreCollection" path="WsCollectionCertStore.content.main"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.wssecurity.CollectionCertStoreDetailForm"
+            path="/wscollectionCertStoreDetail"
+            type="com.ibm.ws.console.wssecurity.WsCollectionCertStoreDetailAction"
+            input="WsCollectionCertStore.config.view">
+            <forward name="error" path="WsCollectionCertStore.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.wssecurity.forwardCmd.do?forwardName=WsCollectionCertStore.content.main"/>
+        </action>
+
+    <!-- The version for the web services client context -->
+        <action
+            name="com.ibm.ws.console.wssecurity.CollectionCertStoreCollectionForm"
+            path="/wsccollectionCertStoreCollection"
+            type="com.ibm.ws.console.wssecurity.WscCollectionCertStoreCollectionAction">
+            <forward name="failure" path="/error.jsp"/>
+            <forward name="success" path="WscCollectionCertStore.config.view"/>
+            <forward name="wsccollectionCertStoreCollection" path="WscCollectionCertStore.content.main"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.wssecurity.CollectionCertStoreDetailForm"
+            path="/wsccollectionCertStoreDetail"
+            type="com.ibm.ws.console.wssecurity.WscCollectionCertStoreDetailAction"
+            input="WscCollectionCertStore.config.view">
+            <forward name="error" path="WscCollectionCertStore.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.wssecurity.forwardCmd.do?forwardName=WscCollectionCertStore.content.main"/>
+        </action>
+
+    <!-- The version for the web services context -->
+        <action
+            name="com.ibm.ws.console.wssecurity.EncryptionInfoCollectionForm"
+            path="/encryptionInfoCollection"
+            type="com.ibm.ws.console.wssecurity.EncryptionInfoCollectionAction">
+            <forward name="failure" path="/error.jsp"/>
+            <forward name="success" path="EncryptionInfo.config.view"/>
+            <forward name="encryptionInfoCollection" path="EncryptionInfo.content.main"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.wssecurity.EncryptionInfoDetailForm"
+            path="/encryptionInfoDetail"
+            type="com.ibm.ws.console.wssecurity.EncryptionInfoDetailAction"
+            input="EncryptionInfo.config.view">
+            <forward name="error" path="EncryptionInfo.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.wssecurity.forwardCmd.do?forwardName=EncryptionInfo.content.main"/>
+        </action>
+
+    <!-- The version for the web services client context -->
+        <action
+            name="com.ibm.ws.console.wssecurity.EncryptionInfoCollectionForm"
+            path="/wscencryptionInfoCollection"
+            type="com.ibm.ws.console.wssecurity.WscEncryptionInfoCollectionAction">
+            <forward name="failure" path="/error.jsp"/>
+            <forward name="success" path="WscEncryptionInfo.config.view"/>
+            <forward name="wscencryptionInfoCollection" path="WscEncryptionInfo.content.main"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.wssecurity.EncryptionInfoDetailForm"
+            path="/wscencryptionInfoDetail"
+            type="com.ibm.ws.console.wssecurity.WscEncryptionInfoDetailAction"
+            input="WscEncryptionInfo.config.view">
+            <forward name="error" path="WscEncryptionInfo.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.wssecurity.forwardCmd.do?forwardName=WscEncryptionInfo.content.main"/>
+        </action>
+
+    <!-- The version for the web services client request sender context -->
+        <action
+            name="com.ibm.ws.console.wssecurity.DedicatedEncryptionInfoDetailForm"
+            path="/dedicatedencryptionInfoDetail"
+            type="com.ibm.ws.console.wssecurity.DedicatedEncryptionInfoDetailAction"
+            input="DedicatedEncryptionInfo.config.view">
+            <forward name="error" path="DedicatedEncryptionInfo.config.view"/>
+            <forward name="requestSenderSuccess" path="RequestSender.config.view"/>
+            <forward name="responseSenderSuccess" path="ResponseSender.config.view"/>
+        </action>
+
+    <!-- The version for the security context -->
+        <action
+            name="com.ibm.ws.console.wssecurity.KeyLocatorCollectionForm"
+            path="/keyLocatorCollection"
+            type="com.ibm.ws.console.wssecurity.KeyLocatorCollectionAction">
+            <forward name="failure" path="/error.jsp"/>
+            <forward name="success" path="KeyLocator.config.view"/>
+            <forward name="keyLocatorCollection" path="KeyLocator.content.main"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.wssecurity.KeyLocatorDetailForm"
+            path="/keyLocatorDetail"
+            type="com.ibm.ws.console.wssecurity.KeyLocatorDetailAction"
+            input="KeyLocator.config.view">
+            <forward name="error" path="KeyLocator.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.wssecurity.forwardCmd.do?forwardName=KeyLocator.content.main"/>
+        </action>
+
+    <!-- The version for the web services context -->
+        <action
+            name="com.ibm.ws.console.wssecurity.KeyLocatorCollectionForm"
+            path="/wskeyLocatorCollection"
+            type="com.ibm.ws.console.wssecurity.WsKeyLocatorCollectionAction">
+            <forward name="failure" path="/error.jsp"/>
+            <forward name="success" path="WsKeyLocator.config.view"/>
+            <forward name="wskeyLocatorCollection" path="WsKeyLocator.content.main"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.wssecurity.KeyLocatorDetailForm"
+            path="/wskeyLocatorDetail"
+            type="com.ibm.ws.console.wssecurity.WsKeyLocatorDetailAction"
+            input="WsKeyLocator.config.view">
+            <forward name="error" path="WsKeyLocator.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.wssecurity.forwardCmd.do?forwardName=WsKeyLocator.content.main"/>
+        </action>
+
+    <!-- The version for the web services client context -->
+        <action
+            name="com.ibm.ws.console.wssecurity.KeyLocatorCollectionForm"
+            path="/wsckeyLocatorCollection"
+            type="com.ibm.ws.console.wssecurity.WscKeyLocatorCollectionAction">
+            <forward name="failure" path="/error.jsp"/>
+            <forward name="success" path="WscKeyLocator.config.view"/>
+            <forward name="wsckeyLocatorCollection" path="WscKeyLocator.content.main"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.wssecurity.KeyLocatorDetailForm"
+            path="/wsckeyLocatorDetail"
+            type="com.ibm.ws.console.wssecurity.WscKeyLocatorDetailAction"
+            input="WscKeyLocator.config.view">
+            <forward name="error" path="WscKeyLocator.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.wssecurity.forwardCmd.do?forwardName=WscKeyLocator.content.main"/>
+        </action>
+
+    <!-- The version for the security context -->
+        <action
+            name="com.ibm.ws.console.wssecurity.KeyCollectionForm"
+            path="/keyCollection"
+            type="com.ibm.ws.console.wssecurity.KeyCollectionAction">
+            <forward name="failure" path="/error.jsp"/>
+            <forward name="success" path="Key.config.view"/>
+            <forward name="keyCollection" path="Key.content.main"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.wssecurity.KeyDetailForm"
+            path="/keyDetail"
+            type="com.ibm.ws.console.wssecurity.KeyDetailAction"
+            input="Key.config.view">
+            <forward name="error" path="Key.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.wssecurity.forwardCmd.do?forwardName=Key.content.main"/>
+        </action>
+
+    <!-- The version for the web services context -->
+        <action
+            name="com.ibm.ws.console.wssecurity.KeyCollectionForm"
+            path="/wskeyCollection"
+            type="com.ibm.ws.console.wssecurity.WsKeyCollectionAction">
+            <forward name="failure" path="/error.jsp"/>
+            <forward name="success" path="WsKey.config.view"/>
+            <forward name="wskeyCollection" path="WsKey.content.main"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.wssecurity.KeyDetailForm"
+            path="/wskeyDetail"
+            type="com.ibm.ws.console.wssecurity.WsKeyDetailAction"
+            input="WsKey.config.view">
+            <forward name="error" path="WsKey.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.wssecurity.forwardCmd.do?forwardName=WsKey.content.main"/>
+        </action>
+
+    <!-- The version for the web services client context -->
+        <action
+            name="com.ibm.ws.console.wssecurity.KeyCollectionForm"
+            path="/wsckeyCollection"
+            type="com.ibm.ws.console.wssecurity.WscKeyCollectionAction">
+            <forward name="failure" path="/error.jsp"/>
+            <forward name="success" path="WscKey.config.view"/>
+            <forward name="wsckeyCollection" path="WscKey.content.main"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.wssecurity.KeyDetailForm"
+            path="/wsckeyDetail"
+            type="com.ibm.ws.console.wssecurity.WscKeyDetailAction"
+            input="WscKey.config.view">
+            <forward name="error" path="WscKey.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.wssecurity.forwardCmd.do?forwardName=WscKey.content.main"/>
+        </action>
+
+        <action
+            name="com.ibm.ws.console.wssecurity.LDAPCertStoreCollectionForm"
+            path="/lDAPCertStoreCollection"
+            type="com.ibm.ws.console.wssecurity.LDAPCertStoreCollectionAction">
+            <forward name="failure" path="/error.jsp"/>
+            <forward name="success" path="LDAPCertStore.config.view"/>
+            <forward name="lDAPCertStoreCollection" path="LDAPCertStore.content.main"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.wssecurity.LDAPCertStoreDetailForm"
+            path="/lDAPCertStoreDetail"
+            type="com.ibm.ws.console.wssecurity.LDAPCertStoreDetailAction"
+            input="LDAPCertStore.config.view">
+            <forward name="error" path="LDAPCertStore.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.wssecurity.forwardCmd.do?forwardName=LDAPCertStore.content.main"/>
+        </action>
+
+    <!-- The version for the web services client request sender context -->
+        <action
+            name="com.ibm.ws.console.wssecurity.LoginBindingDetailForm"
+            path="/loginBindingDetail"
+            type="com.ibm.ws.console.wssecurity.LoginBindingDetailAction"
+            input="LoginBinding.config.view">
+            <forward name="error" path="LoginBinding.config.view"/>
+            <forward name="success" path="RequestSender.config.view"/>
+        </action>
+
+    <!-- The version for the security context -->
+        <action
+            name="com.ibm.ws.console.wssecurity.LoginMappingCollectionForm"
+            path="/loginMappingCollection"
+            type="com.ibm.ws.console.wssecurity.LoginMappingCollectionAction">
+            <forward name="failure" path="/error.jsp"/>
+            <forward name="success" path="LoginMapping.config.view"/>
+            <forward name="loginMappingCollection" path="LoginMapping.content.main"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.wssecurity.LoginMappingDetailForm"
+            path="/loginMappingDetail"
+            type="com.ibm.ws.console.wssecurity.LoginMappingDetailAction"
+            input="LoginMapping.config.view">
+            <forward name="error" path="LoginMapping.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.wssecurity.forwardCmd.do?forwardName=LoginMapping.content.main"/>
+        </action>
+
+    <!-- The version for the web services context -->
+        <action
+            name="com.ibm.ws.console.wssecurity.LoginMappingCollectionForm"
+            path="/wsloginMappingCollection"
+            type="com.ibm.ws.console.wssecurity.WsLoginMappingCollectionAction">
+            <forward name="failure" path="/error.jsp"/>
+            <forward name="success" path="WsLoginMapping.config.view"/>
+            <forward name="wsloginMappingCollection" path="WsLoginMapping.content.main"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.wssecurity.LoginMappingDetailForm"
+            path="/wsloginMappingDetail"
+            type="com.ibm.ws.console.wssecurity.WsLoginMappingDetailAction"
+            input="WsLoginMapping.config.view">
+            <forward name="error" path="WsLoginMapping.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.wssecurity.forwardCmd.do?forwardName=WsLoginMapping.content.main"/>
+        </action>
+
+    <!-- The version for the web services context -->
+        <action
+            name="com.ibm.ws.console.wssecurity.SigningInfoCollectionForm"
+            path="/signingInfoCollection"
+            type="com.ibm.ws.console.wssecurity.SigningInfoCollectionAction">
+            <forward name="failure" path="/error.jsp"/>
+            <forward name="success" path="SigningInfo.config.view"/>
+            <forward name="signingInfoCollection" path="SigningInfo.content.main"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.wssecurity.SigningInfoDetailForm"
+            path="/signingInfoDetail"
+            type="com.ibm.ws.console.wssecurity.SigningInfoDetailAction"
+            input="SigningInfo.config.view">
+            <forward name="error" path="SigningInfo.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.wssecurity.forwardCmd.do?forwardName=SigningInfo.content.main"/>
+        </action>
+
+    <!-- The version for the web services client context -->
+         <action
+            name="com.ibm.ws.console.wssecurity.SigningInfoCollectionForm"
+            path="/wscsigningInfoCollection"
+            type="com.ibm.ws.console.wssecurity.WscSigningInfoCollectionAction">
+            <forward name="failure" path="/error.jsp"/>
+            <forward name="success" path="WscSigningInfo.config.view"/>
+            <forward name="wscsigningInfoCollection" path="WscSigningInfo.content.main"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.wssecurity.SigningInfoDetailForm"
+            path="/wscsigningInfoDetail"
+            type="com.ibm.ws.console.wssecurity.WscSigningInfoDetailAction"
+            input="WscSigningInfo.config.view">
+            <forward name="error" path="WscSigningInfo.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.wssecurity.forwardCmd.do?forwardName=WscSigningInfo.content.main"/>
+        </action>
+
+    <!-- The version for the web services client request sender context -->
+        <action
+            name="com.ibm.ws.console.wssecurity.DedicatedSigningInfoDetailForm"
+            path="/dedicatedsigningInfoDetail"
+            type="com.ibm.ws.console.wssecurity.DedicatedSigningInfoDetailAction"
+            input="DedicatedSigningInfo.config.view">
+            <forward name="error" path="DedicatedSigningInfo.config.view"/>
+            <forward name="requestSenderSuccess" path="RequestSender.config.view"/>
+            <forward name="responseSenderSuccess" path="ResponseSender.config.view"/>
+        </action>
+
+   <!-- The version for the security context -->
+        <action
+            name="com.ibm.ws.console.wssecurity.TrustAnchorCollectionForm"
+            path="/trustAnchorCollection"
+            type="com.ibm.ws.console.wssecurity.TrustAnchorCollectionAction">
+            <forward name="failure" path="/error.jsp"/>
+            <forward name="success" path="TrustAnchor.config.view"/>
+            <forward name="trustAnchorCollection" path="TrustAnchor.content.main"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.wssecurity.TrustAnchorDetailForm"
+            path="/trustAnchorDetail"
+            type="com.ibm.ws.console.wssecurity.TrustAnchorDetailAction"
+            input="TrustAnchor.config.view">
+            <forward name="error" path="TrustAnchor.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.wssecurity.forwardCmd.do?forwardName=TrustAnchor.content.main"/>
+        </action>
+
+    <!-- The version for the web services context -->
+        <action
+            name="com.ibm.ws.console.wssecurity.TrustAnchorCollectionForm"
+            path="/wstrustAnchorCollection"
+            type="com.ibm.ws.console.wssecurity.WsTrustAnchorCollectionAction">
+            <forward name="failure" path="/error.jsp"/>
+            <forward name="success" path="WsTrustAnchor.config.view"/>
+            <forward name="wstrustAnchorCollection" path="WsTrustAnchor.content.main"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.wssecurity.TrustAnchorDetailForm"
+            path="/wstrustAnchorDetail"
+            type="com.ibm.ws.console.wssecurity.WsTrustAnchorDetailAction"
+            input="WsTrustAnchor.config.view">
+            <forward name="error" path="WsTrustAnchor.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.wssecurity.forwardCmd.do?forwardName=WsTrustAnchor.content.main"/>
+        </action>
+
+    <!-- The version for the web services client context -->
+        <action
+            name="com.ibm.ws.console.wssecurity.TrustAnchorCollectionForm"
+            path="/wsctrustAnchorCollection"
+            type="com.ibm.ws.console.wssecurity.WscTrustAnchorCollectionAction">
+            <forward name="failure" path="/error.jsp"/>
+            <forward name="success" path="WscTrustAnchor.config.view"/>
+            <forward name="wsctrustAnchorCollection" path="WscTrustAnchor.content.main"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.wssecurity.TrustAnchorDetailForm"
+            path="/wsctrustAnchorDetail"
+            type="com.ibm.ws.console.wssecurity.WscTrustAnchorDetailAction"
+            input="WscTrustAnchor.config.view">
+            <forward name="error" path="WscTrustAnchor.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.wssecurity.forwardCmd.do?forwardName=WscTrustAnchor.content.main"/>
+        </action>
+
+        <action
+            name="com.ibm.ws.console.wssecurity.TrustedIDEvaluatorCollectionForm"
+            path="/trustedIDEvaluatorCollection"
+            type="com.ibm.ws.console.wssecurity.TrustedIDEvaluatorCollectionAction">
+            <forward name="failure" path="/error.jsp"/>
+            <forward name="success" path="TrustedIDEvaluator.config.view"/>
+            <forward name="trustedIDEvaluatorCollection" path="TrustedIDEvaluator.content.main"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.wssecurity.TrustedIDEvaluatorDetailForm"
+            path="/trustedIDEvaluatorDetail"
+            type="com.ibm.ws.console.wssecurity.TrustedIDEvaluatorDetailAction"
+            input="TrustedIDEvaluator.config.view">
+            <forward name="error" path="TrustedIDEvaluator.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.wssecurity.forwardCmd.do?forwardName=TrustedIDEvaluator.content.main"/>
+        </action>
+
+    <!-- The version for the web services client request receiver context -->
+        <action
+            name="com.ibm.ws.console.wssecurity.DedicatedTrustedIDEvaluatorDetailForm"
+            path="/dedicatedtrustedIDEvaluatorDetail"
+            type="com.ibm.ws.console.wssecurity.DedicatedTrustedIDEvaluatorDetailAction"
+            input="DedicatedTrustedIDEvaluator.config.view">
+            <forward name="error" path="DedicatedTrustedIDEvaluator.config.view"/>
+            <forward name="success" path="RequestReceiver.config.view"/>
+        </action>
+
+    <!-- The version for the security context -->
+        <action
+            name="com.ibm.ws.console.wssecurity.X509CertificateCollectionForm"
+            path="/x509CertificateCollection"
+            type="com.ibm.ws.console.wssecurity.X509CertificateCollectionAction">
+            <forward name="failure" path="/error.jsp"/>
+            <forward name="success" path="X509Certificate.config.view"/>
+            <forward name="x509CertificateCollection" path="X509Certificate.content.main"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.wssecurity.X509CertificateDetailForm"
+            path="/x509CertificateDetail"
+            type="com.ibm.ws.console.wssecurity.X509CertificateDetailAction"
+            input="X509Certificate.config.view">
+            <forward name="error" path="X509Certificate.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.wssecurity.forwardCmd.do?forwardName=X509Certificate.content.main"/>
+        </action>
+
+    <!-- The version for the web services context -->
+        <action
+            name="com.ibm.ws.console.wssecurity.X509CertificateCollectionForm"
+            path="/wsx509CertificateCollection"
+            type="com.ibm.ws.console.wssecurity.WsX509CertificateCollectionAction">
+            <forward name="failure" path="/error.jsp"/>
+            <forward name="success" path="WsX509Certificate.config.view"/>
+            <forward name="wsx509CertificateCollection" path="WsX509Certificate.content.main"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.wssecurity.X509CertificateDetailForm"
+            path="/wsx509CertificateDetail"
+            type="com.ibm.ws.console.wssecurity.WsX509CertificateDetailAction"
+            input="WsX509Certificate.config.view">
+            <forward name="error" path="WsX509Certificate.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.wssecurity.forwardCmd.do?forwardName=WsX509Certificate.content.main"/>
+        </action>
+
+    <!-- The version for the web services client context -->
+        <action
+            name="com.ibm.ws.console.wssecurity.X509CertificateCollectionForm"
+            path="/wscx509CertificateCollection"
+            type="com.ibm.ws.console.wssecurity.WscX509CertificateCollectionAction">
+            <forward name="failure" path="/error.jsp"/>
+            <forward name="success" path="WscX509Certificate.config.view"/>
+            <forward name="wscx509CertificateCollection" path="WscX509Certificate.content.main"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.wssecurity.X509CertificateDetailForm"
+            path="/wscx509CertificateDetail"
+            type="com.ibm.ws.console.wssecurity.WscX509CertificateDetailAction"
+            input="WscX509Certificate.config.view">
+            <forward name="error" path="WscX509Certificate.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.wssecurity.forwardCmd.do?forwardName=WscX509Certificate.content.main"/>
+        </action>
+
+    <!-- The version for the security context -->
+        <action
+            name="com.ibm.ws.console.wssecurity.WSPropertyCollectionForm"
+            path="/wssecPropertyCollection"
+            type="com.ibm.ws.console.wssecurity.PropertyCollectionAction">
+            <forward name="failure" path="/error.jsp"/>
+            <forward name="success" path="WSSecurity.Property.config.view"/>
+            <forward name="wssecPropertyCollection" path="WSSecurity.Property.content.main"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.wssecurity.WSPropertyDetailForm"
+            path="/wssecPropertyDetail"
+            type="com.ibm.ws.console.wssecurity.PropertyDetailAction"
+            input="WSSecurity.Property.config.view">
+            <forward name="error" path="WSSecurity.Property.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.wssecurity.forwardCmd.do?forwardName=WSSecurity.Property.content.main"/>
+        </action>
+
+    <!-- The version for the web services context -->
+        <action
+            name="com.ibm.ws.console.wssecurity.WSPropertyCollectionForm"
+            path="/wswssecPropertyCollection"
+            type="com.ibm.ws.console.wssecurity.WsPropertyCollectionAction">
+            <forward name="failure" path="/error.jsp"/>
+            <forward name="success" path="WsWSSecurity.Property.config.view"/>
+            <forward name="wswssecPropertyCollection" path="WsWSSecurity.Property.content.main"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.wssecurity.WSPropertyDetailForm"
+            path="/wswssecPropertyDetail"
+            type="com.ibm.ws.console.wssecurity.WsPropertyDetailAction"
+            input="WsWSSecurity.Property.config.view">
+            <forward name="error" path="WsWSSecurity.Property.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.wssecurity.forwardCmd.do?forwardName=WsWSSecurity.Property.content.main"/>
+        </action>
+
+    <!-- The version for the web services client context -->
+        <action
+            name="com.ibm.ws.console.wssecurity.WSPropertyCollectionForm"
+            path="/wscwssecPropertyCollection"
+            type="com.ibm.ws.console.wssecurity.WscPropertyCollectionAction">
+            <forward name="failure" path="/error.jsp"/>
+            <forward name="success" path="WscWSSecurity.Property.config.view"/>
+            <forward name="wscwssecPropertyCollection" path="WscWSSecurity.Property.content.main"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.wssecurity.WSPropertyDetailForm"
+            path="/wscwssecPropertyDetail"
+            type="com.ibm.ws.console.wssecurity.WscPropertyDetailAction"
+            input="WscWSSecurity.Property.config.view">
+            <forward name="error" path="WscWSSecurity.Property.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.wssecurity.forwardCmd.do?forwardName=WscWSSecurity.Property.content.main"/>
+        </action>
+
+    <!-- The version for the module web services server binding -->
+        <action
+            name="com.ibm.ws.console.wssecurity.WSServerBindingCollectionForm"
+            path="/wsServerBindingCollection"
+            type="com.ibm.ws.console.wssecurity.WSServerBindingCollectionAction">
+            <forward name="failure" path="/error.jsp"/>
+            <forward name="wsServerBindingCollection" path="WSServerBinding.content.main"/>
+            <forward name="success" path="com.ibm.ws.console.wssecurity.forwardCmd.do?forwardName=WSServerBinding.content.main"/>
+            <forward name="webParent" path="WebModuleDeployment.config.view"/>
+            <forward name="ejbParent" path="EJBModuleDeployment.config.view"/>
+        </action>
+
+        <action
+            name="com.ibm.ws.console.wssecurity.RequestReceiverDetailForm"
+            path="/requestReceiverDetail"
+            type="com.ibm.ws.console.wssecurity.RequestReceiverDetailAction"
+            input="RequestReceiver.config.view">
+            <forward name="error" path="RequestReceiver.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.wssecurity.forwardCmd.do?forwardName=WSServerBinding.content.main"/>
+        </action>
+
+        <action
+            name="com.ibm.ws.console.wssecurity.ReponseSenderDetailForm"
+            path="/reponseSenderDetail"
+            type="com.ibm.ws.console.wssecurity.ReponseSenderDetailAction"
+            input="ReponseSender.config.view">
+            <forward name="error" path="ReponseSender.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.wssecurity.forwardCmd.do?forwardName=WSServerBinding.content.main"/>
+        </action>
+
+    <!-- The version for the module web services client binding -->
+        <action
+            name="com.ibm.ws.console.wssecurity.WSClientBindingCollectionForm"
+            path="/wsClientBindingCollection"
+            type="com.ibm.ws.console.wssecurity.WSClientBindingCollectionAction">
+            <forward name="failure" path="/error.jsp"/>
+            <forward name="wsClientBindingCollection" path="WSClientBinding.content.main"/>
+            <forward name="success" path="com.ibm.ws.console.wssecurity.forwardCmd.do?forwardName=WSClientBinding.content.main"/>
+            <forward name="webParent" path="WebModuleDeployment.config.view"/>
+            <forward name="ejbParent" path="EJBModuleDeployment.config.view"/>
+        </action>
+
+        <action
+            name="com.ibm.ws.console.wssecurity.ResponseReceiverDetailForm"
+            path="/responseReceiverDetail"
+            type="com.ibm.ws.console.wssecurity.ResponseReceiverDetailAction"
+            input="ResponseReceiver.config.view">
+            <forward name="error" path="ResponseReceiver.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.wssecurity.forwardCmd.do?forwardName=WSClientBinding.content.main"/>
+        </action>
+
+        <action
+            name="com.ibm.ws.console.wssecurity.BasicAuthDetailForm"
+            path="/basicAuthDetail"
+            type="com.ibm.ws.console.wssecurity.BasicAuthDetailAction"
+            input="wssBasicAuth.config.view">
+            <forward name="error" path="wssBasicAuth.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.wssecurity.forwardCmd.do?forwardName=WSClientBinding.content.main"/>
+        </action>
+
+        <action
+            name="com.ibm.ws.console.wssecurity.SSLAliasDetailForm"
+            path="/sslAliasDetail"
+            type="com.ibm.ws.console.wssecurity.SSLAliasDetailAction"
+            input="sslalias.config.view">
+            <forward name="error" path="sslalias.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.wssecurity.forwardCmd.do?forwardName=WSClientBinding.content.main"/>
+        </action>
+
+        <action
+            name="com.ibm.ws.console.wssecurity.RequestSenderDetailForm"
+            path="/requestSenderDetail"
+            type="com.ibm.ws.console.wssecurity.RequestSenderDetailAction"
+            input="RequestSender.config.view">
+            <forward name="error" path="RequestSender.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.wssecurity.forwardCmd.do?forwardName=WSClientBinding.content.main"/>
+        </action>
+
+        <action
+            name="com.ibm.ws.console.wssecurity.WSServerDDDetailForm"
+            path="/wSServerDDDetail"
+            type="com.ibm.ws.console.wssecurity.WSServerDDDetailAction"
+            input="WSServerDD.config.view">
+            <forward name="error" path="WSServerDD.config.view"/>
+            <forward name="webParent" path="WebModuleDeployment.config.view"/>
+            <forward name="ejbParent" path="EJBModuleDeployment.config.view"/>
+        </action>
+
+        <action
+            name="com.ibm.ws.console.wssecurity.WSClientDDDetailForm"
+            path="/wSClientDDDetail"
+            type="com.ibm.ws.console.wssecurity.WSClientDDDetailAction"
+            input="WSClientDD.config.view">
+            <forward name="error" path="WSClientDD.config.view"/>
+            <forward name="webParent" path="WebModuleDeployment.config.view"/>
+            <forward name="ejbParent" path="EJBModuleDeployment.config.view"/>
+        </action>
+
+    </action-mappings>
+</struts-config>

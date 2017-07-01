@@ -1,0 +1,146 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Valores personalizados de par&aacute;metros de ajuste</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="tune_para_custom"></a>
+<h2>Valores personalizados de par&aacute;metros de ajuste</h2>
+
+<p>Utilice esta p&aacute;gina para personalizar los par&aacute;metro de ajuste para sesiones
+distribuidas.</p>
+
+<p>Para ver esta p&aacute;gina de la consola administrativa, pulse <strong>Servidores</strong> &gt; <strong>Servidores de
+aplicaciones</strong> &gt; <em>nombre_servidor</em> &gt; <strong>Contenedor Web</strong> &gt; <strong>Gesti&oacute;n de sesiones</strong> &gt;
+<strong>Valores de entorno distribuido</strong> &gt; <strong>Par&aacute;metros de ajuste personalizado</strong> &gt; <strong>Valores personalizados</strong>.</p>
+
+<div>
+<p>
+<strong>Pesta&ntilde;a Configuraci&oacute;n</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="TuningParams_writeFrequency_description"></a>Frecuencia de escritura</strong>
+</dt>
+<dd>Especifica cuando se escribe la sesi&oacute;n en el almac&eacute;n persistente.
+<p></p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Finalizaci&oacute;n del servicio de servlet</td>
+<td align="left" valign="top" class="base">Una sesi&oacute;n escribe en la base de datos o se produce otra instancia de WebSphere
+Application Server cuando finaliza la ejecuci&oacute;n del servlet.</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Actualizaci&oacute;n manual</td>
+<td align="left" valign="top" class="base">Se necesita una sincronizaci&oacute;n programada del objeto IBMSession para poder escribir los
+datos de la sesi&oacute;n en la base de datos o se necesita otra instancia de WebSphere Application
+Server.</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Basado en la hora</td>
+<td align="left" valign="top" class="base">Los datos de la sesi&oacute;n se escriben en la base de datos o se genera otra instancia de
+WebSphere Application Server seg&uacute;n el valor especificado para Intervalo de escritura. Valor por omisi&oacute;n: 10 segundos.</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="TuningParams_writeContents_description"></a>Contenido de escritura  </strong>
+</dt>
+<dd>Especifica si s&oacute;lo los atributos actualizados deben escribirse en una ubicaci&oacute;n
+externa o si todos los atributos de sesiones deben escribirse en la ubicaci&oacute;n externa, se hayan
+modificado o no. La ubicaci&oacute;n externa puede ser una base de datos u otra instancia del servidor de aplicaciones.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">S&oacute;lo atributos actualizados</td>
+<td align="left" valign="top" class="base">S&oacute;lo se escriben atributos actualizados en el almac&eacute;n persistente.</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Todos los atributos de sesi&oacute;n</td>
+<td align="left" valign="top" class="base">Todos los atributos se escriben en el almac&eacute;n persistente.</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="TuningParams_scheduleInvalidation_description"></a>Planificaci&oacute;n de limpieza de sesiones</strong>
+</dt>
+<dd> Especifica cu&aacute;ndo se deben limpiar las sesiones no v&aacute;lidas de una base de datos o de otra instancia del servidor de aplicaciones. 
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Especificar planificaci&oacute;n de limpieza de sesiones distribuidas</td>
+<td align="left" valign="top" class="base">Habilita el proceso
+de invalidaci&oacute;n de planificaci&oacute;n  para borrar las sesiones HTTP invalidadas de la ubicaci&oacute;n
+externa. Habilite esta opci&oacute;n para reducir el n&uacute;mero de actualizaciones de una base de datos u otra instancia del servidor de aplicaciones necesaria para mantener activas las sesiones HTTP.   
+Si esta opci&oacute;n no est&aacute; inhabilitada, el proceso de invalidaci&oacute;n se ejecuta cada vez que
+transcurren algunos minutos para eliminar las sesiones HTTP invalidadas.<p>Cuando esta
+opci&oacute;n est&aacute; habilitada, debe especificar las dos horas del d&iacute;a para el proceso de limpieza de
+sesiones invalidadas de la ubicaci&oacute;n externa. Especifique las horas en que haya menos actividad en los servidores de aplicaciones. Una ubicaci&oacute;n externa puede ser una base de datos u otra instancia del servidor de aplicaciones.  </p>
+</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Primera hora del d&iacute;a (0 - 23)</td>
+<td align="left" valign="top" class="base">Indica la primera
+hora seg&uacute;n la hora media de Greeenwich (GMT), durante la cual las
+sesiones invalidadas se borran de la ubicaci&oacute;n externa. Especifique este valor como un entero positivo entre 0 y 23. Este valor s&oacute;lo es v&aacute;lido si est&aacute; habilitada la invalidaci&oacute;n de planificaci&oacute;n.</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Segunda hora del d&iacute;a (0 - 23)</td>
+<td align="left" valign="top" class="base">Indica la segunda hora seg&uacute;n la hora media de Greeenwich (GMT), durante la cual las sesiones invalidadas se borran de la
+ubicaci&oacute;n externa. Especifique este valor como un entero positivo entre 0 y 23. Este valor s&oacute;lo es v&aacute;lido si est&aacute; habilitada la invalidaci&oacute;n de planificaci&oacute;n.</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informaci&oacute;n relacionada</strong>
+</p>
+<a href="rcon_buttons.html">Botones de la consola de administraci&oacute;n</a>
+<br>
+
+<a href="rcon_pageusage.html">Caracter&iacute;sticas de la p&aacute;gina de la consola administrativa</a>
+<br>
+
+<a href="rcon_preferences.html">Valores de preferencias de la consola administrativa</a>
+<br>
+
+<a href="uprs_rtuning_parameters.html">Valores de par&aacute;metros de ajuste</a>
+<br>
+
+</div>
+</body>
+</html>

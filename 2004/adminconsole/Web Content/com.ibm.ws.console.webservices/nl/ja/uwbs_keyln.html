@@ -1,0 +1,140 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>鍵ロケーター構成の設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_keyln"></a>
+<h2>
+<img alt="[修正パッケージ 5.0.2 以降]" src="v502.gif" border="0">鍵ロケーター構成の設定</h2>
+
+<p>このページを使用して、鍵ロケーターの設定を指定します。</p>
+
+<p>この管理コンソール・ページを表示するには、以下のステップを実行します。<ol>
+
+<li>「<strong>サーバー</strong>」&gt;「<strong>アプリケーション・サーバー</strong>」&gt;「<em>server_name</em> 」をクリックします。</li>
+
+<li>「追加プロパティー」の下の「<strong>Web Services: Default bindings for Web Services Security</strong>」&gt;「<strong>Key Locators</strong>」&gt;「<strong>新規</strong>」をクリックします。</li>
+
+</ol>
+</p>
+
+<dl>
+<dt>
+<strong><a name="sec_keylname"></a>Key Locator Name   </strong>
+</dt>
+<dd>鍵ロケーターの名前を指定します。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="sec_keylclass"></a>Key Locator Classname </strong>
+</dt>
+<dd>鍵ロケーター・クラスのインプリメンテーションの名前を指定します。
+<p>WebSphere Application Server には、以下に示したデフォルトの鍵ロケーター・クラスのインプリメンテーションがあります。<dl>
+<dt>
+<strong>com.ibm.wsspi.wssecurity.config.WSldKeyStoreMapKeyLocator</strong>
+</dt>
+<dd>このクラスは応答の送信側が使用し、認証済みの ID を鍵にマップします。
+暗号化が使用されている場合は、このクラスを使用して、応答メッセージを暗号化する鍵を見付けます。com.ibm.wsspi.wssecurity.config.WSldKeyStoreMapKeyLocator クラスは、現行のスレッドの起動信任状の認証済み ID を、メッセージの暗号化に使用される鍵にマップすることができます。認証済み ID が現行スレッドに存在する場合は、このクラスはその ID をマップされた名前にマップします。例えば、user1 は <samp>mappedName_1</samp> にマップされます。
+認証済み ID が現行スレッドに存在しない場合には、名前は「default」になります。一致する鍵が見付からなかった場合には、認証済み ID は、バインディング・ファイルで指定されているデフォルトの鍵にマップされます。</dd>
+<dt>
+<strong>com.ibm.wsspi.wssecurity.config.KeyStoreKeyLocator</strong>
+</dt>
+<dd>このクラスは、応答の受信側、要求の送信側、および要求の受信側が使用し、エイリアスに名前をマップします。暗号化処理では、このクラスを使用してメッセージを暗号化するための鍵を取得し、ディジタル署名プロセスでは、このクラスを使用してメッセージに署名するための鍵を取得します。com.ibm.wsspi.wssecurity.config.KeyStoreKeyLocator クラスは、論理名を鍵ストア・ファイル内の鍵のエイリアスにマップします。例えば、鍵 #105115176771 は <samp>CN=Alice、O=IBM、c=US</samp> にマップされます。</dd>
+</dl>
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">com.ibm.wsspi.wssecurity.config.KeyStoreKeyLocator</td>
+<td align="left" valign="top" class="base">com.ibm.wsspi.wssecurity.config.WSldKeyStoreMayKeyLocator</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="sec_keystpass"></a>鍵ストア・パスワード</strong>
+</dt>
+<dd>鍵ストア・ファイルへのアクセスに使用するパスワードを指定します。</dd>
+<dt>
+<strong><a name="sec_keystpath"></a>Key Store Path</strong>
+</dt>
+<dd>鍵ストア・ファイルのロケーションを指定します。
+<p>${USER_INSTALL_ROOT} を使用します。このパスは、ご使用のマシンの WebSphere Application Server のパスに変換されます。</p>
+
+</dd>
+<dt>
+<strong><a name="sec_keysttype"></a>Key Store Type</strong>
+</dt>
+<dd>鍵ストア・ファイルのタイプを指定します。
+<p>このフィールドの値は、<strong>JKS</strong> または <strong>JCEKS</strong> のいずれかです。<dl>
+
+<dt>
+<strong>JKS</strong>
+</dt>
+<dd>このオプションは、Java Cryptography Extensions (JCE) を使用していない場合に使用します。</dd>
+<dt>
+<strong>JCEKS</strong>
+</dt>
+<dd>このオプションは、Java Cryptography Extensions を使用している場合に使用します。</dd>
+</dl>
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">JKS</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">JKS、JCEKS</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>関連情報</strong>
+</p>
+<a href="uwbs_keyl.html">鍵ロケーターのコレクション</a>
+<br>
+
+<a href="uwbs_keylak.html">鍵コレクション</a>
+<br>
+
+</div>
+</body>
+</html>

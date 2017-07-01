@@ -1,0 +1,123 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>簽章資訊配置設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_signinfon"></a>
+<h2>
+<img alt="[修正套件 5.0.2 和更新版本]" src="v502.gif" border="0">簽章資訊配置設定</h2>
+
+<p>請利用這個頁面來配置新的簽章參數。</p>
+
+<p>這個頁面列出的簽章方法、摘要方法和標準化方法規格都在 W3C 文件中，文件標題為 "XMLSignature Syntax and Specification: W3C Recommendation 12 Feb 2002"。
+</p>
+
+<p>如果要檢視這個管理主控台頁面，請按一下<strong>企業應用程式 &gt; </strong><em>application_name</em>。
+在「相關項目」之下，按一下 <strong>Web 模組 &gt; </strong><em>URI_file_name</em> <strong>&gt; Web 服務：伺服器安全連結</strong>。
+在「要求接收端連結」直欄中，按一下<strong>編輯 &gt; 簽章資訊 &gt; 新建</strong>。</p>
+
+<p>按一下<strong>新建</strong>來建立簽章參數。</p>
+
+<p>按一下<strong>刪除</strong>來刪除簽章參數。</p>
+
+<dl>
+<dt>
+<strong><a name="sec_sigmeth"></a>簽章方法</strong>
+</dt>
+<dd>指定簽章方法的演算法 URI。
+這個方法包含利用 base64 來編碼的數位簽章值。
+
+<p>以下是支援的演算法：<ul>
+
+<li>
+<samp>http://www.w3.org/2000/09/xmldsig#rsa-sha1</samp>
+</li>
+
+<li>
+<samp>http://www.w3.org/2000/09/xmldsig#dsa-sha1</samp>
+</li>
+
+</ul>
+</p>
+
+</dd>
+<dt>
+<strong><a name="sec_digestmeth"></a>摘要方法</strong>
+</dt>
+<dd>指定摘要方法的演算法 URI。
+<p>支援 <samp>http://www.w3.org/2000/09/xmldsig#sha1</samp> 演算法。</p>
+
+</dd>
+<dt>
+<strong><a name="sec_cancmeth"></a>標準化方法</strong>
+</dt>
+<dd>指定標準化方法的演算法 URI。
+<p>以下是支援的演算法：<ul>
+
+<li>
+<samp>http://www.w3.org/2001/10/xml-exc-c14n#</samp>
+</li>
+
+<li>
+<samp>http://www.w3.org/2001/10/xml-exc-c14n#WithComments</samp>
+</li>
+
+<li>
+<samp>http://www.w3.org/TR/2001/REC-xml-c14n-20010315</samp>
+</li>
+
+<li>
+<samp>http://www.w3.org/TR/2001/REC-xml-c14n-20010315#WithComments</samp>
+</li>
+
+</ul>
+</p>
+
+</dd>
+<dt>
+<strong><a name="sec_signk"></a>簽章金鑰</strong>
+</dt>
+<dd>指定簽章所用的金鑰資訊。
+在接收端配置中，會忽略這些欄位。
+
+<p>如果您指定<strong>金鑰名稱</strong>和<strong>金鑰定位器參照</strong>，請在「憑證路徑」中，選取<strong>無</strong>。</p>
+
+</dd>
+<dt>
+<strong><a name="sec_certpath"></a>憑證路徑</strong>
+</dt>
+<dd> 指定憑證路徑驗證的設定。
+當您選取<strong>信任任何人</strong>時，會跳過這個驗證，並信任所有送入憑證。在傳送端配置中，會忽略這些欄位。
+
+<p>如果您按一下<strong>信任任何人</strong>或選取<strong>信任錨點</strong>和<strong>憑證儲存庫</strong>，請在先前欄位中，選取「簽章金鑰」為<strong>無</strong>。</p>
+
+<p>
+<strong>信任錨點</strong>
+</p>
+
+<p>信任錨點所能使用的選項是藉由按一下<strong>伺服器 &gt; 應用程式伺服器 &gt; </strong><em>server_name</em> 來指定的。
+在「其他內容」之下，按一下 <strong>Web 服務：Web 服務安全的預設連結 &gt; 信任錨點</strong>。</p>
+
+<p>
+<strong>憑證儲存庫</strong>
+</p>
+
+<p>集合儲存庫所能使用的選項是藉由按一下<strong>伺服器 &gt; 應用程式伺服器 &gt; </strong><em>server_name</em> 來指定的。
+請在「相關項目」之下，按一下 <strong>Web 服務：Web 服務安全的預設連結 &gt; 集合憑證儲存庫</strong>。</p>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>相關資訊</strong>
+</p>
+<a href="uwbs_signinfo.html">簽章資訊集合</a>
+<br>
+
+</div>
+</body>
+</html>

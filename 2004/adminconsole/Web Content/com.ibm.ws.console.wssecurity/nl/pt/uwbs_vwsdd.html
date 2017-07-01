@@ -1,0 +1,326 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>View Web services server deployment descriptor </title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_vwsdd"></a>
+<h2>View Web services server deployment descriptor </h2>
+
+<p>Use this page view your server deployment descriptor settings.</p>
+
+<p>To view this administrative console page, complete the following steps:<ol>
+
+<li>Click <strong>Applications &gt; Enterprise Applications &gt; </strong><em>application_name</em>. </li>
+
+<li>Under Related Items, click <strong>Web Modules</strong> &gt; <em>URI_file_name</em> &gt; <strong>View
+Web Services Server Deployment Descriptor</strong>.</li>
+
+</ol>
+</p>
+
+<p>WebSphere Application Server has two levels of bindings:
+application-level and server-level. WebSphere Application
+Server Network Deployment has three levels of bindings: application-level,
+server-level, and cell-level. The information in the following implementation
+descriptions indicate how to configure your application-level bindings. To
+configure the server-level bindings, which are the defaults, complete the
+following steps:<ol>
+
+<li>Click <strong>Servers &gt; Application Servers &gt;</strong><em> server_name</em>. </li>
+
+<li>Under Related Items, click <strong>Web Services: Default bindings for Web Services
+Security</strong>. </li>
+
+</ol>To configure the cell-level bindings, click <strong>Security
+&gt; Web Services</strong>.<ul>
+
+<li>
+<a href="#digsign">Request digital signature verification</a>
+</li>
+
+<li>
+<a href="#reqdecrypt">Request decryption</a>
+</li>
+
+<li>
+<a href="#basicauth">BasicAuth authentication</a>
+</li>
+
+<li>
+<a href="#idassert">Identity (ID) Assertion authentication</a>
+</li>
+
+<li>
+<a href="#idasserttrust">Identity (ID) Assertion authentication with
+the signature TrustMode</a>
+</li>
+
+<li>
+<a href="#respsign">Response signing</a>
+</li>
+
+<li>
+<a href="#respencr">Response encryption</a>
+</li>
+
+</ul>
+</p>
+
+<div>
+<a name="digsign"></a>
+<p class="sectiontitle">
+<b>Request digital signature verification</b>
+</p>
+<p>If
+the integrity constraints (signature required) are defined, verify that you
+configured the signing information in the binding files.</p>
+<p>To configure
+the signing parameters, complete the following steps:<ol>
+
+<li>Click <strong>Applications &gt; Enterprise Applications &gt; </strong><em>application_name</em>. </li>
+
+<li>Under Related Items, click <strong>Web Modules &gt; </strong><em>URI_file_name</em> &gt; <strong>Web
+Services: Server Security Bindings </strong>. </li>
+
+<li>In the Request Receiver Binding column, click <strong>Edit &gt; Signing Information</strong>. </li>
+
+</ol>
+</p>
+<p>To configure the trust anchor, complete the following steps:<ol>
+
+<li>Click <strong>Servers &gt; Application Servers &gt; </strong><em>server_name</em>. </li>
+
+<li>Under Additional Properties, click <strong>Web Services: Default bindings for
+Web Services Security &gt; Trust Anchors</strong>. </li>
+
+</ol>
+</p>
+<p>To configure the collection certificate store, complete the following
+steps:<ol>
+
+<li>Click <strong>Servers &gt; Application Servers &gt; </strong><em> server_name</em>. </li>
+
+<li>Under Related Items, click <strong>Web Services: Default bindings for Web Services
+Security &gt; Collection Certificate Store</strong>. </li>
+
+</ol>
+</p>
+<p>To configure the key locators, complete the following steps:<ol>
+
+<li>Click <strong>Servers &gt; Application Servers &gt; </strong><em>server_name</em>. </li>
+
+<li>Under Additional Properties, click <strong>Web Services: Default bindings for
+Web Services Security &gt; Key Locators</strong>.</li>
+
+</ol>
+</p>
+</div>
+
+<div>
+<a name="reqdecrypt"></a>
+<p class="sectiontitle">
+<b>Request decryption</b>
+</p>
+<p>If the confidentiality
+constraints (encryption) are specified, verify that the encryption information
+is defined. </p>
+<p>To configure the encryption information parameters, complete
+the following steps:<ol>
+
+<li>Click <strong>Enterprise Applications &gt; </strong><em>application_name</em>. </li>
+
+<li>Under Related Items, Click <strong>Web Module</strong>.</li>
+
+<li>Under Additional Properties, click <strong>Web Services: Server Security Bindings</strong>.
+Under Request Receiver Binding, click <strong>Edit &gt; Encryption Information</strong>.</li>
+
+</ol>
+</p>
+<p>To configure the key locators, complete the following steps:<ol>
+
+<li>Click <strong>Servers &gt; Application Servers &gt; </strong><em>server_name</em>. </li>
+
+<li>Under Additional Properties, click <strong>Web Services: Default bindings for
+Web Services Security &gt; Key Locators</strong>.</li>
+
+</ol>
+</p>
+</div>
+
+<div>
+<a name="basicauth"></a>
+<p class="sectiontitle">
+<b>BasicAuth authentication</b>
+</p>
+<p>If BasicAuth is configured as the required security token,
+specify the CallbackHandler in the binding file to
+collect the basic authentication data. The following is a listing of CallBack
+support implementations:<dl>
+<dt>
+<strong>com.ibm.wsspi.wssecurity.auth.callback.GuiPromptCallbackHandler</strong>
+</dt>
+<dd>The implementation prompts for BasicAuth information (user name and password)
+in an interface panel.</dd>
+<dt>
+<strong>com.ibm.wsspi.wssecurity.auth.callback.NonPromptCallbackHandler</strong>
+</dt>
+<dd>This implementation reads the BasicAuth information from the binding file.</dd>
+<dt>
+<strong>com.ibm.wsspi.wssecurity.auth.callback.StdPromptCallbackHandler</strong>
+</dt>
+<dd>This implementation prompts for a user name and password using standard
+in (stdin) prompt.</dd>
+</dl>
+</p>
+<p>To configure the login mapping information, complete
+the following steps:<ol>
+
+<li>Click <strong>Server &gt; Application Servers &gt; </strong><em>server_name</em>. </li>
+
+<li>Under Additional Properties, click <strong>Web Services: Default bindings for
+Web Services Security &gt; Login Mappings</strong>.</li>
+
+</ol>
+</p>
+</div>
+
+<div>
+<a name="idassert"></a>
+<p class="sectiontitle">
+<b>Identity (ID) Assertion authentication with
+the BasicAuth TrustMode</b>
+</p>
+<p>Configure a login binding in the bindings
+file with a com.ibm.wsspi.wssecurity.auth.callback.NonPromptCallbackHandler
+implementation. Specify a BasicAuth user ID and password
+that a TrustedIDEvaluator on a downstream server trusts.</p>
+<p>To
+configure the login mapping information, complete the following steps:<ol>
+
+<li>Click <strong>Server &gt; Application Servers &gt; </strong><em>server_name</em>. </li>
+
+<li>Under Additional Properties, click <strong>Web Services: Default bindings for
+Web Services Security &gt; Login Mappings</strong>.</li>
+
+</ol>
+</p>
+</div>
+
+<div>
+<a name="idasserttrust"></a>
+<p class="sectiontitle">
+<b>Identity (ID) Assertion authentication
+with the Signature TrustMode</b>
+</p>
+<p>Configure the signing information in
+the bindings file with a signing key pointing to a key locator. The key locator
+contains the X.509 certificate that is trusted by the downstream server.</p>
+<p>To
+configure the login mapping information, complete the following steps:<ol>
+
+<li>Click <strong>Server &gt; Application Servers &gt; </strong><em>server_name</em>. </li>
+
+<li>Under Additional Properties, click <strong>Web Services: Default bindings for
+Web Services Security &gt; Login Mappings</strong>.</li>
+
+</ol>
+</p>
+<p>
+<samp>WSLogin</samp> is the name of the login configuration used by
+the Java Authentication and Authorization Service (JAAS). To configure JAAS,
+click <strong>Security &gt; JAAS Configuration &gt; Application Logins</strong>.</p>
+<p>The
+value of the <samp>&lt;TrustedIDEvaluatorRef&gt;</samp> tag in the binding must match
+the value of the <samp>&lt;TrustedIDEvaluator&gt;</samp> name.</p>
+<p>To configure
+the trusted ID evaluators, complete the following steps:<ol>
+
+<li>Click <strong>Servers &gt; Application Servers &gt; </strong><em>server_name</em>. </li>
+
+<li>Under Additional Services, click <strong>Web Services: Default bindings for
+Web Services Security &gt; Trusted ID Evaluators</strong>.</li>
+
+</ol>
+</p>
+</div>
+
+<div>
+<a name="respsign"></a>
+<p class="sectiontitle">
+<b>Response signing</b>
+</p>
+<p>If the integrity
+constraints (digital signature) are defined, verify that you have the signing
+information configured in the binding files.</p>
+<p>To specify the signing
+information,  complete the following steps:<ol>
+
+<li>Click <strong>Applications &gt; Enterprise Applications &gt; </strong><em>application_name</em>. </li>
+
+<li>Under Related Items, click <strong>Web Modules &gt; </strong><em>URI_file_name</em> <strong>&gt;
+Web Services: Server Security Bindings </strong>. </li>
+
+<li>In the Request Receiver Binding column, click <strong>Edit &gt; Signing Information</strong>.</li>
+
+</ol>
+</p>
+<p>To configure the key locators, complete the following steps:<ol>
+
+<li>Click <strong>Servers &gt; Application Servers &gt; </strong><em>server_name</em>. </li>
+
+<li>Under Additional Properties, click <strong>Web Services: Default bindings for
+Web Services Security &gt; Key Locators</strong>.</li>
+
+</ol>
+</p>
+</div>
+
+<div>
+<a name="respencr"></a>
+<p class="sectiontitle">
+<b>Response encryption</b>
+</p>
+<p>If the confidentiality
+constraints (encryption) are specified, verify that the encryption information
+is defined. </p>
+<p>To specify the encryption information, complete the following
+steps:<ol>
+
+<li>Click <strong>Enterprise Applications &gt; </strong><em>application_name</em>. </li>
+
+<li>Under Related Items, click <strong>Web Module</strong>. </li>
+
+<li>Under Additional Properties, click <strong>Web Services: Server Security Bindings</strong>. </li>
+
+<li>Under Request Receiver Binding, click <strong>Edit &gt; Encryption Information</strong>.</li>
+
+</ol>
+</p>
+<p>To configure the key locators, complete the following steps:<ol>
+
+<li>Click <strong>Servers &gt; Application Servers &gt; </strong><em>server_name</em>. </li>
+
+<li>Under Additional Properties, click <strong>Web Services: Default bindings for
+Web Services Security &gt; Key Locators</strong>.</li>
+
+</ol>
+</p>
+</div>
+
+<div>
+<p>
+<strong>Related information</strong>
+</p>
+<a href="uwbs_websvcb.html">Web services: default bindings for the Web services security collection</a>
+<br>
+
+<a href="uwbs_vwcdd.html">View Web services client deployment descriptor </a>
+<br>
+
+</div>
+</body>
+</html>

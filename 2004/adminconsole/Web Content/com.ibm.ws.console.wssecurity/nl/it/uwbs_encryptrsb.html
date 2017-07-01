@@ -1,0 +1,160 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Impostazioni configurazione delle informazioni di codifica</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_encryptrsb"></a>
+<h2>
+<img alt="[Release 5.1 e successive]" src="v51.gif" border="0">Impostazioni configurazione delle informazioni di codifica</h2>
+
+<p>Utilizzare questa pagina per configurare i parametri di codifica e di decodifica.</p>
+
+<p>Le specifiche elencate in questa pagina relative ai metodi signing, digest e canonicalization si trovano nel documento W3C (World Wide Web Consortium), dal titolo <em>XML Encryption Syntax and Processing: W3C Recommendation 10 Dec 2002</em>.</p>
+
+<p>Per visualizzare questa pagina della console di gestione, completare le seguenti operazioni:<ol>
+
+<li>Fare clic su <strong>Applicazioni &gt; Applicazioni Enterprise &gt; </strong><em>nome_applicazione</em>. </li>
+
+<li>In Elementi correlati, fare clic su <strong>Modulo Web &gt; </strong><em>Nome_file_URI</em> &gt; <strong>Servizi Web: collegamenti sicurezza server</strong>. </li>
+
+<li>In Collegamento mittente risposta, fare clic su <strong>Modifica &gt; Informazioni sulla codifica</strong>.</li>
+
+<li>Se le informazioni sulla codifica non sono disponibili, selezionare <strong>Nessuno</strong>.</li>
+
+<li>Se le informazioni sulla codifica sono disponibili, selezionare <strong>Informazioni sulla codifica dedicate</strong>.</li>
+
+</ol>
+</p>
+
+<p></p>
+
+<p>Quindi, specificare la configurazione nei seguenti campi:</p>
+
+<dl>
+<dt>
+<strong><a name="sec_name"></a>Nome informazioni sulla codifica</strong>
+</dt>
+<dd>Specifica il nome per le informazioni sulla codifica.</dd>
+<dt>
+<strong><a name="sec_klr"></a>Riferimento indicatore di posizione della chiave</strong>
+</dt>
+<dd>Specifica il nome utilizzato per l'indicatore di posizione della chiave.
+<p>Per specificare i riferimenti all'indicatore di posizione della chiave, fare clic su <strong>Server &gt; Server delle applicazioni &gt; </strong><em>nome_server</em>. In Ulteriori propriet&agrave;, fare clic su <strong>Servizi Web: collegamenti predefiniti per la sicurezza dei servizi Web (WS-Security, Web Services Security) &gt; Indicatore di posizione della chiave</strong>.</p>
+
+</dd>
+<dt>
+<strong><a name="sec_ekn"></a>Nome chiave di codifica</strong>
+</dt>
+<dd>Specifica il nome della chiave di codifica, determinato in base alla chiave reale dall'indicatore di posizione della chiave.</dd>
+<dt>
+<strong><a name="sec_eka"></a>Algoritmo di codifica chiavi </strong>
+</dt>
+<dd>Specifica l'URI dell'algoritmo del metodo di codifica chiavi.
+<p>Sono supportati i seguenti algoritmi:<ul>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#rsa-1_5</samp>
+</li>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#kw-tripledes</samp>
+</li>
+
+</ul>
+</p>
+
+<p>Sono supportati i seguenti algoritmi aggiuntivi: <ul>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#kw-aes128</samp>
+</li>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#kw-aes256</samp>
+</li>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#kw-aes192</samp>
+</li>
+
+</ul>
+</p>
+
+<p>Per impostazione predefinita, JCE (Java Cryptography Extension) viene distribuito con  cifrature a capacit&agrave; limitata. Per utilizzare gli algoritmi di codifica AES (Advanced Encryption Standard) a 192 e a 256 bit, applicare file delle politiche con autorit&agrave; illimitata. Prima di scaricare questi file, eseguire il backup dei file delle politiche esistenti (local_policy.jar e US_export_policy.jar nella directory jre/lib/security/) prima che vengano sovrascritti, nell'eventualit&agrave; che  si volesse ripristinare i file originali in futuro.
+Per scaricare i file delle politiche, completare uno dei seguenti gruppi di procedure:<ul>
+
+<li>Per le piattaforme WebSphere Application Server che usano IBM Developer Kit, Java Technology Edition Version 1.4.1, inclusi i sistemi AIX, Linux e Windows, &egrave; possibile ottenere file delle politiche con autorit&agrave; illimitata completando le seguenti procedure:<ul>
+
+<li>Andare al sito Web: http://www.ibm.com/developerworks/java/jdk/security/index.html </li>
+
+<li>Fare clic su <strong>Policy Files (File delle politiche)</strong>. <p>Il file unrestrict.jar viene scaricato sulla macchina.</p>
+</li>
+
+</ul>
+</li>
+
+<li>Per le piattaforme WebSphere Application Server che utilizzano Java Development
+Kit (JDK) Version 1.4.1 basato su Sun, inclusi i sistemi Solaris e HP-UX, &egrave; possibile ottenere file delle politiche con autorit&agrave; illimitata completando le seguenti procedure:<ul>
+
+<li>Andare al sito Web: http://java.sun.com/j2se/1.4.1/download.html</li>
+
+<li>Sulla parte inferiore della pagina, fare clic su Download (Scarica), accanto a Java Cryptography Extension (JCE) Unlimited Strength Jurisdiction Policy Files 1.4.1. Il file jce_policy-1_4_1.zip viene scaricato sulla macchina.</li>
+
+</ul>
+</li>
+
+</ul>Dopo aver completato il gruppo di procedure specifico, saranno disponibili due file JAR (Java Archive) nella directory JVM jre/lib/security/.</p>
+
+</dd>
+<dt>
+<strong><a name="sec_dea"></a>Algoritmo di codifica dati</strong>
+</dt>
+<dd>Specifica l'URI (Uniform Resource Identifier) dell'algoritmo del metodo di codifica dati.
+<p>Il seguente algoritmo &egrave; supportato:<ul>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#tripledes-cbc</samp>
+</li>
+
+</ul>
+</p>
+
+<p>Sono supportati i seguenti algoritmi aggiuntivi: <ul>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#aes128-cbc</samp>
+</li>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#aes256-cbc</samp>
+</li>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#aes192-cbc</samp>
+</li>
+
+</ul>
+</p>
+
+<p>Per impostazione predefinita, JCE (Java Cryptography Extension) viene distribuito con cifrature a capacit&agrave; limitata.
+Per utilizzare gli algoritmi di codifica AES (Advanced Encryption Standard) a 192 e a 256 bit, applicare file delle politiche con autorit&agrave; illimitata. </p>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>Informazioni correlate</strong>
+</p>
+<a href="uwbs_encrypt.html">Raccolta di informazioni di codifica</a>
+<br>
+
+<a href="uwbs_keyl.html">Raccolta indicatori di posizione della chiave</a>
+<br>
+
+</div>
+</body>
+</html>

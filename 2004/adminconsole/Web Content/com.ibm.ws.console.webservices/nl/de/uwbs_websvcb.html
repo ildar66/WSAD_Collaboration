@@ -1,0 +1,248 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Web Services: Standardbindungen f&uuml;r die Web-Services-Sicherheit</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_websvcb"></a>
+<h2>
+<img alt="[Release 5.1 und h&ouml;her]" src="v51.gif" border="0">Web Services: Standardbindungen f&uuml;r die Web-Services-Sicherheit</h2>
+
+<p>Verwenden Sie diese Seite, um die Nonce-Einstellungen
+auf Serverebene zu konfigurieren und die Standardbindungen f&uuml;r Trust Anchor,
+den Collection Certificate Store, Key Locator, Trusted ID Evaluator und Anmeldezuordnungen zu verwalten. </p>
+
+<p>Klicken Sie zum Anzeigen dieser Seite der Administrationskonsole auf <strong>Server &gt; Anwendungsserver &gt; </strong><em>Servername</em>. Klicken Sie unter
+"Weitere Merkmale" auf <strong>Web Services: Standardbindungen f&uuml;r Web-Services-Sicherheit</strong>.</p>
+
+<p>Lesen Sie die Dokumentation zu Web Services, bevor Sie mit der Definition der Standardbindungen
+f&uuml;r die Sicherheit von Web services beginnen.</p>
+
+<p>Gehen Sie zum Definieren der Serverbindungen wie folgt vor:<ol>
+
+<li>Klicken Sie auf <strong>Anwendungen &gt; Enterprise-Anwendungen &gt; </strong><em>Anwendungsname</em>. </li>
+
+<li>Klicken Sie unter "Zugeh&ouml;rige Elemente" auf <strong>Webmodul
+&gt; </strong><em>Name_der_URI-Datei</em><strong>&gt; Web Services: Sicherheitsbindungen des Servers</strong>.</li>
+
+</ol>
+</p>
+
+<p>Gehen Sie zum Definieren der Clientbindungen wie folgt vor:<ol>
+
+<li>Klicken Sie auf <strong>Anwendungen &gt; Enterprise-Anwendungen &gt; </strong><em>Anwendungsname</em>. </li>
+
+<li>Klicken Sie unter "Zugeh&ouml;rige Element" auf <strong>Webmodule &gt; </strong><em>Name_der_URI-Datei</em><strong> &gt;
+Web Services: Sicherheitsbindungen des Clients</strong>. </li>
+
+</ol>
+</p>
+
+<p>
+<img alt="[Release 5.1 und h&ouml;her]" src="v51.gif" border="0"><em>Nonce</em> ist eine eindeutige verschl&uuml;sselte Nummer, die in eine Nachricht eingebettet wird,
+um wiederholte, unbefugte Hackerattackeen auf Benutzernamen-Token zu verhindern.
+In einer WAS-Basisumgebung m&uuml;ssen Sie das
+das <strong>Cache-Zeitlimit f&uuml;r Nonce</strong>, die <strong>maximale Nonce-Dauer</strong> und die <strong>zeitliche Abweichung f&uuml;r Nonce</strong>
+auf Serverebene angeben.
+</p>
+
+<p> Die Konfiguration der Standardbindungen ist eine zentrale Stelle, in der wieder verwendbare
+Bindungsdaten definiert werden. Die Bindungsdatei der Anwendung kann auf die Informationen verweisen, die in der
+Konfiguration der Standardbindungen enthalten sind. </p>
+
+<dl>
+<dt>
+<strong><a name="sec_noncecachetimeout"></a>Cache-Zeitlimit f&uuml;r Nonce</strong>
+            &nbsp;
+            <img alt="[Release 5.1 und h&ouml;her]" src="v51.gif" border="0"></dt>
+<dd>Das Zeitlimit f&uuml;r den auf dem Server zwischengespeicherten Nonce. Nonce ist ein generierter Zufallswert.
+
+<p>Sie m&uuml;ssen im Feld <strong>Cache-Zeitlimit f&uuml;r Nonce</strong> einen Mindestwert von 300 Sekunden angeben.
+Wenn Sie keinen Wert angeben, wird der Standardwert 600 verwendet.
+</p>
+
+<p>F&uuml;r die WAS-Basisumgebung muss das Feld <strong>Cache-Zeitlimit f&uuml;r Nonce</strong> ausgef&uuml;llt werden.
+</p>
+
+<p>Wenn Sie das Cache-Zeitlimit f&uuml;r Nonce ver&auml;ndern, m&uuml;ssen Sie WebSphere Application Server erneut starten,
+damit die &Auml;nderung wirksam wird.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert
+</td>
+<td align="left" valign="top" class="base">600 Sekunden</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Mindestwert</td>
+<td align="left" valign="top" class="base">300 Sekunden</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="sec_noncemaxage"></a>Maximale Nonce-Dauer</strong>
+            &nbsp;
+            <img alt="[Release 5.1 und h&ouml;her]" src="v51.gif" border="0"></dt>
+<dd>Standardverfallsdatum f&uuml;r die Nonce-Zeitmarke. Nonce ist ein generierter Zufallswert.
+
+<p>Sie m&uuml;ssen im Feld <strong>Maximale Nonce-Dauer</strong> einen Mindestwert von 300 Sekunden angeben.
+F&uuml;r die Serverebene darf der Maximalwert jedoch nicht das angegebene <strong>Cache-Zeitlimit f&uuml;r Nonce</strong> &uuml;berschreiten. Wenn Sie keinen
+Wert angeben, wird der Standardwert von 300 Sekunden verwendet.
+Der f&uuml;r diese Serverebene im Feld <strong>Maximale Nonce-Dauer</strong> angegebene Wert darf die f&uuml;r die Zellenebene
+angegebene <strong>maximale Nonce-Dauer</strong> nicht &uuml;berschreiten. Sie k&ouml;nnen den Wert &uuml;berpr&uuml;fen, indem Sie nacheinander auf
+<strong>Sicherheit &gt; Web Services &gt; Merkmale</strong> klicken. </p>
+
+<p>F&uuml;r die WAS-Basisumgebung muss das Feld <strong>Maximale Nonce-Dauer</strong> ausgef&uuml;llt werden.
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert
+</td>
+<td align="left" valign="top" class="base">300 Sekunden</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">300 Sekunden bis Sekunden des <strong>Cache-Zeitlimits f&uuml;r Nonce</strong> </td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="sec_nonceclockskew"></a>Zeitliche Abweichung f&uuml;r Nonce
+</strong>
+            &nbsp;
+            <img alt="[Release 5.1 und h&ouml;her]" src="v51.gif" border="0"></dt>
+<dd>Gibt die zeitliche Standardabweichung an, die WebSphere Application Server ber&uuml;cksichtigen muss, wenn die Aktualit&auml;t der Nachricht gepr&uuml;ft wird. Nonce ist ein generierter Zufallswert.
+
+<p>Sie m&uuml;ssen im Feld <strong>Zeitliche Abweichung f&uuml;r Nonce</strong> einen Mindestwert von 0 Sekunden angeben.
+Der Maximalwert darf jedoch nicht die Anzahl der im Feld <strong>Maximale Nonce-Dauer</strong> angegebenen Sekunden &uuml;berschreiten. Wenn Sie keinen
+Wert angeben, wird der Standardwert von 0 Sekunden verwendet.
+</p>
+
+<p>F&uuml;r die WAS-Basisumgebung muss das Feld <strong>Zeitliche Abweichung f&uuml;r Nonce</strong> ausgef&uuml;llt werden.
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert
+</td>
+<td align="left" valign="top" class="base">0 Sekunden</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">0 Sekunden bis <strong>Maximale Nonce-Dauer</strong> </td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="sec_trustancdescr"></a>Trust Anchor</strong>
+            &nbsp;
+            <img alt="[Fixpack 5.0.2 und h&ouml;her]" src="v502.gif" border="0"></dt>
+<dd>Eine Liste mit Keystore-Objekten, die die gesicherten Stammzertifikate, selbst unterzeichnete
+Zertifikate oder von einer Zertifizierungsinstanz (CA) ausgestellte Zertifikate enthalten. 
+<p>Die Zertifizierungsinstanz authentifiziert einen Benutzer und stellt ein Zertifikat aus.
+Nach dem Ausstellen des Zertifikats verwenden die Keystore-Objekte, die diese Zertifikate enthalten, das Zertifikat
+f&uuml;r die Validierung des Zertifikatpfads oder der Zertifizierungskette eingehender Sicherheits-Token im X.509-Format. </p>
+
+</dd>
+<dt>
+<strong><a name="sec_collcert"></a>Collection Certificate Store</strong>
+            &nbsp;
+            <img alt="[Fixpack 5.0.2 und h&ouml;her]" src="v502.gif" border="0"></dt>
+<dd>Eine Liste ungesicherter, tempor&auml;rer Zertifikatdateien. 
+<p>Der Collection Certificate Store enth&auml;lt eine Kette ungesicherter, tempor&auml;rer Zertifikate.
+Die API CertPath versucht, diese Zertifikate zu validieren, die auf dem Trust Anchor basieren. </p>
+
+</dd>
+<dt>
+<strong><a name="sec_keyldesc"></a>Key Locator</strong>
+            &nbsp;
+            <img alt="[Fixpack 5.0.2 und h&ouml;her]" src="v502.gif" border="0"></dt>
+<dd>Eine Liste mit Key-Locator-Objekten, die die Schl&uuml;ssel f&uuml;r digitale Signatur und Verschl&uuml;sselung
+aus einer Keystore-Datei oder einem Repository abrufen.
+Der Key Locator ordnet einen Namen oder logischen Namen einem Aliasnamen oder eine authentifizierte Identit&auml;t
+einem Schl&uuml;ssel zu. Dieser logische Name wird zum Suchen eines Schl&uuml;ssels in einer Key-Locator-Implementierung
+verwendet. </dd>
+<dt>
+<strong><a name="sec_trstiddesc"></a>Trusted ID Evaluator</strong>
+            &nbsp;
+            <img alt="[Fixpack 5.0.2 und h&ouml;her]" src="v502.gif" border="0"></dt>
+<dd>Eine Liste der Trusted ID Evaluator, die festlegt, ob die identit&auml;tszusichernde Instanz
+oder der Nachrichtensender als vertrauensw&uuml;rdig eingestuft wird.
+
+<p>Die Trusted ID Evaluator werden verwendet, um weitere Identit&auml;ten zwischen Servern zu
+authentifizieren. Beispiel: Ein Client sendet die Identit&auml;t von Benutzer A zur Authentifizierung an den Server 1. Server 1
+setzt Aufrufe an den Server 2 ab (Downstream), sichert die Identit&auml;t von Benutzer A zu und f&uuml;gt
+Benutzer-ID und Kennwort von Server 1 hinzu.
+Server 2 versucht, das Vertrauensverh&auml;ltnis zu Server 1 herzustellen, indem er dessen
+Benutzer-ID und Kennwort authentifiziert und basierend auf der TrustedIDEvaluator-Implementierung die Vertrauensw&uuml;rdigkeit pr&uuml;ft. Wenn
+der Authentifizierungsprozess und die Vertrauenspr&uuml;fung erfolgreich verlaufen, vertraut
+Server 2 darauf, dass Server 1 Benutzer A authentifiziert hat, und es wird ein Berechtigungsnachweis
+f&uuml;r Benutzer A in Server 2 erstellt, so dass dieser die Anforderung absetzen kann. </p>
+
+</dd>
+<dt>
+<strong><a name="sec_logmapdesc"></a>Anmeldezuordnungen</strong>
+            &nbsp;
+            <img alt="[Fixpack 5.0.2 und h&ouml;her]" src="v502.gif" border="0"></dt>
+<dd>Eine Liste von Konfigurationen f&uuml;r die Validierung der Token in eingehenden Nachrichten.
+
+<p>Anmeldezuordnungen ordnen die Authentifizierungsmethode der JAAS-Konfiguration zu. </p>
+
+<p>Verwenden Sie zum Konfigurieren von JAAS die Administrationskonsole. Klicken Sie auf
+<strong>Sicherheit &gt; JAAS-Konfiguration</strong>.</p>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>Zugeh&ouml;rige Informationen</strong>
+</p>
+<a href="uwbs_trstanc.html">Trust Anchor</a>
+<br>
+
+<a href="uwbs_colcertst.html">Collection Certificate Stores</a>
+<br>
+
+<a href="uwbs_keyl.html">Key Locator</a>
+<br>
+
+<a href="uwbs_trstide.html">Trusted ID Evaluator</a>
+<br>
+
+<a href="uwbs_logmap.html">Anmeldezuordnungen</a>
+<br>
+
+<a href="uwbs_logmapn.html">Konfigurationseinstellungen f&uuml;r die Anmeldezuordnung</a>
+<br>
+
+</div>
+</body>
+</html>

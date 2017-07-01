@@ -1,0 +1,211 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Servicio de receptor de mensajes</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="MessageListenerService"></a>
+<h2>Servicio de receptor de mensajes</h2>
+
+<p>El servicio de receptor de mensajes es una ampliaci&oacute;n de las funciones JMS del proveedor de JMS. Proporciona un gestor de receptores que controla y supervisa uno o m&aacute;s
+receptores JMS, que a su vez supervisan un destino de JMS en nombre del bean desplegado y
+controlado por mensajes. </p>
+
+<p>Este panel muestra enlaces a las p&aacute;ginas de Propiedades adicionales de los Puertos receptores, la Agrupaci&oacute;n de hebras y las Propiedades personalizadas del servicio receptor de mensajes.</p>
+
+<p>Para ver esta p&aacute;gina de la consola administrativa, pulse <strong>Servidores-&gt;
+<em>servidor_aplicaciones</em>-&gt; Servicio receptor de mensajes</strong>
+</p>
+
+<dl>
+<dt>
+<strong><a name="MessageListenerService_name"></a>Nombre</strong>
+</dt>
+<dd>Nombre por el que se conoce el servicio de receptor de mensajes por razones administrativas.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+
+
+
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">MsgLService</td>
+
+</tr>
+
+
+
+
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MessageListenerService_description"></a>Descripci&oacute;n</strong>
+</dt>
+<dd>Descripci&oacute;n del servicio de receptor de mensajes, por razones administrativas.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+
+
+
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+
+
+
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MessageListenerService_threadPool"></a>Agrupaci&oacute;n de hebras</strong>
+            &nbsp;
+            </dt>
+<dd>Controla el n&uacute;mero m&aacute;ximo de hebras que se le permite ejecutar al servicio receptor de mensajes. Seleccione este enlace para mostrar las propiedades de agrupaci&oacute;n de hebras del servicio.
+<p>Ajuste este par&aacute;metro cuando se desplieguen varios beans controlados por mensajes en el
+mismo servidor de aplicaciones y la suma de sus valores m&aacute;ximos de sesi&oacute;n supere el
+valor por omisi&oacute;n de 10.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unidades</td>
+<td align="left" valign="top" class="base">No se aplica</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">M&iacute;nimo: 10, m&aacute;ximo 50</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">No se aplica</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Recomendado</td>
+<td align="left" valign="top" class="base">Establezca el m&iacute;nimo con la suma de todos los valores de sesi&oacute;n m&aacute;ximos
+de beans controlados por mensajes. Establezca el m&aacute;ximo en un valor igual o superior al m&iacute;nimo.</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MessageListenerService_custom"></a>Propiedades personalizadas</strong>
+</dt>
+<dd>Las propiedades personalizadas del servicio receptor de mensajes. El servidor de JMS
+tiene des modalidades de operaci&oacute;n, ASF (Recursos del servidor de aplicaciones) y no ASF. ASF tiene como
+funci&oacute;n proporcionar soporte transaccional y de simultaneidad a las aplicaciones. La modalidad no ASF no utiliza
+ese soporte para simplificar la longitud de la v&iacute;a de acceso. 
+<p>Utilice la modalidad no ASF si:<ul>
+
+<li>La orden del mensaje es un requisito estricto. </li>
+
+<li>Se desean mensajes PTP simult&aacute;neos.</li>
+
+<li>Existe la propiedad <samp>non.asf.receive.timeout</samp> y tiene un valor mayor que
+0</li>
+
+</ul>No utilice la modalidad de no ASF si se desean mensajes de publicaciones y suscripciones
+porque ASF proporciona mayor capacidad de procesamiento. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unidades</td>
+<td align="left" valign="top" class="base">Milisegundos</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">Modalidad ASF (no se crea la propiedad personalizada)</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base"></td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Recomendado</td>
+<td align="left" valign="top" class="base">El valor es el n&uacute;mero de milisegundos que lleva entregar un
+mensaje. Si se excede el tiempo de espera, debe volver a efectuar el ciclo,
+lo que provoca trabajo extra. Este valor se debe establecer en un n&uacute;mero
+inferior al tiempo de espera de la transacci&oacute;n, pero cercano a &eacute;l con varios
+(10 o m&aacute;s) segundos de m&aacute;s. Los segundos de m&aacute;s deben ser superior si se encuentra bajo
+cargas extremas en que las hebras est&aacute;n en largos per&iacute;odos de espera para
+obtener ciclos de la CPU.</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>Informaci&oacute;n relacionada</strong>
+</p>
+<a href="umb_smlp.html">Colecci&oacute;n de puertos receptores de mensajes</a>
+<br>
+
+</div>
+</body>
+</html>

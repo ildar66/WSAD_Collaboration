@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<core:RADComponent xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:core="core.xmi" xmi:id="RADComponent_1034506228600" id="RADComponentImpl_699.0" version="1" name="WhitePages" Default="ComponentEntryPoint_1034506228610">
+  <BusinessLogicUnits xmi:id="BusinessLogicUnit_1034506383212" id="BusinessLogicUnitImpl_718.0" version="1" name="FillDetails">
+    <Sequence xmi:id="Sequence_1034506383212" id="SequenceImpl_724.0" version="1">
+      <Statements xmi:type="core:Action" xmi:id="Action_10" version="1" returnedValue="DataViewVariable_100" reciever="ListView_1034506478629">
+        <ActionDescriptor xmi:type="core:CoreActionDescriptor" href="WhitePages.prjxmi#CoreActionDescriptor_4"/>
+      </Statements>
+      <Statements xmi:type="core:Action" xmi:id="Action_11" version="1">
+        <ActionDescriptor xmi:type="core:CoreActionDescriptor" href="WhitePages.prjxmi#CoreActionDescriptor_1"/>
+        <parameters xmi:id="ActionParameter_11" version="1">
+          <parameter xmi:type="core:PersistentField" href="models\DataSource0.dsxmi#PersistentField_1034506560048"/>
+        </parameters>
+        <parameters xmi:id="ActionParameter_12" version="1" parameter="RADExpression_10"/>
+      </Statements>
+      <Statements xmi:type="core:Action" xmi:id="Action_13" version="1">
+        <ActionDescriptor xmi:type="core:DomainActionDescriptor" href="models\DataSource0.dsxmi#DomainActionDescriptor_5"/>
+        <reciever xmi:type="core:DataSource" href="models\DataSource0.dsxmi#DataSource_1034506483927"/>
+      </Statements>
+    </Sequence>
+    <Variables xmi:id="RADExpression_10" version="1" expression="[Data Views]$[WhitePages]$[Selected]_[nickname]"/>
+    <EntryPoint xmi:id="EntryPoint_1034506383212" id="EntryPointImpl_721.0" version="1" name="In"/>
+    <ErrorState xmi:id="ErrorState_1034506383212" id="ErrorStateImpl_723.0" version="1" name="Error"/>
+    <ExitStates xmi:id="ExitState_1034506383212" id="ExitStateImpl_722.0" version="1" name="OK"/>
+  </BusinessLogicUnits>
+  <BusinessLogicUnits xmi:id="BusinessLogicUnit_1034506383222" id="BusinessLogicUnitImpl_725.0" version="1" name="InitializeSearch">
+    <Sequence xmi:id="Sequence_1034506383222" id="SequenceImpl_731.0" version="1">
+      <Statements xmi:type="core:Action" xmi:id="Action_1034508171914" id="ActionImpl_507.0" version="1" returnedValue="DataViewVariable_1034506478629">
+        <ActionDescriptor xmi:type="core:DomainActionDescriptor" href="models\DataSource0.dsxmi#DomainActionDescriptor_4"/>
+        <reciever xmi:type="core:DataSource" href="models\DataSource0.dsxmi#DataSource_1034506483927"/>
+      </Statements>
+      <Statements xmi:type="core:Action" xmi:id="Action_1034508171915" id="ActionImpl_508.0" version="1" returnedValue="DataViewVariable_1034506478630">
+        <ActionDescriptor xmi:type="core:DomainActionDescriptor" href="models\DataSource0.dsxmi#DomainActionDescriptor_4"/>
+        <reciever xmi:type="core:DataSource" href="models\DataSource0.dsxmi#DataSource_1034506483927"/>
+      </Statements>
+    </Sequence>
+    <EntryPoint xmi:id="EntryPoint_1034506383222" id="EntryPointImpl_728.0" version="1" name="In"/>
+    <ErrorState xmi:id="ErrorState_1034506383222" id="ErrorStateImpl_730.0" version="1" name="Error"/>
+    <ExitStates xmi:id="ExitState_1034506383222" id="ExitStateImpl_729.0" version="1" name="OK"/>
+  </BusinessLogicUnits>
+  <BusinessLogicUnits xmi:id="BusinessLogicUnit_1034506383223" id="BusinessLogicUnitImpl_732.0" version="1" name="SearchByLastName">
+    <Sequence xmi:id="Sequence_1034506383223" id="SequenceImpl_738.0" version="1">
+      <Statements xmi:type="core:Action" xmi:id="Action_1" version="1" returnedValue="DataViewVariable_1034506478630">
+        <ActionDescriptor xmi:type="core:DomainActionDescriptor" href="models\DataSource0.dsxmi#DomainActionDescriptor_7"/>
+        <reciever xmi:type="core:DataSource" href="models\DataSource0.dsxmi#DataSource_1034506483927"/>
+        <parameters xmi:id="ActionParameter_1" version="1">
+          <parameter xmi:type="core:PersistentField" href="models\DataSource0.dsxmi#PersistentField_1034506560049"/>
+        </parameters>
+      </Statements>
+      <Statements xmi:type="core:Action" xmi:id="Action_2" version="1" returnedValue="DataViewVariable_1034506478629">
+        <ActionDescriptor xmi:type="core:DomainActionDescriptor" href="models\DataSource0.dsxmi#DomainActionDescriptor_4"/>
+        <reciever xmi:type="core:DataSource" href="models\DataSource0.dsxmi#DataSource_1034506483927"/>
+      </Statements>
+    </Sequence>
+    <EntryPoint xmi:id="EntryPoint_1034506383223" id="EntryPointImpl_735.0" version="1" name="In"/>
+    <ErrorState xmi:id="ErrorState_1034506383232" id="ErrorStateImpl_737.0" version="1" name="Error"/>
+    <ExitStates xmi:id="ExitState_1034506383232" id="ExitStateImpl_736.0" version="1" name="OK"/>
+  </BusinessLogicUnits>
+  <BusinessLogicUnits xmi:id="BusinessLogicUnit_1034506383232" id="BusinessLogicUnitImpl_739.0" version="1" name="SearchByPosition">
+    <Sequence xmi:id="Sequence_1034506383232" id="SequenceImpl_745.0" version="1">
+      <Statements xmi:type="core:Action" xmi:id="Action_3" version="1" returnedValue="DataViewVariable_1034506478630">
+        <ActionDescriptor xmi:type="core:DomainActionDescriptor" href="models\DataSource0.dsxmi#DomainActionDescriptor_7"/>
+        <reciever xmi:type="core:DataSource" href="models\DataSource0.dsxmi#DataSource_1034506483927"/>
+        <parameters xmi:id="ActionParameter_3" version="1">
+          <parameter xmi:type="core:PersistentField" href="models\DataSource0.dsxmi#PersistentField_1034506560047"/>
+        </parameters>
+      </Statements>
+      <Statements xmi:type="core:Action" xmi:id="Action_4" version="1" returnedValue="DataViewVariable_1034506478629">
+        <ActionDescriptor xmi:type="core:DomainActionDescriptor" href="models\DataSource0.dsxmi#DomainActionDescriptor_4"/>
+        <reciever xmi:type="core:DataSource" href="models\DataSource0.dsxmi#DataSource_1034506483927"/>
+      </Statements>
+    </Sequence>
+    <EntryPoint xmi:id="EntryPoint_1034506383232" id="EntryPointImpl_742.0" version="1" name="In"/>
+    <ErrorState xmi:id="ErrorState_1034506383233" id="ErrorStateImpl_744.0" version="1" name="Error"/>
+    <ExitStates xmi:id="ExitState_1034506383233" id="ExitStateImpl_743.0" version="1" name="OK"/>
+  </BusinessLogicUnits>
+  <BusinessLogicUnits xmi:id="BusinessLogicUnit_1034506383233" id="BusinessLogicUnitImpl_746.0" version="1" name="SearchByCity">
+    <Sequence xmi:id="Sequence_1034506383233" id="SequenceImpl_752.0" version="1">
+      <Statements xmi:type="core:Action" xmi:id="Action_5" version="1" returnedValue="DataViewVariable_1034506478630">
+        <ActionDescriptor xmi:type="core:DomainActionDescriptor" href="models\DataSource0.dsxmi#DomainActionDescriptor_7"/>
+        <reciever xmi:type="core:DataSource" href="models\DataSource0.dsxmi#DataSource_1034506483927"/>
+        <parameters xmi:id="ActionParameter_5" version="1">
+          <parameter xmi:type="core:PersistentField" href="models\DataSource0.dsxmi#PersistentField_1034506560050"/>
+        </parameters>
+      </Statements>
+      <Statements xmi:type="core:Action" xmi:id="Action_6" version="1" returnedValue="DataViewVariable_1034506478629">
+        <ActionDescriptor xmi:type="core:DomainActionDescriptor" href="models\DataSource0.dsxmi#DomainActionDescriptor_4"/>
+        <reciever xmi:type="core:DataSource" href="models\DataSource0.dsxmi#DataSource_1034506483927"/>
+      </Statements>
+    </Sequence>
+    <EntryPoint xmi:id="EntryPoint_1034506383233" id="EntryPointImpl_749.0" version="1" name="In"/>
+    <ErrorState xmi:id="ErrorState_1034506383234" id="ErrorStateImpl_751.0" version="1" name="Error"/>
+    <ExitStates xmi:id="ExitState_1034506383234" id="ExitStateImpl_750.0" version="1" name="OK"/>
+  </BusinessLogicUnits>
+  <RADLinks xmi:id="RADLink_1034507618899" id="RADLinkImpl_476.0" version="1">
+    <Source xmi:id="FlowExitReference_1034507618899" ExitPoint="ExitState_1034506383222" FlowOccurrence="BusinessLogicUnit_1034506383222"/>
+    <Target xmi:id="FlowEntryReference_1034507618899" EntryPoint="EntryPoint_1034506383242" FlowOccurrence="InteractionUnit_1034506383242"/>
+  </RADLinks>
+  <RADLinks xmi:id="RADLink_1034507618900" id="RADLinkImpl_479.0" version="1">
+    <Source xmi:id="FlowExitReference_1034507618900" ExitPoint="FlowExitPoint_1034506383242" FlowOccurrence="InteractionUnit_1034506383242"/>
+    <Target xmi:id="FlowEntryReference_1034507618900" EntryPoint="EntryPoint_1034506383223" FlowOccurrence="BusinessLogicUnit_1034506383223"/>
+  </RADLinks>
+  <RADLinks xmi:id="RADLink_100" id="RADLinkImpl_100.0" version="1">
+    <Source xmi:id="FlowExitReference_100" ExitPoint="ErrorState_1034506383232" FlowOccurrence="BusinessLogicUnit_1034506383223"/>
+    <Target xmi:id="FlowEntryReference_101" EntryPoint="EntryPoint_1034506383222" FlowOccurrence="BusinessLogicUnit_1034506383222"/>
+  </RADLinks>
+  <RADLinks xmi:id="RADLink_120" id="RADLinkImpl_120.0" version="1">
+    <Source xmi:id="FlowExitReference_120" ExitPoint="ErrorState_1034506383234" FlowOccurrence="BusinessLogicUnit_1034506383233"/>
+    <Target xmi:id="FlowEntryReference_121" EntryPoint="EntryPoint_1034506383222" FlowOccurrence="BusinessLogicUnit_1034506383222"/>
+  </RADLinks>
+  <RADLinks xmi:id="RADLink_110" id="RADLinkImpl_110.0" version="1">
+    <Source xmi:id="FlowExitReference_110" ExitPoint="ErrorState_1034506383233" FlowOccurrence="BusinessLogicUnit_1034506383232"/>
+    <Target xmi:id="FlowEntryReference_111" EntryPoint="EntryPoint_1034506383222" FlowOccurrence="BusinessLogicUnit_1034506383222"/>
+  </RADLinks>
+  <RADLinks xmi:id="RADLink_1034507618901" id="RADLinkImpl_482.0" version="1">
+    <Source xmi:id="FlowExitReference_1034507618901" ExitPoint="FlowExitPoint_1034506410852" FlowOccurrence="InteractionUnit_1034506383242"/>
+    <Target xmi:id="FlowEntryReference_1034507618901" EntryPoint="EntryPoint_1034506383233" FlowOccurrence="BusinessLogicUnit_1034506383233"/>
+  </RADLinks>
+  <RADLinks xmi:id="RADLink_1034507618902" id="RADLinkImpl_485.0" version="1">
+    <Source xmi:id="FlowExitReference_1034507618909" ExitPoint="FlowExitPoint_1034506410853" FlowOccurrence="InteractionUnit_1034506383242"/>
+    <Target xmi:id="FlowEntryReference_1034507618919" EntryPoint="EntryPoint_1034506383232" FlowOccurrence="BusinessLogicUnit_1034506383232"/>
+  </RADLinks>
+  <RADLinks xmi:id="RADLink_1034507618919" id="RADLinkImpl_488.0" version="1">
+    <Source xmi:id="FlowExitReference_1034507618919" ExitPoint="FlowExitPoint_1034506410854" FlowOccurrence="InteractionUnit_1034506383242"/>
+    <Target xmi:id="FlowEntryReference_1034507618920" EntryPoint="EntryPoint_1034506383212" FlowOccurrence="BusinessLogicUnit_1034506383212"/>
+  </RADLinks>
+  <RADLinks xmi:id="RADLink_1034507618920" id="RADLinkImpl_491.0" version="1">
+    <Source xmi:id="FlowExitReference_1034507618920" ExitPoint="ExitState_1034506383212" FlowOccurrence="BusinessLogicUnit_1034506383212"/>
+    <Target xmi:id="FlowEntryReference_1034507618921" EntryPoint="EntryPoint_1034506383243" FlowOccurrence="InteractionUnit_1034506383243"/>
+  </RADLinks>
+
+  <RADLinks xmi:id="RADLink_999" id="RADLinkImpl_999.0" version="1">
+    <Source xmi:id="FlowExitReference_999" ExitPoint="ErrorState_1034506383212" FlowOccurrence="BusinessLogicUnit_1034506383212"/>
+    <Target xmi:id="FlowEntryReference_999" EntryPoint="EntryPoint_1034506383242" FlowOccurrence="InteractionUnit_1034506383242"/>
+  </RADLinks>
+
+
+  <RADLinks xmi:id="RADLink_1034507618921" id="RADLinkImpl_494.0" version="1">
+    <Source xmi:id="FlowExitReference_1034507618921" ExitPoint="ExitState_1034506383232" FlowOccurrence="BusinessLogicUnit_1034506383223"/>
+    <Target xmi:id="FlowEntryReference_1034507618922" EntryPoint="EntryPoint_1034506383242" FlowOccurrence="InteractionUnit_1034506383242"/>
+  </RADLinks>
+  <RADLinks xmi:id="RADLink_1034507618922" id="RADLinkImpl_497.0" version="1">
+    <Source xmi:id="FlowExitReference_1034507618922" ExitPoint="ExitState_1034506383234" FlowOccurrence="BusinessLogicUnit_1034506383233"/>
+    <Target xmi:id="FlowEntryReference_1034507618923" EntryPoint="EntryPoint_1034506383242" FlowOccurrence="InteractionUnit_1034506383242"/>
+  </RADLinks>
+  <RADLinks xmi:id="RADLink_1034507618923" id="RADLinkImpl_500.0" version="1">
+    <Source xmi:id="FlowExitReference_1034507618923" ExitPoint="ExitState_1034506383233" FlowOccurrence="BusinessLogicUnit_1034506383232"/>
+    <Target xmi:id="FlowEntryReference_1034507618924" EntryPoint="EntryPoint_1034506383242" FlowOccurrence="InteractionUnit_1034506383242"/>
+  </RADLinks>
+  <RADLinks xmi:id="RADLink_1" version="1">
+    <Source xmi:id="FlowExitReference_1" ExitPoint="Trigger_1" FlowOccurrence="MenuView_1"/>
+    <Target xmi:id="FlowEntryReference_1" EntryPoint="EntryPoint_1034506383222" FlowOccurrence="BusinessLogicUnit_1034506383222"/>
+  </RADLinks>
+  <ExitPoints xmi:id="FlowExitPoint_1034506228610" id="FlowExitPointImpl_701.0" version="1" name="OK"/>
+  <Variables xmi:type="core:DataViewVariable" xmi:id="DataViewVariable_100" version="1" name="Selected">
+    <DataSourceTypeDescriptor href="models\DataSource0.dsxmi#DataSourceTypeDescriptor_1034506483947"/>
+    <DataSource href="models\DataSource0.dsxmi#DataSource_1034506483927"/>
+  </Variables>
+  <Variables xmi:type="core:TransientField" xmi:id="TransientField_1" id="TransientFieldImpl_1.0" version="1" name="dummy">
+    <CoreTypeDescriptor href="WhitePages.prjxmi#CoreTypeDescriptor_8"/>
+    <FieldDescriptor xmi:type="core:AlphanumFieldDescriptor" xmi:id="AlphanumFieldDescriptor_1" id="AlphanumFieldDescriptorImpl_1.0" version="1">
+      <CoreTypeDescriptor href="WhitePages.prjxmi#CoreTypeDescriptor_8"/>
+    </FieldDescriptor>
+  </Variables>
+  <MenuView xmi:id="MenuView_1" id="MenuViewImpl_704.0" version="1" name="MainMenu" label="">
+    <Triggers xmi:id="Trigger_1" id="TriggerImpl_506.0" version="1" name="Menu Item" TriggerDisplay="RADMenuItem_1034507644125"/>
+    <menu xmi:id="RADSubMenu_1034506383242" id="RADSubMenuImpl_706.0" version="1" name="MenuView">
+      <RADMenuEntry xmi:type="core:RADMenuItem" xmi:id="RADMenuItem_1034507644125" id="RADMenuItemImpl_503.0" version="1" name="Menu Item" displayType="BUTTON" Trigger="Trigger_1">
+        <Caption xmi:id="Caption_1034507644125" id="CaptionImpl_505.0" version="1" caption="Menu Item" isConstant="false">
+          <CaptionParameter href="WhitePages.prjxmi#CaptionParameter_1"/>
+        </Caption>
+      </RADMenuEntry>
+      <Caption xmi:id="Caption_1034506383242" id="CaptionImpl_707.0" version="1" caption="Menu"/>
+    </menu>
+  </MenuView>
+  <InteractionUnits xmi:id="InteractionUnit_1034506383242" id="InteractionUnitImpl_708.0" version="1" name="Search" ReferencedMenuViews="MenuView_1">
+    <ExitPoints xmi:id="FlowExitPoint_1034506383242" id="FlowExitPointImpl_711.0" version="1" name="SearchByLastName">
+      <FlowExitReferences xmi:id="FlowExitReference_1034507130737" ExitPoint="Trigger_1034507021730" FlowOccurrence="FormView_1034506478629"/>
+    </ExitPoints>
+    <ExitPoints xmi:id="FlowExitPoint_1034506410852" id="FlowExitPointImpl_753.0" version="1" name="SearchByCity">
+      <FlowExitReferences xmi:id="FlowExitReference_1034507130738" ExitPoint="Trigger_1034507021731" FlowOccurrence="FormView_1034506478629"/>
+    </ExitPoints>
+    <ExitPoints xmi:id="FlowExitPoint_1034506410853" id="FlowExitPointImpl_754.0" version="1" name="SearchByPosition">
+      <FlowExitReferences xmi:id="FlowExitReference_1034507130739" ExitPoint="Trigger_1034506478629" FlowOccurrence="FormView_1034506478629"/>
+    </ExitPoints>
+    <ExitPoints xmi:id="FlowExitPoint_1034506410854" id="FlowExitPointImpl_755.0" version="1" name="Details">
+      <FlowExitReferences xmi:id="FlowExitReference_1034507166198" ExitPoint="Trigger_1034507156164" FlowOccurrence="ListView_1034506478629"/>
+    </ExitPoints>
+    <Variables xmi:type="core:DataViewVariable" xmi:id="DataViewVariable_1034506478629" id="DataViewVariableImpl_762.0" version="1" name="SearchCriteria">
+      <DataSourceTypeDescriptor href="models\DataSource0.dsxmi#DataSourceTypeDescriptor_1034506483947"/>
+      <DataSource href="models\DataSource0.dsxmi#DataSource_1034506483927"/>
+      <ViewFields xmi:id="ViewField_1034507021720">
+        <Field xmi:type="core:PersistentField" href="models\DataSource0.dsxmi#PersistentField_1034506560049"/>
+      </ViewFields>
+      <ViewFields xmi:id="ViewField_1034507021730">
+        <Field xmi:type="core:PersistentField" href="models\DataSource0.dsxmi#PersistentField_1034506560050"/>
+      </ViewFields>
+      <ViewFields xmi:id="ViewField_1034507021731">
+        <Field xmi:type="core:PersistentField" href="models\DataSource0.dsxmi#PersistentField_1034506560047"/>
+      </ViewFields>
+      <ViewFields xmi:id="ViewField_1" Field="TransientField_1"/>
+    </Variables>
+    <Variables xmi:type="core:DataViewVariable" xmi:id="DataViewVariable_1034506478630" id="DataViewVariableImpl_768.0" version="1" name="Search Content">
+      <DataSourceTypeDescriptor href="models\DataSource0.dsxmi#DataSourceTypeDescriptor_1034506483947"/>
+      <DataSource href="models\DataSource0.dsxmi#DataSource_1034506483927"/>
+      <ViewFields xmi:id="ViewField_1034507156155">
+        <Field xmi:type="core:PersistentField" href="models\DataSource0.dsxmi#PersistentField_1034506560049"/>
+      </ViewFields>
+      <ViewFields xmi:id="ViewField_1034507156156">
+        <Field xmi:type="core:PersistentField" href="models\DataSource0.dsxmi#PersistentField_1034506560050"/>
+      </ViewFields>
+      <ViewFields xmi:id="ViewField_1034507156157">
+        <Field xmi:type="core:PersistentField" href="models\DataSource0.dsxmi#PersistentField_1034506560047"/>
+      </ViewFields>
+
+    </Variables>
+    <EntryPoint xmi:id="EntryPoint_1034506383242" id="EntryPointImpl_710.0" version="1" name="In"/>
+    <DataViews xmi:type="core:FormView" xmi:id="FormView_1034506478629" id="FormViewImpl_756.0" version="1" name="Search Criteria" DataViewVariable="DataViewVariable_1034506478629">
+      <labelColor xmi:id="RGBValue_1034506478629" red="0" green="0" blue="0"/>
+      <Triggers xmi:id="Trigger_1034506478629" id="TriggerImpl_759.0" version="1" name="Submit" TriggerDisplay="TriggerDisplay_1034506478629"/>
+      <Triggers xmi:id="Trigger_1034507021730" id="TriggerImpl_418.0" version="1" name="Submit0" TriggerDisplay="TriggerDisplay_1034507021730"/>
+      <Triggers xmi:id="Trigger_1034507021731" id="TriggerImpl_421.0" version="1" name="Submit1" TriggerDisplay="TriggerDisplay_1034507021731"/>
+      <RADDisplays xmi:type="core:FieldDisplay" xmi:id="FieldDisplay_1034507021730" id="FieldDisplayImpl_409.0" version="1" name="last_name" displayType="SELECT_ONE" ViewField="ViewField_1034507021720">
+        <Caption xmi:id="Caption_1034507021730" id="CaptionImpl_410.0" version="1" caption="Last Name" isConstant="false">
+          <CaptionParameter href="WhitePages.prjxmi#CaptionParameter_1034507422167"/>
+        </Caption>
+      </RADDisplays>
+      <RADDisplays xmi:type="core:TriggerDisplay" xmi:id="TriggerDisplay_1034507021730" id="TriggerDisplayImpl_419.0" version="1" name="Submit0" displayType="SUBMIT" Trigger="Trigger_1034507021730">
+        <Caption xmi:id="Caption_1034507021731" id="CaptionImpl_420.0" version="1" caption="Search By Last Name" isConstant="false">
+          <CaptionParameter href="WhitePages.prjxmi#CaptionParameter_1034507343964"/>
+        </Caption>
+      </RADDisplays>
+      <RADDisplays xmi:type="core:FieldDisplay" xmi:id="FieldDisplay_1034507021731" id="FieldDisplayImpl_412.0" version="1" name="city" displayType="SELECT_ONE" ViewField="ViewField_1034507021730">
+        <Caption xmi:id="Caption_1034507021732" id="CaptionImpl_413.0" version="1" caption="Location" isConstant="false">
+          <CaptionParameter href="WhitePages.prjxmi#CaptionParameter_1034507422168"/>
+        </Caption>
+      </RADDisplays>
+      <RADDisplays xmi:type="core:TriggerDisplay" xmi:id="TriggerDisplay_1034507021731" id="TriggerDisplayImpl_422.0" version="1" name="Submit1" displayType="SUBMIT" Trigger="Trigger_1034507021731">
+        <Caption xmi:id="Caption_1034507021733" id="CaptionImpl_423.0" version="1" caption="Search By City" isConstant="false">
+          <CaptionParameter href="WhitePages.prjxmi#CaptionParameter_1034507343964"/>
+        </Caption>
+      </RADDisplays>
+      <RADDisplays xmi:type="core:FieldDisplay" xmi:id="FieldDisplay_1034507021732" id="FieldDisplayImpl_415.0" version="1" name="email_address" displayType="SELECT_ONE" ViewField="ViewField_1034507021731">
+        <Caption xmi:id="Caption_1034507021734" id="CaptionImpl_416.0" version="1" caption="email_address" isConstant="false">
+          <CaptionParameter href="WhitePages.prjxmi#CaptionParameter_1034507422169"/>
+        </Caption>
+      </RADDisplays>
+      <RADDisplays xmi:type="core:TriggerDisplay" xmi:id="TriggerDisplay_1034506478629" id="TriggerDisplayImpl_760.0" version="1" name="Submit" displayType="SUBMIT" Trigger="Trigger_1034506478629">
+        <Caption xmi:id="Caption_1034506478629" id="CaptionImpl_761.0" version="1" caption="Search By Position" isConstant="false">
+          <CaptionParameter href="WhitePages.prjxmi#CaptionParameter_1034507343964"/>
+        </Caption>
+      </RADDisplays>
+      <RADDisplays xmi:type="core:FieldDisplay" xmi:id="FieldDisplay_1" id="FieldDisplayImpl_1.0" version="1" name="dummy" displayType="OUTPUT" ViewField="ViewField_1">
+        <Caption xmi:id="Caption_1" id="CaptionImpl_1.0" version="1" caption="" />
+      </RADDisplays>
+    </DataViews>
+    <DataViews xmi:type="core:ListView" xmi:id="ListView_1034506478629" id="ListViewImpl_764.0" version="1" name="Search Content" DataViewVariable="DataViewVariable_1034506478630">
+      <headerColor xmi:id="RGBValue_1034506478630" red="0" green="0" blue="0"/>
+      <cellColor xmi:id="RGBValue_1034506478631" red="0" green="0" blue="0"/>
+      <Triggers xmi:id="Trigger_1034507156164" id="TriggerImpl_442.0" version="1" name="Submit" TriggerDisplay="TriggerDisplay_1034507156164"/>
+      <RADDisplays xmi:type="core:FieldDisplay" xmi:id="FieldDisplay_1034507156165" id="FieldDisplayImpl_433.0" version="1" name="last_name" displayType="OUTPUT" ViewField="ViewField_1034507156155">
+        <Caption xmi:id="Caption_1034507156165" id="CaptionImpl_434.0" version="1" caption="Last Name" isConstant="false">
+          <CaptionParameter href="WhitePages.prjxmi#CaptionParameter_1034507422167"/>
+        </Caption>
+      </RADDisplays>
+      <RADDisplays xmi:type="core:FieldDisplay" xmi:id="FieldDisplay_1034507156166" id="FieldDisplayImpl_436.0" version="1" name="city" displayType="OUTPUT" ViewField="ViewField_1034507156156">
+        <Caption xmi:id="Caption_1034507156166" id="CaptionImpl_437.0" version="1" caption="City" isConstant="false">
+          <CaptionParameter href="WhitePages.prjxmi#CaptionParameter_1034507422168"/>
+        </Caption>
+      </RADDisplays>
+      <RADDisplays xmi:type="core:FieldDisplay" xmi:id="FieldDisplay_1034507156167" id="FieldDisplayImpl_439.0" version="1" name="email_address" displayType="OUTPUT" ViewField="ViewField_1034507156157">
+        <Caption xmi:id="Caption_1034507156167" id="CaptionImpl_440.0" version="1" caption="Position" isConstant="false">
+          <CaptionParameter href="WhitePages.prjxmi#CaptionParameter_1034507422169"/>
+        </Caption>
+      </RADDisplays>
+      <RADDisplays xmi:type="core:TriggerDisplay" xmi:id="TriggerDisplay_1034507156164" id="TriggerDisplayImpl_443.0" version="1" name="Submit" displayType="SUBMIT" Trigger="Trigger_1034507156164">
+        <Caption xmi:id="Caption_1034507156174" id="CaptionImpl_444.0" version="1" caption="Details" isConstant="false">
+          <CaptionParameter href="WhitePages.prjxmi#CaptionParameter_1034507156174"/>
+        </Caption>
+      </RADDisplays>
+    </DataViews>
+    <Title xmi:id="Title_1034506383242" id="TitleImpl_712.0" version="1" title="Search"/>
+  </InteractionUnits>
+  <InteractionUnits xmi:id="InteractionUnit_1034506383243" id="InteractionUnitImpl_713.0" version="1" name="Details" ReferencedMenuViews="MenuView_1">
+    <Variables xmi:type="core:DataViewVariable" xmi:id="DataViewVariable_1034507194799" id="DataViewVariableImpl_453.0" version="1" name="Details">
+      <DataSourceTypeDescriptor href="models\DataSource0.dsxmi#DataSourceTypeDescriptor_1034506483947"/>
+      <DataSource href="models\DataSource0.dsxmi#DataSource_1034506483927"/>
+      <ViewFields xmi:id="ViewField_1034507498297">
+        <Field xmi:type="core:PersistentField" href="models\DataSource0.dsxmi#PersistentField_1034506560049"/>
+      </ViewFields>
+      <ViewFields xmi:id="ViewField_1034507498298">
+        <Field xmi:type="core:PersistentField" href="models\DataSource0.dsxmi#PersistentField_1034506560050"/>
+      </ViewFields>
+      <ViewFields xmi:id="ViewField_1034507498299">
+        <Field xmi:type="core:PersistentField" href="models\DataSource0.dsxmi#PersistentField_1034506560047"/>
+      </ViewFields>
+    </Variables>
+    <EntryPoint xmi:id="EntryPoint_1034506383243" id="EntryPointImpl_715.0" version="1" name="In"/>
+    <DataViews xmi:type="core:FormView" xmi:id="FormView_1034507194799" id="FormViewImpl_447.0" version="1" name="Details" DataViewVariable="DataViewVariable_1034507194799">
+      <labelColor xmi:id="RGBValue_1034507194799" red="0" green="0" blue="0"/>
+
+     <RADDisplays xmi:type="core:FieldDisplay" xmi:id="FieldDisplay_1034507498306" id="FieldDisplayImpl_466.0" version="1" name="last_name" displayType="OUTPUT" ViewField="ViewField_1034507498297">
+        <Caption xmi:id="Caption_1034507498306" id="CaptionImpl_467.0" version="1" caption="last_name" isConstant="false">
+          <CaptionParameter href="WhitePages.prjxmi#CaptionParameter_1034507422167"/>
+        </Caption>
+      </RADDisplays>
+      <RADDisplays xmi:type="core:FieldDisplay" xmi:id="FieldDisplay_1034507498307" id="FieldDisplayImpl_469.0" version="1" name="city" displayType="OUTPUT" ViewField="ViewField_1034507498298">
+        <Caption xmi:id="Caption_1034507498307" id="CaptionImpl_470.0" version="1" caption="city" isConstant="false">
+          <CaptionParameter href="WhitePages.prjxmi#CaptionParameter_1034507422168"/>
+        </Caption>
+      </RADDisplays>
+      <RADDisplays xmi:type="core:FieldDisplay" xmi:id="FieldDisplay_1034507498308" id="FieldDisplayImpl_472.0" version="1" name="email_address" displayType="OUTPUT" ViewField="ViewField_1034507498299">
+        <Caption xmi:id="Caption_1034507498308" id="CaptionImpl_473.0" version="1" caption="email_address" isConstant="false">
+          <CaptionParameter href="WhitePages.prjxmi#CaptionParameter_1034507422169"/>
+        </Caption>
+      </RADDisplays>
+    </DataViews>
+    <Title xmi:id="Title_1034506383243" id="TitleImpl_717.0" version="1" title="Details"/>
+  </InteractionUnits>
+  <DataInterface xmi:id="DataInterface_1034506228610" id="DataInterfaceImpl_700.0" version="1"/>
+  <EntryPoints xmi:id="ComponentEntryPoint_1034506228610" id="ComponentEntryPointImpl_702.0" version="1" name="In">
+    <FirstEntityReference xmi:id="FlowEntryReference_1034507618929" EntryPoint="EntryPoint_1034506383222" FlowOccurrence="BusinessLogicUnit_1034506383222"/>
+  </EntryPoints>
+</core:RADComponent>

@@ -1,0 +1,135 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Generic JMS destination settings</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="JMSDestination"></a>
+<h2>Generic JMS destination settings</h2>
+
+<p>Use this panel to view or change the configuration properties of
+the selected JMS destination for use with the associated JMS provider.</p>
+
+<p>A JMS destination is used to configure the properties of a JMS destination
+for the associated generic JMS provider. Connections to the JMS destination
+are created by the associated JMS connection factory. A JMS destination for
+use with a generic JMS provider (not the embedded WebSphere JMS provider or
+WebSphere MQ JMS provider) has the following properties.</p>
+
+<p>To view this administrative console page, click <strong>Resources-&gt; Generic
+JMS Providers-&gt; <em>provider_name</em>-&gt; JMS Destinations-&gt; <em>destination</em></strong>
+</p>
+
+<dl>
+<dt>
+<strong><a name="JMSDestination_name"></a>Name</strong>
+</dt>
+<dd>The name by which the queue is known for administrative
+purposes within IBM WebSphere Application Server.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JMSDestination_type"></a>Type</strong>
+</dt>
+<dd>Whether this JMS destination is a queue (for point-to-point) or
+topic (for publish/subscribe).
+<p>Select one of the following options:<dl>
+
+<dt>
+<strong>Queue</strong>
+</dt>
+<dd>A JMS queue destination for point-to-point messaging.</dd>
+
+<dt>
+<strong>Topic</strong>
+</dt>
+<dd>A JMS topic destination for publish/subscribe messaging.</dd>
+
+</dl>
+</p>
+
+</dd>
+<dt>
+<strong><a name="JMSDestination_jndiName"></a>JNDI name</strong>
+</dt>
+<dd>The JNDI name that is used to bind the queue into the application
+server's name space.<p>As a convention, use the fully qualified JNDI name; for example,
+in the form jms/<em>Name</em>, where <em>Name</em> 
+is the logical name of the resource.</p>
+<p>This name is used to link the platform
+binding information. The binding associates the resources defined by the deployment
+descriptor of the module to the actual (physical) resources bound into JNDI
+by the platform.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+</dd>
+<dt>
+<strong><a name="JMSDestination_description"></a>Description</strong>
+</dt>
+<dd>A description of the queue, for administrative
+purposes</dd>
+<dt>
+<strong><a name="JMSDestination_category"></a>Category</strong>
+</dt>
+<dd>A category used to classify or group this
+queue, for your IBM WebSphere Application Server administrative records.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JMSDestination_externalJndiName"></a>External JNDI name</strong>
+</dt>
+<dd>The JNDI name that is used to bind the queue into the application
+server's name space.<p>As a convention, use the fully qualified JNDI name; for example,
+in the form jms/<em>Name</em>, where <em>Name</em> 
+is the logical name of the resource.</p>
+<p>This name is used to link the platform
+binding information. The binding associates the resources defined by the deployment
+descriptor of the module to the actual (physical) resources bound into JNDI
+by the platform.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+</dd>
+</dl>
+</body>
+</html>

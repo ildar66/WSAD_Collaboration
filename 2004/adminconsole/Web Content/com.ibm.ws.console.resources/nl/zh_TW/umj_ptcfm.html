@@ -1,0 +1,942 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>「WebSphere MQ Topic Connection Factory」設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="MQTopicConnectionFactory"></a>
+<h2>
+<img alt="[5.1 版和更新版本]" src="v51.gif" border="0">「WebSphere MQ Topic Connection Factory」設定</h2>
+
+<p>請使用這個畫面來檢視或變更選取要搭配 WebSphere MQ JMS Provider 使用之 Topic Connection Factory 的配置內容。
+這些配置內容會控制如何建立連線來通往相關聯的 JMS Topic Destination。</p>
+
+<p>Topic Connection Factory 用來建立通往 Topic Destination 的 JMS 連線。
+Topic Connection Factory 是 WebSphere MQ JMS Provider 所建立的。
+WebSphere MQ JMS Provider 的 Topic Connection Factory 有下列內容。
+<p>
+<b>附註: </b>
+<ul>
+
+<li>您指定的內容值必須符合在配置 WebSphere MQ JMS 資源時所指定的值。
+如果需要配置 WebSphere MQ JMS 資源的詳細資訊，請參閱 WebSphere MQ <cite>使用 Java</cite> 一書。
+</li>
+
+<li>在 WebSphere MQ 中，名稱最多可有 48 個字元，但通道例外，它最多只能有 20 個字元。</li>
+
+<li>
+<img alt="[5.1 版和更新版本]" src="v51.gif" border="0">您可以利用「自訂內容」頁面來定義部分 WebSphere MQ 內容。
+如果需要設定這些內容的詳細資訊，請參閱<a href="#ConnectionFactory_customProperties">自訂內容</a>。</li>
+
+</ul>
+</p>
+</p>
+
+<p>如果要檢視這個管理主控台頁面，請按一下<strong>資源 -&gt; WebSphere MQ JMS Provider-&gt;（在內容窗格的「其他內容」下）WebSphere MQ Topic Connection Factory -&gt; <em>connection_factory</em></strong>
+
+</p>
+
+<dl>
+<dt>
+<strong><a name="MQTopicConnectionFactory_name"></a>名稱
+</strong>
+</dt>
+<dd>用來識別這個 Topic Connection Factory 供管理使用 IBM WebSphere Application Server 的名稱。在 JMS 提供者內，名稱必須是唯一的。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopicConnectionFactory_jndiName"></a>JNDI 名稱</strong>
+</dt>
+<dd>將 Topic Connection Factory 連結至應用程式伺服器名稱空間時所用的 JNDI 名稱。
+<p>請依照慣例使用完整的 JNDI 名稱；比方說，在 jms/<em>Name</em> 格式中，<em>Name</em> 是資源的邏輯名稱。
+</p>
+
+<p>這個名稱用來鏈結平台的連結資訊。
+連結會將模組部署描述子所定義的資源關聯到由平台連結至 JNDI 內的實際（實體）資源。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopicConnectionFactory_description"></a>說明</strong>
+</dt>
+<dd>這個 Topic Connection Factory 的說明，供管理使用 IBM WebSphere Application Server。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">空值</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopicConnectionFactory_category"></a>種類</strong>
+</dt>
+<dd>就您的 IBM WebSphere Application Server 管理記錄，用來分類或分組這個 Topic Connection Factory 的種類。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="AuthDataAlias"></a>內容管理鑑別別名</strong>
+</dt>
+<dd>這個別名指定使用者 ID 和密碼以便針對應用程式管理鑑別來鑑別 JMS 提供者的連線。
+<p>這個內容提供已定義給 WebSphere Application Server 的 J2C 鑑別資料項目別名清單。您可以選取一個資料項目別名來鑑別到 JMS 提供者的新連線。
+</p>
+
+<p>如果您已啟用 WebSphere Application Server 廣域安全，請選取一個指定使用者 ID 和密碼的別名來鑑別到 JMS 提供者的新連線。
+這個別名的使用，是根據應用程式元件部署描述子的 Connection Factory 資源參照中所宣告的資源鑑別 (res-auth)  設定而定。
+</p>
+
+<p>
+<b>附註: </b>使用者 ID 若超過 12 字元就無法與內嵌的 WebSphere JMS Provider 一起用於鑑別。
+比方說，預設的 Windows NT 使用者 ID <strong>Administrator</strong> 就無效，內嵌的 WebSphere 傳訊不能用它，因為它包含 13 個字元。
+因此，WebSphere JMS Provider  Connection Factory 的鑑別別名必須指定少於 12 個字元的使用者 ID。</p>
+
+</dd>
+<dt>
+<strong><a name="mappingAuthDataAlias"></a>儲存區管理鑑別別名</strong>
+</dt>
+<dd>這個別名指定使用者 ID 和密碼以便針對儲存區管理來鑑別 JMS 提供者的連線。
+<p>這個內容提供已定義給 WebSphere Application Server 的 J2C 鑑別資料項目別名清單。您可以選取一個資料項目別名來鑑別到 JMS 提供者的新連線。
+</p>
+
+<p>如果您已啟用 WebSphere Application Server 廣域安全，請選取一個指定使用者 ID 和密碼的別名來鑑別到 JMS 提供者的新連線。
+這個別名的使用，是根據應用程式元件部署描述子的 Connection Factory 資源參照中所宣告的資源鑑別 (res-auth)  設定而定。
+</p>
+
+<p>
+<b>附註: </b>使用者 ID 若超過 12 字元就無法與內嵌的 WebSphere JMS Provider 一起用於鑑別。
+比方說，預設的 Windows NT 使用者 ID <strong>Administrator</strong> 就無效，內嵌的 WebSphere 傳訊不能用它，因為它包含 13 個字元。
+因此，WebSphere JMS Provider  Connection Factory 的鑑別別名必須指定少於 12 個字元的使用者 ID。</p>
+
+</dd>
+<dt>
+<strong><a name="MQTopicConnectionFactory_queueManager"></a>佇列管理程式</strong>
+</dt>
+<dd>這個 Connection Factory 的 WebSphere MQ 佇列管理程式的名稱。
+這個 Factory 所建立的連線會連接至該佇列管理程式。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">空值</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">有效的 WebSphere MQ 佇列管理程式名稱，1 至 48 個 ASCII 字元
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopicConnectionFactory_host"></a>主機</strong>
+</dt>
+<dd>WebSphere MQ 佇列管理程式執行其中的主機名稱，只供用戶端連線使用。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">空值</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">有效 TCP/IP 主機名稱</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopicConnectionFactory_port"></a>埠
+</strong>
+</dt>
+<dd>通往 WebSphere MQ 佇列管理程式的連線所用的 TCP/IP 埠號，只供用戶端連線使用。
+
+<p>這個埠必須配置在 WebSphere MQ 佇列管理程式中。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">整數</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">空值</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">有效的 TCP/IP 埠號，必須配置在 WebSphere MQ 佇列管理程式中。</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopicConnectionFactory_channel"></a>通道</strong>
+</dt>
+<dd>通往 WebSphere MQ 佇列管理程式的連線所用的通道名稱，只供用戶端連線使用。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">空值</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">1 至 20 個 ASCII 字元</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopicConnectionFactory_transportType"></a>傳輸類型</strong>
+</dt>
+<dd>指定要利用 WebSphere MQ 用戶端連線或 JNI 連結來連接 WebSphere MQ 佇列管理程式。
+外部 JMS 提供者會控制 JMS 用戶端和 JMS 伺服器之間的通訊協定。
+當您使用非 ASF 非持續性、不可延續的非交易式傳訊時，或當您要滿足安全問題且用戶端在佇列管理程式節點的本端時，請調整傳輸類型。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">列舉</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">單位</td>
+<td align="left" valign="top" class="base">不適用</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">BINDINGS</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">
+<dl>
+<dt>
+<strong>BINDINGS</strong>
+</dt>
+<dd>利用 JNI 連結來連接佇列管理程式。
+BINDINGS 是共用記憶體通訊協定，佇列管理程式必須在 JMS 用戶端的相同節點中才能使用它，它會帶來必須利用 EJB 角色來解決的安全風險。
+</dd>
+<dt>
+<strong>CLIENT</strong>
+</dt>
+<dd>利用 WebSphere MQ 用戶端連線來連接佇列管理程式。CLIENT 是典型的 TCP 型通訊協定。
+</dd>
+<dt>
+<strong>DIRECT</strong>
+</dt>
+<dd>適用於使用 DIRECT 模式的 WebSphere MQ Event Broker。
+DIRECT 是非交易式、不可延續和非持續性的發佈/訂閱傳訊所用的小型 Socket 通訊協定。DIRECT 只適用於使用非 ASF 通訊協定的用戶端和訊息驅動 Bean。
+</dd>
+<dt>
+<strong>QUEUED</strong>
+</dt>
+<dd>QUEUED 是標準 TCP 通訊協定。
+</dd>
+</dl>
+</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">建議
+</td>
+<td align="left" valign="top" class="base">
+<dl>
+<dt>
+<strong>Queue Connection Factory 傳輸類型
+</strong>
+</dt>
+<dd>BINDINGS 的速度快了 30% 或更多，但比較不安全。
+如果您有安全考量，BINDINGS 比 CLIENT 適合。
+</dd>
+<dt>
+<strong>Topic Connection Factory 傳輸類型
+</strong>
+</dt>
+<dd>DIRECT 的速度最快，應該儘可能使用它。
+當您要滿足其他安全作業，且佇列管理程式在 JMS 用戶端本端時，請使用 BINDINGS。
+在所有其他情況下，QUEUED 都是倒退的。
+請注意，當使用訊息驅動 Bean 且在負荷狀態下，在 CSD2 之前使用 DIRECT 設定的 WebSphere MQ 5.3 可能會遺失訊息。
+除非分配管理系統的 maxClientQueueSize 設為 0，否則，用戶端型的應用程式也會發生這個情況。
+您可以利用 <samp>#wempschangeproperties WAS_nodeName_server1 -e default -o DynamicSubscriptionEngine -n maxClientQueueSize -v 0 -x executionGroupUUID</samp> 指令，將這個值設為 0；
+您可以啟動分配管理系統，查看事件日誌/應用程式來找出事件 2201，以取得其中的 executionGroupUUID。
+這個值通常是 ffffffff-0000-0000-000000000000。
+</dd>
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopicConnectionFactory_brokerControlQueue"></a>分配管理系統控制佇列</strong>
+</dt>
+<dd>所有指令訊息（除了發佈和刪除訂閱的要求）都要送往其中的分配管理系統控制佇列的名稱
+<p>分配管理系統控制佇列的名稱。發佈者和訂戶應用程式及其他分配管理系統都會將所有指令訊息（除了發佈和刪除訂閱的要求）傳送到這個佇列。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">單位</td>
+<td align="left" valign="top" class="base">En_US ASCII 字元</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">空值</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">1 至 48 個 ASCII 字元
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopicConnectionFactory_brokerQueueManager"></a>分配管理系統佇列管理程式</strong>
+</dt>
+<dd>提供發佈/訂閱訊息分配管理系統之 WebSphere MQ 佇列管理程式的名稱。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">單位</td>
+<td align="left" valign="top" class="base">En_US ASCII 字元</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">空值</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">1 至 48 個 ASCII 字元
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopicConnectionFactory_brokerPubQueue"></a>分配管理系統發佈佇列
+</strong>
+</dt>
+<dd>接收預設串流所有發佈訊息的分配管理系統輸入佇列的名稱
+<p>接收預設串流所有發佈訊息的分配管理系統輸入佇列（串流佇列）的名稱。應用程式也可以將刪除預設串流中之發佈訊息的要求傳送到這個佇列。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">單位</td>
+<td align="left" valign="top" class="base">En_US ASCII 字元</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">空值</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">1 至 48 個 ASCII 字元
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopicConnectionFactory_brokerSubQueue"></a>分配管理系統訂閱佇列</strong>
+</dt>
+<dd>從中擷取非延續性訂閱訊息之分配管理系統佇列的名稱。
+<p>從中擷取非延續性訂閱訊息之分配管理系統佇列的名稱。訂戶在登錄訂閱時指定佇列的名稱。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">單位</td>
+<td align="left" valign="top" class="base">En_US ASCII 字元</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">空值</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">1 至 48 個 ASCII 字元
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopicConnectionFactory_brokerCCSubQueue"></a>分配管理系統 CC 訂閱佇列</strong>
+</dt>
+<dd>從中擷取 ConnectionConsumer 的非延續性訂閱訊息之分配管理系統佇列的名稱。這個內容只供 Web 儲存區使用。
+
+<p>從中擷取 ConnectionConsumer 的非延續性訂閱訊息之分配管理系統佇列的名稱。這個內容只供 Web 儲存區使用。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">單位</td>
+<td align="left" valign="top" class="base">En_US ASCII 字元</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">空值</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">1 至 48 個 ASCII 字元
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopicConnectionFactory_brokerVersion"></a>分配管理系統版本</strong>
+</dt>
+<dd>訊息分配管理系統是 WebSphere MQ MA0C Supportpac 或 WebSphere 訊息分配管理系統產品的較新版本所提供的。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">列舉</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">單位</td>
+<td align="left" valign="top" class="base">不適用</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">進階</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">
+<dl>
+<dt>
+<strong>進階</strong>
+</dt>
+<dd>訊息分配管理系統是 WebsSphere MQ Integrator 和 EventBroker 之類的較新版 WebSphere 訊息分配管理系統產品所提供的。
+</dd>
+<dt>
+<strong>基本</strong>
+</dt>
+<dd>訊息分配管理系統是 WebSphere MQ MA0C SupportPac（MQSeries - 發佈/訂閱）或以 MA0C 相容模式來運作的 MQSI 所提供的。</dd>
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopicConnectionFactory_tempModel"></a>模型佇列定義</strong>
+</dt>
+<dd>當串流佇列不存在時，分配管理系統可用來建立非預設串流之動態佇列的模型佇列定義名稱。
+
+<p>分配管理系統可用來建立動態佇列以接收非預設串流之發佈資訊的模型佇列定義名稱。
+只有在串流佇列不存在時，才使用這個。
+如果這個模型佇列定義不存在，管理者就必須定義所有串流佇列。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">單位</td>
+<td align="left" valign="top" class="base">En_US ASCII 字元</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">空值</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">1 至 48 個 ASCII 字元
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopicConnectionFactory_CCSID"></a>CCSID</strong>
+</dt>
+<dd>供 WebSphere MQ 佇列管理程式使用的編碼字集 ID。
+
+<p>這個編碼字集 ID (CCSID) 必須是 WebSphere MQ 所支援的 CCSID 之一。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">單位</td>
+<td align="left" valign="top" class="base">整數</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">空值</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">1 至 65535 個字元</td>
+
+</tr>
+
+</table>
+
+<p>如果需要支援的 CCSID 和不同編碼字集間之訊息轉換的詳細資訊，請參閱 <cite>WebSphere MQ System Administration</cite> 和 <cite>WebSphere MQ Application Programming Reference</cite> 等書。
+請從 WebSphere MQ 傳訊多重平台和特定平台叢書網頁中找到這些書；
+比方說，從 <img border="0" alt="僅當這個主題鏈結到全球資訊網時，才可存取此目標" src="web.gif">&nbsp;&nbsp;               
+   <a target="_blank" href="http://www-3.ibm.com/software/ts/mqseries/library/manualsa/manuals/crosslatest.html.html"><strong>http://www-3.ibm.com/software/ts/mqseries/library/manualsa/manuals/platspecific.html</strong></a>
+、<img border="0" alt="僅當這個主題鏈結到全球資訊網時，才可存取此目標" src="web.gif">&nbsp;&nbsp;               
+   <a target="_blank" href="http://www.elink.ibmlink.ibm.com/public/applications/publications/cgibin/pbi.cgi"><strong>IBM Publications Center</strong></a>
+ 取得，或從 WebSphere MQ Collection Kit (SK2T-0730) 取得。</p>
+
+</dd>
+<dt>
+<strong><a name="MQTopicConnectionFactory_cloneSupport"></a>複本支援</strong>
+</dt>
+<dd>請選取這個勾選框來啟用複本支援，讓相同的延續性訂閱能夠跨越不同的主題複本。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">列舉</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">單位</td>
+<td align="left" valign="top" class="base">不適用</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">已清除
+</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">
+<dl>
+<dt>
+<strong>已選取</strong>
+</dt>
+<dd>啟用複本支援。</dd>
+<dt>
+<strong>已清除
+</strong>
+</dt>
+<dd>停用複本支援。</dd>
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+<p>如果您選取這個內容，您也必須指定<strong>用戶端 ID</strong> 內容值。
+</p>
+
+</dd>
+<dt>
+<strong><a name="MQTopicConnectionFactory_clientID"></a>用戶端 ID</strong>
+</dt>
+<dd>通往佇列管理程式的連線所用的 JMS 用戶端 ID。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">有效的 JMS 用戶端 ID，如 ASCII 字元</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASTopicConnectionFactory_type"></a>已啟用 XA</strong>
+</dt>
+<dd>指定 Connection Factory 要用在訊息的 XA 或非 XA 協調上，以及控制應用程式伺服器要不要使用 XA QCF/TCF。
+如果不會在相同交易中使用多重資源，請啟用 XA。
+
+<p>如果您將這個內容設為 <samp>NON_XA</samp>，JMS 階段作業仍會列在交易中，但它會使用資源管理程式本端交易呼叫（session.commit 和 session.rollback），而不是 XA 呼叫。此舉可以提升效能。
+但是，這也表示只有一個資源可以列在 WebSphere Application Server 的交易中。
+WebSphere Application Server Enterprise 中的最後一個參與者支援，可讓您將一個非 XA 資源與其他 XA 相容資源列在一起。
+</p>
+
+<p>如果 WebSphere Topic Connection Factory 將 <strong>Port</strong> 內容設為 <samp>DIRECT</samp>，便不會套用這個內容，而且其值一定是 <samp>NON_XA</samp>。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">列舉</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">單位</td>
+<td align="left" valign="top" class="base">不適用</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">已啟用 XA</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">
+<dl>
+<dt>
+<strong>XA</strong>
+</dt>
+<dd>Connection Factory 供訊息的 XA 協調使用
+</dd>
+<dt>
+<strong>NON_XA</strong>
+</dt>
+<dd>Connection Factory 供訊息的非 XA 協調使用
+</dd>
+</dl>
+</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">建議
+</td>
+<td align="left" valign="top" class="base">當收到的訊息佇列或主題是交易中的唯一資源時，請勿啟用 XA。
+當涉及包括其他佇列或主題在內的其他資源時，請啟用 XA。
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopicConnectionFactory_connectionPool"></a>連線儲存池</strong>
+</dt>
+<dd>指定一組選用的連線儲存池設定。
+
+<p>所有 J2C 連接器會共用連線儲存池內容。
+</p>
+
+<p>應用程式伺服器會將連線和階段作業與 JMS 提供者置於儲存池中，來提高效能。
+此舉與任何 WebSphere MQ 連線儲存池作業無關。
+您必須針對您的應用程式，來配置連線和階段作業儲存池內容，否則可能不會得到您所要的連線和階段作業行為。
+</p>
+
+<p>如果 JMS 資源的並行伺服器端存取作業超出預設值，請變更連線儲存池的大小。連線儲存池大小是以個別佇列或主題為基礎來設定的。
+請參閱下表，以取得詳細資料。</p>
+
+</dd>
+<dt>
+<strong><a name="MQTopicConnectionFactory_sessionPool"></a>階段作業儲存池</strong>
+</dt>
+<dd>一組選用的階段作業儲存池設定。
+
+<p>這個鏈結提供鏈結至所有 J2C 連接器共用的選用連線儲存池內容的畫面。</p>
+
+<p>應用程式伺服器會將連線和階段作業與 JMS 提供者置於儲存池中，來提高效能。
+此舉與任何 WebSphere MQ 連線儲存池作業無關。
+您必須針對您的應用程式，來配置連線和階段作業儲存池內容，否則可能不會得到您所要的連線和階段作業行為。
+</p>
+
+</dd>
+<dt>
+<strong><a name="ConnectionFactory_customProperties"></a>自訂內容</strong>
+</dt>
+<dd>這是一組傳給 WebSphere MQ 的選用自訂內容名稱值配對。
+<p>您可以利用「自訂內容」頁面來定義下列 WebSphere MQ 內容。
+只有在設定了<a href="#MQTopicConnectionFactory_transportType">傳輸類型=CLIENT</a> 這個內容時，這些內容才適用。</p>
+
+<ul>
+
+<li>
+<a href="#SSLCIPHERSUITE">SSLCIPHERSUITE</a>
+</li>
+
+<li>
+<a href="#SSLCRL">SSLCRL</a>
+</li>
+
+<li>
+<a href="#SSLCRL">SSLPEERNAME</a>
+</li>
+
+<li>
+<a href="#MSGSELECTION">MSGSELECTION</a>
+</li>
+
+<li>
+<a href="#SUBSTORE">SUBSTORE</a>
+</li>
+
+</ul>
+
+<p>如果需要設定 SSL 內容的詳細資訊，請參閱 <cite>WebSphere MQ Using Java</cite> 一書中的 <a href="http://publibfp.boulder.ibm.com/epubs/html/csqzaw11/csqzaw1116.htm#HDRJSSLPR">SSL properties</a> 一節。
+</p>
+
+</dd>
+</dl>
+</body>
+</html>

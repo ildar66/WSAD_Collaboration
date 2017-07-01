@@ -1,0 +1,254 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Valores de las anotaciones cronol&oacute;gicas de JVM</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="JVMLogs_description"></a>
+<h2>Valores de las anotaciones cronol&oacute;gicas de JVM</h2>
+
+<p>Utilice esta p&aacute;gina para ver y modificar los valores para las anotaciones cronol&oacute;gicas <samp>System.out</samp> y <samp>System.err</samp> de JVM (Java Virtual Machine).</p>
+
+<p>Para ver esta p&aacute;gina de la consola administrativa, pulse <strong>Resoluci&oacute;n de problemas &gt; Anotaciones cronol&oacute;gicas y rastreo &gt;<cite>servidor</cite> &gt; Anotaciones cronol&oacute;gicas de JVM</strong>.</p>
+
+<div>
+<p>
+<strong>Pesta&ntilde;a Configuraci&oacute;n</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="system_out_file_description"></a>Nombre de archivo</strong>
+</dt>
+<dd>Especifica el nombre de uno de los archivos de anotaciones
+cronol&oacute;gicas que se describen en esta p&aacute;gina. 
+<p>El primer campo de nombre de archivo especifica el nombre del archivo
+de anotaciones cronol&oacute;gicas <samp>System.out</samp>.
+El segundo campo de nombre de archivo especifica el nombre del archivo
+<samp>System.err</samp>. </p>
+
+<p>Pulse el bot&oacute;n <strong>Ver</strong> en la pesta&ntilde;a de tiempo de ejecuci&oacute;n para ver
+el contenido de un archivo de anotaciones cronol&oacute;gicas seleccionado.</p>
+
+<p>El nombre de archivo especificado para el archivo de anotaciones
+cronol&oacute;gicas <samp>System.out</samp> o <samp>System.err</samp> debe tener uno de
+los siguientes valores:<dl>
+
+<dt>
+<strong><em>filename</em></strong>
+</dt>
+<dd>El nombre de un archivo en el sistema de archivos. Se recomienda utilizar un nombre de archivo plenamente cualificado. Si el nombre de archivo no est&aacute; plenamente cualificado, se considera que es relativo al directorio de trabajo actual del servidor.
+Cada corriente de datos debe estar configurada con un archivo dedicado. Por ejemplo, no puede redireccionar <samp>System.out</samp> y <samp>System.err</samp> al mismo archivo f&iacute;sico.<p>Si el directorio que contiene el archivo ya existe, el ID de usuario bajo el que se est&aacute; ejecutando el servidor debe tener acceso de lectura/escritura para dicho directorio. Si el directorio no existe, se crear&aacute; con los permisos adecuados.
+El ID de usuario bajo el que se ejecuta el servidor debe tener autorizaci&oacute;n para crear el directorio.</p>
+</dd>
+
+<dt>
+<strong>console</strong>
+</dt>
+<dd>Este es un nombre de archivo especial utilizado para redireccionar la corriente de datos a la corriente de datos de proceso correspondiente. Si se especifica este valor para <samp>System.out</samp>, el archivo se dirige a<samp>stdout</samp>. Si se especifica este valor para <samp>System.err</samp>, el archivo se dirige a<samp>stderr</samp>.</dd>
+
+<dt>
+<strong>none</strong>
+</dt>
+<dd>Descarta todos los datos escritos en la corriente de datos. Especificar <strong>none</strong> equivale a redireccionar la corriente de datos a dev/null en un sistema Unix.</dd>
+
+</dl>
+</p>
+
+</dd>
+<dt>
+<strong><a name="system_out_file_formatting_description"></a>Formato de archivo</strong>
+</dt>
+<dd>Especifica el formato que debe utilizarse al guardar el archivo <samp>System.out</samp>.</dd>
+<dt>
+<strong><a name="log_file_rotation"></a>Rotaci&oacute;n de archivos de anotaciones cronol&oacute;gicas</strong>
+</dt>
+<dd>
+
+<p>Utilice este conjunto de atributos para configurar el archivo de
+anotaciones cronol&oacute;gicas <samp>System.out</samp> o <samp>System.err</samp> para
+que sea de autogesti&oacute;n.</p>
+
+<p>Un archivo de anotaciones cronol&oacute;gicas de autogesti&oacute;n escribe mensajes en un archivo hasta que se alcanzan los criterios de tiempo o tama&ntilde;o. A la
+hora especificada o cuando el archivo alcanza el tama&ntilde;o especificado, se
+suspenden temporalmente las anotaciones cronol&oacute;gicas, a la vez que el
+archivo de anotaciones cronol&oacute;gicas se recupera, que significa que el
+archivo guardado se cierra y su nombre se modifica. El nombre nuevo del
+archivo guardado estar&aacute; basado en el nombre original del archivo, m&aacute;s el
+calificador de indicaci&oacute;n de la hora que indica cu&aacute;ndo se ha modificado el
+nombre. Cuando finaliza el cambio de nombre, se vuelve a abrir un archivo
+de anotaciones cronol&oacute;gicas vac&iacute;o y nuevo con el nombre original y se
+reanudan las anotaciones cronol&oacute;gicas. Todos los mensajes permanecen despu&eacute;s de la recuperaci&oacute;n del archivo de
+anotaciones cronol&oacute;gicas, aunque un &uacute;nico mensaje puede dividirse entre el
+archivo actual y el archivo guardado.</p>
+
+<p>Las anotaciones cronol&oacute;gicas no se pueden configurar para la gesti&oacute;n autom&aacute;tica si la corriente correspondiente se redirige a un archivo.<dl>
+
+<dt>
+<strong>Tama&ntilde;o de archivo</strong>
+</dt>
+<dd>Pulse este atributo para que el archivo de
+anotaciones cronol&oacute;gicas puede gestionarse bas&aacute;ndose en el tama&ntilde;o del
+archivo. Se produce la recuperaci&oacute;n autom&aacute;tica cuando el archivo alcanza
+el tama&ntilde;o que se ha especificado en el campo de tama&ntilde;o m&aacute;ximo.</dd>
+
+<dt>
+<strong>Tama&ntilde;o m&aacute;ximo</strong>
+</dt>
+<dd>Especifica el tama&ntilde;o m&aacute;ximo del archivo en
+megabytes.
+Cuando el archivo alcanza este tama&ntilde;o, &eacute;ste se recupera.<p>Este atributo s&oacute;lo es v&aacute;lido si pulsa Tama&ntilde;o de archivo.</p>
+</dd>
+
+<dt>
+<strong>Hora</strong>
+</dt>
+<dd>Pulse este atributo para que el archivo de anotaciones
+cronol&oacute;gicas puede gestionarse bas&aacute;ndose en la hora del d&iacute;a. A la hora especificada en el campo de hora de inicio, el archivo se recupera.</dd>
+
+<dt>
+<strong>Hora de inicio</strong>
+</dt>
+<dd>Especifica la hora del d&iacute;a, de 1 a 24, a partir
+de la cual se inicia el algoritmo de recuperaci&oacute;n peri&oacute;dico por primera vez despu&eacute;s de que se reinicie un servidor de aplicaciones. El algoritmo se carga
+durante el inicio del servidor de aplicaciones. Una vez iniciado a la hora
+del campo de hora de inicio, el algoritmo de recuperaci&oacute;n recupera el
+archivo cada intervalo de tiempo del campo de hora de repetici&oacute;n. Este
+patr&oacute;n de recuperaci&oacute;n contin&uacute;a sin ning&uacute;n ajuste hasta que se detiene
+el servidor de aplicaciones. </dd>
+
+<dt>
+<strong>Hora de repetici&oacute;n</strong>
+</dt>
+<dd>Especifica el n&uacute;mero de horas, de  1 a 24, cuando se produce la recuperaci&oacute;n peri&oacute;dica.</dd>
+
+<dt>
+<strong>Hora de repetici&oacute;n</strong>
+</dt>
+<dd>Especifica el n&uacute;mero de horas que debe
+transcurrir para que el archivo de anotaciones cronol&oacute;gicas se recupere. Los valores v&aacute;lidos son de 1 a 24. </dd>
+
+</dl>
+</p>
+
+<p>Configure un archivo de anotaciones cronol&oacute;gicas para su recuperaci&oacute;n seg&uacute;n el tiempo y el
+tama&ntilde;o, o ambos valores.
+Pulse <strong>Tama&ntilde;o de archivo</strong> y <strong>Hora</strong> para recuperar el archivo seg&uacute;n el primer criterio de correlaci&oacute;n que se produzca. Por ejemplo, si el campo de hora de repetici&oacute;n
+es de 5 horas y el tama&ntilde;o de archivo m&aacute;ximo es de 2 MB, el archivo se
+recupera cada 5 horas, a menos que alcance 2 MB antes de que finalice el intervalo. Despu&eacute;s de la recuperaci&oacute;n seg&uacute;n el tama&ntilde;o, el archivo contin&uacute;a
+recuper&aacute;ndose a cada intervalo.</p>
+
+</dd>
+<dt>
+<strong><a name="max_historical_files"></a>N&uacute;mero m&aacute;ximo de archivos hist&oacute;ricos de anotaciones cronol&oacute;gicas</strong>
+</dt>
+<dd>
+
+<p>Especifica el n&uacute;mero de archivos hist&oacute;ricos ( o recuperados) que se debe
+mantener. La corriente de datos se escribe en el archivo actual hasta que
+se recupera. Durante la recuperaci&oacute;n, el archivo actual se cierra y se guarda con un nuevo
+nombre, que consiste en el nombre actual m&aacute;s la indicaci&oacute;n de la hora de recuperaci&oacute;n.
+La
+corriente de datos vuelve a abrir un archivo nuevo con el nombre original para continuar con
+la escritura.
+El n&uacute;mero de archivos hist&oacute;ricos aumenta de 0 al valor del campo de n&uacute;mero
+m&aacute;ximo de archivos hist&oacute;ricos. La siguiente recuperaci&oacute;n suprime el archivo hist&oacute;rico m&aacute;s antiguo.</p>
+
+</dd>
+<dt>
+<strong><a name="installed_application_output"></a>Salida de aplicaciones instaladas</strong>
+</dt>
+<dd>
+
+<p>Especifica si se anotan cronol&oacute;gicamente o se da formato a las
+sentencias de impresi&oacute;n de <samp>System.out</samp> o <samp>System.err</samp> que
+emite el c&oacute;digo de aplicaci&oacute;n.<dl>
+
+<dt>
+<strong>Mostrar sentencias de impresi&oacute;n de aplicaci&oacute;n</strong>
+</dt>
+<dd>Pulse este campo
+para mostrar los mensajes que escriben las aplicaciones en la corriente de datos mediante los m&eacute;todos de corrientes de datos <strong>print</strong> y <strong>println</strong>. Siempre aparecen los mensaje de sistema de WebSphere
+Application Server.</dd>
+
+<dt>
+<strong>Formatear sentencias de impresi&oacute;n</strong>
+</dt>
+<dd>Pulse este campo para dar formato a las sentencias de impresi&oacute;n de la aplicaci&oacute;n, tales como los mensajes de sistema de WebSphere Application Server.</dd>
+
+</dl>
+</p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Pesta&ntilde;a Tiempo de ejecuci&oacute;n</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="system_out_file_description"></a>Nombre de archivo</strong>
+</dt>
+<dd>Especifica el nombre de uno de los archivos de anotaciones
+cronol&oacute;gicas que se describen en esta p&aacute;gina. 
+<p>El primer campo de nombre de archivo especifica el nombre del archivo
+de anotaciones cronol&oacute;gicas <samp>System.out</samp>.
+El segundo campo de nombre de archivo especifica el nombre del archivo
+<samp>System.err</samp>. </p>
+
+<p>Pulse el bot&oacute;n <strong>Ver</strong> en la pesta&ntilde;a de tiempo de ejecuci&oacute;n para ver
+el contenido de un archivo de anotaciones cronol&oacute;gicas seleccionado.</p>
+
+<p>El nombre de archivo especificado para el archivo de anotaciones
+cronol&oacute;gicas <samp>System.out</samp> o <samp>System.err</samp> debe tener uno de
+los siguientes valores:<dl>
+
+<dt>
+<strong><em>filename</em></strong>
+</dt>
+<dd>El nombre de un archivo en el sistema de archivos. Se recomienda utilizar un nombre de archivo plenamente cualificado. Si el nombre de archivo no est&aacute; plenamente cualificado, se considera que es relativo al directorio de trabajo actual del servidor.
+Cada corriente de datos debe estar configurada con un archivo dedicado. Por ejemplo, no puede redireccionar <samp>System.out</samp> y <samp>System.err</samp> al mismo archivo f&iacute;sico.<p>Si el directorio que contiene el archivo ya existe, el ID de usuario bajo el que se est&aacute; ejecutando el servidor debe tener acceso de lectura/escritura para dicho directorio. Si el directorio no existe, se crear&aacute; con los permisos adecuados.
+El ID de usuario bajo el que se ejecuta el servidor debe tener autorizaci&oacute;n para crear el directorio.</p>
+</dd>
+
+<dt>
+<strong>console</strong>
+</dt>
+<dd>Este es un nombre de archivo especial utilizado para redireccionar la corriente de datos a la corriente de datos de proceso correspondiente. Si se especifica este valor para <samp>System.out</samp>, el archivo se dirige a<samp>stdout</samp>. Si se especifica este valor para <samp>System.err</samp>, el archivo se dirige a<samp>stderr</samp>.</dd>
+
+<dt>
+<strong>none</strong>
+</dt>
+<dd>Descarta todos los datos escritos en la corriente de datos. Especificar <strong>none</strong> equivale a redireccionar la corriente de datos a dev/null en un sistema Unix.</dd>
+
+</dl>
+</p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informaci&oacute;n relacionada</strong>
+</p>
+<a href="rcon_buttons.html">Botones de la consola de administraci&oacute;n</a>
+<br>
+
+<a href="rcon_scope.html">Valores de &aacute;mbito de la consola administrativa</a>
+<br>
+
+<a href="rcon_filter.html">Valores de filtro de la consola administrativa</a>
+<br>
+
+<a href="rcon_preferences.html">Valores de preferencias de la consola administrativa</a>
+<br>
+
+<a href="rcon_pageusage.html">Caracter&iacute;sticas de la p&aacute;gina de la consola administrativa</a>
+<br>
+
+</div>
+</body>
+</html>

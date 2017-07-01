@@ -1,0 +1,52 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Class loader collection</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="urun_rclassloader"></a>
+<h2>Class loader collection</h2>
+
+<p>Use this page to manage class-loader instances on an application
+server. A class loader determines whether an application class loader or a
+parent class loader finds and loads Java class files for an application.</p>
+
+<p>To view this administrative console page, click <strong>Servers &gt; Application
+ Servers &gt; </strong><em>server_name</em><strong>&gt; Classloader</strong>.</p>
+
+<dl>
+<dt>
+<strong><a name="Classloader_classloaderID_description"></a>Classloader ID</strong>
+</dt>
+<dd>States a string unique to the server identifying the class-loader
+instance. The product assigns the identifier.</dd>
+<dt>
+<strong><a name="Classloader_classloaderMode_description"></a>Classloader Mode</strong>
+</dt>
+<dd>Specifies the class-loader mode when the application class-loader
+policy is SINGLE. PARENT_FIRST causes the class loader to delegate the loading
+of classes to its parent class loader before attempting to load the class
+from its local class path. PARENT_LAST causes the class loader to attempt
+to load classes from its local class path before delegating the
+class loading to its parent; this allows an application class loader to override
+and provide its own version of a class that exists in the parent class loader.</dd>
+</dl>
+<div>
+<p>
+<strong>Related information</strong>
+</p>
+<a href="rcon_buttons.html">Administrative console buttons</a>
+<br>
+
+<a href="rcon_filter.html">Administrative console filter settings</a>
+<br>
+
+<a href="urun_rclassloader_inst.html">Class loader settings</a>
+<br>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,309 @@
+------Start of DE processing------ = [05.05.23 16:45:09:781 MSD] , key = java.lang.reflect.InvocationTargetException com.ibm.ws.webservices.engine.providers.java.RPCProvider.processRequestResponse 318
+Exception = java.lang.reflect.InvocationTargetException
+Source = com.ibm.ws.webservices.engine.providers.java.RPCProvider.processRequestResponse
+probeid = 318
+Stack Dump = java.lang.reflect.InvocationTargetException
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:79)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java(Compiled Code))
+	at java.lang.reflect.Method.invoke(Method.java(Compiled Code))
+	at com.ibm.ws.webservices.engine.providers.java.RPCProvider.invokeMethod(RPCProvider.java:404)
+	at com.ibm.ws.webservices.engine.providers.java.RPCProvider.processRequestResponse(RPCProvider.java:296)
+	at com.ibm.ws.webservices.engine.providers.java.RPCProvider.processMessage(RPCProvider.java:262)
+	at com.ibm.ws.webservices.engine.providers.java.JavaProvider.invoke(JavaProvider.java:289)
+	at com.ibm.ws.webservices.engine.PivotHandlerWrapper.invoke(PivotHandlerWrapper.java:212)
+	at com.ibm.ws.webservices.engine.handlers.WrappedHandler.invoke(WrappedHandler.java:61)
+	at com.ibm.ws.webservices.engine.PivotHandlerWrapper.invoke(PivotHandlerWrapper.java:212)
+	at com.ibm.ws.webservices.engine.PivotHandlerWrapper.invoke(PivotHandlerWrapper.java:212)
+	at com.ibm.ws.webservices.engine.WebServicesEngine.invoke(WebServicesEngine.java:255)
+	at com.ibm.ws.webservices.engine.transport.http.WebServicesServlet.doPost(WebServicesServlet.java:850)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:760)
+	at com.ibm.ws.webservices.engine.transport.http.WebServicesServletBase.service(WebServicesServletBase.java:341)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:853)
+	at com.ibm.ws.webcontainer.servlet.StrictServletInstance.doService(StrictServletInstance.java:110)
+	at com.ibm.ws.webcontainer.servlet.StrictLifecycleServlet._service(StrictLifecycleServlet.java:174)
+	at com.ibm.ws.webcontainer.servlet.IdleServletState.service(StrictLifecycleServlet.java:313)
+	at com.ibm.ws.webcontainer.servlet.StrictLifecycleServlet.service(StrictLifecycleServlet.java:116)
+	at com.ibm.ws.webcontainer.servlet.ServletInstance.service(ServletInstance.java:283)
+	at com.ibm.ws.webcontainer.servlet.ValidServletReferenceState.dispatch(ValidServletReferenceState.java:42)
+	at com.ibm.ws.webcontainer.servlet.ServletInstanceReference.dispatch(ServletInstanceReference.java:40)
+	at com.ibm.ws.webcontainer.webapp.WebAppRequestDispatcher.handleWebAppDispatch(WebAppRequestDispatcher.java:983)
+	at com.ibm.ws.webcontainer.webapp.WebAppRequestDispatcher.dispatch(WebAppRequestDispatcher.java:564)
+	at com.ibm.ws.webcontainer.webapp.WebAppRequestDispatcher.forward(WebAppRequestDispatcher.java:200)
+	at com.ibm.ws.webcontainer.srt.WebAppInvoker.doForward(WebAppInvoker.java:119)
+	at com.ibm.ws.webcontainer.srt.WebAppInvoker.handleInvocationHook(WebAppInvoker.java:276)
+	at com.ibm.ws.webcontainer.cache.invocation.CachedInvocation.handleInvocation(CachedInvocation.java:71)
+	at com.ibm.ws.webcontainer.srp.ServletRequestProcessor.dispatchByURI(ServletRequestProcessor.java:182)
+	at com.ibm.ws.webcontainer.oselistener.OSEListenerDispatcher.service(OSEListener.java:334)
+	at com.ibm.ws.webcontainer.http.HttpConnection.handleRequest(HttpConnection.java:56)
+	at com.ibm.ws.http.HttpConnection.readAndHandleRequest(HttpConnection.java:618)
+	at com.ibm.ws.http.HttpConnection.run(HttpConnection.java:443)
+	at com.ibm.ws.util.ThreadPool$Worker.run(ThreadPool.java:672)
+Caused by: java.net.SocketException: Operation timed out: connect:could be due to invalid address
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.PlainSocketImpl.doConnect(PlainSocketImpl.java:329)
+	at java.net.PlainSocketImpl.connectToAddress(PlainSocketImpl.java:194)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:181)
+	at java.net.Socket.connect(Socket.java:459)
+	at java.net.Socket.connect(Socket.java:409)
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:157)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:414)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:628)
+	at sun.net.www.http.HttpClient.<init>(HttpClient.java:331)
+	at sun.net.www.http.HttpClient.<init>(HttpClient.java:292)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:364)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:345)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:340)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:506)
+	at sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:497)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:599)
+	at java.net.URL.openStream(URL.java:985)
+	at com.ibm.odcb.tutorial.webservice.StockWebService.getQuote(StockWebService.java:44)
+	... 36 more
+
+Dump of callerThis = 
+Object type = com.ibm.ws.webservices.engine.providers.java.RPCProvider
+com.ibm.ws.webservices.engine.providers.java.RPCProvider@408222bc
+
+Exception = java.lang.reflect.InvocationTargetException
+Source = com.ibm.ws.webservices.engine.providers.java.RPCProvider.processRequestResponse
+probeid = 318
+Dump of callerThis = 
+Object type = com.ibm.ws.webservices.engine.providers.java.RPCProvider
+  class$javax$xml$rpc$holders$Holder = null
+  class$com$ibm$ws$webservices$engine$providers$java$RPCProvider = 
+    class$java$lang$Class = 
+      class$java$lang$Class = this.class$com$ibm$ws$webservices$engine$providers$java$RPCProvider.class$java$lang$Class
+      initted = true
+      reflectionFactory = this.class$com$ibm$ws$webservices$engine$providers$java$RPCProvider.reflectionFactory
+      serialPersistentFields = this.class$com$ibm$ws$webservices$engine$providers$java$RPCProvider.serialPersistentFields
+      serialVersionUID = 3206093459760846163
+      declaredPublicMethods = null
+      declaredPublicFields = null
+      publicConstructors = null
+      declaredConstructors = null
+      publicMethods = null
+      declaredMethods = null
+      publicFields = null
+      declaredFields = java.lang.ref.SoftReference@41562a8
+      useCaches = true
+      allPermDomain = this.class$com$ibm$ws$webservices$engine$providers$java$RPCProvider.allPermDomain
+      getPDperm = null
+      newInstanceCallerCache = null
+      cachedConstructor = null
+      have_extensions = true
+    initted = true
+    reflectionFactory = 
+      class$sun$reflect$ConstructorAccessorImpl = java.lang.Class@2194a22c
+      class$java$lang$Class = this.class$com$ibm$ws$webservices$engine$providers$java$RPCProvider.class$java$lang$Class
+      inflationThreshold = 5
+      noInflation = false
+      langReflectAccess = java.lang.reflect.ReflectAccess@3474e2af
+      soleInstance = this.class$com$ibm$ws$webservices$engine$providers$java$RPCProvider.reflectionFactory
+      reflectionFactoryAccessPerm = java.lang.RuntimePermission@3effa2af
+      useUnsafeFieldAccessors = true
+      initted = true
+    serialPersistentFields = {}
+    serialVersionUID = 3206093459760846163
+    declaredPublicMethods = null
+    declaredPublicFields = null
+    publicConstructors = null
+    declaredConstructors = null
+    publicMethods = null
+    declaredMethods = null
+    publicFields = null
+    declaredFields = 
+      timestamp = 19
+      clock = 19
+      pending = null
+      lock = java.lang.ref.Reference$Lock@4b99e2ae
+      processing = null
+      next = null
+      queue = java.lang.ref.ReferenceQueue$Null@3ef422af
+      referent = [Ljava.lang.reflect.Field;@756fa2b6
+    useCaches = true
+    allPermDomain = 
+      staticPermissions = true
+      permissions = java.security.Permissions@5a68e2aa
+      principals = {}
+      classloader = null
+      codesource = null
+    getPDperm = null
+    newInstanceCallerCache = null
+    cachedConstructor = null
+    have_extensions = true
+  log = 
+    component = WebServices
+    method = 
+    webSphere = WebSphere
+    ibm = IBM
+    tc = 
+      ivLogger = null
+      ivResourceBundleName = com.ibm.ejs.resources.seriousMessages
+      ivDumpEnabled = false
+      defaultMessageFile = com.ibm.ejs.resources.seriousMessages
+      ivEntryEnabled = false
+      ivEventEnabled = false
+      ivDebugEnabled = false
+      ivName = com.ibm.ws.webservices.engine.providers.java.RPCProvider
+  class$com$ibm$ws$webservices$engine$providers$java$JavaProvider = 
+    class$java$lang$Class = this.class$com$ibm$ws$webservices$engine$providers$java$RPCProvider.class$java$lang$Class
+    initted = true
+    reflectionFactory = this.class$com$ibm$ws$webservices$engine$providers$java$RPCProvider.reflectionFactory
+    serialPersistentFields = this.class$com$ibm$ws$webservices$engine$providers$java$RPCProvider.serialPersistentFields
+    serialVersionUID = 3206093459760846163
+    declaredPublicMethods = null
+    declaredPublicFields = null
+    publicConstructors = null
+    declaredConstructors = null
+    publicMethods = null
+    declaredMethods = null
+    publicFields = null
+    declaredFields = 
+      timestamp = 19
+      clock = 19
+      pending = null
+      lock = this.class$com$ibm$ws$webservices$engine$providers$java$RPCProvider.declaredFields.lock
+      processing = null
+      next = null
+      queue = this.class$com$ibm$ws$webservices$engine$providers$java$RPCProvider.declaredFields.queue
+      referent = [Ljava.lang.reflect.Field;@7510a2b6
+    useCaches = true
+    allPermDomain = this.class$com$ibm$ws$webservices$engine$providers$java$RPCProvider.allPermDomain
+    getPDperm = null
+    newInstanceCallerCache = null
+    cachedConstructor = null
+    have_extensions = true
+  _classLoader = null
+  OPTION_SCOPE = scope
+  OPTION_WSDL_TARGETNAMESPACE = wsdlTargetNamespace
+  OPTION_WSDL_SERVICEPORT = wsdlServicePort
+  OPTION_WSDL_SERVICEELEMENT = wsdlServiceElement
+  OPTION_WSDL_PORTTYPE = wsdlPortType
+  OPTION_CLASSPATH = classPath
+  OPTION_IS_STATIC = isStatic
+  OPTION_CLASSNAME = className
+  entLog = 
+    component = WebServices
+    method = 
+    webSphere = WebSphere
+    ibm = IBM
+    tc = 
+      ivLogger = null
+      ivResourceBundleName = com.ibm.ejs.resources.seriousMessages
+      ivDumpEnabled = false
+      defaultMessageFile = com.ibm.ejs.resources.seriousMessages
+      ivEntryEnabled = false
+      ivEventEnabled = false
+      ivDebugEnabled = false
+      ivName = com.ibm.ws.webservices.engine.enterprise
+  class$com$ibm$ws$webservices$engine$handlers$BasicHandler = 
+    class$java$lang$Class = this.class$com$ibm$ws$webservices$engine$providers$java$RPCProvider.class$java$lang$Class
+    initted = true
+    reflectionFactory = this.class$com$ibm$ws$webservices$engine$providers$java$RPCProvider.reflectionFactory
+    serialPersistentFields = this.class$com$ibm$ws$webservices$engine$providers$java$RPCProvider.serialPersistentFields
+    serialVersionUID = 3206093459760846163
+    declaredPublicMethods = null
+    declaredPublicFields = null
+    publicConstructors = null
+    declaredConstructors = null
+    publicMethods = null
+    declaredMethods = null
+    publicFields = null
+    declaredFields = 
+      timestamp = 19
+      clock = 19
+      pending = null
+      lock = this.class$com$ibm$ws$webservices$engine$providers$java$RPCProvider.declaredFields.lock
+      processing = null
+      next = null
+      queue = this.class$com$ibm$ws$webservices$engine$providers$java$RPCProvider.declaredFields.queue
+      referent = [Ljava.lang.reflect.Field;@76f8a2b6
+    useCaches = true
+    allPermDomain = this.class$com$ibm$ws$webservices$engine$providers$java$RPCProvider.allPermDomain
+    getPDperm = null
+    newInstanceCallerCache = null
+    cachedConstructor = null
+    have_extensions = true
+  name = null
+  _lifeCycle = 
+    class$com$ibm$ws$webservices$engine$lifecycle$LifeCycleObjectImpl = 
+      class$java$lang$Class = this.class$com$ibm$ws$webservices$engine$providers$java$RPCProvider.class$java$lang$Class
+      initted = true
+      reflectionFactory = this.class$com$ibm$ws$webservices$engine$providers$java$RPCProvider.reflectionFactory
+      serialPersistentFields = this.class$com$ibm$ws$webservices$engine$providers$java$RPCProvider.serialPersistentFields
+      serialVersionUID = 3206093459760846163
+      declaredPublicMethods = null
+      declaredPublicFields = null
+      publicConstructors = null
+      declaredConstructors = null
+      publicMethods = null
+      declaredMethods = null
+      publicFields = null
+      declaredFields = java.lang.ref.SoftReference@e9462b6
+      useCaches = true
+      allPermDomain = this.class$com$ibm$ws$webservices$engine$providers$java$RPCProvider.allPermDomain
+      getPDperm = null
+      newInstanceCallerCache = null
+      cachedConstructor = null
+      have_extensions = true
+    stateNames = 
+      [0] = 
+      [1] = INACTIVE
+      [2] = ACTIVE
+    _createStack = null
+    _container = this
+    _state = 2
+    _owner = 
+      class$com$ibm$ws$webservices$engine$lifecycle$LifeCycleObject = null
+      NOLOCKIFACTIVE = false
+      LOCKIFACTIVE = true
+      NOSTICKY = false
+      STICKY = true
+      _lockIfActive = true
+      _sticky = false
+      _containerOwner = null
+      _stickySet = java.util.HashSet@4073a2bc
+      _set = com.ibm.ws.webservices.engine.orderedset.OrderedSetImpl@407662bc
+      class$com$ibm$ws$webservices$engine$lifecycle$LifeCycleObjectImpl = this._lifeCycle.class$com$ibm$ws$webservices$engine$lifecycle$LifeCycleObjectImpl
+      stateNames = this._lifeCycle.stateNames
+      _createStack = null
+      _container = com.ibm.ws.webservices.engine.handlers.soap.ServerSOAPPort@4075a2bc
+      _state = 2
+      _owner = com.ibm.ws.webservices.engine.deployment.wsdd.WSDDPort@7bc7e2b9
+      log = this._lifeCycle.log
+    log = 
+      component = WebServices
+      method = 
+      webSphere = WebSphere
+      ibm = IBM
+      tc = com.ibm.ejs.ras.TraceComponent@2e64e2b9
+  _configurable = 
+    class$com$ibm$ws$webservices$engine$configurable$ConfigurableImpl = 
+      class$java$lang$Class = this.class$com$ibm$ws$webservices$engine$providers$java$RPCProvider.class$java$lang$Class
+      initted = true
+      reflectionFactory = this.class$com$ibm$ws$webservices$engine$providers$java$RPCProvider.reflectionFactory
+      serialPersistentFields = this.class$com$ibm$ws$webservices$engine$providers$java$RPCProvider.serialPersistentFields
+      serialVersionUID = 3206093459760846163
+      declaredPublicMethods = null
+      declaredPublicFields = null
+      publicConstructors = null
+      declaredConstructors = null
+      publicMethods = null
+      declaredMethods = null
+      publicFields = null
+      declaredFields = java.lang.ref.SoftReference@e3ae2b6
+      useCaches = true
+      allPermDomain = this.class$com$ibm$ws$webservices$engine$providers$java$RPCProvider.allPermDomain
+      getPDperm = null
+      newInstanceCallerCache = null
+      cachedConstructor = null
+      have_extensions = true
+    options = null
+    log = 
+      component = WebServices
+      method = 
+      webSphere = WebSphere
+      ibm = IBM
+      tc = com.ibm.ejs.ras.TraceComponent@1d0162bd
+

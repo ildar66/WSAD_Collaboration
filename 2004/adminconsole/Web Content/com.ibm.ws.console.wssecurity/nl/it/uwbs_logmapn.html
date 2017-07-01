@@ -1,0 +1,203 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Impostazioni di configurazione mappatura di login</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_logmapn"></a>
+<h2>
+<img alt="[Release 5.1 e successive]" src="v51.gif" border="0">Impostazioni di configurazione mappatura di login</h2>
+
+<p>Utilizzare questa pagina per specificare le impostazioni di configurazione del login JAAS (Java Authentication and Authorization
+Service) utilizzate per convalidare i token di sicurezza all'interno dei messaggi in entrata.</p>
+
+<p>Per visualizzare questa pagina della console di gestione, completare le seguenti operazioni:<ol>
+
+<li>Fare clic su <strong>Server &gt; Server delle applicazioni &gt; </strong><em>nome_server</em>.</li>
+
+<li>In Ulteriori propriet&agrave;, fare clic su <strong>Servizi Web: collegamenti predefiniti per la sicurezza dei servizi Web (WS-Security, Web Services Security) &gt; Mappature di login &gt; Nuovo</strong>.</li>
+
+</ol>
+</p>
+
+<dl>
+<dt>
+<strong><a name="sec_logmapauth"></a>Metodo di autenticazione </strong>
+</dt>
+<dd>Specifica il metodo di autenticazione.
+<p>&Egrave; possibile utilizzare qualsiasi stringa, ma questa deve corrispondere all'elemento nella configurazione a livello del servizio. Le seguenti parole sono riservate e hanno significati speciali: <dl>
+
+<dt>
+<strong>BasicAuth</strong>
+</dt>
+<dd>Usa sia un nome utente che una password</dd>
+<dt>
+<strong>IDAssertion</strong>
+</dt>
+<dd>Usa solo un nome utente ma richiede che venga stabilita una sicurezza aggiuntiva sul server ricevente utilizzando un TrustedIDEvaluator</dd>
+<dt>
+<strong>Signature</strong>
+</dt>
+<dd>Usa il DN (Distinguished Name) del firmatario.</dd>
+<dt>
+<strong>LTPA</strong>
+</dt>
+<dd>Convalida un token</dd>
+</dl>
+</p>
+
+</dd>
+<dt>
+<strong><a name="sec_jaas"></a>Nome di configurazione JAAS</strong>
+</dt>
+<dd>Specifica il nome della configurazione JAAS (Java Authentication and Authorization Service).
+<p>Specificare le configurazioni JAAS che utilizzano la console di gestione facendo clic su <strong>Sicurezza &gt; Configurazione JAAS &gt; Applicazione</strong>.</p>
+
+</dd>
+<dt>
+<strong><a name="sec_class"></a>Nome classi di produzione gestore richiamate</strong>
+</dt>
+<dd>Specifica il nome della produzione per la classe CallbackHandler.
+<p>&Egrave; necessario implementare la classe <samp>com.ibm.wsspi.wssecurity.auth.callback.CallbackHandlerFactory</samp> in questo campo.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito: </td>
+<td align="left" valign="top" class="base">com.ibm.wsspi.wssecurity.auth.callback.CallbackHandlerFactory</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="sec_tokenuri"></a>URI tipo di token </strong>
+</dt>
+<dd>Specifica l'URI (Uniform Resource Identifier) dello spazio nome, che denota il tipo di token di sicurezza accettato. 
+<p>Se vengono accettati i token di sicurezza binaria, il valore denota l'attributo ValueType nell'elemento. L'elemento ValueType identifica il tipo di token di sicurezza e il relativo spazio nome. Se vengono accettati i token XML (eXtensible Markup Language), il valore denota il nome elemento di livello superiore del token XML. </p>
+
+<p>Se i termini riservati vengono specificati precedentemente nel campo <strong>Metodo di autenticazione</strong>, tale campo viene ignorato. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati: </td>
+<td align="left" valign="top" class="base">Caratteri Unicode, tranne caratteri non ASCII, che includono simboli di cancelletto (#), di percentuale (%) e parentesi quadre ([ ]).</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="sec_tokenlname"></a>Nome locale tipo di token </strong>
+</dt>
+<dd>Specifica il nome locale del tipo di token di sicurezza, ad esempio,
+X509v3.
+<p>Se vengono accettati i token di sicurezza binaria, il valore denota l'attributo ValueType nell'elemento. L'attributo ValueType identifica il tipo di token di sicurezza e il relativo spazio nome. Se vengono accettati i token XML (eXtensible Markup Language), il valore denota il nome elemento di livello superiore del token XML. </p>
+
+<p>Se i termini riservati vengono specificati precedentemente nel campo <strong>Metodo di autenticazione</strong>, tale campo viene ignorato. </p>
+
+</dd>
+<dt>
+<strong><a name="sec_lognoncemaxage"></a>Durata
+massima Nonce</strong>
+            &nbsp;
+            <img alt="[Release 5.1 e successive]" src="v51.gif" border="0"></dt>
+<dd>Specifica il tempo, espresso in secondi, prima della scadenza della
+registrazione data/ora nonce.
+Nonce &egrave; un valore generato casualmente.
+<p>&Egrave; necessario specificare un minimo di 300 secondi per il campo <strong>Durata massima Nonce</strong>.
+Tuttavia, il valore massimo non pu&ograve; superare il numero di secondi specificato nel campo <strong>Timeout
+cache Nonce</strong> sia al livello server sia al livello cella. &Egrave; possibile specificare il valore <strong>Durata massima Nonce</strong> al livello del server facendo clic su <strong>Server &gt; Server delle applicazioni &gt; </strong><em>nome_server</em>. In Ulteriori propriet&agrave;, fare clic su <strong>Servizi Web: collegamenti predefiniti per la sicurezza dei
+servizi Web (WS-Security, Web Services Security)</strong>. &Egrave; possibile specificare il valore <strong>Durata massima Nonce</strong> al livello cella facendo clic su <strong>Sicurezza &gt; Servizi Web &gt; Propriet&agrave;</strong>. </p>
+
+<p>
+<strong>Importante:</strong> il campo <strong>Durata massima Nonce</strong> in questo pannello &egrave; facoltativo ed &egrave; valido solo se viene specificato il metodo di autenticazione BasicAuth. Se si
+specifica un altro metodo di autenticazione e si tenta di specificare i valori per questo campo,
+viene visualizzato il seguente messaggio di errore ed &egrave; necessario rimuovere il valore specificato: <samp>Nonce non &egrave; supportato per i metodi di autenticazione diversi da BasicAuth.</samp> Se si specifica BasicAuth, ma
+non vengono indicati i valori per il campo <strong>Durata massima Nonce</strong>, il runtime di sicurezza dei
+servizi Web (WS-Security, Web Services Security) ricerca un valore per <strong>Durata massima Nonce</strong> al livello del server. Se non viene rilevato alcun valore, il runtime esegue la ricerca
+al livello della cella. Se non viene rilevato
+alcun valore su entrambi i livelli, il valore predefinito &egrave; di 300 secondi.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">300 secondi</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo</td>
+<td align="left" valign="top" class="base">Da 300 ai secondi impostati per <strong>Timeout cache Nonce</strong></td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="sec_lognonceclockskew"></a>Orologio non sincronizzato Nonce</strong>
+            &nbsp;
+            <img alt="[Release 5.1 e successive]" src="v51.gif" border="0"></dt>
+<dd>Specifica il valore dell'orologio non
+sincronizzato, espresso in secondi, da considerare quando WebSphere Application Server verifica se
+il messaggio &egrave; recente o meno. Nonce &egrave; un valore generato casualmente.
+<p>&Egrave; necessario specificare un minimo di 0 secondi per il campo <strong>Orologio non sincronizzato
+Nonce</strong>.
+Tuttavia, il valore massimo non pu&ograve; superare il numero di secondi specificato nel campo <strong>Durata
+massima Nonce</strong> nel pannello Mappature di login. </p>
+
+<p>
+<strong>Importante:</strong> il campo <strong>Orologio non sincronizzato Nonce</strong> su questo pannello &egrave; facoltativo ed &egrave; valido solo se viene specificato il metodo di autenticazione BasicAuth. Se si
+specifica un altro metodo di autenticazione e si tenta di specificare i valori per questo campo,
+viene visualizzato il seguente messaggio di errore ed &egrave; necessario rimuovere il valore specificato: <samp>Nonce non &egrave; supportato per i metodi di autenticazione diversi da BasicAuth.</samp> Se si specifica BasicAuth, ma non vengono indicati i valori per il campo <strong>Orologio non sincronizzato
+Nonce</strong>, il runtime di sicurezza dei servizi Web (WS-Security, Web Services Security) ricerca un valore <strong>Orologio non sincronizzato
+Nonce</strong> al livello del server. Se non viene rilevato alcun valore, il runtime esegue la ricerca
+al livello della cella. Se non viene rilevato alcun valore su entrambi i livelli, il valore
+predefinito &egrave; di 0 secondi.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">0 secondi</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo</td>
+<td align="left" valign="top" class="base">Da 0 ai secondi impostati per <strong>Durata massima Nonce</strong></td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>Informazioni correlate</strong>
+</p>
+<a href="uwbs_logmap.html">Raccolta delle mappature di login</a>
+<br>
+
+<a href="uwbs_noncecellprop.html">Propriet&agrave; al
+livello della cella Nonce</a>
+<br>
+
+</div>
+</body>
+</html>

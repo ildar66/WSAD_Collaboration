@@ -1,0 +1,95 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>CORBA 对象绑定设置</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="unam_rcorba_namespace"></a>
+<h2>CORBA 对象绑定设置</h2>
+
+<p>使用此页面配置 CORBA 对象绑定的新名称绑定，或查看或编辑现有 CORBA 对象绑定。</p>
+
+<p>要查看此管理控制台页面，单击<strong>环境</strong> &gt; <strong>命名</strong> &gt; <strong>名称空间绑定</strong> &gt; <em>CORBA_namespace_binding</em>。</p>
+
+<div>
+<p>
+<strong>&ldquo;配置&rdquo;选项卡</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="NameSpaceBinding_scope_description"></a>作用域</strong>
+</dt>
+<dd>显示已配置绑定的作用域。此值表明 <samp>namebindings.xml</samp> 文件的配置位置。此字段仅用于信息目的，且不能更新。
+<p> 如果配置的绑定是以单元为作用域，则开始上下文是单元持久根上下文。如果配置的绑定是以节点为作用域，则开始上下文是节点持久根上下文。如果配置的绑定是以服务器为作用域，则开始上下文是服务器的服务器根上下文。</p>
+
+</dd>
+<dt>
+<strong><a name="NameSpaceBinding_bindingtype_description"></a>绑定类型</strong>
+</dt>
+<dd>显示已配置绑定的类型。可能的选项是 String、EJB、CORBA 和 Indirect。此字段仅用于信息目的，且不能更新。</dd>
+<dt>
+<strong><a name="NameSpaceBinding_name_description"></a>绑定标识</strong>
+</dt>
+<dd>指定唯一标识此已配置绑定的名称。</dd>
+<dt>
+<strong><a name="NameSpaceBinding_nameInNameSpace_description"></a>名称空间中的名称</strong>
+</dt>
+<dd>指定用于名称空间中的此绑定的名称。此名称可以是简单名称也可以是复合名称，这取决于配置此绑定的名称空间部分。</dd>
+<dt>
+<strong><a name="CORBAObjectNameSpaceBinding_corbanameUrl_description"></a>Corbaname URL</strong>
+</dt>
+<dd>指定标识对象绑定到 CosNaming 服务器中的位置的 CORBA 名称 URL 字符串。</dd>
+<dt>
+<strong><a name="CORBAObjectNameSpaceBinding_federatedContext_description"></a>联合上下文</strong>
+</dt>
+<dd>指定目标是 CosNaming 上下文（真）还是叶节点对象（假）。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">值</td>
+<td align="left" valign="top" class="base">结果</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">true</td>
+<td align="left" valign="top" class="base">目标对象是用上下文 CORBA 绑定类型绑定的。如果 corbaname URL 未解析到 NamingContext，那么当第一次使用绑定时（这是第一次解析 URL 时）会发生错误。</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede"> false</td>
+<td align="left" valign="top" class="base">目标对象是用对象 CORBA 绑定类型绑定的。</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>相关信息</strong>
+</p>
+<a href="rcon_buttons.html">管理控制台按钮</a>
+<br>
+
+<a href="rcon_pageusage.html">管理控制台页面功能</a>
+<br>
+
+<a href="rcon_preferences.html">管理控制台首选项设置</a>
+<br>
+
+<a href="unam_rmanage_namespace.html">名称空间绑定集合</a>
+<br>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>ローカル・オペレーティング・システムのユーザー・レジストリー設定
+</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecrpseclos"></a>
+<h2>ローカル・オペレーティング・システムのユーザー・レジストリー設定
+</h2>
+
+<p>このページを使用して、ローカル・オペレーティング・システムのユーザー・レジストリー設定を構成します。
+</p>
+
+<p>この管理コンソール・ページを表示するには、「<strong>セキュリティー</strong>」&gt;「<strong>ユーザー・レジストリー</strong>」&gt;「<strong>ローカル OS</strong>」をクリックします。</p>
+
+<div>
+<p>
+<strong>「構成」タブ</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="UserRegistry_serverId_description"></a>サーバー・ユーザー ID</strong>
+</dt>
+<dd>ローカル OS レジストリー内の有効なユーザー ID を指定します。
+<p>この ID はセキュリティー・サーバー ID であって、WebSphere Application Server のセキュリティー
+のためにのみ使用され、サーバーを実行するシステム・プロセスとは関連していません。
+このサーバーは、認証のためにローカル OS レジストリーを呼び出し、
+その特定のレジストリー内のネイティブな API を呼び出してユーザーに関する特権情報を入手します。
+ネイティブ API へのアクセスは、特別な特権 (例えば、UNIX の場合の「<strong>root</strong>」や Windows システムの場合の「
+<strong>オペレーティング・システムの一部として機能する (Act as part of
+operating system)</strong>」) を持つユーザーのみが行うことができます。アプリケーション・
+サーバーでセキュリティーを使用するには、(セキュリティー・サーバー ID ではなく) WebSphere Application Server が実行される
+プロセス ID に、システム  API を呼び出すための十分な特権が必要です。この特別な特権は、WebSphere Application Server を実行
+するプロセスが<strong>管理者</strong>グループに属している必要があり、Windows システムの場合には「
+<strong>オペレーティング・システムの一部として機能する (Act as part of
+operating system)</strong>」特権を、UNIX では <strong>root</strong> であるかあるいは root 権限を持っていることを意味します。</p>
+
+<p>Windows システム・レジストリーを使用する際に、この ID を Windows マシンの名前と同じにすることはできません。
+これは、Windows システムでは、マシン名 <strong>bob</strong> が、ユーザー <strong>bob</strong> と同様のアカウントを持つものとして扱われる
+ためです。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型:</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">単位:</td>
+<td align="left" valign="top" class="base">英数字</td>
+
+</tr>
+
+</table>
+
+
+</dd>
+<dt>
+<strong><a name="UserRegistry_serverPassword_description"></a> サーバー・ユーザー・パスワード</strong>
+</dt>
+<dd>ローカル OS レジストリー内の有効なユーザー ID に対応する有効なユーザー・パスワードを指定します。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+
+<p></p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>関連情報</strong>
+</p>
+<a href="rcon_buttons.html">管理コンソールのボタン</a>
+<br>
+
+<a href="rcon_pageusage.html">管理コンソール・ページのフィーチャー</a>
+<br>
+
+<a href="rcon_scope.html">管理コンソールの有効範囲設定</a>
+<br>
+
+<a href="rcon_filter.html">管理コンソールのフィルター設定</a>
+<br>
+
+<a href="rcon_preferences.html">管理コンソールの設定の変更</a>
+<br>
+
+</div>
+</body>
+</html>

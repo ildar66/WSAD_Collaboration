@@ -1,0 +1,355 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>全局安全性设置</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecrgsp"></a>
+<h2>
+<img alt="[Fix Pack 5.0.2 and later]" src="v502.gif" border="0">全局安全性设置</h2>
+
+<p>使用此页面配置安全性。当您启用安全性时，您正在全局级别上启用安全性设置。当禁用安全性时，WebSphere Application Server 性能增加 10%因此，考虑在不需要时禁用安全性。</p>
+
+<p>要查看此管理控制台页面，单击<strong>安全性</strong> &gt; <strong>全局安全性</strong>。</p>
+
+<div>
+<p>如果您是第一次配置安全性，那么请完成文档中&ldquo;配置全局安全性&rdquo;中的步骤来避免发生问题。一旦配置了安全性，确认对注册表或认证机制面板的所有更改。单击<strong>应用</strong>确认用户注册表设置。尝试对已配置的用户注册表进行服务器标识认证。在启用全局安全性之后确认用户注册表设置，可以在首次重新启动服务器时避免发生问题。</p>
+</div>
+
+<div>
+<p>
+<strong>&ldquo;配置&rdquo;选项卡</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="Security_enabled_description"></a>已启用</strong>
+</dt>
+<dd>指定服务器启用安全性子系统。
+<p>此标志在 WebSphere Application Server 信息中通常指的是<em>全局安全性标志</em>。启用安全性时，设置认证机制配置并在所选的用户注册表配置中指定有效的用户标识和密码。</p>
+
+
+
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型：</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省：</td>
+<td align="left" valign="top" class="base">禁用</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="Security_enforceJava2Security_description"></a>执行 Java 2 安全性</strong>
+</dt>
+<dd>指定是启用还是禁用 Java 2 安全性许可权检查。缺省情况下，禁用 Java 2 安全性。然而，启用全局安全性自动启用 Java 2 安全性。您可以选择禁用 Java 2 安全性，即使是在启用了全局安全性时。
+<p>当启用了 Java 2 安全性并且如果应用程序需要更多然后在缺省策略中授予的 Java 2 安全性许可权，那么应用程序可能不能正确地运行，直到在应用程序的 <samp>app.policy</samp> 文件或 <samp>was.policy</samp> 文件中授予了必需的许可权为止。应用程序生成 AccessControl 异常，这是由于它们具有所有必需的许可权。查询信息中心和复查 <em>Java2 安全性和动态策略</em>部分，如果您不熟悉 Java 2 安全性的话。</p>
+
+<p>如果在启用全局安全性后您的服务器不重新启动，那么您可以禁用安全性。转至 <samp>$&lt;install_root&gt;\bin</samp> 目录，并执行 <samp>wsadmin -conntype NONE</samp> 命令。在 <samp>wsadmin&gt;</samp> 提示符下，输入 <samp>securityoff</samp>，然后输入 <samp>exit</samp> 返回到命令提示符。重新启动服务器，并禁用安全性，以通过管理控制台检查任何不正确的设置。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型：</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省：</td>
+<td align="left" valign="top" class="base">禁用的</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">范围：</td>
+<td align="left" valign="top" class="base">启用的或禁用的</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="Security_useDomainQualifiedUserNames_description"></a>使用域限定的用户名</strong>
+</dt>
+<dd>指定用户名来限定它们所驻留的安全性域。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型：</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省：</td>
+<td align="left" valign="top" class="base">禁用的</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">范围：</td>
+<td align="left" valign="top" class="base">启用或禁用</td>
+
+</tr>
+
+</table>
+
+
+<p>
+<img alt="[5.0 only]" src="v50x.gif" border="0"><img alt="[Fix Pack 5.0.1]" src="v501x.gif" border="0">当您从<strong>安全性 &gt; 全局安全性</strong>面板指定<strong>使用域限定用户名</strong>时，从企业 bean 对 getCallerPrincipal() 的运行时调用返回限定名，附加域两次。例如，格式返回为 realm/realm/user。当进行 API 调用时，您可从返回的值剥去第一个域。servlet API getUserPrincipal() 正确工作。</p>
+
+</dd>
+<dt>
+<strong><a name="Security_cacheTimeout_description"></a>高速缓存超时
+</strong>
+</dt>
+<dd>指定安全性高速缓存的超时值（以秒计）。此值是相对超时。
+<p>如果启用 WebSphere Application Server 安全性，安全性高速缓存超时可影响性能。超时设置指定多久刷新与安全性相关的高速缓存一次。高速缓存与 bean、许可权和凭证相关的安全性信息。当高速缓存超时到期时，所有已高速缓存的信息变成无效。信息的后继请求导致数据库查找。有时，获取信息要求调用轻量级目录访问协议（LDAP）绑定或本机认证。两个调用对于性能都是相对花费较多的操作。通过查看站点的使用模式和安全性需要，确定应用程序的最好平衡。</p>
+
+<p>在 20 分钟的性能测试中，设置高速缓存超时，以便超时不会发生，可改进性能 40%。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型：</td>
+<td align="left" valign="top" class="base">整型</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">单位：</td>
+<td align="left" valign="top" class="base">秒</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省：</td>
+<td align="left" valign="top" class="base">600</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">范围：</td>
+<td align="left" valign="top" class="base">大于 30 秒</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="Security_issuePermissionWarning_description"></a>发出许可权警告</strong>
+</dt>
+<dd>指定当启用<em>发出许可权警告</em>时，在应用程序部署和应用程序启动期间，如果授予应用程序任何定制许可权，那么安全性运行时会发出警告。定制许可权是由用户应用程序定义的许可权，而不是 JDK 许可权。
+JDK 许可权是 <samp>package java.*</samp> 和 <samp>javax.*</samp> 中的许可权。
+<p>WebSphere 产品提供策略文件管理支持。该产品中有许多策略文件，其中有些是静态的，有些是动态的。动态策略是特殊类型资源的许可权模板。
+在动态策略模板中不使用定义的代码库或相对代码库。实际的代码库是从配置和运行时数据中动态创建的。<samp>filter.policy</samp> 文件包含根据 J2EE 1.3 规范应用程序不应该具有的许可权的列表。要获取更多有关许可权的信息，请参阅信息中心中的 Java 2 安全性策略管理章节。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型：</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省：</td>
+<td align="left" valign="top" class="base">禁用的</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">范围：</td>
+<td align="left" valign="top" class="base">启用或禁用</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="Security_activeProtocol_description"></a>活动协议</strong>
+</dt>
+<dd>指定启用安全性时因特网 ORB 间协议上远程方法调用（RMI IIOP）请求的活动认证机制。在前发行版中，安全性认证服务（SAS）协议是唯一可用的协议。
+<p>调用公共安全互操作性 V2（CSIv2）的对象管理组（OMG）支持增加的供应商互操作性和附加功能部件。如果安全性域中的所有服务器都是 V5 服务器，则指定 <strong>CSI</strong> 作为您的协议。如果有些服务器是 3.x 或 4.x 服务器，则指定 <strong>CSI 和 SAS</strong>。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型：</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省：</td>
+<td align="left" valign="top" class="base">BOTH</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">范围：</td>
+<td align="left" valign="top" class="base">CSI 和 SAS、CSI</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="Security_activeAuthMechanism_description"></a>活动认证机制
+</strong>
+</dt>
+<dd>启用安全性时，指定活动认证机制。
+
+<p>WebSphere Application Server V5 支持下列认证机制：简单 WebSphere 认证机制（SWAM）和轻量级第三方认证（LTPA）。</p>
+
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型：</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省：</td>
+<td align="left" valign="top" class="base">SWAM（WebSphere Application Server）</td>
+
+</tr>
+
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">范围：</td>
+<td align="left" valign="top" class="base">SWAM、LTPA</td>
+
+</tr>
+
+</table>
+
+
+</dd>
+<dt>
+<strong><a name="Security_activeUserRegistry_description"></a>活动用户注册表</strong>
+</dt>
+<dd>在启用安全性时，指定活动的用户注册表。
+<p>您可以为以下用户注册表的其中之一配置设置：<ul>
+
+
+<li>本地操作系统</li>
+
+<li>LDAP 用户注册表。当用户和组驻留于外部 LDAP 目录时，使用 LDAP 用户注册表设置。当启用了安全性并且更改任何这些属性时，转至<strong>全局安全性</strong>面板并单击<strong>应用</strong>或<strong>确定</strong>以确认更改。</li>
+
+<li>定制用户注册表</li>
+
+</ul>
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型：</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省：</td>
+<td align="left" valign="top" class="base">本地 OS</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">范围：</td>
+<td align="left" valign="top" class="base">本地 OS、LDAP、Custom</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="Security_fips"></a>使用 FIPS</strong>
+            &nbsp;
+            <img alt="[Fix Pack 5.0.2 and later]" src="v502.gif" border="0"></dt>
+<dd>启用 FIPS（联邦信息处理标准）核准的加密算法的使用。
+<p>当启用<strong>使用 FIPS</strong> 时，轻量级第三方认证（LTPA）实现使用 IBMJCEFIPS。IBMJCEFIPS 支持 DES、三重 DES 和 AES 的联邦信息处理标准（FIPS）核准的密码算法。尽管 LTPA 密钥是与以前发行版的 WebSphere Application Server 反向兼容的，但是 LTPA 令牌与以前发行版不兼容。</p>
+
+<p>WebSphere Application Server 提供 FIPS 核准的 Java 安全套接字扩展（JSSE）提供程序，称为 IBMJSSEFIPS。当 FIPS 核准的 JSSE 与安全套接字层（SSL）协议不兼容时，它需要传输层安全性（TLS）协议，如果您在指定 FIPS 核准的 JSSE 提供程序和 TLS 协议前选择<strong>使用 FIPS</strong> 复选框，则<strong>全局安全性</strong>面板的顶部显示下列错误消息：<pre class="program">
+<font style="font-family: arial"><samp>安全性策略设置为仅使用 FIPS 核准的密码算法。
+但是，至少有一个 SSL 配置未使用 FIPS 核准的 JSSE 提供程序。
+FIPS 核准的密码算法可能不在那些情况中使用。
+</samp></font>
+</pre>要改正此问题，在 <strong>SSL 配置库</strong>面板上，通过完成下列任务之一来配置 JSSE 提供程序和安全性协议：<ul>
+
+<li>单击<strong>安全性 &gt; SSL</strong>，并修改现有配置</li>
+
+<li>单击<strong>新建</strong>，并创建新配置</li>
+
+</ul>
+</p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>相关信息</strong>
+</p>
+<a href="rcon_buttons.html">管理控制台按钮</a>
+<br>
+
+<a href="rcon_pageusage.html">管理控制台页面功能</a>
+<br>
+
+<a href="rcon_scope.html">管理控制台作用域设置</a>
+<br>
+
+<a href="rcon_filter.html">管理控制台过滤器设置</a>
+<br>
+
+<a href="rcon_preferences.html">管理控制台首选项设置</a>
+<br>
+
+</div>
+</body>
+</html>

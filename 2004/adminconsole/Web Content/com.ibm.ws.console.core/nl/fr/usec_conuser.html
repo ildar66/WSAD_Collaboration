@@ -1,0 +1,197 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Param&egrave;tres des utilisateurs de la console et param&egrave;tres des utilisateurs du service de nommage CORBA</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecconuser"></a>
+<h2>Param&egrave;tres des utilisateurs de la console et param&egrave;tres des utilisateurs du service de nommage CORBA</h2>
+
+<p>La page Param&egrave;tres des utilisateurs de la console permet de donner aux utilisateurs des droits sp&eacute;cifiques afin
+d'administrer WebSphere Application Server &agrave; l'aide d'outils, tels que la console
+d'administration ou le scriptage wsadmin. Les strat&eacute;gies d'autorisation ne sont appliqu&eacute;es que si la s&eacute;curit&eacute;
+globale est activ&eacute;e. La page Param&egrave;tres des utilisateurs du service de nommage
+CORBA permet de g&eacute;rer les param&egrave;tres utilisateur du service de
+nommage CORBA.</p>
+
+<p>Pour afficher la page Utilisateurs de la
+console de la console d'administration, cliquez sur <strong>Administration syst&egrave;me</strong> &gt; <strong>Utilisateurs de la
+console</strong>. </p>
+
+<p>Pour afficher la page Utilisateurs du service de
+nommage CORBA de la console d'administration, cliquez sur <strong>Environnement &gt; Nommage &gt; Utilisateurs du service de nommage CORBA</strong>.</p>
+
+<dl>
+<dt>
+<strong><a name="desc_users_title"></a>Utilisateurs (Utilisateurs de la console)</strong>
+</dt>
+<dd>Indique des utilisateurs.
+<p>Les utilisateurs entr&eacute;s doivent exister dans le registre d'utilisateurs actif configur&eacute;.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es :</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="corba_desc_users_title"></a> Utilisateur (Utilisateurs du service de nommage CORBA)</strong>
+</dt>
+<dd>Indique les utilisateur du service de nommage CORBA.
+<p>Les utilisateurs entr&eacute;s doivent exister dans le registre d'utilisateurs actif configur&eacute;.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es :</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="label_role_desc"></a>R&ocirc;le (Utilisateurs de la console)</strong>
+</dt>
+<dd>Indique les r&ocirc;les utilisateur.
+<p>Les r&ocirc;les d'administration ci-apr&egrave;s offrent diff&eacute;rents niveaux de droit pour effectuer certaines fonctions d'administration de WebSphere Application Server.<dl>
+<dt>
+<strong>Administrateur</strong>
+</dt>
+<dd>Droits de l'op&eacute;rateur, droits du
+configurateur et autorisation d'acc&eacute;der &agrave; des
+donn&eacute;es confidentielles, notamment les mots de passe du
+serveur, les cl&eacute;s et les mots de passe LTPA, etc.</dd>
+<dt>
+<strong>Configurateur</strong>
+</dt>
+<dd>Droits du moniteur auxquels s'ajoute la
+capacit&eacute; de modifier la configuration de WebSphere Application Server.</dd>
+<dt>
+<strong>Op&eacute;rateur</strong>
+</dt>
+<dd>Droits du moniteur auxquels s'ajoute la
+capacit&eacute; de modifier l'&eacute;tat de l'environnement d'ex&eacute;cution. Par exemple, l'op&eacute;rateur peut d&eacute;marrer ou arr&ecirc;ter des services.</dd>
+<dt>
+<strong>Moniteur</strong>
+</dt>
+<dd>Droits minimum. Ces droits permettent d'afficher la configuration WebSphere Application Server et
+l'&eacute;tat en cours.</dd>
+</dl>
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es :</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Port&eacute;e :</td>
+<td align="left" valign="top" class="base">Administrateur, Configurateur, Op&eacute;rateur et Moniteur</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="corba_label_role_desc"></a>R&ocirc;le (Utilisateurs du service de nommage CORBA)</strong>
+</dt>
+<dd>Indique les r&ocirc;les des utilisateurs du service de nommage.
+<p>Un certain nombre de r&ocirc;les de nommage sont d&eacute;finis pour fournir les diff&eacute;rents droits
+requis pour ex&eacute;cuter les fonctions du service de nommage WebSphere. Les r&egrave;gles d'autorisation ne sont appliqu&eacute;es que si la s&eacute;curit&eacute; globale est activ&eacute;e. Les
+r&ocirc;les suivants sont valides : CosNamingRead, CosNamingWrite,
+CosNamingCreate et CosNamingDelete.</p>
+
+<p> Les noms de ces quatre r&ocirc;les sont identiques &agrave; ceux de WebSphere
+Application Server Advanced Edition version 4.0.2. Cependant, les niveaux
+de droits d'acc&egrave;s (valeur faible &agrave; &eacute;lev&eacute;e) valables pour les r&ocirc;les
+sont les suivants :<dl>
+<dt>
+<strong>CosNamingRead</strong>
+</dt>
+<dd>Les utilisateurs peuvent interroger l'espace nom
+WebSphere en faisant appel par exemple &agrave; la m&eacute;thode de recherche JNDI
+(Java Naming and Directory Interface). Le sujet sp&eacute;cial <strong>EVERYONE</strong> est la r&egrave;gle par d&eacute;faut pour ce r&ocirc;le.</dd>
+<dt>
+<strong>CosNamingWrite</strong>
+</dt>
+<dd>Les utilisateurs peuvent effectuer des
+op&eacute;rations d'&eacute;criture, notamment des op&eacute;rations JNDI bind, rebind, unbind
+et CosNamingRead. Le sujet sp&eacute;cial <strong>ALL AUTHENTICATED</strong> est la r&egrave;gle par d&eacute;faut pour
+ce r&ocirc;le.</dd>
+<dt>
+<strong>CosNamingCreate</strong>
+</dt>
+<dd>Les utilisateurs peuvent cr&eacute;er des objets dans
+l'espace nom en effectuant des op&eacute;rations, telles que des op&eacute;rations JNDI
+createSubcontext et CosNamingWrite. Le sujet sp&eacute;cial <strong>ALL AUTHENTICATED</strong> est la r&egrave;gle par d&eacute;faut pour
+ce r&ocirc;le.</dd>
+<dt>
+<strong>CosNamingDelete</strong>
+</dt>
+<dd>Les utilisateurs peuvent supprimer des objets dans l'espace de noms, par exemple &agrave;
+l'aide de la m&eacute;thode JNDI destroySubcontext et des op&eacute;rations CosNamingCreate.
+Le sujet sp&eacute;cial <strong>ALL AUTHENTICATED</strong> est la r&egrave;gle par d&eacute;faut pour
+ce r&ocirc;le.</dd>
+</dl>
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es :</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Port&eacute;e :</td>
+<td align="left" valign="top" class="base">CosNamingRead, CosNamingWrite, CosNamingCreate et CosNamingDelete</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>Informations connexes</strong>
+</p>
+<a href="rcon_buttons.html">Boutons de la console administrative</a>
+<br>
+
+<a href="rcon_pageusage.html">Caract&eacute;ristiques de la page de la console d'administration</a>
+<br>
+
+<a href="rcon_scope.html">Param&egrave;tres de la port&eacute;e de la console administrative</a>
+<br>
+
+<a href="rcon_filter.html">Param&egrave;tres de filtrage de la console administrative</a>
+<br>
+
+<a href="rcon_preferences.html">Param&egrave;tres des pr&eacute;f&eacute;rences de la console administrative</a>
+<br>
+
+</div>
+</body>
+</html>

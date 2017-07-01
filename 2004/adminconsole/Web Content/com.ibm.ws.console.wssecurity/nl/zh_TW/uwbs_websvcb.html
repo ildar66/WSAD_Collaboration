@@ -1,0 +1,239 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Web 服務：Web 服務安全集合的預設連結</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_websvcb"></a>
+<h2>
+<img alt="[5.1 版和更新版本]" src="v51.gif" border="0">Web 服務：Web 服務安全集合的預設連結</h2>
+
+<p>請利用這個頁面來配置伺服器層次的 Nonce 設定及管理信任錨點、集合憑證儲存庫、金鑰定位器、授信 ID 求值運算元和登入對映的預設連結。
+</p>
+
+<p>如果要檢視這個管理主控台頁面，請按一下<strong>伺服器 &gt; 應用程式伺服器 &gt; </strong><em>server_name</em>。
+在「其他內容」之下，按一下 <strong>Web 服務：Web 服務安全的預設連結</strong>。</p>
+
+<p>在開始定義 Web 服務安全的預設連結之前，請先閱讀 Web 服務文件。
+</p>
+
+<p>如果要定義伺服器連結，請完成下列步驟：
+<ol>
+
+<li>按一下<strong>應用程式 &gt; 企業應用程式 &gt; </strong><em>application_name</em>。</li>
+
+<li>在「相關項目」之下，按一下 <strong>Web 模組 &gt; </strong><em>URI_file_name</em><strong>&gt; Web 服務：伺服器安全連結</strong>。</li>
+
+</ol>
+</p>
+
+<p>如果要定義用戶端連結，請完成下列步驟：
+<ol>
+
+<li>按一下<strong>應用程式 &gt; 企業應用程式 &gt; </strong><em>application_name</em>。</li>
+
+<li>在「相關項目」之下，按一下 <strong>Web 模組 &gt; </strong><em>URI_file_name</em><strong> &gt; Web 服務：用戶端安全連結</strong>。
+</li>
+
+</ol>
+</p>
+
+<p>
+<img alt="[5.1 版和更新版本]" src="v51.gif" border="0"><em>Nonce</em> 是一個內嵌在訊息中的專屬加密號碼，用來協助您停止未獲授權的重複使用者名稱記號攻擊。
+在基本 WebSphere Application Server 環境中，您必須指定伺服器層次的 <strong>Nonce 快取逾時值</strong>、<strong>Nonce 存在期間上限</strong>和 <strong>Nonce 時鐘偏差</strong>等欄位值。
+</p>
+
+<p> 預設連結配置提供用來定義可重複使用的連結資訊之中央位置。
+應用程式連結檔可以參照預設連結配置所包含的資訊。
+</p>
+
+<dl>
+<dt>
+<strong><a name="sec_noncecachetimeout"></a>Nonce 快取逾時值
+</strong>
+            &nbsp;
+            <img alt="[5.1 版和更新版本]" src="v51.gif" border="0"></dt>
+<dd>指定在伺服器快取的 Nonce 的逾時值（秒）。Nonce 是隨機產生的值。
+
+<p>您必須在 <strong>Nonce 快取逾時值</strong>欄位中，指定至少 300 秒。
+不過，如果您沒有指定值，預設值是 600 秒。
+</p>
+
+<p>
+<strong>Nonce 快取逾時值</strong>是 WebSphere Application Server 環境的必要欄位。
+</p>
+
+<p>如果您變更 Nonce 快取逾時值，您必須重新啟動 WebSphere Application Server，使變更生效。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">600 秒</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">最小值</td>
+<td align="left" valign="top" class="base">300 秒</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="sec_noncemaxage"></a>Nonce 存在期間上限</strong>
+            &nbsp;
+            <img alt="[5.1 版和更新版本]" src="v51.gif" border="0"></dt>
+<dd>指定 Nonce 時間戳記到期之前的預設時間（秒）。Nonce 是隨機產生的值。
+
+<p>您必須在 <strong>Nonce 存在期間上限</strong>欄位中，指定至少 300 秒。
+不過，最大值不能超出伺服器層次的 <strong>Nonce 快取逾時值</strong>欄位所指定的秒數。
+如果您沒有指定值，預設值是 300 秒。
+這個伺服器層次 <strong>Nonce 存在期間上限</strong>欄位所設定的值不能超出您按一下<strong>安全 &gt; Web 服務 &gt; 內容</strong>來存取的 Cell 層次 <strong>Nonce 存在期間上限</strong>設定值。
+</p>
+
+<p>
+<strong>Nonce 存在期間上限</strong>是 WebSphere Application Server 環境的必要欄位。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">300 秒</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">300 至 <strong>Nonce 快取逾時值</strong>秒</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="sec_nonceclockskew"></a>Nonce 計時器偏差
+</strong>
+            &nbsp;
+            <img alt="[5.1 版和更新版本]" src="v51.gif" border="0"></dt>
+<dd>指定 WebSphere Application Server 檢查訊息即時性時所要考量的預設計時器偏差值（秒）。Nonce 是隨機產生的值。
+
+<p>您必須在 <strong>Nonce 時鐘偏差</strong>欄位中，指定至少 0 秒。
+不過，最大值不能超出 <strong>Nonce 存在期間上限</strong>欄位所指定的秒數。
+如果您沒有指定值，預設值是 0 秒。
+</p>
+
+<p>
+<strong>Nonce 時鐘偏差</strong>是 WebSphere Application Server 環境的必要欄位。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">0 秒</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">0 至 <strong>Nonce 存在期間上限</strong>秒</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="sec_trustancdescr"></a>信任錨點</strong>
+            &nbsp;
+            <img alt="[修正套件 5.0.2 和更新版本]" src="v502.gif" border="0"></dt>
+<dd>指定含有自行簽章的最高授信使用者憑證或憑證管理中心 (CA) 發出的最高授信使用者憑證之金鑰儲存庫物件清單。
+
+<p>憑證管理中心會鑑別使用者和發出憑證。
+在發出憑證之後，這些憑證所在的金鑰儲存庫物件會使用憑證路徑的憑證或送入 X.509 格式安全記號的憑證鏈驗證。
+</p>
+
+</dd>
+<dt>
+<strong><a name="sec_collcert"></a>集合憑證儲存庫</strong>
+            &nbsp;
+            <img alt="[修正套件 5.0.2 和更新版本]" src="v502.gif" border="0"></dt>
+<dd>指定非授信的中間憑證檔清單。
+<p>集合憑證儲存庫含有中間非授信憑證鏈。CertPath 會試圖驗證以信任錨點為基礎的這些憑證。
+</p>
+
+</dd>
+<dt>
+<strong><a name="sec_keyldesc"></a>金鑰定位器
+</strong>
+            &nbsp;
+            <img alt="[修正套件 5.0.2 和更新版本]" src="v502.gif" border="0"></dt>
+<dd>指定從金鑰儲存庫檔或儲存庫擷取數位簽章和加密金鑰的金鑰定位器物件清單。
+金鑰定位器會將名稱或邏輯名稱對映至別名，或將鑑別過的身分對映至金鑰。
+這個邏輯名稱用來尋找金鑰定位器實作中的金鑰。
+</dd>
+<dt>
+<strong><a name="sec_trstiddesc"></a>授信 ID 求值運算元</strong>
+            &nbsp;
+            <img alt="[修正套件 5.0.2 和更新版本]" src="v502.gif" border="0"></dt>
+<dd>指定用來判斷要不要信任身分確認管理中心或訊息傳送者的授信 ID 求值運算元清單。
+
+<p>授信 ID 求值運算元用來使某伺服器的其他身分接受另一伺服器的鑑別。
+比方說，用戶端將 A 使用者的身分傳給 1 伺服器來鑑別。
+1 伺服器呼叫下游伺服器 2，確認 A 使用者的身分，且併入 1 伺服器的使用者 ID 和密碼。
+2 伺服器試圖鑑別 1 伺服器的使用者 ID 和密碼並根據 TrustedIDEvaluator 實作來進行信任檢查，以建立與 1 伺服器的信任關係。
+如果鑑別程序和信任檢查順利完成，2 伺服器會相信 1 伺服器已鑑別 A 使用者，這時會在 2 伺服器建立 A 使用者的認證來呼叫要求。
+</p>
+
+</dd>
+<dt>
+<strong><a name="sec_logmapdesc"></a>登入對映</strong>
+            &nbsp;
+            <img alt="[修正套件 5.0.2 和更新版本]" src="v502.gif" border="0"></dt>
+<dd>指定用來驗證送入訊息內的記號之配置清單。
+<p>登入對映會將鑑別方法對映至 Java 鑑別和授權服務 (JAAS) 配置。</p>
+
+<p>如果要配置 JAAS，請使用管理主控台，按一下<strong>安全 &gt; JAAS 配置</strong>。</p>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>相關資訊</strong>
+</p>
+<a href="uwbs_trstanc.html">信任錨點集合</a>
+<br>
+
+<a href="uwbs_colcertst.html">集合憑證儲存庫集合</a>
+<br>
+
+<a href="uwbs_keyl.html">金鑰定位器集合</a>
+<br>
+
+<a href="uwbs_trstide.html">授信 ID 求值運算元集合</a>
+<br>
+
+<a href="uwbs_logmap.html">登入對映集合</a>
+<br>
+
+<a href="uwbs_logmapn.html">登入對映配置設定</a>
+<br>
+
+</div>
+</body>
+</html>

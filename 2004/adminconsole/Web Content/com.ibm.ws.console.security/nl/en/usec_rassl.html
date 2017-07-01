@@ -1,0 +1,169 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Secure Sockets Layer settings for custom properties</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecrassl"></a>
+<h2>Secure Sockets Layer settings for custom properties</h2>
+
+<p>Use this page to configure additional Secure Sockets Layer (SSL)
+settings for a defined alias.</p>
+
+<p>To view this administrative console page, click <strong>Security</strong> &gt; <strong>SSL</strong> &gt; <em>alias_name</em> &gt; <strong>Custom
+properties</strong>.</p>
+
+<div>
+<p>
+<strong>Configuration tab</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="field_name"></a>Custom Properties </strong>
+</dt>
+<dd>Specifies the name-value pairs that you can use to configure additional
+SSL settings beyond those available in the administrative interface <samp>com.ibm.ssl.protocol</samp>. 
+<p>This is the SSL protocol used (including its version). The possible values
+are SSL, SSLv2, SSLv3, TLS, or TLSv1. The default value, SSL, is backward-compatible
+with the other SSL protocols.</p>
+
+<dl>
+
+<dt>
+<strong>com.ibm.ssl.keyStoreProvider</strong>
+</dt>
+<dd>The name of the key store provider
+to use. Specify one of the security providers listed in your <samp>java.security</samp> file,
+which has a keystore implementation. The default value is IBMJCE.</dd>
+
+<dt>
+<strong>com.ibm.ssl.keyManager</strong>
+</dt>
+<dd>The name of the key management algorithm
+to use. Specify any key management algorithm that is implemented by one of
+the security providers listed in your <samp>java.security</samp> file. The default
+value is IbmX509.  </dd>
+
+<dt>
+<strong>com.ibm.ssl.trustStoreProvider</strong>
+</dt>
+<dd>The name of the trust store provider
+to use. Specify one of the security providers listed in your <samp>java.security</samp> file,
+which has a truststore implementation. The default value is IBMJCE. </dd>
+
+<dt>
+<strong>com.ibm.ssl.trustManager</strong>
+</dt>
+<dd>The name of the trust management algorithm
+to use. Specify any trust management algorithm that is implemented by one
+of the security providers listed in your <samp>java.security</samp> file. The
+default value is IbmX509.  </dd>
+
+<dt>
+<strong>com.ibm.ssl.trustStoreType</strong>
+</dt>
+<dd>The type or format of the truststore
+file. The possible values are JKS, PKCS12, JCEK. The default value is JKS.</dd>
+
+<dt>
+<strong>com.ibm.ssl.enabledCipherSuites</strong>
+</dt>
+<dd>The list of cipher suites to enable.
+By default, this is not set and the set of cipher suites used is determined
+by the value of the security level (high, medium, or low). A cipher suite
+is a combination of cryptographic algorithms used for an SSL connection. Enter
+a space-separated list of any of the following cipher suites: <ul>
+
+<li>SSL_RSA_WITH_RC4_128_MD5 </li>
+
+<li>SSL_RSA_WITH_RC4_128_SHA </li>
+
+<li>SSL_RSA_WITH_DES_CBC_SHA </li>
+
+<li>SSL_RSA_WITH_3DES_EDE_CBC_SHA </li>
+
+<li>SSL_DHE_RSA_WITH_DES_CBC_SHA</li>
+
+<li>SSL_DHE_RSA_WITH_3DES_EDE_CBC_SHA </li>
+
+<li>SSL_DHE_DSS_WITH_DES_CBC_SHA </li>
+
+<li>SSL_DHE_DSS_WITH_3DES_EDE_CBC_SHA </li>
+
+<li>SSL_RSA_EXPORT_WITH_RC4_40_MD5 </li>
+
+<li>SSL_RSA_EXPORT_WITH_DES40_CBC_SHA </li>
+
+<li>SSL_RSA_EXPORT_WITH_RC2_CBC_40_MD5</li>
+
+<li>SSL_DHE_RSA_EXPORT_WITH_DES40_CBC_SHA </li>
+
+<li>SSL_DHE_DSS_EXPORT_WITH_DES40_CBC_SHA </li>
+
+<li>SSL_RSA_WITH_NULL_MD5 </li>
+
+<li>SSL_RSA_WITH_NULL_SHA </li>
+
+<li>SSL_DH_anon_WITH_RC4_128_MD5</li>
+
+<li>SSL_DH_anon_WITH_DES_CBC_SHA </li>
+
+<li>SSL_DH_anon_WITH_3DES_EDE_CBC_SHA </li>
+
+<li>SSL_DH_anon_EXPORT_WITH_RC4_40_MD5 </li>
+
+<li>SSL_DH_anon_EXPORT_WITH_DES40_CBC_SHA</li>
+
+</ul>
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type:</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+</dd>
+
+</dl>
+
+</dd>
+<dt>
+<strong><a name="SecureSocketLayer_cryptoHardware_description"></a>Cryptographic token</strong>
+</dt>
+<dd>Specifies information about the cryptographic tokens related to
+SSL support.
+<p>A cryptographic token is a hardware or software device that has a built-in
+keystore implementation. Document the exact values for the following
+fields in the found in the literature of your supported cryptographic device.</p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Related information</strong>
+</p>
+<a href="rcon_buttons.html">Administrative console buttons</a>
+<br>
+
+<a href="rcon_pageusage.html">Administrative console page features</a>
+<br>
+
+<a href="rcon_scope.html">Administrative console scope settings</a>
+<br>
+
+<a href="rcon_filter.html">Administrative console filter settings</a>
+<br>
+
+<a href="rcon_preferences.html">Administrative console preference settings</a>
+<br>
+
+</div>
+</body>
+</html>

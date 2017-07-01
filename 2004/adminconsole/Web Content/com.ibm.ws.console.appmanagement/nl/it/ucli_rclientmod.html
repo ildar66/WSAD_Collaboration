@@ -1,0 +1,97 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Impostazioni di assemblaggio del client applicativo</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="ucli_rclientmod"></a>
+<h2>Impostazioni di assemblaggio del client applicativo</h2>
+
+<p>Utilizzare questa pagina per specificare le propriet&agrave; di assemblaggio per
+i client applicativi J2EE.</p>
+<dl>
+<dt>
+<strong><a name="file_name"></a>Nome file (Obbligatorio, Stringa)</strong>
+</dt>
+<dd>Specifica il nome file del modulo client applicativo, relativo al livello
+superiore del file EAR (Enterprise Archive).
+<p>Se questo &egrave; un modulo autonomo, il nome file &egrave; il nome del percorso completo dell'archivio.</p>
+
+</dd>
+<dt>
+<strong><a name="alternative_DD"></a>Descrittore di distribuzione alternativo</strong>
+</dt>
+<dd>Specifica il nome file di un file del descrittore di distribuzione
+alternativo da utilizzare al posto di quello originale nel file JAR (Java Archive) del
+modulo.
+<p>Questo file &egrave; la versione post assemblaggio del file del descrittore di distribuzione.
+(E' possibile modificare il file del descrittore di distribuzione originale per risolvere
+le informazioni sulle dipendenze e sulla sicurezza. L'indirizzamento dell'utilizzo del descrittore di distribuzione consente di mantenere intatto il file originale del descrittore di distribuzione originale).
+Il valore del descrittore di distribuzione (DD) alternativo deve essere il percorso
+completo del file del descrittore di distribuzione relativo alla directory root del
+modulo. Per convenzione, il file si trova nella directory <samp>ALT-INF</samp>. Se questa
+propriet&agrave; non viene specificata, il file del descrittore di distribuzione viene letto
+direttamente dal file JAR del modulo.</p>
+
+</dd>
+<dt>
+<strong><a name="classpath"></a>Classpath</strong>
+</dt>
+<dd>Specifica il percorso classe contenente il codice dipendente non contenuto
+nel file JAR del client applicativo. 
+<p>Specificare i valori relativi alla root del file EAR e
+separare i valori con degli spazi. Vengono ignorati i valori assoluti che si riferiscono a file o
+directory sul disco fisso. Per specificare le classi non presenti nei file
+JAR ma presenti nella root del file EAR, utilizzare un punto e la
+barra (./). Considerare la seguente struttura di directory di esempio in cui il file
+myapp.ear contiene un file JAR del client applicativo di nome <samp>client.jar</samp>. Le
+classi aggiuntive risiedono nei file <samp>class1.jar</samp> e <samp>class2.zip</samp>. Una
+classe di nome xyz.class non &egrave; inclusa in un file JAR bens&igrave; &egrave; contenuta nella
+root del file EAR <samp>myapp.ear/client.jar myapp.ear/class1.jar myapp.ear/class2.zip
+myapp.ear/xyz.class</samp>.  Specificare class1.jar class2.zip ./ quale
+valore della propriet&agrave; Percorso classe. (Denominare solo la directory dei file
+<samp>.class</samp>.)</p>
+
+</dd>
+<dt>
+<strong><a name="display_name"></a>Nome della visualizzazione (Obbligatorio, Stringa)</strong>
+</dt>
+<dd>Specifica un nome breve da visualizzare nelle interfacce utente grafiche (GUI).
+<p></p>
+
+</dd>
+<dt>
+<strong><a name="small_icon"></a>Icona piccola</strong>
+</dt>
+<dd>Specifica un file JPEG o GIF contenente un'immagine piccola (16x16 pixel).
+<p>L'immagine viene utilizzata come un'icona per rappresentare il client applicativo in una GUI.</p>
+
+</dd>
+<dt>
+<strong><a name="large_icon"></a>Icona grande</strong>
+</dt>
+<dd>Specifica un file JPEG o GIF contenente un'immagine grande (32x32
+pixel). 
+<p>L'immagine viene utilizzata come un'icona per rappresentare il client applicativo in una GUI</p>
+
+</dd>
+<dt>
+<strong><a name="description"></a>Descrizione</strong>
+</dt>
+<dd>Contiene il testo che descrive il client applicativo.
+<p></p>
+
+</dd>
+<dt>
+<strong><a name="main_class"></a>Classe principale (Obbligatorio, Stringa)</strong>
+</dt>
+<dd>Specifica il nome del percorso completo della classe principale per questo client applicativo.
+<p></p>
+
+</dd>
+</dl>
+</body>
+</html>

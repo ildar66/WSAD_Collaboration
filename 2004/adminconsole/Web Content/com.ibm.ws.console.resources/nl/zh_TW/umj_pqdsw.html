@@ -1,0 +1,429 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>「WebSphere 佇列」設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="WASQueue"></a>
+<h2>「WebSphere 佇列」設定</h2>
+
+<p>請使用這個畫面來檢視或變更選取要搭配 WebSphere JMS Provider 使用之 Queue Destination 的配置內容。
+</p>
+
+<p>Queue Destination 用來配置 JMS 佇列的內容。
+Queue Connection 是由內嵌 WebSphere JMS Provider 相關聯的 Queue Connection Factory 來建立的。
+搭配內部 WebSphere JMS Provider 使用的佇列有下列內容。
+</p>
+
+<p>
+<b>附註: </b>您必須將佇列名稱也新增至佇列要放在其中的 JMS 伺服器之配置中的佇列名稱清單。</p>
+
+<p>如果要檢視這個管理主控台頁面，請按一下<strong>資源 -&gt; WebSphere JMS Provider -&gt;（在內容窗格的「其他內容」下）WebSphere Queue Destination -&gt; <em>destination_name</em></strong>
+</p>
+
+<div>
+<p>
+<strong>「配置」標籤</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="WASQueue_contextId"></a>範圍</strong>
+</dt>
+<dd>指定這個資源定義的層次是可見的 -- Cell、節點或伺服器層次。
+
+<p>JMS 提供者、名稱空間連結或共用程式庫之類的資源可以定義在多個範圍，定義在較明確範圍的資源會改寫定義在較一般範圍的複本。
+</p>
+
+<p>請注意，不管所定義的資源範圍是什麼，資源的內容只適用於個別的伺服器層次。
+比方說，如果您在 Cell 層次定義資料來源的範圍，則 Cell 中所有的使用者，都可以查閱以及使用這個資料來源，而這個資料來源在該 Cell 中是唯一的。
+但是，資源內容設定對於 Cell 中的每一個伺服器來說，是本端設定。
+比方說，如果您將<strong>連線數目上限</strong>設定為 10，則該 Cell 中的每一個伺服器都可以有多達 10 個連線。<dl>
+<dt>
+<strong>Cell</strong>
+</dt>
+<dd>最一般的範圍。除非遭到置換，否則，所有節點和伺服器都能看到 Cell 範圍所定義的資源。
+如果要檢視 Cell 範圍中所定義的資源，請不要在範圍選擇表單中指定伺服器或節點名稱。</dd>
+<dt>
+<strong>節點</strong>
+</dt>
+<dd>大部分資源類型的預設範圍。定義在節點範圍的資源會置換任何定義在 Cell 範圍的複本，且相同節點中的所有伺服器都能看到它們，除非它們在這個節點的伺服器範圍中遭到置換。
+如果要檢視節點範圍中所定義的資源，請不要指定伺服器，但在範圍選擇表單中選取一個節點名稱。</dd>
+<dt>
+<strong>伺服器</strong>
+</dt>
+<dd>定義資源的最特定範圍。
+定義在「伺服器」範圍的資源會置換任何定義在 Cell 範圍或「母節點」範圍的重複資源定義，而且僅特定伺服器能夠看到它們。如果要檢視定義在伺服器範圍中的資源，請在範圍選擇表單中指定伺服器名稱和節點名稱。</dd>
+</dl>
+</p>
+
+<p>當建立資源時，始終都會將它們建立畫面中所選取的現行範圍內。
+如果要檢視其他範圍中的資源，請在範圍選擇表單中指定不同的節點或伺服器。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASQueue_name"></a>名稱
+</strong>
+</dt>
+<dd>用來識別佇列供管理使用 IBM WebSphere Application Server 的名稱。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASQueue_jndiName"></a>JNDI 名稱</strong>
+</dt>
+<dd>將佇列連結至應用程式伺服器名稱空間的 JNDI 名稱。
+
+<p>請依照慣例使用完整的 JNDI 名稱；比方說，在 jms/<em>Name</em> 格式中，<em>Name</em> 是資源的邏輯名稱。
+</p>
+
+<p>這個名稱用來鏈結平台的連結資訊。
+連結會將模組部署描述子所定義的資源關聯到由平台連結至 JNDI 內的實際（實體）資源。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASQueue_description"></a>說明
+</strong>
+</dt>
+<dd>佇列的說明，供管理使用。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">空值</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASQueue_category"></a>種類</strong>
+</dt>
+<dd>就您的 IBM WebSphere Application Server 管理記錄，用來分類或分組這個佇列的種類。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASQueue_persistence"></a>持續性</strong>
+</dt>
+<dd>傳送至目的地的所有訊息是不是全部具持續性、不具持續性，或是由應用程式來定義其持續性
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">列舉</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">APPLICATION DEFINED</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">
+<dl>
+<dt>
+<strong>APPLICATION DEFINED</strong>
+</dt>
+<dd>在目的地的訊息，其持續性由將它們放入佇列的應用程式來定義。
+</dd>
+<dt>
+<strong>NON-PERSISTENT</strong>
+</dt>
+<dd>在目的地的訊息沒有持續性。
+</dd>
+<dt>
+<strong>PERSISTENT</strong>
+</dt>
+<dd>在目的地的訊息具有持續性。</dd>
+<dt>
+<strong>QUEUE DEFINED</strong>
+</dt>
+<dd>[只適用於 WebSphere MQ 目的地] 在目的地的訊息，其持續性由 WebSphere MQ 佇列定義內容來定義。</dd>
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASQueue_priority"></a>優先順序
+</strong>
+</dt>
+<dd>這個目的地的訊息優先順序是由應用程式或<strong>指定的優先順序</strong>內容來定義的
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">列舉</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">單位</td>
+<td align="left" valign="top" class="base">不適用</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">APPLICATION DEFINED</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">
+<dl>
+<dt>
+<strong>APPLICATION DEFINED</strong>
+</dt>
+<dd>在這個目的地之訊息，其優先順序由將它們放入目的地的應用程式來定義。
+</dd>
+<dt>
+<strong>QUEUE DEFINED</strong>
+</dt>
+<dd>[只適用於 WebSphere MQ 目的地] 在目的地的訊息，其持續性由 WebSphere MQ 佇列定義內容來定義。</dd>
+<dt>
+<strong>SPECIFIED</strong>
+</dt>
+<dd>在這個目的地之訊息，其優先順序由<strong>指定的優先順序</strong>內容來定義。
+<em>如果您選取這個選項，您必須在<strong>指定的優先順序</strong>內容中定義一個優先順序。</em>
+
+</dd>
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASQueue_specifiedPriority"></a>指定的優先順序</strong>
+</dt>
+<dd>如果<strong>優先順序</strong>內容設為<samp>指定的</samp>，請在這裡輸入這個佇列的訊息優先順序，範圍是 0（最低）至 9（最高）。
+
+<p>如果<strong>優先順序</strong>內容設為<samp>指定的</samp>，送往這個佇列的訊息，其優先順序值由這個內容來指定。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">整數</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">單位</td>
+<td align="left" valign="top" class="base">訊息優先順序層次</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">0</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">0（最低優先順序）至 9（最高優先順序）</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASQueue_expiry"></a>期限
+</strong>
+</dt>
+<dd>這個佇列的期限逾時值是由應用程式來定義，或由<strong>指定的期限</strong>內容來定義，或是佇列中的訊息永遠不會到期（期限逾時值無限）
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">列舉</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">單位</td>
+<td align="left" valign="top" class="base">不適用</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">APPLICATION DEFINED</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">
+<dl>
+<dt>
+<strong>APPLICATION DEFINED</strong>
+</dt>
+<dd>在這個佇列之訊息，其期限逾時值由將它們放入佇列的應用程式來定義。
+</dd>
+<dt>
+<strong>UNLIMITED</strong>
+</dt>
+<dd>這個佇列中的訊息沒有期限逾時值，因此，訊息永遠不會到期。
+</dd>
+<dt>
+<strong>SPECIFIED</strong>
+</dt>
+<dd>在這個佇列之訊息，其期限逾時值由<strong>指定的期限</strong>內容來定義。
+<em>如果您選取這個選項，您必須在<strong>指定的期限</strong>內容中定義一個逾時值。</em>
+
+</dd>
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASQueue_specifiedExpiry"></a>指定的期限</strong>
+</dt>
+<dd>如果<strong>期限逾時值</strong>內容設為<samp>指定的</samp>，請在這裡輸入這個佇列中的訊息到期之間的毫秒數（大於 0）。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">整數</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">單位</td>
+<td align="left" valign="top" class="base">毫秒</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">0</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">大於或等於 0<ul>
+
+<li>0 表示訊息永遠不會逾時
+</li>
+
+<li>其他值是整數的毫秒數
+</li>
+
+</ul> 
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>相關資訊</strong>
+</p>
+<a href="rcon_buttons.html">管理主控台按鈕</a>
+<br>
+
+<a href="rcon_scope.html">管理主控台範圍設定</a>
+<br>
+
+</div>
+</body>
+</html>

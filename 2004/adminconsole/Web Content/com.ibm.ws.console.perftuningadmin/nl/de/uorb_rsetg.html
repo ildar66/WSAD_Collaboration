@@ -1,0 +1,452 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Einstellungen f&uuml;r ORB-Service in Administrationskonsole</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uorbsetg"></a>
+<h2>Einstellungen f&uuml;r ORB-Service in Administrationskonsole</h2>
+
+<p>Auf dieser Seite k&ouml;nnen Sie den Java-ORB-Service (Object Request
+Broker) konfigurieren.</p>
+
+<p>Klicken Sie, um diese Seite der Administrationskonsole anzuzeigen, auf <strong>Server</strong> <strong>&gt;</strong>
+<strong>Anwendungsserver</strong> <strong>&gt;</strong> <em>Server-Name</em> <strong>&gt;</strong> <strong>ORB-Service</strong>. </p>
+
+<p>F&uuml;r die Steuerung der internen ORB-Verarbeitung sind mehrere Einstellungen verf&uuml;gbar. Sie k&ouml;nnen
+diese Einstellungen verwenden, um die Anwendungsleistung zu verbessern, falls die Anwendungen Enterprise-Beans
+enthalten. Sie k&ouml;nnen &Auml;nderungen an diesen Einstellungen f&uuml;r den Standardserver und alle Anwendungsserver vornehmen,
+die in der Administrationsdom&auml;ne konfiguriert sind.</p>
+
+<div>
+<p>
+<strong>Register "Konfiguration"</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="ObjectRequestBroker_requestTimeout_description"></a>Zeitlimit f&uuml;r Anforderung</strong>
+            &nbsp;
+            </dt>
+<dd>Die Wartezeit in Sekunden, nach der eine Zeitlimit&uuml;berschreitung f&uuml;r eine
+Anforderungsnachricht eintritt. 
+<p>Wenn Sie ein Script in der Befehlszeile verwenden m&ouml;chten, m&uuml;ssen Sie den
+vollst&auml;ndigen Namen dieses Systemmerkmals eingeben:
+com.ibm.CORBA.RequestTimeout.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">int</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Einheiten</td>
+<td align="left" valign="top" class="base">Sekunden</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">180</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">0 bis 300</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ObjectRequestBroker_requestRetriesCount_description"></a>Anzahl der Anforderungswiederholungen</strong>
+            &nbsp;
+            </dt>
+<dd>Dieser Wert gibt an, wie oft der ORB versucht, eine Anforderung zu senden, wenn der Server
+ausf&auml;llt. Eine Wiederholung dieses Vorgangs erm&ouml;glicht die Fehlerbehebung in tempor&auml;ren Netzen.
+<p>Wenn Sie ein Script in der Befehlszeile verwenden m&ouml;chten, m&uuml;ssen Sie den vollst&auml;ndigen Namen dieses
+Systemmerkmals eingeben: com.ibm.CORBA.requestRetriesCount.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">int</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">1</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">1 bis 10</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ObjectRequestBroker_requestRetriesDelay_description"></a>Verz&ouml;gerung zwischen Anforderungswiederholungen</strong>
+            &nbsp;
+            </dt>
+<dd>Das Zeitintervall zwischen Anforderungswiederholungen (in Millisekunden).
+<p>Wenn Sie ein Script in der Befehlszeile verwenden m&ouml;chten, m&uuml;ssen Sie den vollst&auml;ndigen Namen dieses
+Systemmerkmals eingeben: com.ibm.CORBA.requestRetriesDelay.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">int</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Einheiten</td>
+<td align="left" valign="top" class="base">Millisekunden</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">0</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">0 bis 60</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ObjectRequestBroker_connectionCacheMaximum_description"></a>Maximale Gr&ouml;&szlig;e des Verbindungs-Cache</strong>
+            &nbsp;
+            </dt>
+<dd>Gibt die Maximalanzahl der Verbindungen an, die im Verbindungs-Cache des Service zul&auml;ssig sind. Wenn viele Clients simultan eine Verbindung zum serverseitigen ORB herstellen,
+k&ouml;nnen Sie diesen Parameter f&uuml;r eine Unterst&uuml;tzung von Spitzenbelastungen mit bis zu 1000 Clients erh&ouml;hen.
+
+<p>F&uuml;r die Verwendung im Befehlszeilen-Scripting m&uuml;ssen Sie den vollst&auml;ndigen Namen des Systemmerkmals,
+com.ibm.CORBA.MaxOpenConnections, verwenden.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Einheiten</td>
+<td align="left" valign="top" class="base">Verbindungen</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">240</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ObjectRequestBroker_connectionCacheMinimum_description"></a>Mindestgr&ouml;&szlig;e des Verbindungs-Cache</strong>
+            &nbsp;
+            </dt>
+<dd>Gibt die Mindestanzahl der zul&auml;ssigen Verbindungen im Verbindungs-Cache des Service
+an. 
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Einheiten</td>
+<td align="left" valign="top" class="base">Verbindungen</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">100</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ObjectRequestBroker_commTraceEnabled_description"></a>ORB-Tracing</strong>
+            &nbsp;
+            </dt>
+<dd>Aktiviert das Tracing f&uuml;r ORB-GIOP-Nachrichten. 
+<p>Diese Einstellung beeinflusst zwei Systemmerkmale: com.ibm.CORBA.Debug und
+com.ibm.CORBA.CommTrace.
+Wenn Sie diese Merkmale mit einem Script &uuml;ber die Befehlszeile definieren, m&uuml;ssen Sie beide Merkmale auf
+<samp>true</samp> setzen, um das Tracing von GIOP-Nachrichten zu aktivieren.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Boolescher Wert</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">Nicht aktiviert (<samp>false</samp>)</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ObjectRequestBroker_locateRequestTimeout_description"></a>Zeitlimit zum Lokalisieren der Anforderung</strong>
+            &nbsp;
+            </dt>
+<dd>Die Wartezeit in Sekunden, nach der eine Nachricht hinsichtlich der
+Zeitlimit&uuml;berschreitung f&uuml;r das
+Lokalisieren einer Anforderung (LocateRequest) ausgegeben wird.
+<p>Wenn Sie ein Script in der Befehlszeile verwenden m&ouml;chten, m&uuml;ssen Sie den vollst&auml;ndigen Namen dieses
+Systemmerkmals eingeben: com.ibm.CORBA.LocateRequestTimeout.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">int</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Einheiten</td>
+<td align="left" valign="top" class="base">Sekunden</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">180</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">0 bis 300</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ObjectRequestBroker_forceTunnel_description"></a>Tunnelung erzwingen</strong>
+            &nbsp;
+            </dt>
+<dd>Legt fest, wie der Client-ORB versucht, die HTTP-Tunnelung zu verwenden.
+<p>Wenn Sie direkt zugreifen m&ouml;chten, m&uuml;ssen Sie den vollst&auml;ndigen Namen
+dieses Merkmals eingeben: com.ibm.CORBA.ForceTunnel.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base"><samp>Nie</samp></td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">Die g&uuml;ltigen Werte sind <samp>Immer</samp>, <samp>Nie</samp> und <samp>Bei Bedarf</samp>.</td>
+
+</tr>
+
+</table>
+
+<p>Nachfolgend weitere Informationen zu den g&uuml;ltigen Werten:<dl>
+
+<dt>
+<strong>Immer</strong>
+</dt>
+<dd>HTTP-Tunnelung wird sofort verwendet. Es werden
+keine TCP-Verbindungen verwendet. </dd>
+
+<dt>
+<strong>Nie</strong>
+</dt>
+<dd>HTTP-Tunnelung wird inaktiviert. Wenn eine TCP-Verbindung
+fehlschl&auml;gt, wird eine Ausnahmebedingung des CORBA-Systems (COMM_FAILURE) ausgel&ouml;st. </dd>
+
+<dt>
+<strong>Bei Bedarf</strong>
+</dt>
+<dd>Die HTTP-Tunnelung wird verwendet, wenn
+TCP-Verbindungen fehlschlagen. </dd>
+
+</dl>
+</p>
+
+</dd>
+<dt>
+<strong><a name="ObjectRequestBroker_tunnelAgentURL_description"></a>URL des Tunnelagenten</strong>
+            &nbsp;
+            </dt>
+<dd>Der URL des Servlet, das zur Unterst&uuml;tzung der HTTP-Tunnelung verwendet wird. 
+<p>Sie m&uuml;ssen den URL im richtigen Format eingeben, z. B:
+<samp>http://w3.mycorp.com:81/servlet/com.ibm.CORBA.services.IIOPTunnelServlet</samp>
+oder, f&uuml;r Applets,
+<samp>http://applethost:port/servlet/com.ibm.CORBA.services.IIOPTunnelServlet</samp>.
+In diesem Feld muss ein Wert eingegeben werden, wenn die
+<strong>HTTP-Tunnelung</strong> definiert ist.</p>
+
+<p>Wenn Sie ein Script in der Befehlszeile verwenden m&ouml;chten, m&uuml;ssen Sie den vollst&auml;ndigen Namen dieses
+Systemmerkmals eingeben: com.ibm.CORBA.TunnelAgentURL. </p>
+
+</dd>
+<dt>
+<strong><a name="ObjectRequestBroker_noLocalCopies_description"></a>Durch Referenz &uuml;bergeben</strong>
+            &nbsp;
+            </dt>
+<dd>Gibt an, wie der ORB die Parameter &uuml;bergibt. Wenn dieser Parameter definiert ist, &uuml;bergibt der ORB
+Parameter durch eine Referenz (Passed-by-Reference) und nicht mit einem Wert. Hierbei wird keine Kopie eines Objekts erstellt.
+Sollten Sie diesen Parameter nicht definieren, werden die Parameter in den Stack kopiert, bevor ein ferner Methodenaufruf
+durchgef&uuml;hrt wird. Dies kann einen erheblichen Systemaufwand erzeugen.
+
+<p>Wenn EJB-Client und EJB-Server in derselben Instanz von WebSphere
+Application Server installiert sind und beide ferne Schnittstellen verwenden,
+kann durch die Angabe von "Durch Referenz &uuml;bergeben" (Pass-by-Reference)
+eine Durchsatzsteigerung von bis zu 50 % erzielt werden.
+Mit dieser Einstellung kann nur dann eine Leistungssteigerung erzielt werden, wenn
+nicht primitive Objekttypen als Parameter &uuml;bergeben werden.
+Demzufolge werden int und floats unabh&auml;ngig vom Aufrufmodell immer kopiert.
+</p>
+
+<p>Verwenden Sie dieses Merkmal mit Bedacht, da
+unerwartete Ergebnisse eintreten k&ouml;nnen. Wenn eine Objektreferenz von
+der fernen Methode ge&auml;ndert wird, wird der
+aufrufende Prozess m&ouml;glicherweise ge&auml;ndert.
+</p>
+
+<p>F&uuml;r die Verwendung im Befehlszeilen-Scripting m&uuml;ssen Sie den vollst&auml;ndigen Namen dieses Systemmerkmals,
+com.ibm.CORBA.iiop.noLocalCopies, verwenden.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Boolescher Wert</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">Nicht aktiviert (false)</td>
+
+</tr>
+
+</table>
+
+<p>Die Verwendung dieser Option f&uuml;r Enterprise-Beans mit Remote-Interfaces verst&ouml;&szlig;t gegen die
+EJB-Spezifikation Version 2.0 (siehe Abschnitt 5.4). An EJB-Methoden
+oder EJB-Home-Methoden &uuml;bergebene Objektreferenzen werden nicht kopiert und k&ouml;nnen deshalb besch&auml;digt werden.
+</p>
+
+<p>Beachten Sie das folgende Beispiel:
+<pre>Iterator iterator = collection.iterator();
+MyPrimaryKey pk = new MyPrimaryKey();
+while (iterator.hasNext()) {
+   pk.id = (String) iterator.next();
+   MyEJB myEJB = myEJBHome.findByPrimaryKey(pk);
+}</pre>
+</p>
+
+<p>Im vorherigen Beispiel wird zwei Mal eine Referenz auf dasselbe MyPrimaryKey-Objekt an
+WebSphere Application Server &uuml;bergeben, jedes Mal mit einer anderen ID. Wenn Sie diesen
+Code ausf&uuml;hren und die Einstellung "Durch Referenz &uuml;bergeben" <samp>aktiviert</samp> ist,
+l&ouml;st dies einen Fehler des Anwendungsservers
+aus, weil mehrere Enterprise-Beans auf dasselbe MyPrimaryKey-Objekt verweisen. Sie k&ouml;nnen diesen
+Fehler vermeiden, indem Sie das Systemmerkmal com.ibm.websphere.ejbcontainer.allowPrimaryKeyMutation
+auf <samp>true</samp> setzen, wenn <strong>Durch Referenz &uuml;bergeben</strong> aktiviert ist. In diesem Fall erstellt
+der EJB-Container n&auml;mlich eine lokale Kopie des Objekts PrimaryKey. Durch das Setzen des Merkmals f&uuml;r "&Uuml;bergeben durch Referenz"
+sind jedoch geringf&uuml;gige Leistungseinbu&szlig;en zu verzeichnen.
+</p>
+
+<p>Es gilt die folgende allgemeine Regel: Jeder Anwendungscode, der
+eine Objektreferenz als Parameter an eine Methode einer Enterprise-Bean oder an eine Home-Methode
+einer EJB &uuml;bergibt, muss unbedingt daraufhin untersucht werden, ob die Objektreferenz
+zu einem Verlust der Datenintegrit&auml;t oder zu anderen Fehlern f&uuml;hren k&ouml;nnte.
+</p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Zugeh&ouml;rige Informationen</strong>
+</p>
+<a href="rcon_buttons.html">Kn&ouml;pfe in der Adminstrationskonsole</a>
+<br>
+
+<a href="uejb_rthrd.html">Thread-Pool-Einstellungen</a>
+<br>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,403 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Param&egrave;tres de la source de donn&eacute;es</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="Data_source_detail"></a>
+<h2>Param&egrave;tres de la source de donn&eacute;es</h2>
+
+<p>Cette page permet de cr&eacute;er une source de donn&eacute;es sous un fournisseur JDBC qui fournit la classe d'impl&eacute;mentation d'un pilote JDBC sp&eacute;cifique. </p>
+
+<p>V&eacute;rifiez que vous souhaitez bien utiliser une source de donn&eacute;es version 5.0. Si
+vous utilisez le mod&egrave;le de composant Enterprise JavaBean version 1.0 et l'API Servlet 2.2, vous
+devez utiliser une source de donn&eacute;es version 4.0.</p>
+
+<p>Pour afficher cette page de la console d'administration, cliquez
+sur <strong>Ressources</strong> &gt; <strong>Fournisseurs JDBC</strong> &gt;
+<em>fournisseur_JDBC</em> &gt; <strong>Sources de donn&eacute;es</strong> &gt; <em>source_donn&eacute;es</em>.</p>
+
+<div>
+<p>
+<strong>Onglet Configuration</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="DataSource_detail_contextID"></a>Port&eacute;e</strong>
+</dt>
+<dd>Indique &agrave; quel niveau cette d&eacute;finition de ressource est visible :
+cellule, noeud ou serveur.
+<p>Des ressources telles que les fournisseurs JDBC, les liaisons d'espace de noms et les
+biblioth&egrave;ques partag&eacute;es peuvent &ecirc;tre d&eacute;finies &agrave; plusieurs niveaux. Dans ce cas, pour une ressource donn&eacute;e, la d&eacute;finition
+figurant au niveau le plus sp&eacute;cifique (par exemple, le serveur) l'emporte sur l'&eacute;ventuelle d&eacute;finition homologue figurant &agrave; un
+niveau plus g&eacute;n&eacute;ral (par exemple, la cellule).</p>
+
+<p>Notez que quelle que soit la port&eacute;e d'une ressource d&eacute;finie, les propri&eacute;t&eacute;s de cette
+ressource s'appliquent uniquement au niveau d'un serveur individuel. Par exemple, si vous
+d&eacute;finissez la port&eacute;e d'une source de donn&eacute;es au niveau cellule, tous les utilisateurs de
+cette cellule peuvent rechercher et utiliser cette source de donn&eacute;es, laquelle est unique
+au sein de cette cellule. Cependant, les param&egrave;tres de propri&eacute;t&eacute; de la ressource sont locaux &agrave; chaque serveur de la cellule. Par exemple, si vous attribuez la valeur 10
+&agrave; la propri&eacute;t&eacute; <em>Nombre maximal de connexions</em>, chaque serveur de cette cellule pourra
+avoir 10 connexions.<dl>
+
+<dt>
+<strong>Cellule</strong>
+</dt>
+<dd>Niveau de port&eacute;e le plus g&eacute;n&eacute;ral.  Les ressources d&eacute;finies au niveau cellule
+sont visibles depuis tous les noeuds et serveurs de cette cellule, sauf si elles sont red&eacute;finies
+&agrave; un niveau inf&eacute;rieur. Pour visualiser les ressources d&eacute;finies au niveau cellule, ne sp&eacute;cifiez pas
+de nom de serveur ni de nom de noeud dans le formulaire de s&eacute;lection de port&eacute;e.</dd>
+
+<dt>
+<strong>Noeud</strong>
+</dt>
+<dd>Port&eacute;e par d&eacute;faut de la plupart des types de ressources.  Les ressources d&eacute;finies
+au niveau noeud l'emportent sur les &eacute;ventuelles d&eacute;finitions homologues figurant au niveau cellule
+et sont visibles depuis tous les serveurs du noeud consid&eacute;r&eacute;, sauf si elles sont red&eacute;finies &agrave; un niveau
+serveur sur ce noeud. Pour visualiser les ressources d&eacute;finies au niveau d'un noeud, ne sp&eacute;cifiez pas de
+serveur dans le formulaire de s&eacute;lection de port&eacute;e ; sp&eacute;cifiez simplement le nom du noeud concern&eacute;.</dd>
+
+<dt>
+<strong>Serveur</strong>
+</dt>
+<dd>Niveau de port&eacute;e le plus sp&eacute;cifique pour la d&eacute;finition des ressources.  Les ressources
+d&eacute;finies au niveau d'un serveur l'emportent sur les &eacute;ventuelles d&eacute;finitions homologues apparaissant au niveau
+de la cellule parente ou du noeud parent ; elles sont visibles uniquement
+depuis ce serveur. Pour visualiser les ressources d&eacute;finies au niveau d'un serveur, sp&eacute;cifiez le nom de ce
+serveur ainsi que celui de son noeud parent dans le formulaire de s&eacute;lection de port&eacute;e.</dd>
+
+</dl>
+</p>
+
+<p>Lorsque des ressources sont cr&eacute;&eacute;es, elles le sont toujours dans la port&eacute;e en cours,
+c'est-&agrave;-dire celle qui est s&eacute;lectionn&eacute;e dans le formulaire.   Pour afficher les ressources d'autres port&eacute;es, sp&eacute;cifiez un noeud ou un serveur
+diff&eacute;rent dans le formulaire de s&eacute;lection de port&eacute;e.  </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">String (cha&icirc;ne)</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2EEResourceFactory_name_displayName"></a>Nom</strong>
+</dt>
+<dd>Indique le nom affich&eacute; de la source de donn&eacute;es. 
+<p>Par exemple, vous pouvez indiquer <em>Source de donn&eacute;es test</em> dans cette zone.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">String (cha&icirc;ne)</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2EEResourceFactory_jndiName_displayName"></a>Nom JNDI</strong>
+</dt>
+<dd>Indique le nom JNDI (Java Naming and Directory Interface).
+<p>Les environnements informatiques r&eacute;partis utilisent souvent des
+services d'annuaire et de nommage pour obtenir des composants et des
+ressources partag&eacute;s. Les services de nommage et d'annuaire associent des noms &agrave; des
+emplacements, des services, des informations et des ressources.  </p>
+
+<p>Les services de nommage fournissent des mappages nom-vers-objet. Les
+services d'annuaire et de nommage fournissent des informations sur les
+objets et des outils de recherche n&eacute;cessaires pour localiser ces objets. </p>
+
+<p>Il existe un grand nombre d'impl&eacute;mentations de services d'annuaire
+et les interfaces associ&eacute;es varient.   L'interface JNDI
+fournit une interface commune utilis&eacute;e pour
+acc&eacute;der &agrave; diff&eacute;rents services d'annuaire et de nommage.</p>
+
+<p>Par exemple, vous pouvez indiquer le nom
+<em>jdbc/markSection</em>.</p>
+
+<p>Si vous n'indiquez pas de valeur dans cette zone, un nom JNDI est
+g&eacute;n&eacute;r&eacute; &agrave; partir du nom de la source de donn&eacute;es. Par exemple, un nom de source de donn&eacute;es markSection g&eacute;n&egrave;re le nom
+JNDI <em>jdbc/markSection</em>.</p>
+
+<p>Une fois la valeur d&eacute;finie, sauvegardez-la et red&eacute;marrez le
+serveur. Cette cha&icirc;ne doit appara&icirc;tre lorsque vous ex&eacute;cutez
+<em>dumpnamespace</em>.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">String (cha&icirc;ne)</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="DataSource_isUsedByCmp_displayName"></a>Persistance g&eacute;r&eacute;e par conteneur </strong>
+</dt>
+<dd>Indique si cette source de donn&eacute;es est
+utilis&eacute;e pour la persistance g&eacute;r&eacute;e par conteneur des Enterprise JavaBeans (EJB). 
+<p>Si vous cochez cette case, le syst&egrave;me cr&eacute;e une fabrique de
+connecteurs CMP correspondant &agrave; cette source de donn&eacute;es pour l'adaptateur de
+ressources relationnelles.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Case &agrave; cocher</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">D&eacute;s&eacute;lectionn&eacute;e</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2EEResourceFactory_description_displayName"></a>Description</strong>
+</dt>
+<dd>Texte d&eacute;crivant la ressource. 
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">String (cha&icirc;ne)</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2EEResourceFactory_category_displayName"></a>Cat&eacute;gorie</strong>
+</dt>
+<dd>Cha&icirc;ne de cat&eacute;gorie que vous pouvez utiliser
+pour classifier ou grouper la ressource. 
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">String (cha&icirc;ne)</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="DataSource_statementCacheSize_displayName"></a>Taille de la cache d'instructions </strong>
+</dt>
+<dd>Indique le nombre d'instructions disponibles en
+m&eacute;moire cache pour chaque connexion.
+<p>La source de donn&eacute;es WebSphere Application
+Server optimise le traitement des instructions pr&eacute;par&eacute;es. On entend par instruction pr&eacute;par&eacute;e une instruction SQL pr&eacute;-compil&eacute;e,
+stock&eacute;e dans un objet sp&eacute;cifique (que l'on appelle objet instruction
+pr&eacute;par&eacute;e). Cet objet est utilis&eacute; pour ex&eacute;cuter efficacement et de mani&egrave;re
+r&eacute;p&eacute;t&eacute;e l'instruction SQL concern&eacute;e. </p>
+
+<p>Si la cache n'est pas assez importante, des
+entr&eacute;es utiles sont supprim&eacute;es pour laisser de la place aux nouvelles
+entr&eacute;es. Pour d&eacute;terminer une taille maximale pour votre m&eacute;moire cache et &eacute;viter ainsi
+d'effectuer des suppressions dans celle-ci, ajoutez le nombre d'instructions pr&eacute;par&eacute;es uniques
+et appelables (d&eacute;termin&eacute; par la cha&icirc;ne <em>sql</em>, le mode d'acc&egrave;s concurrent et le type de
+d&eacute;filement) pour chaque application qui utilise cette source de donn&eacute;es sur un serveur
+sp&eacute;cifique. Cette valeur repr&eacute;sente le nombre maximal d'instructions pr&eacute;par&eacute;es qui peuvent
+&ecirc;tre plac&eacute;es en cache sur une connexion donn&eacute;e au cours de l'utilisation du serveur. Si vous l'attribuez &agrave; la taille de la
+cache, aucune donn&eacute;e n'est jamais supprim&eacute;e de la cache. En g&eacute;n&eacute;ral,
+plus votre application comporte d'instructions, plus la
+taille de la cache doit &ecirc;tre importante.
+Par exemple, si
+l'application poss&egrave;de 5 instructions SQL, choisissez 5 comme taille
+de cache des instructions pour que chaque connexion ait 5
+instructions. </p>
+
+<p>Vous pouvez &eacute;galement utiliser
+Tivoli Performance Viewer pour r&eacute;duire au minimum les suppressions de la
+m&eacute;moire cache. Utilisez une charge
+de travail standard repr&eacute;sentant un nombre typique de demandes client
+entrantes, un nombre fixe d'it&eacute;rations et un jeu standard de
+param&egrave;tres de configuration. <strong>Remarque : </strong>Plus la m&eacute;moire cache
+des instructions est importante, plus les ressources syst&egrave;me sont
+retard&eacute;es. Par cons&eacute;quent, si vous choisissez un nombre trop
+&eacute;lev&eacute;, vous risquez de manquer de ressources car votre syst&egrave;me ne
+parvient pas &agrave; ouvrir un si grand nombre d'instructions pr&eacute;par&eacute;es.</p>
+
+<p>Lors des tests, le param&eacute;trage de la m&eacute;moire cache
+des instructions a permis d'augmenter le d&eacute;bit entre 10 et 20%. Toutefois, la disponibilit&eacute; limit&eacute;e
+des ressources ne permet pas toujours
+d'optimiser ainsi la taille de la cache.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Integer (entier)</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">Varie en fonction de la base de donn&eacute;es. La plupart
+du temps, il s'agit de la valeur 10.  Pour Informix version 7.3, 9.2 ou 9.3 sans le dernier correctif, la valeur doit &ecirc;tre &eacute;galement 0. La valeur par d&eacute;faut 0 indique qu'il n'y a pas d'instruction cache.</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="DataSource_datasourceHelperClassname_displayName"></a>Nom de classe auxiliaire de la source de donn&eacute;es </strong>
+</dt>
+<dd>Sp&eacute;cifie la classe auxiliaire du magasin de
+donn&eacute;es utilis&eacute;e pour ex&eacute;cuter les
+fonctions sp&eacute;cifiques de la base de donn&eacute;es.  
+<p>Cette classe est utilis&eacute;e par l'adaptateur de ressources relationnelles &agrave; l'ex&eacute;cution.
+La classe d'impl&eacute;mentation par d&eacute;faut de
+DataStoreHelper est d&eacute;finie en fonction de la classe d'impl&eacute;mentation du pilote
+JDBC, sa structure &eacute;tant de la forme : <em>com.ibm.websphere.rsadapter.&lt;base_de_donn&eacute;es&gt;DataStoreHelper</em>.
+Par exemple, si le fournisseur JDBC est DB2, la classe d'impl&eacute;mentation par d&eacute;faut
+est <em>com.ibm.websphere.rsadapter.DB2DataStoreHelper</em>. Si n&eacute;cessaire, vous pouvez sous-classer cette classe g&eacute;n&eacute;rique
+et utiliser votre propre classe &agrave; la place.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">String (cha&icirc;ne)</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">D&eacute;pend de la classe d'impl&eacute;mentation du pilote JDBC</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="DataSource_authDataAlias_displayName"></a>Alias d'authentification g&eacute;r&eacute; par composant</strong>
+</dt>
+<dd>Cet alias sera utilis&eacute;, &agrave; l'ex&eacute;cution,
+pour l'authentification aupr&egrave;s de la base de donn&eacute;es. 
+<p>Si l'authentification de la ressource (propri&eacute;t&eacute; res-auth) est r&eacute;gl&eacute;e
+sur <em>Application</em>, d&eacute;finissez l'alias dans la section Alias
+d'authentification g&eacute;r&eacute; par composant. </p>
+
+<p>Si vous n'indiquez pas de valeur dans cette zone et que la base de
+donn&eacute;es requiert l'ID utilisateur et le mot de passe pour &eacute;tablir une
+connexion, une exception sera g&eacute;n&eacute;r&eacute;e lors de l'ex&eacute;cution.</p>
+
+<p>Si votre base de donn&eacute;es n'accepte pas la sp&eacute;cification d'un <em>ID utilisateur</em>
+et d'un <em>mot de passe</em> (c'est le cas de Cloudscape), ne sp&eacute;cifiez pas
+d'alias dans les zones Alias d'authentification g&eacute;r&eacute; par
+composant et Alias d'authentification g&eacute;r&eacute; par conteneur. Sinon, un message d'avertissement sera consign&eacute; dans le journal
+syst&egrave;me pour indiquer que l'utilisateur et le mot de passe
+ne sont pas des propri&eacute;t&eacute;s valides. Ce message est un simple avertissement. La source de donn&eacute;es est quand m&ecirc;me
+correctement cr&eacute;&eacute;e.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Liste de s&eacute;lection</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="DataSource_mappingModule_authDataAlias_displayName"></a>Alias d'authentification g&eacute;r&eacute; par conteneur</strong>
+</dt>
+<dd>Cet alias sera utilis&eacute;, &agrave; l'ex&eacute;cution,
+pour l'authentification aupr&egrave;s de la base de donn&eacute;es. 
+<p>Si res-auth a pour valeur <em>Container</em>, d&eacute;finissez l'alias
+d'authentification g&eacute;r&eacute; par conteneur.</p>
+
+<p>Si vous n'indiquez pas de valeur dans cette zone et que la base de
+donn&eacute;es requiert l'ID utilisateur et le mot de passe pour &eacute;tablir une
+connexion, une exception sera g&eacute;n&eacute;r&eacute;e lors de l'ex&eacute;cution.</p>
+
+<p>Si votre base de donn&eacute;es n'accepte pas la sp&eacute;cification d'un <em>ID utilisateur</em>
+et d'un <em>mot de passe</em> (c'est le cas de Cloudscape), ne sp&eacute;cifiez pas
+d'alias dans les zones Alias d'authentification g&eacute;r&eacute; par
+composant et Alias d'authentification g&eacute;r&eacute; par conteneur. Sinon, un message d'avertissement sera consign&eacute; dans le journal
+syst&egrave;me pour indiquer que l'utilisateur et le mot de passe
+ne sont pas des propri&eacute;t&eacute;s valides. Ce message est un simple avertissement. La source de donn&eacute;es est quand m&ecirc;me
+correctement cr&eacute;&eacute;e.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Liste de s&eacute;lection</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="DataSource_mappingConfigAlias"></a>Alias de configuration de mappage</strong>
+</dt>
+<dd>Permet aux utilisateurs de faire leur choix dans la liste <strong>S&eacute;curit&eacute;</strong> &gt; <strong>Configuration JAAS</strong> &gt; <strong>Configuration de connexion de l'application</strong>.
+
+<p>La configuration JAAS <strong>DefaultPrincipalMapping</strong> associe l'alias de connexion &agrave; l'ID utilisateur et au mot de passe. 
+  Vous pouvez d&eacute;finir et utiliser d'autres configurations de mappage.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Liste de s&eacute;lection</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informations connexes</strong>
+</p>
+<a href="rcon_buttons.html">Boutons de la console administrative</a>
+<br>
+
+</div>
+</body>
+</html>

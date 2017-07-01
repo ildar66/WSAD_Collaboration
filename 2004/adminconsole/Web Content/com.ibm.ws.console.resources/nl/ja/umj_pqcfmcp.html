@@ -1,0 +1,111 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>WebSphere MQ queue connection factory custom properties</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="QueueConnectionFactory_customProperties"></a>
+<h2>
+<img alt="[Release 5.1 and later]" src="v51x.gif" border="0">WebSphere MQ queue connection factory custom properties</h2>
+
+<p>Use this panel to view or change an optional set of name and value
+pairs for custom properties of the selected queue connection factory for use
+with the WebSphere MQ JMS provider. These custom properties are passed to
+WebSphere MQ.</p>
+
+<p>To view this administrative console page, click <strong>Resources-&gt; WebSphere
+MQ JMS Provider-&gt; (In content pane, under Additional Properties)
+WebSphere MQ Queue Connection Factories-&gt; <em>connection_factory</em>-&gt; Custom
+Properties</strong>
+</p>
+
+<p>You can use the Custom properties page to define the following WebSphere
+MQ Secure Sockets Layer (SSL) properties. These properties apply only if you
+set the property <a href="umj_pqcfm.html#MQQueueConnectionFactory_transportType">Transport type=CLIENT</a> on the connection factory.</p>
+
+<ul>
+
+<li>
+<a href="#SSLCIPHERSUITE">SSLCIPHERSUITE</a>
+</li>
+
+<li>
+<a href="#SSLCRL">SSLCRL</a>
+</li>
+
+<li>
+<a href="#SSLCRL">SSLPEERNAME</a>
+</li>
+
+</ul>
+
+<p>For more information about setting these properties for WebSphere MQ, see
+the section <a href="http://publibfp.boulder.ibm.com/epubs/html/csqzaw11/csqzaw1116.htm#HDRJSSLPR">SSL properties</a> in
+the <cite>WebSphere MQ Using Java</cite> book.</p>
+
+<dl>
+<dt>
+<strong><a name="SSLCIPHERSUITE"></a>SSLCIPHERSUITE</strong>
+</dt>
+<dd>The cipher suite to use for SSL connection.
+<p>Set this property to a valid cipher suite provided by your JSSE provider;
+it must match the CipherSpec named on the SVRCONN channel named by the <a href="umj_pqcfm.html#MQQueueConnectionFactory_channel">Channel property</a>.</p>
+
+<p>You must set this property if the SSLPEERNAME is to be set.</p>
+
+</dd>
+<dt>
+<strong><a name="SSLCRL"></a>SSLCRL</strong>
+</dt>
+<dd>A list of zero or more CRL (Certificate Revocation List) servers
+used to check for SSL certificate revocation. (Use of this property requires
+a WebSphere MQ JVM at Java 2 version 1.4.)
+<p>The value is a space-delimited list of entries of the form:<pre>ldap://<strong>hostname</strong>:[<strong>port</strong>]</pre>
+</p>
+
+<p>optionally followed by a single / (forward slash). If <strong>port</strong> is
+omitted, the default LDAP port of 389 is assumed. At connect-time, the SSL
+certificate presented by the server is checked against the specified CRL servers.
+For more information about CRL security, see the section "Working with Certificate
+Revocation Lists" in the <cite>WebSphere MQ Security book</cite>; for example
+at: <a href="http://publibfp.boulder.ibm.com/epubs/html/csqzas01/csqzas012w.htm#IDX2254">http://publibfp.boulder.ibm.com/epubs/html/csqzas01/csqzas012w.htm#IDX2254</a>.</p>
+
+</dd>
+<dt>
+<strong><a name="SSLPEERNAME"></a>SSLPEERNAME</strong>
+</dt>
+<dd>For SSL, a <em>distinguished name</em> skeleton that must match the
+name provided by the WebSphere MQ queue manager. The distinguished name is
+used to check the identifying certificate presented by the server at connect-time.
+<p>If SSLPEERNAME is not set, such checking is performed.  SSLPEERNAME is
+ignored if SSLCIPHERSUITE is not specified.</p>
+
+<p>The SSLPEERNAME property is a list of attribute name and value pairs separated
+by commas or semicolons. For example: <pre>SSLPEERNAME(CN=QMGR.*, OU=IBM, OU=WEBSPHERE)</pre>
+</p>
+
+<p>The example given checks the identifying certificate presented by the server
+at connect-time. For the connection to succeed, the certificate must have
+a Common Name beginning QMGR., and must have at least two Organizational Unit
+names, the first of which is IBM and the second WEBSPHERE. Checking is not
+case-sensitive.</p>
+
+<p>For more details about distinguished names and their use with WebSphere
+MQ, see the <cite>WebSphere MQ Security</cite> book; for example, the section "Distinguished
+Names" at <a href="http://publibfp.boulder.ibm.com/epubs/html/csqzas01/csqzas010p.htm#HDRDCDN">http://publibfp.boulder.ibm.com/epubs/html/csqzas01/csqzas010p.htm#HDRDCDN</a>.</p>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>Related information</strong>
+</p>
+<a href="umj_pqcfm.html">WebSphere MQ queue connection factory settings</a>
+<br>
+
+</div>
+</body>
+</html>

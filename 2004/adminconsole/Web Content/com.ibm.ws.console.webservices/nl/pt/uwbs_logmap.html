@@ -1,0 +1,107 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Login mappings collection</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_logmap"></a>
+<h2>Login mappings collection</h2>
+
+<p>Use this page to view a list of configurations for validating security
+tokens within incoming messages. Login mappings map an authentication method
+to a Java Authentication and Authorization Service (JAAS) login configuration
+to validate the security token. Four authentication methods are predefined
+in the WebSphere Application Server: BasicAuth, Signature, IDAssertion, and LTPA.</p>
+
+<p>To view this administrative console page, complete the following steps: <ol>
+
+<li>Click <strong>Server &gt; Application Servers &gt; </strong><em>server_name</em>. </li>
+
+<li>Under Additional Properties, click <strong>Web Services: Default bindings for
+Web Services Security &gt; Login Mappings</strong>.</li>
+
+</ol>
+</p>
+
+<p>Click <strong>New</strong> to create a login mapping.</p>
+
+<p>Click <strong>Delete</strong> to delete a login mapping.</p>
+
+<p>If you click <strong>Update runtime</strong>, the Web services security run time
+is updated with the default binding information, which is contained in the <samp>ws-security.xml</samp> file
+that was previously saved. After you specify the authentication method, the
+Java Authentication and Authorization Service (JAAS) configuration name, and
+the Callback Handler Factory class name on this panel, you must complete the
+following steps:</p>
+
+<p>Click <strong>Save</strong> at the top of the administrative console. When you click <strong>Save</strong>,
+you return to the administrative console home panel. </p>
+
+<p>Return to the Login Mappings collection panel and click <strong>Update runtime</strong>.</p>
+
+<p>
+<b>Note: </b>When you click <strong>Update runtime</strong>, the configuration
+changes made to the other Web services also are updated in the Web services
+security run time.</p>
+
+<dl>
+<dt>
+<strong><a name="sec_authmeth"></a>Authentication Method</strong>
+</dt>
+<dd>Specifies the authentication method used for validating the security
+tokens.
+<p>The following authentication methods are available:<dl>
+<dt>
+<strong>BasicAuth</strong>
+</dt>
+<dd>Basic authentication includes both a user name and password in the security
+token. The information in the token is authenticated by the receiving server
+and used to create a credential.</dd>
+<dt>
+<strong>Signature</strong>
+</dt>
+<dd>When the authentication method is signature, an X.509 certificate is sent
+as a security token. For Lightweight Directory Access Protocol (LDAP) registries,
+the distinguished name (DN) is mapped to a credential, which is based on the
+LDAP certificate filter settings. For local OS registries, the first attribute
+of the certificate, usually the common name (CN) is mapped directly to a user
+ID in the registry.</dd>
+<dt>
+<strong>IDAssertion</strong>
+</dt>
+<dd>Identity assertion maps a trusted identity (ID) to a WebSphere credential.
+This authentication method only includes a user name in the security token.
+An additional token is included in the message for trust purposes. Once the
+additional token is trusted, the IDAssertion token user name is mapped to
+a credential. </dd>
+<dt>
+<strong>LTPA</strong>
+</dt>
+<dd>Lightweight Third Party Authentication (LTPA) validates an LTPA token.</dd>
+</dl>
+</p>
+
+</dd>
+<dt>
+<strong><a name="sec_jaasconfg"></a>JAAS Configuration Name</strong>
+</dt>
+<dd>Specifies the name of the Java Authentication and Authorization
+Service (JAAS) configuration.</dd>
+<dt>
+<strong><a name="sec_classname"></a>Callback Handler Factory Class Name</strong>
+</dt>
+<dd>Specifies the name of the factory for the CallbackHandler class.</dd>
+</dl>
+<div>
+<p>
+<strong>Related information</strong>
+</p>
+<a href="uwbs_logmapn.html">Login mapping configuration settings</a>
+<br>
+
+</div>
+</body>
+</html>

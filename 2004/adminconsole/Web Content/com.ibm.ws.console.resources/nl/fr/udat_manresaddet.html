@@ -1,0 +1,191 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Param&egrave;tres d'adaptateur de ressources</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="manage_resource_adapter"></a>
+<h2>Param&egrave;tres d'adaptateur de ressources</h2>
+
+<p>Cette page permet de sp&eacute;cifier les param&egrave;tres d'un adaptateur de ressources.</p>
+
+<p>Cet adaptateur de ressources peut &ecirc;tre fourni par une soci&eacute;t&eacute; tierce
+(autre qu'IBM). En g&eacute;n&eacute;ral, un adaptateur donn&eacute; ne peut se connecter qu'&agrave; un seul type de syst&egrave;me dorsal
+(EIS), mais il peut accepter de nombreuses configurations diff&eacute;rentes pour les connexions &agrave; ce syst&egrave;me. L'adaptateur de ressources poss&egrave;de de nombreuses propri&eacute;t&eacute;s de configuration qui sont d&eacute;finies dans la sp&eacute;cification J2C. Les valeurs de ces propri&eacute;t&eacute;s sont configur&eacute;es par la soci&eacute;t&eacute; fournissant l'adaptateur. </p>
+
+<p>Pour afficher cette page de la console d'administration, cliquez sur <strong>Ressources</strong> &gt;<strong>Adaptateurs
+de ressources</strong> &gt; <em>adaptateur_ressources</em>.</p>
+
+<div>
+<p>
+<strong>Onglet Configuration</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="J2CResourceAdapter_detail_contextID"></a>Port&eacute;e</strong>
+</dt>
+<dd>Indique &agrave; quel niveau cette d&eacute;finition de ressource est visible :
+cellule, noeud ou serveur.
+<p>WebSphere 5.0 permet &agrave; des ressources telles que fournisseurs JDBC, liaisons d'espace de noms et
+biblioth&egrave;ques partag&eacute;es d'&ecirc;tre d&eacute;finies &agrave; plusieurs niveaux. Dans ce cas, pour une ressource donn&eacute;e, la d&eacute;finition
+figurant au niveau le plus sp&eacute;cifique (par exemple, le serveur) l'emporte sur l'&eacute;ventuelle d&eacute;finition homologue figurant &agrave; un
+niveau plus g&eacute;n&eacute;ral (par exemple, la cellule). <dl>
+
+<dt>
+<strong>Cellule</strong>
+</dt>
+<dd>Niveau de port&eacute;e le plus g&eacute;n&eacute;ral.  Les ressources d&eacute;finies au niveau cellule
+sont visibles depuis tous les noeuds et serveurs de cette cellule, sauf si elles sont red&eacute;finies
+&agrave; un niveau inf&eacute;rieur.
+Pour visualiser les ressources d&eacute;finies au niveau cellule, ne sp&eacute;cifiez pas
+de nom de serveur ni de nom de noeud dans le formulaire de s&eacute;lection de port&eacute;e.</dd>
+
+<dt>
+<strong>Noeud</strong>
+</dt>
+<dd>Port&eacute;e par d&eacute;faut de la plupart des types de ressources.  Les ressources d&eacute;finies
+au niveau noeud l'emportent sur les &eacute;ventuelles d&eacute;finitions homologues figurant au niveau cellule
+et sont visibles depuis tous les serveurs du noeud consid&eacute;r&eacute;, sauf si elles sont red&eacute;finies &agrave; un niveau
+serveur sur ce noeud. Pour visualiser les ressources d&eacute;finies au niveau d'un noeud, ne sp&eacute;cifiez pas de
+serveur dans le formulaire de s&eacute;lection de port&eacute;e ; sp&eacute;cifiez simplement le nom du noeud concern&eacute;.</dd>
+
+<dt>
+<strong>Serveur</strong>
+</dt>
+<dd>Niveau de port&eacute;e le plus sp&eacute;cifique pour la d&eacute;finition des ressources.  Les ressources
+d&eacute;finies au niveau d'un serveur l'emportent sur les &eacute;ventuelles d&eacute;finitions homologues apparaissant au niveau
+de la cellule parente ou du noeud parent ; elles sont visibles uniquement
+depuis ce serveur. Pour visualiser les ressources d&eacute;finies au niveau d'un serveur, sp&eacute;cifiez le nom de ce
+serveur ainsi que celui de son noeud parent dans le formulaire de s&eacute;lection de port&eacute;e.</dd>
+
+</dl>
+</p>
+
+<p>Lorsque des ressources sont cr&eacute;&eacute;es, elles le sont toujours dans la port&eacute;e en cours,
+c'est-&agrave;-dire celle qui est s&eacute;lectionn&eacute;e dans le formulaire.   Pour afficher les ressources d'autres port&eacute;es, sp&eacute;cifiez un noeud ou un serveur
+diff&eacute;rent dans le formulaire de s&eacute;lection de port&eacute;e.  </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">String (cha&icirc;ne)</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2EEResourceProvider_name_description"></a>Nom</strong>
+</dt>
+<dd>Indique le nom du fournisseur de ressources. 
+<p>Cha&icirc;ne sans espace devant identifier clairement le fournisseur de ressources.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">String (cha&icirc;ne)</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2EEResourceProvider_description_description"></a>Description</strong>
+</dt>
+<dd>Texte d&eacute;crivant le fournisseur de ressources. 
+<p>Cha&icirc;ne de texte libre destin&eacute;e &agrave; d&eacute;crire la fabrique de ressources et son objectif.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">String (cha&icirc;ne)</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2CResourceAdapter_archivePath_description"></a>Chemin de l'archive</strong>
+</dt>
+<dd>Chemin d'acc&egrave;s au fichier archive .RAR qui contient le module de cet adaptateur
+de ressources. 
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">String (cha&icirc;ne)</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2EEResourceProvider_classpath_description"></a>Chemin d'acc&egrave;s aux classes</strong>
+</dt>
+<dd> Liste de chemins ou de noms de fichiers JAR qui, ensemble, sp&eacute;cifient l'emplacement
+des classes du fournisseur de ressources. 
+<p>Ce chemin inclut toutes les biblioth&egrave;ques suppl&eacute;mentaires requises par l'adaptateur de ressources.
+La base du code de l'adaptateur lui-m&ecirc;me est automatiquement ajout&eacute;e &agrave; ce chemin de classes, mais si une ressource &eacute;trang&egrave;re
+au fichier .RAR est n&eacute;cessaire, elle peut &ecirc;tre sp&eacute;cifi&eacute;e ici.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">String (cha&icirc;ne)</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2EEResourceProvider_nativepath_description"></a>Chemin d'acc&egrave;s natif</strong>
+</dt>
+<dd>Liste de chemins d'acc&egrave;s qui, ensemble, sp&eacute;cifient l'emplacement des biblioth&egrave;ques
+natives du fournisseur de ressources. 
+<p>La base du code de l'adaptateur lui-m&ecirc;me est automatiquement ajout&eacute;e &agrave; ce chemin de classes, mais si une ressource &eacute;trang&egrave;re
+au fichier .RAR est n&eacute;cessaire, elle peut &ecirc;tre sp&eacute;cifi&eacute;e ici. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">String (cha&icirc;ne)</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informations connexes</strong>
+</p>
+<a href="rcon_buttons.html">Boutons de la console administrative</a>
+<br>
+
+<a href="rcon_pageusage.html">Caract&eacute;ristiques de la page de la console d'administration</a>
+<br>
+
+</div>
+</body>
+</html>

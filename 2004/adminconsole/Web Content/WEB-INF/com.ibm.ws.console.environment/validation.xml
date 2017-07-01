@@ -1,0 +1,121 @@
+<form-validation>
+   <formset>
+    <form name="com.ibm.ws.console.environment.VirtualHostDetailForm">
+        <field property="name" depends="required,mask">
+            <arg0 key="VirtualHost.name.displayName"/>
+            <var>
+	            <var-name>mask</var-name>
+                <var-value>${was_name}</var-value>
+            </var>
+        </field>
+    </form>
+    <form name="com.ibm.ws.console.environment.MimeEntryDetailForm">
+        <field property="type" depends="required">
+            <arg0 key="MimeEntry.displayName"/>
+        </field>
+    </form>
+    <form name="com.ibm.ws.console.environment.HostAliasDetailForm">
+        <field property="hostname" depends="required">
+            <arg0 key="HostAlias.displayName"/>
+        </field>
+        <field property="port" depends="required">
+            <arg0 key="HostAlias.port.displayName"/>
+        </field>
+    </form>
+    <form name="com.ibm.ws.console.environment.VariableSubstitutionEntryDetailForm">
+        <field property="symbolicName" depends="required">
+            <arg0 key="VariableSubstitutionEntry.symbolicName.displayName"/>
+        </field>
+    </form>
+    <form name="com.ibm.ws.console.environment.CORBAObjectNameSpaceBindingDetailForm">
+        <field property="name" depends="required,mask">
+            <arg0 key="NameSpaceBinding.name.displayName"/>
+            <var>
+	            <var-name>mask</var-name>
+                <var-value>${was_name}</var-value>
+            </var>
+        </field>
+        <field property="nameInNameSpace" depends="required">
+            <arg0 key="NameSpaceBinding.nameInNameSpace.displayName"/>
+        </field>
+        <field property="corbanameUrl" depends="required">
+            <arg0 key="CORBAObjectNameSpaceBinding.corbanameUrl.displayName"/>
+        </field>
+    </form>
+    <form name="com.ibm.ws.console.environment.EjbNameSpaceBindingDetailForm">
+        <field property="name" depends="required,mask">
+            <arg0 key="NameSpaceBinding.name.displayName"/>
+            <var>
+	            <var-name>mask</var-name>
+                <var-value>${was_name}</var-value>
+            </var>
+        </field>
+        <field property="nameInNameSpace" depends="required">
+            <arg0 key="NameSpaceBinding.nameInNameSpace.displayName"/>
+        </field>
+        <field property="ejbJndiName" depends="required">
+            <arg0 key="EjbNameSpaceBinding.ejbJndiName.displayName"/>
+        </field>
+        <field property="applicationServerName" depends="required">
+            <arg0 key="EjbNameSpaceBinding.applicationServerName.displayName"/>
+        </field>
+    </form>
+
+    <form name="com.ibm.ws.console.environment.IndirectLookupNameSpaceBindingDetailForm">
+        <field property="name" depends="required,mask">
+            <arg0 key="NameSpaceBinding.name.displayName"/>
+            <var>
+	            <var-name>mask</var-name>
+                <var-value>${was_name}</var-value>
+            </var>
+        </field>
+        <field property="nameInNameSpace" depends="required">
+            <arg0 key="NameSpaceBinding.nameInNameSpace.displayName"/>
+        </field>
+        <field property="providerURL" depends="required">
+            <arg0 key="IndirectLookupNameSpaceBinding.providerURL.displayName"/>
+        </field>
+        <field property="jndiName" depends="required">
+            <arg0 key="IndirectLookupNameSpaceBinding.jndiName.displayName"/>
+        </field>
+    </form>
+    <form name="com.ibm.ws.console.environment.StringNameSpaceBindingDetailForm">
+        <field property="name" depends="required,mask">
+            <arg0 key="NameSpaceBinding.name.displayName"/>
+            <var>
+	            <var-name>mask</var-name>
+                <var-value>${was_name}</var-value>
+            </var>
+        </field>
+        <field property="nameInNameSpace" depends="required">
+            <arg0 key="NameSpaceBinding.nameInNameSpace.displayName"/>
+        </field>
+        <field property="stringToBind" depends="required">
+            <arg0 key="StringNameSpaceBinding.stringToBind.displayName"/>
+        </field>
+    </form>
+    <form name="com.ibm.ws.console.environment.LibraryDetailForm">
+        <field property="name" depends="required,mask">
+            <arg0 key="Library.name.displayName"/>
+            <var>
+	            <var-name>mask</var-name>
+                <var-value>${was_name}</var-value>
+            </var>
+        </field>
+        <field property="classpath" depends="required">
+            <arg0 key="Library.classpath.displayName"/>
+        </field>
+    </form>
+    
+    <form name="com.ibm.ws.console.distmanagement.CellManagerDetailForm">
+        <field property="name" depends="required,mask">
+            <arg0 key="CellManager.name.displayName"/>
+            <var>
+	            <var-name>mask</var-name>
+                <var-value>${was_name}</var-value>
+            </var>
+        </field>
+    </form>
+        
+   </formset>
+</form-validation>

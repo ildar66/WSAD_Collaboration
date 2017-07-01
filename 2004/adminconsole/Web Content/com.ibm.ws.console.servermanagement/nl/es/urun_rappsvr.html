@@ -1,0 +1,289 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Valores del servidor de aplicaciones</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="urun_rappsvr"></a>
+<h2>Valores del servidor de aplicaciones</h2>
+
+<p>Utilice esta p&aacute;gina para ver o modificar los valores de una instancia de componente de servidor.</p>
+
+<p>Para ver esta p&aacute;gina de la consola administrativa, pulse <strong>Servidores &gt; Servidores de aplicaciones </strong><em>nombre_servidor</em>. </p>
+
+<p>La pesta&ntilde;a <strong>Configuraci&oacute;n</strong> proporciona campos que se pueden editar, mientras que la pesta&ntilde;a <strong>Tiempo de ejecuci&oacute;n</strong> proporciona informaci&oacute;n de s&oacute;lo lectura. La pesta&ntilde;a <strong>Tiempo de ejecuci&oacute;n</strong> s&oacute;lo est&aacute; disponible cuando el servidor se est&aacute; ejecutando.</p>
+
+<div>
+<p>
+<strong>Pesta&ntilde;a Configuraci&oacute;n</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="Server_name_description"></a>Nombre</strong>
+</dt>
+<dd>Especifica un nombre l&oacute;gico para el servidor. Los nombres de servidor deben ser exclusivos en un nodo.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">servidor1</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="StateManageable_initialState_description"></a>Estado inicial</strong>
+</dt>
+<dd>Especifica el estado de ejecuci&oacute;n de componentes solicitado cuando se inicia el servidor por
+primera vez.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">Iniciado</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationServer_classloaderPolicy_description"></a>Pol&iacute;tica del cargador de clase de aplicaci&oacute;n</strong>
+</dt>
+<dd>Especifica si debe utilizar un &uacute;nico cargador de clases para
+cargar todas las aplicaciones o utilizar un cargador de clases distinto
+para cada aplicaci&oacute;n.
+<p>Las opciones son SINGLE y MULTIPLE. El valor por omisi&oacute;n es utilizar un cargador de clases diferente para cada aplicaci&oacute;n (MULTIPLE).</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">MULTIPLE</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationServer_classloaderMode_description"></a>Modalidad del cargador de clases de la aplicaci&oacute;n</strong>
+</dt>
+<dd>Especifica si el cargador de clases debe buscar en el cargador de clases padre o en el cargador de clases de la aplicaci&oacute;n antes de cargar una clase. El est&aacute;ndar para los cargadores de clases JDK y los cargadores de clases de WebSphere es PADRE_&Uacute;LTIMO.
+Al
+especificar PADRE_&Uacute;LTIMO, la aplicaci&oacute;n puede alterar temporalmente
+las clases incluidas en el cargador de clases padre, pero esta acci&oacute;n
+potencialmente puede dar lugar a ClassCastException o LinkageErrors si
+ha mezclado clases alteradas temporalmente con no alteradas
+temporalmente.
+<p>Las opciones son PADRE_PRIMERO y PADRE_&Uacute;LTIMO. El valor por omisi&oacute;n es buscar en el cargador de clases padre antes de buscar en el cargador de clases de la aplicaci&oacute;n para cargar la aplicaci&oacute;n.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">PADRE_PRIMERO</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Pesta&ntilde;a Tiempo de ejecuci&oacute;n</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="rappsvr-rt1"></a>ID de proceso</strong>
+            &nbsp;
+            </dt>
+<dd>Especifica una serie que identifica el proceso.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="rappsvr-rt2"></a>Nombre de c&eacute;lula</strong>
+            &nbsp;
+            </dt>
+<dd>Especifica el nombre de la c&eacute;lula del servidor de aplicaciones.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base"><em>nombre_sistppal</em>Network</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="rappsvr-rt3"></a>Nombre de nodo</strong>
+            &nbsp;
+            </dt>
+<dd>Especifica el nombre del nodo del servidor de aplicaciones.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="rappsvr-rt4"></a>Estado</strong>
+            &nbsp;
+            </dt>
+<dd>Indica si el servidor de aplicaciones est&aacute; iniciado o detenido.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">Iniciado</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informaci&oacute;n relacionada</strong>
+</p>
+<a href="rcon_buttons.html">Botones de la consola de administraci&oacute;n</a>
+<br>
+
+<a href="rcon_pageusage.html">Caracter&iacute;sticas de la p&aacute;gina de la consola administrativa</a>
+<br>
+
+<a href="uagt_radmin.html">Valores del servicio de administraci&oacute;n</a>
+<br>
+
+<a href="urun_rclassloader.html">Colecci&oacute;n de cargadores de clases</a>
+<br>
+
+<a href="urun_rapp.html">Colecci&oacute;n de aplicaciones de empresa</a>
+<br>
+
+<a href="urun_rsvr_services.html">Colecci&oacute;n de servicios personalizados</a>
+<br>
+
+<a href="utrb_debugsvc.html">Detalles del servicio de depuraci&oacute;n</a>
+<br>
+
+<a href="udyn_rcachesettings.html">Valores de servicio de antememoria din&aacute;mica</a>
+<br>
+
+<a href="uejb_recnt.html">Valores de contenedor de EJB</a>
+<br>
+
+<a href="urun_rendpoint.html">Colecci&oacute;n de puntos finales</a>
+<br>
+
+<a href="utrb_servicelogs.html">Valores de las anotaciones cronol&oacute;gicas de servicio de IBM</a>
+<br>
+
+<a href="utrb_logtrace.html">Valores del registro cronol&oacute;gico y rastreo</a>
+<br>
+
+<a href="umb_smlp.html">Colecci&oacute;n de puertos receptores de mensajes</a>
+<br>
+
+<a href="uorb_rsetg.html">Valores del servicio ORB (Object Request Broker) en la consola administrativa</a>
+<br>
+
+<a href="uprf_rmonitorsettings.html">Valores del servicio de supervisi&oacute;n del rendimiento</a>
+<br>
+
+<a href="urun_rconfproc.html">Valores de definici&oacute;n de proceso</a>
+<br>
+
+<a href="urun_rproperty.html">Colecci&oacute;n de propiedad personalizada</a>
+<br>
+
+<a href="urun_rsvrcomp.html">Colecci&oacute;n de componentes de servidor</a>
+<br>
+
+<a href="utrb_traceservice.html">Valores del servicio de rastreo de diagn&oacute;stico</a>
+<br>
+
+<a href="udat_contranserv.html">Valores del servicio de transacciones</a>
+<br>
+
+<a href="uweb_rcont.html">Valores del contenedor Web</a>
+<br>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>登入連結配置設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_loginbnd"></a>
+<h2>
+<img alt="[修正套件 5.0.2 和更新版本]" src="v502.gif" border="0">登入連結配置設定</h2>
+
+<p>請利用這個頁面來配置加密和解密參數。</p>
+
+<p>可外掛的記號利用 Java 鑑別和授權服務 (JAAS) CallBackHandler (javax.security.auth.callback.CallBackHandler) 介面來產生插入訊息的記號。
+下列清單說明回呼支援實作：
+<dl>
+<dt>
+<strong>com.ibm.wsspi.wssecurity.auth.callback.BinaryTokenCallback
+</strong>
+</dt>
+<dd>這個實作用來產生插入為訊息中的 <samp>&lt;wsse:BinarySecurityToken/@ValueType&gt;</samp> 的二進位記號。</dd>
+<dt>
+<strong>javax.security.auth.callback.NameCallback and javax.security.auth.callback.NameCallback</strong>
+</dt>
+<dd>這個實作用來產生插入為訊息中的 <samp>&lt;wsse:UsernameToken&gt;</samp> 的使用者名稱記號。</dd>
+<dt>
+<strong>com.ibm.wsspi.wssecurity.auth.callback.XMLTokenSenderCallback
+</strong>
+</dt>
+<dd>這個實作用來產生可延伸標記語言 (XML) 記號，且插入為訊息中的 <samp>&lt;SAML: Assertion&gt;</samp> 元素。
+</dd>
+<dt>
+<strong>com.ibm.wsspi.wssecurity.auth.callback.PropertyCallback
+</strong>
+</dt>
+<dd>這個實作用來取得連結檔中所指定的內容。</dd>
+</dl>
+</p>
+
+<p>如果要檢視這個管理主控台頁面，請完成下列步驟：
+<ol>
+
+<li>按一下<strong>應用程式 &gt; 企業應用程式 &gt; </strong><em>application_name</em>。</li>
+
+<li>在「相關項目」之下，按一下 <strong>Web 模組 &gt; </strong><em>URI_file_name</em> &gt; <strong>Web 服務：用戶端安全連結</strong>。
+</li>
+
+<li>在「要求傳送端連結」之下，按一下 <strong>編輯 &gt; 登入連結</strong>。
+</li>
+
+</ol>
+</p>
+
+<p>如果沒有可用的加密資訊，請選取<strong>無</strong>。</p>
+
+<p>如果有可用的加密資訊，請選取<strong>專用登入連結</strong>，在下列欄位中指定配置：</p>
+
+<dl>
+<dt>
+<strong><a name="sec_authmeth"></a>鑑別方法</strong>
+</dt>
+<dd>指定鑑別方法的唯一名稱。</dd>
+<dt>
+<strong><a name="sec_cbhand"></a>回呼處理常式</strong>
+</dt>
+<dd>指定回呼處理常式的名稱。回呼處理常式必須實作 javax.security.auth.callback.CallbackHandler 介面。</dd>
+<dt>
+<strong><a name="sec_userid"></a>基本鑑別使用者 ID</strong>
+</dt>
+<dd>指定基本鑑別的使用者名稱。「基礎鑑別」這個鑑別方法提供在連結檔中定義使用者 ID 和密碼的功能。
+</dd>
+<dt>
+<strong><a name="sec_authpass"></a>基礎鑑別密碼
+</strong>
+</dt>
+<dd>指定基本鑑別的密碼。
+</dd>
+<dt>
+<strong><a name="sec_uri"></a>記號類型 URI</strong>
+</dt>
+<dd>指定記號類型的統一資源識別碼 (URI)。
+這項資訊插入為 XML 記號 <samp>&lt;SAML: Assertion&gt;</samp> 的 <samp>&lt;wsse:BinarySecurityToken&gt;/ValueType</samp>。
+</dd>
+<dt>
+<strong><a name="sec_lname"></a>記號類型本端名稱</strong>
+</dt>
+<dd>指定記號類型的本端名稱。
+這個資訊插入為 WXL 記號 <samp>&lt;SAML: Assertion&gt;</samp> 的 <samp>&lt;wsse:BinarySecurityToken&gt;/ValueType</samp>。
+</dd>
+</dl>
+<div>
+<p>
+<strong>相關資訊</strong>
+</p>
+<a href="uwbs_wsclientbind.html">Web 服務：用戶端安全連結集合</a>
+<br>
+
+</div>
+</body>
+</html>

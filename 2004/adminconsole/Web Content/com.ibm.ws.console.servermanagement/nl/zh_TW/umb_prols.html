@@ -1,0 +1,215 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>訊息接聽器服務</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="MessageListenerService"></a>
+<h2>訊息接聽器服務</h2>
+
+<p>訊息接聽器服務是 JMS 提供者之 JMS 功能的延伸規格。
+它提供一個接聽器管理程式來控制和監視一或多個 JMS 接聽器，每個 JMS 接聽器都代表部署的訊息驅動 Bean 來監視 JMS 目的地。
+</p>
+
+<p>這個畫面顯示通往訊息接聽器服務之「接聽器埠」、「執行緒儲存池」以及「自訂內容」之「其他內容」頁面的鏈結。
+</p>
+
+<p>如果要檢視這個管理主控台頁面，請按一下<strong>伺服器 -&gt; <em>application_server</em>-&gt; 訊息接聽器服務</strong>
+</p>
+
+<dl>
+<dt>
+<strong><a name="MessageListenerService_name"></a>名稱
+</strong>
+</dt>
+<dd>用來識別訊息接聽器服務供管理使用的名稱。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+
+
+
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">MsgLService</td>
+
+</tr>
+
+
+
+
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MessageListenerService_description"></a>說明
+</strong>
+</dt>
+<dd>訊息接聽器服務的說明，供管理使用。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+
+
+
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">空值</td>
+
+</tr>
+
+
+
+
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MessageListenerService_threadPool"></a>執行緒儲存池</strong>
+            &nbsp;
+            </dt>
+<dd>控制可供訊息接聽器服務執行的執行緒數目上限。
+請選取這個鏈結來顯示服務執行緒儲存池內容。
+
+<p>請在相同應用程式伺服器中部署了多個訊息驅動 Bean，且其階段作業數上限值的總和超出預設值 10 的情況下，調整這個參數。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">整數</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">單位</td>
+<td align="left" valign="top" class="base">不適用</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">下限：10，上限：50</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">不適用</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">建議
+</td>
+<td align="left" valign="top" class="base">請將下限設為所有訊息驅動 Bean 階段作業數上限值的總和。
+請將上限設為大於或等於下限的任何值。
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MessageListenerService_custom"></a>自訂內容</strong>
+</dt>
+<dd>訊息接聽器服務的自訂內容。JMS 伺服器有兩個作業模式：應用程式伺服器機能 (ASF) 和非應用程式伺服器機能。
+ASF 用來提供應用程式的並行和交易支援。
+非 ASF 會略過這個支援，使路徑長度流線化。
+
+<p>在下列情況下，請使用非 ASF：<ul>
+
+<li>訊息次序是一項嚴格需求</li>
+
+<li>需要並行 PTP 訊息</li>
+
+<li>
+<samp>non.asf.receive.timeout</samp> 內容存在，其值大於 0</li>
+
+</ul>如果需要並行發佈和訂閱訊息，請勿使用非 ASF，因為 ASF 的通訊量比較好。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">整數</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">單位</td>
+<td align="left" valign="top" class="base">毫秒</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">ASF 模式（不建立自訂內容）</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base"></td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">建議
+</td>
+<td align="left" valign="top" class="base">這個值是遞送訊息所用的毫秒數。
+如果發生逾時，就必須再循環，而帶來額外的工作。
+這應該設為接近交易逾時值而稍低，略去若干秒（10 秒或更多）。
+如果在極端負荷情況下，執行緒等很久才能取得 CPU 周期，略去的秒數應該更多。
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>相關資訊</strong>
+</p>
+<a href="umb_smlp.html">訊息接聽器埠集合</a>
+<br>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Assemblierungseinstellungen f&uuml;r Anwendungsclients</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="ucli_rclientmod"></a>
+<h2>Assemblierungseinstellungen f&uuml;r Anwendungsclients</h2>
+
+<p>Auf dieser Seite k&ouml;nnen Sie Assemblierungsmerkmale f&uuml;r J2EE-Anwendungsclients angeben.</p>
+<dl>
+<dt>
+<strong><a name="file_name"></a>Dateiname (erforderlich, Zeichenfolge)</strong>
+</dt>
+<dd>Gibt den Dateinamen des Anwendungsclientmoduls im Verh&auml;ltnis zur Ausgangsebene der EAR-Datei
+(Enterprise Archive) an.
+<p>Bei einem eigenst&auml;ndigen Modul entspricht der Dateiname dem vollst&auml;ndigen Pfad des Archivs.
+</p>
+
+</dd>
+<dt>
+<strong><a name="alternative_DD"></a>Alternativer DD</strong>
+</dt>
+<dd>Gibt den Dateinamen einer alternativen Deployment-Deskriptordatei an, die anstelle der
+urspr&uuml;nglichen Deployment-Deskriptordatei in der JAR-Datei (Java Archive) des Moduls verwendet werden soll.
+<p>Diese Datei ist die Version der Deployment-Deskriptordatei nach der Assemblierung.
+Die urspr&uuml;ngliche Deployment-Deskriptordatei kann ge&auml;ndert werden, um Abh&auml;ngigkeiten und
+Sicherheitsinformationen aufzul&ouml;sen. Die Verwendung des alternativen
+Deployment-Deskriptors erm&ouml;glicht Ihnen, die urspr&uuml;ngliche
+Deployment-Deskriptordatei unver&auml;ndert beizubehalten.) Der Wert des Merkmals "Alternativer DD" muss der vollst&auml;ndige Pfad der Deployment-Deskriptordatei im Verh&auml;ltnis zum Stammverzeichnis des Moduls sein. Standardm&auml;&szlig;ig
+wird die Datei im Verzeichnis <samp>ALT-INF</samp> abgelegt. Falls das Merkmal nicht definiert ist, wird die
+Deployment-Deskriptordatei direkt aus der JAR-Datei des Moduls gelesen.</p>
+
+</dd>
+<dt>
+<strong><a name="classpath"></a>Klassenpfad</strong>
+</dt>
+<dd>Gibt den vollst&auml;ndigen Klassenpfad an, der den abh&auml;ngigen, nicht in der JAR-Datei des
+Anwendungsclients enthaltenen Code enth&auml;lt. 
+<p>Geben Sie die Werte relativ zum Stammverzeichnis der EAR-Datei an, und trennen Sie die Werte
+durch Leerzeichen.
+Absolute Werte, die auf Dateien oder Verzeichnisse auf der Festplatte verweisen,
+werden ignoriert. Wenn Sie Klassen angeben m&ouml;chten, die nicht in JAR-Dateien enthalten sind, sondern sich im Stammverzeichnis
+der EAR-Datei befinden, verwenden Sie einen Punkt und einen Schr&auml;gstrich (./). Beachten Sie die
+folgende Beispielverzeichnisstruktur, in der die Datei meineanw.ear eine JAR-Datei des Anwendungsclients mit dem
+Namen <samp>client.jar</samp> enth&auml;lt. Weitere Klassen befinden sich in den Dateien <samp>class1.jar</samp> und
+<samp>class2.zip</samp>. Eine Klasse mit dem Namen xyz.class ist nicht in einer JAR-Datei gepackt, sondern
+befindet sich im Stammverzeichnis der EAR-Datei <samp>meineanw.ear/client.jar
+meineanw.ear/class1.jar meineanw.ear/class2.zip meineanw.ear/xyz.class</samp>. Geben Sie class1.jar class2.zip ./ als
+Wert f&uuml;r das Merkmal "Klassenpfad" (Classpath) ein.
+(Geben Sie nur das Verzeichnis f&uuml;r <samp>.class</samp>-Dateien an.)</p>
+
+</dd>
+<dt>
+<strong><a name="display_name"></a>Anzeigename (erforderlich, Zeichenfolge)</strong>
+</dt>
+<dd>Gibt einen Kurznamen an, der in GUIs angezeigt werden soll. 
+<p></p>
+
+</dd>
+<dt>
+<strong><a name="small_icon"></a>Kleines Symbol</strong>
+</dt>
+<dd>Gibt eine JPEG- oder GIF-Datei an, die ein kleines Bild enth&auml;lt (16 x 16 Pixel).
+<p>Das Bild wird als Symbol f&uuml;r die Darstellung des Anwendungsclients in
+einer GUI verwendet.</p>
+
+</dd>
+<dt>
+<strong><a name="large_icon"></a>Gro&szlig;es Symbol</strong>
+</dt>
+<dd>Gibt eine JPEG- oder GIF-Datei an, die ein gro&szlig;es
+Bild enth&auml;lt (32 x 32 Pixel).
+
+<p>Das Bild wird als Symbol f&uuml;r die Darstellung des Anwendungsclients in
+einer GUI verwendet.</p>
+
+</dd>
+<dt>
+<strong><a name="description"></a>Beschreibung</strong>
+</dt>
+<dd>Enth&auml;lt einen Text, der den Anwendungsclient beschreibt.
+<p></p>
+
+</dd>
+<dt>
+<strong><a name="main_class"></a>Hauptklasse (erforderlich, Zeichenfolge)</strong>
+</dt>
+<dd>Gibt den vollst&auml;ndigen Pfad der Hauptklasse (main) f&uuml;r diesen
+Anwendungsclient an.
+<p></p>
+
+</dd>
+</dl>
+</body>
+</html>

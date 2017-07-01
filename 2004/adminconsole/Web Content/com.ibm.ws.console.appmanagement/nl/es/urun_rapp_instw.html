@@ -1,0 +1,258 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Valores de Preparaci&oacute;n para la instalaci&oacute;n de la aplicaci&oacute;n</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="urun_rapp_instw"></a>
+<h2>Valores de Preparaci&oacute;n para la instalaci&oacute;n de la aplicaci&oacute;n</h2>
+
+<p>Utilice esta p&aacute;gina para instalar una aplicaci&oacute;n (archivo EAR) o un m&oacute;dulo (archivo
+JAR o WAR).</p>
+
+<p>Para ver esta p&aacute;gina de la consola administrativa, pulse <strong>Aplicaciones &gt; Instalaci&oacute;n de una nueva aplicaci&oacute;n</strong>.</p>
+
+<p>Siga los pasos que aparecen en esta p&aacute;gina para instalar una aplicaci&oacute;n o m&oacute;dulo. Debe realizar, como m&iacute;nimo, el primer paso. Dependiendo de si est&aacute; instalando una aplicaci&oacute;n, un m&oacute;dulo EJB o un m&oacute;dulo Web, deber&aacute; completar algunos o todos los dem&aacute;s pasos.</p>
+
+<dl>
+<dt>
+<strong><a name="app_deploy_path"></a>V&iacute;a de acceso</strong>
+</dt>
+<dd>Especifica la v&iacute;a de acceso plenamente cualificada del archivo .ear, .jar o .war de la aplicaci&oacute;n de empresa.
+<p>Utilice la <strong>V&iacute;a de acceso local</strong> si los archivos de la aplicaci&oacute;n y el navegador est&aacute;n
+en la misma m&aacute;quina (tanto si el servidor se encuentra o no tambi&eacute;n en esa m&aacute;quina)</p>
+
+<p>Utilice <strong>V&iacute;a de acceso del servidor</strong> si los archivos de la aplicaci&oacute;n residen en uno de los nodos del contexto de c&eacute;lula actual. Puede examinar todo el sistema de archivos de un nodo si el agente de nodo o gestor de despliegue se est&aacute; ejecutando en ese nodo seleccionado. 
+ S&oacute;lo se muestran los archivos .ear, .jar, o .war durante el examen. </p>
+
+<p>Durante la instalaci&oacute;n de la aplicaci&oacute;n, los archivos de aplicaci&oacute;n suelen bajarse
+normalmente desde la m&aacute;quina cliente que ejecuta el servidor a la m&aacute;quina servidor que ejecuta
+la consola administrativa, donde se despliegan. En tales casos, el navegador Web que ejecuta la consola administrativa se utiliza para seleccionar m&oacute;dulos EAR, WAR o JAR para subirlos a la m&aacute;quina servidor.</p>
+
+<p>No obstante, en algunos casos los archivos de la aplicaci&oacute;n residen en el sistema de archivos de cualquiera de los nodos de una c&eacute;lula. Para que el servidor de aplicaciones instale estos archivos, utilice la opci&oacute;n <strong>V&iacute;a de acceso del servidor</strong>.</p>
+
+<p>Tambi&eacute;n puede utilizar esta opci&oacute;n para especificar un archivo de la aplicaci&oacute;n que ya resida en la m&aacute;quina que est&eacute; ejecutando el servidor de aplicaciones. Por ejemplo, el valor de campo en  Windows NT podr&iacute;a ser <samp>C:\WebSphere\AppServer\installableApps\test.ear</samp>.
+ Si est&aacute; instalando un m&oacute;dulo WAR aut&oacute;nomo, tambi&eacute;n debe especificar el directorio ra&iacute;z de contexto.</p>
+
+</dd>
+<dt>
+<strong><a name="app_deploy_contextRoot"></a>Directorio ra&iacute;z de contexto</strong>
+</dt>
+<dd>Especifica el directorio ra&iacute;z de contexto de la aplicaci&oacute;n Web (WAR).
+<p>Este campo s&oacute;lo se utiliza para instalar un archivo aut&oacute;nomo WAR. El directorio ra&iacute;z de contexto se combina con la correlaci&oacute;n de servlet definida (del archivo WAR) para componer el URL completo que los usuarios escriben para acceder al servlet. Por ejemplo, si el directorio ra&iacute;z de contexto es /gettingstarted y la correlaci&oacute;n de servlet es MySession, el URL ser&iacute;a <samp>http://host:port/gettingstarted/MySession</samp>.</p>
+
+</dd>
+<dt>
+<strong><a name="app_deploy_genDefBindings"></a>Generar enlaces por omisi&oacute;n</strong>
+</dt>
+<dd>Especifica si se deben generar enlaces por omisi&oacute;n. Si coloca una marca de selecci&oacute;n en el recuadro de selecci&oacute;n, todos los enlaces incompletos de la aplicaci&oacute;n se rellenan con los valores por omisi&oacute;n. Los enlaces existentes no sufrir&aacute;n ninguna modificaci&oacute;n.
+<p>Al elegir esta opci&oacute;n, puede ir directamente al paso Resumen e instalar la aplicaci&oacute;n si ninguno de estos pasos aparece acompa&ntilde;ado de un asterisco (*) rojo. Un asterisco rojo indica que el paso presenta datos incompletos y es necesario un valor v&aacute;lido. En el panel
+Resumen, verifique la c&eacute;lula, el nodo y el servidor donde se desea instalar la aplicaci&oacute;n.</p>
+
+<p>Los enlaces se generan de la siguiente manera:</p>
+
+<ul>
+
+<li>Los nombres JNDI de EJB se generan con el formato <em>prefijo</em>/<em>nombre-ejb</em>.
+ El prefijo por omisi&oacute;n es <samp>ejb</samp>, pero se puede alterar temporalmente. El <em>nombre-ejb</em> es tal como se especifica en el distintivo <samp>&lt;ejb-name&gt;</samp> de los descriptores de despliegue.</li>
+
+<li>Las referencias de EJB se enlazan tal como se indica a continuaci&oacute;n: si se encuentra un &lt;ejb-link&gt;, &eacute;ste tiene preferencia. De lo contrario, si se encuentra un enterprise bean
+exclusivo que coincida con una interfaz de factor&iacute;a (o factor&iacute;a local) como bean referenciado,
+la referencia se resuelve autom&aacute;ticamente.</li>
+
+<li>Los enlaces de referencia de recursos se derivan del distintivo &lt;res-ref-name&gt;.
+ Tenga en cuenta que, con esta acci&oacute;n, se asume que el nombre java:comp/env es el mismo que el nombre JNDI global del recurso.</li>
+
+<li>Los enlaces de f&aacute;brica de conexiones (para archivos JAR de EJB 2.0) se generan a partir del nombre JNDI y de la informaci&oacute;n de autorizaci&oacute;n que se proporcionan. Esta acci&oacute;n genera valores de f&aacute;brica de conexiones por omisi&oacute;n para cada archivo JAR de EJB 2.0 de la
+aplicaci&oacute;n que se est&aacute; instalando. No se genera ning&uacute;n enlace de f&aacute;brica de conexiones a nivel de bean.</li>
+
+<li>Los enlaces de origen de datos (para archivos JAR de EJB 1.1) se generan a partir del nombre
+JNDI y las opciones de nombre de usuario y contrase&ntilde;a del origen de datos. Esto genera valores de origen de datos por omisi&oacute;n para cada archivo JAR de EJB. No se generar&aacute; ning&uacute;n enlace de origen de datos a nivel de bean.</li>
+
+<li>Los puertos receptores de MDB (Bean controlado por mensajes) se derivan del distintivo &lt;ejb-name&gt; de MDB con la serie <samp>Port</samp> a&ntilde;adida.</li>
+
+<li>Para los archivos .war, el sistema principal se establece como <samp>default_host</samp>, a menos que se especifique lo contrario.</li>
+
+</ul>
+
+<p>La estrategia por omisi&oacute;n es suficiente para la mayor&iacute;a de las aplicaciones o, por lo menos, para la mayor&iacute;a de los enlaces de casi todas las aplicaciones. Sin embargo, no funciona si:</p>
+
+<ul>
+
+<li>Desea controlar expl&iacute;citamente los nombres JNDI globales de uno o m&aacute;s archivos EJB.</li>
+
+<li>Necesita controlar estrechamente los enlaces de origen de datos para los CMP. Es decir, dispone de varios or&iacute;genes de datos y necesita m&aacute;s de un origen de datos global.</li>
+
+<li>Debe correlacionar las referencias de recursos con los nombres JNDI de recursos globales que sean diferentes del nombre java:comp/env.</li>
+
+</ul>
+
+<p>En estos casos, puede alterar el comportamiento con un documento XML (una estrategia personalizada). Utilice el campo <strong>Archivo de enlaces espec&iacute;ficos</strong> para especificar una estrategia personalizada y ver la ayuda del campo para obtener ejemplos.</p>
+
+</dd>
+<dt>
+<strong><a name="app_deploy_prefixes"></a>Prefijos</strong>
+</dt>
+<dd>Especifica prefijos para utilizarlos con nombres JNDI generados.
+
+</dd>
+<dt>
+<strong><a name="app_deploy_override"></a>Alterar temporalmente</strong>
+</dt>
+<dd>Especifica si se deben alterar temporalmente los enlaces existentes.
+<p>Si este recuadro de selecci&oacute;n est&aacute; seleccionado, los enlaces generados alteran temporalmente los enlaces existentes.</p>
+
+</dd>
+<dt>
+<strong><a name="app_deploy_ejbCmpBindings"></a>Enlaces CMP de EJB 1.1</strong>
+</dt>
+<dd>Especifica el nombre JNDI de origen de datos por omisi&oacute;n.
+<p>Si el bot&oacute;n de selecci&oacute;n <strong>Enlaces por omisi&oacute;n para CMP de EJB 1.1</strong> est&aacute; seleccionado, especifique el nombre JNDI para el origen de datos por omisi&oacute;n que se va a utilizar con los beans CMP 1.1. Tambi&eacute;n debe especificar el ID de usuario y la contrase&ntilde;a para este origen de datos por omisi&oacute;n.</p>
+
+</dd>
+<dt>
+<strong><a name="app_deploy_connFacBindings"></a>Enlaces de f&aacute;brica de conexiones</strong>
+</dt>
+<dd>Especifica el nombre JNDI de origen de datos por omisi&oacute;n.
+<p>Si el bot&oacute;n de selecci&oacute;n <strong>Enlaces de f&aacute;brica de conexiones por omisi&oacute;n</strong> est&aacute; seleccionado, especifique el nombre JNDI para el origen de datos por omisi&oacute;n que se va a utilizar con los enlaces.
+ Tambi&eacute;n debe especificar la autorizaci&oacute;n de recursos.</p>
+
+</dd>
+<dt>
+<strong><a name="app_deploy_virtualHost"></a>Sistema principal virtual</strong>
+</dt>
+<dd>Especifica el sistema principal virtual de los m&oacute;dulos WAR.
+
+</dd>
+<dt>
+<strong><a name="app_deploy_specificBindingsFile"></a>Archivo de enlaces espec&iacute;ficos</strong>
+</dt>
+<dd>Especifica el archivo de enlaces que altera temporalmente el enlace por omisi&oacute;n.
+<p>Modifique el comportamiento del enlace por omisi&oacute;n con un documento XML (<em>tambi&eacute;n conocido</em> como estrategia personalizada). Las estrategias personalizadas ampl&iacute;an la estrategia por omisi&oacute;n de forma que s&oacute;lo necesita personalizar aquellas &aacute;reas donde la estrategia por omisi&oacute;n es insuficiente.
+ Es decir, s&oacute;lo necesita describir c&oacute;mo desea modificar los enlaces generados por la estrategia por omisi&oacute;n. No es necesario que defina enlaces para toda la aplicaci&oacute;n. </p>
+
+<p>A continuaci&oacute;n, aparecen algunos ejemplos breves de c&oacute;mo alterar temporalmente varios aspectos del generador de enlaces por omisi&oacute;n:</p>
+
+<p>
+<strong>Controlar un nombre JNDI de EJB</strong> 
+</p>
+
+<pre>&lt;?xml version="1.0"?&gt;
+&lt;!DOCTYPE dfltbndngs SYSTEM "dfltbndngs.dtd"&gt;
+&lt;dfltbndngs&gt;
+  &lt;module-bindings&gt;
+    &lt;ejb-jar-binding&gt;
+      &lt;jar-name&gt;helloEjb.jar&lt;/jar-name&gt;
+&lt;!-- este nombre debe coincidir con el nombre de m&oacute;dulo en el archivo .ear --&gt;
+      &lt;ejb-bindings&gt;
+        &lt;ejb-binding&gt;
+         &lt;ejb-name&gt;HelloEjb&lt;/ejb-name&gt;
+&lt;!-- este valor debe coincidir con la entrada &lt;ejb-name&gt; en el DD jar de EJB --&gt;
+         &lt;jndi-name&gt;com/acme/ejb/HelloHome&lt;/jndi-name&gt;
+        &lt;/ejb-binding&gt;
+      &lt;/ejb-bindings&gt;
+    &lt;/ejb-jar-binding&gt;
+  &lt;/module-bindings&gt;
+&lt;/dfltbndngs&gt;</pre>
+
+<p> 
+<strong>Establecer el enlace de f&aacute;brica de conexiones de un archivo JAR de EJB</strong> 
+</p>
+
+<pre>&lt;!DOCTYPE dfltbndngs SYSTEM "dfltbndngs.dtd"&gt;
+&lt;dfltbndngs&gt;
+  &lt;module-bindings&gt;
+    &lt;ejb-jar-binding&gt;
+      &lt;jar-name&gt;yourEjb20.jar&lt;/jar-name&gt;
+      &lt;connection-factory&gt;
+        &lt;jndi-name&gt;eis/jdbc/YourData_CMP&lt;/jndi-name&gt;
+        &lt;res-auth&gt;Container&lt;/res-auth&gt;
+      &lt;/connection-factory&gt;
+    &lt;/ejb-jar-binding&gt;
+  &lt;/module-bindings&gt;
+&lt;/dfltbndngs&gt;</pre>
+
+<p> 
+<strong>Establecer el enlace de f&aacute;brica de conexiones de un archivo EJB</strong> 
+</p>
+
+<pre>&lt;?xml version="1.0"&gt;
+&lt;!DOCTYPE dfltbndngs SYSTEM "dfltbndngs.dtd"&gt;
+&lt;dfltbndngs&gt;
+  &lt;module-bindings&gt;
+    &lt;ejb-jar-binding&gt;
+      &lt;jar-name&gt;yourEjb20.jar&lt;/jar-name&gt;
+      &lt;ejb-bindings&gt;
+        &lt;ejb-binding&gt;
+          &lt;ejb-name&gt;YourCmp20&lt;/ejb-name&gt;
+&lt;!-- este valor debe coincidir con el distintivo de ejb-name en el DD --&gt;
+          &lt;connection-factory&gt;
+           &lt;jndi-name&gt;eis/jdbc/YourData_CMP&lt;/jndi-name&gt;
+           &lt;res-auth&gt;PerConnFact&lt;/res-auth&gt;
+          &lt;/connection-factory&gt;
+        &lt;/ejb-binding&gt;
+      &lt;/ejb-bindings&gt;
+    &lt;/ejb-jar-binding&gt;
+ &lt;/module-bindings&gt;
+&lt;/dfltbndngs&gt;</pre>
+
+<p> 
+<strong>Alterar temporalmente un enlace de referencia de recursos desde un archivo JAR de cliente J2EE, JAR de EJB o WAR</strong> 
+</p>
+
+<p>A continuaci&oacute;n, aparece c&oacute;digo de ejemplo para alterar temporalmente un enlace de referencia
+de recursos de un archivo WAR.
+ Utilice c&oacute;digo parecido para alterar temporalmente un enlace de referencia de recursos de un archivo JAR de EJB o JAR de cliente J2EE.</p>
+
+<pre>&lt;?xml version="1.0"?&gt;
+&lt;!DOCTYPE dfltbndngs SYSTEM "dfltbndngs.dtd"&gt;
+&lt;dfltbndngs&gt;
+  &lt;module-bindings&gt;
+    &lt;war-binding&gt;
+      &lt;jar-name&gt;hello.war&lt;/jar-name&gt;
+      &lt;resource-ref-bindings&gt;
+        &lt;resource-ref-binding&gt;
+          &lt;!-- el siguiente valor debe coincidir con el valor de resource-ref en el DD --&gt;
+          &lt;resource-ref-name&gt;jdbc/MyDataSrc&lt;/resource-ref-name&gt;
+          &lt;jndi-name&gt;war/override/dataSource&lt;/jndi-name&gt;
+        &lt;/resource-ref-binding&gt;
+      &lt;/resource-ref-bindings&gt;
+    &lt;/war-binding&gt;
+  &lt;/module-bindings&gt;
+&lt;/dfltbndngs&gt;</pre>
+
+<p> 
+<strong>Alterar temporalmente puertos de receptor JMS de MDB</strong> 
+</p>
+
+<pre>&lt;?xml version="1.0"?&gt;
+&lt;!DOCTYPE dfltbndngs SYSTEM "dfltbndngs.dtd"&gt;
+&lt;dfltbndngs&gt;
+  &lt;module-bindings&gt;
+    &lt;ejb-jar-binding&gt;
+      &lt;jar-name&gt;YourEjbJar.jar&lt;/jar-name&gt;
+      &lt;ejb-bindings&gt;
+        &lt;ejb-binding&gt;
+          &lt;ejb-name&gt;YourMDB&lt;/ejb-name&gt;
+          &lt;listener-port&gt;yourMdbListPort&lt;/listener-port&gt;
+        &lt;/ejb-binding&gt;
+      &lt;/ejb-bindings&gt;
+    &lt;/ejb-jar-binding&gt;
+  &lt;/module-bindings&gt;
+&lt;/dfltbndngs&gt;</pre>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>Informaci&oacute;n relacionada</strong>
+</p>
+<a href="rcon_buttons.html">Botones de la consola de administraci&oacute;n</a>
+<br>
+
+</div>
+</body>
+</html>

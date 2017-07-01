@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+   "http://dtdserver/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.hps.april.auth.object" >
+
+    <class name="Person" table="people" lazy="true">
+        <id name="id" column="man" type="int" unsaved-value="0">
+            <generator class="native"/>
+        </id>
+        
+        <property name="firstName" column="firstName" type="string"/>
+        <property name="middleName" column="middleName" type="string"/>
+        <property name="lastName" column="lastName" type="string"/>
+	
+        <set name="operators" inverse="true" lazy="true">
+            <key column="man"/>
+            <one-to-many class="Operator"/>
+        </set>
+
+        <set name="workers" inverse="true" lazy="true">
+            <key column="man"/>
+            <one-to-many class="Worker"/>
+        </set>
+    </class>
+
+    <class name="Worker" table="workers">
+        <id name="id" column="worker" type="integer" unsaved-value="0">
+            <generator class="native"/>
+        </id>
+        <property name="email" column="email" type="string"/>
+        <property name="phone" column="mobilephone" type="string"/>
+    </class>
+
+</hibernate-mapping>

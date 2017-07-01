@@ -1,0 +1,142 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Einstellungen des EJB-Cache </title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uejbcash"></a>
+<h2>Einstellungen des EJB-Cache </h2>
+
+<p>Auf dieser Seite k&ouml;nnen Sie den Cache f&uuml;r einen bestimmten
+EJB-Container konfigurieren und verwalten. Wenn Sie den absoluten Cache-Grenzwert ermitteln wollen, m&uuml;ssen Sie
+die Anzahl der in einer gegebenen Transaktion aktiven Enterprise-Beans mit der Anzahl der insgesamt
+zu erwartenden parallelen Transaktionen multiplizieren. Addieren Sie anschlie&szlig;end zum Ergebnis die Anzahl der
+aktiven Session-Bean-Instanzen. Bean-Leistungsdaten k&ouml;nnen Sie
+im Tivoli Performance Viewer anzeigen.
+</p>
+
+<p>Klicken Sie, um diese Seite der Administrationskonsole anzuzeigen, auf <strong>Server</strong> <strong>&gt;</strong>
+<strong>Anwendungsserver</strong> <strong>&gt;</strong> <em>Servername</em> <strong>&gt;</strong> <strong>EJB-Container</strong> <strong>&gt;</strong> <strong>EJB-Cache-Einstellungen</strong>. </p>
+
+<div>
+<p>
+<strong>Register "Konfiguration"</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="EJBCache_cleanupInterval_description"></a>Bereinigungsintervall</strong>
+</dt>
+<dd>Gibt das Intervall an, in dem der Container versucht, nicht verwendete Elemente aus dem Cache zu
+l&ouml;schen, um die Gesamtanzahl der Elemente auf den Wert f&uuml;r die Cache-Gr&ouml;&szlig;e zu reduzieren.
+<p>Der Cache-Manager versucht, einige nicht zugeordnete Eintr&auml;ge zu
+verwalten, die bei Bedarf schnell zugeordnet werden k&ouml;nnen. Ein
+Hintergrund-Thread versucht, einige Eintr&auml;ge freizugeben und gleichzeitig
+sicherzustellen, dass einige nicht zugeordnete Eintr&auml;ge verwaltet werden. Falls der Thread ausgef&uuml;hrt wird, w&auml;hrend der Anwendungsserver inaktiv
+ist, muss der Anwendungsserver keine Leistungseinbu&szlig;en durch das Entfernen
+von Eintr&auml;gen aus dem Cache hinnehmen, wenn er neue
+Cache-Eintr&auml;ge zuordnet. Im
+Allgemeinen sollten Sie den Wert dieses Parameters bei
+Zunahme der Cache-Gr&ouml;&szlig;e erh&ouml;hen.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Einheiten</td>
+<td align="left" valign="top" class="base">Millisekunden</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">Gr&ouml;&szlig;er als 0</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">3000</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="EJBCache_cacheSize_description"></a>Cache-Gr&ouml;&szlig;e
+</strong>
+</dt>
+<dd>Gibt die Anzahl der Protokollbereiche in der Liste der aktiven
+Instanzen innerhalb des EJB-Containers an.
+<p>Ein Protokollbereich kann zwar mehrere aktive Enterprise-Bean-Instanzen enthalten, die Leistung wird
+jedoch erh&ouml;ht, wenn jeder Protokollbereich in der Tabelle eine
+Mindestanzahl von Instanzen besitzt, die ihm zugeordnet sind. Wenn
+die Anzahl aktiver Instanzen im Container die Anzahl der Protokollbereiche
+,d. h., die Cache-Gr&ouml;&szlig;e) &uuml;berschreitet, versucht der Container regelm&auml;&szlig;ig,
+die Anzahl aktiver Instanzen in der Tabelle durch Passivierung einiger
+aktiver Instanzen zu verringern. Den besten Ausgleich zwischen
+Leistung und Speicherbelegung erhalten Sie, wenn Sie f&uuml;r diesen Wert die
+Maximalanzahl aktiver Instanzen, die w&auml;hrend einer typischen
+Arbeitsbelastung zu erwarten ist,
+angeben.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Einheiten</td>
+<td align="left" valign="top" class="base">Gibt die Anzahl der Bereiche in der Hash-Tabelle an.</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">Gr&ouml;&szlig;er 0. Der Container w&auml;hlt die n&auml;chste Primzahl aus, die gr&ouml;&szlig;er-gleich dem angegebenen Wert ist.</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">2053</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Zugeh&ouml;rige Informationen</strong>
+</p>
+<a href="rcon_buttons.html">Kn&ouml;pfe in der Adminstrationskonsole</a>
+<br>
+
+<a href="uejb_recnt.html">Einstellungen f&uuml;r EJB-Container</a>
+<br>
+
+</div>
+</body>
+</html>

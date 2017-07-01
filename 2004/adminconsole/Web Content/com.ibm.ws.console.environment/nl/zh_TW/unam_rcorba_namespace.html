@@ -1,0 +1,107 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>CORBA 物件連結設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="unam_rcorba_namespace"></a>
+<h2>CORBA 物件連結設定</h2>
+
+<p>請利用這個頁面來配置 CORBA 物件連結的新名稱連結，或檢視或編輯現有的 CORBA 物件連結。
+</p>
+
+<p>如果要檢視這個管理主控台頁面，請按一下<strong>環境</strong> &gt; <strong>命名</strong> &gt; <strong>名稱空間連結</strong> &gt; <em>CORBA_namespace_binding</em>。</p>
+
+<div>
+<p>
+<strong>「配置」標籤</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="NameSpaceBinding_scope_description"></a>範圍</strong>
+</dt>
+<dd>顯示已配置的連結之範圍。
+這個值指出 <samp>namebindings.xml</samp> 檔的配置位置。這個欄位只供參考，無法更新。
+<p> 如果配置的連結以 Cell 為範圍，起始環境定義就是 Cell 持續性根環境定義。
+如果配置的連結不以節點為範圍，起始環境定義就是節點持續性根環境定義。
+如果配置的連結以伺服器為範圍，起始環境定義就是伺服器的伺服器根環境定義。
+</p>
+
+</dd>
+<dt>
+<strong><a name="NameSpaceBinding_bindingtype_description"></a>連結類型</strong>
+</dt>
+<dd>已配置的連結之類型。
+可能選擇是「字串」、EJB、CORBA 及「間接」。這個欄位只供參考，無法更新。</dd>
+<dt>
+<strong><a name="NameSpaceBinding_name_description"></a>連結 ID</strong>
+</dt>
+<dd>指定用來唯一識別這個已配置的連結之名稱。</dd>
+<dt>
+<strong><a name="NameSpaceBinding_nameInNameSpace_description"></a>名稱空間中的名稱</strong>
+</dt>
+<dd>指定名稱空間中的這個連結所用的名稱。
+隨著這個連結配置所在的名稱空間部分而不同，這個名稱可以是簡式或複合名稱。
+</dd>
+<dt>
+<strong><a name="CORBAObjectNameSpaceBinding_corbanameUrl_description"></a>Corbaname URL</strong>
+</dt>
+<dd>指定識別 CosNaming 伺服器中用來連結物件的位置之 CORBA 名稱 URL 字串。</dd>
+<dt>
+<strong><a name="CORBAObjectNameSpaceBinding_federatedContext_description"></a>聯合環境定義</strong>
+</dt>
+<dd>指定目標是 CosNaming 環境定義 (true) 或葉節點物件 (false)。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">值</td>
+<td align="left" valign="top" class="base">結果</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">true
+</td>
+<td align="left" valign="top" class="base">目標物件與環境定義 CORBA 連結類型一起連結。
+如果 corbaname URL 無法解析出 NamingContext，第一次使用連結時（也就是第一次解析 URL 時），會發生錯誤。
+</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede"> false</td>
+<td align="left" valign="top" class="base">目標物件與物件 CORBA 連結類型一起連結。</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>相關資訊</strong>
+</p>
+<a href="rcon_buttons.html">管理主控台按鈕</a>
+<br>
+
+<a href="rcon_pageusage.html">管理主控台頁面特性</a>
+<br>
+
+<a href="rcon_preferences.html">管理主控台喜好設定</a>
+<br>
+
+<a href="unam_rmanage_namespace.html">名稱空間連結集合</a>
+<br>
+
+</div>
+</body>
+</html>

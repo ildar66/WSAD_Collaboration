@@ -1,0 +1,151 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Valores del registro de usuario personalizado</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecrcustom"></a>
+<h2>Valores del registro de usuario personalizado</h2>
+
+<p>Utilice esta p&aacute;gina para configurar el registro de usuario personalizado.</p>
+
+<p>Para ver esta p&aacute;gina de la consola administrativa, pulse
+<strong>Seguridad</strong> &gt; <strong>Registros de usuario</strong> &gt; <strong>Personalizado</strong>.</p>
+
+<p>Una vez que las propiedades est&eacute;n establecidas en este panel, pulse <strong>Aplicar</strong>. Utilice el panel <strong>Propiedades</strong> para acceder a las
+propiedades adicionales que necesite el registro de usuario. Cuando se habilite la seguridad y se modifique una de estas propiedades,
+vaya al panel <strong>Seguridad Global</strong> y pulse <strong>Aplicar</strong> para validar los cambios. </p>
+
+<div>
+<p>
+<strong>Pesta&ntilde;a Configuraci&oacute;n</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="UserRegistry_serverId_description"></a>ID de usuario de servidor</strong>
+</dt>
+<dd>Especifica el ID de usuario bajo el que se ejecuta el servidor a efectos de
+seguridad. 
+<p>Este ID de servidor representa un usuario v&aacute;lido del registro
+personalizado.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos:</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="UserRegistry_serverPassword_description"></a>Contrase&ntilde;a de usuario de servidor </strong>
+</dt>
+<dd>Especifica la contrase&ntilde;a correspondiente al ID de servidor de seguridad.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos:</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="CustomUserRegistry_customRegistryClassName_description"></a>Nombre de clase de registro personalizado </strong>
+</dt>
+<dd>Especifica un nombre de clase separada por puntos que implementa la <samp>interfaz com.ibm.websphere.security.UserRegistry</samp>.
+<p>Coloque el nombre de clase del registro personalizado en al classpath. Una ubicaci&oacute;n sugerida es el directorio
+<samp>%ra&iacute;z_instalaci&oacute;n%/lib/ext</samp>. Aunque el registro personalizado implementa la interfaz
+<samp>com.ibm.websphere.security.UserRegistry</samp>, por motivos de compatibilidad con versiones
+anteriores, un registro de usuario puede implementar de forma alternativa la interfaz <samp>com.ibm.websphere.security.CustomRegistry</samp>.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos:</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n:</td>
+<td align="left" valign="top" class="base">com.ibm.websphere.security.FileRegistrySample</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="CustomUserRegistry_ignoreCase_description"></a>Ignorar may&uacute;sculas/min&uacute;sculas</strong>
+</dt>
+<dd>Especifica que se est&aacute; realizando una comprobaci&oacute;n de autorizaci&oacute;n que ignora las
+may&uacute;sculas y min&uacute;sculas.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n:</td>
+<td align="left" valign="top" class="base">Habilitado</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango:</td>
+<td align="left" valign="top" class="base">Habilitado o Inhabilitado</td>
+
+</tr>
+
+</table>
+
+<div>Utilice el enlace <strong>Propiedades personalizadas</strong> para a&ntilde;adir
+todas las propiedades necesarias para inicializar el registro
+personalizado. La siguiente propiedad est&aacute; predefinida por el producto; y
+s&oacute;lo se debe establecer cuando sea necesario: <ul>
+
+<li>WAS_UseDisplayName--Cuando se establece en <samp>true</samp>, los
+m&eacute;todos getCallerPrincipal(), getUserPrincipal(), getRemoteUser()
+devolver&aacute;n el nombre de visualizaci&oacute;n. Por omisi&oacute;n, se devuelve el <samp>securityName</samp> del usuario. Esta propiedad est&aacute; presente para dar soporte a la compatibilidad con versiones
+anteriores del registro personalizado, como la versi&oacute;n 4.0.</li>
+
+</ul>
+</div>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informaci&oacute;n relacionada</strong>
+</p>
+<a href="rcon_buttons.html">Botones de la consola de administraci&oacute;n</a>
+<br>
+
+<a href="rcon_pageusage.html">Caracter&iacute;sticas de la p&aacute;gina de la consola administrativa</a>
+<br>
+
+<a href="rcon_scope.html">Valores de &aacute;mbito de la consola administrativa</a>
+<br>
+
+<a href="rcon_filter.html">Valores de filtro de la consola administrativa</a>
+<br>
+
+<a href="rcon_preferences.html">Valores de preferencias de la consola administrativa</a>
+<br>
+
+</div>
+</body>
+</html>

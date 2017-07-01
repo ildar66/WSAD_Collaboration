@@ -1,0 +1,146 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>SSO-Einstellungen</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecsso"></a>
+<h2>SSO-Einstellungen</h2>
+
+<p>Auf dieser Seite k&ouml;nnen Sie die Konfigurationswerte f&uuml;r SSO (Single Sign-On) festlegen. </p>
+
+<p>Klicken Sie zum Anzeigen dieser Seite der Administrationskonsole auf <strong>Sicherheit</strong> &gt; <strong>Authentifizierungsverfahren</strong> &gt; <strong>LTPA</strong> &gt; <strong>Single Sign-On (SSO)</strong>.</p>
+
+<div>
+<p>
+<strong>Register "Konfiguration"</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="SingleSignon_requiresSSL_description"></a>SSL erforderlich</strong>
+</dt>
+<dd>Diese Option gibt an, dass SSO nur aktiviert wird, wenn Anforderungen mit SSL (Secure Sockets Layer)
+&uuml;ber HTTPS-Verbindungen durchgef&uuml;hrt werden. 
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">Inaktiviert</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">Aktiviert oder inaktiviert</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SingleSignon_domainName_description"></a>Dom&auml;nenname</strong>
+</dt>
+<dd>Gibt den Dom&auml;nennamen (z. B. .ibm.com) f&uuml;r alle SSO-Hosts an.
+<p>Wenn kein Wert angegeben ist, nimmt der Webbrowser des Benutzers als Wert standardm&auml;&szlig;ig den Namen des Host
+an, auf dem die Webanwendung ausgef&uuml;hrt wird. Das schr&auml;nkt die Verwendung des HTTP-Cookie (generiert f&uuml;r
+SSO) auf den
+Host ein, der es generiert hat. Die Einschr&auml;nkung der Verwendung des HTTP-Cookie ist
+m&ouml;glicherweise nicht w&uuml;nschenswert, wenn die SSO-Dom&auml;ne von mehreren Hosts verwendet wird. Kein Dom&auml;nennamensattribut
+anzugeben, empfiehlt sich nur, wenn mehrere virtuelle Hosts mit verschiedenen Dom&auml;nennamen auf demselben
+physischen Host ausgef&uuml;hrt werden. Wird in diesem Feld kein Wert angegeben, kann der Webbrowser
+standardm&auml;&szlig;ig den Dom&auml;nennamen f&uuml;r die verschiedenen virtuellen Hosts angeben. Wenn ein Dom&auml;nenname explizit
+in diesem Feld angegeben ist, wird dieser Wert f&uuml;r alle virtuelle Hosts verwendet. Dadurch werden
+die virtuellen Hosts auf eine einzige Dom&auml;ne begrenzt; dies ist in bestimmten Situation m&ouml;glicherweise
+nicht w&uuml;nschenswert. </p>
+
+<p>Wenn ein Dom&auml;nenname explizit angegeben wird, m&uuml;ssen alle URLs, die f&uuml;r den Zugriff auf gesch&uuml;tzte
+Webressourcen verwendet werden, den DNS-Hostnamen des Servers enthalten. Wenn z. B. die globale
+Sicherheitseinrichtung f&uuml;r LTPA konfiguriert und ein expliziter SSO-Dom&auml;nenname angegeben wurde, kann &uuml;ber den
+folgenden URL auf die Administrationskonsole zugegriffen werden:
+<strong>http://ihrhost.austin.ibm.com:9090/admin</strong>. Dabei muss <em>ihrhost.austin.ibm.com</em> durch den
+DNS-Hostnamen des Servers ersetzt werden. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SingleSignon_enabled_description"></a>Aktiviert </strong>
+</dt>
+<dd>Gibt an, dass die SSO-Funktion aktiviert ist. 
+<p>F&uuml;r Webanwendungen, die Seiten f&uuml;r formulargest&uuml;tzte Anmeldung mit J2EE (J2EE FormLogin) verwenden (wie z. B.
+die Administrationskonsole des WebSphere Application Server), muss SSO (Single Sign-On) aktiviert werden. Sie
+k&ouml;nnen SSO nur f&uuml;r bestimmte erweiterte Konfigurationen inaktivieren, in denen LTPA-SSO-Cookies nicht
+erforderlich sind. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">Aktiviert </td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">Aktiviert oder inaktiviert</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Zugeh&ouml;rige Informationen</strong>
+</p>
+<a href="rcon_buttons.html">Kn&ouml;pfe in der Adminstrationskonsole</a>
+<br>
+
+<a href="rcon_pageusage.html">Funktionen auf den Seiten der Administrationskonsole</a>
+<br>
+
+<a href="rcon_scope.html">Geltungsbereichseinstellungen f&uuml;r die Administrationskonsole</a>
+<br>
+
+<a href="rcon_filter.html">Filtereinstellungen f&uuml;r die Administrationskonsole</a>
+<br>
+
+<a href="rcon_preferences.html">Vorgaben f&uuml;r die Administrationskonsole</a>
+<br>
+
+</div>
+</body>
+</html>

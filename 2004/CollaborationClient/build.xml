@@ -1,0 +1,206 @@
+<project name="collaboration" basedir=".." default="jar">
+    <!--<property name="dir.lib" value="C:/java/project/JavaLibs" /> -->
+    <property name="dir.lib" value="${basedir}/JavaLibs" />
+    <property name="dir.classes" value="${basedir}/bin/classes" />
+    <property name="dir.release" value="${basedir}/bin/release" />
+
+    <path id="classpath">
+        <pathelement location="${dir.lib}/JAI/jai_imageio.jar"/>
+        <pathelement location="${dir.lib}/JAI/jai_core.jar"/>
+        <pathelement location="${dir.lib}/JAI/jai_codec.jar"/>
+        <pathelement location="${dir.lib}/TerraByte/terrabyteClient.jar"/>
+        <pathelement location="${dir.lib}/TerraByte/terrabyteCore.jar"/>
+        <pathelement location="${dir.lib}/jxl/jxl.jar"/>
+        <pathelement location="${dir.lib}/UploadEquipment/UploadEquipment.jar"/>
+        <pathelement location="${dir.lib}/JDBCDrivers/InformixJDBC/informix.jar"/>
+        <pathelement location="${dir.lib}/JDBCDrivers/InformixJDBC/ifxjdbcx.jar"/>
+        <pathelement location="${dir.lib}/JDBCDrivers/InformixJDBC/ifxjdbc.jar"/>
+        <pathelement location="${dir.lib}/JDBCDrivers/MSSQL/msbase.jar"/>
+        <pathelement location="${dir.lib}/JDBCDrivers/MSSQL/mssqlserver.jar"/>
+        <pathelement location="${dir.lib}/JDBCDrivers/MSSQL/msutil.jar"/>
+        <pathelement location="${dir.lib}/apache.org/log/commons-logging.jar"/>
+        <pathelement location="${dir.lib}/xml/xercesImpl.jar"/>
+        <pathelement location="${dir.lib}/xml/xmlParserAPIs.jar"/>
+        <pathelement location="${dir.lib}/apache.org/poi-3.0-rc4-20070503.jar" />
+        <pathelement location="${dir.lib}/apache.org/poi-contrib-3.0-rc4-20070503.jar" />
+        <pathelement location="${dir.lib}/apache.org/poi-scratchpad-3.0-rc4-20070503.jar" />
+        <pathelement location="${dir.lib}/apache.org/regexp/jakarta-regexp-1.4.jar"/>
+        <pathelement location="${dir.lib}/apache.org/regexp/jakarta-oro.jar"/>
+        <pathelement location="${dir.lib}/JDBCDrivers/DBF_JDBC30.jar"/>
+        <pathelement location="${dir.lib}/apache.org/log/log4j-1.2.11.jar"/>
+        <pathelement location="${dir.lib}/junit/junit.jar"/>
+        <pathelement location="${dir.lib}/apache.org/commons/commons-lang.jar"/>
+        <pathelement location="${dir.lib}/apache.org/commons/commons-beanutils.jar"/>
+        <pathelement location="${dir.lib}/apache.org/commons/commons-pool.jar"/>
+        <pathelement location="${dir.lib}/apache.org/commons/commons-dbcp.jar"/>
+        <pathelement location="${dir.lib}/apache.org/commons/commons-httpclient-3.0.jar"/>
+        <pathelement location="${dir.lib}/hibernate/antlr-2.7.5H3.jar"/>
+        <pathelement location="${dir.lib}/hibernate/asm.jar"/>
+        <pathelement location="${dir.lib}/hibernate/asm-attrs.jar"/>
+        <pathelement location="${dir.lib}/hibernate/cglib-2.1.jar"/>
+        <pathelement location="${dir.lib}/hibernate/commons-collections-2.1.1.jar"/>
+        <pathelement location="${dir.lib}/hibernate/dom4j-1.5.2.jar"/>
+        <pathelement location="${dir.lib}/hibernate/ehcache-1.1.jar"/>
+        <pathelement location="${dir.lib}/hibernate/hibernate-3.1.3.jar"/>
+        <pathelement location="${dir.lib}/springframework/spring.jar"/>
+        <pathelement location="${dir.lib}/j2ee/jms.jar"/>
+        <pathelement location="${dir.lib}/j2ee/servlet-api.jar"/>
+        <pathelement location="${dir.lib}/j2ee/jsp-api.jar"/>
+        <pathelement location="${dir.lib}/j2ee/jstl.jar"/>
+        <pathelement location="${dir.lib}/taglibs/standard.jar"/>
+        <pathelement location="${dir.lib}/j2ee/jta.jar"/>
+    </path>
+
+    <path id="classpathWithModules" >
+        <path refid="classpath" />
+        <dirset dir="${dir.classes}/rchsToNri" />
+        <dirset dir="${dir.classes}/collaborationDocLoader" />
+        <dirset dir="${dir.classes}/commons" />
+        <dirset dir="${dir.classes}/auth" />
+        <dirset dir="${dir.classes}/persistence-value" />
+        <dirset dir="${dir.classes}/july-mail-service-client" />
+        <dirset dir="${dir.classes}/storageplace" />
+        <dirset dir="${dir.classes}/july-rts-auth" />
+        <dirset dir="${dir.classes}/rts-mail-service" />
+        <dirset dir="${dir.classes}/rts-services" />
+        <dirset dir="${dir.classes}/rts-task" />
+    </path>
+    <target name="clean">
+        <!--<delete dir="${dir.classes}/rchsToNri" />-->
+        <!--<delete dir="${dir.classes}/collaborationClient" />-->
+        <!--<delete dir="${dir.classes}/collaborationDocLoader" />-->
+		<!--<delete dir="${dir.classes}/commons" />-->
+		<!--<delete dir="${dir.classes}/auth" />-->
+		<!--<delete dir="${dir.classes}/persistence-value" />-->
+		<!--<delete dir="${dir.classes}/july-mail-service-client" />-->
+		<!--<delete dir="${dir.classes}/storageplace" />-->
+		<!--<delete dir="${dir.classes}/july-rts-auth" />-->
+		<!--<delete dir="${dir.classes}/rts-mail-service" />-->
+		<!--<delete dir="${dir.classes}/rts-services" />-->
+		<!--<delete dir="${dir.classes}/rts-task" />-->
+<!---->
+        <!--<delete dir="${dir.classes}/rchsToNri" />-->
+        <!--<delete dir="${dir.classes}/collaborationClient" />-->
+        <!--<delete dir="${dir.classes}/collaborationDocLoader" />-->
+<!---->
+        <!--<delete dir="${dir.release}" includes="**/*" />-->
+    </target>
+
+    <target name="prepare">
+        <mkdir dir="${dir.classes}/rchsToNri" />
+        <mkdir dir="${dir.classes}/collaborationClient" />
+        <mkdir dir="${dir.classes}/collaborationDocLoader" />
+		<mkdir dir="${dir.classes}/commons" />
+		<mkdir dir="${dir.classes}/auth" />
+		<mkdir dir="${dir.classes}/persistence-value" />
+		<mkdir dir="${dir.classes}/july-mail-service-client" />
+		<mkdir dir="${dir.classes}/storageplace" />
+		<mkdir dir="${dir.classes}/july-rts-auth" />
+		<mkdir dir="${dir.classes}/rts-mail-service" />
+		<mkdir dir="${dir.classes}/rts-services" />
+		<mkdir dir="${dir.classes}/rts-task" />
+
+		<copy todir="${dir.classes}/auth">
+			<fileset dir="${basedir}/auth/src" includes="**/*.xml">
+			</fileset>
+		</copy>
+		<copy todir="${dir.classes}/persistence-value">
+			<fileset dir="${basedir}/persistence-value/src/java" includes="**/*.xml">
+			</fileset>
+		</copy>
+		<copy todir="${dir.classes}/july-mail-service-client">
+			<fileset dir="${basedir}/july-mail-service-client/src" includes="**/*.xml"></fileset>
+			<fileset dir="${basedir}/july-mail-service-client/src" includes="**/*.message"></fileset>
+		</copy>
+		<copy todir="${dir.classes}/storageplace">
+			<fileset dir="${basedir}/storageplace/src" includes="**/*.xml">
+			</fileset>
+		</copy>
+		<copy todir="${dir.classes}/july-rts-auth">
+			<fileset dir="${basedir}/july-rts-auth/src/java" includes="**/*.xml">
+			</fileset>
+		</copy>
+		<copy todir="${dir.classes}/rts-mail-service">
+			<fileset dir="${basedir}/rts-mail-service/src" includes="**/*.xml"></fileset>
+			<fileset dir="${basedir}/rts-mail-service/src" includes="**/*.message"></fileset>
+		</copy>
+		<copy todir="${dir.classes}/rts-services">
+			<fileset dir="${basedir}/rts-services/src" includes="**/*.xml">
+			</fileset>
+		</copy>
+		<copy todir="${dir.classes}/rts-task">
+			<fileset dir="${basedir}/rts-task/src" includes="**/*.xml">
+			</fileset>
+		</copy>
+
+<!--
+		deprecated
+        <copy file="${basedir}/rchsToNri/src/log4j.properties" todir="${dir.classes}/rchsToNri" />
+-->
+        <copy file="${basedir}/collaborationClient/appClientModule/log4j.properties" todir="${dir.classes}/collaborationClient" />
+        <copy file="${basedir}/collaborationClient/appClientModule/nri-mail-client.properties" todir="${dir.classes}/collaborationClient" />
+        <copy file="${basedir}/collaborationClient/appClientModule/collaborationApplicationContext.xml" todir="${dir.classes}/collaborationClient" />
+        <copy todir="${dir.classes}/collaborationClient/config">
+			<fileset dir="${basedir}/collaborationClient/appClientModule/config"/>
+		</copy>
+		<copy todir="${dir.classes}/collaborationDocLoader">
+			<fileset dir="${basedir}/collaborationDocLoader" includes="**/*.message">
+			</fileset>
+		</copy>
+
+		<!--<copy file="${basedir}/CollaborationClient/appClientModule/sync.cfg" todir="${dir.classes}/collaborationClient" />-->
+
+        <mkdir dir="${dir.release}" />
+        <mkdir dir="${dir.release}/lib" />
+    </target>
+
+    <target name="compile">
+        <javac srcdir="${basedir}/commons/src" destdir="${dir.classes}/commons" classpathref="classpath" source="1.4" encoding="Cp1251" debug="true"/>
+        <javac srcdir="${basedir}/auth/src" destdir="${dir.classes}/auth" classpathref="classpathWithModules" source="1.4" encoding="Cp1251" debug="true"/>
+        <javac srcdir="${basedir}/persistence-value/src/java" destdir="${dir.classes}/persistence-value" classpathref="classpathWithModules" source="1.4" encoding="Cp1251" debug="true"/>
+        <javac srcdir="${basedir}/july-mail-service-client/src" destdir="${dir.classes}/july-mail-service-client" classpathref="classpathWithModules" source="1.4" encoding="Cp1251" debug="true"/>
+        <javac srcdir="${basedir}/storageplace/src" destdir="${dir.classes}/storageplace" classpathref="classpathWithModules" source="1.4" encoding="Cp1251" debug="true"/>
+		<javac srcdir="${basedir}/july-rts-auth/src/java" destdir="${dir.classes}/july-rts-auth" classpathref="classpathWithModules" source="1.4" encoding="Cp1251" debug="true"/>
+		<javac srcdir="${basedir}/rts-services/src" destdir="${dir.classes}/rts-services" classpathref="classpathWithModules" source="1.4" encoding="Cp1251" debug="true"/>
+        <javac srcdir="${basedir}/rts-mail-service/src" destdir="${dir.classes}/rts-mail-service" classpathref="classpathWithModules" source="1.4" encoding="Cp1251" debug="true"/>
+        <javac srcdir="${basedir}/rts-task/src" destdir="${dir.classes}/rts-task" classpathref="classpathWithModules" source="1.4" encoding="Cp1251" debug="true"/>
+
+        <javac srcdir="${basedir}/rchsToNRI/src" destdir="${dir.classes}/rchsToNri" classpathref="classpath" source="1.4" encoding="Cp1251" debug="true"/>
+        <javac srcdir="${basedir}/collaborationDocLoader" destdir="${dir.classes}/collaborationDocLoader" classpathref="classpathWithModules" source="1.4" encoding="Cp1251" debug="true" />
+        <javac srcdir="${basedir}/collaborationClient/appClientModule" excludes="old/**/*" destdir="${dir.classes}/collaborationClient" classpathref="classpathWithModules" source="1.4" encoding="Cp1251" debug="true" />
+
+    </target>
+
+    <target name="jar" depends="clean,prepare,compile">
+        <!--<copy todir="${dir.release}/lib">
+            <fileset dir="${dir.lib}/JAI" includes="jai_imageio.jar, jai_core.jar, jai_codec.jar" />
+            <fileset dir="${dir.lib}/TerraByte" includes="terrabyteClient.jar, terrabyteCore.jar" />
+            <fileset dir="${dir.lib}/jxl" includes="jxl.jar" />
+            <fileset dir="${dir.lib}/UploadEquipment" includes="UploadEquipment.jar" />
+            <fileset dir="${dir.lib}/JDBCDrivers/InformixJDBC" includes="ifxjdbcx.jar, ifxjdbc.jar" />
+            <fileset dir="${dir.lib}/JDBCDrivers/MSSQL" includes="msbase.jar, mssqlserver.jar, msutil.jar" />
+            <fileset dir="${dir.lib}/apache.org/log" includes="commons-logging.jar" />
+            <fileset dir="${dir.lib}/apache.org/regexp" includes="jakarta-oro.jar, jakarta-regexp-1.4.jar" />
+            <fileset dir="${dir.lib}/xml" includes="xercesImpl.jar, xmlParserAPIs.jar" />
+        </copy>-->
+		<jar basedir="${dir.classes}/commons" destfile="${dir.release}/commons.jar" />
+		<jar basedir="${dir.classes}/auth" destfile="${dir.release}/auth.jar" />
+		<jar basedir="${dir.classes}/persistence-value" destfile="${dir.release}/persistence-value.jar" />
+		<jar basedir="${dir.classes}/july-mail-service-client" destfile="${dir.release}/july-mail-service-client.jar" />
+		<jar basedir="${dir.classes}/storageplace" destfile="${dir.release}/storageplace.jar" />
+		<jar basedir="${dir.classes}/july-rts-auth" destfile="${dir.release}/july-rts-auth.jar" />
+		<jar basedir="${dir.classes}/rts-mail-service" destfile="${dir.release}/rts-mail-service.jar" />
+		<jar basedir="${dir.classes}/rts-services" destfile="${dir.release}/rts-services.jar" />
+		<jar basedir="${dir.classes}/rts-task" destfile="${dir.release}/rts-task.jar" />
+        <jar basedir="${dir.classes}/rchsToNri" destfile="${dir.release}/rchsToNri.jar" />
+        <jar basedir="${dir.classes}/collaborationDocLoader" destfile="${dir.release}/collaborationDocLoader.jar" />
+        <jar basedir="${dir.classes}/collaborationClient" destfile="${dir.release}/collaborationClient.jar" >
+            <manifest>
+                <attribute name="Main-Class" value="com.hps.july.sync.client.CollaborationClientForNRI" />
+                <!--<attribute name="Class-Path" value="lib/jai_imageio.jar lib/jai_core.jar lib/jai_codec.jar lib/terrabyteClient.jar lib/terrabyteCore.jar lib/jxl.jar lib/UploadEquipment.jar lib/ifxjdbcx.jar lib/ifxjdbc.jar lib/msbase.jar lib/mssqlserver.jar lib/msutil.jar lib/DBC_JDBC30.jar lib/commons-logging.jar lib/jakarta-oro.jar lib/jakarta-regexp-1.4.jar lib/xercesImpl.jar lib/xmlParserAPIs.jar rchsToNri.jar collaborationDocLoader.jar"/> -->
+                <attribute name="Class-Path" value="./ JavaLibs/apache.org/log/log4j-1.2.11.jar JavaLibs/apache.org/commons/commons-pool.jar JavaLibs\apache.org\commons\commons-dbcp.jar JavaLibs/hibernate/antlr-2.7.5H3.jar JavaLibs/hibernate/asm.jar JavaLibs/hibernate/asm-attrs.jar JavaLibs/hibernate/cglib-2.1.jar JavaLibs/hibernate/commons-collections-2.1.1.jar JavaLibs/hibernate/dom4j-1.5.2.jar JavaLibs/hibernate/ehcache-1.1.jar JavaLibs/hibernate/hibernate-3.1.3.jar JavaLibs/springframework/spring.jar JavaLibs/j2ee/jms.jar JavaLibs/j2ee/servlet-api.jar JavaLibs/j2ee/jta.jar JavaLibs/JDBCDrivers/SybaseJDBC/jconn2.jar JavaLibs/JDBCDrivers/SybaseJDBC/jTDS2.jar JavaLibs/JDBCDrivers/OracleJDBC/classes12.zip JavaLibs/JDBCDrivers/InterbaseJDBC/firebirdsql.jar JavaLibs/JDBCDrivers/InformixJDBC/informix.jar JavaLibs/J2ee/j2ee.jar JavaLibs/JAI/jai_codec.jar JavaLibs/JAI/jai_core.jar JavaLibs/JAI/jai_imageio.jar JavaLibs/JDBCDrivers/MSSQL/msbase.jar JavaLibs/JDBCDrivers/MSSQL/msutil.jar JavaLibs/JDBCDrivers/MSSQL/mssqlserver.jar JavaLibs/apache.org/commons/commons-codec-1.3.jar JavaLibs/apache.org/commons/commons-httpclient-3.0.jar JavaLibs/apache.org/commons/commons-logging-1.0.4.jar JavaLibs/TerraByte/terrabyteClient.jar JavaLibs/TerraByte/terrabyteCore.jar JavaLibs/UploadEquipment/UploadEquipment.jar JavaLibs/jxl/jxl.jar JavaLibs/apache.org/log/log4j-1.2.12.jar JavaLibs/apache.org/commons/commons-io-1.1.jar JavaLibs/xml/xercesImpl.jar JavaLibs/apache.org/regexp/jakarta-regexp-1.4.jar JavaLibs/apache.org/regexp/jakarta-oro.jar collaborationDocLoader.jar rchsToNri.jar auth.jar commons.jar persistence-value.jar rts-mail-service.jar rts-services.jar rts-task.jar july-rts-auth.jar storageplace.jar july-mail-service-client.jar JavaLibs/apache.org/poi-3.0-rc4-20070503.jar JavaLibs/apache.org/poi-contrib-3.0-rc4-20070503.jar JavaLibs/apache.org/poi-scratchpad-3.0-rc4-20070503.jar JavaLibs/apache.org/commons/commons-beanutils.jar"/>
+            </manifest>
+        </jar>
+    </target>
+</project>
+

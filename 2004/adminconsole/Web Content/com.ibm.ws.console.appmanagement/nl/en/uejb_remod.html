@@ -1,0 +1,82 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>EJB module settings</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uejbemod"></a>
+<h2>EJB module settings</h2>
+
+<p>Use this page to configure and manage a specific deployed EJB module.</p>
+
+<p>
+<b>Note: </b>You cannot start or stop an individual
+EJB module for modification. You must start or stop the appropriate application
+entirely.</p>
+
+<p>To view this administrative console page, click <strong>Applications</strong> <strong>&gt;</strong> <strong>Enterprise
+Applications</strong> <strong>&gt;</strong> <em>applicationName</em> <strong>&gt;</strong> <strong>EJB modules</strong> <strong>&gt;</strong> <em>moduleName</em>.</p>
+
+<div>
+<p>
+<strong>Configuration tab</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="ModuleDeployment_uri_description"></a>URI</strong>
+</dt>
+<dd>When resolved relative to the application URL, this specifies the
+location of the module archive contents on a file system. The URI must match
+the URI of a ModuleRef URI in the deployment descriptor of the deployed application
+(EAR).</dd>
+<dt>
+<strong><a name="ModuleDeployment_altdd_description"></a>Alternate DD</strong>
+</dt>
+<dd>Specifies a deployment descriptor to be used at run time instead
+of the one installed in the module.</dd>
+<dt>
+<strong><a name="ModuleDeployment_startingWeight_description"></a>Starting weight</strong>
+</dt>
+<dd>Specifies the order in which modules are started when the server
+starts. The module with the lowest starting weight is started first. 
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">5000</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range</td>
+<td align="left" valign="top" class="base">Greater than 0</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Related information</strong>
+</p>
+<a href="rcon_buttons.html">Administrative console buttons</a>
+<br>
+
+</div>
+</body>
+</html>

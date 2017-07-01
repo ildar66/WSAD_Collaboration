@@ -1,0 +1,2259 @@
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration//EN"
+       "http://jakarta.apache.org/struts/dtds/tiles-config.dtd">
+
+<!-- Definitions for WebSphere Application Server Administrative Console      -->
+<!--  IBM Confidential OCO Source Material                                    -->
+<!--  5630-A36 (C) COPYRIGHT International Business Machines Corp. 2003       -->
+<!--  The source code for this program is not published or otherwise divested -->
+<!--  of its trade secrets, irrespective of what has been deposited with the  -->
+<!--  U.S. Copyright Office.                                                  -->
+
+<tiles-definitions>
+
+<!-- Global Security -->
+    <definition name="Security.config.view" extends="detail.config.view" controllerClass="com.ibm.ws.console.security.SecurityController">
+        <putList name="list">
+        <add value="Security.detail.title"/>
+        <add value="Security.detail.tabsLayout"/>
+        </putList>
+    </definition>
+
+    <definition name="Security.detail.title" extends="detail.title">
+        <put name="formName" value="com.ibm.ws.console.security.SecurityDetailForm"/>
+        <put name="objectTypeImage" value="Security.smallIcon:pluginId=com.ibm.ws.console.security"/>
+        <put name="titleKey" value="Security.displayName"/>
+        <put name="collectionLink" value="com.ibm.ws.console.security.forwardCmd.do?forwardName=Security.content.main&#38;noChange=true"/>
+        <put name="includeLink" value="no"/>
+        <put name="instanceDetails" value="title"/>
+        <put name="instanceDescription" value="Security.description"/>
+        <put name="displayName" value="Security.displayName"/>
+    </definition>
+
+    <definition name="Security.detail.tabsLayout" path="/secure/layouts/tabsLayout.jsp">
+        <put name="selectUri" value="securityDetail.do"/>
+        <put name="selectedPerspective" value="tab.configuration"/>
+        <put name="formName" value="com.ibm.ws.console.security.SecurityDetailForm"/>
+        <putList name="tabList">
+            <item  value="tab.configuration" link="Security.config.tab.view" classtype="org.apache.struts.tiles.beans.SimpleMenuItem"/>
+        </putList>
+    </definition>
+
+    <definition name="Security.config.tab.view" extends="detail.config.tab.view">
+        <putList name="list">
+        <add value="Security.detail.buttons.panel"/>
+        <add value="Security.config.general.properties"/>
+        <add value="Security.config.additional.properties"/>
+        </putList>
+    </definition>
+
+    <definition name="Security.detail.buttons.panel" extends="buttons.panel">
+        <put name="buttonCount" value="2"/>
+        <put name="definitionName" value="Security.detail.buttons.panel"/>
+        <put name="includeForm" value="yes"/>
+        <putList name="actionList">
+        </putList>
+    </definition>
+
+    <definition name="Security.config.general.properties" extends="detail.config.general.properties">
+        <put name="formAction" value="securityDetail.do"/>
+        <put name="formName" value="com.ibm.ws.console.security.SecurityDetailForm"/>
+        <put name="formType" value="com.ibm.ws.console.security.SecurityDetailForm"/>
+        <put name="formFocus" value="activeProtocol"/>
+        <put name="readOnlyView" value="no"/>
+        <putList name="attributeList">
+            <item  value="Security.enabled.displayName:enabled:no:JSP:Security.enabled.description:no:yes: : :/com.ibm.ws.console.security/checkBoxLayoutAdminOnly.jsp" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="Security.enforceJava2Security.displayName:enforceJava2Security:no:JSP:Security.enforceJava2Security.description:no:yes: : :/com.ibm.ws.console.security/checkBoxLayoutAdminOnly.jsp" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="Security.useDomainQualifiedUserNames.displayName:useDomainQualifiedUserNames:no:Checkbox:Security.useDomainQualifiedUserNames.description:no:yes" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="Security.cacheTimeout.displayName:cacheTimeout:yes:Text:Security.cacheTimeout.description:no:yes" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="Security.issuePermissionWarning.displayName:issuePermissionWarning:no:Checkbox:Security.issuePermissionWarning.description:no:yes" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="Security.activeProtocol.displayName:activeProtocol:no:Select:Security.activeProtocol.description:no:yes:BOTH,CSI:IIOPSecurityProtocolKind.BOTH,IIOPSecurityProtocolKind.CSI" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="Security.activeAuthMechanism.displayName:activeAuthMechanism:yes:Select:Security.activeAuthMechanism.description:no:yes:SWAM,LTPA:Security.activeAuthMechanism.SWAMAuthentication.displayName,Security.activeAuthMechanism.LTPA.displayName" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="Security.activeUserRegistry.displayName:activeUserRegistry:no:Select:Security.activeUserRegistry.description:no:yes:LOCAL,LDAP,CUSTOM:Security.activeUserRegistry.LocalOSUserRegistry.displayName,Security.activeUserRegistry.LDAPUserRegistry.displayName,Security.activeUserRegistry.CustomUserRegistry.displayName" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="Security.useFIPS.displayName:fips:no:JSP:Security.useFIPS.backup.description:no:yes: : :/com.ibm.ws.console.security/checkBoxLayoutAdminOnly.jsp" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+        </putList>
+    </definition>
+
+    <definition name="Security.config.additional.properties" extends="detail.config.additional.properties">
+        <put name="formName" value="com.ibm.ws.console.security.SecurityDetailForm"/>
+        <putList name="list">
+            <item  value="Security.property.displayName" link="com.ibm.ws.console.security.forwardCmd.do?forwardName=Security.AdminOnly.Property.content.main&#38;sfname=properties" tooltip="Security.property.description" classtype="org.apache.struts.tiles.beans.SimpleMenuItem"/>
+        </putList>
+    </definition>
+
+    <definition name="Security.runtime.tab.view" path="/secure/layouts/configTabLayout.jsp">
+        <putList name="list">
+        </putList>
+    </definition>
+
+    <definition name="Security.topology.tab.view" path="/secure/layouts/configTabLayout.jsp">
+        <putList name="list">
+        </putList>
+    </definition>
+
+<!-- Server S -->
+    <definition name="SecurityS.config.view" extends="detail.config.view" controllerClass="com.ibm.ws.console.security.SecuritySController">
+        <putList name="list">
+        <add value="SecurityS.detail.title"/>
+        <add value="SecurityS.detail.tabsLayout"/>
+        </putList>
+    </definition>
+
+    <definition name="SecurityS.detail.title" extends="detail.title">
+        <put name="formName" value="com.ibm.ws.console.security.SecuritySDetailForm"/>
+        <put name="objectTypeImage" value="Security.smallIcon:pluginId=com.ibm.ws.console.security"/>
+        <put name="titleKey" value="ServerSecurity.displayName"/>
+        <put name="collectionLink" value="com.ibm.ws.console.security.forwardCmd.do?forwardName=SecurityS.content.main&#38;noChange=true"/>
+        <put name="includeLink" value="no"/>
+        <put name="instanceDetails" value="title"/>
+        <put name="instanceDescription" value="ServerSecurity.description"/>
+        <put name="displayName" value="ServerSecurity.displayName"/>
+    </definition>
+
+    <definition name="SecurityS.detail.tabsLayout" path="/secure/layouts/tabsLayout.jsp">
+        <put name="selectUri" value="securitySDetail.do"/>
+        <put name="selectedPerspective" value="tab.configuration"/>
+        <put name="formName" value="com.ibm.ws.console.security.SecuritySDetailForm"/>
+        <putList name="tabList">
+            <item  value="tab.configuration" link="SecurityS.config.tab.view" classtype="org.apache.struts.tiles.beans.SimpleMenuItem"/>
+        </putList>
+    </definition>
+
+    <definition name="SecurityS.config.tab.view" extends="detail.config.tab.view">
+        <putList name="list">
+        <add value="SecurityS.detail.buttons.panel"/>
+        <add value="SecurityS.config.general.properties"/>
+        </putList>
+    </definition>
+
+    <definition name="SecurityS.detail.buttons.panel" extends="buttons.panel">
+        <put name="buttonCount" value="2"/>
+        <put name="definitionName" value="SecurityS.detail.buttons.panel"/>
+        <put name="includeForm" value="yes"/>
+        <putList name="actionList">
+        </putList>
+    </definition>
+
+    <definition name="SecurityS.config.general.properties" extends="detail.config.general.properties">
+        <put name="formAction" value="securitySDetail.do"/>
+        <put name="formName" value="com.ibm.ws.console.security.SecuritySDetailForm"/>
+        <put name="formType" value="com.ibm.ws.console.security.SecuritySDetailForm"/>
+        <put name="formFocus" value="activeProtocol"/>
+        <put name="readOnlyView" value="no"/>
+        <putList name="attributeList">
+            <item  value="Security.enabled.displayName:enabled:no:JSP:Security.enabled.description:no:yes: : :/com.ibm.ws.console.security/checkBoxLayoutAdminOnly.jsp" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="Security.enforceJava2Security.displayName:enforceJava2Security:no:JSP:Security.enforceJava2Security.description:no:yes: : :/com.ibm.ws.console.security/checkBoxLayoutAdminOnly.jsp" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="Security.useDomainQualifiedUserNames.displayName:useDomainQualifiedUserNames:no:Checkbox:Security.useDomainQualifiedUserNames.description:no:yes" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="Security.cacheTimeout.displayName:cacheTimeout:yes:Text:Security.cacheTimeout.description:no:yes" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="Security.issuePermissionWarning.displayName:issuePermissionWarning:no:Checkbox:Security.issuePermissionWarning.description:no:yes" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="Security.activeProtocol.displayName:activeProtocol:no:Select:Security.activeProtocol.description:no:yes:BOTH,CSI:IIOPSecurityProtocolKind.BOTH,IIOPSecurityProtocolKind.CSI" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+        </putList>
+    </definition>
+
+<!-- Server Security -->
+    <definition name="ServerSecurity.config.view" extends="detail.config.view" controllerClass="com.ibm.ws.console.security.ServerSecurityController">
+        <putList name="list">
+        <add value="ServerSecurity.detail.title"/>
+        <add value="ServerSecurity.detail.tabsLayout"/>
+        </putList>
+    </definition>
+
+    <definition name="ServerSecurity.detail.title" extends="detail.title">
+        <put name="formName" value="com.ibm.ws.console.security.ServerSecurityDetailForm"/>
+        <put name="objectTypeImage" value="Security.smallIcon:pluginId=com.ibm.ws.console.security"/>
+        <put name="titleKey" value="ServerSecurity.displayName"/>
+        <put name="collectionLink" value="com.ibm.ws.console.security.forwardCmd.do?forwardName=ServerSecurity.content.main&#38;noChange=true"/>
+        <put name="includeLink" value="no"/>
+        <put name="instanceDetails" value="title"/>
+        <put name="instanceDescription" value="ServerSecurity.description"/>
+        <put name="displayName" value="ServerSecurity.displayName"/>
+    </definition>
+
+    <definition name="ServerSecurity.detail.tabsLayout" path="/secure/layouts/tabsLayout.jsp">
+        <put name="selectUri" value="serverSecurityDetail.do"/>
+        <put name="selectedPerspective" value="tab.configuration"/>
+        <put name="formName" value="com.ibm.ws.console.security.ServerSecurityDetailForm"/>
+        <putList name="tabList">
+            <item  value="tab.configuration" link="ServerSecurity.config.tab.view" classtype="org.apache.struts.tiles.beans.SimpleMenuItem"/>
+        </putList>
+    </definition>
+
+    <definition name="ServerSecurity.config.tab.view" extends="detail.config.tab.view">
+        <putList name="list">
+        <add value="ServerSecurity.detail.buttons.panel"/>
+        <add value="ServerSecurity.config.general.properties"/>
+        <add value="ServerSecurity.config.additional.properties"/>
+        </putList>
+    </definition>
+
+    <definition name="ServerSecurity.detail.buttons.panel" extends="buttons.panel">
+        <put name="buttonCount" value="2"/>
+        <put name="definitionName" value="ServerSecurity.detail.buttons.panel"/>
+        <put name="includeForm" value="yes"/>
+        <putList name="actionList">
+        </putList>
+    </definition>
+
+    <definition name="ServerSecurity.config.general.properties" extends="detail.config.general.properties">
+        <put name="formAction" value="serverSecurityDetail.do"/>
+        <put name="formName" value="com.ibm.ws.console.security.ServerSecurityDetailForm"/>
+        <put name="formType" value="com.ibm.ws.console.security.ServerSecurityDetailForm"/>
+        <put name="formFocus" value="activeProtocol"/>
+        <put name="readOnlyView" value="no"/>
+        <putList name="attributeList">
+            <item classtype="com.ibm.ws.console.core.item.PropertyItem" icon="" link="" tooltip="" value="OverrideCellSecurity.displayName:overrideCellSecurity:no:Checkbox:OverrideCellSecurity.description:no:yes"/>
+            <item classtype="com.ibm.ws.console.core.item.PropertyItem" icon="" link="" tooltip="" value="OverrideCellCSI.displayName:overrideCellCSI:no:Checkbox:OverrideCellCSI.description:no:yes"/>
+            <item classtype="com.ibm.ws.console.core.item.PropertyItem" icon="" link="" tooltip="" value="OverrideCellIBM.displayName:overrideCellIBM:no:Checkbox:OverrideCellIBM.description:no:yes"/>
+        </putList>
+    </definition>
+
+    <definition name="ServerSecurity.config.additional.properties" extends="detail.config.additional.properties">
+        <put name="formName" value="com.ibm.ws.console.security.ServerSecurityDetailForm"/>
+        <putList name="list">
+            <item  value="ServerSecurity.displayName" link="com.ibm.ws.console.security.forwardCmd.do?forwardName=SecurityS.config.view&#38;sfname=authDataEntries" tooltip="ServerSecurity.description" classtype="org.apache.struts.tiles.beans.SimpleMenuItem"/>
+            <item  value="CSIia.displayName" link="com.ibm.ws.console.security.forwardCmd.do?forwardName=CSIia.config.view&#38;sfname=authDataEntries" tooltip="CSIia.description" classtype="org.apache.struts.tiles.beans.SimpleMenuItem"/>
+            <item  value="CSIoa.displayName" link="com.ibm.ws.console.security.forwardCmd.do?forwardName=CSIoa.config.view&#38;sfname=authDataEntries" tooltip="CSIoa.description" classtype="org.apache.struts.tiles.beans.SimpleMenuItem"/>
+            <item  value="CSIic.displayName" link="com.ibm.ws.console.security.forwardCmd.do?forwardName=CSIic.config.view&#38;sfname=authDataEntries" tooltip="CSIic.description" classtype="org.apache.struts.tiles.beans.SimpleMenuItem"/>
+            <item  value="CSIoc.displayName" link="com.ibm.ws.console.security.forwardCmd.do?forwardName=CSIoc.config.view&#38;sfname=authDataEntries" tooltip="CSIoc.description" classtype="org.apache.struts.tiles.beans.SimpleMenuItem"/>
+            <item  value="IBMic.displayName" link="com.ibm.ws.console.security.forwardCmd.do?forwardName=IBMic.config.view&#38;sfname=authDataEntries" tooltip="IBMic.description" classtype="org.apache.struts.tiles.beans.SimpleMenuItem"/>
+            <item  value="IBMoc.displayName" link="com.ibm.ws.console.security.forwardCmd.do?forwardName=IBMoc.config.view&#38;sfname=authDataEntries" tooltip="IBMoc.description" classtype="org.apache.struts.tiles.beans.SimpleMenuItem"/>
+        </putList>
+    </definition>
+
+    <definition name="ServerSecurity.runtime.tab.view" path="/secure/layouts/configTabLayout.jsp">
+        <putList name="list">
+        </putList>
+    </definition>
+
+    <definition name="ServerSecurity.topology.tab.view" path="/secure/layouts/configTabLayout.jsp">
+        <putList name="list">
+        </putList>
+    </definition>
+
+<!-- LTPA -->
+    <definition name="LTPA.config.view" extends="detail.config.view" controllerClass="com.ibm.ws.console.security.LTPAController">
+        <putList name="list">
+        <add value="LTPA.detail.title"/>
+        <add value="LTPA.detail.tabsLayout"/>
+        </putList>
+    </definition>
+
+    <definition name="LTPA.detail.title" extends="detail.title">
+        <put name="formName" value="com.ibm.ws.console.security.LTPADetailForm"/>
+        <put name="objectTypeImage" value="LTPA.smallIcon:pluginId=com.ibm.ws.console.security"/>
+        <put name="titleKey" value="LTPA.displayName"/>
+        <put name="collectionLink" value="com.ibm.ws.console.security.forwardCmd.do?forwardName=LTPA.content.main&#38;noChange=true"/>
+        <put name="includeLink" value="no"/>
+        <put name="instanceDetails" value="title"/>
+        <put name="instanceDescription" value="LTPA.description"/>
+        <put name="displayName" value="LTPA.displayName"/>
+    </definition>
+
+    <definition name="LTPA.detail.tabsLayout" path="/secure/layouts/tabsLayout.jsp">
+        <put name="selectUri" value="lTPADetail.do"/>
+        <put name="selectedPerspective" value="tab.configuration"/>
+        <put name="formName" value="com.ibm.ws.console.security.LTPADetailForm"/>
+        <putList name="tabList">
+            <item  value="tab.configuration" link="LTPA.config.tab.view" classtype="org.apache.struts.tiles.beans.SimpleMenuItem"/>
+        </putList>
+    </definition>
+
+    <definition name="LTPA.config.tab.view" path="/secure/layouts/configTabLayoutWithForm.jsp">
+        <put name="formAction" value="lTPADetail.do"/>
+        <put name="formName" value="com.ibm.ws.console.security.LTPADetailForm"/>
+        <put name="formType" value="com.ibm.ws.console.security.LTPADetailForm"/>
+        <putList name="list">
+        <add value="LTPA.detail.buttons.panel"/>
+        <add value="LTPA.config.general.properties"/>
+        <add value="LTPA.config.additional.properties"/>
+        </putList>
+    </definition>
+
+    <definition name="LTPA.detail.buttons.panel" extends="buttons.panel">
+        <put name="buttonCount" value="3"/>
+        <put name="definitionName" value="LTPA.detail.buttons.panel"/>
+        <put name="includeForm" value="no"/>
+        <putList name="actionList">
+            <item value="LTPA.generateKeys:lTPADetail.do" link="" icon="" tooltip="administrator" classtype="com.ibm.ws.console.core.item.ActionSetItem"/>
+            <item value="LTPA.importKeys:lTPADetail.do" link="" icon="" tooltip="administrator" classtype="com.ibm.ws.console.core.item.ActionSetItem"/>
+            <item value="LTPA.exportKeys:lTPADetail.do" link="" icon="" tooltip="administrator" classtype="com.ibm.ws.console.core.item.ActionSetItem"/>
+        </putList>
+    </definition>
+
+    <definition name="LTPA.config.general.properties" path="/secure/layouts/configGenPropLayoutWithoutForm.jsp">
+        <put name="formAction" value="lTPADetail.do"/>
+        <put name="formName" value="com.ibm.ws.console.security.LTPADetailForm"/>
+        <put name="formType" value="com.ibm.ws.console.security.LTPADetailForm"/>
+        <put name="formFocus" value="password"/>
+        <put name="readOnlyView" value="no"/>
+        <putList name="attributeList">
+            <item  value="LTPA.password.displayName:password:yes:JSP:LTPA.password.description:no:yes: : :/com.ibm.ws.console.security/passwordLayoutAdminOnly.jsp" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="LTPA.confirmPassword.displayName:confirmPassword:yes:JSP:LTPA.confirmPassword.description:no:yes: : :/com.ibm.ws.console.security/passwordLayoutAdminOnly.jsp" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="LTPA.timeout.displayName:timeout:yes:Text:LTPA.timeout.description:no:yes" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="LTPA.keyFilename.displayName:keyFile:no:Text:LTPA.keyFilename.description:no:yes" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+        </putList>
+    </definition>
+
+    <definition name="LTPA.config.additional.properties" extends="detail.config.additional.properties">
+        <put name="formName" value="com.ibm.ws.console.security.LTPADetailForm"/>
+        <putList name="list">
+            <item  value="AuthMechanism.trustAssociation.displayName" link="com.ibm.ws.console.security.forwardCmd.do?forwardName=TrustAssociation.config.view&#38;sfname=trustAssociation" tooltip="AuthMechanism.trustAssociation.description" classtype="org.apache.struts.tiles.beans.SimpleMenuItem"/>
+            <item  value="AuthMechanism.singleSignon.displayName" link="com.ibm.ws.console.security.forwardCmd.do?forwardName=SingleSignon.config.view&#38;sfname=singleSignon" tooltip="AuthMechanism.singleSignon.description" classtype="org.apache.struts.tiles.beans.SimpleMenuItem"/>
+        </putList>
+    </definition>
+
+    <definition name="LTPA.runtime.tab.view" path="/secure/layouts/configTabLayout.jsp">
+        <putList name="list">
+        </putList>
+    </definition>
+
+    <definition name="LTPA.topology.tab.view" path="/secure/layouts/configTabLayout.jsp">
+        <putList name="list">
+        </putList>
+    </definition>
+
+<!-- LDAP User Registry -->
+    <definition name="LDAPUserRegistry.config.view" extends="detail.config.view" controllerClass="com.ibm.ws.console.security.LDAPUserRegistryController">
+        <putList name="list">
+        <add value="LDAPUserRegistry.detail.title"/>
+        <add value="LDAPUserRegistry.detail.tabsLayout"/>
+        </putList>
+    </definition>
+
+    <definition name="LDAPUserRegistry.detail.title" extends="detail.title">
+        <put name="formName" value="com.ibm.ws.console.security.LDAPUserRegistryDetailForm"/>
+        <put name="objectTypeImage" value="LDAPUserRegistry.smallIcon:pluginId=com.ibm.ws.console.security"/>
+        <put name="titleKey" value="LDAPUserRegistry.displayName"/>
+        <put name="collectionLink" value="com.ibm.ws.console.security.forwardCmd.do?forwardName=LDAPUserRegistry.content.main&#38;noChange=true"/>
+        <put name="includeLink" value="no"/>
+        <put name="instanceDetails" value="title"/>
+        <put name="instanceDescription" value="LDAPUserRegistry.description"/>
+        <put name="displayName" value="LDAPUserRegistry.displayName"/>
+    </definition>
+
+    <definition name="LDAPUserRegistry.detail.tabsLayout" path="/secure/layouts/tabsLayout.jsp">
+        <put name="selectUri" value="lDAPUserRegistryDetail.do"/>
+        <put name="selectedPerspective" value="tab.configuration"/>
+        <put name="formName" value="com.ibm.ws.console.security.LDAPUserRegistryDetailForm"/>
+        <putList name="tabList">
+            <item  value="tab.configuration" link="LDAPUserRegistry.config.tab.view" classtype="org.apache.struts.tiles.beans.SimpleMenuItem"/>
+        </putList>
+    </definition>
+
+    <definition name="LDAPUserRegistry.config.tab.view" extends="detail.config.tab.view">
+        <putList name="list">
+        <add value="LDAPUserRegistry.detail.buttons.panel"/>
+        <add value="LDAPUserRegistry.config.general.properties"/>
+        <add value="LDAPUserRegistry.config.additional.properties"/>
+        </putList>
+    </definition>
+
+    <definition name="LDAPUserRegistry.detail.buttons.panel" extends="buttons.panel">
+        <put name="buttonCount" value="2"/>
+        <put name="definitionName" value="LDAPUserRegistry.detail.buttons.panel"/>
+        <put name="includeForm" value="yes"/>
+        <putList name="actionList">
+        </putList>
+    </definition>
+
+    <definition name="LDAPUserRegistry.config.general.properties" extends="detail.config.general.properties">
+        <put name="formAction" value="lDAPUserRegistryDetail.do"/>
+        <put name="formName" value="com.ibm.ws.console.security.LDAPUserRegistryDetailForm"/>
+        <put name="formType" value="com.ibm.ws.console.security.LDAPUserRegistryDetailForm"/>
+        <put name="formFocus" value="serverId"/>
+        <put name="readOnlyView" value="no"/>
+        <putList name="attributeList">
+            <item  value="UserRegistry.serverId.displayName:serverId:yes:JSP:UserRegistry.serverId.description:no:yes: : :/com.ibm.ws.console.security/textFieldLayoutAdminOnly.jsp" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="UserRegistry.serverPassword.displayName:serverPassword:yes:JSP:UserRegistry.serverPassword.description:no:yes: : :/com.ibm.ws.console.security/passwordLayoutAdminOnly.jsp" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="LDAPUserRegistry.type.displayName:type:no:Select:LDAPUserRegistry.type.description:no:yes:IBM_DIRECTORY_SERVER,SECUREWAY,IPLANET,DOMINO502,ACTIVE_DIRECTORY,NDS,CUSTOM:LDAPDirectoryType.IBM_DIRECTORY_SERVER,LDAPDirectoryType.SECUREWAY,LDAPDirectoryType.IPLANET,LDAPDirectoryType.DOMINO502,LDAPDirectoryType.ACTIVE_DIRECTORY,LDAPDirectoryType.NDS,LDAPDirectoryType.CUSTOM" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="LDAPUserRegistry.host.displayName:host:yes:Text:LDAPUserRegistry.host.description:no:yes" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="LDAPUserRegistry.port.displayName:port:no:Text:LDAPUserRegistry.port.description:no:yes" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="LDAPUserRegistry.baseDN.displayName:baseDN:no:Text:LDAPUserRegistry.baseDN.description:no:yes" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="LDAPUserRegistry.bindDN.displayName:bindDN:no:Text:LDAPUserRegistry.bindDN.description:no:yes" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="LDAPUserRegistry.bindPassword.displayName:bindPassword:no:Password:LDAPUserRegistry.bindPassword.description:no:yes" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="LDAPUserRegistry.searchTimeout.displayName:searchTimeout:no:Text:LDAPUserRegistry.searchTimeout.description:no:yes" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="LDAPUserRegistry.reuseConnection.displayName:reuseConnection:no:Checkbox:LDAPUserRegistry.reuseConnection.description:no:yes" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="UserRegistry.ignoreCase.displayName:ignoreCase:no:Checkbox:UserRegistry.ignoreCase.description:no:yes" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+	      <item  value="LDAPUserRegistry.sslEnabled.displayName:sslEnabled:no:Checkbox:LDAPUserRegistry.sslEnabled.description:no:yes" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="LDAPUserRegistry.sslConfig.displayName:sslConfig:no:DynamicSelect:LDAPUserRegistry.sslConfig.description:no:yes:refVal:refDesc" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="LDAPUserRegistry.enableTAM.displayName:enableTAM:no:Checkbox:LDAPUserRegistry.enableTAM.description:no:yes" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+         </putList>
+    </definition>
+
+    <definition name="LDAPUserRegistry.config.additional.properties" extends="detail.config.additional.properties">
+        <put name="formName" value="com.ibm.ws.console.security.LDAPUserRegistryDetailForm"/>
+        <putList name="list">
+            <item  value="LDAPSearchFilter.displayName" link="com.ibm.ws.console.security.forwardCmd.do?forwardName=LDAPSearchFilter.config.view&#38;sfname=searchFilter" tooltip="LDAPSearchFilter.description" classtype="org.apache.struts.tiles.beans.SimpleMenuItem"/>
+            <item  value="UserRegistry.properties.displayName" link="com.ibm.ws.console.security.forwardCmd.do?forwardName=Security.Property.content.main&#38;sfname=properties" tooltip="UserRegistry.properties.description" classtype="org.apache.struts.tiles.beans.SimpleMenuItem"/>
+        </putList>
+    </definition>
+
+<!-- Advanced LDAP Settings -->
+   <definition name="LDAPSearchFilter.config.view" extends="detail.config.view" controllerClass="com.ibm.ws.console.security.LDAPSearchFilterController">
+        <putList name="list">
+        <add value="LDAPSearchFilter.detail.title"/>
+        <add value="LDAPSearchFilter.detail.tabsLayout"/>
+        </putList>
+    </definition>
+
+    <definition name="LDAPSearchFilter.detail.title" extends="detail.title">
+        <put name="formName" value="com.ibm.ws.console.security.LDAPSearchFilterDetailForm"/>
+        <put name="objectTypeImage" value="LDAPSearchFilter.smallIcon:pluginId=com.ibm.ws.console.security"/>
+        <put name="titleKey" value="ROOT.null.displayName"/>
+        <put name="collectionLink" value="com.ibm.ws.console.security.forwardCmd.do?forwardName=LDAPSearchFilter.content.main&#38;noChange=true"/>
+        <put name="includeLink" value="no"/>
+        <put name="instanceDetails" value="title"/>
+        <put name="instanceDescription" value="LDAPSearchFilter.description"/>
+        <put name="displayName" value="LDAPSearchFilter.displayName"/>
+    </definition>
+
+    <definition name="LDAPSearchFilter.detail.tabsLayout" path="/secure/layouts/tabsLayout.jsp">
+        <put name="selectUri" value="lDAPSearchFilterDetail.do"/>
+        <put name="selectedPerspective" value="tab.configuration"/>
+        <put name="formName" value="com.ibm.ws.console.security.LDAPSearchFilterDetailForm"/>
+        <putList name="tabList">
+            <item  value="tab.configuration" link="LDAPSearchFilter.config.tab.view" classtype="org.apache.struts.tiles.beans.SimpleMenuItem"/>
+        </putList>
+    </definition>
+
+    <definition name="LDAPSearchFilter.config.tab.view" extends="detail.config.tab.view">
+        <putList name="list">
+        <add value="LDAPSearchFilter.detail.buttons.panel"/>
+        <add value="LDAPSearchFilter.config.general.properties"/>
+        </putList>
+    </definition>
+
+    <definition name="LDAPSearchFilter.detail.buttons.panel" extends="buttons.panel">
+        <put name="buttonCount" value="2"/>
+        <put name="definitionName" value="LDAPSearchFilter.detail.buttons.panel"/>
+        <put name="includeForm" value="yes"/>
+        <putList name="actionList">
+        </putList>
+    </definition>
+
+    <definition name="LDAPSearchFilter.config.general.properties" extends="detail.config.general.properties">
+        <put name="formAction" value="lDAPSearchFilterDetail.do"/>
+        <put name="formName" value="com.ibm.ws.console.security.LDAPSearchFilterDetailForm"/>
+        <put name="formType" value="com.ibm.ws.console.security.LDAPSearchFilterDetailForm"/>
+        <put name="formFocus" value="userFilter"/>
+        <put name="readOnlyView" value="no"/>
+        <putList name="attributeList">
+            <item  value="LDAPSearchFilter.userFilter.displayName:userFilter:no:Text:LDAPSearchFilter.userFilter.description:no:yes" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="LDAPSearchFilter.groupFilter.displayName:groupFilter:no:Text:LDAPSearchFilter.groupFilter.description:no:yes" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="LDAPSearchFilter.userIdMap.displayName:userIdMap:no:Text:LDAPSearchFilter.userIdMap.description:no:yes" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="LDAPSearchFilter.groupIdMap.displayName:groupIdMap:no:Text:LDAPSearchFilter.groupIdMap.description:no:yes" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="LDAPSearchFilter.groupMemberIdMap.displayName:groupMemberIdMap:no:Text:LDAPSearchFilter.groupMemberIdMap.description:no:yes" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="LDAPSearchFilter.certificateMapMode.displayName:certificateMapMode:no:Select:LDAPSearchFilter.certificateMapMode.description:no:yes:EXACT_DN,CERTIFICATE_FILTER:CertificateMapMode.EXACT_DN,CertificateMapMode.CERTIFICATE_FILTER" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="LDAPSearchFilter.certificateFilter.displayName:certificateFilter:no:Text:LDAPSearchFilter.certificateFilter.description:no:yes" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+        </putList>
+    </definition>
+
+<!-- Local OS User Registry -->
+    <definition name="LocalOSUserRegistry.config.view" extends="detail.config.view" controllerClass="com.ibm.ws.console.security.LocalOSUserRegistryController">
+        <putList name="list">
+        <add value="LocalOSUserRegistry.detail.title"/>
+        <add value="LocalOSUserRegistry.detail.tabsLayout"/>
+        </putList>
+    </definition>
+
+    <definition name="LocalOSUserRegistry.detail.title" extends="detail.title">
+        <put name="formName" value="com.ibm.ws.console.security.LocalOSUserRegistryDetailForm"/>
+        <put name="objectTypeImage" value="LocalOSUserRegistry.smallIcon:pluginId=com.ibm.ws.console.security"/>
+        <put name="titleKey" value="LocalOSUserRegistry.displayName"/>
+        <put name="collectionLink" value="com.ibm.ws.console.security.forwardCmd.do?forwardName=LocalOSUserRegistry.content.main&#38;noChange=true"/>
+        <put name="includeLink" value="no"/>
+        <put name="instanceDetails" value="title"/>
+        <put name="instanceDescription" value="LocalOSUserRegistry.description"/>
+        <put name="displayName" value="LocalOSUserRegistry.displayName"/>
+    </definition>
+
+    <definition name="LocalOSUserRegistry.detail.tabsLayout" path="/secure/layouts/tabsLayout.jsp">
+        <put name="selectUri" value="localOSUserRegistryDetail.do"/>
+        <put name="selectedPerspective" value="tab.configuration"/>
+        <put name="formName" value="com.ibm.ws.console.security.LocalOSUserRegistryDetailForm"/>
+        <putList name="tabList">
+            <item  value="tab.configuration" link="LocalOSUserRegistry.config.tab.view" classtype="org.apache.struts.tiles.beans.SimpleMenuItem"/>
+        </putList>
+    </definition>
+
+    <definition name="LocalOSUserRegistry.config.tab.view" extends="detail.config.tab.view">
+        <putList name="list">
+        <add value="LocalOSUserRegistry.detail.buttons.panel"/>
+        <add value="LocalOSUserRegistry.config.general.properties"/>
+        <add value="LocalOSUserRegistry.config.additional.properties"/>
+        </putList>
+    </definition>
+
+    <definition name="LocalOSUserRegistry.detail.buttons.panel" extends="buttons.panel">
+        <put name="buttonCount" value="2"/>
+        <put name="definitionName" value="LocalOSUserRegistry.detail.buttons.panel"/>
+        <put name="includeForm" value="yes"/>
+        <putList name="actionList">
+        </putList>
+    </definition>
+
+    <definition name="LocalOSUserRegistry.config.general.properties" extends="detail.config.general.properties">
+        <put name="formAction" value="localOSUserRegistryDetail.do"/>
+        <put name="formName" value="com.ibm.ws.console.security.LocalOSUserRegistryDetailForm"/>
+        <put name="formType" value="com.ibm.ws.console.security.LocalOSUserRegistryDetailForm"/>
+        <put name="formFocus" value="serverId"/>
+        <put name="readOnlyView" value="no"/>
+        <putList name="attributeList">
+            <item  value="UserRegistry.serverId.displayName:serverId:yes:JSP:UserRegistry.serverId.description:no:yes: : :/com.ibm.ws.console.security/textFieldLayoutAdminOnly.jsp" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="UserRegistry.serverPassword.displayName:serverPassword:yes:JSP:UserRegistry.serverPassword.description:no:yes: : :/com.ibm.ws.console.security/passwordLayoutAdminOnly.jsp" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+        </putList>
+    </definition>
+
+    <definition name="LocalOSUserRegistry.config.additional.properties" extends="detail.config.additional.properties">
+        <put name="formName" value="com.ibm.ws.console.security.LocalOSUserRegistryDetailForm"/>
+        <putList name="list">
+            <item  value="UserRegistry.properties.displayName" link="com.ibm.ws.console.security.forwardCmd.do?forwardName=Security.Property.content.main&#38;sfname=properties" tooltip="UserRegistry.properties.description" classtype="org.apache.struts.tiles.beans.SimpleMenuItem"/>
+        </putList>
+    </definition>
+
+<!-- Custom User Registry -->
+    <definition name="CustomUserRegistry.config.view" extends="detail.config.view" controllerClass="com.ibm.ws.console.security.CustomUserRegistryController">
+        <putList name="list">
+        <add value="CustomUserRegistry.detail.title"/>
+        <add value="CustomUserRegistry.detail.tabsLayout"/>
+        </putList>
+    </definition>
+
+    <definition name="CustomUserRegistry.detail.title" extends="detail.title">
+        <put name="formName" value="com.ibm.ws.console.security.CustomUserRegistryDetailForm"/>
+        <put name="objectTypeImage" value="CustomUserRegistry.smallIcon:pluginId=com.ibm.ws.console.security"/>
+        <put name="titleKey" value="CustomUserRegistry.displayName"/>
+        <put name="collectionLink" value="com.ibm.ws.console.security.forwardCmd.do?forwardName=CustomUserRegistry.content.main&#38;noChange=true"/>
+        <put name="includeLink" value="no"/>
+        <put name="instanceDetails" value="title"/>
+        <put name="instanceDescription" value="CustomUserRegistry.description"/>
+        <put name="displayName" value="CustomUserRegistry.displayName"/>
+    </definition>
+
+    <definition name="CustomUserRegistry.detail.tabsLayout" path="/secure/layouts/tabsLayout.jsp">
+        <put name="selectUri" value="customUserRegistryDetail.do"/>
+        <put name="selectedPerspective" value="tab.configuration"/>
+        <put name="formName" value="com.ibm.ws.console.security.CustomUserRegistryDetailForm"/>
+        <putList name="tabList">
+            <item  value="tab.configuration" link="CustomUserRegistry.config.tab.view" classtype="org.apache.struts.tiles.beans.SimpleMenuItem"/>
+        </putList>
+    </definition>
+
+    <definition name="CustomUserRegistry.config.tab.view" extends="detail.config.tab.view">
+        <putList name="list">
+        <add value="CustomUserRegistry.detail.buttons.panel"/>
+        <add value="CustomUserRegistry.config.general.properties"/>
+        <add value="CustomUserRegistry.config.additional.properties"/>
+        </putList>
+    </definition>
+
+    <definition name="CustomUserRegistry.detail.buttons.panel" extends="buttons.panel">
+        <put name="buttonCount" value="2"/>
+        <put name="definitionName" value="CustomUserRegistry.detail.buttons.panel"/>
+        <put name="includeForm" value="yes"/>
+        <putList name="actionList">
+        </putList>
+    </definition>
+
+    <definition name="CustomUserRegistry.config.general.properties" extends="detail.config.general.properties">
+        <put name="formAction" value="customUserRegistryDetail.do"/>
+        <put name="formName" value="com.ibm.ws.console.security.CustomUserRegistryDetailForm"/>
+        <put name="formType" value="com.ibm.ws.console.security.CustomUserRegistryDetailForm"/>
+        <put name="formFocus" value="serverId"/>
+        <put name="readOnlyView" value="no"/>
+        <putList name="attributeList">
+            <item  value="UserRegistry.serverId.displayName:serverId:yes:JSP:UserRegistry.serverId.description:no:yes: : :/com.ibm.ws.console.security/textFieldLayoutAdminOnly.jsp" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="UserRegistry.serverPassword.displayName:serverPassword:yes:JSP:UserRegistry.serverPassword.description:no:yes: : :/com.ibm.ws.console.security/passwordLayoutAdminOnly.jsp" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="CustomUserRegistry.customRegistryClassName.displayName:customRegistryClassName:yes:Text:CustomUserRegistry.customRegistryClassName.description:no:yes" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="UserRegistry.ignoreCase.displayName:ignoreCase:no:Checkbox:UserRegistry.ignoreCase.description:no:yes" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+        </putList>
+    </definition>
+
+    <definition name="CustomUserRegistry.config.additional.properties" extends="detail.config.additional.properties">
+        <put name="formName" value="com.ibm.ws.console.security.CustomUserRegistryDetailForm"/>
+        <putList name="list">
+            <item  value="UserRegistry.properties.displayName" link="com.ibm.ws.console.security.forwardCmd.do?forwardName=Security.Property.content.main&#38;sfname=properties" tooltip="UserRegistry.properties.description" classtype="org.apache.struts.tiles.beans.SimpleMenuItem"/>
+        </putList>
+    </definition>
+
+<!-- JAAS Config -->
+    <definition name="JAASConfigurationEntry.content.main" path="/secure/layouts/contentLayout.jsp" controllerClass="com.ibm.ws.console.security.JAASConfigurationEntryController">
+        <put name="descTitle" value="Security.applicationLoginConfig.displayName"/>
+        <put name="descImage" value="pluginId=com.ibm.ws.console.security"/>
+        <put name="descText" value="JAASConfigurationEntry.description"/>
+        <putList name="contentList">
+        <add value="JAASConfigurationEntry.paging.extend"/>
+        <add value="JAASConfigurationEntry.quicksearch.extend"/>
+        <add value="JAASConfigurationEntry.collection.table.extends"/>
+        </putList>
+    </definition>
+
+    <definition name="JAASConfigurationEntry.quicksearch.extend" extends="quicksearch.main">
+        <put name="selectUri" value="jAASConfigurationEntryCollection.do?ToggleViewAction=true"/>
+        <put name="collectionForm" value="com.ibm.ws.console.security.JAASConfigurationEntryCollectionForm"/>
+        <put name="formAction" value="jAASConfigurationEntryCollection.do"/>
+        <put name="formName" value="com.ibm.ws.console.security.JAASConfigurationEntryCollectionForm"/>
+        <put name="formType" value="com.ibm.ws.console.security.JAASConfigurationEntryCollectionForm"/>
+        <putList name="searchList">
+            <add value="JAASConfigurationEntry.alias.displayName:alias"/>
+        </putList>
+    </definition>
+
+    <definition name="JAASConfigurationEntry.paging.extend" extends="paging.main">
+        <put name="displayLabelKey" value="JAASConfigurationEntry.displayName"/>
+        <put name="collectionForm" value="com.ibm.ws.console.security.JAASConfigurationEntryCollectionForm"/>
+        <put name="formAction" value="jAASConfigurationEntryCollection.do"/>
+        <put name="formName" value="com.ibm.ws.console.security.JAASConfigurationEntryCollectionForm"/>
+        <put name="formType" value="com.ibm.ws.console.security.JAASConfigurationEntryCollectionForm"/>
+    </definition>
+
+    <definition name="JAASConfigurationEntry.collection.table.extends" extends="collection.table.main">
+        <put name="iterationName" value="com.ibm.ws.console.security.JAASConfigurationEntryCollectionForm"/>
+        <put name="formAction" value="jAASConfigurationEntryCollection.do"/>
+        <put name="formName" value="com.ibm.ws.console.security.JAASConfigurationEntryCollectionForm"/>
+        <put name="formType" value="com.ibm.ws.console.security.JAASConfigurationEntryCollectionForm"/>
+        <put name="buttons" value="JAASConfigurationEntry.collection.buttons.panel"/>
+        <put name="parent" value="com.ibm.ws.console.security.forwardCmd.do?forwardName=JAASConfigurationEntry.content.main"/>
+        <putList name="collectionList">
+            <item value="alias:sort" link="jAASConfigurationEntryCollection.do?EditAction=true" icon="" tooltip="JAASConfigurationEntry.alias.displayName" classtype="com.ibm.ws.console.core.item.CollectionItem"/>
+        </putList>
+        <putList name="collectionPreferenceList">
+            <item value="text:UI/Collections/JAASConfigurationEntry/Preferences#maximumRows:25" link="collection.preferences.maxRowLabel: :collection.preferences.maxRowDesc:20" classtype="com.ibm.ws.console.core.item.PreferenceItem"/>
+            <item value="checkbox:UI/Collections/JAASConfigurationEntry/Preferences#retainSearchCriteria:32" link="collection.preferences.searchHistoryLabel:collection.preferences.searchHistoryUnits:collection.preferences.searchHistoryDesc" classtype="com.ibm.ws.console.core.item.PreferenceItem"/>
+        </putList>
+    </definition>
+
+    <definition name="JAASConfigurationEntry.collection.buttons.panel" extends="buttons.panel">
+        <put name="buttonCount" value="2"/>
+        <put name="definitionName" value="JAASConfigurationEntry.collection.buttons.panel"/>
+        <put name="includeForm" value="no"/>
+        <putList name="actionList">
+            <item value="button.new:jAASConfigurationEntryCollection.do" link="" icon="" tooltip="administrator,configurator" classtype="com.ibm.ws.console.core.item.ActionSetItem"/>
+            <item value="button.delete:jAASConfigurationEntryCollection.do" link="" icon="" tooltip="administrator,configurator" classtype="com.ibm.ws.console.core.item.ActionSetItem"/>
+        </putList>
+    </definition>
+
+    <definition name="JAASConfigurationEntry.config.view" extends="detail.config.view" controllerClass="com.ibm.ws.console.security.JAASConfigurationEntryController">
+        <putList name="list">
+        <add value="JAASConfigurationEntry.detail.title"/>
+        <add value="JAASConfigurationEntry.detail.tabsLayout"/>
+        </putList>
+    </definition>
+
+    <definition name="JAASConfigurationEntry.detail.title" extends="detail.title">
+        <put name="formName" value="com.ibm.ws.console.security.JAASConfigurationEntryDetailForm"/>
+        <put name="objectTypeImage" value="JAASConfigurationEntry.smallIcon:pluginId=com.ibm.ws.console.security"/>
+        <put name="titleKey" value="JAASConfigurationEntry.displayName"/>
+        <put name="collectionLink" value="com.ibm.ws.console.security.forwardCmd.do?forwardName=JAASConfigurationEntry.content.main&#38;noChange=true"/>
+        <put name="includeLink" value="no"/>
+        <put name="instanceDetails" value="alias"/>
+        <put name="instanceDescription" value="JAASConfigurationEntry.description"/>
+        <put name="displayName" value="JAASConfigurationEntry.displayName"/>
+    </definition>
+
+    <definition name="JAASConfigurationEntry.detail.tabsLayout" path="/secure/layouts/tabsLayout.jsp">
+        <put name="selectUri" value="jAASConfigurationEntryDetail.do"/>
+        <put name="selectedPerspective" value="tab.configuration"/>
+        <put name="formName" value="com.ibm.ws.console.security.JAASConfigurationEntryDetailForm"/>
+        <putList name="tabList">
+            <item  value="tab.configuration" link="JAASConfigurationEntry.config.tab.view" classtype="org.apache.struts.tiles.beans.SimpleMenuItem"/>
+        </putList>
+    </definition>
+
+    <definition name="JAASConfigurationEntry.config.tab.view" extends="detail.config.tab.view">
+        <putList name="list">
+        <add value="JAASConfigurationEntry.detail.buttons.panel"/>
+        <add value="JAASConfigurationEntry.config.general.properties"/>
+        <add value="JAASConfigurationEntry.config.additional.properties"/>
+        </putList>
+    </definition>
+
+    <definition name="JAASConfigurationEntry.detail.buttons.panel" extends="buttons.panel">
+        <put name="buttonCount" value="2"/>
+        <put name="definitionName" value="JAASConfigurationEntry.detail.buttons.panel"/>
+        <put name="includeForm" value="yes"/>
+        <putList name="actionList">
+        </putList>
+    </definition>
+
+    <definition name="JAASConfigurationEntry.config.general.properties" extends="detail.config.general.properties">
+        <put name="formAction" value="jAASConfigurationEntryDetail.do"/>
+        <put name="formName" value="com.ibm.ws.console.security.JAASConfigurationEntryDetailForm"/>
+        <put name="formType" value="com.ibm.ws.console.security.JAASConfigurationEntryDetailForm"/>
+        <put name="formFocus" value="alias"/>
+        <put name="readOnlyView" value="no"/>
+        <putList name="attributeList">
+            <item  value="JAASConfigurationEntry.alias.displayName:alias:yes:Text:JAASConfigurationEntry.alias.description:no:yes" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+        </putList>
+    </definition>
+
+    <definition name="JAASConfigurationEntry.config.additional.properties" extends="detail.config.additional.properties">
+        <put name="formName" value="com.ibm.ws.console.security.JAASConfigurationEntryDetailForm"/>
+        <putList name="list">
+            <item  value="JAASConfigurationEntry.loginModules.displayName" link="com.ibm.ws.console.security.forwardCmd.do?forwardName=JAASLoginModule.content.main&#38;sfname=loginModules" tooltip="JAASConfigurationEntry.loginModules.description" classtype="org.apache.struts.tiles.beans.SimpleMenuItem"/>
+        </putList>
+    </definition>
+
+    <definition name="JAASConfigurationEntry.runtime.tab.view" path="/secure/layouts/configTabLayout.jsp">
+        <putList name="list">
+        </putList>
+    </definition>
+
+    <definition name="JAASConfigurationEntry.topology.tab.view" path="/secure/layouts/configTabLayout.jsp">
+        <putList name="list">
+        </putList>
+    </definition>
+
+<!-- JAAS Login Module -->
+    <definition name="JAASLoginModule.content.main" path="/secure/layouts/contentLayout.jsp" controllerClass="com.ibm.ws.console.security.JAASLoginModuleController">
+        <put name="descTitle" value="JAASLoginModule.displayName"/>
+        <put name="descImage" value="pluginId=com.ibm.ws.console.security"/>
+        <put name="descText" value="JAASLoginModule.description"/>
+        <putList name="contentList">
+        <add value="JAASLoginModule.paging.extend"/>
+        <add value="JAASLoginModule.quicksearch.extend"/>
+        <add value="JAASLoginModule.collection.table.extends"/>
+        </putList>
+    </definition>
+
+    <definition name="JAASLoginModule.quicksearch.extend" extends="quicksearch.main">
+        <put name="selectUri" value="jAASLoginModuleCollection.do?ToggleViewAction=true"/>
+        <put name="collectionForm" value="com.ibm.ws.console.security.JAASLoginModuleCollectionForm"/>
+        <put name="formAction" value="jAASLoginModuleCollection.do"/>
+        <put name="formName" value="com.ibm.ws.console.security.JAASLoginModuleCollectionForm"/>
+        <put name="formType" value="com.ibm.ws.console.security.JAASLoginModuleCollectionForm"/>
+        <putList name="searchList">
+            <add value="JAASLoginModule.moduleClassName.displayName:moduleClassName"/>
+            <add value="JAASLoginModule.authenticationStrategy.displayName:authenticationStrategy"/>
+        </putList>
+    </definition>
+
+    <definition name="JAASLoginModule.paging.extend" extends="paging.main">
+        <put name="displayLabelKey" value="JAASLoginModule.displayName"/>
+        <put name="collectionForm" value="com.ibm.ws.console.security.JAASLoginModuleCollectionForm"/>
+        <put name="formAction" value="jAASLoginModuleCollection.do"/>
+        <put name="formName" value="com.ibm.ws.console.security.JAASLoginModuleCollectionForm"/>
+        <put name="formType" value="com.ibm.ws.console.security.JAASLoginModuleCollectionForm"/>
+    </definition>
+
+    <definition name="JAASLoginModule.collection.table.extends" extends="collection.table.main">
+        <put name="iterationName" value="com.ibm.ws.console.security.JAASLoginModuleCollectionForm"/>
+        <put name="formAction" value="jAASLoginModuleCollection.do"/>
+        <put name="formName" value="com.ibm.ws.console.security.JAASLoginModuleCollectionForm"/>
+        <put name="formType" value="com.ibm.ws.console.security.JAASLoginModuleCollectionForm"/>
+        <put name="buttons" value="JAASLoginModule.collection.buttons.panel"/>
+        <put name="parent" value="com.ibm.ws.console.security.forwardCmd.do?forwardName=JAASLoginModule.content.main"/>
+        <putList name="collectionList">
+            <item value="moduleClassName:sort" link="jAASLoginModuleCollection.do?EditAction=true" icon="" tooltip="JAASLoginModule.moduleClassName.displayName" classtype="com.ibm.ws.console.core.item.CollectionItem"/>
+            <item value="authenticationStrategy:sort" link="" icon="" tooltip="JAASLoginModule.authenticationStrategy.displayName" classtype="com.ibm.ws.console.core.item.CollectionItem"/>
+        </putList>
+        <putList name="collectionPreferenceList">
+            <item value="text:UI/Collections/JAASLoginModule/Preferences#maximumRows:25" link="collection.preferences.maxRowLabel: :collection.preferences.maxRowDesc:20" classtype="com.ibm.ws.console.core.item.PreferenceItem"/>
+            <item value="checkbox:UI/Collections/JAASLoginModule/Preferences#retainSearchCriteria:32" link="collection.preferences.searchHistoryLabel:collection.preferences.searchHistoryUnits:collection.preferences.searchHistoryDesc" classtype="com.ibm.ws.console.core.item.PreferenceItem"/>
+        </putList>
+    </definition>
+
+    <definition name="JAASLoginModule.collection.buttons.panel" extends="buttons.panel">
+        <put name="buttonCount" value="2"/>
+        <put name="definitionName" value="JAASLoginModule.collection.buttons.panel"/>
+        <put name="includeForm" value="no"/>
+        <putList name="actionList">
+            <item value="button.new:jAASLoginModuleCollection.do" link="" icon="" tooltip="administrator,configurator" classtype="com.ibm.ws.console.core.item.ActionSetItem"/>
+            <item value="button.delete:jAASLoginModuleCollection.do" link="" icon="" tooltip="administrator,configurator" classtype="com.ibm.ws.console.core.item.ActionSetItem"/>
+        </putList>
+    </definition>
+
+    <definition name="JAASLoginModule.config.view" extends="detail.config.view" controllerClass="com.ibm.ws.console.security.JAASLoginModuleController">
+        <putList name="list">
+        <add value="JAASLoginModule.detail.title"/>
+        <add value="JAASLoginModule.detail.tabsLayout"/>
+        </putList>
+    </definition>
+
+    <definition name="JAASLoginModule.detail.title" extends="detail.title">
+        <put name="formName" value="com.ibm.ws.console.security.JAASLoginModuleDetailForm"/>
+        <put name="objectTypeImage" value="JAASLoginModule.smallIcon:pluginId=com.ibm.ws.console.security"/>
+        <put name="titleKey" value="JAASLoginModule.displayName"/>
+        <put name="collectionLink" value="com.ibm.ws.console.security.forwardCmd.do?forwardName=JAASLoginModule.content.main&#38;noChange=true"/>
+        <put name="includeLink" value="no"/>
+        <put name="instanceDetails" value="moduleClassName"/>
+        <put name="instanceDescription" value="JAASLoginModule.description"/>
+        <put name="displayName" value="JAASLoginModule.displayName"/>
+    </definition>
+
+    <definition name="JAASLoginModule.detail.tabsLayout" path="/secure/layouts/tabsLayout.jsp">
+        <put name="selectUri" value="jAASLoginModuleDetail.do"/>
+        <put name="selectedPerspective" value="tab.configuration"/>
+        <put name="formName" value="com.ibm.ws.console.security.JAASLoginModuleDetailForm"/>
+        <putList name="tabList">
+            <item  value="tab.configuration" link="JAASLoginModule.config.tab.view" classtype="org.apache.struts.tiles.beans.SimpleMenuItem"/>
+        </putList>
+    </definition>
+
+    <definition name="JAASLoginModule.config.tab.view" extends="detail.config.tab.view">
+        <putList name="list">
+        <add value="JAASLoginModule.detail.buttons.panel"/>
+        <add value="JAASLoginModule.config.general.properties"/>
+        <add value="JAASLoginModule.config.additional.properties"/>
+        </putList>
+    </definition>
+
+    <definition name="JAASLoginModule.detail.buttons.panel" extends="buttons.panel">
+        <put name="buttonCount" value="2"/>
+        <put name="definitionName" value="JAASLoginModule.detail.buttons.panel"/>
+        <put name="includeForm" value="yes"/>
+        <putList name="actionList">
+        </putList>
+    </definition>
+
+    <definition name="JAASLoginModule.config.general.properties" extends="detail.config.general.properties">
+        <put name="formAction" value="jAASLoginModuleDetail.do"/>
+        <put name="formName" value="com.ibm.ws.console.security.JAASLoginModuleDetailForm"/>
+        <put name="formType" value="com.ibm.ws.console.security.JAASLoginModuleDetailForm"/>
+        <put name="formFocus" value="moduleClassName"/>
+        <put name="readOnlyView" value="no"/>
+        <putList name="attributeList">
+            <item  value="JAASLoginModule.moduleClassName.displayName:moduleClassName:yes:Text:JAASLoginModule.moduleClassName.description:no:yes" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="JAASLoginModule.authenticationStrategy.displayName:authenticationStrategy:no:Select:JAASLoginModule.authenticationStrategy.description:no:yes:REQUIRED,REQUISITE,SUFFICIENT,OPTIONAL:JAASModuleControlFlag.REQUIRED,JAASModuleControlFlag.REQUISITE,JAASModuleControlFlag.SUFFICIENT,JAASModuleControlFlag.OPTIONAL" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+        </putList>
+    </definition>
+
+    <definition name="JAASLoginModule.config.additional.properties" extends="detail.config.additional.properties">
+        <put name="formName" value="com.ibm.ws.console.security.JAASLoginModuleDetailForm"/>
+        <putList name="list">
+            <item  value="JAASLoginModule.options.displayName" link="com.ibm.ws.console.security.forwardCmd.do?forwardName=Security.Property.content.main&#38;sfname=options" tooltip="JAASLoginModule.options.description" classtype="org.apache.struts.tiles.beans.SimpleMenuItem"/>
+        </putList>
+    </definition>
+
+    <definition name="JAASLoginModule.runtime.tab.view" path="/secure/layouts/configTabLayout.jsp">
+        <putList name="list">
+        </putList>
+    </definition>
+
+    <definition name="JAASLoginModule.topology.tab.view" path="/secure/layouts/configTabLayout.jsp">
+        <putList name="list">
+        </putList>
+    </definition>
+
+<!-- JAAS Auth Data -->
+    <definition name="JAASAuthData.content.main" path="/secure/layouts/contentLayout.jsp" controllerClass="com.ibm.ws.console.security.JAASAuthDataController">
+        <put name="descTitle" value="Security.authDataEntries.displayName"/>
+        <put name="descImage" value="pluginId=com.ibm.ws.console.security"/>
+        <put name="descText" value="JAASAuthData.description"/>
+        <putList name="contentList">
+        <add value="JAASAuthData.paging.extend"/>
+        <add value="JAASAuthData.quicksearch.extend"/>
+        <add value="JAASAuthData.collection.table.extends"/>
+        </putList>
+    </definition>
+
+    <definition name="JAASAuthData.quicksearch.extend" extends="quicksearch.main">
+        <put name="selectUri" value="jAASAuthDataCollection.do?ToggleViewAction=true"/>
+        <put name="collectionForm" value="com.ibm.ws.console.security.JAASAuthDataCollectionForm"/>
+        <put name="formAction" value="jAASAuthDataCollection.do"/>
+        <put name="formName" value="com.ibm.ws.console.security.JAASAuthDataCollectionForm"/>
+        <put name="formType" value="com.ibm.ws.console.security.JAASAuthDataCollectionForm"/>
+        <putList name="searchList">
+            <add value="JAASAuthData.alias.displayName:alias"/>
+            <add value="JAASAuthData.userId.displayName:userId"/>
+            <add value="JAASAuthData.description.displayName:description"/>
+        </putList>
+    </definition>
+
+    <definition name="JAASAuthData.paging.extend" extends="paging.main">
+        <put name="displayLabelKey" value="Security.authDataEntries.displayName"/>
+        <put name="collectionForm" value="com.ibm.ws.console.security.JAASAuthDataCollectionForm"/>
+        <put name="formAction" value="jAASAuthDataCollection.do"/>
+        <put name="formName" value="com.ibm.ws.console.security.JAASAuthDataCollectionForm"/>
+        <put name="formType" value="com.ibm.ws.console.security.JAASAuthDataCollectionForm"/>
+    </definition>
+
+    <definition name="JAASAuthData.collection.table.extends" extends="collection.table.main">
+        <put name="iterationName" value="com.ibm.ws.console.security.JAASAuthDataCollectionForm"/>
+        <put name="formAction" value="jAASAuthDataCollection.do"/>
+        <put name="formName" value="com.ibm.ws.console.security.JAASAuthDataCollectionForm"/>
+        <put name="formType" value="com.ibm.ws.console.security.JAASAuthDataCollectionForm"/>
+        <put name="buttons" value="JAASAuthData.collection.buttons.panel"/>
+        <put name="parent" value="com.ibm.ws.console.security.forwardCmd.do?forwardName=JAASAuthData.content.main"/>
+        <putList name="collectionList">
+            <item value="alias:sort" link="jAASAuthDataCollection.do?EditAction=true" icon="" tooltip="JAASAuthData.alias.displayName" classtype="com.ibm.ws.console.core.item.CollectionItem"/>
+            <item value="userId:sort" link="" icon="" tooltip="JAASAuthData.userId.displayName" classtype="com.ibm.ws.console.core.item.CollectionItem"/>
+            <item value="description:sort" link="" icon="" tooltip="JAASAuthData.description.displayName" classtype="com.ibm.ws.console.core.item.CollectionItem"/>
+        </putList>
+        <putList name="collectionPreferenceList">
+            <item value="text:UI/Collections/JAASAuthData/Preferences#maximumRows:25" link="collection.preferences.maxRowLabel: :collection.preferences.maxRowDesc:20" classtype="com.ibm.ws.console.core.item.PreferenceItem"/>
+            <item value="checkbox:UI/Collections/JAASAuthData/Preferences#retainSearchCriteria:32" link="collection.preferences.searchHistoryLabel:collection.preferences.searchHistoryUnits:collection.preferences.searchHistoryDesc" classtype="com.ibm.ws.console.core.item.PreferenceItem"/>
+        </putList>
+    </definition>
+
+    <definition name="JAASAuthData.collection.buttons.panel" extends="buttons.panel">
+        <put name="buttonCount" value="2"/>
+        <put name="definitionName" value="JAASAuthData.collection.buttons.panel"/>
+        <put name="includeForm" value="no"/>
+        <putList name="actionList">
+            <item value="button.new:jAASAuthDataCollection.do" link="" icon="" tooltip="administrator,configurator" classtype="com.ibm.ws.console.core.item.ActionSetItem"/>
+            <item value="button.delete:jAASAuthDataCollection.do" link="" icon="" tooltip="administrator,configurator" classtype="com.ibm.ws.console.core.item.ActionSetItem"/>
+        </putList>
+    </definition>
+
+    <definition name="JAASAuthData.config.view" extends="detail.config.view" controllerClass="com.ibm.ws.console.security.JAASAuthDataController">
+        <putList name="list">
+        <add value="JAASAuthData.detail.title"/>
+        <add value="JAASAuthData.detail.tabsLayout"/>
+        </putList>
+    </definition>
+
+    <definition name="JAASAuthData.detail.title" extends="detail.title">
+        <put name="formName" value="com.ibm.ws.console.security.JAASAuthDataDetailForm"/>
+        <put name="objectTypeImage" value="JAASAuthData.smallIcon:pluginId=com.ibm.ws.console.security"/>
+        <put name="titleKey" value="Security.authDataEntries.displayName"/>
+        <put name="collectionLink" value="com.ibm.ws.console.security.forwardCmd.do?forwardName=JAASAuthData.content.main&#38;noChange=true"/>
+        <put name="includeLink" value="no"/>
+        <put name="instanceDetails" value="alias"/>
+        <put name="instanceDescription" value="JAASAuthData.description"/>
+        <put name="displayName" value="JAASAuthData.displayName"/>
+    </definition>
+
+    <definition name="JAASAuthData.detail.tabsLayout" path="/secure/layouts/tabsLayout.jsp">
+        <put name="selectUri" value="jAASAuthDataDetail.do"/>
+        <put name="selectedPerspective" value="tab.configuration"/>
+        <put name="formName" value="com.ibm.ws.console.security.JAASAuthDataDetailForm"/>
+        <putList name="tabList">
+            <item  value="tab.configuration" link="JAASAuthData.config.tab.view" classtype="org.apache.struts.tiles.beans.SimpleMenuItem"/>
+        </putList>
+    </definition>
+
+    <definition name="JAASAuthData.config.tab.view" extends="detail.config.tab.view">
+        <putList name="list">
+        <add value="JAASAuthData.detail.buttons.panel"/>
+        <add value="JAASAuthData.config.general.properties"/>
+        </putList>
+    </definition>
+
+    <definition name="JAASAuthData.detail.buttons.panel" extends="buttons.panel">
+        <put name="buttonCount" value="2"/>
+        <put name="definitionName" value="JAASAuthData.detail.buttons.panel"/>
+        <put name="includeForm" value="yes"/>
+        <putList name="actionList">
+        </putList>
+    </definition>
+
+    <definition name="JAASAuthData.config.general.properties" extends="detail.config.general.properties">
+        <put name="formAction" value="jAASAuthDataDetail.do"/>
+        <put name="formName" value="com.ibm.ws.console.security.JAASAuthDataDetailForm"/>
+        <put name="formType" value="com.ibm.ws.console.security.JAASAuthDataDetailForm"/>
+        <put name="formFocus" value="alias"/>
+        <put name="readOnlyView" value="no"/>
+        <putList name="attributeList">
+            <item  value="JAASAuthData.alias.displayName:alias:yes:JSP:JAASAuthData.alias.description:no:yes: : :/com.ibm.ws.console.security/textFieldLayoutNewOnly.jsp" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="JAASAuthData.userId.displayName:userId:yes:Text:JAASAuthData.userId.description:no:yes" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="JAASAuthData.password.displayName:password:yes:Password:JAASAuthData.password.description:no:yes" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="JAASAuthData.description.displayName:description:no:Text:JAASAuthData.description.description:no:yes" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+        </putList>
+    </definition>
+
+    <definition name="JAASAuthData.runtime.tab.view" path="/secure/layouts/configTabLayout.jsp">
+        <putList name="list">
+        </putList>
+    </definition>
+
+    <definition name="JAASAuthData.topology.tab.view" path="/secure/layouts/configTabLayout.jsp">
+        <putList name="list">
+        </putList>
+    </definition>
+
+<!-- SSL Config -->
+    <definition name="SSLConfig.content.main" path="/secure/layouts/contentLayout.jsp" controllerClass="com.ibm.ws.console.security.SSLConfigController">
+        <put name="descTitle" value="SSLConfig.displayName"/>
+        <put name="descImage" value="pluginId=com.ibm.ws.console.security"/>
+        <put name="descText" value="SSLConfig.description"/>
+        <putList name="contentList">
+        <add value="SSLConfig.paging.extend"/>
+        <add value="SSLConfig.quicksearch.extend"/>
+        <add value="SSLConfig.collection.table.extends"/>
+        </putList>
+    </definition>
+
+    <definition name="SSLConfig.quicksearch.extend" extends="quicksearch.main">
+        <put name="selectUri" value="sSLConfigCollection.do?ToggleViewAction=true"/>
+        <put name="collectionForm" value="com.ibm.ws.console.security.SSLConfigCollectionForm"/>
+        <put name="formAction" value="sSLConfigCollection.do"/>
+        <put name="formName" value="com.ibm.ws.console.security.SSLConfigCollectionForm"/>
+        <put name="formType" value="com.ibm.ws.console.security.SSLConfigCollectionForm"/>
+        <putList name="searchList">
+            <add value="SSLConfig.alias.displayName:alias"/>
+        </putList>
+    </definition>
+
+    <definition name="SSLConfig.paging.extend" extends="paging.main">
+        <put name="displayLabelKey" value="SSLConfig.displayName"/>
+        <put name="collectionForm" value="com.ibm.ws.console.security.SSLConfigCollectionForm"/>
+        <put name="formAction" value="sSLConfigCollection.do"/>
+        <put name="formName" value="com.ibm.ws.console.security.SSLConfigCollectionForm"/>
+        <put name="formType" value="com.ibm.ws.console.security.SSLConfigCollectionForm"/>
+    </definition>
+
+    <definition name="SSLConfig.collection.table.extends" extends="collection.table.main">
+        <put name="iterationName" value="com.ibm.ws.console.security.SSLConfigCollectionForm"/>
+        <put name="formAction" value="sSLConfigCollection.do"/>
+        <put name="formName" value="com.ibm.ws.console.security.SSLConfigCollectionForm"/>
+        <put name="formType" value="com.ibm.ws.console.security.SSLConfigCollectionForm"/>
+        <put name="buttons" value="SSLConfig.collection.buttons.panel"/>
+        <put name="parent" value="com.ibm.ws.console.security.forwardCmd.do?forwardName=SSLConfig.content.main"/>
+        <putList name="collectionList">
+            <item value="alias:sort" link="sSLConfigCollection.do?EditAction=true" icon="" tooltip="SSLConfig.alias.displayName" classtype="com.ibm.ws.console.core.item.CollectionItem"/>
+        </putList>
+        <putList name="collectionPreferenceList">
+            <item value="text:UI/Collections/SSLConfig/Preferences#maximumRows:25" link="collection.preferences.maxRowLabel: :collection.preferences.maxRowDesc:20" classtype="com.ibm.ws.console.core.item.PreferenceItem"/>
+            <item value="checkbox:UI/Collections/SSLConfig/Preferences#retainSearchCriteria:32" link="collection.preferences.searchHistoryLabel:collection.preferences.searchHistoryUnits:collection.preferences.searchHistoryDesc" classtype="com.ibm.ws.console.core.item.PreferenceItem"/>
+        </putList>
+    </definition>
+
+    <definition name="SSLConfig.collection.buttons.panel" extends="buttons.panel">
+        <put name="buttonCount" value="2"/>
+        <put name="definitionName" value="SSLConfig.collection.buttons.panel"/>
+        <put name="includeForm" value="no"/>
+        <putList name="actionList">
+            <item value="button.new:sSLConfigCollection.do" link="" icon="" tooltip="administrator,configurator" classtype="com.ibm.ws.console.core.item.ActionSetItem"/>
+            <item value="button.delete:sSLConfigCollection.do" link="" icon="" tooltip="administrator,configurator" classtype="com.ibm.ws.console.core.item.ActionSetItem"/>
+        </putList>
+    </definition>
+
+    <definition name="SSLConfig.config.view" extends="detail.config.view" controllerClass="com.ibm.ws.console.security.SSLConfigController">
+        <putList name="list">
+        <add value="SSLConfig.detail.title"/>
+        <add value="SSLConfig.detail.tabsLayout"/>
+        </putList>
+    </definition>
+
+    <definition name="SSLConfig.detail.title" extends="detail.title">
+        <put name="formName" value="com.ibm.ws.console.security.SSLConfigDetailForm"/>
+        <put name="objectTypeImage" value="SSLConfig.smallIcon:pluginId=com.ibm.ws.console.security"/>
+        <put name="titleKey" value="SSLConfig.displayName"/>
+        <put name="collectionLink" value="com.ibm.ws.console.security.forwardCmd.do?forwardName=SSLConfig.content.main&#38;noChange=true"/>
+        <put name="includeLink" value="no"/>
+        <put name="instanceDetails" value="alias"/>
+        <put name="instanceDescription" value="SSLConfig.description"/>
+        <put name="displayName" value="SSLConfig.displayName"/>
+    </definition>
+
+    <definition name="SSLConfig.detail.tabsLayout" path="/secure/layouts/tabsLayout.jsp">
+        <put name="selectUri" value="sSLConfigDetail.do"/>
+        <put name="selectedPerspective" value="tab.configuration"/>
+        <put name="formName" value="com.ibm.ws.console.security.SSLConfigDetailForm"/>
+        <putList name="tabList">
+            <item  value="tab.configuration" link="SSLConfig.config.tab.view" classtype="org.apache.struts.tiles.beans.SimpleMenuItem"/>
+        </putList>
+    </definition>
+
+    <definition name="SSLConfig.config.tab.view" extends="detail.config.tab.view">
+        <putList name="list">
+        <add value="SSLConfig.detail.buttons.panel"/>
+        <add value="SSLConfig.config.general.properties"/>
+        <add value="SSLConfig.config.additional.properties"/>
+        </putList>
+    </definition>
+
+    <definition name="SSLConfig.detail.buttons.panel" extends="buttons.panel">
+        <put name="buttonCount" value="2"/>
+        <put name="definitionName" value="SSLConfig.detail.buttons.panel"/>
+        <put name="includeForm" value="yes"/>
+        <putList name="actionList">
+        </putList>
+    </definition>
+
+    <definition name="SSLConfig.config.general.properties" extends="detail.config.general.properties">
+        <put name="formAction" value="sSLConfigDetail.do"/>
+        <put name="formName" value="com.ibm.ws.console.security.SSLConfigDetailForm"/>
+        <put name="formType" value="com.ibm.ws.console.security.SSLConfigDetailForm"/>
+        <put name="formFocus" value="alias"/>
+        <put name="readOnlyView" value="no"/>
+        <putList name="attributeList">
+            <item  value="SSLConfig.alias.displayName:alias:yes:JSP:SSLConfig.alias.description:no:yes: : :/com.ibm.ws.console.security/textFieldLayoutNewOnly.jsp" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="SecureSocketLayer.keyFileName.displayName:keyFileName:no:Text:SecureSocketLayer.keyFileName.description:no:yes" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="SecureSocketLayer.keyFilePassword.displayName:keyFilePassword:no:Password:SecureSocketLayer.keyFilePassword.description:no:yes" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="SecureSocketLayer.keyFileFormat.displayName:keyFileFormat:no:Select:SecureSocketLayer.keyFileFormat.description:no:yes:JKS,PKCS12,JCEK:KeyFileFormatKind.JKS,KeyFileFormatKind.PKCS12,KeyFileFormatKind.JCEK" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="SecureSocketLayer.trustFileName.displayName:trustFileName:no:Text:SecureSocketLayer.trustFileName.description:no:yes" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="SecureSocketLayer.trustFilePassword.displayName:trustFilePassword:no:Password:SecureSocketLayer.trustFilePassword.description:no:yes" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="SecureSocketLayer.trustFileFormat.displayName:trustFileFormat:no:Select:SecureSocketLayer.trustFileFormat.description:no:yes:JKS,PKCS12,JCEK:KeyFileFormatKind.JKS,KeyFileFormatKind.PKCS12,KeyFileFormatKind.JCEK" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="SecureSocketLayer.clientAuthentication.displayName:clientAuthentication:no:Checkbox:SecureSocketLayer.clientAuthentication.description:no:yes" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="SecureSocketLayer.securityLevel.displayName:securityLevel:no:Select:SecureSocketLayer.securityLevel.description:no:yes:HIGH,MEDIUM,LOW:SSLSecurityLevel.HIGH,SSLSecurityLevel.MEDIUM,SSLSecurityLevel.LOW" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="SecureSocketLayer.cipherSuites.displayName:cipherSuites:no:Custom:SecureSocketLayer.cipherSuites.description:no:yes: : :/com.ibm.ws.console.security/cipherAddDeleteLayout.jsp" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="SecureSocketLayer.enableCryptoHardwareSupport.displayName:enableCryptoHardwareSupport:no:Checkbox:SecureSocketLayer.enableCryptoHardwareSupport.description:no:yes" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="SecureSocketLayer.provider.displayName:provider:no:Custom:SecureSocketLayer.provider.description:no:yes: : :/com.ibm.ws.console.security/sslProviderLayout.jsp" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="SecureSocketLayer.protocol.displayName:protocol:no:Select:SecureSocketLayer.protocol.description:no:yes:SSL,SSLv2,SSLv3,TLS,TLSV1:SecureSocketLayer.protocol.SSL,SecureSocketLayer.protocol.SSLv2,SecureSocketLayer.protocol.SSLv3,SecureSocketLayer.protocol.TLS,SecureSocketLayer.protocol.TLSV1" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+        </putList>
+    </definition>
+
+    <definition name="SSLConfig.config.additional.properties" extends="detail.config.additional.properties">
+        <put name="formName" value="com.ibm.ws.console.security.SSLConfigDetailForm"/>
+        <putList name="list">
+            <!--item  value="SecureSocketLayer.displayName" link="com.ibm.ws.console.security.forwardCmd.do?forwardName=SecureSocketLayer.config.view&#38;sfname=setting" tooltip="SecureSocketLayer.description" classtype="org.apache.struts.tiles.beans.SimpleMenuItem"/-->
+            <item  value="SecureSocketLayer.cryptoHardware.displayName" link="com.ibm.ws.console.security.forwardCmd.do?forwardName=CryptoHardwareToken.config.view&#38;sfname=cryptoHardware" tooltip="SecureSocketLayer.cryptoHardware.description" classtype="org.apache.struts.tiles.beans.SimpleMenuItem"/>
+            <item  value="SecureSocketLayer.properties.displayName" link="com.ibm.ws.console.security.forwardCmd.do?forwardName=Security.Property.content.main&#38;sfname=properties" tooltip="SecureSocketLayer.properties.description" classtype="org.apache.struts.tiles.beans.SimpleMenuItem"/>
+        </putList>
+    </definition>
+
+    <definition name="SSLConfig.runtime.tab.view" path="/secure/layouts/configTabLayout.jsp">
+        <putList name="list">
+        </putList>
+    </definition>
+
+    <definition name="SSLConfig.topology.tab.view" path="/secure/layouts/configTabLayout.jsp">
+        <putList name="list">
+        </putList>
+    </definition>
+
+<!-- Secure Socket Layer -->
+    <definition name="SecureSocketLayer.config.view" extends="detail.config.view" controllerClass="com.ibm.ws.console.security.SecureSocketLayerController">
+        <putList name="list">
+        <add value="SecureSocketLayer.detail.title"/>
+        <add value="SecureSocketLayer.detail.tabsLayout"/>
+        </putList>
+    </definition>
+
+    <definition name="SecureSocketLayer.detail.title" extends="detail.title">
+        <put name="formName" value="com.ibm.ws.console.security.SecureSocketLayerDetailForm"/>
+        <put name="objectTypeImage" value="SecureSocketLayer.smallIcon:pluginId=com.ibm.ws.console.security"/>
+        <put name="titleKey" value="SecureSocketLayer.displayName"/>
+        <put name="collectionLink" value="com.ibm.ws.console.security.forwardCmd.do?forwardName=SecureSocketLayer.content.main&#38;noChange=true"/>
+        <put name="includeLink" value="no"/>
+        <put name="instanceDetails" value="title"/>
+        <put name="instanceDescription" value="SecureSocketLayer.description"/>
+        <put name="displayName" value="SecureSocketLayer.displayName"/>
+    </definition>
+
+    <definition name="SecureSocketLayer.detail.tabsLayout" path="/secure/layouts/tabsLayout.jsp">
+        <put name="selectUri" value="secureSocketLayerDetail.do"/>
+        <put name="selectedPerspective" value="tab.configuration"/>
+        <put name="formName" value="com.ibm.ws.console.security.SecureSocketLayerDetailForm"/>
+        <putList name="tabList">
+            <item  value="tab.configuration" link="SecureSocketLayer.config.tab.view" classtype="org.apache.struts.tiles.beans.SimpleMenuItem"/>
+        </putList>
+    </definition>
+
+    <definition name="SecureSocketLayer.config.tab.view" extends="detail.config.tab.view">
+        <putList name="list">
+        <add value="SecureSocketLayer.detail.buttons.panel"/>
+        <add value="SecureSocketLayer.config.general.properties"/>
+        <add value="SecureSocketLayer.config.additional.properties"/>
+        </putList>
+    </definition>
+
+    <definition name="SecureSocketLayer.detail.buttons.panel" extends="buttons.panel">
+        <put name="buttonCount" value="2"/>
+        <put name="definitionName" value="SecureSocketLayer.detail.buttons.panel"/>
+        <put name="includeForm" value="yes"/>
+        <putList name="actionList">
+        </putList>
+    </definition>
+
+    <definition name="SecureSocketLayer.config.general.properties" extends="detail.config.general.properties">
+        <put name="formAction" value="secureSocketLayerDetail.do"/>
+        <put name="formName" value="com.ibm.ws.console.security.SecureSocketLayerDetailForm"/>
+        <put name="formType" value="com.ibm.ws.console.security.SecureSocketLayerDetailForm"/>
+        <put name="formFocus" value="keyFileName"/>
+        <put name="readOnlyView" value="no"/>
+        <putList name="attributeList">
+            <item  value="SecureSocketLayer.keyFileName.displayName:keyFileName:no:Text:SecureSocketLayer.keyFileName.description:no:yes" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="SecureSocketLayer.keyFilePassword.displayName:keyFilePassword:no:Password:SecureSocketLayer.keyFilePassword.description:no:yes" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="SecureSocketLayer.keyFileFormat.displayName:keyFileFormat:no:Select:SecureSocketLayer.keyFileFormat.description:no:yes:JKS,PKCS12,JCEK:KeyFileFormatKind.JKS,KeyFileFormatKind.PKCS12,KeyFileFormatKind.JCEK" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="SecureSocketLayer.trustFileName.displayName:trustFileName:no:Text:SecureSocketLayer.trustFileName.description:no:yes" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="SecureSocketLayer.trustFilePassword.displayName:trustFilePassword:no:Password:SecureSocketLayer.trustFilePassword.description:no:yes" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="SecureSocketLayer.trustFileFormat.displayName:trustFileFormat:no:Select:SecureSocketLayer.trustFileFormat.description:no:yes:JKS,PKCS12,JCEK:KeyFileFormatKind.JKS,KeyFileFormatKind.PKCS12,KeyFileFormatKind.JCEK" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="SecureSocketLayer.clientAuthentication.displayName:clientAuthentication:no:Checkbox:SecureSocketLayer.clientAuthentication.description:no:yes" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="SecureSocketLayer.securityLevel.displayName:securityLevel:no:Select:SecureSocketLayer.securityLevel.description:no:yes:HIGH,MEDIUM,LOW:SSLSecurityLevel.HIGH,SSLSecurityLevel.MEDIUM,SSLSecurityLevel.LOW" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="SecureSocketLayer.cipherSuites.displayName:cipherSuites:no:Custom:SecureSocketLayer.cipherSuites.description:no:yes: : :/com.ibm.ws.console.security/cipherAddDeleteLayout.jsp" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="SecureSocketLayer.enableCryptoHardwareSupport.displayName:enableCryptoHardwareSupport:no:Checkbox:SecureSocketLayer.enableCryptoHardwareSupport.description:no:yes" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+        </putList>
+    </definition>
+
+    <definition name="SecureSocketLayer.config.additional.properties" extends="detail.config.additional.properties">
+        <put name="formName" value="com.ibm.ws.console.security.SecureSocketLayerDetailForm"/>
+        <putList name="list">
+            <item  value="SecureSocketLayer.cryptoHardware.displayName" link="com.ibm.ws.console.security.forwardCmd.do?forwardName=CryptoHardwareToken.config.view&#38;sfname=cryptoHardware" tooltip="SecureSocketLayer.cryptoHardware.description" classtype="org.apache.struts.tiles.beans.SimpleMenuItem"/>
+            <item  value="SecureSocketLayer.properties.displayName" link="com.ibm.ws.console.security.forwardCmd.do?forwardName=Security.Property.content.main&#38;sfname=properties" tooltip="SecureSocketLayer.properties.description" classtype="org.apache.struts.tiles.beans.SimpleMenuItem"/>
+        </putList>
+    </definition>
+
+    <definition name="SecureSocketLayer.runtime.tab.view" path="/secure/layouts/configTabLayout.jsp">
+        <putList name="list">
+        </putList>
+    </definition>
+
+    <definition name="SecureSocketLayer.topology.tab.view" path="/secure/layouts/configTabLayout.jsp">
+        <putList name="list">
+        </putList>
+    </definition>
+
+<!-- Single Sign on -->
+    <definition name="SingleSignon.config.view" extends="detail.config.view" controllerClass="com.ibm.ws.console.security.SingleSignonController">
+        <putList name="list">
+        <add value="SingleSignon.detail.title"/>
+        <add value="SingleSignon.detail.tabsLayout"/>
+        </putList>
+    </definition>
+
+    <definition name="SingleSignon.detail.title" extends="detail.title">
+        <put name="formName" value="com.ibm.ws.console.security.SingleSignonDetailForm"/>
+        <put name="objectTypeImage" value="SingleSignon.smallIcon:pluginId=com.ibm.ws.console.security"/>
+        <put name="titleKey" value="AuthMechanism.singleSignon.displayName"/>
+        <!--put name="collectionLink" value="com.ibm.ws.console.security.forwardCmd.do?forwardName=SingleSignon.content.main&#38;noChange=true"/-->
+        <!--put name="includeLink" value="no"/-->
+        <put name="instanceDetails" value="title"/>
+        <put name="instanceDescription" value="SingleSignon.description"/>
+        <put name="displayName" value="SingleSignon.displayName"/>
+    </definition>
+
+    <definition name="SingleSignon.detail.tabsLayout" path="/secure/layouts/tabsLayout.jsp">
+        <put name="selectUri" value="singleSignonDetail.do"/>
+        <put name="selectedPerspective" value="tab.configuration"/>
+        <put name="formName" value="com.ibm.ws.console.security.SingleSignonDetailForm"/>
+        <putList name="tabList">
+            <item  value="tab.configuration" link="SingleSignon.config.tab.view" classtype="org.apache.struts.tiles.beans.SimpleMenuItem"/>
+        </putList>
+    </definition>
+
+    <definition name="SingleSignon.config.tab.view" extends="detail.config.tab.view">
+        <putList name="list">
+        <add value="SingleSignon.detail.buttons.panel"/>
+        <add value="SingleSignon.config.general.properties"/>
+        </putList>
+    </definition>
+
+    <definition name="SingleSignon.detail.buttons.panel" extends="buttons.panel">
+        <put name="buttonCount" value="2"/>
+        <put name="definitionName" value="SingleSignon.detail.buttons.panel"/>
+        <put name="includeForm" value="yes"/>
+        <putList name="actionList">
+        </putList>
+    </definition>
+
+    <definition name="SingleSignon.config.general.properties" extends="detail.config.general.properties">
+        <put name="formAction" value="singleSignonDetail.do"/>
+        <put name="formName" value="com.ibm.ws.console.security.SingleSignonDetailForm"/>
+        <put name="formType" value="com.ibm.ws.console.security.SingleSignonDetailForm"/>
+        <put name="formFocus" value="domainName"/>
+        <put name="readOnlyView" value="no"/>
+        <putList name="attributeList">
+            <item  value="SingleSignon.enabled.displayName:enabled:no:Checkbox:SingleSignon.enabled.description:no:yes" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="SingleSignon.requiresSSL.displayName:requiresSSL:no:Checkbox:SingleSignon.requiresSSL.description:no:yes" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="SingleSignon.domainName.displayName:domainName:no:Text:SingleSignon.domainName.description:no:yes" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+        </putList>
+    </definition>
+
+    <definition name="SingleSignon.runtime.tab.view" path="/secure/layouts/configTabLayout.jsp">
+        <putList name="list">
+        </putList>
+    </definition>
+
+    <definition name="SingleSignon.topology.tab.view" path="/secure/layouts/configTabLayout.jsp">
+        <putList name="list">
+        </putList>
+    </definition>
+
+<!-- TA Interceptor -->
+    <definition name="TAInterceptor.content.main" path="/secure/layouts/contentLayout.jsp" controllerClass="com.ibm.ws.console.security.TAInterceptorController">
+        <put name="descTitle" value="TAInterceptor.displayName"/>
+        <put name="descImage" value="pluginId=com.ibm.ws.console.security"/>
+        <put name="descText" value="TAInterceptor.description"/>
+        <putList name="contentList">
+        <add value="TAInterceptor.paging.extend"/>
+        <add value="TAInterceptor.quicksearch.extend"/>
+        <add value="TAInterceptor.collection.table.extends"/>
+        </putList>
+    </definition>
+
+    <definition name="TAInterceptor.quicksearch.extend" extends="quicksearch.main">
+        <put name="selectUri" value="tAInterceptorCollection.do?ToggleViewAction=true"/>
+        <put name="collectionForm" value="com.ibm.ws.console.security.TAInterceptorCollectionForm"/>
+        <put name="formAction" value="tAInterceptorCollection.do"/>
+        <put name="formName" value="com.ibm.ws.console.security.TAInterceptorCollectionForm"/>
+        <put name="formType" value="com.ibm.ws.console.security.TAInterceptorCollectionForm"/>
+        <putList name="searchList">
+            <add value="TAInterceptor.interceptorClassName.displayName:interceptorClassName"/>
+        </putList>
+    </definition>
+
+    <definition name="TAInterceptor.paging.extend" extends="paging.main">
+        <put name="displayLabelKey" value="TAInterceptor.displayName"/>
+        <put name="collectionForm" value="com.ibm.ws.console.security.TAInterceptorCollectionForm"/>
+        <put name="formAction" value="tAInterceptorCollection.do"/>
+        <put name="formName" value="com.ibm.ws.console.security.TAInterceptorCollectionForm"/>
+        <put name="formType" value="com.ibm.ws.console.security.TAInterceptorCollectionForm"/>
+    </definition>
+
+    <definition name="TAInterceptor.collection.table.extends" extends="collection.table.main">
+        <put name="iterationName" value="com.ibm.ws.console.security.TAInterceptorCollectionForm"/>
+        <put name="formAction" value="tAInterceptorCollection.do"/>
+        <put name="formName" value="com.ibm.ws.console.security.TAInterceptorCollectionForm"/>
+        <put name="formType" value="com.ibm.ws.console.security.TAInterceptorCollectionForm"/>
+        <put name="buttons" value="TAInterceptor.collection.buttons.panel"/>
+        <put name="parent" value="com.ibm.ws.console.security.forwardCmd.do?forwardName=TAInterceptor.content.main"/>
+        <putList name="collectionList">
+            <item value="interceptorClassName:sort" link="tAInterceptorCollection.do?EditAction=true" icon="" tooltip="TAInterceptor.interceptorClassName.displayName" classtype="com.ibm.ws.console.core.item.CollectionItem"/>
+        </putList>
+        <putList name="collectionPreferenceList">
+            <item value="text:UI/Collections/TAInterceptor/Preferences#maximumRows:25" link="collection.preferences.maxRowLabel: :collection.preferences.maxRowDesc:20" classtype="com.ibm.ws.console.core.item.PreferenceItem"/>
+            <item value="checkbox:UI/Collections/TAInterceptor/Preferences#retainSearchCriteria:32" link="collection.preferences.searchHistoryLabel:collection.preferences.searchHistoryUnits:collection.preferences.searchHistoryDesc" classtype="com.ibm.ws.console.core.item.PreferenceItem"/>
+        </putList>
+    </definition>
+
+    <definition name="TAInterceptor.collection.buttons.panel" extends="buttons.panel">
+        <put name="buttonCount" value="2"/>
+        <put name="definitionName" value="TAInterceptor.collection.buttons.panel"/>
+        <put name="includeForm" value="no"/>
+        <putList name="actionList">
+            <item value="button.new:tAInterceptorCollection.do" link="" icon="" tooltip="administrator,configurator" classtype="com.ibm.ws.console.core.item.ActionSetItem"/>
+            <item value="button.delete:tAInterceptorCollection.do" link="" icon="" tooltip="administrator,configurator" classtype="com.ibm.ws.console.core.item.ActionSetItem"/>
+        </putList>
+    </definition>
+
+    <definition name="TAInterceptor.config.view" extends="detail.config.view" controllerClass="com.ibm.ws.console.security.TAInterceptorController">
+        <putList name="list">
+        <add value="TAInterceptor.detail.title"/>
+        <add value="TAInterceptor.detail.tabsLayout"/>
+        </putList>
+    </definition>
+
+    <definition name="TAInterceptor.detail.title" extends="detail.title">
+        <put name="formName" value="com.ibm.ws.console.security.TAInterceptorDetailForm"/>
+        <put name="objectTypeImage" value="TAInterceptor.smallIcon:pluginId=com.ibm.ws.console.security"/>
+        <put name="titleKey" value="TAInterceptor.displayName"/>
+        <put name="collectionLink" value="com.ibm.ws.console.security.forwardCmd.do?forwardName=TAInterceptor.content.main&#38;noChange=true"/>
+        <put name="includeLink" value="no"/>
+        <put name="instanceDetails" value="interceptorClassName"/>
+        <put name="instanceDescription" value="TAInterceptor.description"/>
+        <put name="displayName" value="TAInterceptor.displayName"/>
+    </definition>
+
+    <definition name="TAInterceptor.detail.tabsLayout" path="/secure/layouts/tabsLayout.jsp">
+        <put name="selectUri" value="tAInterceptorDetail.do"/>
+        <put name="selectedPerspective" value="tab.configuration"/>
+        <put name="formName" value="com.ibm.ws.console.security.TAInterceptorDetailForm"/>
+        <putList name="tabList">
+            <item  value="tab.configuration" link="TAInterceptor.config.tab.view" classtype="org.apache.struts.tiles.beans.SimpleMenuItem"/>
+        </putList>
+    </definition>
+
+    <definition name="TAInterceptor.config.tab.view" extends="detail.config.tab.view">
+        <putList name="list">
+        <add value="TAInterceptor.detail.buttons.panel"/>
+        <add value="TAInterceptor.config.general.properties"/>
+        <add value="TAInterceptor.config.additional.properties"/>
+        </putList>
+    </definition>
+
+    <definition name="TAInterceptor.detail.buttons.panel" extends="buttons.panel">
+        <put name="buttonCount" value="2"/>
+        <put name="definitionName" value="TAInterceptor.detail.buttons.panel"/>
+        <put name="includeForm" value="yes"/>
+        <putList name="actionList">
+        </putList>
+    </definition>
+
+    <definition name="TAInterceptor.config.general.properties" extends="detail.config.general.properties">
+        <put name="formAction" value="tAInterceptorDetail.do"/>
+        <put name="formName" value="com.ibm.ws.console.security.TAInterceptorDetailForm"/>
+        <put name="formType" value="com.ibm.ws.console.security.TAInterceptorDetailForm"/>
+        <put name="formFocus" value="interceptorClassName"/>
+        <put name="readOnlyView" value="no"/>
+        <putList name="attributeList">
+            <item  value="TAInterceptor.interceptorClassName.displayName:interceptorClassName:yes:Text:TAInterceptor.interceptorClassName.description:no:yes" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+        </putList>
+    </definition>
+
+    <definition name="TAInterceptor.config.additional.properties" extends="detail.config.additional.properties">
+        <put name="formName" value="com.ibm.ws.console.security.TAInterceptorDetailForm"/>
+        <putList name="list">
+            <item  value="TAInterceptor.trustProperties.displayName" link="com.ibm.ws.console.security.forwardCmd.do?forwardName=Security.Property.content.main&#38;sfname=trustProperties" tooltip="TAInterceptor.trustProperties.description" classtype="org.apache.struts.tiles.beans.SimpleMenuItem"/>
+        </putList>
+    </definition>
+
+    <definition name="TAInterceptor.runtime.tab.view" path="/secure/layouts/configTabLayout.jsp">
+        <putList name="list">
+        </putList>
+    </definition>
+
+    <definition name="TAInterceptor.topology.tab.view" path="/secure/layouts/configTabLayout.jsp">
+        <putList name="list">
+        </putList>
+    </definition>
+
+<!-- TrustAssociation -->
+    <definition name="TrustAssociation.config.view" extends="detail.config.view" controllerClass="com.ibm.ws.console.security.TrustAssociationController">
+        <putList name="list">
+        <add value="TrustAssociation.detail.title"/>
+        <add value="TrustAssociation.detail.tabsLayout"/>
+        </putList>
+    </definition>
+
+    <definition name="TrustAssociation.detail.title" extends="detail.title">
+        <put name="formName" value="com.ibm.ws.console.security.TrustAssociationDetailForm"/>
+        <put name="objectTypeImage" value="TrustAssociation.smallIcon:pluginId=com.ibm.ws.console.security"/>
+        <put name="titleKey" value="TrustAssociation.displayName"/>
+        <put name="collectionLink" value="com.ibm.ws.console.security.forwardCmd.do?forwardName=TrustAssociation.content.main&#38;noChange=true"/>
+        <put name="includeLink" value="no"/>
+        <put name="instanceDetails" value="title"/>
+        <put name="instanceDescription" value="TrustAssociation.description"/>
+        <put name="displayName" value="TrustAssociation.displayName"/>
+    </definition>
+
+    <definition name="TrustAssociation.detail.tabsLayout" path="/secure/layouts/tabsLayout.jsp">
+        <put name="selectUri" value="trustAssociationDetail.do"/>
+        <put name="selectedPerspective" value="tab.configuration"/>
+        <put name="formName" value="com.ibm.ws.console.security.TrustAssociationDetailForm"/>
+        <putList name="tabList">
+            <item  value="tab.configuration" link="TrustAssociation.config.tab.view" classtype="org.apache.struts.tiles.beans.SimpleMenuItem"/>
+        </putList>
+    </definition>
+
+    <definition name="TrustAssociation.config.tab.view" extends="detail.config.tab.view">
+        <putList name="list">
+        <add value="TrustAssociation.detail.buttons.panel"/>
+        <add value="TrustAssociation.config.general.properties"/>
+        <add value="TrustAssociation.config.additional.properties"/>
+        </putList>
+    </definition>
+
+    <definition name="TrustAssociation.detail.buttons.panel" extends="buttons.panel">
+        <put name="buttonCount" value="2"/>
+        <put name="definitionName" value="TrustAssociation.detail.buttons.panel"/>
+        <put name="includeForm" value="yes"/>
+        <putList name="actionList">
+        </putList>
+    </definition>
+
+    <definition name="TrustAssociation.config.general.properties" extends="detail.config.general.properties">
+        <put name="formAction" value="trustAssociationDetail.do"/>
+        <put name="formName" value="com.ibm.ws.console.security.TrustAssociationDetailForm"/>
+        <put name="formType" value="com.ibm.ws.console.security.TrustAssociationDetailForm"/>
+        <put name="formFocus" value="enabled"/>
+        <put name="readOnlyView" value="no"/>
+        <putList name="attributeList">
+            <item  value="TrustAssociation.enabled.displayName:enabled:no:Checkbox:TrustAssociation.enabled.description:no:yes" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+        </putList>
+    </definition>
+
+    <definition name="TrustAssociation.config.additional.properties" extends="detail.config.additional.properties">
+        <put name="formName" value="com.ibm.ws.console.security.TrustAssociationDetailForm"/>
+        <putList name="list">
+            <item  value="TrustAssociation.interceptors.displayName" link="com.ibm.ws.console.security.forwardCmd.do?forwardName=TAInterceptor.content.main&#38;sfname=interceptors" tooltip="TrustAssociation.interceptors.description" classtype="org.apache.struts.tiles.beans.SimpleMenuItem"/>
+        </putList>
+    </definition>
+
+    <definition name="TrustAssociation.runtime.tab.view" path="/secure/layouts/configTabLayout.jsp">
+        <putList name="list">
+        </putList>
+    </definition>
+
+    <definition name="TrustAssociation.topology.tab.view" path="/secure/layouts/configTabLayout.jsp">
+        <putList name="list">
+        </putList>
+    </definition>
+
+<!-- User Registry -->
+    <definition name="UserRegistry.config.view" extends="detail.config.view" controllerClass="com.ibm.ws.console.security.UserRegistryController">
+        <putList name="list">
+        <add value="UserRegistry.detail.title"/>
+        <add value="UserRegistry.detail.tabsLayout"/>
+        </putList>
+    </definition>
+
+    <definition name="UserRegistry.detail.title" extends="detail.title">
+        <put name="formName" value="com.ibm.ws.console.security.UserRegistryDetailForm"/>
+        <put name="objectTypeImage" value="UserRegistry.smallIcon:pluginId=com.ibm.ws.console.security"/>
+        <put name="titleKey" value="UserRegistry.displayName"/>
+        <put name="collectionLink" value="com.ibm.ws.console.security.forwardCmd.do?forwardName=UserRegistry.content.main&#38;noChange=true"/>
+        <put name="includeLink" value="no"/>
+        <put name="instanceDetails" value="serverId"/>
+        <put name="instanceDescription" value="UserRegistry.description"/>
+        <put name="displayName" value="UserRegistry.displayName"/>
+    </definition>
+
+    <definition name="UserRegistry.detail.tabsLayout" path="/secure/layouts/tabsLayout.jsp">
+        <put name="selectUri" value="userRegistryDetail.do"/>
+        <put name="selectedPerspective" value="tab.configuration"/>
+        <put name="formName" value="com.ibm.ws.console.security.UserRegistryDetailForm"/>
+        <putList name="tabList">
+            <item  value="tab.runtime" link="UserRegistry.runtime.tab.view" classtype="org.apache.struts.tiles.beans.SimpleMenuItem"/>
+            <item  value="tab.configuration" link="UserRegistry.config.tab.view" classtype="org.apache.struts.tiles.beans.SimpleMenuItem"/>
+            <item  value="tab.topology" link="UserRegistry.topology.tab.view" classtype="org.apache.struts.tiles.beans.SimpleMenuItem"/>
+        </putList>
+    </definition>
+
+    <definition name="UserRegistry.config.tab.view" extends="detail.config.tab.view">
+        <putList name="list">
+        <add value="UserRegistry.detail.buttons.panel"/>
+        <add value="UserRegistry.config.general.properties"/>
+        <add value="UserRegistry.config.additional.properties"/>
+        </putList>
+    </definition>
+
+    <definition name="UserRegistry.detail.buttons.panel" extends="buttons.panel">
+        <put name="buttonCount" value="2"/>
+        <put name="definitionName" value="UserRegistry.detail.buttons.panel"/>
+        <put name="includeForm" value="yes"/>
+        <putList name="actionList">
+        </putList>
+    </definition>
+
+    <definition name="UserRegistry.config.general.properties" extends="detail.config.general.properties">
+        <put name="formAction" value="userRegistryDetail.do"/>
+        <put name="formName" value="com.ibm.ws.console.security.UserRegistryDetailForm"/>
+        <put name="formType" value="com.ibm.ws.console.security.UserRegistryDetailForm"/>
+        <put name="formFocus" value="serverId"/>
+        <put name="readOnlyView" value="no"/>
+        <putList name="attributeList">
+            <item  value="UserRegistry.serverId.displayName:serverId:yes:JSP:UserRegistry.serverId.description:no:yes: : :/com.ibm.ws.console.security/textFieldLayoutAdminOnly.jsp" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="UserRegistry.serverPassword.displayName:serverPassword:yes:JSP:UserRegistry.serverPassword.description:no:yes: : :/com.ibm.ws.console.security/passwordLayoutAdminOnly.jsp" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+        </putList>
+    </definition>
+
+    <definition name="UserRegistry.config.additional.properties" extends="detail.config.additional.properties">
+        <put name="formName" value="com.ibm.ws.console.security.UserRegistryDetailForm"/>
+        <putList name="list">
+            <item  value="UserRegistry.properties.displayName" link="com.ibm.ws.console.security.forwardCmd.do?forwardName=Security.Property.content.main&#38;sfname=properties" tooltip="UserRegistry.properties.description" classtype="org.apache.struts.tiles.beans.SimpleMenuItem"/>
+        </putList>
+    </definition>
+
+    <definition name="UserRegistry.runtime.tab.view" path="/secure/layouts/configTabLayout.jsp">
+        <putList name="list">
+        </putList>
+    </definition>
+
+    <definition name="UserRegistry.topology.tab.view" path="/secure/layouts/configTabLayout.jsp">
+        <putList name="list">
+        </putList>
+    </definition>
+
+<!-- Crypto Hardware Token -->
+    <definition name="CryptoHardwareToken.config.view" extends="detail.config.view" controllerClass="com.ibm.ws.console.security.CryptoHardwareTokenController">
+        <putList name="list">
+        <add value="CryptoHardwareToken.detail.title"/>
+        <add value="CryptoHardwareToken.detail.tabsLayout"/>
+        </putList>
+    </definition>
+
+    <definition name="CryptoHardwareToken.detail.title" extends="detail.title">
+        <put name="formName" value="com.ibm.ws.console.security.CryptoHardwareTokenDetailForm"/>
+        <put name="objectTypeImage" value="CryptoHardwareToken.smallIcon:pluginId=com.ibm.ws.console.security"/>
+        <put name="titleKey" value="SecureSocketLayer.cryptoHardware.displayName"/>
+        <put name="collectionLink" value="com.ibm.ws.console.security.forwardCmd.do?forwardName=CryptoHardwareToken.content.main&#38;noChange=true"/>
+        <put name="includeLink" value="no"/>
+        <put name="instanceDetails" value="title"/>
+        <put name="instanceDescription" value="CryptoHardwareToken.description"/>
+        <put name="displayName" value="CryptoHardwareToken.displayName"/>
+    </definition>
+
+    <definition name="CryptoHardwareToken.detail.tabsLayout" path="/secure/layouts/tabsLayout.jsp">
+        <put name="selectUri" value="cryptoHardwareTokenDetail.do"/>
+        <put name="selectedPerspective" value="tab.configuration"/>
+        <put name="formName" value="com.ibm.ws.console.security.CryptoHardwareTokenDetailForm"/>
+        <putList name="tabList">
+            <item  value="tab.configuration" link="CryptoHardwareToken.config.tab.view" classtype="org.apache.struts.tiles.beans.SimpleMenuItem"/>
+        </putList>
+    </definition>
+
+    <definition name="CryptoHardwareToken.config.tab.view" extends="detail.config.tab.view">
+        <putList name="list">
+        <add value="CryptoHardwareToken.detail.buttons.panel"/>
+        <add value="CryptoHardwareToken.config.general.properties"/>
+        </putList>
+    </definition>
+
+    <definition name="CryptoHardwareToken.detail.buttons.panel" extends="buttons.panel">
+        <put name="buttonCount" value="2"/>
+        <put name="definitionName" value="CryptoHardwareToken.detail.buttons.panel"/>
+        <put name="includeForm" value="yes"/>
+        <putList name="actionList">
+        </putList>
+    </definition>
+
+    <definition name="CryptoHardwareToken.config.general.properties" extends="detail.config.general.properties">
+        <put name="formAction" value="cryptoHardwareTokenDetail.do"/>
+        <put name="formName" value="com.ibm.ws.console.security.CryptoHardwareTokenDetailForm"/>
+        <put name="formType" value="com.ibm.ws.console.security.CryptoHardwareTokenDetailForm"/>
+        <put name="formFocus" value="tokenType"/>
+        <put name="readOnlyView" value="no"/>
+        <putList name="attributeList">
+            <item  value="CryptoHardwareToken.tokenType.displayName:tokenType:no:Text:CryptoHardwareToken.tokenType.description:no:yes" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="CryptoHardwareToken.libraryFile.displayName:libraryFile:no:Text:CryptoHardwareToken.libraryFile.description:no:yes" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="CryptoHardwareToken.password.displayName:password:no:Password:CryptoHardwareToken.password.description:no:yes" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+        </putList>
+    </definition>
+
+    <definition name="CryptoHardwareToken.runtime.tab.view" path="/secure/layouts/configTabLayout.jsp">
+        <putList name="list">
+        </putList>
+    </definition>
+
+    <definition name="CryptoHardwareToken.topology.tab.view" path="/secure/layouts/configTabLayout.jsp">
+        <putList name="list">
+        </putList>
+    </definition>
+
+<!-- Property -->
+    <definition name="Security.Property.content.main" path="/secure/layouts/contentLayout.jsp" controllerClass="com.ibm.ws.console.security.PropertyController">
+        <put name="descTitle" value="Security.property.displayName"/>
+        <put name="descImage" value="pluginId=com.ibm.ws.console.security"/>
+        <put name="descText" value="Security.property.description"/>
+        <putList name="contentList">
+        <add value="Security.Property.paging.extend"/>
+        <add value="Security.Property.quicksearch.extend"/>
+        <add value="Security.Property.collection.table.extends"/>
+        </putList>
+    </definition>
+
+    <definition name="Security.Property.quicksearch.extend" extends="quicksearch.main">
+        <put name="selectUri" value="secPropertyCollection.do?ToggleViewAction=true"/>
+        <put name="collectionForm" value="com.ibm.ws.console.security.PropertyCollectionForm"/>
+        <put name="formAction" value="secPropertyCollection.do"/>
+        <put name="formName" value="com.ibm.ws.console.security.PropertyCollectionForm"/>
+        <put name="formType" value="com.ibm.ws.console.security.PropertyCollectionForm"/>
+        <putList name="searchList">
+            <add value="Security.property.name.displayName:name"/>
+            <add value="Security.property.value.displayName:value"/>
+            <add value="Security.property.description.displayName:description"/>
+        </putList>
+    </definition>
+
+    <definition name="Security.Property.paging.extend" extends="paging.main">
+        <put name="displayLabelKey" value="Security.property.displayName"/>
+        <put name="collectionForm" value="com.ibm.ws.console.security.PropertyCollectionForm"/>
+        <put name="formAction" value="secPropertyCollection.do"/>
+        <put name="formName" value="com.ibm.ws.console.security.PropertyCollectionForm"/>
+        <put name="formType" value="com.ibm.ws.console.security.PropertyCollectionForm"/>
+    </definition>
+
+    <definition name="Security.Property.collection.table.extends" extends="collection.table.main">
+        <put name="iterationName" value="com.ibm.ws.console.security.PropertyCollectionForm"/>
+        <put name="formAction" value="secPropertyCollection.do"/>
+        <put name="formName" value="com.ibm.ws.console.security.PropertyCollectionForm"/>
+        <put name="formType" value="com.ibm.ws.console.security.PropertyCollectionForm"/>
+        <put name="buttons" value="Security.Property.collection.buttons.panel"/>
+        <put name="parent" value="com.ibm.ws.console.security.forwardCmd.do?forwardName=Security.Property.content.main"/>
+        <putList name="collectionList">
+            <item value="name:sort" link="secPropertyCollection.do?EditAction=true" icon="" tooltip="Security.property.name.displayName" classtype="com.ibm.ws.console.core.item.CollectionItem"/>
+            <item value="value:sort" link="" icon="" tooltip="Security.property.value.displayName" classtype="com.ibm.ws.console.core.item.CollectionItem"/>
+            <item value="description:sort" link="" icon="" tooltip="Security.property.description.displayName" classtype="com.ibm.ws.console.core.item.CollectionItem"/>
+        </putList>
+        <putList name="collectionPreferenceList">
+            <item value="text:UI/Collections/Property/Preferences#maximumRows:25" link="collection.preferences.maxRowLabel: :collection.preferences.maxRowDesc:20" classtype="com.ibm.ws.console.core.item.PreferenceItem"/>
+            <item value="checkbox:UI/Collections/Property/Preferences#retainSearchCriteria:32" link="collection.preferences.searchHistoryLabel:collection.preferences.searchHistoryUnits:collection.preferences.searchHistoryDesc" classtype="com.ibm.ws.console.core.item.PreferenceItem"/>
+        </putList>
+    </definition>
+
+    <definition name="Security.Property.collection.buttons.panel" extends="buttons.panel">
+        <put name="buttonCount" value="2"/>
+        <put name="definitionName" value="Security.Property.collection.buttons.panel"/>
+        <put name="includeForm" value="no"/>
+        <putList name="actionList">
+            <item value="button.new:secPropertyCollection.do" link="" icon="" tooltip="administrator,configurator" classtype="com.ibm.ws.console.core.item.ActionSetItem"/>
+            <item value="button.delete:secPropertyCollection.do" link="" icon="" tooltip="administrator,configurator" classtype="com.ibm.ws.console.core.item.ActionSetItem"/>
+        </putList>
+    </definition>
+
+    <definition name="Security.Property.config.view" extends="detail.config.view" controllerClass="com.ibm.ws.console.security.PropertyController">
+        <putList name="list">
+        <add value="Security.Property.detail.title"/>
+        <add value="Security.Property.detail.tabsLayout"/>
+        </putList>
+    </definition>
+
+    <definition name="Security.Property.detail.title" extends="detail.title">
+        <put name="formName" value="com.ibm.ws.console.security.PropertyDetailForm"/>
+        <put name="objectTypeImage" value="Security.property.smallIcon:pluginId=com.ibm.ws.console.security"/>
+        <put name="titleKey" value="Security.property.displayName"/>
+        <put name="collectionLink" value="com.ibm.ws.console.security.forwardCmd.do?forwardName=Security.Property.content.main&#38;noChange=true"/>
+        <put name="includeLink" value="no"/>
+        <put name="instanceDetails" value="name"/>
+        <put name="instanceDescription" value="Security.property.detail.description"/>
+        <put name="displayName" value="Security.property.displayName"/>
+    </definition>
+
+    <definition name="Security.Property.detail.tabsLayout" path="/secure/layouts/tabsLayout.jsp">
+        <put name="selectUri" value="secPropertyDetail.do"/>
+        <put name="selectedPerspective" value="tab.configuration"/>
+        <put name="formName" value="com.ibm.ws.console.security.PropertyDetailForm"/>
+        <putList name="tabList">
+            <item  value="tab.configuration" link="Security.Property.config.tab.view" classtype="org.apache.struts.tiles.beans.SimpleMenuItem"/>
+        </putList>
+    </definition>
+
+    <definition name="Security.Property.config.tab.view" extends="detail.config.tab.view">
+        <putList name="list">
+        <add value="Security.Property.detail.buttons.panel"/>
+        <add value="Security.Property.config.general.properties"/>
+        </putList>
+    </definition>
+
+    <definition name="Security.Property.detail.buttons.panel" extends="buttons.panel">
+        <put name="buttonCount" value="2"/>
+        <put name="definitionName" value="Security.Property.detail.buttons.panel"/>
+        <put name="includeForm" value="yes"/>
+        <putList name="actionList">
+        </putList>
+    </definition>
+
+    <definition name="Security.Property.config.general.properties" extends="detail.config.general.properties">
+        <put name="formAction" value="secPropertyDetail.do"/>
+        <put name="formName" value="com.ibm.ws.console.security.PropertyDetailForm"/>
+        <put name="formType" value="com.ibm.ws.console.security.PropertyDetailForm"/>
+        <put name="formFocus" value="name"/>
+        <put name="readOnlyView" value="no"/>
+        <putList name="attributeList">
+            <item  value="Security.property.name.displayName:name:yes:Text:Security.property.name.description:no:yes" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="Security.property.value.displayName:value:yes:Text:Security.property.value.description:no:yes" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="Security.property.description.displayName:description:no:Text:Security.property.description.description:no:yes" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+        </putList>
+    </definition>
+
+    <definition name="Security.Property.runtime.tab.view" path="/secure/layouts/configTabLayout.jsp">
+        <putList name="list">
+        </putList>
+    </definition>
+
+    <definition name="Security.Property.topology.tab.view" path="/secure/layouts/configTabLayout.jsp">
+        <putList name="list">
+        </putList>
+    </definition>
+
+<!-- Admin Property -->
+    <definition name="Security.AdminOnly.Property.content.main" path="/secure/layouts/contentLayout.jsp" controllerClass="com.ibm.ws.console.security.PropertyController">
+        <put name="descTitle" value="Security.property.displayName"/>
+        <put name="descImage" value="pluginId=com.ibm.ws.console.security"/>
+        <put name="descText" value="Security.property.description"/>
+        <putList name="contentList">
+        <add value="Security.AdminOnly.Property.paging.extend"/>
+        <add value="Security.AdminOnly.Property.quicksearch.extend"/>
+        <add value="Security.AdminOnly.Property.collection.table.extends"/>
+        </putList>
+    </definition>
+
+    <definition name="Security.AdminOnly.Property.quicksearch.extend" extends="Security.Property.quicksearch.extend">
+        <put name="selectUri" value="secAdminPropertyCollection.do?ToggleViewAction=true"/>
+        <put name="formAction" value="secAdminPropertyCollection.do"/>
+    </definition>
+
+    <definition name="Security.AdminOnly.Property.paging.extend" extends="Security.Property.paging.extend">
+        <put name="formAction" value="secAdminPropertyCollection.do"/>
+    </definition>
+
+    <definition name="Security.AdminOnly.Property.collection.table.extends" extends="collection.table.main">
+        <put name="iterationName" value="com.ibm.ws.console.security.PropertyCollectionForm"/>
+        <put name="formAction" value="secAdminPropertyCollection.do"/>
+        <put name="formName" value="com.ibm.ws.console.security.PropertyCollectionForm"/>
+        <put name="formType" value="com.ibm.ws.console.security.PropertyCollectionForm"/>
+        <put name="buttons" value="Security.AdminOnly.Property.collection.buttons.panel"/>
+        <put name="parent" value="com.ibm.ws.console.security.forwardCmd.do?forwardName=Security.AdminOnly.Property.content.main"/>
+        <putList name="collectionList">
+            <item value="name:sort" link="secAdminPropertyCollection.do?EditAction=true" icon="" tooltip="Security.property.name.displayName" classtype="com.ibm.ws.console.core.item.CollectionItem"/>
+            <item value="value:sort" link="" icon="" tooltip="Security.property.value.displayName" classtype="com.ibm.ws.console.core.item.CollectionItem"/>
+            <item value="description:sort" link="" icon="" tooltip="Security.property.description.displayName" classtype="com.ibm.ws.console.core.item.CollectionItem"/>
+        </putList>
+        <putList name="collectionPreferenceList">
+            <item value="text:UI/Collections/Property/Preferences#maximumRows:25" link="collection.preferences.maxRowLabel: :collection.preferences.maxRowDesc:20" classtype="com.ibm.ws.console.core.item.PreferenceItem"/>
+            <item value="checkbox:UI/Collections/Property/Preferences#retainSearchCriteria:32" link="collection.preferences.searchHistoryLabel:collection.preferences.searchHistoryUnits:collection.preferences.searchHistoryDesc" classtype="com.ibm.ws.console.core.item.PreferenceItem"/>
+        </putList>
+    </definition>
+
+    <definition name="Security.AdminOnly.Property.collection.buttons.panel" extends="buttons.panel">
+        <put name="buttonCount" value="2"/>
+        <put name="definitionName" value="Security.AdminOnly.Property.collection.buttons.panel"/>
+        <put name="includeForm" value="no"/>
+        <putList name="actionList">
+            <item value="button.new:secAdminPropertyCollection.do" link="" icon="" tooltip="administrator" classtype="com.ibm.ws.console.core.item.ActionSetItem"/>
+            <item value="button.delete:secAdminPropertyCollection.do" link="" icon="" tooltip="administrator" classtype="com.ibm.ws.console.core.item.ActionSetItem"/>
+        </putList>
+    </definition>
+
+    <definition name="Security.AdminOnly.Property.config.view" extends="detail.config.view" controllerClass="com.ibm.ws.console.security.PropertyController">
+        <putList name="list">
+        <add value="Security.AdminOnly.Property.detail.title"/>
+        <add value="Security.AdminOnly.Property.detail.tabsLayout"/>
+        </putList>
+    </definition>
+
+    <definition name="Security.AdminOnly.Property.detail.title" extends="Security.Property.detail.title">
+        <put name="collectionLink" value="com.ibm.ws.console.security.forwardCmd.do?forwardName=Security.AdminOnly.Property.content.main&#38;noChange=true"/>
+    </definition>
+
+    <definition name="Security.AdminOnly.Property.detail.tabsLayout" path="/secure/layouts/tabsLayout.jsp">
+        <put name="selectUri" value="secAdminPropertyDetail.do"/>
+        <put name="selectedPerspective" value="tab.configuration"/>
+        <put name="formName" value="com.ibm.ws.console.security.PropertyDetailForm"/>
+        <putList name="tabList">
+            <item  value="tab.configuration" link="Security.AdminOnly.Property.config.tab.view" classtype="org.apache.struts.tiles.beans.SimpleMenuItem"/>
+        </putList>
+    </definition>
+
+    <definition name="Security.AdminOnly.Property.config.tab.view" extends="detail.config.tab.view">
+        <putList name="list">
+        <add value="Security.Property.detail.buttons.panel"/>
+        <add value="Security.AdminOnly.Property.config.general.properties"/>
+        </putList>
+    </definition>
+
+    <definition name="Security.AdminOnly.Property.config.general.properties" path="/com.ibm.ws.console.security/adminConfigGenPropLayout.jsp">
+        <put name="formAction" value="secAdminPropertyDetail.do"/>
+        <put name="formName" value="com.ibm.ws.console.security.PropertyDetailForm"/>
+        <put name="formType" value="com.ibm.ws.console.security.PropertyDetailForm"/>
+        <put name="formFocus" value="name"/>
+        <put name="readOnlyView" value="no"/>
+        <putList name="attributeList">
+            <item  value="Security.property.name.displayName:name:yes:JSP:Security.property.name.description:no:yes: : :/com.ibm.ws.console.security/textFieldLayoutAdminOnly.jsp" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="Security.property.value.displayName:value:yes:JSP:Security.property.value.description:no:yes: : :/com.ibm.ws.console.security/textFieldLayoutAdminOnly.jsp" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="Security.property.description.displayName:description:no:JSP:Security.property.description.description:no:yes: : :/com.ibm.ws.console.security/textFieldLayoutAdminOnly.jsp" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+        </putList>
+    </definition>
+
+<!-- CSIia -->
+    <definition name="CSIia.config.view" extends="detail.config.view" controllerClass="com.ibm.ws.console.security.CSIiaController">
+        <putList name="list">
+        <add value="CSIia.detail.title"/>
+        <add value="CSIia.detail.tabsLayout"/>
+        </putList>
+    </definition>
+
+    <definition name="CSIia.detail.title" extends="detail.title">
+        <put name="formName" value="com.ibm.ws.console.security.CSIiaDetailForm"/>
+        <put name="objectTypeImage" value="CSIia.smallIcon:pluginId=com.ibm.ws.console.security"/>
+        <put name="titleKey" value="CSIia.displayName"/>
+        <put name="collectionLink" value="com.ibm.ws.console.security.forwardCmd.do?forwardName=CSIia.content.main&#38;noChange=true"/>
+        <put name="includeLink" value="no"/>
+        <put name="instanceDetails" value="title"/>
+        <put name="instanceDescription" value="CSIia.description"/>
+        <put name="displayName" value="CSIia.displayName"/>
+    </definition>
+
+    <definition name="CSIia.detail.tabsLayout" path="/secure/layouts/tabsLayout.jsp">
+        <put name="selectUri" value="cSIiaDetail.do"/>
+        <put name="selectedPerspective" value="tab.configuration"/>
+        <put name="formName" value="com.ibm.ws.console.security.CSIiaDetailForm"/>
+        <putList name="tabList">
+            <item  value="tab.configuration" link="CSIia.config.tab.view" classtype="org.apache.struts.tiles.beans.SimpleMenuItem"/>
+        </putList>
+    </definition>
+
+    <definition name="CSIia.config.tab.view" extends="detail.config.tab.view">
+        <putList name="list">
+        <add value="CSIia.detail.buttons.panel"/>
+        <add value="CSIia.config.general.properties"/>
+        </putList>
+    </definition>
+
+    <definition name="CSIia.detail.buttons.panel" extends="buttons.panel">
+        <put name="buttonCount" value="2"/>
+        <put name="definitionName" value="CSIia.detail.buttons.panel"/>
+        <put name="includeForm" value="yes"/>
+        <putList name="actionList">
+        </putList>
+    </definition>
+
+    <definition name="CSIia.config.general.properties" extends="detail.config.general.properties">
+        <put name="formAction" value="cSIiaDetail.do"/>
+        <put name="formName" value="com.ibm.ws.console.security.CSIiaDetailForm"/>
+        <put name="formType" value="com.ibm.ws.console.security.CSIiaDetailForm"/>
+        <put name="formFocus" value="authenticationLayerRetryCount"/>
+        <put name="readOnlyView" value="no"/>
+        <putList name="attributeList">
+            <item  value="BasicAuthentication.displayName:basicAuthentication:no:Radio:BasicAuthentication_i.description:no:yes:Never,Supported,Required:CSI.Never,CSI.Supported,CSI.Required" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="ClientCertificateAuthentication.displayName:clientCertificateAuthentication:no:Radio:ClientCertificateAuthentication_i.description:no:yes:Never,Supported,Required:CSI.Never,CSI.Supported,CSI.Required" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="IdentityAssertion.displayName:identityAssertion:no:Checkbox:IdentityAssertion_i.description:no:yes" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="IdentityAssertionLayer.trustedServers.displayName:trustedServers:no:Text:IdentityAssertionLayer.trustedServers.description:no:yes" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="StatefulSession.displayName:isStateful:no:Checkbox:MessageLayer.isStateful.description:no:yes" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+        </putList>
+    </definition>
+
+<!-- CSIoa -->
+    <definition name="CSIoa.config.view" extends="detail.config.view" controllerClass="com.ibm.ws.console.security.CSIoaController">
+        <putList name="list">
+        <add value="CSIoa.detail.title"/>
+        <add value="CSIoa.detail.tabsLayout"/>
+        </putList>
+    </definition>
+
+    <definition name="CSIoa.detail.title" extends="detail.title">
+        <put name="formName" value="com.ibm.ws.console.security.CSIoaDetailForm"/>
+        <put name="objectTypeImage" value="CSIoa.smallIcon:pluginId=com.ibm.ws.console.security"/>
+        <put name="titleKey" value="CSIoa.displayName"/>
+        <put name="collectionLink" value="com.ibm.ws.console.security.forwardCmd.do?forwardName=CSIoa.content.main&#38;noChange=true"/>
+        <put name="includeLink" value="no"/>
+        <put name="instanceDetails" value="title"/>
+        <put name="instanceDescription" value="CSIoa.description"/>
+        <put name="displayName" value="CSIoa.displayName"/>
+    </definition>
+
+    <definition name="CSIoa.detail.tabsLayout" path="/secure/layouts/tabsLayout.jsp">
+        <put name="selectUri" value="cSIoaDetail.do"/>
+        <put name="selectedPerspective" value="tab.configuration"/>
+        <put name="formName" value="com.ibm.ws.console.security.CSIoaDetailForm"/>
+        <putList name="tabList">
+            <item  value="tab.configuration" link="CSIoa.config.tab.view" classtype="org.apache.struts.tiles.beans.SimpleMenuItem"/>
+        </putList>
+    </definition>
+
+    <definition name="CSIoa.config.tab.view" extends="detail.config.tab.view">
+        <putList name="list">
+        <add value="CSIoa.detail.buttons.panel"/>
+        <add value="CSIoa.config.general.properties"/>
+        </putList>
+    </definition>
+
+    <definition name="CSIoa.detail.buttons.panel" extends="buttons.panel">
+        <put name="buttonCount" value="2"/>
+        <put name="definitionName" value="CSIoa.detail.buttons.panel"/>
+        <put name="includeForm" value="yes"/>
+        <putList name="actionList">
+        </putList>
+    </definition>
+
+    <definition name="CSIoa.config.general.properties" extends="detail.config.general.properties">
+        <put name="formAction" value="cSIoaDetail.do"/>
+        <put name="formName" value="com.ibm.ws.console.security.CSIoaDetailForm"/>
+        <put name="formType" value="com.ibm.ws.console.security.CSIoaDetailForm"/>
+        <put name="formFocus" value="authenticationLayerRetryCount"/>
+        <put name="readOnlyView" value="no"/>
+        <putList name="attributeList">
+            <item  value="BasicAuthentication.displayName:basicAuthentication:no:Radio:BasicAuthentication_o.description:no:yes:Never,Supported,Required:CSI.Never,CSI.Supported,CSI.Required" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="ClientCertificateAuthentication.displayName:clientCertificateAuthentication:no:Radio:ClientCertificateAuthentication_o.description:no:yes:Never,Supported,Required:CSI.Never,CSI.Supported,CSI.Required" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="IdentityAssertion.displayName:identityAssertion:no:Checkbox:IdentityAssertion_o.description:no:yes" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="StatefulSession.displayName:isStateful:no:Checkbox:MessageLayer.isStateful.description:no:yes" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+        </putList>
+    </definition>
+
+<!-- CSIic -->
+    <definition name="CSIic.config.view" extends="detail.config.view" controllerClass="com.ibm.ws.console.security.CSIicController">
+        <putList name="list">
+        <add value="CSIic.detail.title"/>
+        <add value="CSIic.detail.tabsLayout"/>
+        </putList>
+    </definition>
+
+    <definition name="CSIic.detail.title" extends="detail.title">
+        <put name="formName" value="com.ibm.ws.console.security.CSIicDetailForm"/>
+        <put name="objectTypeImage" value="CSIic.smallIcon:pluginId=com.ibm.ws.console.security"/>
+        <put name="titleKey" value="CSIic.displayName"/>
+        <put name="collectionLink" value="com.ibm.ws.console.security.forwardCmd.do?forwardName=CSIic.content.main&#38;noChange=true"/>
+        <put name="includeLink" value="no"/>
+        <put name="instanceDetails" value="title"/>
+        <put name="instanceDescription" value="CSIic.description"/>
+        <put name="displayName" value="CSIic.displayName"/>
+    </definition>
+
+    <definition name="CSIic.detail.tabsLayout" path="/secure/layouts/tabsLayout.jsp">
+        <put name="selectUri" value="cSIicDetail.do"/>
+        <put name="selectedPerspective" value="tab.configuration"/>
+        <put name="formName" value="com.ibm.ws.console.security.CSIicDetailForm"/>
+        <putList name="tabList">
+            <item  value="tab.configuration" link="CSIic.config.tab.view" classtype="org.apache.struts.tiles.beans.SimpleMenuItem"/>
+        </putList>
+    </definition>
+
+    <definition name="CSIic.config.tab.view" extends="detail.config.tab.view">
+        <putList name="list">
+        <add value="CSIic.detail.buttons.panel"/>
+        <add value="CSIic.config.general.properties"/>
+        </putList>
+    </definition>
+
+    <definition name="CSIic.detail.buttons.panel" extends="buttons.panel">
+        <put name="buttonCount" value="2"/>
+        <put name="definitionName" value="CSIic.detail.buttons.panel"/>
+        <put name="includeForm" value="yes"/>
+        <putList name="actionList">
+        </putList>
+    </definition>
+
+    <definition name="CSIic.config.general.properties" extends="detail.config.general.properties">
+        <put name="formAction" value="cSIicDetail.do"/>
+        <put name="formName" value="com.ibm.ws.console.security.CSIicDetailForm"/>
+        <put name="formType" value="com.ibm.ws.console.security.CSIicDetailForm"/>
+        <put name="formFocus" value="keyFileName"/>
+        <put name="readOnlyView" value="no"/>
+        <putList name="attributeList">
+            <item  value="Transport.displayName:transport:no:Radio:Transport_i.description:no:yes:TCPIP,SSL-Required,SSL-Supported:Transport.TCPIP,Transport.SSL-Required,Transport.SSL-Supported" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="SSLSettings.displayName:alias:no:DynamicSelect:SSLSettings_csi_i.description:no:yes:refVal:refDesc" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+        </putList>
+    </definition>
+
+<!-- CSIoc -->
+    <definition name="CSIoc.config.view" extends="detail.config.view" controllerClass="com.ibm.ws.console.security.CSIocController">
+        <putList name="list">
+        <add value="CSIoc.detail.title"/>
+        <add value="CSIoc.detail.tabsLayout"/>
+        </putList>
+    </definition>
+
+    <definition name="CSIoc.detail.title" extends="detail.title">
+        <put name="formName" value="com.ibm.ws.console.security.CSIocDetailForm"/>
+        <put name="objectTypeImage" value="CSIoc.smallIcon:pluginId=com.ibm.ws.console.security"/>
+        <put name="titleKey" value="CSIoc.displayName"/>
+        <put name="collectionLink" value="com.ibm.ws.console.security.forwardCmd.do?forwardName=CSIoc.content.main&#38;noChange=true"/>
+        <put name="includeLink" value="no"/>
+        <put name="instanceDetails" value="title"/>
+        <put name="instanceDescription" value="CSIoc.description"/>
+        <put name="displayName" value="CSIoc.displayName"/>
+    </definition>
+
+    <definition name="CSIoc.detail.tabsLayout" path="/secure/layouts/tabsLayout.jsp">
+        <put name="selectUri" value="cSIocDetail.do"/>
+        <put name="selectedPerspective" value="tab.configuration"/>
+        <put name="formName" value="com.ibm.ws.console.security.CSIocDetailForm"/>
+        <putList name="tabList">
+            <item  value="tab.configuration" link="CSIoc.config.tab.view" classtype="org.apache.struts.tiles.beans.SimpleMenuItem"/>
+        </putList>
+    </definition>
+
+    <definition name="CSIoc.config.tab.view" extends="detail.config.tab.view">
+        <putList name="list">
+        <add value="CSIoc.detail.buttons.panel"/>
+        <add value="CSIoc.config.general.properties"/>
+        </putList>
+    </definition>
+
+    <definition name="CSIoc.detail.buttons.panel" extends="buttons.panel">
+        <put name="buttonCount" value="2"/>
+        <put name="definitionName" value="CSIoc.detail.buttons.panel"/>
+        <put name="includeForm" value="yes"/>
+        <putList name="actionList">
+        </putList>
+    </definition>
+
+    <definition name="CSIoc.config.general.properties" extends="detail.config.general.properties">
+        <put name="formAction" value="cSIocDetail.do"/>
+        <put name="formName" value="com.ibm.ws.console.security.CSIocDetailForm"/>
+        <put name="formType" value="com.ibm.ws.console.security.CSIocDetailForm"/>
+        <put name="formFocus" value="keyFileName"/>
+        <put name="readOnlyView" value="no"/>
+        <putList name="attributeList">
+            <item  value="Transport.displayName:transport:no:Radio:Transport_o.description:no:yes:TCPIP,SSL-Required,SSL-Supported:Transport.TCPIP,Transport.SSL-Required,Transport.SSL-Supported" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="SSLSettings.displayName:alias:no:DynamicSelect:SSLSettings_csi_o.description:no:yes:refVal:refDesc" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+        </putList>
+    </definition>
+
+<!-- IBMic -->
+    <definition name="IBMic.config.view" extends="detail.config.view" controllerClass="com.ibm.ws.console.security.IBMicController">
+        <putList name="list">
+        <add value="IBMic.detail.title"/>
+        <add value="IBMic.detail.tabsLayout"/>
+        </putList>
+    </definition>
+
+    <definition name="IBMic.detail.title" extends="detail.title">
+        <put name="formName" value="com.ibm.ws.console.security.IBMicDetailForm"/>
+        <put name="objectTypeImage" value="IBMic.smallIcon:pluginId=com.ibm.ws.console.security"/>
+        <put name="titleKey" value="IBMic.displayName"/>
+        <put name="collectionLink" value="com.ibm.ws.console.security.forwardCmd.do?forwardName=IBMic.content.main&#38;noChange=true"/>
+        <put name="includeLink" value="no"/>
+        <put name="instanceDetails" value="title"/>
+        <put name="instanceDescription" value="IBMic.description"/>
+        <put name="displayName" value="IBMic.displayName"/>
+    </definition>
+
+    <definition name="IBMic.detail.tabsLayout" path="/secure/layouts/tabsLayout.jsp">
+        <put name="selectUri" value="iBMicDetail.do"/>
+        <put name="selectedPerspective" value="tab.configuration"/>
+        <put name="formName" value="com.ibm.ws.console.security.IBMicDetailForm"/>
+        <putList name="tabList">
+            <item  value="tab.configuration" link="IBMic.config.tab.view" classtype="org.apache.struts.tiles.beans.SimpleMenuItem"/>
+        </putList>
+    </definition>
+
+    <definition name="IBMic.config.tab.view" extends="detail.config.tab.view">
+        <putList name="list">
+        <add value="IBMic.detail.buttons.panel"/>
+        <add value="IBMic.config.general.properties"/>
+        </putList>
+    </definition>
+
+    <definition name="IBMic.detail.buttons.panel" extends="buttons.panel">
+        <put name="buttonCount" value="2"/>
+        <put name="definitionName" value="IBMic.detail.buttons.panel"/>
+        <put name="includeForm" value="yes"/>
+        <putList name="actionList">
+        </putList>
+    </definition>
+
+    <definition name="IBMic.config.general.properties" extends="detail.config.general.properties">
+        <put name="formAction" value="iBMicDetail.do"/>
+        <put name="formName" value="com.ibm.ws.console.security.IBMicDetailForm"/>
+        <put name="formType" value="com.ibm.ws.console.security.IBMicDetailForm"/>
+        <put name="formFocus" value="keyFileName"/>
+        <put name="readOnlyView" value="no"/>
+        <putList name="attributeList">
+            <item  value="SSLSettings.displayName:alias:no:DynamicSelect:SSLSettings_ibm_i.description:no:yes:refVal:refDesc" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+        </putList>
+    </definition>
+
+<!-- IBMoc -->
+    <definition name="IBMoc.config.view" extends="detail.config.view" controllerClass="com.ibm.ws.console.security.IBMocController">
+        <putList name="list">
+        <add value="IBMoc.detail.title"/>
+        <add value="IBMoc.detail.tabsLayout"/>
+        </putList>
+    </definition>
+
+    <definition name="IBMoc.detail.title" extends="detail.title">
+        <put name="formName" value="com.ibm.ws.console.security.IBMocDetailForm"/>
+        <put name="objectTypeImage" value="IBMoc.smallIcon:pluginId=com.ibm.ws.console.security"/>
+        <put name="titleKey" value="IBMoc.displayName"/>
+        <put name="collectionLink" value="com.ibm.ws.console.security.forwardCmd.do?forwardName=IBMoc.content.main&#38;noChange=true"/>
+        <put name="includeLink" value="no"/>
+        <put name="instanceDetails" value="title"/>
+        <put name="instanceDescription" value="IBMoc.description"/>
+        <put name="displayName" value="IBMoc.displayName"/>
+    </definition>
+
+    <definition name="IBMoc.detail.tabsLayout" path="/secure/layouts/tabsLayout.jsp">
+        <put name="selectUri" value="iBMocDetail.do"/>
+        <put name="selectedPerspective" value="tab.configuration"/>
+        <put name="formName" value="com.ibm.ws.console.security.IBMocDetailForm"/>
+        <putList name="tabList">
+            <item  value="tab.configuration" link="IBMoc.config.tab.view" classtype="org.apache.struts.tiles.beans.SimpleMenuItem"/>
+        </putList>
+    </definition>
+
+    <definition name="IBMoc.config.tab.view" extends="detail.config.tab.view">
+        <putList name="list">
+        <add value="IBMoc.detail.buttons.panel"/>
+        <add value="IBMoc.config.general.properties"/>
+        </putList>
+    </definition>
+
+    <definition name="IBMoc.detail.buttons.panel" extends="buttons.panel">
+        <put name="buttonCount" value="2"/>
+        <put name="definitionName" value="IBMoc.detail.buttons.panel"/>
+        <put name="includeForm" value="yes"/>
+        <putList name="actionList">
+        </putList>
+    </definition>
+
+    <definition name="IBMoc.config.general.properties" extends="detail.config.general.properties">
+        <put name="formAction" value="iBMocDetail.do"/>
+        <put name="formName" value="com.ibm.ws.console.security.IBMocDetailForm"/>
+        <put name="formType" value="com.ibm.ws.console.security.IBMocDetailForm"/>
+        <put name="formFocus" value="keyFileName"/>
+        <put name="readOnlyView" value="no"/>
+        <putList name="attributeList">
+            <item  value="SSLSettings.displayName:alias:no:DynamicSelect:SSLSettings_ibm_o.description:no:yes:refVal:refDesc" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+        </putList>
+    </definition>
+
+<!--  EndPoint  -->
+    <definition name="Security.EndPoint.content.main" path="/secure/layouts/contentLayout.jsp" controllerClass="com.ibm.ws.console.security.EndPointController">
+        <put name="descTitle" value="LDAPUserRegistry.hosts.displayName"/>
+        <put name="descImage" value="pluginId=com.ibm.ws.console.security"/>
+        <put name="descText" value="LDAPUserRegistry.hosts.description"/>
+        <putList name="contentList">
+        <add value="Security.EndPoint.paging.extend"/>
+        <add value="Security.EndPoint.quicksearch.extend"/>
+        <add value="Security.EndPoint.collection.table.extends"/>
+        </putList>
+    </definition>
+
+    <definition name="Security.EndPoint.quicksearch.extend" extends="quicksearch.main">
+        <put name="selectUri" value="securityEndPointCollection.do?ToggleViewAction=true"/>
+        <put name="collectionForm" value="com.ibm.ws.console.security.EndPointCollectionForm"/>
+        <put name="formAction" value="securityEndPointCollection.do"/>
+        <put name="formName" value="com.ibm.ws.console.security.EndPointCollectionForm"/>
+        <put name="formType" value="com.ibm.ws.console.security.EndPointCollectionForm"/>
+        <putList name="searchList">
+            <add value="EndPoint.host.displayName:host"/>
+            <add value="EndPoing.port.displayName:port"/>
+        </putList>
+    </definition>
+
+    <definition name="Security.EndPoint.paging.extend" extends="paging.main">
+        <put name="displayLabelKey" value="LDAPUserRegistry.hosts.displayName"/>
+        <put name="collectionForm" value="com.ibm.ws.console.security.EndPointCollectionForm"/>
+        <put name="formAction" value="securityEndPointCollection.do"/>
+        <put name="formName" value="com.ibm.ws.console.security.EndPointCollectionForm"/>
+        <put name="formType" value="com.ibm.ws.console.security.EndPointCollectionForm"/>
+    </definition>
+
+    <definition name="Security.EndPoint.collection.table.extends" extends="collection.table.main">
+        <put name="iterationName" value="com.ibm.ws.console.security.EndPointCollectionForm"/>
+        <put name="formAction" value="securityEndPointCollection.do"/>
+        <put name="formName" value="com.ibm.ws.console.security.EndPointCollectionForm"/>
+        <put name="formType" value="com.ibm.ws.console.security.EndPointCollectionForm"/>
+        <put name="buttons" value="Security.EndPoint.collection.buttons.panel"/>
+        <put name="parent" value="com.ibm.ws.console.security.forwardCmd.do?forwardName=Security.EndPoint.content.main"/>
+        <putList name="collectionList">
+            <item value="host:sort" link="securityEndPointCollection.do?EditAction=true" icon="" tooltip="EndPoint.host.displayName" classtype="com.ibm.ws.console.core.item.CollectionItem"/>
+            <item value="port:sort" link="" icon="" tooltip="EndPoint.port.displayName" classtype="com.ibm.ws.console.core.item.CollectionItem"/>
+        </putList>
+        <putList name="collectionPreferenceList">
+            <item value="text:UI/Collections/EndPoint/Preferences#maximumRows:25" link="collection.preferences.maxRowLabel: :collection.preferences.maxRowDesc:20" classtype="com.ibm.ws.console.core.item.PreferenceItem"/>
+            <item value="checkbox:UI/Collections/EndPoint/Preferences#retainSearchCriteria:32" link="collection.preferences.searchHistoryLabel:collection.preferences.searchHistoryUnits:collection.preferences.searchHistoryDesc" classtype="com.ibm.ws.console.core.item.PreferenceItem"/>
+        </putList>
+    </definition>
+
+    <definition name="Security.EndPoint.collection.buttons.panel" extends="buttons.panel">
+        <put name="buttonCount" value="2"/>
+        <put name="definitionName" value="Security.EndPoint.collection.buttons.panel"/>
+        <put name="includeForm" value="no"/>
+        <putList name="actionList">
+            <item value="button.new:securityEndPointCollection.do" link="" icon="" tooltip="administrator,configurator" classtype="com.ibm.ws.console.core.item.ActionSetItem"/>
+            <item value="button.delete:securityEndPointCollection.do" link="" icon="" tooltip="administrator,configurator" classtype="com.ibm.ws.console.core.item.ActionSetItem"/>
+        </putList>
+    </definition>
+
+    <definition name="Security.EndPoint.config.view" extends="detail.config.view" controllerClass="com.ibm.ws.console.security.EndPointController">
+        <putList name="list">
+        <add value="Security.EndPoint.detail.title"/>
+        <add value="Security.EndPoint.detail.tabsLayout"/>
+        </putList>
+    </definition>
+
+    <definition name="Security.EndPoint.detail.title" extends="detail.title">
+        <put name="formName" value="com.ibm.ws.console.security.EndPointDetailForm"/>
+        <put name="objectTypeImage" value="EndPoint.smallIcon:pluginId=com.ibm.ws.console.security"/>
+        <put name="titleKey" value="LDAPUserRegistry.hosts.displayName"/>
+        <put name="collectionLink" value="com.ibm.ws.console.security.forwardCmd.do?forwardName=Security.EndPoint.content.main&#38;noChange=true"/>
+        <put name="includeLink" value="yes"/>
+        <put name="instanceDetails" value="host"/>
+        <put name="instanceDescription" value="LDAPUserRegistry.hosts.description"/>
+        <put name="displayName" value="LDAPUserRegistry.hosts.displayName"/>
+    </definition>
+
+    <definition name="Security.EndPoint.detail.tabsLayout" path="/secure/layouts/tabsLayout.jsp">
+        <put name="selectUri" value="securityEndPointDetail.do"/>
+        <put name="selectedPerspective" value="tab.configuration"/>
+        <put name="formName" value="com.ibm.ws.console.security.EndPointDetailForm"/>
+        <putList name="tabList">
+            <item  value="tab.configuration" link="Security.EndPoint.config.tab.view" classtype="org.apache.struts.tiles.beans.SimpleMenuItem"/>
+        </putList>
+    </definition>
+
+    <definition name="Security.EndPoint.config.tab.view" extends="detail.config.tab.view">
+        <putList name="list">
+        <add value="Security.EndPoint.detail.buttons.panel"/>
+        <add value="Security.EndPoint.config.general.properties"/>
+        </putList>
+    </definition>
+
+    <definition name="Security.EndPoint.detail.buttons.panel" extends="buttons.panel">
+        <put name="buttonCount" value="2"/>
+        <put name="definitionName" value="Security.EndPoint.detail.buttons.panel"/>
+        <put name="includeForm" value="yes"/>
+        <putList name="actionList">
+        </putList>
+    </definition>
+
+    <definition name="Security.EndPoint.config.general.properties" extends="detail.config.general.properties">
+        <put name="formAction" value="securityEndPointDetail.do"/>
+        <put name="formName" value="com.ibm.ws.console.security.EndPointDetailForm"/>
+        <put name="formType" value="com.ibm.ws.console.security.EndPointDetailForm"/>
+        <put name="formFocus" value="host"/>
+        <put name="readOnlyView" value="no"/>
+        <putList name="attributeList">
+            <item  value="EndPoint.host.displayName:host:yes:Text:EndPoint.host.description:no:yes" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="EndPoint.port.displayName:port:yes:Text:EndPoint.port.description:no:yes" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+        </putList>
+    </definition>
+
+</tiles-definitions>
+
+

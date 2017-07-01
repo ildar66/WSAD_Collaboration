@@ -1,0 +1,279 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Erweiterte LDAP-Einstellungen (Lightweight Directory Access Protocol) </title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecadvldap"></a>
+<h2>Erweiterte LDAP-Einstellungen (Lightweight Directory Access Protocol) </h2>
+
+<p>Auf dieser Seite k&ouml;nnen Sie Einstellungen f&uuml;r die LDAP-Benutzer-Registry konfigurieren, wenn sich
+Benutzer und Gruppen in einem externen LDAP-Verzeichnis befinden.
+</p>
+
+<p>Klicken Sie zum Anzeigen dieser Seite der Administrationskonsole auf
+<strong>Sicherheit</strong> &gt; <strong>Benutzer-Registrys</strong> &gt; <strong>LDAP </strong> <strong>Erweiterte LDAP-Einstellungen</strong>.</p>
+
+<p>In den entsprechenden Feldern sind bereits Standardwerte f&uuml;r alle Benutzer- und Gruppenfilter eingetragen. 
+Sie k&ouml;nnen diese Werte wie gew&uuml;nscht anpassen.
+Diese Standardwerte basieren auf dem Typ des LDAP-Servers, der in der Anzeige <strong>LDAP-Einstellungen</strong>
+ausgew&auml;hlt wurde. Wird dieser Typ ge&auml;ndert (z. B. von NETSCAPE in SECUREWAY), werden die Standardfilter
+automatisch ge&auml;ndert. Wenn die Standardfilterwerte ge&auml;ndert werden, wird der Typ des LDAP-Servers in
+<strong>Benutzerdefiniert</strong> ge&auml;ndert. Dadurch wird angezeigt, dass benutzerdefinierte Filter verwendet
+werden. Wenn
+bei aktivierter Sicherheitseinrichtung eines dieser Merkmale ge&auml;ndert wird, m&uuml;ssen Sie in die Anzeige
+<strong>Globale Sicherheit</strong> wechseln und auf
+<strong>Anwenden</strong> oder <strong>OK</strong> klicken, um diese &Auml;nderungen zu &uuml;berpr&uuml;fen.</p>
+
+<div>
+<p>
+<strong>Register "Konfiguration"</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="LDAPSearchFilter_userFilter_description"></a>Benutzerfilter </strong>
+</dt>
+<dd>Gibt den LDAP-Benutzerfilter an, der die Registry nach Benutzern durchsucht. 
+<p>Diese Option wird normalerweise f&uuml;r die Zuordnung von Sicherheitsaufgabenbereichen zu Benutzern verwendet.
+Sie legt das Merkmal fest, nach dem Benutzer auf dem Verzeichnisserver gesucht werden. Wenn
+Sie beispielsweise Benutzer nach Ihren Benutzer-IDs suchen m&ouml;chten, geben Sie
+<samp>(ampersand(uid=%v)(objectclass=inetOrgPerson)</samp> an, wobei <samp>ampersand</samp> f&uuml;r
+das Et-Zeichen (&amp;) steht. Weitere Informationen zu dieser Syntax finden Sie in der Dokumentation zu LDAP-Verzeichnisservices.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LDAPSearchFilter_groupFilter_description"></a>Gruppenfilter</strong>
+</dt>
+<dd>Gibt den LDAP-Gruppenfilter an, der die Registry nach Gruppen durchsucht. 
+<p>Diese Option wird normalerweise f&uuml;r die Zuordnung von
+Sicherheitsaufgabenbereichen zu Gruppen verwendet. Er legt das
+Merkmal fest, nach dem Gruppen im Verzeichnisserver gesucht werden. Weitere Informationen zu dieser Syntax finden Sie in der Dokumentation zu LDAP-Verzeichnisservices.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LDAPSearchFilter_userIdMap_description"></a>Zuordnung von Benutzer-IDs</strong>
+</dt>
+<dd>Gibt den LDAP-Filter an, der den Kurznamen eines Benutzers einem LDAP-Eintrag zuordnet.
+<p>Gibt das Datensegment an, das bei der Darstellung von Benutzern angezeigt werden soll. Wenn beispielsweise Eintr&auml;ge
+des Typs <samp>objectclass = inetOrgPerson</samp> nach ihren IDs angezeigt werden sollen, m&uuml;ssen Sie <samp>inetOrgPerson:uid</samp>
+angeben. In diesem Feld k&ouml;nnen mehrere Paare aus Objektklassen und Merkmalen (objectclass:property), jeweils durch ein
+Semikolon (;) voneinander getrennt, angegeben werden.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LDAPSearchFilter_groupIdMap_description"></a>Zuordnung von Gruppen-IDs</strong>
+</dt>
+<dd>Gibt den LDAP-Filter an, der den Kurznamen einer Gruppe einem LDAP-Eintrag zuordnet.
+<p>Gibt das Datensegment an, das bei der Darstellung von Gruppen angezeigt werden soll. Geben Sie z. B. <samp>*:cn</samp>
+an, um Gruppen nach ihren Namen anzuzeigen. Das Zeichen <samp>*</samp> ist ein
+Platzhalterzeichen, mit dem nach allen Objektklassen in dieser Schreibweise gesucht wird.
+In diesem Feld k&ouml;nnen mehrere Paare aus Objektklassen und Merkmalen (<samp>objectclass:property</samp>), jeweils durch ein
+Semikolon (;) voneinander getrennt, angegeben werden.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LDAPSearchFilter_groupMemberIdMap_description"></a>Zuordnung von Gruppen-Member-IDs </strong>
+</dt>
+<dd>Gibt den LDAP-Filter an, der Beziehungen von Benutzern zu Gruppen definiert. 
+<p>F&uuml;r Verzeichnisserverprodukte wie SecureWay, NetScape und Domino k&ouml;nnen in diesem Felde mehrere
+Paare vom Typ "Objektklasse:Merkmal" angegeben werden. Die Angaben m&uuml;ssen durch ein Semikolon voneinander
+getrennt werden. Im objectclass:property-Paar ist die
+Objektklasse (objectclass) dieselbe Objektklasse, die im Gruppenfilter definiert ist, und
+das Merkmal (property) gibt das Member-Attribut an. Stimmt die Objektklasse nicht mit der Objektklasse im
+Gruppenfilter &uuml;berein, kann die Berechtigung fehlschlagen, wenn Gruppen Sicherheitsaufgabenbereichen
+zugeordnet sind. Weitere Informationen zu dieser Syntax finden Sie in der Dokumentation zum
+LDAP-Verzeichnisservice.</p>
+
+<p>F&uuml;r IBM Directory Server, iPlanet Directory Server und Active
+Directory k&ouml;nnen Sie in diesem Feld mehrere <samp>Gruppenattribut:Member-Attribut</samp>-Paare angeben, die Sie durch ein
+Semikolon (;) trennen m&uuml;ssen. Diese Wertpaare werden verwendet, um die Gruppenzugeh&ouml;rigkeit eines Benutzers zu ermitteln. Dazu werden alle
+Gruppenattribute eines bestimmten Benutzers aufgez&auml;hlt. Beispielsweise wird das Attributpaar
+<samp>(memberof:member)</samp> von Active Directory und das Attributpaar (ibm-allGroup:member)
+von IBM Directory Server verwendet. Dieses Feld gibt auch an, unter welchem Merkmal einer Objektklasse sich die Liste von Membern der Gruppe
+befindet, die durch die Objektklasse angegeben wird. Eine Liste der unterst&uuml;tzten LDAP-Verzeichnisserver finden Sie
+im InfoCenter-Artikel "Unterst&uuml;tzte Verzeichnisservices".</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LDAPSearchFilter_certificateMapMode_description"></a>Modus f&uuml;r Zertifikatzuordnung</strong>
+</dt>
+<dd>Gibt an, ob X.509-Zertifikate mit EXACT_DN oder CERTIFICATE_FILTER dem
+LDAP-Verzeichnis zugeordnet werden sollen. Geben
+Sie CERTIFICATE_FILTER an, um den angegebenen Zertifikatfilter f&uuml;r die Zuordnung zu verwenden.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LDAPSearchFilter_certificateFilter_description"></a>Zertifikatfilter</strong>
+</dt>
+<dd>Wenn Sie das Filtermerkmal "Zertifikatzuordnung" verwendet
+haben, um den LDAP-Filter anzugeben, mit dem Attribute im Clientzertifikat Eintr&auml;gen im LDAP-Registry
+zugeordnet werden.
+<p> W&auml;hlen Sie zum Aktivieren dieses Felds <strong>CERTIFICATE_FILTER</strong> f&uuml;r die Zertifikatzuordnung aus. Falls
+zur Laufzeit mehrere LDAP-Eintr&auml;ge der Filterspezifikation entsprechen, schl&auml;gt die Authentifizierung fehl,
+da die &Uuml;bereinstimmung nicht eindeutig ist. Die Syntax oder Struktur dieses Filters ist
+<samp>LDAP-Attribut=${Attribut des Clientzertifikats}</samp>, z. B. <samp>uid=${SubjectCN}</samp>. Die
+linke Seite der Filterspezifikation ist ein LDAP-Attribut, das von dem Schema
+abh&auml;ngig ist, f&uuml;r das Ihr LDAP-Server konfiguriert ist. Die rechte Seite der Filterspezifikation
+ist eines der allgemeinen Attribute im Clientzertifikat. Die rechte Seite muss
+mit einem Dollarzeichen ($) und einer linken geschweiften Klammer ({) beginnen und mit einer rechten geschweiften Klammer
+(}) enden. Die folgenden Zertifikatattributwerte k&ouml;nnen auf der rechten Seite der Filterspezifikation
+verwendet werden. Die Gro&szlig;-/Kleinschreibung der Zeichenfolgen muss beachtet werden:   <ul>
+
+<li>
+<samp>${UniqueKey} </samp>
+</li>
+
+<li>
+<samp>${PublicKey}</samp>
+</li>
+
+<li>
+<samp>${PublicKey}</samp>
+</li>
+
+<li>
+<samp>${Issuer}</samp>
+</li>
+
+<li>
+<samp>${NotAfter}</samp>
+</li>
+
+<li>
+<samp>${NotBefore}</samp>
+</li>
+
+<li>
+<samp>${SerialNumber}</samp>
+</li>
+
+<li>
+<samp>${SigAlgName}</samp>
+</li>
+
+<li>
+<samp>${SigAlgOID}</samp>
+</li>
+
+<li>
+<samp>${SigAlgParams}</samp>
+</li>
+
+<li>
+<samp>${SubjectCN}</samp>
+</li>
+
+<li>
+<samp>${Version}</samp>
+</li>
+
+</ul>
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Zugeh&ouml;rige Informationen</strong>
+</p>
+<a href="rcon_buttons.html">Kn&ouml;pfe in der Adminstrationskonsole</a>
+<br>
+
+<a href="rcon_pageusage.html">Funktionen auf den Seiten der Administrationskonsole</a>
+<br>
+
+<a href="rcon_scope.html">Geltungsbereichseinstellungen f&uuml;r die Administrationskonsole</a>
+<br>
+
+<a href="rcon_filter.html">Filtereinstellungen f&uuml;r die Administrationskonsole</a>
+<br>
+
+<a href="rcon_preferences.html">Vorgaben f&uuml;r die Administrationskonsole</a>
+<br>
+
+<a href="usec_rprdap.html">Einstellungen f&uuml;r Lightweight Directory Access Protocol</a>
+<br>
+
+</div>
+</body>
+</html>

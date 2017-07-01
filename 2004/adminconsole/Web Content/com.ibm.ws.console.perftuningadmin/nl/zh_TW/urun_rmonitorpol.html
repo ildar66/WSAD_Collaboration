@@ -1,0 +1,148 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>監視原則設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="urun_rmonitorpol"></a>
+<h2>監視原則設定</h2>
+
+<p>請利用這個頁面來檢視或變更控制節點代理程式如何監視和重新啟動程序的設定。
+</p>
+
+<p>如果要檢視這個管理主控台頁面，請按一下<strong>伺服器 &gt; 應用程式伺服器 &gt; </strong><em>server_name</em><strong> &gt; 程序定義 &gt; 監視原則</strong>。</p>
+
+<div>
+<p>
+<strong>「配置」標籤</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="MonitoringPolicy_maximumStartupAttempts_description"></a>啟動嘗試次數上限</strong>
+</dt>
+<dd>指定在放棄之前，嘗試啟動應用程式伺服器的次數上限。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">整數</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MonitoringPolicy_pingInterval_description"></a>連通測試間隔</strong>
+</dt>
+<dd>指定在母程序（如節點代理程式）與它已大量產生的程序（如應用程式伺服器）之間的通訊嘗試頻率。您可以根據重新啟動失敗的伺服器之需求來調整這個值。減少這個值會更快偵測到失敗；增加這個值則會減少連通測試頻率，因此而也會減少系統的額外負荷。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">整數</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MonitoringPolicy_pingTimeout_description"></a>連通測試逾時值</strong>
+</dt>
+<dd>當母程序要產生子程序時，例如，在程序管理程式產生伺服器時，母程序會連通測試子程序，以瞭解是否已順利產生子程序。這個值指定連通測試子程序之後，在假設子程序失敗之前，母程序應該等待的秒數。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">整數</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">單位</td>
+<td align="left" valign="top" class="base">秒</td>
+
+</tr>
+
+</table>
+</dd>
+<dt>
+<strong><a name="MonitoringPolicy_autoRestart_description"></a>自動重新啟動</strong>
+</dt>
+<dd>指定程序如果失敗，是否應該自動重新啟動。
+預設值是自動重新啟動程序。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">true
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MonitoringPolicy_nodeRestartState_description"></a>節點重新啟動狀態</strong>
+</dt>
+<dd>指定在節點完全關閉和重新啟動之後，所需要的程序狀態。選項是：<em>STOPPED</em>、<em>RUNNING</em>、<em>PREVIOUS</em>。預設值是 <em>STOPPED</em>。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">STOPPED</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">有效值是 STOPPED、RUNNING 或 PREVIOUS。</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>相關資訊</strong>
+</p>
+<a href="rcon_buttons.html">管理主控台按鈕</a>
+<br>
+
+<a href="rcon_pageusage.html">管理主控台頁面特性</a>
+<br>
+
+</div>
+</body>
+</html>

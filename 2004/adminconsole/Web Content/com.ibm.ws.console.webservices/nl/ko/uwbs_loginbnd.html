@@ -1,0 +1,102 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>로그인 바인딩 구성 설정</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_loginbnd"></a>
+<h2>
+<img alt="[픽스팩 5.0.2 이상]" src="v502.gif" border="0">로그인 바인딩 구성 설정</h2>
+
+<p>이 페이지를 참조하여 암호화 및 암호 해독 매개변수를 구성하십시오. </p>
+
+<p>플러그형 토큰은 JAAS(Java Authentication and Authorization Service)
+CallBackHandler(javax.security.auth.callback.CallBackHandler) 인터페이스를 사용하여,
+메시지에 삽입되는 토큰을 생성합니다. 
+다음 목록은 콜백 지원 구현에 대해 설명합니다. <dl>
+<dt>
+<strong>com.ibm.wsspi.wssecurity.auth.callback.BinaryTokenCallback</strong>
+</dt>
+<dd>이 구현은
+메시지에 <samp>&lt;wsse:BinarySecurityToken/@ValueType&gt;</samp>으로 삽입되는
+2진 토큰을 생성하는 데 사용됩니다. </dd>
+<dt>
+<strong>javax.security.auth.callback.NameCallback and javax.security.auth.callback.NameCallback</strong>
+</dt>
+<dd>이 구현은 메시지에 <samp>&lt;wsse:UsernameToken&gt;</samp>으로 삽입되는 사용자 이름
+토큰을 생성하는 데 사용됩니다. </dd>
+<dt>
+<strong>com.ibm.wsspi.wssecurity.auth.callback.XMLTokenSenderCallback</strong>
+</dt>
+<dd>이 구현은 XML 토큰을 생성하는 데 사용되며 메시지에 <samp>&lt;SAML:
+Assertion&gt;</samp> 요소로 삽입됩니다. </dd>
+<dt>
+<strong>com.ibm.wsspi.wssecurity.auth.callback.PropertyCallback</strong>
+</dt>
+<dd>이 구현은
+바인딩 파일에 지정된 등록 정보를 확보하는 데 사용됩니다. </dd>
+</dl>
+</p>
+
+<p>이 관리 콘솔 페이지를 보려면 다음 단계를 완료하십시오. <ol>
+
+<li>
+<strong>응용프로그램 &gt; 엔터프라이즈 응용프로그램 &gt; </strong><em>application_name</em>을 클릭하십시오. </li>
+
+<li>관련 항목 아래에서 <strong>웹 모듈 &gt; </strong><em>URI_file_name</em>&gt; <strong>웹 서비스: 클라이언트 보안 바인딩</strong>을 클릭하십시오. </li>
+
+<li>요청 송신자 바인딩 아래에서, <strong>편집 &gt; 로그인 바인딩</strong>을 클릭하십시오. </li>
+
+</ol>
+</p>
+
+<p>암호화 정보를 사용할 수 없는 경우 <strong>없음</strong>을 선택하십시오. </p>
+
+<p>암호화 정보가 사용 가능하면, <strong>전용 로그인 바인딩</strong>을 선택하고
+다음 필드에서 구성을 지정하십시오. </p>
+
+<dl>
+<dt>
+<strong><a name="sec_authmeth"></a>인증 메소드</strong>
+</dt>
+<dd>인증 메소드의 고유 이름을 지정합니다. </dd>
+<dt>
+<strong><a name="sec_cbhand"></a>콜백 핸들러</strong>
+</dt>
+<dd>콜백 핸들러의 이름을 지정합니다. 콜백 핸들러는
+javax.security.auth.callback.CallbackHandler 인터페이스를 구현해야 합니다. </dd>
+<dt>
+<strong><a name="sec_userid"></a>기본 인증 사용자 ID</strong>
+</dt>
+<dd>기본 인증에 대한 사용자 이름을 지정합니다. 
+기본 인증 인증 메소드는 바인딩 파일에 사용자 ID 및 암호를 정의할 수 있는 기능을 제공합니다. </dd>
+<dt>
+<strong><a name="sec_authpass"></a>기본 인증 암호</strong>
+</dt>
+<dd>기본 인증에 대한 암호를 지정합니다. </dd>
+<dt>
+<strong><a name="sec_uri"></a>토큰 유형 URI</strong>
+</dt>
+<dd>토큰 유형에 대한 URI(Uniform Resource Identifier)를 지정합니다. 이 정보는
+XML 토큰 <samp>&lt;SAML: Assertion&gt;</samp>에 대해 <samp>&lt;wsse:BinarySecurityToken&gt;/ValueType</samp>으로
+삽입됩니다. </dd>
+<dt>
+<strong><a name="sec_lname"></a>토큰 유형 로컬 이름</strong>
+</dt>
+<dd>토큰 유형의 로컬 이름을 지정합니다. 이 정보는
+XML 토큰 <samp>&lt;SAML: Assertion&gt;</samp>에 대해 <samp>&lt;wsse:BinarySecurityToken&gt;/ValueType</samp>으로
+삽입됩니다. </dd>
+</dl>
+<div>
+<p>
+<strong>관련 정보</strong>
+</p>
+<a href="uwbs_wsclientbind.html">웹 서비스: 클라이언트 보안 바인딩 콜렉션</a>
+<br>
+
+</div>
+</body>
+</html>

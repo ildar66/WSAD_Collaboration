@@ -1,0 +1,108 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Configuraci&oacute;n de Nonce para el nivel de c&eacute;lula</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="twbs_confnoncecell"></a>
+<h2>
+<img alt="[Release 5.1 y posterior]" src="v51.gif" border="0">Configuraci&oacute;n de Nonce para el nivel de c&eacute;lula</h2>
+
+
+<div> En esta tarea
+se facilitan las instrucciones sobre c&oacute;mo configurar Nonce para el nivel de
+c&eacute;lula mediante la consola administrativa de WebSphere Application Server. 
+Puede configurar Nonce en el nivel de aplicaci&oacute;n, de servidor y de c&eacute;lula. No
+obstante, debe tener en cuenta el orden de prioridad. La siguiente lista
+muestra el orden de prioridad:<ol>
+
+<li>Nivel de aplicaci&oacute;n</li>
+
+<li>Nivel de servidor</li>
+
+<li>Nivel de c&eacute;lula</li>
+
+</ol>Si configura Nonce en el nivel de aplicaci&oacute;n y de servidor, los valores
+especificados para el nivel de aplicaci&oacute;n tienen prioridad ante los valores
+para el nivel de servidor. Asimismo, los valores especificados para el nivel de
+aplicaci&oacute;n tienen prioridad ante los valores para el nivel de servidor y de c&eacute;lula. 
+En WebSphere Application Server Network Deployment, son necesarios los campos
+<strong>Tiempo de espera de antememoria de Nonce</strong>, <strong>Antig&uuml;edad m&aacute;xima de
+Nonce</strong> y <strong>Desfase horario de Nonce</strong> para utilizar Nonce eficazmente. 
+Sin embargo, estos campos son opcionales en el nivel de servidor. 
+Efect&uacute;e los pasos siguientes para configurar Nonce en el nivel de c&eacute;lula:</div>
+
+<div>
+<p class="sectiontitle">Pasos para realizar esta tarea</p>
+<ol>
+
+<li>Para conectarse a la consola administrativa, escriba
+http://localhost:9090/admin en el navegador Web a menos que
+haya cambiado el n&uacute;mero de puerto.</li>
+
+<li>Pulse <strong>Servidores &gt; Servidores de aplicaciones &gt; </strong><strong>servidor1</strong>.
+</li>
+
+<li>En Propiedades adicionales, pulse <strong>Servicios Web: Enlaces por
+omisi&oacute;n para Web Services Security</strong>.</li>
+
+<li>Especifique un valor en segundos para el campo <strong>Tiempo de espera
+de antememoria de Nonce</strong>. 
+<div>El valor especificado para el campo <strong>Tiempo de espera de antememoria de
+Nonce</strong> indica durante cu&aacute;nto tiempo permanece Nonce hasta que se borra. 
+Debe especificar un m&iacute;nimo de 300 segundos. Sin embargo, si no especifica un
+valor, el valor por omisi&oacute;n es 600 segundos. Este campo es opcional en el nivel de
+servidor, aunque es necesario en el nivel de c&eacute;lula.</div>
+</li>
+
+<li>Especifique un valor en segundos para el campo <strong>Antig&uuml;edad m&aacute;xima de Nonce</strong>. 
+<div>El valor especificado para el campo <strong>Antig&uuml;edad m&aacute;xima de Nonce</strong>
+indica durante cu&aacute;nto tiempo es v&aacute;lido Nonce. Debe especificar un m&iacute;nimo de
+300 segundos, pero el valor no puede exceder el n&uacute;mero de segundos especificado
+para el campo <strong>Tiempo de espera de antememoria de Nonce</strong> del paso anterior. 
+Si no especifica un valor, el valor por omisi&oacute;n es 600 segundos. En un
+entorno de WebSphere Application Server Network
+Deployment,entorno de WebSphere Application Server para z/OS, si
+especifica un valor en el nivel de servidor para el campo <strong>Tiempo de espera
+de antememoria de Nonce</strong>, el valor no puede exceder el valor especificado en
+el nivel de c&eacute;lula para el campo <strong>Tiempo de espera de antememoria de
+Nonce</strong>. 
+Este campo es opcional en el nivel de servidor, aunque es necesario en el nivel de
+c&eacute;lula.</div>
+</li>
+
+<li>Especifique un valor en segundos para el campo <strong>Desfase horario de
+Nonce</strong>. 
+<div>El valor especificado para el campo <strong>Desfase horario de Nonce</strong>
+especifica la cantidad de tiempo en segundos para determinar cuando el receptor
+del mensaje debe comprobar la renovaci&oacute;n del valor. Tenga en cuenta la siguiente
+informaci&oacute;n cuando establezca este valor: <ul>
+
+<li>La diferencia de tiempo entre el remitente del mensaje y el receptor del
+mensaje, si los relojes no est&aacute;n sincronizados.</li>
+
+<li>El tiempo necesario para cifrar y transmitir el mensaje.</li>
+
+<li>El tiempo necesario para superar la congesti&oacute;n de la red. </li>
+
+</ul>Como m&iacute;nimo, debe especificar 0 segundos en este campo. Sin embargo, el
+valor m&aacute;ximo no puede exceder el n&uacute;mero de segundos indicado en el campo
+<strong>Antig&uuml;edad m&aacute;xima de Nonce</strong>. Si no especifica un valor, el valor por
+omisi&oacute;n es 0 segundos. Este campo es opcional en el nivel de servidor, aunque es
+necesario en el nivel de c&eacute;lula.</div>
+
+</li>
+
+<li>Reinicie el servidor.<div>Si modifica el valor de <strong>Tiempo
+de espera de antememoria de Nonce</strong> y no reinicia el servidor, el servidor
+no reconoce el servidor.</div>
+</li>
+
+</ol>
+</div>
+
+</body>
+</html>

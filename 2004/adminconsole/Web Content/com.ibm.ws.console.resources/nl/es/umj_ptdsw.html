@@ -1,0 +1,467 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Valores de tema WebSphere</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="WASTopic"></a>
+<h2>Valores de tema WebSphere</h2>
+
+<p>Utilice este panel para ver o modificar las propiedades de configuraci&oacute;n del destino de tema seleccionado
+que se va a utilizar con el proveedor de JMS incorporado de WebSphere.</p>
+
+<p>Un destino de tema se utiliza para configurar las propiedades de un tema JMS para el proveedor de JMS asociado. La
+f&aacute;brica de conexiones de tema asociada crea las conexiones con el tema. Un tema que se vaya a utilizar con el proveedor
+de JMS incorporado de WebSphere tiene las propiedades siguientes.</p>
+
+<p>Para ver esta p&aacute;gina de la consola administrativa, pulse
+<strong>Recursos-&gt; Proveedor de JMS de WebSphere-&gt; (en el panel de
+contenido, en Propiedades adicionales) Destinos de tema de
+WebSphere-&gt; <em>nombre_destino</em></strong>
+</p>
+
+<div>
+<p>
+<strong>Pesta&ntilde;a Configuraci&oacute;n</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="WASTopic_contextId"></a>&Aacute;mbito</strong>
+</dt>
+<dd>Especifica el nivel hasta el cual puede visualizarse esta definici&oacute;n de recurso --
+nivel de c&eacute;lula, nodo o servidor.
+<p>Los recursos tales como los proveedores de JMS, enlaces de espacio de nombres o
+bibliotecas compartidas se pueden definir en varios &aacute;mbitos, de tal modo que los recursos
+definidos en &aacute;mbitos m&aacute;s espec&iacute;ficos alteren temporalmente los duplicados definidos en
+&aacute;mbitos m&aacute;s generales.</p>
+
+<p>Tenga en cuenta que, independientemente del &aacute;mbito de un recurso definido, las propiedades
+de dicho recurso s&oacute;lo se aplican a nivel de servidor individual. Por ejemplo, si define el
+&aacute;mbito de un origen de datos a nivel de c&eacute;lula, todos los usuarios de la c&eacute;lula pueden buscar
+y utilizar dicho origen de datos, que es exclusivo en esa c&eacute;lula. Sin
+embargo, los valores de propiedades de recursos son locales para cada
+servidor de la c&eacute;lula. Por ejemplo, si establece <strong>N&uacute;mero m&aacute;ximo de conexiones</strong> en 10, cada servidor de la c&eacute;lula
+puede tener 10 conexiones.<dl>
+<dt>
+<strong>C&eacute;lula</strong>
+</dt>
+<dd>El &aacute;mbito m&aacute;s general.  Los recursos definidos en el &aacute;mbito de c&eacute;lula son visibles desde todos los nodos y servidores, a menos que se alteren temporalmente. Para ver los recursos definidos en el &aacute;mbito de c&eacute;lula, no especifique ning&uacute;n servidor o nombre nodo en el formulario de selecci&oacute;n de &aacute;mbito.</dd>
+<dt>
+<strong>Nodo</strong>
+</dt>
+<dd>En &aacute;mbito por omisi&oacute;n de la mayor&iacute;a de tipos de recurso.  Los recursos
+definidos en el &aacute;mbito de nodo alteran temporalmente cualquier duplicado definido en el
+&aacute;mbito de c&eacute;lula y son visibles en todos los servidores del mismo nodo, a menos que se
+alteren temporalmente en un &aacute;mbito de servidor de ese nodo. Para ver los recursos definidos en un &aacute;mbito de nodo, no especifique ning&uacute;n servidor, sino que seleccione un nombre de nodo en el formulario de selecci&oacute;n de &aacute;mbito.</dd>
+<dt>
+<strong>Servidor</strong>
+</dt>
+<dd>El &aacute;mbito m&aacute;s espec&iacute;fico para definir recursos.  Los recursos definidos en
+el &aacute;mbito de servidor alteran temporalmente cualquier definici&oacute;n de recurso duplicado definida
+en el &aacute;mbito de c&eacute;lula o &aacute;mbito de nodo padre y s&oacute;lo son visibles en un servidor determinado.
+Para ver los recursos definidos en un &aacute;mbito de servidor, especifique un nombre de servidor, adem&aacute;s de un nombre de nodo en el formulario de selecci&oacute;n de &aacute;mbito.</dd>
+</dl>
+</p>
+
+<p>Al crear recursos, estos siempre se crean en el &aacute;mbito actual seleccionado en el panel. Para ver recursos de otros &aacute;mbitos, especifique un nodo o servidor distinto en el formulario de selecci&oacute;n de &aacute;mbito.  </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASTopic_name"></a>Nombre</strong>
+</dt>
+<dd>Nombre por el que se conoce el
+tema para fines administrativos dentro de IBM WebSphere Application
+Server.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASTopic_jndiName"></a>Nombre JNDI</strong>
+</dt>
+<dd>Nombre JNDI utilizado para
+enlazar el tema con el espacio de nombres del servidor de aplicaciones.
+<p>Como convenci&oacute;n, utilice el nombre JNDI plenamente cualificado; por ejemplo, con el
+formato jms/<em>Nombre</em>, donde <em>Nombre</em> es el nombre
+l&oacute;gico del recurso.</p>
+
+<p>Este nombre se utiliza para enlazar la informaci&oacute;n de enlace de la plataforma. El enlace asocia los recursos definidos en el
+descriptor de despliegue del m&oacute;dulo con los recursos reales (f&iacute;sicos) enlazados con JNDI por la plataforma.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASTopic_description"></a>Descripci&oacute;n</strong>
+</dt>
+<dd>Descripci&oacute;n del tema, para
+fines administrativos dentro de IBM WebSphere Application Server.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASTopic_category"></a>Categor&iacute;a</strong>
+</dt>
+<dd>Categor&iacute;a utilizada para
+clasificar o agrupar este tema, para sus registros administrativos de
+IBM WebSphere Application Server.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASTopic_topicName"></a>Tema</strong>
+</dt>
+<dd>Nombre del tema definido para el proveedor de JMS.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">El valor del tema puede estar en notaci&oacute;n de puntos e incluir caracteres comod&iacute;n.</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASTopic_persistence"></a>Persistencia</strong>
+</dt>
+<dd>Especifica si todos los mensajes enviados al destino son persistentes, no
+persistentes o la persistencia est&aacute; definida por la aplicaci&oacute;n.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">APLICACI&Oacute;N DEFINIDA</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">
+<dl>
+<dt>
+<strong>DEFINIDA POR LA APLICACI&Oacute;N</strong>
+</dt>
+<dd>La persistencia de los mensajes en el destino est&aacute; definida por la aplicaci&oacute;n que los
+ha colocado en la cola.</dd>
+<dt>
+<strong>NO PERSISTENTE</strong>
+</dt>
+<dd>Los mensajes en el destino no son persistentes.</dd>
+<dt>
+<strong>PERSISTENTE</strong>
+</dt>
+<dd>Los mensajes en el destino son persistentes.</dd>
+<dt>
+<strong>DEFINIDA POR LA COLA</strong>
+</dt>
+<dd>[S&oacute;lo para destino de WebSphere MQ] La persistencia de los mensajes
+en el destino est&aacute; definida por las propiedades de definici&oacute;n de cola de WebSphere MQ.</dd>
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASTopic_priority"></a>Prioridad</strong>
+</dt>
+<dd>Especifica si la prioridad
+del mensaje para este destino est&aacute; definida por la aplicaci&oacute;n o por la
+propiedad <strong>Prioridad especificada</strong>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unidades</td>
+<td align="left" valign="top" class="base">No se aplica</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">DEFINIDA POR LA APLICACI&Oacute;N</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">
+<dl>
+<dt>
+<strong>DEFINIDA POR LA APLICACI&Oacute;N</strong>
+</dt>
+<dd>La prioridad de los mensajes en este destino est&aacute; definida por la aplicaci&oacute;n que los ha colocado en el destino.</dd>
+<dt>
+<strong>DEFINIDA POR LA COLA</strong>
+</dt>
+<dd>[S&oacute;lo para destino de WebSphere MQ] La persistencia de los mensajes
+en el destino est&aacute; definida por las propiedades de definici&oacute;n de cola de WebSphere MQ.</dd>
+<dt>
+<strong>ESPECIFICADA</strong>
+</dt>
+<dd>La prioridad de los mensajes en este destino
+est&aacute; definida por la propiedad <strong>Prioridad especificada</strong>.<em>Si selecciona esta opci&oacute;n, debe definir una prioridad
+en la propiedad <strong>Prioridad especificada</strong>.</em>
+</dd>
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASTopic_specifiedPriority"></a>Prioridad especificada</strong>
+</dt>
+<dd>Si la propiedad <strong>Prioridad</strong> est&aacute; establecida en <samp>Especificada</samp>, escriba aqu&iacute; la prioridad de mensajes de esta cola, en el rango de 0 (menor) a 9 (mayor).
+<p>Si la propiedad <strong>Prioridad</strong> est&aacute; establecida en <samp>Especificada</samp>, los mensajes enviados a esta cola tienen el valor de prioridad especificado por esta propiedad.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unidades</td>
+<td align="left" valign="top" class="base">Nivel de prioridad de los mensajes</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">0</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">0 (prioridad menor) a 9 (prioridad mayor)</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASTopic_expiry"></a>Caducidad</strong>
+</dt>
+<dd>Especifica si el tiempo de
+espera de caducidad para esta cola est&aacute; definida por la aplicaci&oacute;n o
+por la propiedad<strong>Caducidad especificada</strong> o, de lo contrario, los
+mensajes de la cola no caducan nunca (tienen un tiempo espera de
+caducidad ilimitado).
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unidades</td>
+<td align="left" valign="top" class="base">No se aplica</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">DEFINIDA POR LA APLICACI&Oacute;N</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">
+<dl>
+<dt>
+<strong>DEFINIDA POR LA APLICACI&Oacute;N</strong>
+</dt>
+<dd>El tiempo de espera de caducidad de los mensajes de esta cola est&aacute; definido por la
+aplicaci&oacute;n que los ha colocado en la cola.</dd>
+<dt>
+<strong>ILIMITADA</strong>
+</dt>
+<dd>Los mensajes de esta cola no tienen tiempo de espera de caducidad, es decir, no caducan nunca.</dd>
+<dt>
+<strong>ESPECIFICADA</strong>
+</dt>
+<dd>El tiempo de espera de caducidad de los
+mensajes de esta cola est&aacute; definida por la propiedad <strong>Caducidad
+especificada</strong>.<em>Si selecciona esta opci&oacute;n, debe
+definir un tiempo de espera en la propiedad <strong>Caducidad
+especificada</strong>.</em>
+</dd>
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASTopic_specifiedExpiry"></a>Caducidad especificada</strong>
+</dt>
+<dd>Si la propiedad <strong>Caducidad especificada</strong> est&aacute; establecida en <samp>Especificado</samp>, escriba aqu&iacute; el n&uacute;mero de milisegundos (mayor que 0) despu&eacute;s de los cuales caducan los mensajes de esta cola.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unidades</td>
+<td align="left" valign="top" class="base">Milisegundos</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">0</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">Mayor o igual a 0 <ul>
+
+<li>El valor 0 indica que los mensajes nunca superan el tiempo de espera</li>
+
+<li>Los dem&aacute;s valores son un n&uacute;mero entero de milisegundos</li>
+
+</ul> 
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informaci&oacute;n relacionada</strong>
+</p>
+<a href="rcon_buttons.html">Botones de la consola de administraci&oacute;n</a>
+<br>
+
+<a href="rcon_scope.html">Valores de &aacute;mbito de la consola administrativa</a>
+<br>
+
+</div>
+</body>
+</html>

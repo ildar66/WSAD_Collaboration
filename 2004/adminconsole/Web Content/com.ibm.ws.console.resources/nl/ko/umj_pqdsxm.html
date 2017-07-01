@@ -1,0 +1,946 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>WebSphere MQ 대기열 설정(MQ 구성)</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="MQSeriesQueueHost"></a>
+<h2>WebSphere MQ 대기열 설정(MQ 구성)</h2>
+
+<p>이 패널을 사용하여 선택한 대기열 목적지에 대한
+WebSphere MQ로 정의된 구성 등록 정보를 보거나 변경하십시오.</p>
+
+<p>대기열 목적지는 JMS 대기열의 등록 정보를 구성하기 위해 사용됩니다.
+WebSphere MQ JMS 프로바이더에 사용하는 대기열에는 WebSphere MQ로 정의된
+다음 추가 등록 정보가 있습니다.<p>
+<b>참고: </b>
+<ul>
+
+<li>표시된 일부 등록 정보는 읽기 전용이며 변경할 수 없습니다.</li>
+
+<li>이 등록 정보를 보거나 변경할 수 있으려면 대기열이 상주하는 WebSphere
+MQ Queue Manager는 원격 관리용으로 구성되거나 실행 중이어야 합니다.</li>
+
+<li>사용자가 지정하는 등록 정보 값은 WebSphere MQ JMS 자원 구성 시 지정한 값과 일치해야 합니다. WebSphere MQ JMS 자원 구성에 대한 자세한 정보는  WebSphere MQ <cite>Using Java</cite> 서적을 참조하십시오. 예: WebSphere MQ 다중 플랫폼 라이브러리 웹 페이지는 <img border="0" alt="이 주제가 WWW(World Wide Web)에 링크되어 있는 경우에만 대상에 액세스할 수 있습니다" src="web.gif">&nbsp;&nbsp;               
+   <a target="_blank" href="http://www.ibm.com/software/ts/mqseries/library/manualsa/manuals/crosslatest.html"><strong>http://www.ibm.com/software/ts/mqseries/library/manualsa/manuals/crosslatest.html</strong></a>
+.</li>
+
+<li>WebSphere MQ에서 이름은 최대 48자이며, 최대 20자의 채널 예외를 갖습니다. </li>
+
+</ul>
+</p>
+</p>
+
+<p>이 관리 콘솔 페이지를 보려면 <strong>자원-&gt; WebSphere
+MQ JMS 프로바이더-&gt;(내용 분할창의 추가 등록 정보 아래) WebSphere
+MQ Queue 목적지-&gt; <em>destination_name</em>-&gt;(내용 분할창의 추가 등록 정보 아래) MQ Config</strong>를 클릭하십시오.</p>
+
+<dl>
+<dt>
+<strong><a name="MQSeriesQueue_baseQueueName"></a>기본 대기열 이름</strong>
+</dt>
+<dd>
+<strong>기본 대기열 관리자 이름</strong> 등록 정보로 지정된 대기열 관리자의
+메시지를 전송하는 대기열 이름.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">문자열</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_baseQueueManagerName"></a>기본 대기열 관리자 이름</strong>
+</dt>
+<dd>메시지가 전송되는 WebSphere
+MQ 대기열 관리자의 이름.
+<p>이 대기열 관리자는 <strong>기본 대기열 이름</strong> 등록 정보에서 지정한 대기열을 제공합니다.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">문자열</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_queueManagerHost"></a>대기열 관리자 호스트</strong>
+</dt>
+<dd>대기열 목적지가 작성된 대기열 관리자에 대한 호스트 이름.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">문자열</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_queueManagerPort"></a>대기열 관리자 포트</strong>
+</dt>
+<dd>이 대기열이 정의된 대기열 관리자가 사용하는 포트 번호.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">정수</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">범위</td>
+<td align="left" valign="top" class="base">올바른 TCP/IP 포트 번호.이 포트는 WebSphere MQ
+대기열 관리자에서 구성되어야 합니다.</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_serverConnectionChannelName"></a>서버 연결 채널 이름</strong>
+</dt>
+<dd>WebSphere MQ 대기열 관리자로의
+연결에 사용되는 채널의 이름.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">문자열</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">범위</td>
+<td align="left" valign="top" class="base">1 - 20자의 ASCII 문자</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_userName"></a>사용자 ID</strong>
+</dt>
+<dd>대기열 목적지를 정의하기 위해 대기열 관리자로
+연결할 때 인증을 위해 <strong>암호</strong> 등록 정보와 함께 사용되는 사용자 ID.
+
+<p>
+<strong>사용자 이름</strong> 등록 정보 값을 지정하면
+<strong>암호</strong> 등록 정보 값도 지정해야 합니다.
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">문자열</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_password"></a>암호</strong>
+</dt>
+<dd>대기열 목적지를 정의하기 위해 대기열 관리자로
+연결할 때 인증을 위해 <strong>사용자 이름</strong> 등록 정보와 함께 사용되는 암호.
+
+<p>
+<strong>사용자 이름</strong> 등록 정보 값을 지정하면
+<strong>암호</strong> 등록 정보 값도 지정해야 합니다.
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">문자열</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue"></a>이름</strong>
+</dt>
+<dd>WebSphere MQ 대기열 관리자에 정의된 대기열의 이름.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">문자열</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">범위</td>
+<td align="left" valign="top" class="base">1 - 48자의 ASCII 문자</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_description"></a>설명
+</strong>
+</dt>
+<dd>WebSphere MQ 대기열 설명, WebSphere MQ 안에서 관리를 목적으로 합니다. 
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">문자열</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">기본값</td>
+<td align="left" valign="top" class="base">널</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">범위</td>
+<td align="left" valign="top" class="base">1 - 64자의 ASCII 문자</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue.inhibitPut"></a>PUT 금지</strong>
+</dt>
+<dd>이 대기열에 대한 PUT 조작 허용 여부.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">
+단위</td>
+<td align="left" valign="top" class="base">적용되지 않음</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">기본값</td>
+<td align="left" valign="top" class="base">지우기</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">범위</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>허용</strong>
+</dt>
+<dd>이 대기열에 대한 PUT 조작을 허용합니다.</dd>
+
+<dt>
+<strong>허용 안함</strong>
+</dt>
+<dd>이 대기열에 대한 PUT 조작을 허용하지 않습니다.</dd>
+
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_persistence"></a>지속</strong>
+</dt>
+<dd>목적지로 전송된 모든 메시지가 지속적, 비지속적인지 또는 지속성을 응용프로그램에서 정의하는지 여부
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">
+단위</td>
+<td align="left" valign="top" class="base">적용되지 않음</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">기본값</td>
+<td align="left" valign="top" class="base">APPLICATION_DEFINED</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">범위</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>응용프로그램 정의</strong>
+</dt>
+<dd>대기열에 메시지를 송신한 응용프로그램에서
+목적지의 메시지에 대한 지속성을 정의합니다.
+</dd>
+
+<dt>
+<strong>정의된 대기열</strong>
+</dt>
+<dd>[WebSphere MQ 목적지만] 목적지의 메시지에는 WebSphere MQ
+대기열 정의 등록 정보에 의해 정의되는 지속이 있습니다. </dd>
+
+<dt>
+<strong>지속적</strong>
+</dt>
+<dd>목적지의 메시지가 지속적입니다.</dd>
+
+<dt>
+<strong>비지속적</strong>
+</dt>
+<dd>목적지의 메시지가 지속적이지 않습니다.</dd>
+
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_clusterName"></a>클러스터 이름</strong>
+</dt>
+<dd>WebSphere MQ 대기열 관리자가
+속하는 클러스터의 이름.
+<p>
+<strong>클러스터 이름</strong> 값을 지정하면 <strong>클러스터 이름 목록</strong> 값은 지정할 수 없습니다.
+클러스터 이름은 <cite>WebSphere MQ MQSC 명령어 참조서</cite>에서
+설명하는 규칙을 따릅니다</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">문자열</td>
+
+</tr>
+
+
+
+
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">기본값</td>
+<td align="left" valign="top" class="base">널</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">범위</td>
+<td align="left" valign="top" class="base">ASCII 문자(1 - 48자)인 대기열 관리자
+클러스터에 대한 올바른 WebSphere MQ 이름</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_clusterNameList"></a>클러스터 이름 목록</strong>
+</dt>
+<dd>WebSphere MQ 대기열 관리자가
+속하는 클러스터 이름 목록의 이름.
+<p>
+<strong>클러스터 이름</strong> 값을 지정하면 <strong>클러스터 이름 목록</strong> 값은 지정할 수 없습니다.
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">문자열</td>
+
+</tr>
+
+
+
+
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">기본값</td>
+<td align="left" valign="top" class="base">널</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">범위</td>
+<td align="left" valign="top" class="base">ASCII 문자(1 - 48자)인 대기열 관리자
+클러스터 목록에 대한 올바른 WebSphere MQ 이름</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_defaultBind"></a>기본 바인딩</strong>
+</dt>
+<dd>대기열을 클러스터 대기열로 정의하는 경우 사용될 기본 바인딩.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+
+
+
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">기본값</td>
+<td align="left" valign="top" class="base">널</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">범위</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>열 때</strong>
+</dt>
+<dd>대기열을 열 때 대기열 핸들이 클러스터 대기열의
+특정 인스턴스로 바인드됩니다.</dd>
+
+<dt>
+<strong> 고정 안됨</strong>
+</dt>
+<dd>대기열 핸들이 클러스터 대기열의
+특정 인스턴스로 바인드되지 않습니다. 이를 통해 대기열 관리자는
+메시지를 놓을 때 특정 대기열 인스턴스를 선택하고, 발생하는 후속 선택사항을
+변경할 수 있습니다.</dd>
+
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue.inhibitGet"></a>GET 금지</strong>
+</dt>
+<dd>이 대기열에 대한 GET 조작 허용 여부.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">
+단위</td>
+<td align="left" valign="top" class="base">적용되지 않음</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">기본값</td>
+<td align="left" valign="top" class="base">지우기</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">범위</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>허용</strong>
+</dt>
+<dd>이 대기열에 대한 GET 조작을 허용합니다.</dd>
+
+<dt>
+<strong>허용 안함</strong>
+</dt>
+<dd>이 대기열에 대한 GET 조작을 허용하지 않습니다.</dd>
+
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_maxQueueDepth"></a>최대 대기열 길이</strong>
+</dt>
+<dd>대기열에 허용되는 최대 메시지 수.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">정수</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">
+단위</td>
+<td align="left" valign="top" class="base">메시지</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">기본값</td>
+<td align="left" valign="top" class="base"></td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">범위</td>
+<td align="left" valign="top" class="base">0보다 크거나 같고 다음보다 작거나 같은 값:<ul>
+
+<li>대기열이 OS/390에 있는 경우 999 999 999</li>
+
+<li>대기열이 다른 MQSeries MQ 플랫폼에 있는 경우 640 000</li>
+
+</ul>
+<p>허용되는 최대값에 대한 자세한 정보는
+<cite>WebSphere MQ MQSC 명령어 참조서</cite>를 참조하십시오.</p>
+<p>이 값이
+줄어들면 이미 대기열에 있던 메시지 수가 새 최대값을 초과하는 경우에도
+기존의 메시지에는 영향을 주지 않습니다.</p>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_maxMessageLength"></a>최대 메시지 길이</strong>
+</dt>
+<dd>이 대기열에 있는 메시지의 최대 길이(바이트).
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">정수</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">
+단위</td>
+<td align="left" valign="top" class="base">바이트</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">기본값</td>
+<td align="left" valign="top" class="base"></td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">범위</td>
+<td align="left" valign="top" class="base">0보다 크거나 같고, 대기열 관리자 및 WebSphere MQ 플랫폼에
+대한 최대 메시지 길이 이하 값.
+허용되는 최대값에 대한 자세한 정보는
+<cite>WebSphere MQ MQSC 명령어 참조서</cite>를 참조하십시오.<p>이 값이
+줄어들면 이미 대기열에 있던 메시지 길이가 새 최대값을 초과하는 경우에도
+기존의 메시지에는 영향을 주지 않습니다.</p>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_shareability"></a>공유 가능성</strong>
+</dt>
+<dd>여러 응용프로그램이 이 대기열에서 메시지를 가져올 수 있는지 여부.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">
+단위</td>
+<td align="left" valign="top" class="base">적용되지 않음</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">기본값</td>
+<td align="left" valign="top" class="base">공유 불가능</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">범위</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>공유 불가능</strong>
+</dt>
+<dd>하나의 응용프로그램 인스턴스만이
+대기열에서 메시지를 가져올 수 있습니다.</dd>
+
+<dt>
+<strong>공유 가능</strong>
+</dt>
+<dd>둘 이상의 응용프로그램 인스턴스가
+대기열에서 메시지를 가져올 수 있습니다.</dd>
+
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_inputOpenOption"></a>입력 열기 옵션</strong>
+</dt>
+<dd>입력을 위해 이 대기열을 여는 응용프로그램에 대한
+기본 공유 옵션
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">
+단위</td>
+<td align="left" valign="top" class="base">적용되지 않음</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">기본값</td>
+<td align="left" valign="top" class="base">지우기</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">범위</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>독점</strong>
+</dt>
+<dd>열기 요청이 대기열로부터의 독점 입력에 대한 것입니다.</dd>
+
+<dt>
+<strong>공유</strong>
+</dt>
+<dd>열기 요청이 대기열로부터의 공유 입력에 대한 것입니다.</dd>
+
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_messageDeliverySequence"></a>메시징 순서</strong>
+</dt>
+<dd>요청 가져오기의 응답으로 대기열로부터 메시지가 전달되는 순서.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">
+단위</td>
+<td align="left" valign="top" class="base">적용되지 않음</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">기본값</td>
+<td align="left" valign="top" class="base">우선순위</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">범위</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>우선순위</strong>
+</dt>
+<dd>메시지는 우선순위 내에서 선입선출(FIFO) 순으로 전달됩니다.
+ WebSphere MQ에서 제공한
+기본값이지만, 설치 시 변경했을 수도 있습니다. </dd>
+
+<dt>
+<strong>선입선출(FIFO)</strong>
+</dt>
+<dd>메시지는 선입선출(FIFO) 순으로 전달됩니다. 이 대기열의
+메시지에 대한 우선순위는 무시됩니다.</dd>
+
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_backoutThreshold"></a>백아웃 임계값</strong>
+</dt>
+<dd>메시지를 백아웃할 수 있는 최대 횟수. 이 임계값에 도달하면 <strong>백아웃 반복 대기 이름</strong> 등록 정보으로 지정한 백아웃 대기열로 메시지를 다시 넣습니다.
+<p>WebSphere MQ 대기열 관리자는 각 메시지를 백아웃한
+횟수 레코드를 보관합니다. 이 숫자가 구성 가능한 임계값에
+도달하면, 연결 사용자가 네이밍된 백아웃 대기열에 메시지를 다시
+넣습니다. 이러한 작업이 어떤 이유로 인해
+실패하는 경우, 메시지는 대기열에서 제거되고 삭제된 메시지 대기열에 다시
+놓이거나 버려집니다.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">정수</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">기본값</td>
+<td align="left" valign="top" class="base">0</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">범위</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>0</strong>
+</dt>
+<dd>메시지 반복 대기 안함</dd>
+
+<dt>
+<strong>1 이상</strong>
+</dt>
+<dd>메시지를 다시 보내는 횟수로서, 이름 지정된 백아웃 대기열에 메시지를 다시 넣는 횟수입니다. </dd>
+
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_backoutRequeue"></a>백아웃 재대기열 이름</strong>
+</dt>
+<dd>메시지가 백아웃 임계값 이상으로 백아웃된 경우
+메시지를 대기열에 다시 넣을 백아웃 대기열의 이름.
+<p>WebSphere MQ 대기열 관리자는 각 메시지를 백아웃한
+횟수 레코드를 보관합니다. 이 숫자가 구성 가능한 임계값에
+도달하면, 연결 사용자가 네이밍된 백아웃 대기열에 메시지를 다시
+넣습니다. 이러한 작업이 어떤 이유로 인해
+실패하는 경우, 메시지는 대기열에서 제거되고 삭제된 메시지 대기열에 다시
+놓이거나 버려집니다.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">문자열</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">기본값</td>
+<td align="left" valign="top" class="base">널</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">범위</td>
+<td align="left" valign="top" class="base">1 - 48자의 문자</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_hardenGetBackout"></a>Harden Get 백아웃</strong>
+</dt>
+<dd>hardening을 사용하여 메시지가 백아웃된 횟수가 정확한지를 확인해야 하는지의 여부.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">
+단위</td>
+<td align="left" valign="top" class="base">적용되지 않음</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">기본값</td>
+<td align="left" valign="top" class="base">지우기</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">범위</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>hardening 안함</strong>
+</dt>
+<dd>계수를 hardening하지 않습니다. WebSphere MQ에서 제공한
+기본값이지만, 설치 시 변경했을 수도 있습니다. </dd>
+
+<dt>
+<strong>hardening함</strong>
+</dt>
+<dd>계수를 hardening합니다.</dd>
+
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</body>
+</html>

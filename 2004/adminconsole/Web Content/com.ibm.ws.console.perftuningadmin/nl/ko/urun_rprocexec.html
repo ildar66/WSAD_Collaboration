@@ -1,0 +1,139 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>프로세스 실행 설정</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="urun_rprocexec"></a>
+<h2>프로세스 실행 설정</h2>
+
+<p>이 페이지를 참조하여 UNIX 프로세스 시작 및
+ 초기화에 대한 명령행 정보를 보거나 변경하십시오.</p>
+
+<p>이 관리 콘솔 페이지를 보려면 <strong>서버 &gt; Application Servers
+ &gt; </strong><em>server_name</em><strong> &gt; 프로세스 정의 &gt; 프로세스 수행</strong>을 클릭하십시오.</p>
+
+<div>
+<p>
+<strong>구성 탭</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="ProcessExecution_processPriority_description"></a>프로세스 우선순위</strong>
+</dt>
+<dd>프로세스에 대한 운영 체제 우선순위를 지정합니다. 루트 사용자만 이 값을 변경할 수 있습니다.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">정수</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">기본값</td>
+<td align="left" valign="top" class="base">대부분의 운영 체제에서는 WebSphere Application Server에 대해 1000입니다. OS/400에서
+ 기본값은 25입니다. </td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ProcessExecution_umask_description"></a>UMASK</strong>
+</dt>
+<dd>프로세스가 실행되는 사용자 마스크를 지정합니다(파일 모드 권한 마스크).
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">정수</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ProcessExecution_runAsUser_description"></a>Run As 사용자</strong>
+</dt>
+<dd>프로세스를 실행하는 사용자를 지정합니다. 
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">문자열</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ProcessExecution_runAsGroup_description"></a>Run As 그룹</strong>
+</dt>
+<dd>프로세스를 실행할 수 있는 자격을 가진 사용자들의 그룹을 지정합니다. 
+<p>OS/400에서 Run As 그룹 설정이 무시됩니다. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">문자열</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ProcessExecution_runInProcessGroup_description"></a>프로세스 내 실행 그룹</strong>
+</dt>
+<dd>프로세스에 대한 특정 프로세스 그룹을 지정합니다. 이 프로세스 그룹은 프로세서 파티션과
+같은 작업에 대해 유용합니다. 시스템 관리자는 실행할 프로세스 그룹을 지정할 수 있습니다(예: 12 프로세서 중 6).
+기본값(0)은 특정 그룹에 프로세스를 지정하지 않습니다. 
+<p>OS/400에서 프로세스 내 실행 그룹 설정이 무시됩니다. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">정수</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">기본값</td>
+<td align="left" valign="top" class="base">0</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>관련 정보</strong>
+</p>
+<a href="rcon_buttons.html">관리 콘솔 단추</a>
+<br>
+
+<a href="rcon_pageusage.html">관리 콘솔 페이지 기능</a>
+<br>
+
+</div>
+</body>
+</html>

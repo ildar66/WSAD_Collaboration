@@ -1,0 +1,55 @@
+------Start of DE processing------ = [04.11.19 16:08:31:406 MSK] , key = javax.resource.spi.ResourceAllocationException com.ibm.ejs.j2c.ConnectionManager.allocateMCWrapper 517
+Exception = javax.resource.spi.ResourceAllocationException
+Source = com.ibm.ejs.j2c.ConnectionManager.allocateMCWrapper
+probeid = 517
+Stack Dump = javax.resource.spi.ResourceAllocationException: DSRA8100E: Unable to get a PooledConnection from the DataSource.
+	at com.ibm.ejs.j2c.poolmanager.FreePool.createManagedConnectionWithMCWrapper(FreePool.java:1351)
+	at com.ibm.ejs.j2c.poolmanager.FreePool.createOrWaitForConnection(FreePool.java:1065)
+	at com.ibm.ejs.j2c.poolmanager.PoolManager.reserve(PoolManager.java:1603)
+	at com.ibm.ejs.j2c.ConnectionManager.allocateMCWrapper(ConnectionManager.java:677)
+	at com.ibm.ejs.j2c.ConnectionManager.allocateConnection(ConnectionManager.java:461)
+	at com.ibm.ws.rsadapter.jdbc.WSJdbcDataSource.getConnection(WSJdbcDataSource.java:217)
+	at com.ibm.ws.rsadapter.jdbc.WSJdbcDataSource.getConnection(WSJdbcDataSource.java:192)
+	at com.hps.july.sync.session.dao.ReferencesFinderPersistence.findDbsAntennaPlaces(ReferencesFinderPersistence.java:71)
+	at com.hps.july.sync.session.ReferencesFinderBean.findDbsAntennaPlaces(ReferencesFinderBean.java:59)
+	at com.hps.july.sync.session.EJSRemoteStatelessReferencesFinder_f88fc14e.findDbsAntennaPlaces(EJSRemoteStatelessReferencesFinder_f88fc14e.java:26)
+	at com.hps.july.sync.session._ReferencesFinder_Stub.findDbsAntennaPlaces(_ReferencesFinder_Stub.java:257)
+	at com.hps.july.collaboration.formbean.ReferencesForm_0.doTask(ReferencesForm_0.java:100)
+	at com.hps.july.collaboration.action.ReferencesAction_0.perform(ReferencesAction_0.java:40)
+	at org.apache.struts.action.ActionServlet.processActionPerform(ActionServlet.java:1787)
+	at org.apache.struts.action.ActionServlet.process(ActionServlet.java:1586)
+	at org.apache.struts.action.ActionServlet.doGet(ActionServlet.java:492)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:740)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:853)
+	at com.ibm.ws.webcontainer.servlet.StrictServletInstance.doService(StrictServletInstance.java:110)
+	at com.ibm.ws.webcontainer.servlet.StrictLifecycleServlet._service(StrictLifecycleServlet.java:174)
+	at com.ibm.ws.webcontainer.servlet.IdleServletState.service(StrictLifecycleServlet.java:313)
+	at com.ibm.ws.webcontainer.servlet.StrictLifecycleServlet.service(StrictLifecycleServlet.java:116)
+	at com.ibm.ws.webcontainer.servlet.ServletInstance.service(ServletInstance.java:283)
+	at com.ibm.ws.webcontainer.servlet.ValidServletReferenceState.dispatch(ValidServletReferenceState.java:42)
+	at com.ibm.ws.webcontainer.servlet.ServletInstanceReference.dispatch(ServletInstanceReference.java:40)
+	at com.ibm.ws.webcontainer.webapp.WebAppRequestDispatcher.handleWebAppDispatch(WebAppRequestDispatcher.java:983)
+	at com.ibm.ws.webcontainer.webapp.WebAppRequestDispatcher.dispatch(WebAppRequestDispatcher.java:564)
+	at com.ibm.ws.webcontainer.webapp.WebAppRequestDispatcher.forward(WebAppRequestDispatcher.java:200)
+	at com.ibm.ws.webcontainer.srt.WebAppInvoker.doForward(WebAppInvoker.java:119)
+	at com.ibm.ws.webcontainer.srt.WebAppInvoker.handleInvocationHook(WebAppInvoker.java:276)
+	at com.ibm.ws.webcontainer.cache.invocation.CachedInvocation.handleInvocation(CachedInvocation.java:71)
+	at com.ibm.ws.webcontainer.srp.ServletRequestProcessor.dispatchByURI(ServletRequestProcessor.java:182)
+	at com.ibm.ws.webcontainer.oselistener.OSEListenerDispatcher.service(OSEListener.java:334)
+	at com.ibm.ws.webcontainer.http.HttpConnection.handleRequest(HttpConnection.java:56)
+	at com.ibm.ws.http.HttpConnection.readAndHandleRequest(HttpConnection.java:618)
+	at com.ibm.ws.http.HttpConnection.run(HttpConnection.java:439)
+	at com.ibm.ws.util.ThreadPool$Worker.run(ThreadPool.java:672)
+
+Dump of callerThis = 
+Object type = com.ibm.ejs.j2c.ConnectionManager
+com.ibm.ejs.j2c.ConnectionManager@4413b276
+
+==> Performing default dump from com.ibm.ejs.j2c.DiagnosticModuleForJ2C  = Fri Nov 19 16:08:31 MSK 2004
+sourceId  = com.ibm.ejs.j2c.ConnectionManager.allocateMCWrapper
+This = 
+Object type = com.ibm.ejs.j2c.ConnectionManager
+com.ibm.ejs.j2c.ConnectionManager@4413b276
+
++Data for directive [defaultj2c] obtained. = 
+==> Dump complete for com.ibm.ejs.j2c.DiagnosticModuleForJ2C  = Fri Nov 19 16:08:31 MSK 2004

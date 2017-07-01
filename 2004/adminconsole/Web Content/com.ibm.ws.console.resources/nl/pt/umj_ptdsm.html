@@ -1,0 +1,839 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>WebSphere MQ topic settings</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="MQTopic"></a>
+<h2>WebSphere MQ topic settings</h2>
+
+<p>Use this panel to view or change the configuration properties of
+the selected topic destination for use with the WebSphere MQ JMS provider.</p>
+
+<p>A topic destination is used to configure the properties of a JMS topic
+for the associated JMS provider. Connections to the topic are created by the
+associated topic connection factory. A topic for use with the WebSphere MQ
+JMS provider has the following properties.<p>
+<b>Note: </b>
+<ul>
+
+<li>The property values that you specify must match the values that you specified
+when configuring WebSphere MQ JMS resources. For more information about configuring
+WebSphere MQ JMS resources, see the WebSphere MQ <cite>Using Java</cite> book.</li>
+
+<li>In WebSphere MQ, names can have a maximum of 48 characters, with the exception
+of channels which have a maximum of 20 characters.</li>
+
+</ul>
+</p>
+</p>
+
+<p>To view this administrative console page, click <strong>Resources-&gt; WebSphere
+MQ JMS Provider-&gt; (In content pane, under Additional Properties) WebSphere
+MQ Topic Destinations-&gt; <em>destination_name</em></strong>
+</p>
+
+<dl>
+<dt>
+<strong><a name="MQTopic_name"></a>Name</strong>
+</dt>
+<dd>The name by which the topic is known
+for administrative purposes within IBM WebSphere Application Server.<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+</dd>
+<dt>
+<strong><a name="MQTopic_jndiName"></a>JNDI name</strong>
+</dt>
+<dd>The JNDI name that is used to bind the topic into the application
+server's name space.<p>As a convention, use the fully qualified JNDI name; for example,
+in the form jms/<em>Name</em>, where <em>Name</em> 
+is the logical name of the resource.</p>
+<p>This name is used to link the platform
+binding information. The binding associates the resources defined by the deployment
+descriptor of the module to the actual (physical) resources bound into JNDI
+by the platform.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+</dd>
+<dt>
+<strong><a name="MQTopic_description"></a>Description</strong>
+</dt>
+<dd>A description of the topic, for administrative
+purposes within IBM WebSphere Application Server.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopic_category"></a>Category</strong>
+</dt>
+<dd>A category used to classify or group this
+topic, for your IBM WebSphere Application Server administrative records.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopic_persistence"></a>Persistence</strong>
+</dt>
+<dd>Whether all messages sent to the destination
+are persistent, non-persistent, or have their persistence defined by the application
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Units</td>
+<td align="left" valign="top" class="base">Not applicable</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">APPLICATION_DEFINED</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>Application defined</strong>
+</dt>
+<dd>Messages on the destination have their persistence
+defined by the application that put them onto the queue.</dd>
+
+<dt>
+<strong>Queue defined</strong>
+</dt>
+<dd>[WebSphere MQ destination only] Messages on the destination have their persistence
+defined by the WebSphere MQ queue definition properties.</dd>
+
+<dt>
+<strong>Persistent</strong>
+</dt>
+<dd>Messages on the destination are persistent.</dd>
+
+<dt>
+<strong>Non persistent</strong>
+</dt>
+<dd>Messages on the destination are not persistent.</dd>
+
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopic_priority"></a>Priority</strong>
+</dt>
+<dd>Whether the message priority for this destination
+is defined by the application or the <strong>Specified priority</strong> property
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Units</td>
+<td align="left" valign="top" class="base">Not applicable</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">APPLICATION_DEFINED</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>Application defined</strong>
+</dt>
+<dd>The priority of messages on this destination is
+defined by the application that put them onto the destination.</dd>
+
+<dt>
+<strong>Queue defined</strong>
+</dt>
+<dd>[WebSphere MQ destination only] Messages on the destination have their persistence
+defined by the WebSphere MQ queue definition properties.</dd>
+
+<dt>
+<strong>Specified</strong>
+</dt>
+<dd>The priority of messages on this destination is defined by
+the <strong>Specified priority</strong> property.<em>If you select this
+option, you must define a priority on the <strong>Specified priority</strong> property.</em>
+</dd>
+
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopic_specifiedPriority"></a>Specified priority</strong>
+</dt>
+<dd>If the <strong>Priority</strong> property
+is set to <samp>Specified</samp>, type here the message priority for this queue,
+in the range 0 (lowest) through 9 (highest)
+<p>If the <strong>Priority</strong> property is set to <samp>Specified</samp>, messages
+sent to this queue have the priority value specified by this property.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Units</td>
+<td align="left" valign="top" class="base">Message priority level</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range</td>
+<td align="left" valign="top" class="base">0 (lowest priority) through 9 (highest priority)</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopic_expiry"></a>Expiry</strong>
+</dt>
+<dd>Whether the expiry timeout for this
+queue is defined by the application or the <strong>Specified expiry</strong> property,
+or messages on the queue never expire (have an unlimited expiry timeout)
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Units</td>
+<td align="left" valign="top" class="base">Not applicable</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">APPLICATION_DEFINED</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>Application defined</strong>
+</dt>
+<dd>The expiry timeout for messages on this queue
+is defined by the application that put them onto the queue.</dd>
+
+<dt>
+<strong>Specified</strong>
+</dt>
+<dd>The expiry timeout for messages on this queue is defined
+by the <strong>Specified expiry</strong> property.<em>If you select this
+option, you must define a timeout on the <strong>Specified expiry</strong> property.</em>
+</dd>
+
+<dt>
+<strong>Unlimited</strong>
+</dt>
+<dd>Messages on this queue have no expiry timeout, so those
+messages never expire.</dd>
+
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopic_specifiedExpiry"></a>Specified expiry</strong>
+</dt>
+<dd>If the <strong>Expiry timeout</strong> property
+is set to <samp>Specified</samp>, type here the number of milliseconds (greater
+than 0) after which messages on this queue expire
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Units</td>
+<td align="left" valign="top" class="base">Milliseconds</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range</td>
+<td align="left" valign="top" class="base">Greater than or equal to 0
+<ul>
+
+<li>0 indicates that messages never timeout</li> 
+
+<li>Other values are an integer number of milliseconds</li>
+
+</ul>
+
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopic_baseTopicName"></a>Base topic name</strong>
+</dt>
+<dd>The name of the topic to which messages are sent
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range</td>
+<td align="left" valign="top" class="base">Depends on the broker used. For details, see the documentation for your broker; for example
+the <cite>WebSphere MQ Event Broker</cite> library at
+<img border="0" alt="Target can be accessed only when this topic is linked to the World Wide Web" src="web.gif">&nbsp;&nbsp;               
+   <a target="_blank" href="http://www-3.ibm.com/software/ts/mqseries/library/manualsa/manuals/wsmqebv21.html"><strong>http://www-3.ibm.com/software/ts/mqseries/library/manualsa/manuals/wsmqebv21.html</strong></a>
+.</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopic_CCSID"></a>CCSID</strong>
+</dt>
+<dd>The coded character set identifier for use
+with the WebSphere MQ queue manager.
+<p>This coded character set identifier (CCSID) must be one of the CCSIDs supported
+by WebSphere MQ.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Units</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range</td>
+<td align="left" valign="top" class="base">1 through 65535</td>
+
+</tr>
+
+</table>
+
+<p>For more information about supported CCSIDs, and about converting between
+message data from one coded character set to another, see the <cite>WebSphere MQ System Administration</cite> 
+and the <cite>WebSphere MQ Application Programming Reference</cite> books.
+These are available from the WebSphere MQ messaging multiplatform and platform-specific
+books Web pages; for example, at <img border="0" alt="Target can be accessed only when this topic is linked to the World Wide Web" src="web.gif">&nbsp;&nbsp;               
+   <a target="_blank" href="http://www-3.ibm.com/software/ts/mqseries/library/manualsa/manuals/crosslatest.html.html"><strong>http://www-3.ibm.com/software/ts/mqseries/library/manualsa/manuals/platspecific.html</strong></a>
+,
+the <img border="0" alt="Target can be accessed only when this topic is linked to the World Wide Web" src="web.gif">&nbsp;&nbsp;               
+   <a target="_blank" href="http://www.elink.ibmlink.ibm.com/public/applications/publications/cgibin/pbi.cgi"><strong>IBM Publications Center</strong></a>
+, or from the
+WebSphere MQ collection kit, SK2T-0730.</p>
+</dd>
+<dt>
+<strong><a name="MQTopic_useNativeEncoding"></a>Use native encoding</strong>
+</dt>
+<dd>Select this checkbox to indicate that the queue destination should
+use native encoding (appropriate encoding values for the Java platform).
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Units</td>
+<td align="left" valign="top" class="base">Not applicable</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">Cleared</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>Cleared</strong>
+</dt>
+<dd>Native encoding is not used, so specify the properties
+below for integer, decimal, and floating point encoding.</dd>
+
+<dt>
+<strong>Selected</strong>
+</dt>
+<dd>Native encoding is used (to provide appropriate encoding
+values for the Java platform).</dd>
+
+</dl>
+<p>For more information about encoding properties, see the WebSphere MQ <cite>Using
+Java</cite> document.</p>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopic_integerEncoding"></a>Integer encoding</strong>
+</dt>
+<dd>If native encoding is not enabled, select whether integer encoding
+is normal or reversed.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Units</td>
+<td align="left" valign="top" class="base">Not applicable</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">NORMAL</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>NORMAL</strong>
+</dt>
+<dd>Normal integer encoding is used.</dd>
+
+<dt>
+<strong>REVERSED</strong>
+</dt>
+<dd>Reversed integer encoding is used.</dd>
+
+</dl>
+<p>For more information about encoding properties, see the WebSphere MQ <cite>Using
+Java</cite> document.</p>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopic_decimalEncoding"></a>Decimal encoding</strong>
+</dt>
+<dd>If native encoding is not enabled, select whether decimal encoding
+is normal or reversed.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Units</td>
+<td align="left" valign="top" class="base">Not applicable</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">NORMAL</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>NORMAL</strong>
+</dt>
+<dd>Normal decimal encoding is used.</dd>
+
+<dt>
+<strong>REVERSED</strong>
+</dt>
+<dd>Reversed decimal encoding is used.</dd>
+
+</dl>
+<p>For more information about encoding properties, see the WebSphere MQ <cite>Using
+Java</cite> document.</p>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopic_floatingPointEncoding"></a>Floating point encoding</strong>
+</dt>
+<dd>If native encoding is not enabled, select the type of floating
+point encoding.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Units</td>
+<td align="left" valign="top" class="base">Not applicable</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">IEEENORMAL</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>IEEENORMAL</strong>
+</dt>
+<dd>IEEE normal floating point encoding is used.</dd>
+
+<dt>
+<strong>IEEEREVERSED</strong>
+</dt>
+<dd>IEEE reversed floating point encoding is used.</dd>
+
+<dt>
+<strong>S390</strong>
+</dt>
+<dd>S390 floating point encoding is used.</dd>
+
+</dl>
+<p>For more information about encoding properties, see the WebSphere MQ <cite>Using
+Java</cite> document.</p>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopic_targetClient"></a>Target client type</strong>
+</dt>
+<dd>Whether the receiving application is JMS-compliant or is a traditional
+WebSphere MQ application
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Units</td>
+<td align="left" valign="top" class="base">Not applicable</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">MQ</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>MQ</strong>
+</dt>
+<dd>The target is a non-JMS, traditional WebSphere MQ application.</dd>
+
+<dt>
+<strong>JMS</strong>
+</dt>
+<dd>The target is a JMS-compliant application.</dd>
+
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopic_brokerDurSubQueue"></a>Broker Dur Sub Queue</strong>
+</dt>
+<dd>The name of the broker's queue from which durable subscription
+messages are retrieved
+<p>The name of the broker's queue from which durable subscription messages
+are retrieved. The subscriber specifies the name of the queue when it registers
+a subscription.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Units</td>
+<td align="left" valign="top" class="base">En_US ASCII characters</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range</td>
+<td align="left" valign="top" class="base">1 through 48 ASCII characters</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopic_brokerDurCCSubQueue"></a>Broker CC Dur Sub Queue</strong>
+</dt>
+<dd>The name of the broker's queue from which durable subscription
+messages are retrieved for a ConnectionConsumer. This property applies only
+for use of the Web container.
+<p>The name of the broker's queue from which durable subscription messages
+are retrieved for a ConnectionConsumer. This property applies only for use
+of the Web container.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Units</td>
+<td align="left" valign="top" class="base">En_US ASCII characters</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range</td>
+<td align="left" valign="top" class="base">1 through 48 ASCII characters</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</body>
+</html>

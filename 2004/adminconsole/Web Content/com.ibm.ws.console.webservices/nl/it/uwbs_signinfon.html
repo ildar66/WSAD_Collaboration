@@ -1,0 +1,116 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Impostazioni di configurazione delle informazioni sulla firma</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_signinfon"></a>
+<h2>
+<img alt="[Fix Pack 5.0.2 e successive]" src="v502.gif" border="0">Impostazioni di configurazione delle informazioni sulla firma</h2>
+
+<p>Utilizzare questa pagina per configurare nuovi parametri di firma.</p>
+
+<p>Le specifiche elencate in questa pagina relative ai metodi signing, digest e canonicalization vengono individuate nel documento W3C, dal titolo "XMLSignature Syntax and Specification: W3C Recommendation 12 Feb 2002".</p>
+
+<p>Per visualizzare questa pagina della console di gestione, fare clic su <strong>Applicazioni Enterprise &gt; </strong><em>nome_applicazione</em>. In Elementi correlati, fare clic su <strong>Moduli Web &gt; </strong><em>nome_file_URI</em> <strong>&gt; Servizi Web: collegamenti sicurezza server</strong>. Nella colonna Collegamento ricevente richiesta, fare clic su <strong>Modifica &gt; Informazioni sulla firma &gt; Nuovo</strong>.</p>
+
+<p>Fare clic su <strong>Nuovo</strong> per creare un parametro di firma.</p>
+
+<p>Fare clic su <strong>Elimina</strong> per eliminare un parametro di firma.</p>
+
+<dl>
+<dt>
+<strong><a name="sec_sigmeth"></a>Metodo Signature</strong>
+</dt>
+<dd>Specifica l'URI dell'algoritmo del metodo di firma. Questo metodo contiene il valore reale della firma digitale codificata utilizzando base64.
+<p>Sono supportati i seguenti algoritmi:<ul>
+
+<li>
+<samp>http://www.w3.org/2000/09/xmldsig#rsa-sha1</samp>
+</li>
+
+<li>
+<samp>http://www.w3.org/2000/09/xmldsig#dsa-sha1</samp>
+</li>
+
+</ul>
+</p>
+
+</dd>
+<dt>
+<strong><a name="sec_digestmeth"></a>Metodo Digest</strong>
+</dt>
+<dd>Specifica l'URI dell'algoritmo del metodo di Digest. 
+<p>Viene supportato l'algoritmo <samp>http://www.w3.org/2000/09/xmldsig#sha1</samp>.</p>
+
+</dd>
+<dt>
+<strong><a name="sec_cancmeth"></a>Metodo Canonicalization</strong>
+</dt>
+<dd>Specifica l'URI dell'algoritmo del metodo di canonicalization.
+<p>Sono supportati i seguenti algoritmi:<ul>
+
+<li>
+<samp>http://www.w3.org/2001/10/xml-exc-c14n#</samp>
+</li>
+
+<li>
+<samp>http://www.w3.org/2001/10/xml-exc-c14n#WithComments</samp>
+</li>
+
+<li>
+<samp>http://www.w3.org/TR/2001/REC-xml-c14n-20010315</samp>
+</li>
+
+<li>
+<samp>http://www.w3.org/TR/2001/REC-xml-c14n-20010315#WithComments</samp>
+</li>
+
+</ul>
+</p>
+
+</dd>
+<dt>
+<strong><a name="sec_signk"></a>Chiave di firma</strong>
+</dt>
+<dd>Specifica le informazioni sulla chiave utilizzata per la firma. Questi campi vengono ignorati nella configurazione lato ricevente. 
+<p>Se si specifica un <strong>Nome chiave</strong> e un <strong>Riferimento indicatore di posizione della chiave</strong>, selezionare <strong>Nessuno</strong> per
+il Percorso certificato.</p>
+
+</dd>
+<dt>
+<strong><a name="sec_certpath"></a>Percorso certificato</strong>
+</dt>
+<dd> Specifica le impostazioni per la convalida del percorso del certificato. Se si
+seleziona <strong>Considera attendibili tutti</strong>, questa convalida viene ignorata e tutti i
+certificati in entrata vengono considerati attendibili. Questi campi vengono ignorati nella configurazione lato mittente. 
+<p>Se si seleziona <strong>Considera attendibili tutti</strong> o <strong>Ancoraggio sicuro</strong> e un <strong>Archivio  certificati</strong>, selezionare <strong>Nessuno</strong> per la chiave di firma nel campo precedente.</p>
+
+<p>
+<strong>Ancoraggio sicuro</strong>
+</p>
+
+<p>Le selezioni disponibili per Ancoraggio sicuro vengono specificate facendo clic su
+<strong>Server &gt; Server delle applicazioni &gt; </strong><em>nome_server</em>. In Ulteriori propriet&agrave;, fare clic su <strong>Servizi Web: collegamenti predefiniti per la sicurezza dei servizi Web (WS-Security, Web Services Security) &gt; Ancoraggi sicuri</strong>.</p>
+
+<p>
+<strong>Archivio certificati</strong>
+</p>
+
+<p>Le selezioni disponibili per Archivio certificati vengono specificate selezionando <strong>Server &gt; Server delle applicazioni &gt;</strong><em> nome_server</em>. In Elementi correlati, fare clic su <strong>Servizi Web: collegamenti predefiniti per la sicurezza dei servizi Web (WS-Security, Web Services Security) &gt; Raccolta archivio certificati</strong>.</p>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>Informazioni correlate</strong>
+</p>
+<a href="uwbs_signinfo.html">Raccolta informazioni sulla firma</a>
+<br>
+
+</div>
+</body>
+</html>

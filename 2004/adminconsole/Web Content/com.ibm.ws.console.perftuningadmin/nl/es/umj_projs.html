@@ -1,0 +1,244 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Valores de servidor JMS interno de WebSphere</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="JMSServer"></a>
+<h2>Valores de servidor JMS interno de WebSphere</h2>
+
+<p>El servidor JMS sirve las funciones JMS en un nodo dentro del dominio de
+administraci&oacute;n de WebSphere Application Server.  Utilice este panel para ver o modificar las propiedades de configuraci&oacute;n del servidor JMS seleccionado.</p>
+
+<p>Puede utilizar este panel para configurar un conjunto general de propiedades del servidor JMS, que se a&ntilde;adir&iacute;an a
+los valores por omisi&oacute;n de las propiedades configuradas autom&aacute;ticamente para el proveedor de JMS
+incorporado de WebSphere.</p>
+
+
+<p>
+<b>Nota: </b>En general, los
+valores por omisi&oacute;n de las propiedades de WebSphere MQ resultan
+adecuados para servidores de JMS internos de WebSphere. No obstante, si ejecuta altas
+cargas de mensajes, es posible que tenga que cambiar algunas propiedades de WebSphere MQ, por
+ejemplo, las propiedades para ubicaciones de archivo de anotaciones cronol&oacute;gicas, p&aacute;ginas de
+archivo y p&aacute;ginas de almacenamiento intermedio. Para obtener m&aacute;s informaci&oacute;n sobre c&oacute;mo configurar propiedades de WebSphere MQ, consulte el manual <cite>WebSphere MQ Administraci&oacute;n del
+sistema</cite>, SC33-1873, que est&aacute; disponible en <img border="0" alt="S&oacute;lo se puede acceder al destino si este tema est&aacute; enlazado con la World Wide Web" src="web.gif">&nbsp;&nbsp;               
+   <a target="_blank" href="http://www.elink.ibmlink.ibm.com/public/applications/publications/cgibin/pbi.cgi"><strong>IBM Publications Center</strong></a>
+ o en
+WebSphere MQ collection kit, SK2T-0730.</p>
+
+<dl>
+<dt>
+<strong><a name="JMSServer_name"></a>Nombre</strong>
+</dt>
+<dd>Nombre por el que se conoce el
+servidor JMS para fines administrativos dentro de IBM WebSphere
+Application Server.
+<p>Este nombre no debe cambiarse.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unidades</td>
+<td align="left" valign="top" class="base">No se aplica</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">Servidor JMS interno de WebSphere</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">No se aplica</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JMSServer_description"></a>Descripci&oacute;n</strong>
+</dt>
+<dd>Descripci&oacute;n del servidor
+JMS, para fines administrativos dentro de IBM WebSphere Application
+Server.
+<p>Esta serie no debe cambiarse.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+
+
+
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">Servidor JMS interno de WebSphere</td>
+
+</tr>
+
+
+
+
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JMSServer_numThreads"></a>N&uacute;mero de hebras</strong>
+            &nbsp;
+            </dt>
+<dd>N&uacute;mero de hebras simult&aacute;neas que el motor de publicaci&oacute;n/suscripci&oacute;n coincidente va
+a utilizar.
+<p>El n&uacute;mero de hebras simult&aacute;neas s&oacute;lo debe establecerse en un n&uacute;mero peque&ntilde;o.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unidades</td>
+<td align="left" valign="top" class="base">Hebras</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">1</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">Mayor o igual a 1</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JMSServer_queueNames"></a>Nombres de cola</strong>
+</dt>
+<dd>Nombres de las colas albergadas en este servidor JMS. Cada nombre de cola debe a&ntilde;adirse en una l&iacute;nea distinta.
+<p>Cada cola que aparece enumerada en este campo debe tener un objeto administrativo de colas independiente con el mismo nombre administrativo. Para que las aplicaciones puedan acceder a una cola, defina una cola WebSphere y a&ntilde;ada su nombre a este campo en el panel Servidor JMS para el sistema principal donde desea que se albergue la cola.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">ASCII</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unidades</td>
+<td align="left" valign="top" class="base">Nombre de cola</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">No se aplica</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">Cada entrada de este campo es un nombre de cola de hasta 45 caracteres, que debe coincidir exactamente (incluido el uso de las may&uacute;sculas y las min&uacute;sculas) con el objeto  administrativo de colas definido por la cola.</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JMSServer_executionState"></a>Estado inicial</strong>
+</dt>
+<dd>Estado que desea que tenga el servidor JMS la pr&oacute;xima vez que se reinicie.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unidades</td>
+<td align="left" valign="top" class="base">No se aplica</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">Iniciado</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>Iniciado</strong>
+</dt>
+<dd>El servidor JMS se inicia autom&aacute;ticamente.</dd>
+
+<dt>
+<strong>Detenido</strong>
+</dt>
+<dd>El servidor JMS no se inicia autom&aacute;ticamente. Si las aplicaciones de empresa desplegadas tienen que utilizar las funciones del servidor JMS proporcionadas por el servidor JMS, el administrador del sistema debe iniciar manualmente el servidor JMS o seleccionar el valor Iniciado de esta propiedad y despu&eacute;s reiniciar el servidor JMS.</dd>
+
+</dl>
+<p>Para reiniciar el servidor JMS para un servidor de aplicaciones, detenga el servidor de aplicaciones y, a continuaci&oacute;n, rein&iacute;cielo.</p>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</body>
+</html>

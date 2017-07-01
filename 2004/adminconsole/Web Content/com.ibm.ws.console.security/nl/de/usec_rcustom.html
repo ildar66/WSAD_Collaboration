@@ -1,0 +1,155 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Einstellungen f&uuml;r eigene Benutzer-Registry</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecrcustom"></a>
+<h2>Einstellungen f&uuml;r eigene Benutzer-Registry</h2>
+
+<p>Auf dieser Seite k&ouml;nnen Sie eine eigene Benutzer-Registry konfigurieren. </p>
+
+<p>Klicken Sie zum Anzeigen dieser Seite der Administrationskonsole auf
+<strong>Sicherheit</strong> &gt; <strong>Benutzer-Registrys</strong> &gt; <strong>Benutzerdefiniert</strong>.</p>
+
+<p>Wenn Sie die Merkmale in dieser Anzeige definiert haben, klicken Sie auf
+<strong>Anwenden</strong>. In der Anzeige <strong>Merkmale</strong> k&ouml;nnen Sie weitere Merkmale angeben, die die benutzerdefinierte Registry
+ben&ouml;tigt. Wenn bei aktivierter Sicherheitseinrichtung eines dieser Merkmale ge&auml;ndert wird, m&uuml;ssen Sie in die Anzeige
+<strong>Globale Sicherheit</strong> wechseln und auf <strong>Anwenden</strong> klicken, um die &Auml;nderungen zu &uuml;berpr&uuml;fen.  </p>
+
+<div>
+<p>
+<strong>Register "Konfiguration"</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="UserRegistry_serverId_description"></a>Benutzer-ID des Servers</strong>
+</dt>
+<dd>Gibt die Benutzer-ID an, unter der der Server aus Sicherheitsgr&uuml;nden ausgef&uuml;hrt wird.
+
+<p>Die Server-ID stellt einen g&uuml;ltigen Benutzer in der benutzerdefinierten Registry dar. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="UserRegistry_serverPassword_description"></a>Benutzerkennwort des Servers</strong>
+</dt>
+<dd>Gibt das Kennwort an, das der ID des Sicherheitsservers entspricht.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="CustomUserRegistry_customRegistryClassName_description"></a>Klassenname der benutzerdefinierten Registry</strong>
+</dt>
+<dd>Ein Klassenname, der Punkte als Trennzeichen verwendet und das Interface
+<samp>com.ibm.websphere.security.UserRegistry</samp> implementiert.
+<p>Geben Sie im Klassenpfad den Klassennamen der benutzerdefinierten Registry ein. Ein Vorschlag f&uuml;r das Verzeichnis
+ist <samp>%install_root%/lib/ext</samp>. Obwohl die angepasste Registry das Interface
+<samp>com.ibm.websphere.security.UserRegistry</samp> implementiert, um die Abw&auml;rtskompatibilit&auml;t zu
+gew&auml;hrleisten, kann eine Benutzer-Registry auch das Interface
+<samp>com.ibm.websphere.security.CustomRegistry</samp> implementieren. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">com.ibm.websphere.security.FileRegistrySample</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="CustomUserRegistry_ignoreCase_description"></a>Gro&szlig;-/Kleinschreibung ignorieren</strong>
+</dt>
+<dd>Gibt an, dass eine Berechtigungspr&uuml;fung ohne Ber&uuml;cksichtigung der Gro&szlig;-/Kleinschreibung
+durchgef&uuml;hrt wird. 
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">Aktiviert </td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">Aktiviert oder inaktiviert</td>
+
+</tr>
+
+</table>
+
+<div>Verwenden Sie den Link <strong>Benutzerdefinierte Merkmale</strong>, wenn Sie weitere Merkmale hinzuf&uuml;gen m&ouml;chten, die zum
+Initialisieren der angepassten Registry erforderlich sind.
+Das folgende Merkmal ist vom Produkt bereits vordefiniert und sollte nur bei Bedarf gesetzt werden:
+<ul>
+
+<li>^WAS_UseDisplayName -- Wenn dieses Merkmal auf <samp>true</samp> eingestellt ist,
+geben die Methoden <samp>getCallerPrincipal()</samp>, <samp>getUserPrincipal()</samp>, <samp>getRemoteUser()</samp>
+den Anzeigenamen zur&uuml;ck.
+Standardm&auml;&szlig;ig wird der <samp>securityName</samp> des Benutzers zur&uuml;ckgegeben.
+Dieses Verfahren wurde in erster Linie f&uuml;r die Unterst&uuml;tzung der Abw&auml;rtskompatibilit&auml;t mit
+der angepassten Registry der Version 4.0 eingef&uuml;hrt.</li>
+
+</ul>
+</div>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Zugeh&ouml;rige Informationen</strong>
+</p>
+<a href="rcon_buttons.html">Kn&ouml;pfe in der Adminstrationskonsole</a>
+<br>
+
+<a href="rcon_pageusage.html">Funktionen auf den Seiten der Administrationskonsole</a>
+<br>
+
+<a href="rcon_scope.html">Geltungsbereichseinstellungen f&uuml;r die Administrationskonsole</a>
+<br>
+
+<a href="rcon_filter.html">Filtereinstellungen f&uuml;r die Administrationskonsole</a>
+<br>
+
+<a href="rcon_preferences.html">Vorgaben f&uuml;r die Administrationskonsole</a>
+<br>
+
+</div>
+</body>
+</html>

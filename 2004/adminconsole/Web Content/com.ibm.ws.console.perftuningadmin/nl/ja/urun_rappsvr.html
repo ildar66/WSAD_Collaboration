@@ -1,0 +1,295 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>アプリケーション・サーバー設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="urun_rappsvr"></a>
+<h2>アプリケーション・サーバー設定</h2>
+
+<p>このページを使用して、アプリケーション・サーバー・インスタンスの設定を表示または変更します。</p>
+
+<p>この管理コンソール・ページを表示するには、「<strong>サーバー</strong>」&gt;「<strong>アプリケーション・サーバー</strong>」&gt;「<em>server_name</em>」をクリックします。</p>
+
+<p>「<strong>構成</strong>」タブにあるフィールドは編集可能で、「
+<strong>ランタイム</strong>」タブでは読み取り専用情報を表示します。
+「<strong>ランタイム</strong>」タブは、サーバーが実行中の場合のみ使用可能です。
+</p>
+
+<div>
+<p>
+<strong>「構成」タブ</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="Server_name_description"></a>名前</strong>
+</dt>
+<dd>サーバーの論理名を指定します。サーバー名は、ノード内で固有でなければなりません。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">server1</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="StateManageable_initialState_description"></a>初期状態</strong>
+</dt>
+<dd>サーバーを最初に始動するときに要求されるコンポーネントの実行状態を指定します。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">開始済み</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationServer_classloaderPolicy_description"></a>アプリケーション・クラス・ローダー・ポリシー</strong>
+</dt>
+<dd>単一のクラス・ローダーを使用して、すべてのアプリケーションをロードするか、
+またはアプリケーションごとに異なるクラス・ローダーを使用するかを指定します。
+<p>オプションは、SINGLE および MULTIPLE です。 デフォルトでは、
+各アプリケーションごとに別々のクラス・ローダーが使用されます (MULTIPLE)。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">MULTIPLE</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationServer_classloaderMode_description"></a>アプリケーション・クラス・ロード・モード</strong>
+</dt>
+<dd>クラス・ローダーが、クラスをロードする際に、
+最初に親クラス・ローダーを検索するのか、
+あるいはアプリケーション・クラス・ローダーを検索するのかを指定します。
+JDK クラス・ローダーおよび
+WebSphere クラス・ローダーの標準は PARENT_FIRST です。PARENT_LAST を指定することによって、アプリケーションは、親クラス・ローダーに含まれるクラスをオーバーライドできますが、
+オーバーライドされたクラスとオーバーライドされていないクラスを一緒に使用した場合、
+このアクションにより、ClassCastException または LinkageErrors が発生する可能性があります。
+<p>オプションは PARENT_FIRST と PARENT_LAST です。
+デフォルトでは、クラスをロードする際に、
+親クラス・ローダーを検索してから、アプリケーション・クラス・ローダーを検索します。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">PARENT_FIRST</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>「ランタイム」タブ</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="rappsvr-rt1"></a>プロセス ID</strong>
+            &nbsp;
+            </dt>
+<dd>プロセスを識別するストリングを指定します。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="rappsvr-rt2"></a>セル名</strong>
+            &nbsp;
+            </dt>
+<dd>アプリケーション・サーバーのセルの名前を指定します。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base"><em>host_name</em>Network</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="rappsvr-rt3"></a>ノード名</strong>
+            &nbsp;
+            </dt>
+<dd>アプリケーション・サーバーのノードの名前を指定します。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="rappsvr-rt4"></a>状態</strong>
+            &nbsp;
+            </dt>
+<dd>アプリケーション・サーバーが開始済みであるか、または停止中であるかを示します。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">開始済み</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>関連情報</strong>
+</p>
+<a href="rcon_buttons.html">管理コンソールのボタン</a>
+<br>
+
+<a href="rcon_pageusage.html">管理コンソール・ページのフィーチャー</a>
+<br>
+
+<a href="uagt_radmin.html">管理サービス設定</a>
+<br>
+
+<a href="urun_rclassloader.html">クラス・ローダーの集合</a>
+<br>
+
+<a href="urun_rapp.html">エンタープライズ・アプリケーション・コレクション</a>
+<br>
+
+<a href="urun_rsvr_services.html">カスタム・サービス・コレクション</a>
+<br>
+
+<a href="utrb_debugsvc.html">デバッグ・サービスの詳細</a>
+<br>
+
+<a href="udyn_rcachesettings.html">動的キャッシュ・サービスの設定</a>
+<br>
+
+<a href="uejb_recnt.html">EJB コンテナー設定</a>
+<br>
+
+<a href="urun_rendpoint.html">エンドポイント・コレクション</a>
+<br>
+
+<a href="utrb_servicelogs.html">IBM サービス・ログ設定</a>
+<br>
+
+<a href="utrb_logtrace.html">ロギングおよびトレース設定</a>
+<br>
+
+<a href="umb_smlp.html">メッセージ・リスナー・ポート・コレクション</a>
+<br>
+
+<a href="uorb_rsetg.html">管理コンソールでのオブジェクト・リクエスト・ブローカー・サービス設定</a>
+<br>
+
+<a href="uprf_rmonitorsettings.html">パフォーマンス・モニター・サービス設定</a>
+<br>
+
+<a href="urun_rconfproc.html">プロセス定義設定</a>
+<br>
+
+<a href="urun_rproperty.html">カスタム・プロパティー・コレクション</a>
+<br>
+
+<a href="urun_rsvrcomp.html">サーバー・コンポーネント・コレクション</a>
+<br>
+
+<a href="utrb_traceservice.html">診断トレース・サービス設定</a>
+<br>
+
+<a href="udat_contranserv.html">トランザクション・サービス設定</a>
+<br>
+
+<a href="uweb_rcont.html">Web コンテナー設定</a>
+<br>
+
+</div>
+</body>
+</html>

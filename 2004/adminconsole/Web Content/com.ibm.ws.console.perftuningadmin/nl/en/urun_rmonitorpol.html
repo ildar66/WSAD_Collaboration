@@ -1,0 +1,159 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Monitoring policy settings</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="urun_rmonitorpol"></a>
+<h2>Monitoring policy settings</h2>
+
+<p>Use this page to view or change settings that control how the node
+ agent monitors and restarts a process.</p>
+
+<p>To view this administrative console page, click <strong>Servers &gt; Application
+ Servers &gt; </strong><em>server_name</em><strong> &gt; Process Definition &gt; Monitoring
+ Policy</strong>.</p>
+
+<div>
+<p>
+<strong>Configuration tab</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="MonitoringPolicy_maximumStartupAttempts_description"></a>Maximum Startup Attempts</strong>
+</dt>
+<dd>Specifies the maximum number of times to attempt to start the
+ application server before giving up.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MonitoringPolicy_pingInterval_description"></a>Ping Interval</strong>
+</dt>
+<dd>Specifies the frequency of communication attempts between the parent process,
+ such as the node agent, and the process it has spawned, such as an application server.
+ Adjust this value based on your requirements for restarting failed servers. Decreasing
+ the value detects failures sooner; increasing the value reduces the frequency of pings,
+ reducing system overhead.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MonitoringPolicy_pingTimeout_description"></a>Ping Timeout</strong>
+</dt>
+<dd>When a parent process is spawning a child process, such as when
+ a process manager spawns a server, the parent process pings the child
+ process to see whether the child was spawned successfully. This value
+ specifies the number of seconds that the parent process should wait
+ (after pinging the child process) before assuming that the child process
+ failed.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Units</td>
+<td align="left" valign="top" class="base">Seconds</td>
+
+</tr>
+
+</table>
+</dd>
+<dt>
+<strong><a name="MonitoringPolicy_autoRestart_description"></a>Automatic Restart</strong>
+</dt>
+<dd>Specifies whether the process should restart automatically if it fails. 
+ The default is to restart the process automatically.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">true</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MonitoringPolicy_nodeRestartState_description"></a>Node Restart State</strong>
+</dt>
+<dd>Specifies the desired state for the process after the node completely shuts
+ down and restarts. The options are: <em>STOPPED</em>, <em>RUNNING</em>, <em>PREVIOUS</em>.
+ The default is <em>STOPPED</em>.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">STOPPED</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range</td>
+<td align="left" valign="top" class="base">Valid values are STOPPED, RUNNING, or PREVIOUS.</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Related information</strong>
+</p>
+<a href="rcon_buttons.html">Administrative console buttons</a>
+<br>
+
+<a href="rcon_pageusage.html">Administrative console page features</a>
+<br>
+
+</div>
+</body>
+</html>

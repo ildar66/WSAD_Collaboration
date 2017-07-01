@@ -1,0 +1,246 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>准备应用程序安装设置</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="urun_rapp_instw"></a>
+<h2>准备应用程序安装设置</h2>
+
+<p>使用本页面安装应用程序（EAR 文件）或模块（JAR 或 WAR 文件）。</p>
+
+<p>要查看此管理控制台页面，单击<strong>应用程序 &gt; 安装新应用程序</strong>。</p>
+
+<p>按照本页面中的步骤安装应用程序或模块。您至少必须完成第一步；您必须完成以后的步骤中的一些或全部，这取决于您正在安装应用程序、EJB 模块还是 Web 模块。</p>
+
+<dl>
+<dt>
+<strong><a name="app_deploy_path"></a>路径</strong>
+</dt>
+<dd>指定到企业应用程序的 .ear、.jar 或 .war 文件的全限定路径。
+<p>如果浏览器和应用程序文件在同一台机器上（无论服务器是否也在该机器上），则使用<strong>本地路径</strong>。</p>
+
+<p>如果应用程序文件驻留在当前单元上下文中的任何节点上，则使用<strong>服务器路径</strong>。如果 Node Agent 或 Deployment Manager 正运行在所选的节点上，您可以浏览整个节点的文件系统。浏览期间，仅显示 .ear、.jar 或 .war 文件。</p>
+
+<p>在应用程序安装期间，应用程序文件通常从运行浏览器的客户机上载到部署它们的运行管理控制台的服务器上。在这种情况下，运行管理控制台的 Web 浏览器用于选择上载到服务器的 EAR、WAR 或 JAR 模块。</p>
+
+<p>然而在一些情况下，应用程序文件驻留在单元中任意节点的文件系统上。要使应用程序服务器安装这些文件，使用<strong>服务器路径</strong>选项。</p>
+
+<p>您也可以使用此选项指定一个已经在运行应用程序服务器的机器上驻留的应用程序文件。例如，在 Windows NT 上该字段值可以是 <samp>C:\WebSphere\AppServer\installableApps\test.ear</samp>。如果您正在安装独立 WAR 模块，那么您也必须指定上下文根。</p>
+
+</dd>
+<dt>
+<strong><a name="app_deploy_contextRoot"></a>上下文根</strong>
+</dt>
+<dd>指定 Web 应用程序（WAR）的上下文根。
+<p>此字段仅用于安装独立 WAR 文件。上下文根与定义的 servlet 映射（来自 WAR 文件）进行组合，组成用户输入的访问该 servlet 的完整 URL。例如，如果上下文根是 /gettingstarted 且 servlet 映射是 MySession，则 URL 是 <samp>http://host:port/gettingstarted/MySession</samp>。</p>
+
+</dd>
+<dt>
+<strong><a name="app_deploy_genDefBindings"></a>生成缺省绑定</strong>
+</dt>
+<dd>指定是否生成缺省绑定。如果在复选框中做出了复选标记，那么应用程序中任何未完成的绑定都以缺省值填充。现有绑定将不改变。
+<p>选择此选项，您可以直接跳转到&ldquo;摘要&rdquo;步骤并安装应用程序（如果步骤旁都没有红色星号（*））。红星号表示这个步骤有不完整的数据和需要一个有效的值。在&ldquo;摘要&rdquo;面板上，验证安装应用程序的单元、节点和服务器。</p>
+
+<p>按如下所示生成绑定：</p>
+
+<ul>
+
+<li>EJB JNDI 名称以 <em>prefix</em>/<em>ejb-name</em> 的格式生成。缺省 prefix 是 <samp>ejb</samp>，但可以重设它。<em>ejb-name</em> 如部署描述符 <samp>&lt;ejb-name&gt;</samp> 标记中那样指定。</li>
+
+<li>EJB 引用是按如下所示绑定的：如果查找到 &lt;ejb-link&gt;，则用它。否则，如果查找到唯一的企业 bean，它有匹配的 home（或本地 home）接口作引用 bean，将自动解析引用。</li>
+
+<li>从 &lt;res-ref-name&gt; 标记派生出资源引用绑定。注意，此操作假设 java:comp/env 名称与资源全局 JNDI 名称是相同的。</li>
+
+<li>连接工厂绑定（用于 EJB 2.0 JAR 文件）是基于 JNDI 名称和提供的授权信息生成的。此操作导致安装应用程序中每个 EJB 2.0 JAR 文件的连接工厂缺省设置。不生成 bean 级别连接工厂绑定。</li>
+
+<li>数据源绑定（用于 EJB 1.1 JAR 文件）是基于 JNDI 名称、数据源用户名密码选项生成的。这导致每个 EJB JAR 文件的缺省数据源设置。不生成 bean 级别数据源绑定。</li>
+
+<li>消息驱动 bean（MDB）侦听器端口是由附加 <samp>Port</samp> 字符串的 MDB &lt;ejb-name&gt; 标记派生的。</li>
+
+<li>对于 .war 文件，虚拟主机设置为 <samp>default_host</samp>，除非另外指定。</li>
+
+</ul>
+
+<p>缺省策略满足多数应用程序，或至少满足多数应用程序中的多数绑定。然而，在以下情况中它不工作：</p>
+
+<ul>
+
+<li>您希望明确地控制一个或多个 EJB 文件的全局 JNDI 名称。</li>
+
+<li>您需要更严密地控制 CMP 的数据源绑定。即，您有多个数据源并且需要多个全局数据源。</li>
+
+<li>您必须映射资源引用到全局资源 JNDI 名称，该名称不同于 java:comp/env 名称。</li>
+
+</ul>
+
+<p>在这些情况下，您可以改变 XML 文档的行为（定制策略）。使用<strong>特定绑定文件</strong>字段指定定制策略和查看示例的字段帮助。</p>
+
+</dd>
+<dt>
+<strong><a name="app_deploy_prefixes"></a>前缀</strong>
+</dt>
+<dd>指定用于生成的 JNDI 名称的前缀。
+
+</dd>
+<dt>
+<strong><a name="app_deploy_override"></a>重设</strong>
+</dt>
+<dd>指定是否重设现有绑定。
+<p>如果选取了此复选框，则生成的绑定将覆盖现有绑定。</p>
+
+</dd>
+<dt>
+<strong><a name="app_deploy_ejbCmpBindings"></a>EJB 1.1 CMP 绑定</strong>
+</dt>
+<dd>指定缺省数据源 JNDI 名称。
+<p>如果选择了 <strong>EJB 1.1 CMP 的缺省绑定</strong>单选按钮，则指定与 CMP 1.1 bean 一起使用的缺省数据源 JNDI 名称。也为此缺省数据源指定用户标识和密码。</p>
+
+</dd>
+<dt>
+<strong><a name="app_deploy_connFacBindings"></a>连接工厂绑定</strong>
+</dt>
+<dd>指定缺省数据源 JNDI 名称。
+<p>如果选择了<strong>缺省连接工厂绑定</strong>单选按钮，则指定与绑定一起使用的缺省数据源 JNDI 名称。也指定资源权限。</p>
+
+</dd>
+<dt>
+<strong><a name="app_deploy_virtualHost"></a>虚拟主机</strong>
+</dt>
+<dd>指定 WAR 模块的虚拟主机。
+
+</dd>
+<dt>
+<strong><a name="app_deploy_specificBindingsFile"></a>特定绑定文件</strong>
+</dt>
+<dd>指定覆盖缺省绑定的绑定文件。
+<p>用 XML 文档（<em>aka</em> 定制策略）改变缺省绑定的行为。定制策略扩展缺省策略，这样您仅需要定制缺省策略不够的那些范围。即，您仅需要描述要如何更改缺省策略生成的绑定；您不必定义整个应用程序的绑定。</p>
+
+<p>以下是如何重设缺省绑定生成器各个方面的简要示例：</p>
+
+<p>
+<strong>控制 EJB JNDI 名称</strong>
+
+</p>
+
+<pre>&lt;?xml version="1.0" ?&gt;
+&lt;!DOCTYPE dfltbndngs SYSTEM "dfltbndngs.dtd"&gt;
+&lt;dfltbndngs&gt;
+  &lt;module-bindings&gt;
+    &lt;ejb-jar-binding&gt;
+      &lt;jar-name&gt;helloEjb.jar&lt;/jar-name&gt;
+&lt;!-- this name must match the module name in the .ear file --&gt;
+      &lt;ejb-bindings&gt;
+        &lt;ejb-binding&gt;
+         &lt;ejb-name&gt;HelloEjb&lt;/ejb-name&gt;
+&lt;!-- this must match the &lt;ejb-name&gt; entry in the EJB jar DD --&gt;
+         &lt;jndi-name&gt;com/acme/ejb/HelloHome&lt;/jndi-name&gt;
+        &lt;/ejb-binding&gt;
+      &lt;/ejb-bindings&gt;
+    &lt;/ejb-jar-binding&gt;
+  &lt;/module-bindings&gt;
+&lt;/dfltbndngs&gt;</pre>
+
+<p> 
+<strong>设置 EJB JAR 文件的连接工厂绑定</strong>
+
+</p>
+
+<pre>&lt;!DOCTYPE dfltbndngs SYSTEM "dfltbndngs.dtd"&gt;
+&lt;dfltbndngs&gt;
+  &lt;module-bindings&gt;
+    &lt;ejb-jar-binding&gt;
+      &lt;jar-name&gt;yourEjb20.jar&lt;/jar-name&gt;
+      &lt;connection-factory&gt;
+        &lt;jndi-name&gt;eis/jdbc/YourData_CMP&lt;/jndi-name&gt;
+        &lt;res-auth&gt;Container&lt;/res-auth&gt;
+      &lt;/connection-factory&gt;
+    &lt;/ejb-jar-binding&gt;
+  &lt;/module-bindings&gt;
+&lt;/dfltbndngs&gt;</pre>
+
+<p> 
+<strong>设置 EJB 文件的连接工厂绑定</strong>
+
+</p>
+
+<pre>&lt;?xml version="1.0"&gt;
+&lt;!DOCTYPE dfltbndngs SYSTEM "dfltbndngs.dtd"&gt;
+&lt;dfltbndngs&gt;
+  &lt;module-bindings&gt;
+    &lt;ejb-jar-binding&gt;
+      &lt;jar-name&gt;yourEjb20.jar&lt;/jar-name&gt;
+      &lt;ejb-bindings&gt;
+        &lt;ejb-binding&gt;
+          &lt;ejb-name&gt;YourCmp20&lt;/ejb-name&gt;
+&lt;!-- this matches the ejb-name tag in the DD --&gt;
+          &lt;connection-factory&gt;
+           &lt;jndi-name&gt;eis/jdbc/YourData_CMP&lt;/jndi-name&gt;
+           &lt;res-auth&gt;PerConnFact&lt;/res-auth&gt;
+          &lt;/connection-factory&gt;
+        &lt;/ejb-binding&gt;
+      &lt;/ejb-bindings&gt;
+    &lt;/ejb-jar-binding&gt;
+ &lt;/module-bindings&gt;
+&lt;/dfltbndngs&gt;</pre>
+
+<p> 
+<strong>重设 WAR、EJB JAR 文件或 J2EE 客户机 JAR 文件的资源引用绑定</strong>
+
+</p>
+
+<p>下面是重设 WAR 文件的资源引用绑定的示例代码。使用类似的代码重设 EJB JAR 文件或 J2EE 客户机 JAR 文件的资源引用绑定。</p>
+
+<pre>&lt;?xml version="1.0" ?&gt;
+&lt;!DOCTYPE dfltbndngs SYSTEM "dfltbndngs.dtd"&gt;
+&lt;dfltbndngs&gt;
+  &lt;module-bindings&gt;
+    &lt;war-binding&gt;
+      &lt;jar-name&gt;hello.war&lt;/jar-name&gt;
+      &lt;resource-ref-bindings&gt;
+        &lt;resource-ref-binding&gt;
+          &lt;!-- the following must match the resource-ref in the DD --&gt;
+          &lt;resource-ref-name&gt;jdbc/MyDataSrc&lt;/resource-ref-name&gt;
+          &lt;jndi-name&gt;war/override/dataSource&lt;/jndi-name&gt;
+        &lt;/resource-ref-binding&gt;
+      &lt;/resource-ref-bindings&gt;
+    &lt;/war-binding&gt;
+  &lt;/module-bindings&gt;
+&lt;/dfltbndngs&gt;</pre>
+
+<p> 
+<strong>重设 MDB JMS 侦听器端口</strong>
+
+</p>
+
+<pre>&lt;?xml version="1.0" ?&gt;
+&lt;!DOCTYPE dfltbndngs SYSTEM "dfltbndngs.dtd"&gt;
+&lt;dfltbndngs&gt;
+  &lt;module-bindings&gt;
+    &lt;ejb-jar-binding&gt;
+      &lt;jar-name&gt;YourEjbJar.jar&lt;/jar-name&gt;
+      &lt;ejb-bindings&gt;
+        &lt;ejb-binding&gt;
+          &lt;ejb-name&gt;YourMDB&lt;/ejb-name&gt;
+          &lt;listener-port&gt;yourMdbListPort&lt;/listener-port&gt;
+        &lt;/ejb-binding&gt;
+      &lt;/ejb-bindings&gt;
+    &lt;/ejb-jar-binding&gt;
+  &lt;/module-bindings&gt;
+&lt;/dfltbndngs&gt;</pre>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>相关信息</strong>
+</p>
+<a href="rcon_buttons.html">管理控制台按钮</a>
+<br>
+
+</div>
+</body>
+</html>

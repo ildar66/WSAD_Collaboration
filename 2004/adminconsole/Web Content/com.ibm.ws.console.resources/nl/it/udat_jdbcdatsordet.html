@@ -1,0 +1,382 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Impostazioni dell'origine dati</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="Data_source_detail"></a>
+<h2>Impostazioni dell'origine dati</h2>
+
+<p>Utilizzare questa pagina per creare un'origine dati in un
+provider di JDBC che fornisce la specifica classe di implementazione
+del driver JDBC. </p>
+
+<p>Accertarsi di voler utilizzare un'origine dati Versione 5.0. Se si
+utilizza il modello del componente Enterprise JavaBean versione 1.0 e Servlet 2.2, &egrave;
+necessario utilizzare un'origine dati Versione 4.0.</p>
+
+<p>Per visualizzare questa pagina della console di gestione, fare clic su <strong>Risorse</strong>
+&gt; <strong>Provider JDBC</strong> &gt; <em>provider_JDBC</em> &gt; <strong>Origini dati</strong> &gt;
+<em>origine_dati</em>.</p>
+
+<div>
+<p>
+<strong>Scheda Configurazione</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="DataSource_detail_contextID"></a>Ambito</strong>
+</dt>
+<dd>Specifica il livello in cui &egrave; visibile questa definizione di risorsa -- il
+livello cella, nodo o server.
+<p>&Egrave; possibile definire in pi&ugrave; ambiti, risorse quali provider di JDBC, collegamenti
+spazio nome o librerie condivise, insieme a risorse definite in ambiti pi&ugrave; specifici che
+sovrascrivono i duplicati definiti in ambiti pi&ugrave; generali.</p>
+
+<p>Notare che non &egrave; importante l'ambito di una risorsa definita, le propriet&agrave; della
+risorsa si applicano solo ad un singolo livello del server. Ad esempio, se si definisce
+l'ambito di un'origine dati al livello Cella, tutti gli utenti possono ricercare e
+utilizzare quella origine dati che risulta univoca all'interno di quella cella. Tuttavia,
+le impostazioni delle propriet&agrave; di risorsa sono locali per ogni server
+all'interno della Cella. Ad esempio, se si imposta <em>numero massimo connessioni</em> su
+10, ogni server in quella cella pu&ograve; disporre di 10 connessioni.<dl>
+
+<dt>
+<strong>Cella</strong>
+</dt>
+<dd>L'ambito pi&ugrave; generale.  Le risorse definite nell'ambito cella sono
+visibili da tutti i nodi e i server, a meno che non siano state sovrascritte. Per visualizzare le risorse definite nell'ambito cella, non specificare il nome di un
+server o di un nodo nel modulo di selezione dell'ambito.</dd>
+
+<dt>
+<strong>Nodo</strong>
+</dt>
+<dd>L'ambito predefinito per la maggior parte dei tipi
+di risorse.  Le risorse definite nell'ambito nodo sovrascrivono
+gli eventuali duplicati definiti nell'ambito cella e sono
+visibili a tutti i server sullo stesso nodo, a meno che non siano
+state sovrascritte in un ambito server sul quel nodo. Per
+visualizzare le risorse definite in un ambito nodo, non specificare
+un server ma selezionare il nome di un nodo nel modulo di selezione
+dell'ambito.</dd>
+
+<dt>
+<strong>Server</strong>
+</dt>
+<dd>L'ambito pi&ugrave; specifico per la definizione delle
+risorse.  Le risorse definite nell'ambito server sovrascrivono eventuali
+definizioni di risorse duplicate specificate nell'ambito cella o
+nell'ambito nodo parent e sono visibili solo in un determinato server. Per
+visualizzare le risorse definite in un ambito server, specificare il
+nome di un server e il nome di un nodo nel modulo di selezione
+dell'ambito.</dd>
+
+</dl>
+</p>
+
+<p>Quando le risorse vengono generate, vengono sempre create nell'ambito corrente
+selezionato nel pannello.   Per visualizzare le
+risorse in altri ambiti, specificare un nodo o un server diverso nel
+modulo di selezione dell'ambito.  </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2EEResourceFactory_name_displayName"></a>Nome</strong>
+</dt>
+<dd>Specifica il nome visualizzato dell'origine dati. 
+<p>Ad esempio &egrave; possibile impostare questa campo su <em>Test origini dati</em>.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2EEResourceFactory_jndiName_displayName"></a>Nome JNDI</strong>
+</dt>
+<dd>Specifica il nome JNDI (Java Naming and Directory Interface).
+<p>Gli ambienti informatici distribuiti utilizzano spesso i servizi directory e
+di
+denominazione per ottenere dei componenti e delle risorse condivise. Questi servizi
+associano i nomi con le ubicazioni, i servizi, le informazioni e le
+risorse.  </p>
+
+<p>I servizi di denominazione forniscono le associazioni nome-oggetto. I servizi
+directory, invece, forniscono le informazioni relative agli oggetti e agli strumenti
+di ricerca necessari per localizzare tali oggetti. </p>
+
+<p>Esistono molte implementazioni di servizi directory e di denominazione e interfacce
+per modificarle.   JNDI fornisce un'interfaccia comune utilizzata per accedere ai diversi
+servizi di directory e denominazione.</p>
+
+<p>&Egrave; possibile, ad esempio, utilizzare il nome <em>jdbc/markSection</em>.</p>
+
+<p>Se si lascia questo campo vuoto, viene generato un nome JNDI dal nome dell'origine
+dati. Ad esempio, il nome markSection di un'origine
+dati genera un nome JNDI <em>jdbc/markSection</em>.</p>
+
+<p>Una volta impostato e salvato questo valore e riavviato il server, &egrave; possibile
+visualizzare questa stringa quando viene eseguito <em>dumpnamespace</em>.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="DataSource_isUsedByCmp_displayName"></a>Persistenza gestita dal contenitore </strong>
+</dt>
+<dd>Specifica se quest'origine dati viene utilizzata per la persistenza gestita
+dal contenitore dei bean enterprise. 
+<p>Se viene selezionata la casella di controllo, viene creata una produzione di
+connettori CMP, che corrisponde a questa origine dati, per l'adattatore risorse
+relazionale.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Casella di controllo</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">Deselezionato</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2EEResourceFactory_description_displayName"></a>Descrizione</strong>
+</dt>
+<dd>Specifica una descrizione della risorsa. 
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2EEResourceFactory_category_displayName"></a>Categoria</strong>
+</dt>
+<dd>Specifica una stringa di categoria che pu&ograve; essere utilizzata per classificare
+o raggruppare la risorsa. 
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="DataSource_statementCacheSize_displayName"></a>Dimensione cache istruzioni </strong>
+</dt>
+<dd>Specifica il numero di istruzioni libere memorizzate nella cache per connessione.
+<p>L'origine dati di WebSphere Application Server ottimizza l'elaborazione delle istruzioni
+preparate. Un'istruzione preparata &egrave; un'istruzione SQL precompilata memorizzata in un oggetto istruzioni preparate. Questo oggetto viene utilizzato per eseguire in modo efficace l'istruzione SQL specificata pi&ugrave; volte. </p>
+
+<p>Se la cache non &egrave; sufficientemente grande, vengono eliminate voci utili per liberare spazio
+su disco per le nuovi voci. Per impostare la dimensione cache sul valore pi&ugrave; alto, evitando
+che vengano scaricate istruzioni dalla cache, aggiungere, per ciascuna applicazione che
+utilizza quest'origine dati su un particolare server, il numero di istruzioni univoche
+preparate, istruzioni richiamabili (come determinato dalla stringa <em>sql</em>, e,
+contemporaneamente, dal tipo di scorrimento). Questo valore rappresenta il numero massimo di
+possibili istruzioni preparate memorizzate nella cache su una connessione specificata durante
+il ciclo di vita del server. Se si imposta la dimensione della cache su
+questo valore, non ci saranno mai istruzioni eliminate dalla cache. In generale, maggiori sono le istruzioni di cui dispone l'applicazione, pi&ugrave; grande &egrave; la cache.
+Ad esempio, se
+l'applicazione dispone di 5 istruzioni SQL, impostare la dimensione della cache istruzioni su
+5, in modo che ciascuna connessione disponga di 5 istruzioni. </p>
+
+<p>Inoltre, &egrave; possibile utilizzare il Visualizzatore prestazioni
+Tivoli per ridurre il numero delle istruzioni eliminate dalla cache. Utilizzare un carico di lavoro standard che rappresenti un numero tipico di richieste client in entrata, un numero stabilito di iterazioni e un gruppo standard di impostazioni di configurazione. <strong>Nota: </strong>pi&ugrave; &egrave; grande la cache istruzioni, maggiori sono le risorse di sistema che vengono eliminate. Pertanto, se si imposta il numero su un valore troppo alto, &egrave; possibile non disporre di risorse poich&eacute; il sistema non &egrave; in grado di aprire le molte istruzioni preparate.</p>
+
+<p>Nelle applicazioni di verifica, l'ottimizzazione della cache istruzione ha migliorato la velocit&agrave; di trasmissione del 10-20%. Tuttavia, a causa di potenziali limiti delle risorse ci&ograve; non &egrave; sempre possibile.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Numero intero</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">A seconda del database. La maggior parte sono 10.  Informix Versione 7.3, 9.2 o
+9.3 senza le ultime correzioni, deve essere impostato su 0. Un valore predefinito 0
+indica che non esistono istruzioni cache.</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="DataSource_datasourceHelperClassname_displayName"></a>Datasource Helper Classname </strong>
+</dt>
+<dd>Specifica il datastore Helper utilizzato per eseguire funzioni specifiche del
+database.  
+<p>&Egrave; utilizzato dall'Adattatore risorse relazionali durante il runtime. La classe di
+implementazione DataStoreHelper predefinita &egrave; impostata in base alla classe di
+implementazione del driver JDBC utilizzando la struttura:
+<em>com.ibm.websphere.rsadapter.&lt;database&gt;DataStoreHelper</em>.
+Ad esempio, se il provider di JDBC &egrave; DB2, la classe DataStoreHelper predefinita &egrave;
+<em>com.ibm.websphere.rsadapter.DB2DataStoreHelper</em>. &Egrave; possibile modificare la sottoclasse di questa classe DataStoreHelper,
+se necessario.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">Dipende dalla classe di implementazione del driver JDBC</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="DataSource_authDataAlias_displayName"></a>Alias dell'autenticazione gestita dal componente</strong>
+</dt>
+<dd>Questo alias viene utilizzato per l'autenticazione del database nel runtime. 
+<p>Se l'autenticazione di risorse (res-auth) &egrave; impostato su <em>Applicazione</em>, impostare
+l'alias nell'Alias di autenticazione gestito dal componente. </p>
+
+<p>Se questo campo non &egrave; impostato e il database richiede l'ID utente e la password per
+richiamare una connessione, si ricever&agrave; un'eccezione durante il runtime.</p>
+
+<p>Se il database (ad esempio, Cloudscape) non supporta l'<em>ID utente</em> e la
+<em>password</em>, non impostare l'alias nel campi Alias di autenticazione gestito dal
+componente o Alias di autenticazione gestito dal contenitore. Altrimenti, verr&agrave;
+visualizzato il messaggio di avviso nel log di sistema che indica che l'utente e la
+password non sono propriet&agrave; valide. Questo messaggio &egrave; solo un avviso, per cui l'origine
+dati verr&agrave; creata con esito positivo.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Elenco di selezione</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="DataSource_mappingModule_authDataAlias_displayName"></a>Alias dell'autenticazione gestita dal contenitore</strong>
+</dt>
+<dd>Questo alias viene utilizzato per l'autenticazione del database nel runtime. 
+<p>Se res-auth &egrave; impostato su <em>Contenitore</em>, impostare l'Alias di autenticazione
+gestito dal contenitore.</p>
+
+<p>Se questo campo non &egrave; impostato e il database richiede l'ID utente e la password per
+richiamare una connessione, si ricever&agrave; un'eccezione durante il runtime.</p>
+
+<p>Se il database (ad esempio, Cloudscape) non supporta l'<em>ID utente</em> e la
+<em>password</em>, non impostare l'alias nel campi Alias di autenticazione gestito dal
+componente o Alias di autenticazione gestito dal contenitore. Altrimenti, verr&agrave;
+visualizzato il messaggio di avviso nel log di sistema che indica che l'utente e la
+password non sono propriet&agrave; valide. Questo messaggio &egrave; solo un avviso, per cui l'origine
+dati verr&agrave; creata con esito positivo.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Elenco di selezione</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="DataSource_mappingConfigAlias"></a>Mappatura degli alias di configurazione</strong>
+</dt>
+<dd>Consente agli utenti di scegliere dall'elenco <strong>Sicurezza</strong> &gt; <strong>Configurazione JAAS</strong> &gt; <strong>Configurazione login dell'applicazione</strong>.
+
+<p>La configurazione JAAS <strong>DefaultPrincipalMapping</strong> mappa gli alias di autenticazione sull'ID utente e sulla password. 
+  &Egrave; possibile definire e utilizzare altre configurazioni di mappature.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Elenco di selezione</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informazioni correlate</strong>
+</p>
+<a href="rcon_buttons.html">Pulsanti della console di gestione</a>
+<br>
+
+</div>
+</body>
+</html>

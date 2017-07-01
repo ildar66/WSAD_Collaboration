@@ -1,0 +1,954 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Zieladressen f&uuml;r WebSphere-MQ-Warteschlangen (MQ-Konfiguration)</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="MQSeriesQueueHost"></a>
+<h2>Zieladressen f&uuml;r WebSphere-MQ-Warteschlangen (MQ-Konfiguration)</h2>
+
+<p>In dieser Anzeige k&ouml;nnen Sie die in WebSphere MQ definierten
+Konfigurationsmerkmale f&uuml;r die ausgew&auml;hlte Zieladresse f&uuml;r eine
+Warteschlange anzeigen oder &auml;ndern.</p>
+
+<p>Die Zieladresse f&uuml;r eine Warteschlange wird verwendet, um die Merkmale einer
+JMS-Warteschlange zu konfigurieren.
+F&uuml;r eine Warteschlange, die mit dem WebSphere MQ JMS Provider verwendet werden
+soll, sind unter WebSphere MQ die folgenden zus&auml;tzlichen Merkmale definiert:<p>
+<b>Anmerkungen: </b>
+<ul>
+
+<li>Einige der angezeigten Merkmale sind schreibgesch&uuml;tzt und k&ouml;nnen nicht ge&auml;ndert werden. </li>
+
+<li>Damit die Merkmale angezeigt oder ge&auml;ndert werden k&ouml;nnen, muss der
+WebSphere MQ Queue Manager mit der Warteschlange f&uuml;r Fernverwaltung konfiguriert und aktiv sein.</li>
+
+<li>Die Merkmalwerte, die Sie angeben, m&uuml;ssen mit den Werten, die Sie bei der Konfiguration von WebSphere-MQ-JMS-Ressourcen angegeben haben, &uuml;bereinstimmen. Weitere
+Informationen zum Konfigurieren von WebSphere-MQ-JMS-Ressourcen finden Sie in der WebSphere-MQ-Ver&ouml;ffentlichung
+<cite>Using Java</cite>. Sie finden diese Ver&ouml;ffentlichung beispielsweise auf der Webseite zu WebSphere MQ Multiplatform
+<img border="0" alt="Zugriff auf das Ziel ist nur m&ouml;glich, wenn dieses Topic mit dem World Wide Web verlinkt ist " src="web.gif">&nbsp;&nbsp;               
+   <a target="_blank" href="http://www.ibm.com/software/ts/mqseries/library/manualsa/manuals/crosslatest.html"><strong>http://www.ibm.com/software/ts/mqseries/library/manualsa/manuals/crosslatest.html</strong></a>
+.</li>
+
+<li>In WebSphere MQ d&uuml;rfen Namen h&ouml;chstens 48 Zeichen lang sein, mit Ausnahme der Kanalnamen, die h&ouml;chstens 20
+Zeichen lang sein d&uuml;rfen.</li>
+
+</ul>
+</p>
+</p>
+
+<p>Klicken Sie zum Anzeigen dieser Seite der Administrationskonsole auf <strong>Ressourcen -&gt; WebSphere-MQ-JMS-Provider-&gt;
+(im Inhaltsteilfenster unter "Weitere Merkmale") Zieladressen f&uuml;r WebSphere-MQ-Warteschlangen
+-&gt; <em>Zieladresse</em> -&gt; (im Inhaltsteilfenster unter "Weitere Merkmale")
+MQ-Konfiguration</strong>.</p>
+
+<dl>
+<dt>
+<strong><a name="MQSeriesQueue_baseQueueName"></a>Name der Basiswarteschlange</strong>
+</dt>
+<dd>Der Name der Warteschlange, an die Nachrichten gesendet werden. Der Name
+wird &uuml;ber das Merkmal <strong>Name des Basiswarteschlangenmanagers</strong> angegeben.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_baseQueueManagerName"></a>Name des Basiswarteschlangenmanagers</strong>
+</dt>
+<dd>Der Name des WebSphere MQ Queue Manager, an den Nachrichten
+gesendet werden.
+<p>Der Queue Manager stellt die Warteschlange, die im Merkmal
+<strong>Name der Basiswarteschlange</strong> angegeben ist, bereit.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_queueManagerHost"></a>Host des Warteschlangenmanagers</strong>
+</dt>
+<dd>Der Name des Hosts f&uuml;r den Queue Manager, in dem die Zieladresse
+der Warteschlange erstellt wird.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_queueManagerPort"></a>Port des Warteschlangenmanagers</strong>
+</dt>
+<dd>Die Nummer des Port f&uuml;r den Warteschlangenmanager, in dem diese
+Warteschlange definiert wird.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">G&uuml;ltige TCP/IP-Port-Nummer. Dieser Port muss im WebSphere MQ Queue Manager konfiguriert werden.</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_serverConnectionChannelName"></a>Name des Kanals f&uuml;r die Serververbindung</strong>
+</dt>
+<dd>Der Name des Kanals, der f&uuml;r die Verbindung zum
+WebSphere MQ Queue Manager verwendet werden soll.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">1 bis 20 ASCII-Zeichen</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_userName"></a>Benutzer-ID</strong>
+</dt>
+<dd>Die Benutzer-ID, die mit dem Merkmal <strong>Kennwort</strong> zur
+Authentifizierung verwendet wird, wenn Sie die Verbindung zum Warteschlangenmanager
+herstellen, um die Zieladresse der Warteschlange zu definieren.
+<p>Wenn Sie einen Wert f&uuml;r das Merkmal <strong>Benutzer-ID</strong> angeben, m&uuml;ssen
+Sie auch einen Wert f&uuml;r das Merkmal <strong>Kennwort</strong> angeben.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_password"></a>Kennwort</strong>
+</dt>
+<dd>Das Kennwort, das mit dem Merkmal <strong>Benutzer-ID</strong> zur
+Authentifizierung verwendet wird, wenn Sie die Verbindung zum Warteschlangenmanager
+herstellen, um die Zieladresse der Warteschlange zu definieren.
+<p>Wenn Sie einen Wert f&uuml;r das Merkmal <strong>Benutzer-ID</strong> angeben, m&uuml;ssen
+Sie auch einen Wert f&uuml;r das Merkmal <strong>Kennwort</strong> angeben.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue"></a>Name</strong>
+</dt>
+<dd>Der Name der Warteschlange, die f&uuml;r den WebSphere MQ Queue Manager definiert ist.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">1 bis 48 ASCII-Zeichen</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_description"></a>Beschreibung</strong>
+</dt>
+<dd>Die Beschreibung der WebSphere-MQ-Warteschlange f&uuml;r die Administration in WebSphere MQ.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">Keiner</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">1 bis 64 ASCII-Zeichen</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue.inhibitPut"></a>Put-Operationen sperren</strong>
+</dt>
+<dd>Gibt an, ob Put-Operationen f&uuml;r diese Warteschlange zul&auml;ssig sind.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Einheiten</td>
+<td align="left" valign="top" class="base">Nicht anwendbar</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">Gel&ouml;scht</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>Zul&auml;ssig</strong>
+</dt>
+<dd>Put-Operationen sind f&uuml;r diese Warteschlange zul&auml;ssig.</dd>
+
+<dt>
+<strong>Nicht zul&auml;ssig</strong>
+</dt>
+<dd>Put-Operationen sind f&uuml;r diese Warteschlange nicht zul&auml;ssig.</dd>
+
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_persistence"></a>Persistenz</strong>
+</dt>
+<dd>Gibt an, ob alle Nachrichten, die an die
+Zieladresse
+gesendet werden, persistent oder nicht persistent sind bzw. ob deren
+Persistenz von der Anwendung definiert wurde.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Einheiten</td>
+<td align="left" valign="top" class="base">Nicht anwendbar</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">DEFINITION DURCH ANWENDUNG</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>Von Anwendung definiert</strong>
+</dt>
+<dd>Die Persistenz von Nachrichten, die sich an der
+Zieladresse befinden, wird
+von der Anwendung, die die Nachrichten in die Warteschlange gestellt hat, definiert.</dd>
+
+<dt>
+<strong>Von Warteschlange definiert</strong>
+</dt>
+<dd>[Nur Zieladressen f&uuml;r MQSeries-JMS-Warteschlange]
+Die Persistenz der an der Zieladresse befindlichen Nachrichten wird von den Merkmalen der
+WebSphere-MQ-Warteschlangendefinition definiert.</dd>
+
+<dt>
+<strong>Persistent</strong>
+</dt>
+<dd>Die Nachrichten an der Zieladresse sind persistent.</dd>
+
+<dt>
+<strong>Nicht persistent</strong>
+</dt>
+<dd>Die Nachrichten an der Zieladresse sind nicht
+persistent.</dd>
+
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_clusterName"></a>Cluster-Name</strong>
+</dt>
+<dd>Der Name des Cluster, zu dem der WebSphere MQ Queue Manager
+geh&ouml;rt.
+<p>Wenn Sie einen Wert f&uuml;r das Merkmal <strong>Cluster-Name</strong> angeben,
+k&ouml;nnen Sie keinen Wert f&uuml;r das Merkmal <strong>Cluster-Namensliste</strong> angeben. 
+Cluster-Namen m&uuml;ssen mit den in der Ver&ouml;ffentlichung <cite>WebSphere MQSC
+Command Reference</cite> beschriebenen Regeln &uuml;bereinstimmen.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+
+
+
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">Keiner</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">Der g&uuml;ltige WebSphere-MQ-Name des Cluster eines Warteschlangenmanagers. Zul&auml;ssig
+sind 1 bis 48 ASCII-Zeichen.</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_clusterNameList"></a>Cluster-Namensliste</strong>
+</dt>
+<dd>Der Name der Cluster-Namensliste, zu der der WebSphere MQ Queue Manager
+geh&ouml;rt.
+<p>Wenn Sie einen Wert f&uuml;r das Merkmal <strong>Cluster-Name</strong> angeben, k&ouml;nnen Sie
+keinen Wert f&uuml;r das Merkmal <strong>Cluster-Namensliste</strong> angeben.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+
+
+
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">Keiner</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">Der g&uuml;ltige WebSphere-MQ-Name f&uuml;r eine Liste mit Clustern von
+Warteschlangenmanagern. Zul&auml;ssig
+sind 1 bis 48 ASCII-Zeichen.</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_defaultBind"></a>Standardbindung</strong>
+</dt>
+<dd>Die Standardbindung, die verwendet werden soll, wenn die Warteschlange als Cluster-Warteschlange definiert wird.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+
+
+
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">Keiner</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base"> 
+<dl>
+
+<dt>
+<strong>Beim &Ouml;ffnen</strong>
+</dt>
+<dd>Die Kennung der Warteschlange wird an eine bestimmte Instanz
+des Cluster gebunden, wenn die Warteschlange ge&ouml;ffnet wird.</dd>
+
+<dt>
+<strong> Nicht fest</strong>
+</dt>
+<dd>Die Kennung der Warteschlange wird nicht an eine bestimmte Instanz
+der Cluster-Warteschlange gebunden. Daher kann der Warteschlangenmanager eine
+bestimmte Warteschlangeninstanz ausw&auml;hlen, wenn die Nachricht gesendet wird, und
+diese Auswahl dann, falls n&ouml;tig, &auml;ndern.</dd>
+
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue.inhibitGet"></a>Get-Operationen sperren</strong>
+</dt>
+<dd>Gibt an, ob Get-Operationen f&uuml;r diese Warteschlange zul&auml;ssig sind.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Einheiten</td>
+<td align="left" valign="top" class="base">Nicht anwendbar</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">Gel&ouml;scht</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>Zul&auml;ssig</strong>
+</dt>
+<dd>Get-Operationen sind f&uuml;r diese Warteschlange zul&auml;ssig.</dd>
+
+<dt>
+<strong>Nicht zul&auml;ssig</strong>
+</dt>
+<dd>Get-Operationen sind f&uuml;r diese Warteschlange nicht zul&auml;ssig.</dd>
+
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_maxQueueDepth"></a>Maximale Warteschlangenl&auml;nge</strong>
+</dt>
+<dd>Die maximal zul&auml;ssige Anzahl von Nachrichten in der Warteschlange.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Einheiten</td>
+<td align="left" valign="top" class="base">Nachrichten</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base"></td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">Ein Wert gr&ouml;&szlig;er-gleich 0 und kleiner-gleich:<ul>
+
+<li>999 999 999 bei einer Warteschlange unter OS/390</li>
+
+<li>640 000, wenn die Warteschlange sich auf einer anderen
+WebSphere-MQ-Plattform befindet </li>
+
+</ul>
+<p>Weitere Informationen zum zul&auml;ssigen Maximalwert enth&auml;lt
+die Ver&ouml;ffentlichung <cite>WebSphere MQ MQSC Command Reference</cite>. </p>
+<p>Wird
+dieser Wert verringert, hat dies keine Auswirkungen auf die bereits in der
+Warteschlange befindlichen Nachrichten, selbst wenn die
+Nachrichtenl&auml;nge den neuen Maximalwert &uuml;berschreitet.</p>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_maxMessageLength"></a>Maximale Nachrichtenl&auml;nge</strong>
+</dt>
+<dd>Die maximale L&auml;nge der Nachrichten in dieser Warteschlange (in Byte).
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Einheiten</td>
+<td align="left" valign="top" class="base">Byte</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base"></td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">Ein Wert gr&ouml;&szlig;er-gleich 0 und kleiner-gleich der maximalen L&auml;nge der
+Nachrichten f&uuml;r den Warteschlangenmanager und die WebSphere-MQ-Plattform. Weitere Informationen zum zul&auml;ssigen Maximalwert enth&auml;lt
+die Ver&ouml;ffentlichung <cite>WebSphere MQ MQSC Command Reference</cite>. <p>Wird
+dieser Wert verringert, hat dies keine Auswirkungen auf die bereits in der Warteschlange
+befindlichen Nachrichten, selbst wenn die Nachrichtenl&auml;nge den neuen Maximalwert
+&uuml;berschreitet.</p>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_shareability"></a>Gemeinsame Benutzung</strong>
+</dt>
+<dd>Gibt an, ob mehrere Anwendungen Nachrichten von dieser Warteschlange abrufen k&ouml;nnen.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Einheiten</td>
+<td align="left" valign="top" class="base">Nicht anwendbar</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">Nicht gemeinsam benutzbar</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>Nicht gemeinsam benutzbar</strong>
+</dt>
+<dd>Nur eine Anwendungsinstanz kann Nachrichten
+von der Warteschlange abrufen.</dd>
+
+<dt>
+<strong>Gemeinsam benutzbar</strong>
+</dt>
+<dd>Mehrere Anwendungsinstanzen k&ouml;nnen Nachrichten von der
+Warteschlange abrufen.</dd>
+
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_inputOpenOption"></a>Offen f&uuml;r Eingabe</strong>
+</dt>
+<dd>Die Standardoption f&uuml;r gemeinsame Benutzung, mit der diese Warteschlange f&uuml;r Anwendungen ge&ouml;ffnet wird.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Einheiten</td>
+<td align="left" valign="top" class="base">Nicht anwendbar</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">Gel&ouml;scht</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>Exklusiv</strong>
+</dt>
+<dd>Die Anforderung zum &Ouml;ffnen gilt f&uuml;r die exklusive Eingabe von
+der Warteschlange.</dd>
+
+<dt>
+<strong>Gemeinsam benutzt</strong>
+</dt>
+<dd>Die Anforderung zum &Ouml;ffnen gilt f&uuml;r die
+gemeinsame Eingabe von der Warteschlange.</dd>
+
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_messageDeliverySequence"></a>Reihenfolge der Nachrichten&uuml;bermittlung</strong>
+</dt>
+<dd>Die Reihenfolge, in der Nachrichten von der Warteschlange als Antwort auf
+Get-Anforderungen &uuml;bermittelt werden.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Einheiten</td>
+<td align="left" valign="top" class="base">Nicht anwendbar</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">Priorit&auml;t</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>Priorit&auml;t</strong>
+</dt>
+<dd>Nachrichten werden innerhalb der Priorit&auml;t nach dem FIFO-Prinzip
+&uuml;bermittelt. Dies ist der Standardwert von WebSphere MQ, der durch den
+Installationsvorgang m&ouml;glicherweise ge&auml;ndert wurde.</dd>
+
+<dt>
+<strong>FIFO</strong>
+</dt>
+<dd>Nachrichten werden nach dem FIFO-Prinzip &uuml;bermittelt. Die Priorit&auml;t
+wird f&uuml;r Nachrichten in dieser Warteschlange ignoriert.</dd>
+
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_backoutThreshold"></a>Schwellenwert f&uuml;r Zur&uuml;cksetzen</strong>
+</dt>
+<dd>Gibt an, wie oft eine Nachricht zur&uuml;ckgesetzt werden kann. Beim Erreichen dieses Schwellenwertes
+wird die Nachricht erneut in die R&uuml;cksetzwarteschlange eingereiht, die mit dem Merkmal <strong>Name der
+R&uuml;cksetzwarteschlange</strong> angegeben wurde. 
+<p>Der WebSphere MQ Queue Manager speichert einen Datensatz, in dem
+festgehalten wird, wie oft jede Nachricht zur&uuml;ckgesetzt wurde. Wenn dieser Wert eine konfigurierbare Schwelle
+erreicht, stellt der Verbindungsnutzer die Nachricht in eine benannte
+R&uuml;cksetzungswarteschlange. Schl&auml;gt dieser Vorgang fehl, wird die Nachricht
+aus der Warteschlange entfernt und in die Warteschlange f&uuml;r nicht zustellbare
+Nachrichten gestellt oder gel&ouml;scht.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">0</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>0</strong>
+</dt>
+<dd>Nachrichten nicht erneut in die Warteschlange einreihen</dd>
+
+<dt>
+<strong>1 oder mehr</strong>
+</dt>
+<dd>Gibt an, wie oft eine Nachricht zur&uuml;ckgesetzt werden muss, damit sie erneut in eine benannte R&uuml;cksetzwarteschlange
+eingereiht wird.
+</dd>
+
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_backoutRequeue"></a>Name der R&uuml;cksetzungswarteschlange</strong>
+</dt>
+<dd>Der Name der R&uuml;cksetzungswarteschlange, in die Nachrichten gestellt
+werden, wenn sie h&auml;ufiger zur&uuml;ckgesetzt wurden als durch den
+Wert f&uuml;r Zur&uuml;cksetzen angegeben.
+<p>Der WebSphere MQ Queue Manager speichert einen Datensatz, in dem
+festgehalten wird, wie oft jede Nachricht zur&uuml;ckgesetzt wurde. Wenn dieser Wert eine konfigurierbare Schwelle
+erreicht, stellt der Verbindungsnutzer die Nachricht in eine benannte
+R&uuml;cksetzungswarteschlange. Schl&auml;gt dieser Vorgang fehl, wird die Nachricht
+aus der Warteschlange entfernt und in die Warteschlange f&uuml;r nicht zustellbare
+Nachrichten gestellt oder gel&ouml;scht.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">Keiner</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">1 bis 48 Zeichen.</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_hardenGetBackout"></a>Anzahl widerrufener Nachrichten speichern </strong>
+</dt>
+<dd>Gibt an, ob Hardening verwendet werden soll, um sicherzustellen,
+dass die Angabe, wie oft eine Nachricht zur&uuml;ckgesetzt wurde, richtig ist.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Einheiten</td>
+<td align="left" valign="top" class="base">Nicht anwendbar</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">Gel&ouml;scht</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>Nicht gespeichert</strong>
+</dt>
+<dd>Der Z&auml;hler besitzt das Merkmal "Nicht gespeichert". Dies ist der Standardwert von WebSphere MQ, der durch den
+Installationsvorgang m&ouml;glicherweise ge&auml;ndert wurde.</dd>
+
+<dt>
+<strong>Gespeichert</strong>
+</dt>
+<dd>Der Z&auml;hler besitzt das Merkmal "Gespeichert".</dd>
+
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</body>
+</html>

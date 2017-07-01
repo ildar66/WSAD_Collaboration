@@ -1,0 +1,148 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Impostazioni SSO (Single Sign-On)</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecsso"></a>
+<h2>Impostazioni SSO (Single Sign-On)</h2>
+
+<p>Utilizzare questa pagina per impostare i valori di configurazione di SSO (Single Sign-On).</p>
+
+<p>Per visualizzare la pagina della console di gestione, fare clic su <strong>Sicurezza</strong> &gt;
+<strong>Meccanismi di autenticazione</strong> &gt; <strong>LTPA</strong> &gt; <strong>Single Signon (SSO)</strong>.</p>
+
+<div>
+<p>
+<strong>Scheda Configurazione</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="SingleSignon_requiresSSL_description"></a>Richiede SSL</strong>
+</dt>
+<dd>Specifica che la funzione SSO venga abilitata solo quando le
+richieste si trovano su connessioni SSL (Secure Sockets Layer) HTTPS.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati:</td>
+<td align="left" valign="top" class="base">Valore booleano</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito:</td>
+<td align="left" valign="top" class="base">Disabilita</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo:</td>
+<td align="left" valign="top" class="base">Abilita o disabilita</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SingleSignon_domainName_description"></a>Nome dominio</strong>
+</dt>
+<dd>Specifica il nome dominio (ad esempio .ibm.com) per tutti gli host SSO (single
+Sign-On).
+<p>Se non viene specificato alcun valore, il browser Web dell'utente configurer&agrave;,
+come impostazione predefinita, il valore presente sul nome host su cui &egrave; in esecuzione
+l'applicazione Web.  Ci&ograve; limita il cookie
+HTTP (creato per scopi di SSO) solo all'host che lo ha originato. Tale
+situazione potrebbe avere delle conseguenze nel caso in cui pi&ugrave; di un host sia
+presente nello stesso dominio SSO. Si consiglia di lasciare vuoto l'attributo del
+nome dominio se pi&ugrave; host virtuali, con diversi nomi domini, sono in
+esecuzione sullo stesso host fisico. Ci&ograve; consentir&agrave; al browser Web di impostare, come
+valore predefinito, il nome dominio di ogni host virtuale.  Se un nome dominio viene
+specificato esplicitamente in questo campo, quel valore viene utilizzato per
+tutti gli host virtuali, limitandoli cos&igrave; ad un singolo dominio che potrebbe essere
+sfavorevole in alcune situazioni.</p>
+
+<p>Se un nome dominio viene specificato esplicitamente, tutti gli URL utilizzati per
+accedere alle risorse Web protette dovrebbero contenere il nome host DNS (domain name system) del server.
+Ad
+esempio, una volta configurata la sicurezza globale per LTPA e specificato un nome
+dominio SSO esplicito, &egrave; possibile accedere alla console di gestione con il
+seguente URL:  <strong>http://yourhost.austin.ibm.com:9090/admin</strong>, dove
+<em>yourhost.austin.ibm.com</em> viene sostituito con il nome host DNS del server.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati:</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SingleSignon_enabled_description"></a>Abilitato</strong>
+</dt>
+<dd>Specifica che la funzione SSO (single signon) &egrave; abilitata.
+<p>Le applicazioni Web che utilizzano le pagine login di stile J2EE FormLogin (ad esempio, la console di gestione WebSphere Application Server) richiedono l'abilitazione di SSO (single signon). Si consiglia di disabilitare SSO solo
+per alcune configurazioni avanzate dove non sono richiesti i cookie di tipo SSO LTPA.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati:</td>
+<td align="left" valign="top" class="base">Valore booleano</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito:</td>
+<td align="left" valign="top" class="base">Abilitato</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo:</td>
+<td align="left" valign="top" class="base">Abilitato o disabilitato</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informazioni correlate</strong>
+</p>
+<a href="rcon_buttons.html">Pulsanti della console di gestione</a>
+<br>
+
+<a href="rcon_pageusage.html">Funzioni della pagina della console di gestione</a>
+<br>
+
+<a href="rcon_scope.html">Impostazioni ambito della console di gestione</a>
+<br>
+
+<a href="rcon_filter.html">Impostazioni di filtro della console di gestione</a>
+<br>
+
+<a href="rcon_preferences.html">Impostazioni delle preferenze della console di gestione</a>
+<br>
+
+</div>
+</body>
+</html>

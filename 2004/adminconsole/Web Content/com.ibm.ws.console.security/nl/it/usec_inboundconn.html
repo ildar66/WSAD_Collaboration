@@ -1,0 +1,147 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Impostazioni di trasporto in entrata di interoperabilit&agrave; comune sicura (CSI, Common Secure Interoperability)</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecinboundconn"></a>
+<h2>Impostazioni di trasporto in entrata di interoperabilit&agrave; comune sicura (CSI, Common Secure Interoperability)</h2>
+
+<p>Utilizzare questa pagina per specificare la porta listener da aprire e le
+impostazioni SSL (Secure Socket Layer) da utilizzare. Queste specifiche stabiliscono il trasporto utilizzato dal client o dal server upstream per comunicare con il server per le richieste in
+entrata.</p>
+
+<p>Per visualizzare questa pagina della console di gestione, fare clic su <strong>Sicurezza</strong> &gt;
+<strong>Protocollo di autenticazione</strong> &gt; <strong>Trasporto in entrata CSI</strong>.</p>
+
+<div>
+<p>
+<strong>Scheda Configurazione</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="Transport_i_description"></a>Trasporto</strong>
+</dt>
+<dd>Specifica se i processi del client si collegano al server utilizzando uno dei
+trasporti collegati.
+<p>&Egrave; possibile scegliere di utilizzare SSL (Secure Socket Layer), TCP/IP o entrambi come
+trasporto in entrata
+supportato da un server.  Se si specifica <strong>TCP/IP</strong>,
+il server supporta solo TCP/IP e non pu&ograve; accettare connessioni SSL. Se si specifica <strong>SSL
+supportato</strong>, questo server pu&ograve; inizializzare le connessioni TCP/IP o SSL. Se si specifica
+<strong>SSL obbligatorio</strong>, qualsiasi server che comunica con questo server deve utilizzare SSL.</p>
+
+<p>Quando viene specificato <strong>SSL supportato</strong> o <strong>SSL obbligatorio</strong>, &egrave; necessario decidere quale insieme di impostazioni di configurazione SSL si desidera utilizzare per la configurazione in entrata.
+Tale decisione determina quale file di chiavi e quale file sicuro verr&agrave; utilizzato per
+le connessioni in entrata su questo server.</p>
+
+<p>Per impostazione predefinita, le porte SSL per CSIv2 (Common Secure Interoperability Version 2) e SAS (Security Authentication Service) vengono create in modo dinamico. Nei casi in cui &egrave; necessario correggere le porte SSL sui server delle applicazioni, fare clic su
+<strong>Server</strong> &gt; <strong>Server delle applicazioni</strong> &gt; <em>nome_server</em> &gt; <strong>Endpoint</strong>. Configurare le seguenti porte da
+correggere. Un numero di porta zero indica che, durante il runtime, verr&agrave; effettuata un'assegnazione dinamica. <pre class="program">
+<font style="font-family: arial">CSIV2_SSL_MUTUALAUTH_LISTENER_ADDRESS 
+CSIV2_SSL_SERVERAUTH_LISTENER_ADDRESS 
+SAS_SSL_SERVERAUTH_LISTENER_ADDRESS</font>
+</pre>
+</p>
+
+<p>
+<ul>
+
+<li>
+<strong>TCP/IP</strong>: viene aperta solo una porta listener TCP/IP e tutte le richieste
+in entrata non hanno protezione SSL.</li>
+
+<li>
+<strong>SSL supportato</strong>: verranno aperte le porte listener TCP/IP e SSL e
+la maggior parte delle richieste arriveranno tramite SSL.</li>
+
+<li>
+<strong>SSL obbligatorio</strong>: viene aperta solo una porta listener SSL e tutte le
+richieste arrivano tramite le connessioni SSL. Se si sceglie <strong>SSL obbligatorio</strong>,
+&egrave; necessario selezionare anche <strong>CSI</strong> come protocollo di autenticazione attivo. Se
+si sceglie <strong>CSI e SAS</strong>, SAS richiede un socket TCP/IP aperto per alcune
+richieste speciali.</li>
+
+</ul>
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito:</td>
+<td align="left" valign="top" class="base">SSL-Supportato</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo:</td>
+<td align="left" valign="top" class="base">TCP/IP, SSL obbligatorio, SSL supportato</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SSLSettings_csi_i_description"></a>Impostazioni SSL</strong>
+</dt>
+<dd>Specifica un elenco di impostazioni SSL predefinite da cui scegliere le
+connessioni in entrata. Queste impostazioni vengono configurate nel pannello
+Repertorio SSL.
+<p></p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati:</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito:</td>
+<td align="left" valign="top" class="base">DefaultSSLSettings</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo:</td>
+<td align="left" valign="top" class="base">Qualsiasi impostazione SSL configurata nel Repertorio di configurazione SSL</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informazioni correlate</strong>
+</p>
+<a href="rcon_buttons.html">Pulsanti della console di gestione</a>
+<br>
+
+<a href="rcon_pageusage.html">Funzioni della pagina della console di gestione</a>
+<br>
+
+<a href="rcon_scope.html">Impostazioni ambito della console di gestione</a>
+<br>
+
+<a href="rcon_filter.html">Impostazioni di filtro della console di gestione</a>
+<br>
+
+<a href="rcon_preferences.html">Impostazioni delle preferenze della console di gestione</a>
+<br>
+
+</div>
+</body>
+</html>

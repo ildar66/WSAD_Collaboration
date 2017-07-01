@@ -1,0 +1,1532 @@
+ <!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration//EN"
+       "http://jakarta.apache.org/struts/dtds/tiles-config.dtd">
+
+<!-- Definitions for WebSphere Application Server Administrative Console   -->
+
+<tiles-definitions>
+    <definition name="appmanagement.upload" path="/com.ibm.ws.console.appmanagement/Upload.jsp" controllerClass="com.ibm.ws.console.appmanagement.controller.UploadController">
+        <put name="titleKey" value="appinstall.preparation.title"/>
+        <put name="descKey" value="appinstall.upload.description"/>
+        <put name="actionHandler" value="upload.do"/>
+        <put name="actionForm" value="uploadForm"/>
+        <put name="formType" value="com.ibm.ws.console.appmanagement.form.UploadForm"/>
+    </definition>
+
+    <definition name="appmanagement.remote.node.browse" extends="remote.node.browse" controllerClass="com.ibm.ws.console.core.controller.BrowseRemoteController">
+        <put name="select" value="single"/>
+        <put name="fileExt" value="war"/>
+        <put name="backTo" value="appmanagement.upload"/>
+        <put name="nodeBrowse" value="appmanagement.remote.node.browse"/>
+    </definition>
+
+    <definition name="appmanagement.default.bindings" path="/com.ibm.ws.console.appmanagement/DefaultBindings.jsp">
+        <put name="titleKey" value="appinstall.preparation.title"/>
+        <put name="descKey" value="appinstall.default.bindings.description"/>
+        <put name="actionHandler" value="defaultBindings.do"/>
+        <put name="actionForm" value="defaultBindingsForm"/>
+        <put name="formType" value="com.ibm.ws.console.appmanagement.form.DefaultBindingsForm"/>
+    </definition>
+
+    <definition name="appmanagement.security.warnings" path="/com.ibm.ws.console.appmanagement/ShowSecurityWarnings.jsp">
+        <put name="titleKey" value="appinstall.security.warnings.title"/>
+        <put name="descKey" value="appinstall.security.warnings.description"/>
+        <put name="actionHandler" value="showSecurityWarnings.do"/>
+        <put name="actionForm" value="showSecurityWarningsForm"/>
+        <put name="formType" value="com.ibm.ws.console.appmanagement.form.ShowSecurityWarningsForm"/>
+    </definition>
+
+    <definition name="console.appmanagement.wizard" path="/secure/layouts/stepsLayout.jsp">
+        <put name="titleKey" value="appmanagement.appinstall.title"/>
+        <put name="descKey" value="appmanagement.appinstall.description"/>
+        <put name="stepArraySessionKey" value="default_STEPARRAY"/>
+        <put name="reqdTaskSessionKey" value="default_ReqdTaskMap"/>
+        <put name="actionHandler" value=""/>
+        <put name="actionForm" value=""/>
+        <put name="formType" value=""/>
+        <put name="disableStepsLink" value=""/>
+        <putList name="stepsList">
+        </putList>
+    </definition>
+
+    <definition name="websphere.appmanagement.appinstall" extends="console.appmanagement.wizard">
+        <put name="stepArraySessionKey" value="appmanagement_StepArray"/>
+        <put name="reqdTaskSessionKey" value="appmanagement_ReqdTaskMap"/>
+        <put name="disableStepsLink" value="false"/>
+        <putList name="stepsList">
+            <item value="appmanagement.install.options" link="/com.ibm.ws.console.appmanagement/AppDeploymentOptions" classtype="com.ibm.ws.console.core.item.AppInstallItem"/>
+            <item value="appmanagement.ejbredeploy.options" link="/com.ibm.ws.console.appmanagement/EJBRedeployOption" classtype="com.ibm.ws.console.core.item.AppInstallItem"/>
+            <item value="appmanagement.ejbdeploy.options" link="/com.ibm.ws.console.appmanagement/EJBDeployOptions" classtype="com.ibm.ws.console.core.item.AppInstallItem"/>
+            <item value="appmanagement.select.backendid" link="/com.ibm.ws.console.appmanagement/BackendIdSelection" classtype="com.ibm.ws.console.core.item.AppInstallItem"/>
+            <item value="appmanagement.jndinames.formessagingbeans" link="/com.ibm.ws.console.appmanagement/BindJndiForEJBMessageBinding" classtype="com.ibm.ws.console.core.item.AppInstallItem"/>
+            <item value="appmanagement.jndinames.fornonmessagingbeans" link="/com.ibm.ws.console.appmanagement/BindJndiForEJBNonMessageBinding" classtype="com.ibm.ws.console.core.item.AppInstallItem"/>
+            <item value="appmanagement.datasource.for10entitybeans" link="/com.ibm.ws.console.appmanagement/DataSourceFor10EJBModules" classtype="com.ibm.ws.console.core.item.AppInstallItem"/>
+            <item value="appmanagement.datasource.for20entitybeans" link="/com.ibm.ws.console.appmanagement/DataSourceFor20EJBModules" classtype="com.ibm.ws.console.core.item.AppInstallItem"/>
+            <item value="appmanagement.datasource.for10cmpbeans" link="/com.ibm.ws.console.appmanagement/DataSourceFor10CMPBeans" classtype="com.ibm.ws.console.core.item.AppInstallItem"/>
+            <item value="appmanagement.datasource.for20cmpbeans" link="/com.ibm.ws.console.appmanagement/DataSourceFor20CMPBeans" classtype="com.ibm.ws.console.core.item.AppInstallItem"/>
+            <item value="appmanagement.ejbrefs.tobeans" link="/com.ibm.ws.console.appmanagement/MapEJBRefToEJB" classtype="com.ibm.ws.console.core.item.AppInstallItem"/>
+            <item value="appmanagement.resrefs.tobeans" link="/com.ibm.ws.console.appmanagement/MapResRefToEJB" classtype="com.ibm.ws.console.core.item.AppInstallItem"/>
+            <item value="appmanagement.isolationlevels.forresourcerefs" link="/com.ibm.ws.console.appmanagement/CorrectOracleIsolationLevel" classtype="com.ibm.ws.console.core.item.AppInstallItem"/>
+            <item value="appmanagement.resenvrefs.tores" link="/com.ibm.ws.console.appmanagement/MapResEnvRefToRes" classtype="com.ibm.ws.console.core.item.AppInstallItem"/>
+            <item value="appmanagement.virtualhosts.towebmodules" link="/com.ibm.ws.console.appmanagement/MapWebModToVH" classtype="com.ibm.ws.console.core.item.AppInstallItem"/>
+            <item value="appmanagement.modules.toappservers" link="/com.ibm.ws.console.appmanagement/MapModulesToServers" classtype="com.ibm.ws.console.core.item.AppInstallItem"/>
+            <item value="appmanagement.securityroles.tousers" link="/com.ibm.ws.console.appmanagement/MapRolesToUsers" classtype="com.ibm.ws.console.core.item.AppInstallItem"/>
+            <item value="appmanagement.runasroles.tousers" link="/com.ibm.ws.console.appmanagement/MapRunAsRolesToUsers" classtype="com.ibm.ws.console.core.item.AppInstallItem"/>
+            <item value="appmanagement.correctuse.systemidentity" link="/com.ibm.ws.console.appmanagement/CorrectUseSystemIdentity" classtype="com.ibm.ws.console.core.item.AppInstallItem"/>
+            <item value="appmanagement.method.10protetection" link="/com.ibm.ws.console.appmanagement/EnsureMethodProtectionFor10EJB" classtype="com.ibm.ws.console.core.item.AppInstallItem"/>
+            <item value="appmanagement.method.20protetection" link="/com.ibm.ws.console.appmanagement/EnsureMethodProtectionFor20EJB" classtype="com.ibm.ws.console.core.item.AppInstallItem"/>
+            <item value="appmanagement.summary" link="/com.ibm.ws.console.appmanagement/AppInstallSummary" classtype="com.ibm.ws.console.core.item.AppInstallItem"/>
+        </putList>
+    </definition>
+
+    <definition name="appmanagement.install.options" extends="websphere.appmanagement.appinstall">
+        <put name="actionHandler" value="appDeploymentOptions"/>
+        <put name="actionForm" value="AppDeploymentOptionsForm"/>
+        <put name="formType" value="com.ibm.ws.console.appmanagement.form.AppInstallForm"/>
+    </definition>
+
+    <definition name="appmanagement.ejbdeploy.options" extends="websphere.appmanagement.appinstall">
+        <put name="actionHandler" value="ejbDeployOptions"/>
+        <put name="actionForm" value="EJBDeployOptionsForm"/>
+        <put name="formType" value="com.ibm.ws.console.appmanagement.form.AppInstallForm"/>
+    </definition>
+
+    <definition name="appmanagement.select.backendid" extends="websphere.appmanagement.appinstall">
+        <put name="actionHandler" value="backendIdSelection"/>
+        <put name="actionForm" value="BackendIdSelectionForm"/>
+        <put name="formType" value="com.ibm.ws.console.appmanagement.form.AppInstallForm"/>
+    </definition>
+
+    <definition name="appmanagement.ejbredeploy.options" extends="websphere.appmanagement.appinstall">
+        <put name="actionHandler" value="ejbRedeployOption"/>
+        <put name="actionForm" value="EJBRedeployOptionForm"/>
+        <put name="formType" value="com.ibm.ws.console.appmanagement.form.AppInstallForm"/>
+    </definition>
+
+    <definition name="appmanagement.jndinames.formessagingbeans" extends="websphere.appmanagement.appinstall">
+        <put name="actionHandler" value="bindJndiForEJBMessageBinding"/>
+        <put name="actionForm" value="BindJndiForEJBMessageBindingForm"/>
+        <put name="formType" value="com.ibm.ws.console.appmanagement.form.AppInstallForm"/>
+    </definition>
+
+    <definition name="appmanagement.jndinames.fornonmessagingbeans" extends="websphere.appmanagement.appinstall">
+        <put name="actionHandler" value="bindJndiForEJBNonMessageBinding"/>
+        <put name="actionForm" value="BindJndiForEJBNonMessageBindingForm"/>
+        <put name="formType" value="com.ibm.ws.console.appmanagement.form.AppInstallForm"/>
+    </definition>
+
+    <definition name="appmanagement.datasource.for10entitybeans" extends="websphere.appmanagement.appinstall" controllerClass="com.ibm.ws.console.appmanagement.controller.DatasourceFor10CMPBeansController">
+        <put name="actionHandler" value="dataSourceFor10EJBModules"/>
+        <put name="actionForm" value="DataSourceFor10EJBModulesForm"/>
+        <put name="formType" value="com.ibm.ws.console.appmanagement.form.AppInstallForm"/>
+    </definition>
+
+    <definition name="appmanagement.datasource.for20entitybeans" extends="websphere.appmanagement.appinstall" controllerClass="com.ibm.ws.console.appmanagement.controller.DatasourceFor20CMPBeansController">
+        <put name="actionHandler" value="dataSourceFor20EJBModules"/>
+        <put name="actionForm" value="DataSourceFor20EJBModulesForm"/>
+        <put name="formType" value="com.ibm.ws.console.appmanagement.form.AppInstallForm"/>
+    </definition>
+
+    <definition name="appmanagement.datasource.for10cmpbeans" extends="websphere.appmanagement.appinstall" controllerClass="com.ibm.ws.console.appmanagement.controller.DatasourceFor10CMPBeansController">
+        <put name="actionHandler" value="dataSourceFor10CMPBeans"/>
+        <put name="actionForm" value="DataSourceFor10CMPBeansForm"/>
+        <put name="formType" value="com.ibm.ws.console.appmanagement.form.AppInstallForm"/>
+    </definition>
+
+    <definition name="appmanagement.datasource.for20cmpbeans" extends="websphere.appmanagement.appinstall" controllerClass="com.ibm.ws.console.appmanagement.controller.DatasourceFor20CMPBeansController">
+        <put name="actionHandler" value="dataSourceFor20CMPBeans"/>
+        <put name="actionForm" value="DataSourceFor20CMPBeansForm"/>
+        <put name="formType" value="com.ibm.ws.console.appmanagement.form.AppInstallForm"/>
+    </definition>
+
+    <definition name="appmanagement.ejbrefs.tobeans" extends="websphere.appmanagement.appinstall">
+        <put name="actionHandler" value="mapEJBRefToEJB"/>
+        <put name="actionForm" value="MapEJBRefToEJBForm"/>
+        <put name="formType" value="com.ibm.ws.console.appmanagement.form.AppInstallForm"/>
+    </definition>
+
+    <definition name="appmanagement.resrefs.tobeans" extends="websphere.appmanagement.appinstall" controllerClass="com.ibm.ws.console.appmanagement.controller.MapResRefToEJBController">
+        <put name="actionHandler" value="mapResRefToEJB"/>
+        <put name="actionForm" value="MapResRefToEJBForm"/>
+        <put name="formType" value="com.ibm.ws.console.appmanagement.form.AppInstallForm"/>
+    </definition>
+
+    <definition name="appmanagement.resenvrefs.tores" extends="websphere.appmanagement.appinstall" controllerClass="com.ibm.ws.console.appmanagement.controller.MapResEnvRefToResController">
+        <put name="actionHandler" value="mapResEnvRefToRes"/>
+        <put name="actionForm" value="MapResEnvRefToResForm"/>
+        <put name="formType" value="com.ibm.ws.console.appmanagement.form.AppInstallForm"/>
+    </definition>
+
+    <definition name="appmanagement.virtualhosts.towebmodules" extends="websphere.appmanagement.appinstall">
+        <put name="actionHandler" value="mapWebModToVH"/>
+        <put name="actionForm" value="MapWebModToVHForm"/>
+        <put name="formType" value="com.ibm.ws.console.appmanagement.form.AppInstallForm"/>
+    </definition>
+
+    <definition name="appmanagement.modules.toappservers" extends="websphere.appmanagement.appinstall" controllerClass="com.ibm.ws.console.appmanagement.controller.MapModulesToServersController">
+        <put name="actionHandler" value="mapModulesToServers"/>
+        <put name="actionForm" value="MapModulesToServersForm"/>
+        <put name="formType" value="com.ibm.ws.console.appmanagement.form.AppInstallForm"/>
+    </definition>
+
+    <definition name="appmanagement.securityroles.tousers" extends="websphere.appmanagement.appinstall">
+        <put name="actionHandler" value="mapRolesToUsers"/>
+        <put name="actionForm" value="MapRolesToUsersForm"/>
+        <put name="formType" value="com.ibm.ws.console.appmanagement.form.AppInstallForm"/>
+    </definition>
+
+    <definition name="appmanagement.runasroles.tousers" extends="websphere.appmanagement.appinstall">
+        <put name="actionHandler" value="mapRunAsRolesToUsers"/>
+        <put name="actionForm" value="MapRunAsRolesToUsersForm"/>
+        <put name="formType" value="com.ibm.ws.console.appmanagement.form.AppInstallForm"/>
+    </definition>
+
+    <definition name="appmanagement.correctuse.systemidentity" extends="websphere.appmanagement.appinstall">
+        <put name="actionHandler" value="correctUseSystemIdentity"/>
+        <put name="actionForm" value="CorrectUseSystemIdentityForm"/>
+        <put name="formType" value="com.ibm.ws.console.appmanagement.form.AppInstallForm"/>
+    </definition>
+
+    <definition name="appmanagement.method.10protetection" extends="websphere.appmanagement.appinstall">
+        <put name="actionHandler" value="ensureMethodProtectionFor10EJB"/>
+        <put name="actionForm" value="EnsureMethodProtectionFor10EJBForm"/>
+        <put name="formType" value="com.ibm.ws.console.appmanagement.form.AppInstallForm"/>
+    </definition>
+
+    <definition name="appmanagement.method.20protetection" extends="websphere.appmanagement.appinstall">
+        <put name="actionHandler" value="ensureMethodProtectionFor20EJB"/>
+        <put name="actionForm" value="EnsureMethodProtectionFor20EJBForm"/>
+        <put name="formType" value="com.ibm.ws.console.appmanagement.form.AppInstallForm"/>
+    </definition>
+
+    <definition name="appmanagement.isolationlevels.forresourcerefs" extends="websphere.appmanagement.appinstall">
+        <put name="actionHandler" value="correctOracleIsolationLevel"/>
+        <put name="actionForm" value="CorrectOracleIsolationLevelForm"/>
+        <put name="formType" value="com.ibm.ws.console.appmanagement.form.AppInstallForm"/>
+    </definition>
+
+    <definition name="appmanagement.summary" extends="websphere.appmanagement.appinstall" controllerClass="com.ibm.ws.console.appmanagement.controller.AppInstallSummaryController">
+        <put name="actionHandler" value="appInstallSummary"/>
+        <put name="actionForm" value="AppInstallSummaryForm"/>
+        <put name="formType" value="com.ibm.ws.console.appmanagement.form.AppInstallForm"/>
+    </definition>
+
+   <definition name="appmanagement.lookup.content" path="/secure/layouts/contentLayout.jsp" controllerClass="com.ibm.ws.console.appdeployment.ApplicationDeploymentController">
+        <put name="descTitle" value="appmanagement.lookup.displayName"/>
+        <put name="descImage" value="com.ibm.ws.console.appmanagement/images/lookup.gif:pluginId=com.ibm.ws.console.appmanagement"/>
+        <put name="descText" value="appmanagement.lookup.description"/>
+        <putList name="contentList">
+           <add value="appmanagement.lookup.panel"/>
+        </putList>
+    </definition>
+
+    <definition name="appmanagement.lookup.preferences" path="/com.ibm.ws.console.appmanagement/LookupPreferences.jsp">
+        <put name="parent" value="appmanagement.content.main"/>
+        <putList name="collectionPreferenceList">
+            <item value="text:UI/Collections/ApplicationManagement/Preferences#maximumRows:25" link="collection.preferences.maxRowLabel: :collection.preferences.maxRowDesc:20" classtype="com.ibm.ws.console.core.item.PreferenceItem"/>
+            <item value="checkbox:UI/Collections/ApplicationManagement/Preferences#retainSearchCriteria:32" link="collection.preferences.searchHistoryLabel:collection.preferences.searchHistoryUnits:collection.preferences.searchHistoryDesc" classtype="com.ibm.ws.console.core.item.PreferenceItem"/>
+        </putList>
+    </definition>
+
+    <definition name="appmanagement.lookup.panel" path="/com.ibm.ws.console.appmanagement/LookupPanel.jsp">
+        <put name="actionHandler" value="mapRolesToUsers"/>
+        <put name="actionForm" value="MapRolesToUsersForm"/>
+        <put name="formType" value="com.ibm.ws.console.appmanagement.form.AppInstallForm"/>
+    </definition>
+
+<!-- app configure -->
+
+<!-- Map Security Roles to Users -->
+    <definition name="appconfigure.securityroles.tousers" extends="detail.config.view">
+        <putList name="list">
+            <add value="appconfigure.securityroles.tousers.detail.title"/>
+            <add value="appconfigure.securityroles.tousers.configStep"/>
+        </putList>
+    </definition>
+
+    <definition name="appconfigure.securityroles.tousers.configStep" path="/secure/layouts/configStepLayout.jsp" controllerClass="com.ibm.ws.console.appmanagement.controller.AppBindingsController">
+        <put name="configStep" value="/com.ibm.ws.console.appmanagement/MapRolesToUsers.jsp"/>
+        <put name="actionForm" value="MapRolesToUsersForm"/>
+        <put name="actionHandler" value="/mapRolesToUsers.do"/>
+        <put name="formType" value="com.ibm.ws.console.appmanagement.form.AppInstallForm"/>
+    </definition>
+
+    <definition name="appconfigure.securityroles.tousers.detail.title" extends="detail.title">
+        <put name="formName" value="MapRolesToUsersForm"/>  
+        <put name="titleKey" value="appmanagement.securityroles.tousers"/>
+        <put name="collectionLink" value="com.ibm.ws.console.appdeployment.forwardCmd.do?forwardName=ApplicationDeployment.config.view"/>
+        <put name="includeLink" value="no"/>
+        <put name="instanceDetails" value="title"/>
+        <put name="instanceDescription" value="appmanagement.securityroles.tousers"/>
+        <put name="displayName" value="appmanagement.securityroles.tousers"/>
+    </definition>
+
+<!-- Run as Roles to Users Bindings -->
+    <definition name="appconfigure.runasroles.tousers" extends="detail.config.view">
+        <putList name="list">
+            <add value="appconfigure.runasroles.tousers.detail.title"/>
+            <add value="appconfigure.runasroles.tousers.configStep"/>
+        </putList>
+    </definition>
+
+    <definition name="appconfigure.runasroles.tousers.configStep" path="/secure/layouts/configStepLayout.jsp" controllerClass="com.ibm.ws.console.appmanagement.controller.AppBindingsController">
+        <put name="configStep" value="/com.ibm.ws.console.appmanagement/MapRunAsRolesToUsers.jsp"/>
+        <put name="actionForm" value="MapRunAsRolesToUsersForm"/>
+        <put name="actionHandler" value="/mapRunAsRolesToUsers.do"/>
+        <put name="formType" value="com.ibm.ws.console.appmanagement.form.AppInstallForm"/>
+    </definition>
+
+    <definition name="appconfigure.runasroles.tousers.detail.title" extends="detail.title">
+        <put name="formName" value="MapRunAsRolesToUsersForm"/> 
+        <put name="titleKey" value="appmanagement.runasroles.tousers"/>
+        <put name="collectionLink" value="com.ibm.ws.console.appdeployment.forwardCmd.do?forwardName=ApplicationDeployment.config.view"/>
+        <put name="includeLink" value="no"/>
+        <put name="instanceDetails" value="title"/>
+        <put name="instanceDescription" value="appmanagement.runasroles.tousers"/>
+        <put name="displayName" value="appmanagement.runasroles.tousers"/>
+    </definition>
+
+<!-- JNDI Names for Non-Messageing Bean Bindings -->
+    <definition name="appconfigure.jndinames.fornonmessagingbeans" extends="detail.config.view">
+        <putList name="list">
+            <add value="appconfigure.jndinames.fornonmessagingbeans.detail.title"/>
+            <add value="appconfigure.jndinames.fornonmessagingbeans.configStep"/>
+        </putList>
+    </definition>
+
+    <definition name="appconfigure.jndinames.fornonmessagingbeans.configStep" path="/secure/layouts/configStepLayout.jsp" controllerClass="com.ibm.ws.console.appmanagement.controller.AppBindingsController">
+        <put name="configStep" value="/com.ibm.ws.console.appmanagement/BindJndiForEJBNonMessageBinding.jsp"/>
+        <put name="actionForm" value="BindJndiForEJBNonMessageBindingForm"/>
+        <put name="actionHandler" value="/bindJndiForEJBNonMessageBinding.do"/>
+        <put name="formType" value="com.ibm.ws.console.appmanagement.form.AppInstallForm"/>
+    </definition>
+
+    <definition name="appconfigure.jndinames.fornonmessagingbeans.detail.title" extends="detail.title">
+        <put name="formName" value="BindJndiForEJBNonMessageBindingForm"/>  
+        <put name="titleKey" value="appmanagement.jndinames.fornonmessagingbeans"/>
+        <put name="collectionLink" value="com.ibm.ws.console.appdeployment.forwardCmd.do?forwardName=ApplicationDeployment.config.view"/>
+        <put name="includeLink" value="no"/>
+        <put name="instanceDetails" value="title"/>
+        <put name="instanceDescription" value="appmanagement.jndinames.fornonmessagingbeans"/>
+        <put name="displayName" value="appmanagement.jndinames.fornonmessagingbeans"/>
+    </definition>
+
+<!-- JNDI Names for Messaging Bean Bindings -->
+    <definition name="appconfigure.jndinames.formessagingbeans" extends="detail.config.view">
+        <putList name="list">
+            <add value="appconfigure.jndinames.formessagingbeans.detail.title"/>
+            <add value="appconfigure.jndinames.formessagingbeans.configStep"/>
+        </putList>
+    </definition>
+
+    <definition name="appconfigure.jndinames.formessagingbeans.configStep" path="/secure/layouts/configStepLayout.jsp" controllerClass="com.ibm.ws.console.appmanagement.controller.AppBindingsController">
+        <put name="configStep" value="/com.ibm.ws.console.appmanagement/BindJndiForEJBMessageBinding.jsp"/>
+        <put name="actionForm" value="BindJndiForEJBMessageBindingForm"/>
+        <put name="actionHandler" value="/bindJndiForEJBMessageBinding.do"/>
+        <put name="formType" value="com.ibm.ws.console.appmanagement.form.AppInstallForm"/>
+    </definition>
+
+    <definition name="appconfigure.jndinames.formessagingbeans.detail.title" extends="detail.title">
+        <put name="formName" value="BindJndiForEJBMessageBindingForm"/> 
+        <put name="titleKey" value="appmanagement.jndinames.formessagingbeans"/>
+        <put name="collectionLink" value="com.ibm.ws.console.appdeployment.forwardCmd.do?forwardName=ApplicationDeployment.config.view"/>
+        <put name="includeLink" value="no"/>
+        <put name="instanceDetails" value="title"/>
+        <put name="instanceDescription" value="appmanagement.jndinames.formessagingbeans"/>
+        <put name="displayName" value="appmanagement.jndinames.formessagingbeans"/>
+    </definition>
+
+<!-- Map Res Ref to Bean Bindings -->
+    <definition name="appconfigure.resrefs.tobeans" extends="detail.config.view" controllerClass="com.ibm.ws.console.appmanagement.controller.MapResRefToEJBController">
+        <putList name="list">
+            <add value="appconfigure.resrefs.tobeans.detail.title"/>
+            <add value="appconfigure.resrefs.tobeans.configStep"/>
+        </putList>
+    </definition>
+
+    <definition name="appconfigure.resrefs.tobeans.configStep" path="/secure/layouts/configStepLayout.jsp" controllerClass="com.ibm.ws.console.appmanagement.controller.AppBindingsController">
+        <put name="configStep" value="/com.ibm.ws.console.appmanagement/MapResRefToEJB.jsp"/>
+        <put name="actionForm" value="MapResRefToEJBForm"/>
+        <put name="actionHandler" value="/mapResRefToEJB.do"/>
+        <put name="formType" value="com.ibm.ws.console.appmanagement.form.AppInstallForm"/>
+    </definition>
+
+    <definition name="appconfigure.resrefs.tobeans.detail.title" extends="detail.title">
+        <put name="formName" value="MapResRefToEJBForm"/>   
+        <put name="titleKey" value="appmanagement.resrefs.tobeans"/>
+        <put name="collectionLink" value="com.ibm.ws.console.appdeployment.forwardCmd.do?forwardName=ApplicationDeployment.config.view"/>
+        <put name="includeLink" value="no"/>
+        <put name="instanceDetails" value="title"/>
+        <put name="instanceDescription" value="appmanagement.resrefs.tobeans"/>
+        <put name="displayName" value="appmanagement.resrefs.tobeans"/>
+    </definition>
+
+<!-- EJB Ref to Bean Bindings -->
+    <definition name="appconfigure.ejbrefs.tobeans" extends="detail.config.view">
+        <putList name="list">
+            <add value="appconfigure.ejbrefs.tobeans.detail.title"/>
+            <add value="appconfigure.ejbrefs.tobeans.configStep"/>
+        </putList>
+    </definition>
+
+    <definition name="appconfigure.ejbrefs.tobeans.configStep" path="/secure/layouts/configStepLayout.jsp" controllerClass="com.ibm.ws.console.appmanagement.controller.AppBindingsController">
+        <put name="configStep" value="/com.ibm.ws.console.appmanagement/MapEJBRefToEJB.jsp"/>
+        <put name="actionForm" value="MapEJBRefToEJBForm"/>
+        <put name="actionHandler" value="/mapEJBRefToEJB.do"/>
+        <put name="formType" value="com.ibm.ws.console.appmanagement.form.AppInstallForm"/>
+    </definition>
+
+    <definition name="appconfigure.ejbrefs.tobeans.detail.title" extends="detail.title">
+        <put name="formName" value="MapEJBRefToEJBForm"/>   
+        <put name="titleKey" value="appmanagement.ejbrefs.tobeans"/>
+        <put name="collectionLink" value="com.ibm.ws.console.appdeployment.forwardCmd.do?forwardName=ApplicationDeployment.config.view"/>
+        <put name="includeLink" value="no"/>
+        <put name="instanceDetails" value="title"/>
+        <put name="instanceDescription" value="appmanagement.ejbrefs.tobeans"/>
+        <put name="displayName" value="appmanagement.ejbrefs.tobeans"/>
+    </definition>
+
+<!-- Data Source for 2.0 CMP Bean Bindings -->
+    <definition name="appconfigure.datasource.for20cmpbeans" extends="detail.config.view" controllerClass="com.ibm.ws.console.appmanagement.controller.DatasourceFor20CMPBeansController">
+        <putList name="list">
+            <add value="appconfigure.datasource.for20cmpbeans.detail.title"/>
+            <add value="appconfigure.datasource.for20cmpbeans.configStep"/>
+        </putList>
+    </definition>
+
+    <definition name="appconfigure.datasource.for20cmpbeans.configStep" path="/secure/layouts/configStepLayout.jsp" controllerClass="com.ibm.ws.console.appmanagement.controller.AppBindingsController">
+        <put name="configStep" value="/com.ibm.ws.console.appmanagement/DataSourceFor20CMPBeans.jsp"/>
+        <put name="actionForm" value="DataSourceFor20CMPBeansForm"/>
+        <put name="actionHandler" value="/dataSourceFor20CMPBeans.do"/>
+        <put name="formType" value="com.ibm.ws.console.appmanagement.form.AppInstallForm"/>
+    </definition>
+
+    <definition name="appconfigure.datasource.for20cmpbeans.detail.title" extends="detail.title">
+        <put name="formName" value="DataSourceFor20CMPBeansForm"/>  
+        <put name="titleKey" value="appmanagement.datasource.for20cmpbeans"/>
+        <put name="collectionLink" value="com.ibm.ws.console.appdeployment.forwardCmd.do?forwardName=ApplicationDeployment.config.view"/>
+        <put name="includeLink" value="no"/>
+        <put name="instanceDetails" value="title"/>
+        <put name="instanceDescription" value="appmanagement.datasource.for20cmpbeans"/>
+        <put name="displayName" value="appmanagement.datasource.for20cmpbeans"/>
+    </definition>
+
+<!-- Data Source for 1.0 CMP Bean Bindings -->
+
+    <definition name="appconfigure.datasource.for10cmpbeans" extends="detail.config.view" controllerClass="com.ibm.ws.console.appmanagement.controller.DatasourceFor10CMPBeansController">
+        <putList name="list">
+            <add value="appconfigure.datasource.for10cmpbeans.detail.title"/>
+            <add value="appconfigure.datasource.for10cmpbeans.configStep"/>
+        </putList>
+    </definition>
+
+    <definition name="appconfigure.datasource.for10cmpbeans.configStep" path="/secure/layouts/configStepLayout.jsp" controllerClass="com.ibm.ws.console.appmanagement.controller.AppBindingsController">
+        <put name="configStep" value="/com.ibm.ws.console.appmanagement/DataSourceFor10CMPBeans.jsp"/>
+        <put name="actionForm" value="DataSourceFor10CMPBeansForm"/>
+        <put name="actionHandler" value="/dataSourceFor10CMPBeans.do"/>
+        <put name="formType" value="com.ibm.ws.console.appmanagement.form.AppInstallForm"/>
+    </definition>
+
+    <definition name="appconfigure.datasource.for10cmpbeans.detail.title" extends="detail.title">
+        <put name="formName" value="DataSourceFor10CMPBeansForm"/>  
+        <put name="titleKey" value="appmanagement.datasource.for10cmpbeans"/>
+        <put name="collectionLink" value="com.ibm.ws.console.appdeployment.forwardCmd.do?forwardName=ApplicationDeployment.config.view"/>
+        <put name="includeLink" value="no"/>
+        <put name="instanceDetails" value="title"/>
+        <put name="instanceDescription" value="appmanagement.datasource.for10cmpbeans"/>
+        <put name="displayName" value="appmanagement.datasource.for10cmpbeans"/>
+    </definition>
+
+<!-- Data Source for 2.0 Entity Bean Bindings -->
+    <definition name="appconfigure.datasource.for20entitybeans" extends="detail.config.view" controllerClass="com.ibm.ws.console.appmanagement.controller.DatasourceFor20CMPBeansController">
+        <putList name="list">
+            <add value="appconfigure.datasource.for20entitybeans.detail.title"/>
+            <add value="appconfigure.datasource.for20entitybeans.configStep"/>
+        </putList>
+    </definition>
+
+    <definition name="appconfigure.datasource.for20entitybeans.configStep" path="/secure/layouts/configStepLayout.jsp" controllerClass="com.ibm.ws.console.appmanagement.controller.AppBindingsController">
+        <put name="configStep" value="/com.ibm.ws.console.appmanagement/DataSourceFor20EJBModules.jsp"/>
+        <put name="actionForm" value="DataSourceFor20EJBModulesForm"/>
+        <put name="actionHandler" value="/dataSourceFor20EJBModules.do"/>
+        <put name="formType" value="com.ibm.ws.console.appmanagement.form.AppInstallForm"/>
+    </definition>
+
+    <definition name="appconfigure.datasource.for20entitybeans.detail.title" extends="detail.title">
+        <put name="formName" value="DataSourceFor20EJBModulesForm"/>    
+        <put name="titleKey" value="appmanagement.datasource.for20entitybeans"/>
+        <put name="collectionLink" value="com.ibm.ws.console.appdeployment.forwardCmd.do?forwardName=ApplicationDeployment.config.view"/>
+        <put name="includeLink" value="no"/>
+        <put name="instanceDetails" value="title"/>
+        <put name="instanceDescription" value="appmanagement.datasource.for20entitybeans"/>
+        <put name="displayName" value="appmanagement.datasource.for20entitybeans"/>
+    </definition>
+
+
+<!-- Data Source for 1.0 Entity Bean Bindings -->
+    <definition name="appconfigure.datasource.for10entitybeans" extends="detail.config.view" controllerClass="com.ibm.ws.console.appmanagement.controller.DatasourceFor10CMPBeansController">
+        <putList name="list">
+            <add value="appconfigure.datasource.for10entitybeans.detail.title"/>
+            <add value="appconfigure.datasource.for10entitybeans.configStep"/>
+        </putList>
+    </definition>
+
+    <definition name="appconfigure.datasource.for10entitybeans.configStep" path="/secure/layouts/configStepLayout.jsp" controllerClass="com.ibm.ws.console.appmanagement.controller.AppBindingsController">
+        <put name="configStep" value="/com.ibm.ws.console.appmanagement/DataSourceFor10EJBModules.jsp"/>
+        <put name="actionForm" value="DataSourceFor10EJBModulesForm"/>
+        <put name="actionHandler" value="/dataSourceFor10EJBModules.do"/>
+        <put name="formType" value="com.ibm.ws.console.appmanagement.form.AppInstallForm"/>
+    </definition>
+
+    <definition name="appconfigure.datasource.for10entitybeans.detail.title" extends="detail.title">
+        <put name="formName" value="DataSourceFor10EJBModulesForm"/>    
+        <put name="titleKey" value="appmanagement.datasource.for10entitybeans"/>
+        <put name="collectionLink" value="com.ibm.ws.console.appdeployment.forwardCmd.do?forwardName=ApplicationDeployment.config.view"/>
+        <put name="includeLink" value="no"/>
+        <put name="instanceDetails" value="title"/>
+        <put name="instanceDescription" value="appmanagement.datasource.for10entitybeans"/>
+        <put name="displayName" value="appmanagement.datasource.for10entitybeans"/>
+    </definition>
+
+<!-- Map Virtual Host to Web Modules Bindings -->
+    <definition name="appconfigure.virtualhosts.towebmodules" extends="detail.config.view">
+        <putList name="list">
+            <add value="appconfigure.virtualhosts.towebmodules.detail.title"/>
+            <add value="appconfigure.virtualhosts.towebmodules.configStep"/>
+        </putList>
+    </definition>
+
+    <definition name="appconfigure.virtualhosts.towebmodules.configStep" path="/secure/layouts/configStepLayout.jsp" controllerClass="com.ibm.ws.console.appmanagement.controller.AppBindingsController">
+        <put name="configStep" value="/com.ibm.ws.console.appmanagement/MapWebModToVH.jsp"/>
+        <put name="actionForm" value="MapWebModToVHForm"/>
+        <put name="actionHandler" value="/mapWebModToVH.do"/>
+        <put name="formType" value="com.ibm.ws.console.appmanagement.form.AppInstallForm"/>
+    </definition>
+
+
+    <definition name="appconfigure.virtualhosts.towebmodules.detail.title" extends="detail.title">
+        <put name="formName" value="MapWebModToVHForm"/>    
+        <put name="titleKey" value="appmanagement.virtualhosts.towebmodules"/>
+        <put name="collectionLink" value="com.ibm.ws.console.appdeployment.forwardCmd.do?forwardName=ApplicationDeployment.config.view"/>
+        <put name="includeLink" value="no"/>
+        <put name="instanceDetails" value="title"/>
+        <put name="instanceDescription" value="appmanagement.virtualhosts.towebmodules"/>
+        <put name="displayName" value="appmanagement.virtualhosts.towebmodules"/>
+    </definition>
+
+<!-- res-env ref to resource Bindings -->
+
+    <definition name="appconfigure.resenvrefs.tores" extends="detail.config.view" controllerClass="com.ibm.ws.console.appmanagement.controller.MapResEnvRefToResController">
+        <putList name="list">
+            <add value="appconfigure.resenvrefs.tores.detail.title"/>
+            <add value="appconfigure.resenvrefs.tores.configStep"/>
+        </putList>
+    </definition>
+
+    <definition name="appconfigure.resenvrefs.tores.configStep" path="/secure/layouts/configStepLayout.jsp" controllerClass="com.ibm.ws.console.appmanagement.controller.AppBindingsController">
+        <put name="configStep" value="/com.ibm.ws.console.appmanagement/MapResEnvRefToRes.jsp"/>
+        <put name="actionForm" value="MapResEnvRefToResForm"/>
+        <put name="actionHandler" value="/mapResEnvRefToRes.do"/>
+        <put name="formType" value="com.ibm.ws.console.appmanagement.form.AppInstallForm"/>
+    </definition>
+
+    <definition name="appconfigure.resenvrefs.tores.detail.title" extends="detail.title">
+        <put name="formName" value="MapResEnvRefToResForm"/>    
+        <put name="titleKey" value="appmanagement.resenvrefs.tores"/>
+        <put name="collectionLink" value="com.ibm.ws.console.appdeployment.forwardCmd.do?forwardName=ApplicationDeployment.config.view"/>
+        <put name="includeLink" value="no"/>
+        <put name="instanceDetails" value="title"/>
+        <put name="instanceDescription" value="appmanagement.resenvrefs.tores"/>
+        <put name="displayName" value="appmanagement.resenvrefs.tores"/>
+    </definition>
+
+<!-- Modules to AppServer Bindings -->
+    <definition name="appconfigure.modules.toappservers" extends="detail.config.view" controllerClass="com.ibm.ws.console.appmanagement.controller.MapModulesToServersController">
+        <putList name="list">
+            <add value="appconfigure.modules.toappservers.detail.title"/>
+            <add value="appconfigure.modules.toappservers.configStep"/>
+        </putList>
+    </definition>
+
+    <definition name="appconfigure.modules.toappservers.configStep" path="/secure/layouts/configStepLayout.jsp" controllerClass="com.ibm.ws.console.appmanagement.controller.AppBindingsController">
+        <put name="configStep" value="/com.ibm.ws.console.appmanagement/MapModulesToServers.jsp"/>
+        <put name="actionForm" value="MapModulesToServersForm"/>
+        <put name="actionHandler" value="/mapModulesToServers.do"/>
+        <put name="formType" value="com.ibm.ws.console.appmanagement.form.AppInstallForm"/>
+    </definition>
+
+    <definition name="appconfigure.modules.toappservers.detail.title" extends="detail.title">
+        <put name="formName" value="MapModulesToServersForm"/>  
+        <put name="titleKey" value="appmanagement.modules.toappservers"/>
+        <put name="collectionLink" value="com.ibm.ws.console.appdeployment.forwardCmd.do?forwardName=ApplicationDeployment.config.view"/>
+        <put name="includeLink" value="no"/>
+        <put name="instanceDetails" value="title"/>
+        <put name="instanceDescription" value="appmanagement.modules.toappservers"/>
+        <put name="displayName" value="appmanagement.modules.toappservers"/>
+    </definition>
+
+
+<!-- end app configure-->
+
+<!-- Application Deployment -->
+
+    <definition name="ApplicationDeployment.content.main" path="/secure/layouts/contentLayout.jsp" controllerClass="com.ibm.ws.console.appdeployment.ApplicationDeploymentController">
+        <put name="descTitle" value="ApplicationDeployment.displayName"/>
+        <put name="descImage" value="pluginId=com.ibm.ws.console.appmanagement"/>
+        <put name="descText" value="ApplicationDeployment.description"/>
+        <putList name="contentList">
+        <add value="ApplicationDeployment.paging.extend"/>
+        <add value="ApplicationDeployment.quicksearch.extend"/>
+        <add value="ApplicationDeployment.collection.table.extends"/>
+        </putList>
+    </definition>
+
+    <definition name="ApplicationDeployment.quicksearch.extend" extends="quicksearch.main">
+        <put name="selectUri" value="applicationDeploymentCollection.do?ToggleViewAction=true"/>
+        <put name="collectionForm" value="com.ibm.ws.console.appdeployment.ApplicationDeploymentCollectionForm"/>
+        <put name="formAction" value="applicationDeploymentCollection.do"/>
+        <put name="formName" value="com.ibm.ws.console.appdeployment.ApplicationDeploymentCollectionForm"/>
+        <put name="formType" value="com.ibm.ws.console.appdeployment.ApplicationDeploymentCollectionForm"/>
+        <putList name="searchList">
+            <add value="ApplicationDeployment.name.displayName:name"/>
+<!--            <add value="ApplicationDeployment.serverName.displayName:serverName"/>-->
+<!--            <add value="ApplicationDeployment.status.displayName:status"/> -->
+        </putList>
+    </definition>
+
+    <definition name="ApplicationDeployment.paging.extend" extends="paging.main">
+        <put name="displayLabelKey" value="ApplicationDeployment.displayName"/>
+        <put name="collectionForm" value="com.ibm.ws.console.appdeployment.ApplicationDeploymentCollectionForm"/>
+        <put name="formAction" value="applicationDeploymentCollection.do"/>
+        <put name="formName" value="com.ibm.ws.console.appdeployment.ApplicationDeploymentCollectionForm"/>
+        <put name="formType" value="com.ibm.ws.console.appdeployment.ApplicationDeploymentCollectionForm"/>
+    </definition>
+
+    <definition name="ApplicationDeployment.collection.table.extends" path="/com.ibm.ws.console.appmanagement/collectionTableLayout.jsp">
+        <put name="iterationProperty" value="subsetList"/>
+        <put name="showCheckBoxes" value="true"/>
+        <put name="sortIconLocation" value="right"/>
+        <put name="columnWidth" value="25%"/>
+        <put name="iterationName" value="com.ibm.ws.console.appdeployment.ApplicationDeploymentCollectionForm"/>
+        <put name="formAction" value="applicationDeploymentCollection.do"/>
+        <put name="formName" value="com.ibm.ws.console.appdeployment.ApplicationDeploymentCollectionForm"/>
+        <put name="formType" value="com.ibm.ws.console.appdeployment.ApplicationDeploymentCollectionForm"/>
+        <put name="buttons" value="ApplicationDeployment.collection.buttons.panel"/>
+        <put name="parent" value="com.ibm.ws.console.appdeployment.forwardCmd.do?forwardName=ApplicationDeployment.content.main"/>
+        <put name="idColumn" value="uniqueId"/>
+        <put name="statusType" value="unknown"/>
+        <putList name="statusCols"/>
+        <putList name="collectionList">
+            <item value="name:sort" link="applicationDeploymentCollection.do?EditAction=true" icon="" tooltip="ApplicationDeployment.name.displayName" classtype="com.ibm.ws.console.core.item.CollectionItem"/>
+<!--            <item value="serverName:sort" link="" icon="" tooltip="ApplicationDeployment.serverName.displayName" classtype="com.ibm.ws.console.core.item.CollectionItem"/>-->
+            <item value="status:sort:yes" link="" icon="" tooltip="ApplicationDeployment.status.displayName" classtype="com.ibm.ws.console.core.item.CollectionItem"/>
+        </putList>
+        <putList name="collectionPreferenceList">
+            <item value="text:UI/Collections/ApplicationDeployment/Preferences#maximumRows:25" link="collection.preferences.maxRowLabel: :collection.preferences.maxRowDesc:20" classtype="com.ibm.ws.console.core.item.PreferenceItem"/>
+            <item value="checkbox:UI/Collections/ApplicationDeployment/Preferences#retainSearchCriteria:32" link="collection.preferences.searchHistoryLabel:collection.preferences.searchHistoryUnits:collection.preferences.searchHistoryDesc" classtype="com.ibm.ws.console.core.item.PreferenceItem"/>
+        </putList>
+    </definition>
+
+    <definition name="ApplicationDeployment.collection.buttons.panel" extends="buttons.panel">
+        <put name="buttonCount" value="8"/>
+        <put name="definitionName" value="ApplicationDeployment.collection.buttons.panel"/>
+        <put name="includeForm" value="no"/>
+        <putList name="actionList">
+            <item value="button.start:applicationDeploymentCollection.do" link="" icon="" tooltip="administrator,operator" classtype="com.ibm.ws.console.core.item.ActionSetItem"/>
+            <item value="button.stop:applicationDeploymentCollection.do" link="" icon="" tooltip="administrator,operator" classtype="com.ibm.ws.console.core.item.ActionSetItem"/>
+            <item value="button.install:applicationDeploymentCollection.do" link="" icon="" tooltip="administrator,configurator" classtype="com.ibm.ws.console.core.item.ActionSetItem"/>
+            <item value="button.uninstall:applicationDeploymentCollection.do" link="" icon="" tooltip="administrator,configurator" classtype="com.ibm.ws.console.core.item.ActionSetItem"/>
+            <item value="button.update:applicationDeploymentCollection.do" link="" icon="" tooltip="administrator,configurator" classtype="com.ibm.ws.console.core.item.ActionSetItem"/>
+            <item value="button.export:applicationDeploymentCollection.do" link="" icon="" tooltip="administrator,configurator,operator,monitor" classtype="com.ibm.ws.console.core.item.ActionSetItem"/>
+            <item value="button.exportddl:applicationDeploymentCollection.do" link="" icon="" tooltip="administrator,configurator,operator,monitor" classtype="com.ibm.ws.console.core.item.ActionSetItem"/>
+        </putList>
+    </definition>
+
+
+<!-- Application Deployment Detail -->
+    <definition name="ApplicationDeployment.config.view" path="/secure/layouts/configboxLayout.jsp">
+        <putList name="list">
+            <add value="ApplicationDeployment.title"/>
+            <add value="ApplicationDeployment.detail.tabsLayout"/>
+        </putList>
+    </definition>
+
+    <definition name="ApplicationDeployment.detail.tabsLayout" path="/secure/layouts/tabsLayout.jsp">
+        <put name="selectUri" value="applicationDeploymentDetail.do"/>
+        <put name="selectedPerspective" value="tab.configuration"/>
+        <put name="formName" value="com.ibm.ws.console.appdeployment.ApplicationDeploymentDetailForm"/>
+        <putList name="tabList">
+            <item  value="tab.configuration" link="ApplicationDeployment.config.tab.view" classtype="org.apache.struts.tiles.beans.SimpleMenuItem"/>
+            <item  value="tab.topology" link="ApplicationDeployment.topology.tab.view" classtype="org.apache.struts.tiles.beans.SimpleMenuItem"/>
+        </putList>
+    </definition>
+
+    <definition name="ApplicationDeployment.title" path="/secure/layouts/detailTitleLayout.jsp">
+        <put name="objectTypeImage" value="Type.smallIcon:pluginId=com.ibm.ws.console.appmanagement"/>
+        <put name="includeLink" value="yes"/>
+        <put name="titleKey" value="task.application.manage"/>
+        <put name="collectionLink" value="applicationDeploymentCollection.do?EditAction=true"/>
+        <put name="instanceDetails" value="name"/>
+        <put name="instanceDescription" value="ApplicationDeployment.displayName"/>
+        <put name="displayName" value="ApplicationDeployment.displayName"/>
+        <put name="formName" value="com.ibm.ws.console.appdeployment.ApplicationDeploymentDetailForm"/>
+    </definition>
+    <definition name="ApplicationDeployment.config.tab.view" path="/secure/layouts/configTabLayout.jsp">
+        <putList name="list">
+            <add value="ApplicationDeployment.buttons.panel"/>
+            <add value="ApplicationDeployment.config.general.properties"/>
+            <add value="ApplicationDeployment.config.additional.properties"/>
+            <add value="ApplicationDeployment.config.related.items"/>
+        </putList>
+    </definition>
+    <definition name="ApplicationDeployment.buttons.panel" path="/secure/layouts/buttonLayout.jsp">
+        <put name="buttonCount" value="6"/>
+        <put name="definitionName" value="type.buttons.panel"/>
+        <put name="includeForm" value="no"/>
+        <putList name="actionList">
+<!--            <item value="button.restart:applicationDeploymentCollection.do" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.ActionSetItem"/>-->
+<!--            <item value="button.delete:applicationDeploymentCollection.do" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.ActionSetItem"/>-->
+        </putList>
+    </definition>
+    <definition name="ApplicationDeployment.config.general.properties" extends="detail.config.general.properties">
+        <put name="formAction" value="applicationDeploymentDetail.do"/>
+        <put name="formName" value="com.ibm.ws.console.appdeployment.ApplicationDeploymentDetailForm"/>
+        <put name="formType" value="com.ibm.ws.console.appdeployment.ApplicationDeploymentDetailForm"/>
+        <put name="formFocus" value="name"/>
+        <put name="readOnlyView" value="no"/>
+        <putList name="attributeList">
+            <item value="ApplicationDeployment.name.displayName:name:yes:Text:ApplicationDeployment.name.description:yes:yes" classtype="com.ibm.ws.console.core.item.PropertyItem" icon="" tooltip="" link=""/>
+            <item  value="ApplicationDeployment.startingWeight.displayName:startingWeight:yes:Text:ApplicationDeployment.startingWeight.description:no:yes" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="ApplicationDeployment.binariesURL.displayName:binariesURL:yes:Text:ApplicationDeployment.binariesURL.description:no:yes" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="ApplicationDeployment.useMetadataFromBinaries.displayName:useMetadataFromBinaries:no:Checkbox:ApplicationDeployment.useMetadataFromBinaries.description:no:yes" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="ApplicationDeployment.enableDistribution.displayName:enableDistribution:no:Checkbox:ApplicationDeployment.enableDistribution.description:no:yes" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="Classloader.mode.displayName:mode:yes:Select:Classloader.mode.description:no:yes:PARENT_FIRST,PARENT_LAST:ClassLoadingMode.PARENT_FIRST,ClassLoadingMode.PARENT_LAST" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="ApplicationDeployment.warClassLoaderPolicy.displayName:warClassLoaderPolicy:yes:Select:ApplicationDeployment.warClassLoaderPolicy.description:no:yes:MULTIPLE,SINGLE:ClassLoaderPolicy.MULTIPLE,ClassLoaderPolicy.SINGLE" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="ApplicationDeployment.createMBeansForResources.displayName:createMBeansForResources:no:Checkbox:ApplicationDeployment.createMBeansForResources.description:no:yes" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="ApplicationDeployment.reloadEnabled.displayName:reloadEnabled:no:Checkbox:ApplicationDeployment.reloadEnabled.description:no:yes" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="ApplicationDeployment.reloadInterval.displayName:reloadInterval:no:Text:ApplicationDeployment.reloadInterval.description:no:yes" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+        </putList>
+    </definition>
+
+    <definition name="ApplicationDeployment.config.additional.properties" path="/com.ibm.ws.console.appmanagement/addPropLayout.jsp" controllerClass="com.ibm.ws.console.appdeployment.ApplicationConfigureController">
+        <put name="formName" value="com.ibm.ws.console.appdeployment.ApplicationDeploymentDetailForm"/>
+        <putList name="list">
+          <item  value="DeployedObject.targetMappings.displayName" link="com.ibm.ws.console.appdeployment.forwardCmd.do?forwardName=DeploymentTargetMapping.content.main&#38;sfname=targetMappings&#38;lastPage=ApplicationDeployment.config.view" tooltip="DeployedObject.targetMappings.description" classtype="org.apache.struts.tiles.beans.SimpleMenuItem"/>
+          <item  value="Classloader.libraries.displayName" link="com.ibm.ws.console.appdeployment.forwardCmd.do?forwardName=LibraryRef.content.main&#38;sfname=libraries&#38;lastPage=ApplicationDeployment.config.view" tooltip="Classloader.libraries.description" classtype="org.apache.struts.tiles.beans.SimpleMenuItem"/>
+          <item  value="ApplicationDeployment.sessionManagement.displayName" link="com.ibm.ws.console.appdeployment.forwardCmd.do?forwardName=SessionManagerEnable.config.view&#38;sfname=sessionManagement&#38;lastPage=ApplicationDeployment.config.view" tooltip="ApplicationDeployment.sessionManagement.description" classtype="org.apache.struts.tiles.beans.SimpleMenuItem"/>
+        </putList>
+        <putList name="taskList">
+          <item classtype="org.apache.struts.tiles.beans.SimpleMenuItem"
+                icon="" link="MapRolesToUsersForm:com.ibm.ws.console.appdeployment.forwardCmd.do?forwardName=appconfigure.securityroles.tousers"
+                tooltip="appmanagement.securityroles.tousers" value="appmanagement.securityroles.tousers"/>
+
+          <item classtype="org.apache.struts.tiles.beans.SimpleMenuItem"
+                icon="" link="MapRunAsRolesToUsersForm:com.ibm.ws.console.appdeployment.forwardCmd.do?forwardName=appconfigure.runasroles.tousers"
+                tooltip="appmanagement.runasroles.tousers" value="appmanagement.runasroles.tousers"/>
+
+          <item classtype="org.apache.struts.tiles.beans.SimpleMenuItem"
+                icon="" link="BindJndiForEJBNonMessageBindingForm:com.ibm.ws.console.appdeployment.forwardCmd.do?forwardName=appconfigure.jndinames.fornonmessagingbeans"
+                tooltip="appmanagement.jndinames.fornonmessagingbeans" value="appmanagement.jndinames.fornonmessagingbeans"/>
+
+          <item classtype="org.apache.struts.tiles.beans.SimpleMenuItem"
+                icon="" link="BindJndiForEJBMessageBindingForm:com.ibm.ws.console.appdeployment.forwardCmd.do?forwardName=appconfigure.jndinames.formessagingbeans"
+                tooltip="appmanagement.jndinames.formessagingbeans" value="appmanagement.jndinames.formessagingbeans"/>
+
+          <item classtype="org.apache.struts.tiles.beans.SimpleMenuItem"
+                icon="" link="MapResRefToEJBForm:com.ibm.ws.console.appdeployment.forwardCmd.do?forwardName=appconfigure.resrefs.tobeans"
+                tooltip="appmanagement.resrefs.tobeans" value="appmanagement.resrefs.tobeans"/>
+
+          <item classtype="org.apache.struts.tiles.beans.SimpleMenuItem"
+                icon="" link="MapEJBRefToEJBForm:com.ibm.ws.console.appdeployment.forwardCmd.do?forwardName=appconfigure.ejbrefs.tobeans"
+                tooltip="appmanagement.ejbrefs.tobeans" value="appmanagement.ejbrefs.tobeans"/>
+
+          <item classtype="org.apache.struts.tiles.beans.SimpleMenuItem"
+                icon="" link="DataSourceFor20CMPBeansForm:com.ibm.ws.console.appdeployment.forwardCmd.do?forwardName=appconfigure.datasource.for20cmpbeans"
+                tooltip="appmanagement.datasource.for20cmpbeans" value="appmanagement.datasource.for20cmpbeans"/>
+
+          <item classtype="org.apache.struts.tiles.beans.SimpleMenuItem"
+                icon="" link="DataSourceFor10CMPBeansForm:com.ibm.ws.console.appdeployment.forwardCmd.do?forwardName=appconfigure.datasource.for10cmpbeans"
+                tooltip="appmanagement.datasource.for10cmpbeans" value="appmanagement.datasource.for10cmpbeans"/>
+
+          <item classtype="org.apache.struts.tiles.beans.SimpleMenuItem"
+                icon="" link="DataSourceFor20EJBModulesForm:com.ibm.ws.console.appdeployment.forwardCmd.do?forwardName=appconfigure.datasource.for20entitybeans"
+                tooltip="appmanagement.datasource.for20entitybeans" value="appmanagement.datasource.for20entitybeans"/>
+
+          <item classtype="org.apache.struts.tiles.beans.SimpleMenuItem"
+                icon="" link="DataSourceFor10EJBModulesForm:com.ibm.ws.console.appdeployment.forwardCmd.do?forwardName=appconfigure.datasource.for10entitybeans"
+                tooltip="appmanagement.datasource.for10entitybeans" value="appmanagement.datasource.for10entitybeans"/>
+
+          <item classtype="org.apache.struts.tiles.beans.SimpleMenuItem"
+                icon="" link="MapWebModToVHForm:com.ibm.ws.console.appdeployment.forwardCmd.do?forwardName=appconfigure.virtualhosts.towebmodules"
+                tooltip="appmanagement.virtualhosts.towebmodules" value="appmanagement.virtualhosts.towebmodules"/>
+
+          <item classtype="org.apache.struts.tiles.beans.SimpleMenuItem"
+                icon="" link="MapResEnvRefToResForm:com.ibm.ws.console.appdeployment.forwardCmd.do?forwardName=appconfigure.resenvrefs.tores"
+                tooltip="appmanagement.resenvrefs.tores" value="appmanagement.resenvrefs.tores"/>
+
+          <item classtype="org.apache.struts.tiles.beans.SimpleMenuItem"
+                icon="" link="MapModulesToServersForm:com.ibm.ws.console.appdeployment.forwardCmd.do?forwardName=appconfigure.modules.toappservers"
+                tooltip="appmanagement.modules.toappservers" value="appmanagement.modules.toappservers"/>
+
+        </putList>
+    </definition>
+
+    <definition name="ApplicationDeployment.config.related.items" path="/secure/layouts/relatedItemsLayout.jsp">
+        <put name="formName" value="com.ibm.ws.console.appdeployment.ApplicationDeploymentDetailForm"/>
+        <putList name="list">
+          <item classtype="org.apache.struts.tiles.beans.SimpleMenuItem"
+                icon="" link="com.ibm.ws.console.appdeployment.forwardCmd.do?forwardName=WebModuleDeployment.content.main&#38;sfname=modules&#38;lastPage=ApplicationDeployment.config.view"
+                tooltip="ApplicationDeployment.webModules.description"
+                value="ApplicationDeployment.webModules.displayName"/>
+
+          <item classtype="org.apache.struts.tiles.beans.SimpleMenuItem"
+                icon="" link="com.ibm.ws.console.appdeployment.forwardCmd.do?forwardName=EJBModuleDeployment.content.main&#38;sfname=modules&#38;lastPage=ApplicationDeployment.config.view"
+                tooltip="ApplicationDeployment.ejbModules.description"
+                value="ApplicationDeployment.ejbModules.displayName"/>
+
+          <item classtype="org.apache.struts.tiles.beans.SimpleMenuItem"
+                icon="" link="com.ibm.ws.console.appdeployment.forwardCmd.do?forwardName=ConnectorModuleDeployment.content.main&#38;sfname=modules&#38;lastPage=ApplicationDeployment.config.view"
+                tooltip="ApplicationDeployment.connectorModules.description"
+                value="ApplicationDeployment.connectorModules.displayName"/>
+        </putList>
+    </definition>
+
+    <definition name="ApplicationDeployment.topology.tree.view" path="/secure/layouts/treeLayout.jsp" controllerClass="com.ibm.ws.console.appdeployment.ApplicationDeploymentTreeController">
+        <put name="rootName" value="ApplicationDeployment.displayName"/>
+        <put name="rootImage" value="images/onepix.gif"/>
+        <putList name="treeList">
+        </putList>
+    </definition>
+
+    <definition name="ApplicationDeployment.topology.tab.view" path="/secure/layouts/topologyLayout.jsp">
+        <put name="treeView" value="ApplicationDeployment.topology.tree.view"/>
+    </definition>
+
+<!-- End Application Deployment Detail -->
+
+
+<!-- Begin Web Module Panel -->
+    <definition name="WebModuleDeployment.content.main" path="/secure/layouts/contentLayout.jsp" controllerClass="com.ibm.ws.console.appdeployment.WebModuleDeploymentController">
+        <put name="descTitle" value="WebModuleDeployment.displayName"/>
+        <put name="descImage" value="pluginId=com.ibm.ws.console.appmanagement"/>
+        <put name="descText" value="WebModuleDeployment.description"/>
+        <putList name="contentList">
+        <add value="WebModuleDeployment.paging.extend"/>
+        <add value="WebModuleDeployment.quicksearch.extend"/>
+        <add value="WebModuleDeployment.collection.table.extends"/>
+        </putList>
+    </definition>
+
+    <definition name="WebModuleDeployment.quicksearch.extend" extends="quicksearch.main">
+        <put name="selectUri" value="webModuleDeploymentCollection.do?ToggleViewAction=true"/>
+        <put name="collectionForm" value="com.ibm.ws.console.appdeployment.WebModuleDeploymentCollectionForm"/>
+        <put name="formAction" value="webModuleDeploymentCollection.do"/>
+        <put name="formName" value="com.ibm.ws.console.appdeployment.WebModuleDeploymentCollectionForm"/>
+        <put name="formType" value="com.ibm.ws.console.appdeployment.WebModuleDeploymentCollectionForm"/>
+        <putList name="searchList">
+            <add value="ModuleDeployment.uri.displayName:uri"/>
+        </putList>
+    </definition>
+
+    <definition name="WebModuleDeployment.paging.extend" extends="paging.main">
+        <put name="displayLabelKey" value="WebModuleDeployment.displayName"/>
+        <put name="collectionForm" value="com.ibm.ws.console.appdeployment.WebModuleDeploymentCollectionForm"/>
+        <put name="formAction" value="webModuleDeploymentCollection.do"/>
+        <put name="formName" value="com.ibm.ws.console.appdeployment.WebModuleDeploymentCollectionForm"/>
+        <put name="formType" value="com.ibm.ws.console.appdeployment.WebModuleDeploymentCollectionForm"/>
+    </definition>
+
+    <definition name="WebModuleDeployment.collection.table.extends" extends="collection.table.main">
+        <put name="iterationName" value="com.ibm.ws.console.appdeployment.WebModuleDeploymentCollectionForm"/>
+        <put name="formAction" value="webModuleDeploymentCollection.do"/>
+        <put name="formName" value="com.ibm.ws.console.appdeployment.WebModuleDeploymentCollectionForm"/>
+        <put name="formType" value="com.ibm.ws.console.appdeployment.WebModuleDeploymentCollectionForm"/>
+        <put name="buttons" value="WebModuleDeployment.collection.buttons.panel"/>
+        <put name="showCheckBoxes" value="false"/>
+        <put name="parent" value="com.ibm.ws.console.appdeployment.forwardCmd.do?forwardName=WebModuleDeployment.content.main"/>
+        <putList name="collectionList">
+            <item value="uri:sort" link="webModuleDeploymentCollection.do?EditAction=true" icon="" tooltip="ModuleDeployment.uri.displayName" classtype="com.ibm.ws.console.core.item.CollectionItem"/>
+        </putList>
+        <putList name="collectionPreferenceList">
+            <item value="text:UI/Collections/WebModuleDeployment/Preferences#maximumRows:25" link="collection.preferences.maxRowLabel: :collection.preferences.maxRowDesc:20" classtype="com.ibm.ws.console.core.item.PreferenceItem"/>
+            <item value="checkbox:UI/Collections/WebModuleDeployment/Preferences#retainSearchCriteria:32" link="collection.preferences.searchHistoryLabel:collection.preferences.searchHistoryUnits:collection.preferences.searchHistoryDesc" classtype="com.ibm.ws.console.core.item.PreferenceItem"/>
+        </putList>
+    </definition>
+
+    <definition name="WebModuleDeployment.collection.buttons.panel" extends="buttons.panel">
+        <put name="buttonCount" value="2"/>
+        <put name="definitionName" value="WebModuleDeployment.collection.buttons.panel"/>
+        <put name="includeForm" value="no"/>
+        <putList name="actionList">
+<!--            <item value="button.new:webModuleDeploymentCollection.do" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.ActionSetItem"/>
+            <item value="button.delete:webModuleDeploymentCollection.do" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.ActionSetItem"/>-->
+        </putList>
+    </definition>
+
+
+    <definition name="WebModuleDeployment.config.view" extends="detail.config.view">
+        <putList name="list">
+        <add value="WebModuleDeployment.detail.title"/>
+        <add value="WebModuleDeployment.detail.tabsLayout"/>
+        </putList>
+    </definition>
+
+    <definition name="WebModuleDeployment.detail.title" extends="detail.title">
+        <put name="formName" value="com.ibm.ws.console.appdeployment.WebModuleDeploymentDetailForm"/>
+        <put name="objectTypeImage" value="WebModuleDeployment.smallIcon:pluginId=com.ibm.ws.console.appmanagement"/>
+        <put name="titleKey" value="WebModuleDeployment.displayName"/>
+        <put name="collectionLink" value="com.ibm.ws.console.appdeployment.forwardCmd.do?forwardName=WebModuleDeployment.content.main&#38;noChange=true"/>
+        <put name="instanceDetails" value="uri"/>
+        <put name="instanceDescription" value="WebModuleDeployment.description"/>
+        <put name="displayName" value="WebModuleDeployment.displayName"/>
+    </definition>
+
+    <definition name="WebModuleDeployment.detail.tabsLayout" path="/secure/layouts/tabsLayout.jsp">
+        <put name="selectUri" value="webModuleDeploymentDetail.do"/>
+        <put name="selectedPerspective" value="tab.configuration"/>
+        <put name="formName" value="com.ibm.ws.console.appdeployment.WebModuleDeploymentDetailForm"/>
+        <putList name="tabList">
+            <item  value="tab.configuration" link="WebModuleDeployment.config.tab.view" classtype="org.apache.struts.tiles.beans.SimpleMenuItem"/>
+        </putList>
+    </definition>
+
+    <definition name="WebModuleDeployment.config.tab.view" extends="detail.config.tab.view">
+        <putList name="list">
+<!--        <add value="WebModuleDeployment.detail.buttons.panel"/>-->
+        <add value="WebModuleDeployment.config.general.properties"/>
+        <add value="WebModuleDeployment.config.additional.properties"/>
+        </putList>
+    </definition>
+
+    <definition name="WebModuleDeployment.detail.buttons.panel" extends="buttons.panel">
+        <put name="buttonCount" value="1"/>
+        <put name="definitionName" value="WebModuleDeployment.detail.buttons.panel"/>
+        <put name="includeForm" value="yes"/>
+        <putList name="actionList">
+            <item value="button.delete:webModuleDeploymentCollection.do" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.ActionSetItem"/>
+        </putList>
+    </definition>
+
+    <definition name="WebModuleDeployment.config.general.properties" extends="detail.config.general.properties">
+        <put name="formAction" value="webModuleDeploymentDetail.do"/>
+        <put name="formName" value="com.ibm.ws.console.appdeployment.WebModuleDeploymentDetailForm"/>
+        <put name="formType" value="com.ibm.ws.console.appdeployment.WebModuleDeploymentDetailForm"/>
+        <put name="formFocus" value="uri"/>
+        <put name="readOnlyView" value="no"/>
+        <putList name="attributeList">
+            <item  value="ModuleDeployment.uri.displayName:uri:yes:Text:ModuleDeployment.uri.description:no:yes" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="ModuleDeployment.altDD.displayName:altDD:no:Text:ModuleDeployment.altDD.description:yes:yes" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="ModuleDeployment.startingWeight.displayName:startingWeight:yes:Text:ModuleDeployment.startingWeight.description:no:yes" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="Classloader.mode.displayName:mode:yes:Select:Classloader.mode.description:no:yes:PARENT_FIRST,PARENT_LAST:ClassLoadingMode.PARENT_FIRST,ClassLoadingMode.PARENT_LAST" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+        </putList>
+    </definition>
+
+    <definition name="WebModuleDeployment.config.additional.properties" extends="detail.config.additional.properties">
+        <put name="formName" value="com.ibm.ws.console.appdeployment.WebModuleDeploymentDetailForm"/>
+        <putList name="list">
+            <item  value="DeployedObject.targetMappings.displayName" link="com.ibm.ws.console.appdeployment.forwardCmd.do?forwardName=DeploymentTargetMapping.content.main&#38;sfname=targetMappings" tooltip="DeployedObject.targetMappings.description" classtype="org.apache.struts.tiles.beans.SimpleMenuItem"/>
+            <item  value="WebModuleDeployment.sessionManagement.displayName" link="com.ibm.ws.console.appdeployment.forwardCmd.do?forwardName=SessionManagerEnable.config.view&#38;sfname=sessionManagement&#38;lastPage=WebModuleDeployment.config.view" tooltip="WebModuleDeployment.sessionManagement.description" classtype="org.apache.struts.tiles.beans.SimpleMenuItem"/>
+<!--            <item  value="ModuleDeployment.serverSpecificConfigurations.displayName" link="com.ibm.ws.console.appdeployment.forwardCmd.do?forwardName=ModuleServerConfiguration.content.main&#38;sfname=serverSpecificConfigurations" tooltip="ModuleDeployment.serverSpecificConfigurations.description" classtype="org.apache.struts.tiles.beans.SimpleMenuItem"/>-->
+        </putList>
+    </definition>
+
+<!-- End Web Module Panel -->
+
+<!-- Begin EJB Module Panel -->
+    <definition name="EJBModuleDeployment.content.main" path="/secure/layouts/contentLayout.jsp" controllerClass="com.ibm.ws.console.appdeployment.EJBModuleDeploymentController">
+        <put name="descTitle" value="EJBModuleDeployment.displayName"/>
+        <put name="descImage" value="pluginId=com.ibm.ws.console.appmanagement"/>
+        <put name="descText" value="EJBModuleDeployment.description"/>
+        <putList name="contentList">
+        <add value="EJBModuleDeployment.paging.extend"/>
+        <add value="EJBModuleDeployment.quicksearch.extend"/>
+        <add value="EJBModuleDeployment.collection.table.extends"/>
+        </putList>
+    </definition>
+
+    <definition name="EJBModuleDeployment.quicksearch.extend" extends="quicksearch.main">
+        <put name="selectUri" value="eJBModuleDeploymentCollection.do?ToggleViewAction=true"/>
+        <put name="collectionForm" value="com.ibm.ws.console.appdeployment.EJBModuleDeploymentCollectionForm"/>
+        <put name="formAction" value="eJBModuleDeploymentCollection.do"/>
+        <put name="formName" value="com.ibm.ws.console.appdeployment.EJBModuleDeploymentCollectionForm"/>
+        <put name="formType" value="com.ibm.ws.console.appdeployment.EJBModuleDeploymentCollectionForm"/>
+        <putList name="searchList">
+            <add value="ModuleDeployment.uri.displayName:uri"/>
+        </putList>
+    </definition>
+
+    <definition name="EJBModuleDeployment.paging.extend" extends="paging.main">
+        <put name="displayLabelKey" value="EJBModuleDeployment.displayName"/>
+        <put name="collectionForm" value="com.ibm.ws.console.appdeployment.EJBModuleDeploymentCollectionForm"/>
+        <put name="formAction" value="eJBModuleDeploymentCollection.do"/>
+        <put name="formName" value="com.ibm.ws.console.appdeployment.EJBModuleDeploymentCollectionForm"/>
+        <put name="formType" value="com.ibm.ws.console.appdeployment.EJBModuleDeploymentCollectionForm"/>
+    </definition>
+
+    <definition name="EJBModuleDeployment.collection.table.extends" extends="collection.table.main">
+        <put name="iterationName" value="com.ibm.ws.console.appdeployment.EJBModuleDeploymentCollectionForm"/>
+        <put name="formAction" value="eJBModuleDeploymentCollection.do"/>
+        <put name="formName" value="com.ibm.ws.console.appdeployment.EJBModuleDeploymentCollectionForm"/>
+        <put name="formType" value="com.ibm.ws.console.appdeployment.EJBModuleDeploymentCollectionForm"/>
+        <put name="buttons" value="EJBModuleDeployment.collection.buttons.panel"/>
+        <put name="showCheckBoxes" value="false"/>
+        <put name="parent" value="com.ibm.ws.console.appdeployment.forwardCmd.do?forwardName=EJBModuleDeployment.content.main"/>
+        <putList name="collectionList">
+            <item value="uri:sort" link="eJBModuleDeploymentCollection.do?EditAction=true" icon="" tooltip="ModuleDeployment.uri.displayName" classtype="com.ibm.ws.console.core.item.CollectionItem"/>
+        </putList>
+        <putList name="collectionPreferenceList">
+            <item value="text:UI/Collections/EJBModuleDeployment/Preferences#maximumRows:25" link="collection.preferences.maxRowLabel: :collection.preferences.maxRowDesc:20" classtype="com.ibm.ws.console.core.item.PreferenceItem"/>
+            <item value="checkbox:UI/Collections/EJBModuleDeployment/Preferences#retainSearchCriteria:32" link="collection.preferences.searchHistoryLabel:collection.preferences.searchHistoryUnits:collection.preferences.searchHistoryDesc" classtype="com.ibm.ws.console.core.item.PreferenceItem"/>
+        </putList>
+    </definition>
+
+    <definition name="EJBModuleDeployment.collection.buttons.panel" extends="buttons.panel">
+        <put name="buttonCount" value="2"/>
+        <put name="definitionName" value="EJBModuleDeployment.collection.buttons.panel"/>
+        <put name="includeForm" value="no"/>
+        <putList name="actionList">
+<!--            <item value="button.new:eJBModuleDeploymentCollection.do?button.new=true" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.ActionSetItem"/>
+            <item value="button.delete:eJBModuleDeploymentCollection.do?button.delete=true" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.ActionSetItem"/>-->
+        </putList>
+    </definition>
+
+    <definition name="EJBModuleDeployment.config.view" extends="detail.config.view">
+        <putList name="list">
+        <add value="EJBModuleDeployment.detail.title"/>
+        <add value="EJBModuleDeployment.detail.tabsLayout"/>
+        </putList>
+    </definition>
+
+    <definition name="EJBModuleDeployment.detail.title" extends="detail.title">
+        <put name="formName" value="com.ibm.ws.console.appdeployment.EJBModuleDeploymentDetailForm"/>
+        <put name="objectTypeImage" value="EJBModuleDeployment.smallIcon:pluginId=com.ibm.ws.console.appmanagement"/>
+        <put name="titleKey" value="EJBModuleDeployment.displayName"/>
+        <put name="collectionLink" value="com.ibm.ws.console.appdeployment.forwardCmd.do?forwardName=EJBModuleDeployment.content.main&#38;noChange=true"/>
+        <put name="instanceDetails" value="uri"/>
+        <put name="instanceDescription" value="EJBModuleDeployment.description"/>
+        <put name="displayName" value="EJBModuleDeployment.displayName"/>
+    </definition>
+
+    <definition name="EJBModuleDeployment.detail.tabsLayout" path="/secure/layouts/tabsLayout.jsp">
+        <put name="selectUri" value="eJBModuleDeploymentDetail.do"/>
+        <put name="selectedPerspective" value="tab.configuration"/>
+        <put name="formName" value="com.ibm.ws.console.appdeployment.EJBModuleDeploymentDetailForm"/>
+        <putList name="tabList">
+            <item  value="tab.configuration" link="EJBModuleDeployment.config.tab.view" classtype="org.apache.struts.tiles.beans.SimpleMenuItem"/>
+        </putList>
+    </definition>
+
+    <definition name="EJBModuleDeployment.config.tab.view" extends="detail.config.tab.view">
+        <putList name="list">
+<!--        <add value="EJBModuleDeployment.detail.buttons.panel"/>-->
+        <add value="EJBModuleDeployment.config.general.properties"/>
+        <add value="EJBModuleDeployment.config.additional.properties"/>
+        </putList>
+    </definition>
+
+    <definition name="EJBModuleDeployment.detail.buttons.panel" extends="buttons.panel">
+        <put name="buttonCount" value="1"/>
+        <put name="definitionName" value="EJBModuleDeployment.detail.buttons.panel"/>
+        <put name="includeForm" value="yes"/>
+        <putList name="actionList">
+            <item value="button.delete:eJBModuleDeploymentCollection.do" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.ActionSetItem"/>
+        </putList>
+    </definition>
+
+    <definition name="EJBModuleDeployment.config.general.properties" extends="detail.config.general.properties">
+        <put name="formAction" value="eJBModuleDeploymentDetail.do"/>
+        <put name="formName" value="com.ibm.ws.console.appdeployment.EJBModuleDeploymentDetailForm"/>
+        <put name="formType" value="com.ibm.ws.console.appdeployment.EJBModuleDeploymentDetailForm"/>
+        <put name="formFocus" value="uri"/>
+        <put name="readOnlyView" value="no"/>
+        <putList name="attributeList">
+            <item  value="ModuleDeployment.uri.displayName:uri:yes:Text:ModuleDeployment.uri.description:no:yes" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="ModuleDeployment.altDD.displayName:altDD:no:Text:ModuleDeployment.altDD.description:yes:yes" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="ModuleDeployment.startingWeight.displayName:startingWeight:yes:Text:ModuleDeployment.startingWeight.description:no:yes" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+        </putList>
+    </definition>
+
+    <definition name="EJBModuleDeployment.config.additional.properties" extends="detail.config.additional.properties">
+        <put name="formName" value="com.ibm.ws.console.appdeployment.EJBModuleDeploymentDetailForm"/>
+        <putList name="list">
+          <item  value="DeployedObject.targetMappings.displayName" link="com.ibm.ws.console.appdeployment.forwardCmd.do?forwardName=DeploymentTargetMapping.content.main&#38;sfname=targetMappings" tooltip="DeployedObject.targetMappings.description" classtype="org.apache.struts.tiles.beans.SimpleMenuItem"/>
+        </putList>
+    </definition>
+
+    <definition name="ConnectorModuleDeployment.content.main" path="/secure/layouts/contentLayout.jsp" controllerClass="com.ibm.ws.console.appdeployment.ConnectorModuleDeploymentController">
+        <put name="descTitle" value="ConnectorModuleDeployment.displayName"/>
+        <put name="descImage" value="pluginId=com.ibm.ws.console.appmanagement"/>
+        <put name="descText" value="ConnectorModuleDeployment.description"/>
+        <putList name="contentList">
+        <add value="ConnectorModuleDeployment.paging.extend"/>
+        <add value="ConnectorModuleDeployment.quicksearch.extend"/>
+        <add value="ConnectorModuleDeployment.collection.table.extends"/>
+        </putList>
+    </definition>
+
+    <definition name="ConnectorModuleDeployment.quicksearch.extend" extends="quicksearch.main">
+        <put name="selectUri" value="connectorModuleDeploymentCollection.do?ToggleViewAction=true"/>
+        <put name="collectionForm" value="com.ibm.ws.console.appdeployment.ConnectorModuleDeploymentCollectionForm"/>
+        <put name="formAction" value="connectorModuleDeploymentCollection.do"/>
+        <put name="formName" value="com.ibm.ws.console.appdeployment.ConnectorModuleDeploymentCollectionForm"/>
+        <put name="formType" value="com.ibm.ws.console.appdeployment.ConnectorModuleDeploymentCollectionForm"/>
+        <putList name="searchList">
+            <add value="ModuleDeployment.name.displayName:name"/>
+            <add value="ModuleDeployment.uri.displayName:uri"/>
+            <add value="ModuleDeployment.altDD.displayName:altDD"/>
+            <add value="ModuleDeployment.startingWeight.displayName:startingWeight"/>
+        </putList>
+    </definition>
+
+    <definition name="ConnectorModuleDeployment.paging.extend" extends="paging.main">
+        <put name="displayLabelKey" value="ConnectorModuleDeployment.displayName"/>
+        <put name="collectionForm" value="com.ibm.ws.console.appdeployment.ConnectorModuleDeploymentCollectionForm"/>
+        <put name="formAction" value="connectorModuleDeploymentCollection.do"/>
+        <put name="formName" value="com.ibm.ws.console.appdeployment.ConnectorModuleDeploymentCollectionForm"/>
+        <put name="formType" value="com.ibm.ws.console.appdeployment.ConnectorModuleDeploymentCollectionForm"/>
+    </definition>
+
+    <definition name="ConnectorModuleDeployment.collection.table.extends" extends="collection.table.main">
+        <put name="iterationName" value="com.ibm.ws.console.appdeployment.ConnectorModuleDeploymentCollectionForm"/>
+        <put name="formAction" value="connectorModuleDeploymentCollection.do"/>
+        <put name="formName" value="com.ibm.ws.console.appdeployment.ConnectorModuleDeploymentCollectionForm"/>
+        <put name="formType" value="com.ibm.ws.console.appdeployment.ConnectorModuleDeploymentCollectionForm"/>
+        <put name="buttons" value="ConnectorModuleDeployment.collection.buttons.panel"/>
+        <put name="showCheckBoxes" value="false"/>
+        <put name="parent" value="com.ibm.ws.console.appdeployment.forwardCmd.do?forwardName=ConnectorModuleDeployment.content.main"/>
+        <putList name="collectionList">
+            <item value="uri:sort" link="connectorModuleDeploymentCollection.do?EditAction=true" icon="" tooltip="ModuleDeployment.uri.displayName" classtype="com.ibm.ws.console.core.item.CollectionItem"/>
+            <item value="name:sort" link="" icon="" tooltip="ManagedObject.name.displayName" classtype="com.ibm.ws.console.core.item.CollectionItem"/>
+        </putList>
+        <putList name="collectionPreferenceList">
+            <item value="text:UI/Collections/ConnectorModuleDeployment/Preferences#maximumRows:25" link="collection.preferences.maxRowLabel: :collection.preferences.maxRowDesc:20" classtype="com.ibm.ws.console.core.item.PreferenceItem"/>
+            <item value="checkbox:UI/Collections/ConnectorModuleDeployment/Preferences#retainSearchCriteria:32" link="collection.preferences.searchHistoryLabel:collection.preferences.searchHistoryUnits:collection.preferences.searchHistoryDesc" classtype="com.ibm.ws.console.core.item.PreferenceItem"/>
+        </putList>
+    </definition>
+
+    <definition name="ConnectorModuleDeployment.collection.buttons.panel" extends="buttons.panel">
+        <put name="buttonCount" value="2"/>
+        <put name="definitionName" value="ConnectorModuleDeployment.collection.buttons.panel"/>
+        <put name="includeForm" value="no"/>
+        <putList name="actionList">
+        </putList>
+    </definition>
+
+    <definition name="ConnectorModuleDeployment.config.view" extends="detail.config.view" controllerClass="com.ibm.ws.console.appdeployment.ConnectorModuleDeploymentController">
+        <putList name="list">
+        <add value="ConnectorModuleDeployment.detail.title"/>
+        <add value="ConnectorModuleDeployment.detail.tabsLayout"/>
+        </putList>
+    </definition>
+
+    <definition name="ConnectorModuleDeployment.detail.title" extends="detail.title">
+        <put name="formName" value="com.ibm.ws.console.appdeployment.ConnectorModuleDeploymentDetailForm"/>
+        <put name="objectTypeImage" value="ConnectorModuleDeployment.smallIcon:pluginId=com.ibm.ws.console.appmanagement"/>
+        <put name="titleKey" value="ConnectorModuleDeployment.displayName"/>
+        <put name="collectionLink" value="com.ibm.ws.console.appdeployment.forwardCmd.do?forwardName=ConnectorModuleDeployment.content.main&#38;noChange=true"/>
+        <put name="includeLink" value="no"/>
+        <put name="instanceDetails" value="uri"/>
+        <put name="instanceDescription" value="ConnectorModuleDeployment.description"/>
+        <put name="displayName" value="ConnectorModuleDeployment.displayName"/>
+    </definition>
+
+    <definition name="ConnectorModuleDeployment.detail.tabsLayout" path="/secure/layouts/tabsLayout.jsp">
+        <put name="selectUri" value="connectorModuleDeploymentDetail.do"/>
+        <put name="selectedPerspective" value="tab.configuration"/>
+        <put name="formName" value="com.ibm.ws.console.appdeployment.ConnectorModuleDeploymentDetailForm"/>
+        <putList name="tabList">
+            <item  value="tab.configuration" link="ConnectorModuleDeployment.config.tab.view" classtype="org.apache.struts.tiles.beans.SimpleMenuItem"/>
+        </putList>
+    </definition>
+
+    <definition name="ConnectorModuleDeployment.config.tab.view" extends="detail.config.tab.view">
+        <putList name="list">
+        <add value="ConnectorModuleDeployment.config.general.properties"/>
+        <add value="ConnectorModuleDeployment.config.additional.properties"/>
+        </putList>
+    </definition>
+
+    <definition name="ConnectorModuleDeployment.config.general.properties" extends="detail.config.general.properties">
+        <put name="formAction" value="connectorModuleDeploymentDetail.do"/>
+        <put name="formName" value="com.ibm.ws.console.appdeployment.ConnectorModuleDeploymentDetailForm"/>
+        <put name="formType" value="com.ibm.ws.console.appdeployment.ConnectorModuleDeploymentDetailForm"/>
+        <put name="formFocus" value="name"/>
+        <put name="readOnlyView" value="no"/>
+        <putList name="attributeList">
+            <item  value="ModuleDeployment.uri.displayName:uri:yes:Text:ModuleDeployment.uri.description:no:yes" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="ManagedObject.name.displayName:name:yes:Text:ManagedObject.name.description:no:yes" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="ModuleDeployment.altDD.displayName:altDD:no:Text:ModuleDeployment.altDD.description:yes:yes" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="ModuleDeployment.deploymentId.displayName:deploymentId:yes:Text:ModuleDeployment.deploymentId.description:no:yes" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="ModuleDeployment.startingWeight.displayName:startingWeight:yes:Text:ModuleDeployment.startingWeight.description:no:yes" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+        </putList>
+    </definition>
+
+    <definition name="ConnectorModuleDeployment.config.additional.properties" extends="detail.config.additional.properties">
+        <put name="formName" value="com.ibm.ws.console.appdeployment.ConnectorModuleDeploymentDetailForm"/>
+        <putList name="list">
+            <item  value="ConnectorModuleDeployment.resourceAdapter.displayName" link="com.ibm.ws.console.appdeployment.forwardCmd.do?forwardName=J2CResourceAdapter.config.view&amp;sfname=resourceAdapter&amp;lastPage=ConnectorModuleDeployment.config.view" tooltip="ConnectorModuleDeployment.resourceAdapter.description" classtype="org.apache.struts.tiles.beans.SimpleMenuItem"/>
+<!--            <item  value="ModuleDeployment.serverSpecificConfigurations.displayName" link="com.ibm.ws.console.appdeployment.forwardCmd.do?forwardName=ModuleServerConfiguration.content.main&#38;sfname=serverSpecificConfigurations" tooltip="ModuleDeployment.serverSpecificConfigurations.description" classtype="org.apache.struts.tiles.beans.SimpleMenuItem"/>-->
+<!--            <item  value="ManagedObject.stateManagement.displayName" link="com.ibm.ws.console.appdeployment.forwardCmd.do?forwardName=StateManageable.config.view&#38;sfname=stateManagement" tooltip="ManagedObject.stateManagement.description" classtype="org.apache.struts.tiles.beans.SimpleMenuItem"/>-->
+<!--            <item  value="ManagedObject.statisticsProvider.displayName" link="com.ibm.ws.console.appdeployment.forwardCmd.do?forwardName=StatisticsProvider.config.view&#38;sfname=statisticsProvider" tooltip="ManagedObject.statisticsProvider.description" classtype="org.apache.struts.tiles.beans.SimpleMenuItem"/>-->
+        </putList>
+    </definition>
+
+
+
+    <definition name="ModuleServerConfiguration.content.main" path="/secure/layouts/contentLayout.jsp" controllerClass="com.ibm.ws.console.appdeployment.ModuleServerConfigurationController">
+        <put name="descTitle" value="ModuleServerConfiguration.displayName"/>
+        <put name="descImage" value="pluginId=com.ibm.ws.console.appmanagement"/>
+        <put name="descText" value="ModuleServerConfiguration.description"/>
+        <putList name="contentList">
+        <add value="ModuleServerConfiguration.paging.extend"/>
+        <add value="ModuleServerConfiguration.quicksearch.extend"/>
+        <add value="ModuleServerConfiguration.collection.table.extends"/>
+        </putList>
+    </definition>
+
+    <definition name="ModuleServerConfiguration.quicksearch.extend" extends="quicksearch.main">
+        <put name="selectUri" value="moduleServerConfigurationCollection.do?ToggleViewAction=true"/>
+        <put name="collectionForm" value="com.ibm.ws.console.appmanagement.ModuleServerConfigurationCollectionForm"/>
+        <put name="formAction" value="moduleServerConfigurationCollection.do"/>
+        <put name="formName" value="com.ibm.ws.console.appmanagement.ModuleServerConfigurationCollectionForm"/>
+        <put name="formType" value="com.ibm.ws.console.appdeployment.ModuleServerConfigurationCollectionForm"/>
+        <putList name="searchList">
+            <add value="ModuleServerConfiguration.serverName.displayName:serverName"/>
+        </putList>
+    </definition>
+
+    <definition name="ModuleServerConfiguration.paging.extend" extends="paging.main">
+        <put name="displayLabelKey" value="ModuleServerConfiguration.displayName"/>
+        <put name="collectionForm" value="com.ibm.ws.console.appmanagement.ModuleServerConfigurationCollectionForm"/>
+        <put name="formAction" value="moduleServerConfigurationCollection.do"/>
+        <put name="formName" value="com.ibm.ws.console.appmanagement.ModuleServerConfigurationCollectionForm"/>
+        <put name="formType" value="com.ibm.ws.console.appdeployment.ModuleServerConfigurationCollectionForm"/>
+    </definition>
+
+    <definition name="ModuleServerConfiguration.collection.table.extends" extends="collection.table.main">
+        <put name="iterationName" value="com.ibm.ws.console.appmanagement.ModuleServerConfigurationCollectionForm"/>
+        <put name="formAction" value="moduleServerConfigurationCollection.do"/>
+        <put name="formName" value="com.ibm.ws.console.appmanagement.ModuleServerConfigurationCollectionForm"/>
+        <put name="formType" value="com.ibm.ws.console.appdeployment.ModuleServerConfigurationCollectionForm"/>
+        <put name="buttons" value="ModuleServerConfiguration.collection.buttons.panel"/>
+        <put name="parent" value="com.ibm.ws.console.appmanagement.forwardCmd.do?forwardName=ModuleServerConfiguration.content.main"/>
+        <putList name="collectionList">
+            <item value="serverName:sort" link="moduleServerConfigurationCollection.do?EditAction=true" icon="" tooltip="ModuleServerConfiguration.serverName.displayName" classtype="com.ibm.ws.console.core.item.CollectionItem"/>
+        </putList>
+        <putList name="collectionPreferenceList">
+            <item value="text:UI/Collections/ModuleServerConfiguration/Preferences#maximumRows:25" link="collection.preferences.maxRowLabel: :collection.preferences.maxRowDesc:20" classtype="com.ibm.ws.console.core.item.PreferenceItem"/>
+            <item value="checkbox:UI/Collections/ModuleServerConfiguration/Preferences#retainSearchCriteria:32" link="collection.preferences.searchHistoryLabel:collection.preferences.searchHistoryUnits:collection.preferences.searchHistoryDesc" classtype="com.ibm.ws.console.core.item.PreferenceItem"/>
+        </putList>
+    </definition>
+
+    <definition name="ModuleServerConfiguration.collection.buttons.panel" extends="buttons.panel">
+        <put name="buttonCount" value="2"/>
+        <put name="definitionName" value="ModuleServerConfiguration.collection.buttons.panel"/>
+        <put name="includeForm" value="no"/>
+        <putList name="actionList">
+            <item value="button.new:moduleServerConfigurationCollection.do" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.ActionSetItem"/>
+            <item value="button.delete:moduleServerConfigurationCollection.do" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.ActionSetItem"/>
+        </putList>
+    </definition>
+
+    <definition name="ModuleServerConfiguration.config.view" extends="detail.config.view" controllerClass="com.ibm.ws.console.appdeployment.ModuleServerConfigurationController">
+        <putList name="list">
+        <add value="ModuleServerConfiguration.detail.title"/>
+        <add value="ModuleServerConfiguration.detail.tabsLayout"/>
+        </putList>
+    </definition>
+
+    <definition name="ModuleServerConfiguration.detail.title" extends="detail.title">
+        <put name="formName" value="com.ibm.ws.console.appmanagement.ModuleServerConfigurationDetailForm"/>
+        <put name="objectTypeImage" value="ModuleServerConfiguration.smallIcon:pluginId=com.ibm.ws.console.appmanagement"/>
+        <put name="titleKey" value="ModuleServerConfiguration.displayName"/>
+        <put name="collectionLink" value="com.ibm.ws.console.appmanagement.forwardCmd.do?forwardName=ModuleServerConfiguration.content.main&#38;noChange=true"/>
+        <put name="includeLink" value="no"/>
+        <put name="instanceDetails" value="serverName"/>
+        <put name="instanceDescription" value="ModuleServerConfiguration.description"/>
+        <put name="displayName" value="ModuleServerConfiguration.displayName"/>
+    </definition>
+
+    <definition name="ModuleServerConfiguration.detail.tabsLayout" path="/secure/layouts/tabsLayout.jsp">
+        <put name="selectUri" value="moduleServerConfigurationDetail.do"/>
+        <put name="selectedPerspective" value="tab.configuration"/>
+        <put name="formName" value="com.ibm.ws.console.appmanagement.ModuleServerConfigurationDetailForm"/>
+        <putList name="tabList">
+            <item  value="tab.configuration" link="ModuleServerConfiguration.config.tab.view" classtype="org.apache.struts.tiles.beans.SimpleMenuItem"/>
+        </putList>
+    </definition>
+
+    <definition name="ModuleServerConfiguration.config.tab.view" extends="detail.config.tab.view">
+        <putList name="list">
+        <add value="ModuleServerConfiguration.detail.buttons.panel"/>
+        <add value="ModuleServerConfiguration.config.general.properties"/>
+        </putList>
+    </definition>
+
+    <definition name="ModuleServerConfiguration.detail.buttons.panel" extends="buttons.panel">
+        <put name="buttonCount" value="2"/>
+        <put name="definitionName" value="ModuleServerConfiguration.detail.buttons.panel"/>
+        <put name="includeForm" value="yes"/>
+        <putList name="actionList">
+        </putList>
+    </definition>
+
+    <definition name="ModuleServerConfiguration.config.general.properties" extends="detail.config.general.properties">
+        <put name="formAction" value="moduleServerConfigurationDetail.do"/>
+        <put name="formName" value="com.ibm.ws.console.appmanagement.ModuleServerConfigurationDetailForm"/>
+        <put name="formType" value="com.ibm.ws.console.appdeployment.ModuleServerConfigurationDetailForm"/>
+        <put name="formFocus" value="serverName"/>
+        <put name="readOnlyView" value="no"/>
+        <putList name="attributeList">
+            <item  value="ModuleServerConfiguration.serverName.displayName:serverName:no:TextArea:ModuleServerConfiguration.serverName.description:no:yes" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+        </putList>
+    </definition>
+    <!-- Export App -->
+    <definition name="ExportApp.config.view" path="/com.ibm.ws.console.appmanagement/exportLayout.jsp">
+        <put name="titleKey" value="export.title"/>
+        <put name="descKey" value="export.description"/>
+        <put name="actionHandler" value="exportApp.do"/>
+        <put name="actionForm" value="exportForm"/>
+        <put name="formType" value="com.ibm.ws.console.appdeployment.ExportForm"/>
+    </definition>
+    <!-- End Export App -->
+
+    <!-- Export DDL -->
+    <definition name="ExportDDL.config.view" path="/com.ibm.ws.console.appmanagement/exportLayout.jsp">
+        <put name="titleKey" value="exportDDL.title"/>
+        <put name="descKey" value="exportDDL.description"/>
+        <put name="actionHandler" value="exportDDL.do"/>
+        <put name="actionForm" value="exportForm"/>
+        <put name="formType" value="com.ibm.ws.console.appdeployment.ExportForm"/>
+    </definition>
+    <!-- End Export DDL -->
+
+
+    <!-- Begin LibraryRef -->
+
+    <definition name="LibraryRef.content.main" path="/secure/layouts/contentLayout.jsp" controllerClass="com.ibm.ws.console.appdeployment.LibraryRefController">
+        <put name="descTitle" value="LibraryRef.displayName"/>
+        <put name="descImage" value="pluginId=com.ibm.ws.console.appmanagement"/>
+        <put name="descText" value="LibraryRef.description"/>
+        <putList name="contentList">
+        <add value="LibraryRef.paging.extend"/>
+        <add value="LibraryRef.quicksearch.extend"/>
+        <add value="LibraryRef.collection.table.extends"/>
+        </putList>
+    </definition>
+
+    <definition name="LibraryRef.quicksearch.extend" extends="quicksearch.main">
+        <put name="selectUri" value="libraryRefCollection.do?ToggleViewAction=true"/>
+        <put name="collectionForm" value="com.ibm.ws.console.appdeployment.LibraryRefCollectionForm"/>
+        <put name="formAction" value="libraryRefCollection.do"/>
+        <put name="formName" value="com.ibm.ws.console.appdeployment.LibraryRefCollectionForm"/>
+        <put name="formType" value="com.ibm.ws.console.appdeployment.LibraryRefCollectionForm"/>
+        <putList name="searchList">
+            <add value="LibraryRef.libraryName.displayName:libraryName"/>
+        </putList>
+    </definition>
+
+    <definition name="LibraryRef.paging.extend" extends="paging.main">
+        <put name="displayLabelKey" value="LibraryRef.displayName"/>
+        <put name="collectionForm" value="com.ibm.ws.console.appdeployment.LibraryRefCollectionForm"/>
+        <put name="formAction" value="libraryRefCollection.do"/>
+        <put name="formName" value="com.ibm.ws.console.appdeployment.LibraryRefCollectionForm"/>
+        <put name="formType" value="com.ibm.ws.console.appdeployment.LibraryRefCollectionForm"/>
+    </definition>
+
+    <definition name="LibraryRef.collection.table.extends" extends="collection.table.main">
+        <put name="iterationName" value="com.ibm.ws.console.appdeployment.LibraryRefCollectionForm"/>
+        <put name="formAction" value="libraryRefCollection.do"/>
+        <put name="formName" value="com.ibm.ws.console.appdeployment.LibraryRefCollectionForm"/>
+        <put name="formType" value="com.ibm.ws.console.appdeployment.LibraryRefCollectionForm"/>
+        <put name="buttons" value="LibraryRef.collection.buttons.panel"/>
+        <put name="parent" value="com.ibm.ws.console.appdeployment.forwardCmd.do?forwardName=LibraryRef.content.main"/>
+        <putList name="collectionList">
+            <item value="libraryName" link="libraryRefCollection.do?EditAction=true" icon="" tooltip="LibraryRef.libraryName.displayName" classtype="com.ibm.ws.console.core.item.CollectionItem"/>
+        </putList>
+        <putList name="collectionPreferenceList">
+            <item value="text:UI/Collections/LibraryRef/Preferences#maximumRows:25" link="collection.preferences.maxRowLabel: :collection.preferences.maxRowDesc:20" classtype="com.ibm.ws.console.core.item.PreferenceItem"/>
+            <item value="checkbox:UI/Collections/LibraryRef/Preferences#retainSearchCriteria:32" link="collection.preferences.searchHistoryLabel:collection.preferences.searchHistoryUnits:collection.preferences.searchHistoryDesc" classtype="com.ibm.ws.console.core.item.PreferenceItem"/>
+        </putList>
+    </definition>
+
+    <definition name="LibraryRef.collection.buttons.panel" extends="buttons.panel">
+        <put name="buttonCount" value="2"/>
+        <put name="definitionName" value="LibraryRef.collection.buttons.panel"/>
+        <put name="includeForm" value="no"/>
+        <putList name="actionList">
+            <item value="button.add:libraryRefCollection.do" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.ActionSetItem"/>
+            <item value="button.remove:libraryRefCollection.do" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.ActionSetItem"/>
+        </putList>
+    </definition>
+
+    <definition name="LibraryRef.config.view" extends="detail.config.view">
+        <putList name="list">
+        <add value="LibraryRef.detail.title"/>
+        <add value="LibraryRef.detail.tabsLayout"/>
+        </putList>
+    </definition>
+
+    <definition name="LibraryRef.detail.title" extends="detail.title">
+        <put name="formName" value="com.ibm.ws.console.appdeployment.LibraryRefDetailForm"/>
+        <put name="objectTypeImage" value="LibraryRef.smallIcon:pluginId=com.ibm.ws.console.appmanagement"/>
+        <put name="titleKey" value="LibraryRef.displayName"/>
+        <put name="collectionLink" value="com.ibm.ws.console.appdeployment.forwardCmd.do?forwardName=LibraryRef.content.main&#38;noChange=true"/>
+        <put name="includeLink" value="no"/>
+        <put name="instanceDetails" value="libraryName"/>
+        <put name="instanceDescription" value="LibraryRef.description"/>
+        <put name="displayName" value="LibraryRef.displayName"/>
+    </definition>
+
+    <definition name="LibraryRef.detail.tabsLayout" path="/secure/layouts/tabsLayout.jsp">
+        <put name="selectUri" value="libraryRefDetail.do"/>
+        <put name="selectedPerspective" value="tab.configuration"/>
+        <put name="formName" value="com.ibm.ws.console.appdeployment.LibraryRefDetailForm"/>
+        <putList name="tabList">
+            <item  value="tab.configuration" link="LibraryRef.config.tab.view" classtype="org.apache.struts.tiles.beans.SimpleMenuItem"/>
+        </putList>
+    </definition>
+
+    <definition name="LibraryRef.config.tab.view" extends="detail.config.tab.view">
+        <putList name="list">
+        <add value="LibraryRef.detail.buttons.panel"/>
+        <add value="LibraryRef.config.general.properties"/>
+        </putList>
+    </definition>
+
+    <definition name="LibraryRef.detail.buttons.panel" extends="buttons.panel">
+        <put name="buttonCount" value="2"/>
+        <put name="definitionName" value="LibraryRef.detail.buttons.panel"/>
+        <put name="includeForm" value="yes"/>
+        <putList name="actionList">
+        </putList>
+    </definition>
+
+    <definition name="LibraryRef.config.general.properties" extends="detail.config.general.properties">
+        <put name="formAction" value="libraryRefDetail.do"/>
+        <put name="formName" value="com.ibm.ws.console.appdeployment.LibraryRefDetailForm"/>
+        <put name="formType" value="com.ibm.ws.console.appdeployment.LibraryRefDetailForm"/>
+        <put name="formFocus" value="libraryName"/>
+        <put name="readOnlyView" value="no"/>
+        <putList name="attributeList">
+            <item  value="LibraryRef.libraryName.displayName: :no:Custom:LibraryRef.libraryName.description:no:yes: : :/com.ibm.ws.console.appmanagement/libraries.jsp" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+        </putList>
+    </definition>
+
+<!-- DeploymentTargetMapping collection -->
+    <definition name="DeploymentTargetMapping.content.main" path="/secure/layouts/contentLayout.jsp" controllerClass="com.ibm.ws.console.appdeployment.DeploymentTargetMappingController">
+        <put name="descTitle" value="ApplicationDeployment.targetMappings.displayName"/>
+        <put name="descImage" value="pluginId=com.ibm.ws.console.appmanagement"/>
+        <put name="descText" value="DeploymentTargetMapping.description"/>
+        <putList name="contentList">
+        <add value="DeploymentTargetMapping.paging.extend"/>
+        <add value="DeploymentTargetMapping.quicksearch.extend"/>
+        <add value="DeploymentTargetMapping.collection.table.extends"/>
+        </putList>
+    </definition>
+
+    <definition name="DeploymentTargetMapping.quicksearch.extend" extends="quicksearch.main">
+        <put name="selectUri" value="deploymentTargetMappingCollection.do?ToggleViewAction=true"/>
+        <put name="collectionForm" value="com.ibm.ws.console.appdeployment.DeploymentTargetMappingCollectionForm"/>
+        <put name="formAction" value="deploymentTargetMappingCollection.do"/>
+        <put name="formName" value="com.ibm.ws.console.appdeployment.DeploymentTargetMappingCollectionForm"/>
+        <put name="formType" value="com.ibm.ws.console.appdeployment.DeploymentTargetMappingCollectionForm"/>
+        <putList name="searchList">
+            <add value="DeploymentTargetMapping.target.displayName:target"/>
+            <add value="Server.node.displayName:node"/>
+<!--            <add value="ApplicationDeployment.status.displayName:status"/>-->            
+        </putList>
+    </definition>
+
+    <definition name="DeploymentTargetMapping.paging.extend" extends="paging.main">
+        <put name="displayLabelKey" value="ApplicationDeployment.targetMappings.displayName"/>
+        <put name="collectionForm" value="com.ibm.ws.console.appdeployment.DeploymentTargetMappingCollectionForm"/>
+        <put name="formAction" value="deploymentTargetMappingCollection.do"/>
+        <put name="formName" value="com.ibm.ws.console.appdeployment.DeploymentTargetMappingCollectionForm"/>
+        <put name="formType" value="com.ibm.ws.console.appdeployment.DeploymentTargetMappingCollectionForm"/>
+    </definition>
+
+    <definition name="DeploymentTargetMapping.collection.table.extends" extends="collection.table.main">
+        <put name="iterationName" value="com.ibm.ws.console.appdeployment.DeploymentTargetMappingCollectionForm"/>
+        <put name="formAction" value="deploymentTargetMappingCollection.do"/>
+        <put name="formName" value="com.ibm.ws.console.appdeployment.DeploymentTargetMappingCollectionForm"/>
+        <put name="formType" value="com.ibm.ws.console.appdeployment.DeploymentTargetMappingCollectionForm"/>
+        <put name="buttons" value="DeploymentTargetMapping.collection.buttons.panel"/>
+        <put name="parent" value="com.ibm.ws.console.appdeployment.forwardCmd.do?forwardName=DeploymentTargetMapping.content.main"/>
+        <putList name="collectionList">
+            <item value="target:sort" link="deploymentTargetMappingCollection.do?EditAction=true" icon="" tooltip="DeploymentTargetMapping.target.displayName" classtype="com.ibm.ws.console.core.item.CollectionItem"/>
+            <item value="node:sort" link="" icon="" tooltip="Server.node.displayName" classtype="com.ibm.ws.console.core.item.CollectionItem"/>
+            <item value="status:sort:yes" link="" icon="" tooltip="ApplicationDeployment.status.displayName" classtype="com.ibm.ws.console.core.item.CollectionItem"/>            
+<!--            <item value="enable:sort" link="" icon="" tooltip="DeploymentTargetMapping.enable.displayName" classtype="com.ibm.ws.console.core.item.CollectionItem"/>-->
+        </putList>
+        <putList name="collectionPreferenceList">
+            <item value="text:UI/Collections/DeploymentTargetMapping/Preferences#maximumRows:25" link="collection.preferences.maxRowLabel: :collection.preferences.maxRowDesc:20" classtype="com.ibm.ws.console.core.item.PreferenceItem"/>
+            <item value="checkbox:UI/Collections/DeploymentTargetMapping/Preferences#retainSearchCriteria:32" link="collection.preferences.searchHistoryLabel:collection.preferences.searchHistoryUnits:collection.preferences.searchHistoryDesc" classtype="com.ibm.ws.console.core.item.PreferenceItem"/>
+        </putList>
+    </definition>
+
+    <definition name="DeploymentTargetMapping.collection.buttons.panel" extends="buttons.panel">
+        <put name="buttonCount" value="2"/>
+        <put name="definitionName" value="DeploymentTargetMapping.collection.buttons.panel"/>
+        <put name="includeForm" value="no"/>
+        <putList name="actionList">
+        </putList>
+    </definition>
+
+
+    <definition name="DeploymentTargetMapping.config.view" extends="detail.config.view" controllerClass="com.ibm.ws.console.appdeployment.DeploymentTargetMappingController">
+        <putList name="list">
+        <add value="DeploymentTargetMapping.detail.title"/>
+        <add value="DeploymentTargetMapping.detail.tabsLayout"/>
+        </putList>
+    </definition>
+
+    <definition name="DeploymentTargetMapping.detail.title" extends="detail.title">
+        <put name="formName" value="com.ibm.ws.console.appdeployment.DeploymentTargetMappingDetailForm"/>
+        <put name="objectTypeImage" value="DeploymentTargetMapping.smallIcon:pluginId=com.ibm.ws.console.appmanagement"/>
+        <put name="titleKey" value="ApplicationDeployment.targetMappings.displayName"/>
+        <put name="collectionLink" value="com.ibm.ws.console.appdeployment.forwardCmd.do?forwardName=DeploymentTargetMapping.content.main&#38;noChange=true"/>
+        <put name="includeLink" value="no"/>
+        <put name="instanceDetails" value="target"/>
+        <put name="instanceDescription" value="DeploymentTargetMapping.description"/>
+        <put name="displayName" value="DeploymentTargetMapping.displayName"/>
+    </definition>
+
+    <definition name="DeploymentTargetMapping.detail.tabsLayout" path="/secure/layouts/tabsLayout.jsp">
+        <put name="selectUri" value="deploymentTargetMappingDetail.do"/>
+        <put name="selectedPerspective" value="tab.configuration"/>
+        <put name="formName" value="com.ibm.ws.console.appdeployment.DeploymentTargetMappingDetailForm"/>
+        <putList name="tabList">
+            <item  value="tab.configuration" link="DeploymentTargetMapping.config.tab.view" classtype="org.apache.struts.tiles.beans.SimpleMenuItem"/>
+        </putList>
+    </definition>
+
+    <definition name="DeploymentTargetMapping.config.tab.view" extends="detail.config.tab.view">
+        <putList name="list">
+        <add value="DeploymentTargetMapping.detail.buttons.panel"/>
+        <add value="DeploymentTargetMapping.config.general.properties"/>
+        </putList>
+    </definition>
+
+    <definition name="DeploymentTargetMapping.detail.buttons.panel" extends="buttons.panel">
+        <put name="buttonCount" value="2"/>
+        <put name="definitionName" value="DeploymentTargetMapping.detail.buttons.panel"/>
+        <put name="includeForm" value="yes"/>
+        <putList name="actionList">
+        </putList>
+    </definition>
+
+    <definition name="DeploymentTargetMapping.config.general.properties" extends="detail.config.general.properties">
+        <put name="formAction" value="deploymentTargetMappingDetail.do"/>
+        <put name="formName" value="com.ibm.ws.console.appdeployment.DeploymentTargetMappingDetailForm"/>
+        <put name="formType" value="com.ibm.ws.console.appdeployment.DeploymentTargetMappingDetailForm"/>
+        <put name="formFocus" value="enable"/>
+        <put name="readOnlyView" value="no"/>
+        <putList name="attributeList">
+            <item value="DeploymentTargetMapping.target.displayName:target:no:Text:DeploymentTargetMapping.target.description:yes:yes" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+            <item  value="DeploymentTargetMapping.enable.displayName:enable:no:Checkbox:DeploymentTargetMapping.enable.description:no:yes" link="" icon="" tooltip="" classtype="com.ibm.ws.console.core.item.PropertyItem"/>
+        </putList>
+    </definition>
+
+
+</tiles-definitions>

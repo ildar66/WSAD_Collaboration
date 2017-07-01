@@ -1,0 +1,90 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Raccolta mappature di login</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_logmap"></a>
+<h2>
+<img alt="[Fix Pack 5.0.2 e successive]" src="v502.gif" border="0">Raccolta mappature di login</h2>
+
+<p>Utilizzare questa pagina per visualizzare un elenco di configurazioni per la convalida dei token di sicurezza all'interno dei messaggi in entrata. Le mappature di login mappano il metodo autenticato sulla configurazione di login JAAS (Java Authentication and Authorization Service) per convalidare il token di sicurezza. In WebSphere Application Server sono disponibili quattro metodi di autenticazione predefiniti: BasicAuth, Signature, IDAssertion e LTPA.</p>
+
+<p>Per visualizzare questa pagina della console di gestione, completare le seguenti operazioni:<ol>
+
+<li>Fare clic su <strong>Server &gt; Server delle applicazioni &gt; </strong><em>nome_server</em>. </li>
+
+<li>In Ulteriori propriet&agrave;, fare clic su <strong>Servizi Web: collegamenti predefiniti per la sicurezza dei servizi Web (WS-Security, Web Services Security) &gt; Mappature del login</strong>.</li>
+
+</ol>
+</p>
+
+<p>Fare clic su <strong>Nuovo</strong> per creare una mappatura di login.</p>
+
+<p>Fare clic su <strong>Elimina</strong> per eliminare una mappatura di login.</p>
+
+<p>Se si fa clic su <strong>Aggiorna runtime</strong>, il runtime di sicurezza dei servizi Web (WS-Security, Web Services Security) viene aggiornato con le informazioni di collegamento predefinite, contenute nel file <samp>ws-security.xml</samp>, salvato in precedenza. Dopo aver specificato il metodo di autenticazione, il nome di configurazione JAAS (Java
+Authentication and Authorization Service) e il nome classi di produzione gestore richiamate su
+questo pannello, &egrave; necessario completare le seguenti procedure. </p>
+
+<p>Fare clic su <strong>Salva</strong> nella parte superiore della console di gestione. Facendo clic su <strong>Salva</strong>, si torna al pannello principale della console di
+gestione.</p>
+
+<p>Tornare al pannello di raccolta Mappature di login e fare clic su <strong>Aggiorna runtime</strong>.</p>
+
+<p>
+<b>Nota: </b>Quando si fa clic su <strong>Aggiorna
+runtime</strong>, anche le modifiche di configurazione apportate agli altri servizi Web vengono
+aggiornate nel runtime di sicurezza dei servizi Web (WS-Security, Web Services Security).</p>
+
+<dl>
+<dt>
+<strong><a name="sec_authmeth"></a>Metodo di autenticazione</strong>
+</dt>
+<dd>Specifica il metodo di autenticazione utilizzato per convalidare i token di sicurezza.
+<p>Sono disponibili i seguenti metodi di autenticazione:<dl>
+<dt>
+<strong>BasicAuth</strong>
+</dt>
+<dd>L'autenticazione di base include un nome utente e una password nel token di sicurezza. Le informazioni contenute nel token sono autenticate dal server ricevente e vengono utilizzate per creare una credenziale.</dd>
+<dt>
+<strong>Signature</strong>
+</dt>
+<dd>Quando il metodo di autenticazione &egrave; signature, viene inviato un certificato X.509 come token di sicurezza. Per i registri LDAP (Lightweight Directory Access Protocol), il DN (distinguished name) viene mappato su una credenziale, la quale si basa sulle impostazioni di filtro del certificato LDAP. Per i registri OS locali, il primo attributo del certificato, generalmente il CN (common
+name), viene mappato direttamente su un ID utente presente nel registro.</dd>
+<dt>
+<strong>IDAssertion</strong>
+</dt>
+<dd>Asserzione di identit&agrave; mappa un'identit&agrave; (ID) sicura su una credenziale WebSphere.
+Questo metodo di autenticazione include solo il nome utente nel token di sicurezza.
+Per motivi di sicurezza, nel messaggio viene incluso un ulteriore token. Una volta che il token &egrave; stato reso affidabile, il nome utente del token Asserzione identit&agrave; viene mappato su una credenziale. </dd>
+<dt>
+<strong>LTPA</strong>
+</dt>
+<dd>LTPA (Lightweight Third Party Authentication) convalida un token LTPA.</dd>
+</dl>
+</p>
+
+</dd>
+<dt>
+<strong><a name="sec_jaasconfg"></a>Nome di configurazione JAAS</strong>
+</dt>
+<dd>Specifica il nome della configurazione JAAS (Java Authentication and Authorization Service).</dd>
+<dt>
+<strong><a name="sec_classname"></a>Nome classi di produzione gestore richiamate</strong>
+</dt>
+<dd>Specifica il nome della produzione per la classe CallbackHandler.</dd>
+</dl>
+<div>
+<p>
+<strong>Informazioni correlate</strong>
+</p>
+<a href="uwbs_logmapn.html">Impostazioni di configurazione mappatura di login</a>
+<br>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>ログイン・マッピング構成の設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_logmapn"></a>
+<h2>
+<img alt="[リリース 5.1 以降]" src="v51.gif" border="0">ログイン・マッピング構成の設定</h2>
+
+<p>このページを使用して、着信メッセージ内のセキュリティー・トークンの検証に
+使用する Java Authentication and Authorization Service (JAAS) ログイン構成の設定を指定します。</p>
+
+<p>この管理コンソール・ページを表示するには、以下のステップを実行します。<ol>
+
+<li>「<strong>サーバー</strong>」&gt;「<strong>アプリケーション・サーバー</strong>」&gt;「<em>server_name</em> 」をクリックします。</li>
+
+<li>「追加プロパティー」の下の「<strong>Web Services: Default bindings for Web Services Security</strong>」&gt;「<strong>Login Mappings</strong>」&gt;「<strong>新規</strong>」をクリックします。</li>
+
+</ol>
+</p>
+
+<dl>
+<dt>
+<strong><a name="sec_logmapauth"></a>認証メソッド</strong>
+</dt>
+<dd>認証メソッドを指定します。
+<p>任意のストリングを使用できますが、使用するストリングはサービス・レベルの構成内のエレメントに一致する必要があります。以下のワードは予約済みで、特殊な意味を持ちます。<dl>
+
+<dt>
+<strong>BasicAuth</strong>
+</dt>
+<dd>ユーザー名およびパスワードの両方を使用します。</dd>
+<dt>
+<strong>IDAssertion</strong>
+</dt>
+<dd>ユーザー名のみを使用しますが、受信側のサーバーで、TrustedIDEvaluator を使用して追加のトラストが確立されることを必要とします。</dd>
+<dt>
+<strong>Signature</strong>
+</dt>
+<dd>署名者の識別名 (DN) を使用します。</dd>
+<dt>
+<strong>LTPA</strong>
+</dt>
+<dd>トークンを検証します。</dd>
+</dl>
+</p>
+
+</dd>
+<dt>
+<strong><a name="sec_jaas"></a>JAAS Configuration Name</strong>
+</dt>
+<dd>Java Authentication and Authorization Service (JAAS) の構成の名前を指定します。
+<p>管理コンソールを使用して「<strong>セキュリティー</strong>」&gt;「<strong>JAAS 構成</strong>」&gt;「<strong>アプリケーション</strong>」とクリックして、JAAS 構成を指定します。</p>
+
+</dd>
+<dt>
+<strong><a name="sec_class"></a>Callback Handler Factory Class Name</strong>
+</dt>
+<dd> CallbackHandler クラスのファクトリー名を指定します。
+<p>このフィールドには、<samp>com.ibm.wsspi.wssecurity.auth.callback.CallbackHandlerFactory</samp> クラスをインプリメントする必要があります。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト:</td>
+<td align="left" valign="top" class="base">com.ibm.wsspi.wssecurity.auth.callback.CallbackHandlerFactory</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="sec_tokenuri"></a>Token Type URI</strong>
+</dt>
+<dd>受け入れたセキュリティー・トークンのタイプを表す、ネーム・スペース Uniform Resource Identifiers (URI) を指定します。
+<p>バイナリー・セキュリティー・トークンが受け入れられた場合は、その値はエレメント内の ValueType 属性を表します。ValueType エレメントは、セキュリティー・トークンのタイプとそのネーム・スペースを識別します。eXtensible Markup Language (XML) トークンが受け入れられた場合は、その値は XML トークンの最上位のエレメント名を表します。</p>
+
+<p>予約語がすでに「<strong>認証メソッド</strong>」フィールドで指定されている場合は、このフィールドは無視されます。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型:</td>
+<td align="left" valign="top" class="base">Unicode 文字。ただし、番号記号 (#)、パーセント記号 (%)、および大括弧 ([ ]) 以外の非 ASCII 文字は除きます。</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="sec_tokenlname"></a>Token Type Local Name</strong>
+</dt>
+<dd>セキュリティー・トークンのタイプのローカル名 (例えば、X509v3) を指定します。
+<p>バイナリー・セキュリティー・トークンが受け入れられた場合は、その値はエレメント内の ValueType 属性を表します。ValueType 属性は、セキュリティー・トークンのタイプとそのネーム・スペースを識別します。eXtensible Markup Language (XML) トークンが受け入れられた場合は、その値は XML トークンの最上位のエレメント名を表します。</p>
+
+<p>予約語がすでに「<strong>認証メソッド</strong>」フィールドで指定されている場合は、このフィールドは無視されます。</p>
+
+</dd>
+<dt>
+<strong><a name="sec_lognoncemaxage"></a>Nonce Maximum Age</strong>
+            &nbsp;
+            <img alt="[リリース 5.1 以降]" src="v51.gif" border="0"></dt>
+<dd>nonce タイム・スタンプの有効期限が切れるまでの時間 (秒) を指定します。nonce はランダムに生成される値です。
+<p>「<strong>Nonce Maximum Age</strong>」フィールドには、少なくとも 300 秒を指定する必要があります。ただし、最大値として、サーバー・レベルまたはセル・レベルのいずれかで「<strong>Nonce Cache Timeout</strong>」フィールドに指定した以上の秒数を指定することはできません。サーバー・レベルの「<strong>Nonce Maximum Age</strong>」値を指定するには、「<strong>サーバー</strong>」&gt;「<strong>アプリケーション・サーバー</strong>」&gt; <em>server_name</em> をクリックします。「追加プロパティー」の下の「<strong>Web Services: Default bindings for Web Services Security</strong>」をクリックします。セル・レベルの「<strong>Nonce Maximum Age</strong>」値を指定するには、「<strong>セキュリティー</strong>」&gt;「<strong>Web サービス</strong>」&gt;「<strong>プロパティー</strong>」をクリックします。</p>
+
+<p> 
+<strong>重要:</strong> このパネルの「<strong>Nonce Maximum Age</strong>」フィールドはオプションで、「BasicAuth」認証方式を指定した場合のみ有効です。他の認証方式を指定した場合にこのフィールドに値を指定しようとすると、エラー・メッセージ「<samp>Nonce is not supported for authentication
+methods other than BasicAuth.</samp>」が表示され、指定した値を取り除かねばなりません。「BasicAuth」を指定した場合に「<strong>Nonce Maximum Age</strong>」フィールド
+に値を指定しないと、Web サービス・セキュリティー・ランタイムがサーバー・レベルの「<strong>Nonce Maximum Age</strong>」値を探します。値がサーバー・レベルで見つからないと、ランタイムはセル・レベルで検索します。サーバー・レベルでもセル・レベルでも値が見つからない場合は、デフォルトで 300 秒になります。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">300 秒</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">300 〜「<strong>Nonce Cache Timeout</strong>」に指定した値 (秒)</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="sec_lognonceclockskew"></a>Nonce Clock Skew</strong>
+            &nbsp;
+            <img alt="[リリース 5.1 以降]" src="v51.gif" border="0"></dt>
+<dd>WebSphere Application Server がメッセージの日付をチェックする際に検討する
+クロック・スキュー値 (秒) を指定します。nonce はランダムに生成される値です。
+<p>「<strong>Nonce Clock Skew</strong>」フィールドには、少なくとも 0 秒を指定する必要があります。ただし最大値として、「Login Mappings」パネルの「<strong>Nonce Maximum Age</strong>」に指定した以上の秒数を指定することはできません。</p>
+
+<p> 
+<strong>重要:</strong> このパネルの「<strong>Nonce Clock Skew</strong>」フィールドはオプションで、「BasicAuth」認証方式を指定した場合のみ有効です。他の認証方式を指定した場合にこのフィールドに値を指定しようとすると、エラー・メッセージ「<samp>Nonce is not supported for authentication
+methods other than BasicAuth.</samp>」が表示され、指定した値を取り除かねばなりません。「BasicAuth」を指定した場合に「<strong>Nonce Clock Skew</strong>」フィールドに値を指定しないと、Web サービス・セキュリティー・ランタイムがサーバー・レベルの「<strong>Nonce Clock Skew</strong>」値を探します。値がサーバー・レベルで見つからないと、ランタイムはセル・レベルで検索します。サーバー・レベルでもセル・レベルでも値が見つからない場合は、
+デフォルトで 0 秒になります。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">0 秒</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">0 〜「<strong>Nonce Maximum Age</strong>」に指定した値 (秒)</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>関連情報</strong>
+</p>
+<a href="uwbs_logmap.html">ログイン・マッピング・コレクション</a>
+<br>
+
+<a href="uwbs_noncecellprop.html">nonce セル・レベルのプロパティー</a>
+<br>
+
+</div>
+</body>
+</html>

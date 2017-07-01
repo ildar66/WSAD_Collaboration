@@ -1,0 +1,503 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Param&egrave;tres du service de trace de diagnostic</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="TraceService_description"></a>
+<h2>Param&egrave;tres du service de trace de diagnostic</h2>
+
+<p>Cette page permet de revoir et de modifier les propri&eacute;t&eacute;s
+du service de trace des diagnostics.</p>
+
+<p>Pour afficher cette page, cliquez sur <strong>R&eacute;solution des incidents &gt; Journaux et trace &gt; <em>serveur</em> &gt; Trace des diagnostics</strong>.</p>
+
+<div>
+<p>
+<strong>Onglet Configuration</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="enable_trace_service_description"></a>Activer la trace</strong>
+</dt>
+<dd>Active le service de trace.
+<p>Si cette option n'est pas s&eacute;lectionn&eacute;e, les propri&eacute;t&eacute;s de
+configuration suivantes ne sont pas transmises au service de trace du
+serveur d'applications lors du d&eacute;marrage du serveur.</p>
+
+</dd>
+<dt>
+<strong><a name="trace_spec_description"></a>Sp&eacute;cification de trace</strong>
+</dt>
+<dd>Indique les d&eacute;tails du tra&ccedil;age.
+<p>Entrez une cha&icirc;ne de trace d&eacute;finissant les composants, les
+packages ou les groupes &agrave; tracer. La cha&icirc;ne de trace doit respecter
+la syntaxe pr&eacute;sent&eacute;e ci-dessous. Vous pouvez entrer la cha&icirc;ne de
+trace directement ou g&eacute;n&eacute;rer celle-ci &agrave; l'aide de l'interface
+graphique de trace. Cliquez sur <strong>Modifier</strong> pour lancer
+l'interface graphique de trace.</p>
+
+<p>Si vous lancez l'interface graphique de trace &agrave; partir de l'onglet
+de configuration, une liste des composants, packages et groupes
+reconnus s'affiche. Cette liste n'est peut-&ecirc;tre pas exhaustive.</p>
+
+<p>Si vous lancez l'interface graphique de trace &agrave; partir de l'onglet
+d'ex&eacute;cution, la liste des composants, packages et groupes contient
+tous les &eacute;l&eacute;ments de ce type actuellement enregistr&eacute;s sur le serveur
+actif.</p>
+
+<p>Le format de la sp&eacute;cification de trace est le suivant :<pre>&lt;<em>composant</em>&gt; = &lt;<em>type_trace</em>&gt;= enabled | disabled</pre> o&ugrave; : &lt;<em>composant</em>&gt; est le composant pour lequel le tra&ccedil;age est activ&eacute; ou d&eacute;sactiv&eacute;
+et &lt;<em>type_trace</em>&gt; est le type de tra&ccedil;age &agrave; activer ou d&eacute;sactiver. Plusieurs sp&eacute;cifications de tra&ccedil;age doivent &ecirc;tre s&eacute;par&eacute;s par deux points (:).</p>
+
+<p>Les composants correspondent aux packages et classes Java
+ou aux collections de packages Java. Utilisez un caract&egrave;re * comme caract&egrave;re g&eacute;n&eacute;rique pour indiquer les composants incluant toutes les classes dans tous les packages contenus par le composant sp&eacute;cifi&eacute;. Par exemple,<dl>
+<dt>
+<strong><samp>*</samp></strong>
+</dt>
+<dd>Indique tous les &eacute;l&eacute;ments de code tra&ccedil;ables
+ex&eacute;cut&eacute;s sur le serveur d'applications, y compris le code syst&egrave;me et
+le code client WebSphere Application Server.</dd>
+<dt>
+<strong><samp>com.ibm.ws.*</samp></strong>
+</dt>
+<dd>Sp&eacute;cifie toutes les classes dont le nom de package commence par <samp>com.ibm.ws</samp>.</dd>
+<dt>
+<strong><samp>com.ibm.ws.classloader.JarClassLoader</samp></strong>
+</dt>
+<dd>Sp&eacute;cifie uniquement la classe JarClassLoader.</dd>
+</dl>
+</p>
+
+<p>Pour plus d'informations sur la syntaxe de la cha&icirc;ne de trace,
+reportez-vous &agrave; l'article <cite>Activation de la trace</cite>
+dans l'InfoCenter de WebSphere Application Server.</p>
+
+<p>
+<b>Important: </b>Une erreur peut se produire lors de la d&eacute;finition d'une
+sp&eacute;cification de trace &agrave; partir de la console d'administration si des
+&eacute;l&eacute;ments sont s&eacute;lectionn&eacute;s &agrave; la fois dans les listes Groupes et Composants. Dans certains cas, les &eacute;l&eacute;ments s&eacute;lectionn&eacute;s dans une liste ne sont
+pas perdus lors de l'ajout d'une s&eacute;lection dans l'autre liste. Pour
+&eacute;viter cet incident, tapez la sp&eacute;cification de trace directement
+dans la zone d'entr&eacute;e Sp&eacute;cification de trace.</p>
+
+</dd>
+<dt>
+<strong><a name="trace_output_description"></a>Sortie de trace</strong>
+            &nbsp;
+            </dt>
+<dd>Indique l'emplacement o&ugrave; la sortie de trace doit &ecirc;tre
+enregistr&eacute;e.
+<p>La sortie de trace peut &ecirc;tre enregistr&eacute;e directement dans un fichier de sortie ou
+stock&eacute;e en m&eacute;moire et enregistr&eacute;e dans un fichier sur demande par le biais du bouton
+Vidage disponible dans la page d'ex&eacute;cution.</p>
+
+<p>
+<dl>
+<dt>
+<strong>M&eacute;moire tampon</strong>
+</dt>
+<dd>Indique que la sortie de trace doit &ecirc;tre
+enregistr&eacute;e dans une m&eacute;moire tampon circulaire. Si vous s&eacute;lectionnez cette option, vous devez indiquer les
+param&egrave;tres suivants :<dl>
+<dt>
+<strong>Taille maximale de la m&eacute;moire tampon</strong>
+</dt>
+<dd>Indique le nombre
+d'entr&eacute;es, en milliers, pouvant &ecirc;tre mises en m&eacute;moire tampon. En cas
+de d&eacute;passement, les nouvelles entr&eacute;es remplacent les anciennes.</dd>
+<dt>
+<strong>Nom du fichier de vidage</strong>
+</dt>
+<dd>Nom du fichier dans lequel sont
+transf&eacute;r&eacute;es les donn&eacute;es stock&eacute;es en m&eacute;moire tampon lors du vidage. Cette option est
+disponible uniquement &agrave; partir de l'onglet Contexte d'ex&eacute;cution.</dd>
+</dl>
+</dd>
+</dl>
+</p>
+
+<p>
+<dl>
+<dt>
+<strong>Fichier</strong>
+</dt>
+<dd>Indique que la sortie de trace doit &ecirc;tre
+enregistr&eacute;e dans un fichier journal &agrave; gestion automatique.<p>Le
+fichier journal &agrave; gestion automatique enregistre des messages jusqu'&agrave;
+ce qu'il atteigne sa taille maximale. Lorsque cette limite
+est atteinte, la consignation est temporairement suspendue et le
+fichier journal est ferm&eacute; et renomm&eacute;. Le nouveau nom est bas&eacute; sur le
+nom d'origine auquel s'ajoute un qualifiant d'horodatage indiquant la
+date du changement de nom. Une fois que le fichier a &eacute;t&eacute;
+renomm&eacute;, un nouveau fichier journal portant le nom d'origine
+s'ouvre et la consignation reprend. Aucun message n'est perdu &agrave; la
+suite de cette substitution, bien qu'un seul message puisse &ecirc;tre
+scind&eacute; en deux fichiers.</p>
+</dd>
+</dl>
+</p>
+
+<p>Si vous s&eacute;lectionnez cette option, vous devez indiquer les
+param&egrave;tres suivants :<dl>
+<dt>
+<strong>Taille maximale du fichier</strong>
+</dt>
+<dd>Indique la taille
+maximale, en m&eacute;ga-octets, du fichier de sortie. <p>Cet attribut est
+valide uniquement si l'attribut Taille du fichier est s&eacute;lectionn&eacute;. Lorsque le fichier atteint cette taille, un autre se substitue &agrave; lui
+comme indiqu&eacute; plus haut.</p>
+</dd>
+<dt>
+<strong>Nombre maximal de fichiers historiques</strong>
+</dt>
+<dd>Indique combien de
+fichiers remplac&eacute;s par d'autres doivent &ecirc;tre conserv&eacute;s.</dd>
+<dt>
+<strong>Nom de fichier</strong>
+</dt>
+<dd>Indique le nom du fichier dans lequel est
+enregistr&eacute;e la sortie de trace.</dd>
+</dl>
+</p>
+
+</dd>
+<dt>
+<strong><a name="trace_format_description"></a>Fichier de sortie de trace</strong>
+            &nbsp;
+            </dt>
+<dd>Indique le format de la sortie de trace.
+<p>Vous pouvez sp&eacute;cifier l'un des trois niveaux suivants pour la sortie de trace :<dl>
+
+<dt>
+<strong>De base (Compatible)</strong>
+</dt>
+<dd>Conserve uniquement les donn&eacute;es de trace de base. S&eacute;lectionnez cette option pour r&eacute;duire la quantit&eacute; d'espace occup&eacute;e par la sortie de trace.</dd>
+<dt>
+<strong>Avanc&eacute;</strong>
+</dt>
+<dd>Conserve des donn&eacute;es de trace plus sp&eacute;cifiques. S&eacute;lectionnez cette
+option pour obtenir des donn&eacute;es de trace d&eacute;taill&eacute;es utiles pour l'identification et la r&eacute;solution des incidents.</dd>
+<dt>
+<strong>Analyseur de journaux</strong>
+</dt>
+<dd>Conserve les donn&eacute;es de trace dans un format compatible avec l'outil du m&ecirc;me nom. S&eacute;lectionnez cette option si vous souhaitez utiliser la sortie de trace comme entr&eacute;e de l'Analyseur de journaux.</dd>
+</dl>
+</p>
+
+</dd>
+<dt>
+<strong><a name="trace_runtime_tab"></a>Onglet Contexte d'ex&eacute;cution </strong>
+            &nbsp;
+            </dt>
+<dd>Indique le format de la sortie de trace.
+<dl>
+<dt>
+<strong>Enregistrer la trace</strong>
+</dt>
+<dd>Enregistre les modifications apport&eacute;es dans l'onglet de l'environnement d'ex&eacute;cution dans la configuration de trace &eacute;galement.
+ <p>Cochez cette case pour copier &eacute;galement les modifications de trace d'ex&eacute;cution dans
+les param&egrave;tres de configuration de trace. La sauvegarde de ces modifications dans la configuration de trace conserve les modifications m&ecirc;me si l'application est red&eacute;marr&eacute;e. </p>
+</dd>
+<dt>
+<strong>Sp&eacute;cification de trace</strong>
+</dt>
+<dd>Indique les d&eacute;tails du tra&ccedil;age.<p>Entrez une cha&icirc;ne de trace d&eacute;finissant les composants, les
+packages ou les groupes &agrave; tracer. La cha&icirc;ne de trace doit respecter
+la syntaxe pr&eacute;sent&eacute;e ci-dessous. Vous pouvez entrer la cha&icirc;ne de
+trace directement ou g&eacute;n&eacute;rer celle-ci &agrave; l'aide de l'interface
+graphique de trace. Cliquez sur <strong>Modifier</strong> pour lancer
+l'interface graphique de trace. </p>
+<p>Si vous lancez l'interface graphique de trace &agrave; partir de l'onglet
+de configuration, une liste des composants, packages et groupes
+reconnus s'affiche. Cette liste n'est peut-&ecirc;tre pas exhaustive.</p>
+<p>Le format de la sp&eacute;cification de trace est le suivant :<pre>&lt;composant&gt;
+= &lt;type_trace&gt; = enabled | disabled</pre>
+</p>
+<p>o&ugrave;
+&lt;composant&gt; est le composant pour lequel le tra&ccedil;age est activ&eacute; ou d&eacute;sactiv&eacute;
+et &lt;type_trace&gt; est le type de tra&ccedil;age &agrave; activer ou d&eacute;sactiver. Plusieurs sp&eacute;cifications de tra&ccedil;age doivent &ecirc;tre s&eacute;par&eacute;s par deux points (:).</p>
+<p>Les composants correspondent aux packages et classes Java
+ou aux collections de packages Java. Utilisez un caract&egrave;re * comme caract&egrave;re g&eacute;n&eacute;rique pour indiquer les composants incluant toutes les classes dans tous les packages contenus par le composant sp&eacute;cifi&eacute;. Par exemple : <dl>
+<dt>
+<strong>*</strong>
+</dt>
+<dd>Indique tous les &eacute;l&eacute;ments de code tra&ccedil;ables
+ex&eacute;cut&eacute;s sur le serveur d'applications, y compris le code syst&egrave;me et
+le code client WebSphere Application Server. </dd>
+<dt>
+<strong>com.ibm.ws.*</strong>
+</dt>
+<dd>Sp&eacute;cifie toutes les classes dont le nom de package commence par com.ibm.ws. </dd>
+<dt>
+<strong>com.ibm.ws.classloader.JarClassLoader</strong>
+</dt>
+<dd>Sp&eacute;cifie uniquement la classe JarClassLoader. </dd>
+</dl>
+</p>
+<p>Pour plus d'informations sur la syntaxe de la cha&icirc;ne de trace,
+reportez-vous &agrave; l'article Activation de la trace de l'InfoCenter de
+WebSphere Application Server. <p>
+<b>Important: </b>Une erreur peut se produire lors de la d&eacute;finition d'une
+sp&eacute;cification de trace &agrave; partir de la console d'administration si des
+&eacute;l&eacute;ments sont s&eacute;lectionn&eacute;s &agrave; la fois dans les listes Groupes et Composants.
+Dans certains cas, les &eacute;l&eacute;ments s&eacute;lectionn&eacute;s dans une liste ne sont
+pas perdus lors de l'ajout d'une s&eacute;lection dans l'autre liste. Pour
+&eacute;viter cet incident, tapez la sp&eacute;cification de trace directement
+dans la zone d'entr&eacute;e Sp&eacute;cification de trace.</p>
+</p> 
+</dd>
+</dl>
+
+</dd>
+<dt>
+<strong><a name="trace_output"></a>Sortie de trace   </strong>
+            &nbsp;
+            </dt>
+<dd>Indique l'emplacement o&ugrave; la sortie de trace doit &ecirc;tre
+enregistr&eacute;e.
+<p>Indique l'emplacement o&ugrave; la sortie de trace doit &ecirc;tre
+enregistr&eacute;e.  </p>
+
+<p>La sortie de trace peut &ecirc;tre enregistr&eacute;e directement dans un
+fichier de sortie ou stock&eacute;e en m&eacute;moire et enregistr&eacute;e dans un
+fichier sur demande par le biais du bouton Vidage disponible dans la
+page d'ex&eacute;cution. <dl>
+<dt>
+<strong>M&eacute;moire tampon</strong>
+</dt>
+<dd>Indique que la sortie de trace doit &ecirc;tre
+enregistr&eacute;e dans une m&eacute;moire tampon circulaire. Si vous s&eacute;lectionnez cette option, vous devez indiquer les
+param&egrave;tres suivants :<dl>
+
+<dt>
+<strong>Taille maximale de la m&eacute;moire tampon</strong>
+</dt>
+<dd>Indique le nombre
+d'entr&eacute;es, en milliers, pouvant &ecirc;tre mises en m&eacute;moire tampon. En cas
+de d&eacute;passement, les nouvelles entr&eacute;es remplacent les anciennes.</dd>
+<dt>
+<strong>Nom du fichier de vidage</strong>
+</dt>
+<dd>Nom du fichier dans lequel sont
+transf&eacute;r&eacute;es les donn&eacute;es stock&eacute;es en m&eacute;moire tampon lors du vidage. Cette
+option est disponible uniquement &agrave; partir de l'onglet d'ex&eacute;cution.</dd>
+</dl>
+</dd>
+<dt>
+<strong>Fichier</strong>
+</dt>
+<dd>Indique que la sortie de trace doit &ecirc;tre
+enregistr&eacute;e dans un fichier journal &agrave; gestion automatique. <p>Le
+fichier journal &agrave; gestion automatique enregistre des messages jusqu'&agrave;
+ce qu'il atteigne sa taille maximale. Lorsque cette limite
+est atteinte, la consignation est temporairement suspendue et le
+fichier journal est ferm&eacute; et renomm&eacute;. Le nouveau nom est bas&eacute; sur le
+nom d'origine auquel s'ajoute un qualifiant d'horodatage indiquant la
+date du changement de nom. Une fois que le fichier a &eacute;t&eacute;
+renomm&eacute;, un nouveau fichier journal portant le nom d'origine
+s'ouvre et la consignation reprend. Aucun message n'est perdu &agrave; la
+suite de cette substitution, bien qu'un seul message puisse &ecirc;tre
+scind&eacute; en deux fichiers. </p> 
+<p>Si vous s&eacute;lectionnez cette option, vous devez indiquer les
+param&egrave;tres suivants :</p>
+<dl>
+<dt>
+<strong>Taille maximale du fichier</strong>
+</dt>
+<dd>Indique la taille
+maximale, en m&eacute;ga-octets, du fichier de sortie.  <p>Cet attribut est
+valide uniquement si l'attribut Taille du fichier est s&eacute;lectionn&eacute;. Lorsque le fichier atteint cette taille, un autre se substitue &agrave; lui
+comme indiqu&eacute; plus haut. </p>
+</dd>
+<dt>
+<strong>Nombre maximal de fichiers historiques</strong>
+</dt>
+<dd>Indique combien de
+fichiers remplac&eacute;s par d'autres doivent &ecirc;tre conserv&eacute;s. </dd>
+<dt>
+<strong>Nom de fichier</strong>
+</dt>
+<dd>Indique le nom du fichier dans lequel est
+enregistr&eacute;e la sortie de trace.</dd>
+</dl>
+</dd>
+</dl>
+</p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Onglet Contexte d'ex&eacute;cution</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="save_trace_to_config"></a>Enregistrer la trace</strong>
+</dt>
+<dd>Enregistre les modifications apport&eacute;es dans l'onglet de l'environnement d'ex&eacute;cution dans la configuration de trace &eacute;galement.
+<p>Cochez cette case pour copier &eacute;galement les modifications de trace d'ex&eacute;cution dans les param&egrave;tres de configuration de trace. La sauvegarde de ces modifications dans la configuration de trace conserve les modifications m&ecirc;me si l'application est red&eacute;marr&eacute;e.</p>
+
+</dd>
+<dt>
+<strong><a name="trace_spec_description"></a>Sp&eacute;cification de trace</strong>
+</dt>
+<dd>Indique les d&eacute;tails du tra&ccedil;age.
+<p>Entrez une cha&icirc;ne de trace d&eacute;finissant les composants, les
+packages ou les groupes &agrave; tracer. La cha&icirc;ne de trace doit respecter
+la syntaxe pr&eacute;sent&eacute;e ci-dessous. Vous pouvez entrer la cha&icirc;ne de
+trace directement ou g&eacute;n&eacute;rer celle-ci &agrave; l'aide de l'interface
+graphique de trace. Cliquez sur <strong>Modifier</strong> pour lancer
+l'interface graphique de trace.</p>
+
+<p>Si vous lancez l'interface graphique de trace &agrave; partir de l'onglet
+de configuration, une liste des composants, packages et groupes
+reconnus s'affiche. Cette liste n'est peut-&ecirc;tre pas exhaustive.</p>
+
+<p>Si vous lancez l'interface graphique de trace &agrave; partir de l'onglet
+d'ex&eacute;cution, la liste des composants, packages et groupes contient
+tous les &eacute;l&eacute;ments de ce type actuellement enregistr&eacute;s sur le serveur
+actif.</p>
+
+<p>Le format de la sp&eacute;cification de trace est le suivant :<pre>&lt;<em>composant</em>&gt; = &lt;<em>type_trace</em>&gt;= enabled | disabled</pre> o&ugrave; : &lt;<em>composant</em>&gt; est le composant pour lequel le tra&ccedil;age est activ&eacute; ou d&eacute;sactiv&eacute;
+et &lt;<em>type_trace</em>&gt; est le type de tra&ccedil;age &agrave; activer ou d&eacute;sactiver. Plusieurs sp&eacute;cifications de tra&ccedil;age doivent &ecirc;tre s&eacute;par&eacute;s par deux points (:).</p>
+
+<p>Les composants correspondent aux packages et classes Java
+ou aux collections de packages Java. Utilisez un caract&egrave;re * comme caract&egrave;re g&eacute;n&eacute;rique pour indiquer les composants incluant toutes les classes dans tous les packages contenus par le composant sp&eacute;cifi&eacute;. Par exemple,<dl>
+<dt>
+<strong><samp>*</samp></strong>
+</dt>
+<dd>Indique tous les &eacute;l&eacute;ments de code tra&ccedil;ables
+ex&eacute;cut&eacute;s sur le serveur d'applications, y compris le code syst&egrave;me et
+le code client WebSphere Application Server.</dd>
+<dt>
+<strong><samp>com.ibm.ws.*</samp></strong>
+</dt>
+<dd>Sp&eacute;cifie toutes les classes dont le nom de package commence par <samp>com.ibm.ws</samp>.</dd>
+<dt>
+<strong><samp>com.ibm.ws.classloader.JarClassLoader</samp></strong>
+</dt>
+<dd>Sp&eacute;cifie uniquement la classe JarClassLoader.</dd>
+</dl>
+</p>
+
+<p>Pour plus d'informations sur la syntaxe de la cha&icirc;ne de trace,
+reportez-vous &agrave; l'article <cite>Activation de la trace</cite>
+dans l'InfoCenter de WebSphere Application Server.</p>
+
+<p>
+<b>Important: </b>Une erreur peut se produire lors de la d&eacute;finition d'une
+sp&eacute;cification de trace &agrave; partir de la console d'administration si des
+&eacute;l&eacute;ments sont s&eacute;lectionn&eacute;s &agrave; la fois dans les listes Groupes et Composants. Dans certains cas, les &eacute;l&eacute;ments s&eacute;lectionn&eacute;s dans une liste ne sont
+pas perdus lors de l'ajout d'une s&eacute;lection dans l'autre liste. Pour
+&eacute;viter cet incident, tapez la sp&eacute;cification de trace directement
+dans la zone d'entr&eacute;e Sp&eacute;cification de trace.</p>
+
+</dd>
+<dt>
+<strong><a name="trace_output_description"></a>Sortie de trace</strong>
+            &nbsp;
+            </dt>
+<dd>Indique l'emplacement o&ugrave; la sortie de trace doit &ecirc;tre
+enregistr&eacute;e.
+<p>La sortie de trace peut &ecirc;tre enregistr&eacute;e directement dans un fichier de sortie ou
+stock&eacute;e en m&eacute;moire et enregistr&eacute;e dans un fichier sur demande par le biais du bouton
+Vidage disponible dans la page d'ex&eacute;cution.</p>
+
+<p>
+<dl>
+<dt>
+<strong>M&eacute;moire tampon</strong>
+</dt>
+<dd>Indique que la sortie de trace doit &ecirc;tre
+enregistr&eacute;e dans une m&eacute;moire tampon circulaire. Si vous s&eacute;lectionnez cette option, vous devez indiquer les
+param&egrave;tres suivants :<dl>
+<dt>
+<strong>Taille maximale de la m&eacute;moire tampon</strong>
+</dt>
+<dd>Indique le nombre
+d'entr&eacute;es, en milliers, pouvant &ecirc;tre mises en m&eacute;moire tampon. En cas
+de d&eacute;passement, les nouvelles entr&eacute;es remplacent les anciennes.</dd>
+<dt>
+<strong>Nom du fichier de vidage</strong>
+</dt>
+<dd>Nom du fichier dans lequel sont
+transf&eacute;r&eacute;es les donn&eacute;es stock&eacute;es en m&eacute;moire tampon lors du vidage. Cette option est
+disponible uniquement &agrave; partir de l'onglet Contexte d'ex&eacute;cution.</dd>
+</dl>
+</dd>
+</dl>
+</p>
+
+<p>
+<dl>
+<dt>
+<strong>Fichier</strong>
+</dt>
+<dd>Indique que la sortie de trace doit &ecirc;tre
+enregistr&eacute;e dans un fichier journal &agrave; gestion automatique.<p>Le
+fichier journal &agrave; gestion automatique enregistre des messages jusqu'&agrave;
+ce qu'il atteigne sa taille maximale. Lorsque cette limite
+est atteinte, la consignation est temporairement suspendue et le
+fichier journal est ferm&eacute; et renomm&eacute;. Le nouveau nom est bas&eacute; sur le
+nom d'origine auquel s'ajoute un qualifiant d'horodatage indiquant la
+date du changement de nom. Une fois que le fichier a &eacute;t&eacute;
+renomm&eacute;, un nouveau fichier journal portant le nom d'origine
+s'ouvre et la consignation reprend. Aucun message n'est perdu &agrave; la
+suite de cette substitution, bien qu'un seul message puisse &ecirc;tre
+scind&eacute; en deux fichiers.</p>
+</dd>
+</dl>
+</p>
+
+<p>Si vous s&eacute;lectionnez cette option, vous devez indiquer les
+param&egrave;tres suivants :<dl>
+<dt>
+<strong>Taille maximale du fichier</strong>
+</dt>
+<dd>Indique la taille
+maximale, en m&eacute;ga-octets, du fichier de sortie. <p>Cet attribut est
+valide uniquement si l'attribut Taille du fichier est s&eacute;lectionn&eacute;. Lorsque le fichier atteint cette taille, un autre se substitue &agrave; lui
+comme indiqu&eacute; plus haut.</p>
+</dd>
+<dt>
+<strong>Nombre maximal de fichiers historiques</strong>
+</dt>
+<dd>Indique combien de
+fichiers remplac&eacute;s par d'autres doivent &ecirc;tre conserv&eacute;s.</dd>
+<dt>
+<strong>Nom de fichier</strong>
+</dt>
+<dd>Indique le nom du fichier dans lequel est
+enregistr&eacute;e la sortie de trace.</dd>
+</dl>
+</p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informations connexes</strong>
+</p>
+<a href="rcon_buttons.html">Boutons de la console administrative</a>
+<br>
+
+<a href="rcon_scope.html">Param&egrave;tres de la port&eacute;e de la console administrative</a>
+<br>
+
+<a href="rcon_filter.html">Param&egrave;tres de filtrage de la console administrative</a>
+<br>
+
+<a href="rcon_preferences.html">Param&egrave;tres des pr&eacute;f&eacute;rences de la console administrative</a>
+<br>
+
+<a href="rcon_pageusage.html">Caract&eacute;ristiques de la page de la console d'administration</a>
+<br>
+
+</div>
+</body>
+</html>

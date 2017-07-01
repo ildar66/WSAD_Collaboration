@@ -1,0 +1,937 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>WebSphere MQ トピック接続ファクトリー設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="MQTopicConnectionFactory"></a>
+<h2>
+<img alt="[リリース 5.1 以降]" src="v51.gif" border="0">WebSphere MQ トピック接続ファクトリー設定</h2>
+
+<p>このパネルを使用して、WebSphere MQ JMS プロバイダーで使用する選択済みトピック接続ファクトリーの構成プロパティーを表示または変更します。
+これらの構成プロパティーは、関連する JMS トピック宛先への接続の作成方法を制御します。</p>
+
+<p>トピック接続ファクトリーを使用して、トピックの宛先への JMS 接続を確立します。
+トピック接続ファクトリーは、WebSphere MQ JMS プロバイダーによって作成されます。
+WebSphere MQ JMS プロバイダーのトピック接続ファクトリーには、以下のプロパティーがあります。<p>
+<b>注: </b>
+<ul>
+
+<li>指定するプロパティー値は、WebSphere MQ の JMS リソースを構成する際に指定した値と一致していなければなりません。
+WebSphere MQ JMS リソースの構成の詳細については、資料「<cite>WebSphere MQ Java の使用 </cite>」を参照してください。</li>
+
+<li>WebSphere MQ では、名前には最大 48 文字まで使用できますが、
+チャネルの場合は例外で最大 20 文字までになります。</li>
+
+<li>
+<img alt="[リリース 5.1 以降]" src="v51.gif" border="0">「カスタム・プロパティー」ページを使用して、WebSphere MQ プロパティーのサブセットを定義することができます。これらプロパティーの設定についての詳細は、『<a href="#ConnectionFactory_customProperties">カスタム・プロパティー</a>』を参照してください。</li>
+
+</ul>
+</p>
+</p>
+
+<p>この管理コンソール・ページを表示するには、「<strong>リソース</strong>」-&gt;「<strong>WebSphere MQ JMS プロバイダー</strong>」-&gt; (コンテンツ・ペイン内、「追加プロパティー」の下にある)「<strong>WebSphere MQ Topic Connection Factories</strong>」-&gt;「<strong><em>connection_factory</em></strong>」をクリックします。</p>
+
+<dl>
+<dt>
+<strong><a name="MQTopicConnectionFactory_name"></a>名前</strong>
+</dt>
+<dd>IBM WebSphere Application Server 内で、このトピック接続ファクトリーを管理目的で使用する際の名前。
+この名前は、JMS プロバイダー内で固有でなければなりません。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopicConnectionFactory_jndiName"></a>JNDI 名</strong>
+</dt>
+<dd>トピック接続ファクトリーをアプリケーション・サーバーのネーム・スペースにバインドする際に使用される JNDI 名。
+
+<p>規則として、完全修飾の JNDI 名を使用します。
+例えば、jms/<em>Name</em> の形式です。
+ここで、<em>Name</em> は、リソースの論理名です。</p>
+
+<p>この名前は、プラットフォームのバインディング情報をリンクするために使用します。
+バインディングにより、モジュールのデプロイメント記述子で定義されているリソースと、
+プラットフォーム別に JNDI にバインドされている実際の (物理的な) リソースとの関連付けが行われます。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopicConnectionFactory_description"></a>説明</strong>
+</dt>
+<dd>IBM WebSphere Application Server 内で管理目的で使用する、
+このトピック接続ファクトリーの説明。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopicConnectionFactory_category"></a>カテゴリー</strong>
+</dt>
+<dd>IBM WebSphere Application Server 管理レコード用に、このトピック接続ファクトリーを分類またはグループ化する際に使用されるカテゴリー。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="AuthDataAlias"></a>コンポーネント管理認証エイリアス</strong>
+</dt>
+<dd>このエイリアスは、アプリケーション管理認証のための JMS プロバイダーへの接続を認証するのに使用するユーザー ID とパスワードを指定します。
+
+<p>このプロパティーでは、WebSphere Application Server に定義されている J2C 認証データ・エントリー・エイリアスのリストを提供します。
+使用するデータ・エントリー・エイリアスを選択して、
+JMS プロバイダーへの新規接続を確立するための認証を受けることができます。
+</p>
+
+<p>WebSphere Application Server に対するグローバル・セキュリティーを使用可能にしている場合は、
+JMS プロバイダーへの新規接続の確立の認証を受けるために使用するユーザー ID とパスワードを指定するエイリアスを選択します。
+このエイリアスの使い方は、アプリケーション・コンポーネントのデプロイメント記述子の接続ファクトリー・リソース参照で宣言されているリソース認証 (res-auth) の設定によって異なります。</p>
+
+<p>
+<b>注: </b>12 文字より長いユーザー ID は、
+組み込み WebSphere JMS プロバイダーによる認証には使用できません。
+例えば、デフォルトの Windows NT のユーザー ID <strong>Administrator</strong> は、
+13 文字なので、組み込み WebSphere メッセージングでは使用できません。
+したがって、WebSphere JMS プロバイダー接続ファクトリー用の認証エイリアスでは、
+12 文字以下のユーザー ID を指定する必要があります。</p>
+
+</dd>
+<dt>
+<strong><a name="mappingAuthDataAlias"></a>コンテナー管理認証エイリアス</strong>
+</dt>
+<dd>このエイリアスは、
+コンテナー管理認証のための JMS プロバイダーへの接続認証に使用するユーザー ID とパスワードを指定します。
+
+<p>このプロパティーでは、WebSphere Application Server に定義されている J2C 認証データ・エントリー・エイリアスのリストを提供します。
+使用するデータ・エントリー・エイリアスを選択して、
+JMS プロバイダーへの新規接続を確立するための認証を受けることができます。
+</p>
+
+<p>WebSphere Application Server に対するグローバル・セキュリティーを使用可能にしている場合は、
+JMS プロバイダーへの新規接続の確立の認証を受けるために使用するユーザー ID とパスワードを指定するエイリアスを選択します。
+このエイリアスの使い方は、アプリケーション・コンポーネントのデプロイメント記述子の接続ファクトリー・リソース参照で宣言されているリソース認証 (res-auth) の設定によって異なります。</p>
+
+<p>
+<b>注: </b>12 文字より長いユーザー ID は、
+組み込み WebSphere JMS プロバイダーによる認証には使用できません。
+例えば、デフォルトの Windows NT のユーザー ID <strong>Administrator</strong> は、
+13 文字なので、組み込み WebSphere メッセージングでは使用できません。
+したがって、WebSphere JMS プロバイダー接続ファクトリー用の認証エイリアスでは、
+12 文字以下のユーザー ID を指定する必要があります。</p>
+
+</dd>
+<dt>
+<strong><a name="MQTopicConnectionFactory_queueManager"></a>キュー・マネージャー</strong>
+</dt>
+<dd>この接続ファクトリー用の WebSphere MQ キュー・マネージャーの名前。
+このファクトリーによって作成された接続は、そのキュー・マネージャーに接続します。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">1 から 48 文字の ASCII 文字で表される、有効な WebSphere MQ キュー・マネージャー名</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopicConnectionFactory_host"></a>ホスト</strong>
+</dt>
+<dd>WebSphere MQ キュー・マネージャーが実行されているホストの名前 (クライアント接続の場合のみ)。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">有効な TCP/IP ホスト名</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopicConnectionFactory_port"></a>ポート</strong>
+</dt>
+<dd>WebSphere MQ キュー・マネージャーへの接続に使用される TCP/IP ポート番号 (クライアント接続の場合のみ)。
+<p>このポートは、WebSphere MQ キュー・マネージャー上で構成される必要があります。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">整数</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">WebSphere MQ キュー・マネージャー上で構成された有効な TCP/IP ポート番号</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopicConnectionFactory_channel"></a>チャネル</strong>
+</dt>
+<dd>WebSphere MQ キュー・マネージャーへの接続に使用されるチャネルの名前 (クライアント接続の場合のみ)。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">1 から 20 文字の ASCII 文字</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopicConnectionFactory_transportType"></a>トランスポート・タイプ</strong>
+</dt>
+<dd>WebSphere MQ キュー・マネージャーとの接続に、WebSphere MQ
+クライアント接続を使用するか、JNI バインディングを使用するかを指定します。外部の JMS プロバイダーは、JMS クライアントと JMS サーバーとの間の通信プロトコルを制御します。非 ASF の、非永続的で耐久性のない非トランザクション・メッセージングを使用しているか、またはセキュリティー問題に対処したい場合で、クライアントがキュー・マネージャー・ノードに対してローカルのときは、トランスポート・タイプを調整してください。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">列挙型</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">単位</td>
+<td align="left" valign="top" class="base">該当なし</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">BINDINGS</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">
+<dl>
+<dt>
+<strong>BINDINGS</strong>
+</dt>
+<dd>JNI バインディングを使用してキュー・マネージャーに接続します。BINDINGS は共用メモリー・プロトコルです。BINDINGS は、キュー・マネージャーが JMS クライアントと同じノードにあり、EJB 役割を使用して処理する必要のあるいくつかのセキュリティー・リスクを見つけた場合にのみ使用できます。</dd>
+<dt>
+<strong>CLIENT</strong>
+</dt>
+<dd>WebSphere MQ クライアント接続を使用してキュー・マネージャーに接続します。CLIENT は典型的な TCP ベースのプロトコルです。</dd>
+<dt>
+<strong>DIRECT</strong>
+</dt>
+<dd>DIRECT モードを使用する WebSphere
+MQ Event Broker 用です。DIRECT は軽量のソケット・プロトコルであり、非トランザクション的で、耐久性がなく、非永続的なパブリッシュ/サブスクライブ・メッセージングで使用されます。
+DIRECT は、非 ASF プロトコルを使用するクライアントおよびメッセージ・ドリブン Bean に対してだけ機能します。</dd>
+<dt>
+<strong>QUEUED</strong>
+</dt>
+<dd>QUEUED は、標準的な TCP プロトコルです。</dd>
+</dl>
+</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">推奨</td>
+<td align="left" valign="top" class="base">
+<dl>
+<dt>
+<strong>キュー接続ファクトリー・トランスポート・タイプ</strong>
+</dt>
+<dd>BINDINGS の方が 30% 以上も高速ですが、セキュリティー面で劣ります。セキュリティーに不安がある場合、BINDINGS は CLIENT よりも望ましいでしょう。</dd>
+<dt>
+<strong>トピック接続ファクトリー・トランスポート・タイプ</strong>
+</dt>
+<dd>DIRECT は最も高速です。可能な限り DIRECT を使用してください。追加のセキュリティー・タスクを満たしたい場合、およびキュー・マネージャーが JMS クライアントに対してローカルの場合は、BINDINGS を使用してください。QUEUED は、他のすべての場合のためのフォールバックです。DIRECT を設定した CSD2 の前の WebSphere MQ 5.3 は、メッセージ・ドリブン Bean と併用されて、負荷がかかっている場合には、メッセージを失ってしまうことがあるので注意が必要です。ブローカーの maxClientQueueSize が 0 に設定されていないと、
+クライアント・サイドをベースとするアプリケーションでも同じようなことが起こります。
+これを 0 に設定するには、コマンド <samp>#wempschangeproperties WAS_nodeName_server1 -e default -o DynamicSubscriptionEngine -n maxClientQueueSize -v 0 -x executionGroupUUID</samp> を使用します。
+ここで executionGroupUUID は、ブローカーを開始して、イベント・ログ / アプリケーションでイベント 2201 を検索することによって見付けることができます。
+この値は、通常、ffffffff-0000-0000-000000000000 です。</dd>
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopicConnectionFactory_brokerControlQueue"></a>ブローカー・コントロール・キュー</strong>
+</dt>
+<dd>すべてのコマンド・メッセージ (パブリケーションと、パブリケーションの削除要求は除く) の
+送信先であるブローカーのコントロール・キューの名前
+<p>ブローカーのコントロール・キューの名前。パブリッシャーとサブスクライバー・アプリケーション、およびその他のブローカーは、
+すべてのコマンド・メッセージ (パブリケーションとパブリケーション削除の要求は除く) をこのキューに送信します。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">単位</td>
+<td align="left" valign="top" class="base">En_US ASCII 文字</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">1 から 48 文字の ASCII 文字</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopicConnectionFactory_brokerQueueManager"></a>ブローカー・キュー・マネージャー</strong>
+</dt>
+<dd>Publish/Subscribe メッセージ・ブローカーを提供する  WebSphere MQ キュー・マネージャーの名前。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">単位</td>
+<td align="left" valign="top" class="base">En_US ASCII 文字</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">1 から 48 文字の ASCII 文字</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopicConnectionFactory_brokerPubQueue"></a>ブローカー・パブリケーション・キュー</strong>
+</dt>
+<dd>デフォルト・ストリームのすべてのパブリケーション・メッセージを受信するブローカーの入力キューの名前。
+<p>デフォルト・ストリームのすべてのパブリケーション・メッセージを受信するブローカーの入力キュー (ストリーム・キュー) の名前。
+アプリケーションは、このキューに対して、
+デフォルト・ストリーム上のパブリケーションの削除要求を送信することもできます。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">単位</td>
+<td align="left" valign="top" class="base">En_US ASCII 文字</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">1 から 48 文字の ASCII 文字</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopicConnectionFactory_brokerSubQueue"></a>ブローカー・サブスクリプション・キュー</strong>
+</dt>
+<dd>非永続的なサブスクリプション・メッセージの検索元となるブローカーのキューの名前。
+<p>非永続的なサブスクリプション・メッセージの検索元となるブローカーのキューの名前。
+サブスクライバーは、サブスクリプションの登録時にキューの名前を指定します。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">単位</td>
+<td align="left" valign="top" class="base">En_US ASCII 文字</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">1 から 48 文字の ASCII 文字</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopicConnectionFactory_brokerCCSubQueue"></a>ブローカー接続コンシューマー・サブスクリプション・キュー</strong>
+</dt>
+<dd>ConnectionConsumer 用の非永続的サブスクリプション・メッセージの検索元となるブローカー・キューの名前。
+このプロパティーは、Web コンテナーを使用する場合にのみ適用されます。
+
+<p>ConnectionConsumer 用の非永続的サブスクリプション・メッセージの検索元となるブローカー・キューの名前。
+このプロパティーは、Web コンテナーを使用する場合にのみ適用されます。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">単位</td>
+<td align="left" valign="top" class="base">En_US ASCII 文字</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">1 から 48 文字の ASCII 文字</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopicConnectionFactory_brokerVersion"></a>ブローカー・バージョン</strong>
+</dt>
+<dd>WebSphere MQ MA0C Supportpac のメッセージ・ブローカー製品を使用するか、
+より新しいバージョンの WebSphere メッセージ・ブローカー製品を使用するかを指定します。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">列挙型</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">単位</td>
+<td align="left" valign="top" class="base">該当なし</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">拡張</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">
+<dl>
+<dt>
+<strong>拡張</strong>
+</dt>
+<dd>より新しいバージョンの WebSphere メッセージ・ブローカー製品 (WebsSphere MQ Integrator、
+EventBroker など) を使用します。
+</dd>
+<dt>
+<strong>基本</strong>
+</dt>
+<dd>WebSphere MQ MA0C SupportPac (MQSeries - Publish/Subscribe) または MA0C 互換モードで動作する MQSI のメッセージ・ブローカーを使用します。
+</dd>
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopicConnectionFactory_tempModel"></a>モデル・キュー定義</strong>
+</dt>
+<dd>モデル・キュー定義の名前。ブローカーがこの定義を使用すると、
+ストリーム・キューがまだ存在しない場合に、非デフォルト・ストリーム用の動的キューを作成することができます。
+
+<p>モデル・キュー定義の名前。ブローカーがこの定義を使用すると、
+デフォルト・ストリーム以外のストリーム用のパブリケーションを受信する動的キューを作成することができます。
+これが使用されるのは、ストリーム・キューがまだ存在していない場合に限られます。
+このモデル・キュー定義が存在しない場合は、ストリーム・キューはすべて、
+管理者によって定義されなければなりません。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">単位</td>
+<td align="left" valign="top" class="base">En_US ASCII 文字</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">1 から 48 文字の ASCII 文字</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopicConnectionFactory_CCSID"></a>CCSID</strong>
+</dt>
+<dd>WebSphere MQ キュー・マネージャーで
+使用する Coded Character Set Identifier (CCSID)。
+<p>この Coded Character Set Identifier (CCSID) は、WebSphere MQ で
+サポートされている CCSID である必要があります。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">単位</td>
+<td align="left" valign="top" class="base">整数</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">1 から 65535</td>
+
+</tr>
+
+</table>
+
+<p>サポートされている CCSID、およびあるコード化文字セットから別のコ
+ード化文字セットへのメッセージ・データの変換について詳しくは、「
+<cite>MQSeries システム管理の手引き</cite>」および「
+<cite>WebSphere MQ Application Programming Reference</cite>」を参照し
+てください。
+これらの資料は、WebSphere MQ メッセージングのマルチプラットフォームおよびプラットフォーム固有の資料に関する Web ページ
+(例えば、<img border="0" alt="ターゲットは、このトピックが WWW にリンクされている場合にのみアクセス可能です" src="web.gif">&nbsp;&nbsp;               
+   <a target="_blank" href="http://www-3.ibm.com/software/ts/mqseries/library/manualsa/manuals/crosslatest.html.html"><strong>http://www-3.ibm.com/software/ts/mqseries/library/manualsa/manuals/platspecific.html</strong></a>
+、
+<img border="0" alt="ターゲットは、このトピックが WWW にリンクされている場合にのみアクセス可能です" src="web.gif">&nbsp;&nbsp;               
+   <a target="_blank" href="http://www.elink.ibmlink.ibm.com/public/applications/publications/cgibin/pbi.cgi"><strong>IBM Publications Center</strong></a>
+)、または
+WebSphere MQ コレクション・キット SK2T-0730 から入手可能です。</p>
+
+</dd>
+<dt>
+<strong><a name="MQTopicConnectionFactory_cloneSupport"></a>クローン・サポート</strong>
+</dt>
+<dd>このチェック・ボックスを選択してクローン・サポートを使用可能にし、
+トピック・クローン全体で同一の耐久サブスクリプションを使用できるようにします。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">列挙型</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">単位</td>
+<td align="left" valign="top" class="base">該当なし</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">クリア</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">
+<dl>
+<dt>
+<strong>選択</strong>
+</dt>
+<dd>クローン・サポートが使用可能になります。</dd>
+<dt>
+<strong>クリア</strong>
+</dt>
+<dd>クローン・サポートが使用不可になります。</dd>
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+<p>このプロパティーを選択する場合は、「<strong>クライアント ID</strong>」プロパティーにも値を指定する必要があります。</p>
+
+</dd>
+<dt>
+<strong><a name="MQTopicConnectionFactory_clientID"></a>クライアント ID</strong>
+</dt>
+<dd>キュー・マネージャーへの接続に使用される JMS クライアント ID。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">ASCII 文字で表された、有効な JMS クライアント ID</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WASTopicConnectionFactory_type"></a>XA 使用可能</strong>
+</dt>
+<dd>接続ファクトリーが、メッセージの XA 調整のためのものか、非 XA 調整のためのものかを指定し、アプリケーション・サーバーが XA QCF/TCF を使用するかどうかを制御します。
+同一のトランザクションで複数のリソースが使用されていない場合は、XA を使用可能にしてください。
+<p>このプロパティーを <samp>NON_XA</samp> に設定すると、JMS セッションはトランザクションには参加していますが、XA 呼び出しではなく、リソース・マネージャーのローカル・トランザクション呼び出し (session.commit および session.rollback) を使用します。
+これによって、パフォーマンスを向上できます。ただし、WebSphere Application Server のトランザクションに参加させることができるリソースは、1 つだけになります。WebSphere Application Server Enterprise では、最終参加者サポートを使用することにより、1 つの非 XA リソースをその他の XA 可能リソースとともに参加させることができます。
+</p>
+
+<p>「<strong>ポート</strong>」プロパティーが「<samp>DIRECT</samp>」に設定されている WebSphere トピック接続ファクトリーの場合、このプロパティーは適用されず、常に値「<samp>NON_XA</samp>」を採用します。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">列挙型</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">単位</td>
+<td align="left" valign="top" class="base">該当なし</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">XA 使用可能</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">
+<dl>
+<dt>
+<strong>XA</strong>
+</dt>
+<dd>接続ファクトリーは、メッセージの XA 調整用です。</dd>
+<dt>
+<strong>NON_XA</strong>
+</dt>
+<dd>接続ファクトリーは、メッセージの非 XA 調整用です。</dd>
+</dl>
+</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">推奨</td>
+<td align="left" valign="top" class="base">メッセージ・キューまたは受信されたトピックがトランザクションの唯一のリソースである場合は、XA を使用可能にしないでください。
+他のキューまたは他のトピックなど、他のリソースが関係している場合は、XA を使用可能にしてください。</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopicConnectionFactory_connectionPool"></a>接続プール</strong>
+</dt>
+<dd>接続プールの設定のオプショナル・セットを指定します。
+<p>接続プール・プロパティーは、すべての J2C コネクターに共通です。</p>
+
+<p>アプリケーション・サーバーは、JMS プロバイダーとの接続とセッションをプールすることで、
+パフォーマンスを向上させます。
+これは、WebSphere MQ 接続プールとは無関係です。
+アプリケーションの接続とセッションのプール・プロパティーを適切に構成する必要があります。
+構成が適切でないと、接続とセッションが正しく動作しない場合があります。</p>
+
+<p>JMS リソースへのサーバー・サイド・アクセスが並行して行われ、それがデフォルト値を超える場合は、接続プールのサイズを変更してください。接続プールのサイズは、キューごと、あるいはトピックごとに設定されます。詳しくは、次の表を参照してください。</p>
+
+</dd>
+<dt>
+<strong><a name="MQTopicConnectionFactory_sessionPool"></a>セッション・プール</strong>
+</dt>
+<dd>セッション・プール設定のオプションのセット。
+
+<p>このリンクは、すべての J2C コネクターに共通の、オプションの接続プール・
+プロパティーのパネルを提供します。
+</p>
+
+<p>アプリケーション・サーバーは、JMS プロバイダーとの接続とセッションをプールすることで、
+パフォーマンスを向上させます。
+これは、WebSphere MQ 接続プールとは無関係です。
+アプリケーションの接続とセッションのプール・プロパティーを適切に構成する必要があります。
+構成が適切でないと、接続とセッションが正しく動作しない場合があります。</p>
+
+</dd>
+<dt>
+<strong><a name="ConnectionFactory_customProperties"></a>カスタム・プロパティー</strong>
+</dt>
+<dd>WebSphere MQ に渡されるカスタム・プロパティーの名前と値の対のオプション・セットです。
+<p>「カスタム・プロパティー」ページを使用して、次の WebSphere MQ プロパティーを定義することができます。これらのプロパティーは、<a href="#MQTopicConnectionFactory_transportType">Transport type=CLIENT</a> を
+設定している場合にしか適用されません。</p>
+
+<ul>
+
+<li>
+<a href="#SSLCIPHERSUITE">SSLCIPHERSUITE</a>
+</li>
+
+<li>
+<a href="#SSLCRL">SSLCRL</a>
+</li>
+
+<li>
+<a href="#SSLCRL">SSLPEERNAME</a>
+</li>
+
+<li>
+<a href="#MSGSELECTION">MSGSELECTION</a>
+</li>
+
+<li>
+<a href="#SUBSTORE">SUBSTORE</a>
+</li>
+
+</ul>
+
+<p>SSL プロパティーの設定についての詳細は、「<cite>WebSphere MQ Java の使用 </cite>」の『<a href="http://publibfp.boulder.ibm.com/epubs/html/csqzaw11/csqzaw1116.htm#HDRJSSLPR">SSL プロパティー</a>』を参照してください。
+</p>
+
+</dd>
+</dl>
+</body>
+</html>

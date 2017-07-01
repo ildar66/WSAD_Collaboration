@@ -1,0 +1,477 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Diagnostic trace service settings</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="TraceService_description"></a>
+<h2>Diagnostic trace service settings</h2>
+
+<p>Use this page to review and modify the properties of the diagnostic
+trace service.</p>
+
+<p>To view this page, click <strong>Troubleshooting &gt; Logs and Trace &gt; <em>server</em> &gt;
+Diagnostic trace</strong>.</p>
+
+<div>
+<p>
+<strong>Configuration tab</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="enable_trace_service_description"></a>Enable Trace</strong>
+</dt>
+<dd>Enables the trace service.
+<p>If this option is not selected, the following configuration properties
+are not passed to the application server trace service at server startup.</p>
+
+</dd>
+<dt>
+<strong><a name="trace_spec_description"></a>Trace Specification</strong>
+</dt>
+<dd>Specifies tracing details.
+<p>Enter a trace string that specifies the components, packages, or groups
+to trace. The trace string must conform to the specific grammar described
+below. You can enter the trace string directly, or generate it using the graphical
+trace interface. Click <strong>Modify</strong> to start the graphical trace interface.</p>
+
+<p>If you start the graphical trace interface from the configuration tab,
+a list of well-known components, packages, and groups is displayed. This list
+might not be exhaustive.</p>
+
+<p>If you start the graphical trace interface from the runtime tab, the list
+of components, packages, and groups displays all such components currently
+registered on the running server.</p>
+
+<p>The format of the trace specification is:<pre>&lt;<em>component</em>&gt; = &lt;<em>trace_type</em>&gt;= enabled | disabled</pre> where:
+&lt;<em>component</em>&gt; is the component for which to enable or disable tracing,
+and &lt;<em>trace_type</em>&gt; is the type of tracing to enable or disable. Separate
+multiple tracing specifications with colons (:).</p>
+
+<p>Components correspond to Java packages and classes, or to collections of
+Java packages. Use * as a wildcard to indicate components that include all
+classes in all packages contained by the specified component. For example:<dl>
+<dt>
+<strong><samp>*</samp></strong>
+</dt>
+<dd>Specifies all traceable code running in the application server, including
+WebSphere Application Server system code and customer code.</dd>
+<dt>
+<strong><samp>com.ibm.ws.*</samp></strong>
+</dt>
+<dd>specifies all classes whose package name begins with <samp>com.ibm.ws</samp>.</dd>
+<dt>
+<strong><samp>com.ibm.ws.classloader.JarClassLoader</samp></strong>
+</dt>
+<dd>Specifies only the JarClassLoader class.</dd>
+</dl>
+</p>
+
+<p>For more information on trace string grammar, see the article <cite>Enabling
+trace</cite> in the WebSphere Application Server InfoCenter.</p>
+
+<p>
+<b>Note: </b>An error can occur when setting a trace specification from
+the adminstrative console if selections are made from both the Groups and
+Components lists. In some cases, the selection made from one list is not lost
+when adding a selection from the other list. To work around this problem,
+enter the desired trace specification directly into the Trace Specification
+entry field.</p>
+
+</dd>
+<dt>
+<strong><a name="trace_output_description"></a>Trace Output</strong>
+            &nbsp;
+            </dt>
+<dd>Specifies where trace output should be written.
+<p>The trace output can be written directly to an output file, or stored in
+memory and written to a file on demand using the Dump button found on the
+run-time page.</p>
+
+<p>
+<dl>
+<dt>
+<strong>Memory Buffer</strong>
+</dt>
+<dd>Specifies that the trace output should be written to an in-memory circular
+buffer. If you select this option you must specify the following parameters:<dl>
+<dt>
+<strong>Maximum Buffer Size</strong>
+</dt>
+<dd>Specifies the number of entries, in thousands, that can be cached in the
+buffer. When this number is exceeded, older entries are overwritten by new
+entries.</dd>
+<dt>
+<strong>Dump File Name</strong>
+</dt>
+<dd>The name of the file to which the memory buffer will be written when it
+is dumped. This option is only available from the Runtime tab.</dd>
+</dl>
+</dd>
+</dl>
+</p>
+
+<p>
+<dl>
+<dt>
+<strong>File</strong>
+</dt>
+<dd>Specifies to write the trace output to a self-managing log file.<p>The
+self-managing log file writes messages to the file until a size criteria is
+reached. When the file reaches the specified size, logging is temporarily
+suspended and the log file is closed and renamed. The new name is based on
+the original name of the file, plus a timestamp qualifier that indicates when
+the renaming occurred. Once the renaming is complete, a new, empty log file
+with the original name is reopened, and logging resumes. No messages are lost
+as a result of the rollover, although a single message may be split across
+the two files.</p>
+</dd>
+</dl>
+</p>
+
+<p>If you select this option you must specify the following parameters:<dl>
+<dt>
+<strong>Maximum File Size</strong>
+</dt>
+<dd>Specifies the maximum size, in megabytes, to which the output file is
+allowed to grow. <p>This attribute is only valid if the File Size attribute
+is selected. When the file reaches this size, it is rolled over as described
+above.</p>
+</dd>
+<dt>
+<strong>Maximum Number of Historical Files</strong>
+</dt>
+<dd>Specifies the maximum number of rolled over files to keep.</dd>
+<dt>
+<strong>File Name</strong>
+</dt>
+<dd>Specifies the name of the file to which the trace output is written.</dd>
+</dl>
+</p>
+
+</dd>
+<dt>
+<strong><a name="trace_format_description"></a>Trace Output Format</strong>
+            &nbsp;
+            </dt>
+<dd>Specifies the format of the trace output.
+<p>You can specify one of three levels for trace output:<dl>
+
+<dt>
+<strong>Basic (Compatible)</strong>
+</dt>
+<dd>Preserves only basic trace information. Select this option to minimize
+the amount of space taken up by the trace output.</dd>
+<dt>
+<strong>Advanced</strong>
+</dt>
+<dd>Preserves more specific trace information. Select this option to see detailed
+trace information for use in troubleshooting and problem determination.</dd>
+<dt>
+<strong>Log Analyzer</strong>
+</dt>
+<dd>Preserves trace information in a format that is compatible with the Log
+Analyzer tool. Select this option if you want to use the trace output as input
+to the Log Analyzer tool.</dd>
+</dl>
+</p>
+
+</dd>
+<dt>
+<strong><a name="trace_runtime_tab"></a>Runtime tab </strong>
+            &nbsp;
+            </dt>
+<dd>Specifies the format of the trace output.
+<dl>
+<dt>
+<strong>Save Trace</strong>
+</dt>
+<dd>Save changes made on the runtime tab to the trace configuration as well.
+ <p>Select this box to copy run-time trace changes to the trace configuration
+settings as well. Saving these changes to the trace configuration will cause
+the changes to persist even if the application is restarted. </p>
+</dd>
+<dt>
+<strong>Trace Specification</strong>
+</dt>
+<dd>Specifies tracing details.<p>Enter a trace string that specifies the components,
+packages, or groups to trace. The trace string must conform to the specific
+grammar described below. You can enter the trace string directly, or generate
+it using the graphical trace interface. Click <strong>Modify</strong> to start the graphical
+trace interface. </p>
+<p>If you start the graphical trace interface from the
+configuration tab, a list of well-known components, packages, and groups is
+displayed. This list might not be exhaustive.</p>
+<p>The format of the trace
+specification is:<pre>&lt;component&gt; = &lt;trace_type&gt; = enabled | disabled</pre>
+</p>
+<p>where
+&lt;component&gt; is the component for which to enable or disable tracing, and
+&lt;trace_type&gt; is the type of tracing to enable or disable. Separate multiple
+tracing specifications with colons (:).</p>
+<p>Components correspond to Java
+packages and classes, or to collections of Java packages. Use * as a wildcard
+to indicate components that include all classes in all packages contained
+by the specified component. For example: <dl>
+<dt>
+<strong>*</strong>
+</dt>
+<dd>Specifies all traceable code running in the application server, including
+WebSphere Application Server system code and customer code. </dd>
+<dt>
+<strong>com.ibm.ws.*</strong>
+</dt>
+<dd>specifies all classes whose package name begins with com.ibm.ws. </dd>
+<dt>
+<strong>com.ibm.ws.classloader.JarClassLoader</strong>
+</dt>
+<dd>Specifies only the JarClassLoader class. </dd>
+</dl>
+</p>
+<p>For more information on trace string grammar, see
+the article Enabling trace in the WebSphere Application Server InfoCenter. <p>
+<b>Note: </b>An
+error can occur when setting a trace specification from the adminstrative
+console if selections are made from both the Groups and Components lists.
+In some cases, the selection made from one list is not lost when adding a
+selection from the other list. To work around this problem, enter the desired
+trace specification directly into the Trace Specification entry field.</p>
+</p> 
+</dd>
+</dl>
+
+</dd>
+<dt>
+<strong><a name="trace_output"></a>Trace Output   </strong>
+            &nbsp;
+            </dt>
+<dd>Specifies where trace output should be written.
+<p>Specifies where trace output should be written.  </p>
+
+<p>The trace output can be written directly to an output file, or stored in
+memory and written to a file on demand using the Dump button found on the
+runtime page. <dl>
+<dt>
+<strong>Memory Buffer</strong>
+</dt>
+<dd>Specifies that the trace output should be written to an in-memory circular
+buffer. If you select this option you must specify the following parameters:<dl>
+
+<dt>
+<strong>Maximum Buffer Size</strong>
+</dt>
+<dd>Specifies the number of entries, in thousands, that can be cached in the
+buffer. When this number is exceeded, older entries are overwritten by new
+entries.</dd>
+<dt>
+<strong>Dump File Name</strong>
+</dt>
+<dd>The name of the file to which the memory buffer will be written when it
+is dumped. This option is only available from the runtime tab.</dd>
+</dl>
+</dd>
+<dt>
+<strong>File</strong>
+</dt>
+<dd>Specifies to write the trace output to a self-managing log file. <p>The
+self-managing log file writes messages to the file until a size criteria is
+reached. When the file reaches the specified size, logging is temporarily
+suspended and the log file is closed and renamed. The new name is based on
+the original name of the file, plus a timestamp qualifier that indicates when
+the renaming occurred. Once the renaming is complete, a new, empty log file
+with the original name is reopened, and logging resumes. No messages are lost
+as a result of the rollover, although a single message may be split across
+the two files. </p> 
+<p>If you select this option you must specify the following
+parameters:</p>
+<dl>
+<dt>
+<strong>Maximum File Size</strong>
+</dt>
+<dd>Specifies the maximum size, in megabytes, to which the output file is
+allowed to grow.  <p>This attribute is only valid if the File Size attribute
+is selected. When the file reaches this size, it is rolled over as described
+above. </p>
+</dd>
+<dt>
+<strong>Maximum Number of Historical Files</strong>
+</dt>
+<dd>Specifies the maximum number of rolled over files to keep. </dd>
+<dt>
+<strong>File Name</strong>
+</dt>
+<dd>Specifies the name of the file to which the trace output is written.</dd>
+</dl>
+</dd>
+</dl>
+</p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Runtime tab</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="save_trace_to_config"></a>Save Trace</strong>
+</dt>
+<dd>Save changes made on the runtime tab to the trace configuration
+as well.
+<p>Select this box to copy runtime trace changes to the trace configuration
+settings as well. Saving these changes to the trace configuration will cause
+the changes to persist even if the application is restarted.</p>
+
+</dd>
+<dt>
+<strong><a name="trace_spec_description"></a>Trace Specification</strong>
+</dt>
+<dd>Specifies tracing details.
+<p>Enter a trace string that specifies the components, packages, or groups
+to trace. The trace string must conform to the specific grammar described
+below. You can enter the trace string directly, or generate it using the graphical
+trace interface. Click <strong>Modify</strong> to start the graphical trace interface.</p>
+
+<p>If you start the graphical trace interface from the configuration tab,
+a list of well-known components, packages, and groups is displayed. This list
+might not be exhaustive.</p>
+
+<p>If you start the graphical trace interface from the runtime tab, the list
+of components, packages, and groups displays all such components currently
+registered on the running server.</p>
+
+<p>The format of the trace specification is:<pre>&lt;<em>component</em>&gt; = &lt;<em>trace_type</em>&gt;= enabled | disabled</pre> where:
+&lt;<em>component</em>&gt; is the component for which to enable or disable tracing,
+and &lt;<em>trace_type</em>&gt; is the type of tracing to enable or disable. Separate
+multiple tracing specifications with colons (:).</p>
+
+<p>Components correspond to Java packages and classes, or to collections of
+Java packages. Use * as a wildcard to indicate components that include all
+classes in all packages contained by the specified component. For example:<dl>
+<dt>
+<strong><samp>*</samp></strong>
+</dt>
+<dd>Specifies all traceable code running in the application server, including
+WebSphere Application Server system code and customer code.</dd>
+<dt>
+<strong><samp>com.ibm.ws.*</samp></strong>
+</dt>
+<dd>specifies all classes whose package name begins with <samp>com.ibm.ws</samp>.</dd>
+<dt>
+<strong><samp>com.ibm.ws.classloader.JarClassLoader</samp></strong>
+</dt>
+<dd>Specifies only the JarClassLoader class.</dd>
+</dl>
+</p>
+
+<p>For more information on trace string grammar, see the article <cite>Enabling
+trace</cite> in the WebSphere Application Server InfoCenter.</p>
+
+<p>
+<b>Note: </b>An error can occur when setting a trace specification from
+the adminstrative console if selections are made from both the Groups and
+Components lists. In some cases, the selection made from one list is not lost
+when adding a selection from the other list. To work around this problem,
+enter the desired trace specification directly into the Trace Specification
+entry field.</p>
+
+</dd>
+<dt>
+<strong><a name="trace_output_description"></a>Trace Output</strong>
+            &nbsp;
+            </dt>
+<dd>Specifies where trace output should be written.
+<p>The trace output can be written directly to an output file, or stored in
+memory and written to a file on demand using the Dump button found on the
+run-time page.</p>
+
+<p>
+<dl>
+<dt>
+<strong>Memory Buffer</strong>
+</dt>
+<dd>Specifies that the trace output should be written to an in-memory circular
+buffer. If you select this option you must specify the following parameters:<dl>
+<dt>
+<strong>Maximum Buffer Size</strong>
+</dt>
+<dd>Specifies the number of entries, in thousands, that can be cached in the
+buffer. When this number is exceeded, older entries are overwritten by new
+entries.</dd>
+<dt>
+<strong>Dump File Name</strong>
+</dt>
+<dd>The name of the file to which the memory buffer will be written when it
+is dumped. This option is only available from the Runtime tab.</dd>
+</dl>
+</dd>
+</dl>
+</p>
+
+<p>
+<dl>
+<dt>
+<strong>File</strong>
+</dt>
+<dd>Specifies to write the trace output to a self-managing log file.<p>The
+self-managing log file writes messages to the file until a size criteria is
+reached. When the file reaches the specified size, logging is temporarily
+suspended and the log file is closed and renamed. The new name is based on
+the original name of the file, plus a timestamp qualifier that indicates when
+the renaming occurred. Once the renaming is complete, a new, empty log file
+with the original name is reopened, and logging resumes. No messages are lost
+as a result of the rollover, although a single message may be split across
+the two files.</p>
+</dd>
+</dl>
+</p>
+
+<p>If you select this option you must specify the following parameters:<dl>
+<dt>
+<strong>Maximum File Size</strong>
+</dt>
+<dd>Specifies the maximum size, in megabytes, to which the output file is
+allowed to grow. <p>This attribute is only valid if the File Size attribute
+is selected. When the file reaches this size, it is rolled over as described
+above.</p>
+</dd>
+<dt>
+<strong>Maximum Number of Historical Files</strong>
+</dt>
+<dd>Specifies the maximum number of rolled over files to keep.</dd>
+<dt>
+<strong>File Name</strong>
+</dt>
+<dd>Specifies the name of the file to which the trace output is written.</dd>
+</dl>
+</p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Related information</strong>
+</p>
+<a href="rcon_buttons.html">Administrative console buttons</a>
+<br>
+
+<a href="rcon_scope.html">Administrative console scope settings</a>
+<br>
+
+<a href="rcon_filter.html">Administrative console filter settings</a>
+<br>
+
+<a href="rcon_preferences.html">Administrative console preference settings</a>
+<br>
+
+<a href="rcon_pageusage.html">Administrative console page features</a>
+<br>
+
+</div>
+</body>
+</html>

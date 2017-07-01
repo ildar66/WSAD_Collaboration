@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RDBSchema:RDBTable xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:RDBSchema="RDBSchema.xmi" xmi:id="RDBTable_1097047311078" name="PAYMENTS" primaryKey="SQLReference_1097047311078">
+  <database href="models/TWWizardConnection1_IBANK.dbxmi#RDBDatabase_1097047310203"/>
+  <schema href="models/TWWizardConnection1_IBANK_ILDAR.schxmi#RDBSchema_1097047310203"/>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1097047311078" name="DOC_ID" allowNull="false" comments="Уникальный в рамках системы идентификатор документа">
+    <type xmi:type="RDBSchema:SQLCharacterStringType" xmi:id="SQLCharacterStringType_1097047311078" characterSet="800" length="28">
+      <originatingType xmi:type="RDBSchema:SQLCharacterStringType" href="DB2UDBNT_V72_Primitives.xmi#SQLCharacterStringType_3"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1097047311079" name="CLIENT_ID" allowNull="false" comments="Уникальный в рамках системы идентификатор клиента, создавшего документ, из таблицы clients">
+    <type xmi:type="RDBSchema:SQLExactNumeric" xmi:id="SQLExactNumeric_1097047311078">
+      <originatingType xmi:type="RDBSchema:SQLExactNumeric" href="DB2UDBNT_V72_Primitives.xmi#SQLExactNumeric_1"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1097047311080" name="DATE_DOC" allowNull="false" comments="Дата платежного поручения">
+    <type xmi:type="RDBSchema:SQLDate" xmi:id="SQLDate_1097047311078">
+      <originatingType xmi:type="RDBSchema:SQLDate" href="DB2UDBNT_V72_Primitives.xmi#SQLDate_1"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1097047311081" name="NUM_DOC" allowNull="false" comments="Номер платежного поручения">
+    <type xmi:type="RDBSchema:SQLCharacterStringType" xmi:id="SQLCharacterStringType_1097047311079" characterSet="800" length="5">
+      <originatingType xmi:type="RDBSchema:SQLCharacterStringType" href="DB2UDBNT_V72_Primitives.xmi#SQLCharacterStringType_3"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1097047311082" name="PAYMENT_TYPE" allowNull="true" comments="Вид платежа, может принимать значения: &#34;Почтой&#34;, &#34;Телеграфом&#34;, &#34;Электронно&#34; или отсутствует">
+    <type xmi:type="RDBSchema:SQLCharacterStringType" xmi:id="SQLCharacterStringType_1097047311080" characterSet="800" length="10">
+      <originatingType xmi:type="RDBSchema:SQLCharacterStringType" href="DB2UDBNT_V72_Primitives.xmi#SQLCharacterStringType_3"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1097047311083" name="PAYER_INN" allowNull="true" comments="ИНН плательщика">
+    <type xmi:type="RDBSchema:SQLCharacterStringType" xmi:id="SQLCharacterStringType_1097047311081" characterSet="800" length="12">
+      <originatingType xmi:type="RDBSchema:SQLCharacterStringType" href="DB2UDBNT_V72_Primitives.xmi#SQLCharacterStringType_3"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1097047311084" name="PAYER_NAME" allowNull="false" comments="Наименование плательщика">
+    <type xmi:type="RDBSchema:SQLCharacterStringType" xmi:id="SQLCharacterStringType_1097047311082" characterSet="800" length="160">
+      <originatingType xmi:type="RDBSchema:SQLCharacterStringType" href="DB2UDBNT_V72_Primitives.xmi#SQLCharacterStringType_3"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1097047311085" name="PAYER_ACCOUNT" allowNull="false" comments="Счет плательщика">
+    <type xmi:type="RDBSchema:SQLCharacterStringType" xmi:id="SQLCharacterStringType_1097047311083" characterSet="800" length="20">
+      <originatingType xmi:type="RDBSchema:SQLCharacterStringType" href="DB2UDBNT_V72_Primitives.xmi#SQLCharacterStringType_1"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1097047311086" name="AMOUNT" allowNull="false" comments="Сумма платежа (в единицах валюты - рублях)">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1097047311078" precision="17" scale="2">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="DB2UDBNT_V72_Primitives.xmi#SQLNumeric_3"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1097047311087" name="PAYER_BANK_NAME" allowNull="false" comments="Наименование банка плательщика">
+    <type xmi:type="RDBSchema:SQLCharacterStringType" xmi:id="SQLCharacterStringType_1097047311084" characterSet="800" length="80">
+      <originatingType xmi:type="RDBSchema:SQLCharacterStringType" href="DB2UDBNT_V72_Primitives.xmi#SQLCharacterStringType_3"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1097047311088" name="PAYER_BANK_BIC" allowNull="false" comments="БИК банка плательщика">
+    <type xmi:type="RDBSchema:SQLCharacterStringType" xmi:id="SQLCharacterStringType_1097047311085" characterSet="800" length="9">
+      <originatingType xmi:type="RDBSchema:SQLCharacterStringType" href="DB2UDBNT_V72_Primitives.xmi#SQLCharacterStringType_1"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1097047311089" name="PAYER_BANK_ACC" allowNull="false" comments="Корсчет банка плательщика">
+    <type xmi:type="RDBSchema:SQLCharacterStringType" xmi:id="SQLCharacterStringType_1097047311086" characterSet="800" length="20">
+      <originatingType xmi:type="RDBSchema:SQLCharacterStringType" href="DB2UDBNT_V72_Primitives.xmi#SQLCharacterStringType_1"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1097047311090" name="RCPT_INN" allowNull="true" comments="ИНН получателя">
+    <type xmi:type="RDBSchema:SQLCharacterStringType" xmi:id="SQLCharacterStringType_1097047311087" characterSet="800" length="12">
+      <originatingType xmi:type="RDBSchema:SQLCharacterStringType" href="DB2UDBNT_V72_Primitives.xmi#SQLCharacterStringType_3"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1097047311091" name="RCPT_NAME" allowNull="false" comments="Наименование получателя">
+    <type xmi:type="RDBSchema:SQLCharacterStringType" xmi:id="SQLCharacterStringType_1097047311088" characterSet="800" length="160">
+      <originatingType xmi:type="RDBSchema:SQLCharacterStringType" href="DB2UDBNT_V72_Primitives.xmi#SQLCharacterStringType_3"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1097047311092" name="RCPT_ACCOUNT" allowNull="false" comments="Счет получателя">
+    <type xmi:type="RDBSchema:SQLCharacterStringType" xmi:id="SQLCharacterStringType_1097047311089" characterSet="800" length="20">
+      <originatingType xmi:type="RDBSchema:SQLCharacterStringType" href="DB2UDBNT_V72_Primitives.xmi#SQLCharacterStringType_1"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1097047311093" name="RCPT_BANK_NAME" allowNull="false" comments="Наименование банка получателя">
+    <type xmi:type="RDBSchema:SQLCharacterStringType" xmi:id="SQLCharacterStringType_1097047311090" characterSet="800" length="80">
+      <originatingType xmi:type="RDBSchema:SQLCharacterStringType" href="DB2UDBNT_V72_Primitives.xmi#SQLCharacterStringType_3"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1097047311094" name="RCPT_BANK_BIC" allowNull="false" comments="БИК банка получателя">
+    <type xmi:type="RDBSchema:SQLCharacterStringType" xmi:id="SQLCharacterStringType_1097047311091" characterSet="800" length="9">
+      <originatingType xmi:type="RDBSchema:SQLCharacterStringType" href="DB2UDBNT_V72_Primitives.xmi#SQLCharacterStringType_1"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1097047311095" name="RCPT_BANK_ACC" allowNull="true" comments="Корсчет банка получателя">
+    <type xmi:type="RDBSchema:SQLCharacterStringType" xmi:id="SQLCharacterStringType_1097047311092" characterSet="800" length="20">
+      <originatingType xmi:type="RDBSchema:SQLCharacterStringType" href="DB2UDBNT_V72_Primitives.xmi#SQLCharacterStringType_1"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1097047311096" name="TYPE_OPER" allowNull="false" defaultValue="'01'" comments="Вид операции, для платежных поручений &#34;01&#34;">
+    <type xmi:type="RDBSchema:SQLCharacterStringType" xmi:id="SQLCharacterStringType_1097047311093" characterSet="800" length="2">
+      <originatingType xmi:type="RDBSchema:SQLCharacterStringType" href="DB2UDBNT_V72_Primitives.xmi#SQLCharacterStringType_1"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1097047311097" name="QUEUE" allowNull="true" comments="Код очередности платежа. Может принимать значения &#34;01&#34;, &#34;02&#34;, &#34;03&#34;, &#34;04&#34;, &#34;05&#34; или &#34;06&#34;, или отсутствовать">
+    <type xmi:type="RDBSchema:SQLCharacterStringType" xmi:id="SQLCharacterStringType_1097047311094" characterSet="800" length="2">
+      <originatingType xmi:type="RDBSchema:SQLCharacterStringType" href="DB2UDBNT_V72_Primitives.xmi#SQLCharacterStringType_1"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1097047311098" name="TERM" allowNull="true" comments="Срок платежа">
+    <type xmi:type="RDBSchema:SQLDate" xmi:id="SQLDate_1097047311079">
+      <originatingType xmi:type="RDBSchema:SQLDate" href="DB2UDBNT_V72_Primitives.xmi#SQLDate_1"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1097047311099" name="PAYMENT_DETAILS" allowNull="false" comments="Назначение платежа">
+    <type xmi:type="RDBSchema:SQLCharacterStringType" xmi:id="SQLCharacterStringType_1097047311095" characterSet="800" length="210">
+      <originatingType xmi:type="RDBSchema:SQLCharacterStringType" href="DB2UDBNT_V72_Primitives.xmi#SQLCharacterStringType_3"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1097047311100" name="KPP" allowNull="true" comments="КПП плательщика">
+    <type xmi:type="RDBSchema:SQLCharacterStringType" xmi:id="SQLCharacterStringType_1097047311096" characterSet="800" length="9">
+      <originatingType xmi:type="RDBSchema:SQLCharacterStringType" href="DB2UDBNT_V72_Primitives.xmi#SQLCharacterStringType_3"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1097047311101" name="STATUS_DOC" allowNull="false" comments="Текущее (последнее) состояние документа. Может принимать значения: 0 - новый, 1 - подписан, 2 - доставлен, 3 - на обработке, 4 - на исполнении, 5 - исполнен, 6 - отвергнут, 7 - удалён">
+    <type xmi:type="RDBSchema:SQLCharacterStringType" xmi:id="SQLCharacterStringType_1097047311097" characterSet="800" length="1">
+      <originatingType xmi:type="RDBSchema:SQLCharacterStringType" href="DB2UDBNT_V72_Primitives.xmi#SQLCharacterStringType_1"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1097047311102" name="SIGNERS" allowNull="true" comments="Группы подписавших персон. Содержит признак наличия подписи документа ключом определённой группы: 1 - подпись ключа группы присутствует, 0 - отсутствует. 0-й разряд соответствует ключу группы 1, 1-й группы 2 и т.д.">
+    <type xmi:type="RDBSchema:SQLCharacterStringType" xmi:id="SQLCharacterStringType_1097047311098" characterSet="800" length="3">
+      <originatingType xmi:type="RDBSchema:SQLCharacterStringType" href="DB2UDBNT_V72_Primitives.xmi#SQLCharacterStringType_1"/>
+    </type>
+  </columns>
+  <namedGroup xmi:type="RDBSchema:SQLReference" xmi:id="SQLReference_1097047311078" name="XPKPAYMENTS" members="RDBColumn_1097047311078" constraint="SQLConstraint_1097047311094"/>
+  <namedGroup xmi:type="RDBSchema:RDBReferenceByKey" xmi:id="RDBReferenceByKey_1097047310391" name="R_13" onDelete="NO ACTION" onUpdate="NO ACTION" members="RDBColumn_1097047311079" constraint="SQLConstraint_1097047311095">
+    <target href="models/TWWizardConnection1_IBANK_ILDAR_CLIENTS.tblxmi#SQLReference_1097047310375"/>
+  </namedGroup>
+  <constraints xmi:id="SQLConstraint_1097047311094" name="XPKPAYMENTS" type="PRIMARYKEY" primaryKey="SQLReference_1097047311078"/>
+  <constraints xmi:id="SQLConstraint_1097047311095" name="R_13" type="FOREIGNKEY" referenceByKey="RDBReferenceByKey_1097047310391"/>
+</RDBSchema:RDBTable>

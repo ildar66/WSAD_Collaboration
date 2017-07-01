@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" "http://java.sun.com/dtd/web-app_2_3.dtd">
+
+   <web-app id="WebApp_1">
+      <display-name>adminconsole</display-name>
+      <listener id="Listener_1068005685078">
+         <listener-class>com.ibm.ws.console.appmanagement.SessionListener</listener-class>
+      </listener>
+      <servlet id="Servlet_1068005620594">
+         <servlet-name>validator</servlet-name>
+         <servlet-class>org.apache.struts.action.ValidatorServlet</servlet-class>
+         <init-param id="InitParam_1068005626906">
+            <param-name>config</param-name>
+            <param-value>/WEB-INF/validation.xml</param-value>
+         </init-param>
+         <init-param id="InitParam_1068005626907">
+            <param-name>debug</param-name>
+            <param-value>0</param-value>
+         </init-param>
+         <load-on-startup>2</load-on-startup>
+      </servlet>
+      <servlet id="Servlet_1068005620609">
+         <servlet-name>EventInitializer</servlet-name>
+         <servlet-class>com.ibm.ws.console.events.EventListenerServlet</servlet-class>
+         <load-on-startup>2</load-on-startup>
+      </servlet>
+      <servlet id="Servlet_1068005620610">
+         <servlet-name>action</servlet-name>
+         <servlet-class>org.apache.struts.tiles.ActionComponentServlet</servlet-class>
+         <init-param id="InitParam_1068005626908">
+            <param-name>definitions-config</param-name>
+            <param-value>/WEB-INF/console-defs.xml,/WEB-INF/com.ibm.ws.console.environment/console-defs.xml,/WEB-INF/com.ibm.ws.console.servermanagement/console-defs.xml,/WEB-INF/com.ibm.ws.console.appmanagement/console-defs.xml,/WEB-INF/com.ibm.ws.console.resources/console-defs.xml,/WEB-INF/com.ibm.ws.console.events/console-defs.xml,/WEB-INF/com.ibm.ws.console.probdetermination/console-defs.xml,/WEB-INF/com.ibm.ws.console.security/console-defs.xml,/WEB-INF/com.ibm.ws.console.wssecurity/console-defs.xml,/WEB-INF/com.ibm.ws.console.deploymentdescriptor/console-defs.xml,/WEB-INF/com.ibm.ws.console.perftuningadmin/console-defs.xml,/WEB-INF/com.ibm.ws.console.webservices/console-defs.xml</param-value>
+         </init-param>
+         <init-param id="InitParam_1068005626909">
+            <param-name>definitions-debug</param-name>
+            <param-value>0</param-value>
+         </init-param>
+         <init-param id="InitParam_1068005626910">
+            <param-name>definitions-parser-details</param-name>
+            <param-value>0</param-value>
+         </init-param>
+         <init-param id="InitParam_1068005626911">
+            <param-name>definitions-parser-validate</param-name>
+            <param-value>true</param-value>
+         </init-param>
+         <init-param id="InitParam_1068005626912">
+            <param-name>config</param-name>
+            <param-value>/WEB-INF/struts-config.xml</param-value>
+         </init-param>
+         <init-param id="InitParam_1068005626913">
+            <param-name>validate</param-name>
+            <param-value>true</param-value>
+         </init-param>
+         <init-param id="InitParam_1068005626914">
+            <param-name>debug</param-name>
+            <param-value>0</param-value>
+         </init-param>
+         <init-param id="InitParam_1068005626915">
+            <param-name>detail</param-name>
+            <param-value>0</param-value>
+         </init-param>
+         <init-param id="InitParam_1068005626916">
+            <param-name>application</param-name>
+            <param-value>com.ibm.ws.console.core.resources.ConsoleAppResources</param-value>
+         </init-param>
+         <init-param id="InitParam_1068005626917">
+            <param-name>multipartClass</param-name>
+            <param-value>com.ibm.ws.console.core.upload.DiskMultipartRequestHandler</param-value>
+         </init-param>
+         <load-on-startup>2</load-on-startup>
+      </servlet>
+      <servlet id="Servlet_1068005620611">
+         <servlet-name>downloadFile</servlet-name>
+         <servlet-class>com.ibm.ws.console.core.servlet.DownloadFileServlet</servlet-class>
+      </servlet>
+      <servlet id="Servlet_1068005620612">
+         <servlet-name>StatusServlet</servlet-name>
+         <servlet-class>com.ibm.ws.console.core.servlet.StatusServlet</servlet-class>
+      </servlet>
+      <servlet id="Servlet_1068005620613">
+         <servlet-name>SecureCleanup</servlet-name>
+         <servlet-class>com.ibm.ws.console.core.servlet.SecureCleanupServlet</servlet-class>
+         <load-on-startup>3</load-on-startup>
+      </servlet>
+      <servlet id="Servlet_1068005626906">
+         <servlet-name>AddNodeListener</servlet-name>
+         <servlet-class>com.ibm.ws.console.environment.topology.AddNodeListener</servlet-class>
+      </servlet>
+      <servlet id="Servlet_1068005626907">
+         <servlet-name>RemoveNodeListener</servlet-name>
+         <servlet-class>com.ibm.ws.console.environment.topology.RemoveNodeListener</servlet-class>
+      </servlet>
+      <servlet id="Servlet_1068005685078">
+         <servlet-name>AppInstallStatusServlet</servlet-name>
+         <servlet-class>com.ibm.ws.console.appmanagement.action.AppInstallStatusServlet</servlet-class>
+      </servlet>
+      <servlet id="Servlet_1068005685079">
+         <servlet-name>AppManagementStatusServlet</servlet-name>
+         <servlet-class>com.ibm.ws.console.appmanagement.servlets.AppManagementStatusServlet</servlet-class>
+      </servlet>
+      <servlet-mapping id="ServletMapping_1068005626906">
+         <servlet-name>action</servlet-name>
+         <url-pattern>*.do</url-pattern>
+      </servlet-mapping>
+      <servlet-mapping id="ServletMapping_1068005626907">
+         <servlet-name>downloadFile</servlet-name>
+         <url-pattern>/secure/downloadFile/*</url-pattern>
+      </servlet-mapping>
+      <servlet-mapping id="ServletMapping_1068005626908">
+         <servlet-name>StatusServlet</servlet-name>
+         <url-pattern>/status</url-pattern>
+      </servlet-mapping>
+      <servlet-mapping id="ServletMapping_1068005626909">
+         <servlet-name>SecureCleanup</servlet-name>
+         <url-pattern>/securecleanup</url-pattern>
+      </servlet-mapping>
+      <servlet-mapping id="ServletMapping_1068005626910">
+         <servlet-name>AddNodeListener</servlet-name>
+         <url-pattern>/addNodeListener</url-pattern>
+      </servlet-mapping>
+      <servlet-mapping id="ServletMapping_1068005626911">
+         <servlet-name>RemoveNodeListener</servlet-name>
+         <url-pattern>/removeNodeListener</url-pattern>
+      </servlet-mapping>
+      <servlet-mapping id="ServletMapping_1068005685078">
+         <servlet-name>AppInstallStatusServlet</servlet-name>
+         <url-pattern>/AppInstallStatusServlet</url-pattern>
+      </servlet-mapping>
+      <servlet-mapping id="ServletMapping_1068005685079">
+         <servlet-name>AppManagementStatusServlet</servlet-name>
+         <url-pattern>/AppManagementStatus</url-pattern>
+      </servlet-mapping>
+      <welcome-file-list id="WelcomeFileList_1068005626906">
+         <welcome-file>/secure/logon.jsp</welcome-file>
+      </welcome-file-list>
+      <error-page id="ErrorCodeErrorPage_1068005626906">
+         <error-code>403</error-code>
+         <location>/logonError.jsp</location>
+      </error-page>
+      <taglib id="TagLibRef_1068005626906">
+         <taglib-uri>/WEB-INF/struts-logic.tld</taglib-uri>
+         <taglib-location>/WEB-INF/struts-logic.tld</taglib-location>
+      </taglib>
+      <taglib id="TagLibRef_1068005626907">
+         <taglib-uri>/WEB-INF/struts-bean.tld</taglib-uri>
+         <taglib-location>/WEB-INF/struts-bean.tld</taglib-location>
+      </taglib>
+      <taglib id="TagLibRef_1068005626908">
+         <taglib-uri>/WEB-INF/struts-html.tld</taglib-uri>
+         <taglib-location>/WEB-INF/struts-html.tld</taglib-location>
+      </taglib>
+      <taglib id="TagLibRef_1068005626909">
+         <taglib-uri>/WEB-INF/tiles.tld</taglib-uri>
+         <taglib-location>/WEB-INF/tiles.tld</taglib-location>
+      </taglib>
+      <taglib id="TagLibRef_1068005626910">
+         <taglib-uri>/WEB-INF/ibmcommon.tld</taglib-uri>
+         <taglib-location>/WEB-INF/ibmcommon.tld</taglib-location>
+      </taglib>
+      <security-constraint id="SecurityConstraint_1068005626922">
+         <web-resource-collection id="WebResourceCollection_1068005626922">
+            <web-resource-name>Protected Area</web-resource-name>
+            <url-pattern>/secure/*</url-pattern>
+            <http-method>DELETE</http-method>
+            <http-method>GET</http-method>
+            <http-method>POST</http-method>
+            <http-method>PUT</http-method>
+         </web-resource-collection>
+         <auth-constraint id="AuthConstraint_1068005626922">
+            <role-name>administrator</role-name>
+            <role-name>operator</role-name>
+            <role-name>configurator</role-name>
+            <role-name>monitor</role-name>
+         </auth-constraint>
+         <user-data-constraint id="UserDataConstraint_1068005626922">
+            <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+         </user-data-constraint>
+      </security-constraint>
+      <security-constraint id="SecurityConstraint_1068005626923">
+         <web-resource-collection id="WebResourceCollection_1068005626923">
+            <web-resource-name>Protected Area</web-resource-name>
+            <url-pattern>/status/*</url-pattern>
+            <http-method>DELETE</http-method>
+            <http-method>GET</http-method>
+            <http-method>POST</http-method>
+            <http-method>PUT</http-method>
+         </web-resource-collection>
+         <auth-constraint id="AuthConstraint_1068005626923">
+            <role-name>administrator</role-name>
+            <role-name>operator</role-name>
+            <role-name>configurator</role-name>
+            <role-name>monitor</role-name>
+         </auth-constraint>
+         <user-data-constraint id="UserDataConstraint_1068005626923">
+            <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+         </user-data-constraint>
+      </security-constraint>
+      <security-constraint id="SecurityConstraint_1068005626924">
+         <web-resource-collection id="WebResourceCollection_1068005626924">
+            <web-resource-name>Protected Area</web-resource-name>
+            <url-pattern>/</url-pattern>
+            <http-method>DELETE</http-method>
+            <http-method>GET</http-method>
+            <http-method>POST</http-method>
+            <http-method>PUT</http-method>
+         </web-resource-collection>
+         <auth-constraint id="AuthConstraint_1068005626924">
+            <role-name>administrator</role-name>
+            <role-name>operator</role-name>
+            <role-name>configurator</role-name>
+            <role-name>monitor</role-name>
+         </auth-constraint>
+         <user-data-constraint id="UserDataConstraint_1068005626924">
+            <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+         </user-data-constraint>
+      </security-constraint>
+      <security-constraint id="SecurityConstraint_1068005626925">
+         <web-resource-collection id="WebResourceCollection_1068005626925">
+            <web-resource-name>Protected Area</web-resource-name>
+            <url-pattern>*.do</url-pattern>
+            <http-method>DELETE</http-method>
+            <http-method>GET</http-method>
+            <http-method>POST</http-method>
+            <http-method>PUT</http-method>
+         </web-resource-collection>
+         <auth-constraint id="AuthConstraint_1068005626925">
+            <role-name>administrator</role-name>
+            <role-name>operator</role-name>
+            <role-name>configurator</role-name>
+            <role-name>monitor</role-name>
+         </auth-constraint>
+         <user-data-constraint id="UserDataConstraint_1068005626925">
+            <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+         </user-data-constraint>
+      </security-constraint>
+      <login-config id="LoginConfig_1068005626922">
+         <auth-method>FORM</auth-method>
+         <realm-name>ThinClient Administrative Login</realm-name>
+         <form-login-config id="FormLoginConfig_1068005626953">
+            <form-login-page>/logon.jsp</form-login-page>
+            <form-error-page>/logonError.jsp</form-error-page>
+         </form-login-config>
+      </login-config>
+      <security-role id="SecurityRole_1068005626953">
+         <description>Administrator role</description>
+         <role-name>administrator</role-name>
+      </security-role>
+      <security-role id="SecurityRole_1068005626954">
+         <description>Operator role</description>
+         <role-name>operator</role-name>
+      </security-role>
+      <security-role id="SecurityRole_1068005626955">
+         <description>Configurator role</description>
+         <role-name>configurator</role-name>
+      </security-role>
+      <security-role id="SecurityRole_1068005626956">
+         <description>Monitor role</description>
+         <role-name>monitor</role-name>
+      </security-role>
+   </web-app>

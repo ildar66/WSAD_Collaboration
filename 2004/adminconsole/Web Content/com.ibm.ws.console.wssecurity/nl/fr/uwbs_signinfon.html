@@ -1,0 +1,137 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Param&egrave;tres de configuration des informations de signature</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_signinfon"></a>
+<h2>
+<img alt="[Fix Pack 5.0.2 and later]" src="v502.gif" border="0">Param&egrave;tres de configuration des informations de signature</h2>
+
+<p>Cette page permet de configurer de nouveaux param&egrave;tres de signature.</p>
+
+<p>Les sp&eacute;cifications indiqu&eacute;es dans cette page pour la m&eacute;thode de
+signature, la m&eacute;thode simplifi&eacute;e et la m&eacute;thode de canonisation sont
+disponibles dans le document W3C intitul&eacute;,
+"XMLSignature Syntax and Specification: W3C Recommendation 12 Feb 2002".</p>
+
+<p>Pour afficher cette page de la console d'administration, cliquez sur
+<strong>Applications d'entreprise &gt; </strong><em>nom_application</em>. Dans la section Articles
+li&eacute;s, cliquez sur <strong>Modules Web &gt; </strong><em>nom_fichier_URI</em> <strong>&gt;
+Services Web : Liaisons de s&eacute;curit&eacute; du serveur</strong>. Dans la colonne Liaison de
+r&eacute;cepteur de demande, cliquez sur <strong>Editer &gt; Informations relatives &agrave; la signature &gt; Nouveau</strong>.</p>
+
+<p>Cliquez sur <strong>Nouveau</strong> pour cr&eacute;er un param&egrave;tre de signature.</p>
+
+<p>Cliquez sur <strong>Supprimer</strong> pour supprimer un param&egrave;tre de signature.</p>
+
+<dl>
+<dt>
+<strong><a name="sec_sigmeth"></a>M&eacute;thode de signature</strong>
+</dt>
+<dd>Indique l'URI de l'algorithme de la m&eacute;thode de signature. Cette
+m&eacute;thode contient la valeur r&eacute;elle de la signature num&eacute;rique encod&eacute;e &agrave; l'aide
+de base64.
+<p>Les algorithmes suivants sont pris en charge :<ul>
+
+<li>
+<samp>http://www.w3.org/2000/09/xmldsig#rsa-sha1</samp>
+</li>
+
+<li>
+<samp>http://www.w3.org/2000/09/xmldsig#dsa-sha1</samp>
+</li>
+
+</ul>
+</p>
+
+</dd>
+<dt>
+<strong><a name="sec_digestmeth"></a>M&eacute;thode simplifi&eacute;e</strong>
+</dt>
+<dd>Indique l'URI de l'algorithme de la m&eacute;thode simplifi&eacute;e. 
+<p>L'algorithme <samp>http://www.w3.org/2000/09/xmldsig#sha1</samp> est pris en charge.</p>
+
+</dd>
+<dt>
+<strong><a name="sec_cancmeth"></a>M&eacute;thode de canonisation</strong>
+</dt>
+<dd>Indique l'URI de l'algorithme de la m&eacute;thode de canonisation.
+<p>Les algorithmes suivants sont pris en charge :<ul>
+
+<li>
+<samp>http://www.w3.org/2001/10/xml-exc-c14n#</samp>
+</li>
+
+<li>
+<samp>http://www.w3.org/2001/10/xml-exc-c14n#WithComments</samp>
+</li>
+
+<li>
+<samp>http://www.w3.org/TR/2001/REC-xml-c14n-20010315</samp>
+</li>
+
+<li>
+<samp>http://www.w3.org/TR/2001/REC-xml-c14n-20010315#WithComments</samp>
+</li>
+
+</ul>
+</p>
+
+</dd>
+<dt>
+<strong><a name="sec_signk"></a>Cl&eacute; de signature</strong>
+</dt>
+<dd>Indique les informations de cl&eacute; utilis&eacute;es pour la signature. Ces
+zones sont ignor&eacute;es dans la configuration c&ocirc;t&eacute; r&eacute;cepteur. 
+<p>Si vous indiquez un <strong>nom de cl&eacute;</strong> et une <strong>r&eacute;f&eacute;rence de localisateur de cl&eacute;</strong>, s&eacute;lectionnez <strong>Aucun</strong> pour le chemin d'acc&egrave;s au
+certificat.</p>
+
+</dd>
+<dt>
+<strong><a name="sec_certpath"></a>Chemin du certificat</strong>
+</dt>
+<dd> Indique les param&egrave;tres de validation du chemin des certificats. Lorsque
+vous s&eacute;lectionnez <strong>Faire confiance &agrave; tous</strong>, cette validation est
+ignor&eacute;e et tous les certificats entrants sont dignes de confiance. Ces
+zones sont ignor&eacute;es dans la configuration c&ocirc;t&eacute; &eacute;metteur. 
+<p>Si vous cliquez sur <strong>Faire confiance &agrave; tous</strong> ou s&eacute;lectionnez
+une <strong>ancre de s&eacute;curisation</strong> et un
+<strong>magasin de certificats</strong>, s&eacute;lectionnez <strong>Aucune</strong> pour la cl&eacute; de
+signature dans la zone pr&eacute;c&eacute;dente.</p>
+
+<p>
+<strong>Ancre de s&eacute;curisation</strong>
+</p>
+
+<p>Les options disponibles pour l'ancre de s&eacute;curisation apparaissent
+lorsque vous cliquez sur <strong>Serveurs &gt; Serveurs d'applications
+&gt; </strong><em>nom_serveur</em>. Dans la section Propri&eacute;t&eacute;s suppl&eacute;mentaires,
+cliquez sur <strong>Services Web : Liaisons par d&eacute;faut pour la s&eacute;curit&eacute;
+des services Web &gt; Ancres de s&eacute;curisation</strong>.</p>
+
+<p>
+<strong>Magasin de certificats</strong>
+</p>
+
+<p>Les s&eacute;lections disponibles pour le magasin de collections
+apparaissent lorsque vous cliquez sur <strong>Serveurs &gt; Serveurs
+d'applications &gt;</strong><em>nom_serveur</em>. Dans la section Articles li&eacute;s,
+cliquez sur <strong>Services Web : Liaisons par d&eacute;faut pour la s&eacute;curit&eacute;
+des services Web &gt; Magasin de certificats de collection</strong>.</p>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>Informations connexes</strong>
+</p>
+<a href="uwbs_signinfo.html">Collection d'informations de signature</a>
+<br>
+
+</div>
+</body>
+</html>

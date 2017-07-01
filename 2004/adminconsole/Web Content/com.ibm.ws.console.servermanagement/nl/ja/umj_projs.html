@@ -1,0 +1,255 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>WebSphere 内部 JMS サーバー設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="JMSServer"></a>
+<h2>WebSphere 内部 JMS サーバー設定</h2>
+
+<p>WebSphere Application Server 管理ドメイン内のノード上の JMS 機能は、
+そのノード上の JMS サーバーによって提供されます。
+このパネルを使用して、選択された JMS サーバーの構成プロパティーを表示または変更します。
+</p>
+
+<p>このパネルを使用して、JMS サーバーの一般プロパティー・セットを構成
+します。これは、組み込み WebSphere JMS プロバイダーで自動的に構成され
+るプロパティーのデフォルト値に追加されます。</p>
+
+
+<p>
+<b>注: </b>一般に、WebSphere MQ プロパテ
+ィーのデフォルト値は、WebSphere 内部 JMS サーバーに適した値です。
+しかし、高負荷のメッセージングを実行している場合、
+ログ・ファイルのロケーション、ファイル・ページ、およびバッファー・ページのプロパティーのように、
+WebSphere MQ プロパティーを変更しなければならない場合があります。
+WebSphere MQ プロパティーの構成についての詳細は、「<cite>MQSeries システム管理の手引き </cite>」(SC88-7776) を参照してください。
+この資料は、<img border="0" alt="ターゲットは、このトピックが WWW にリンクされている場合にのみアクセス可能です" src="web.gif">&nbsp;&nbsp;               
+   <a target="_blank" href="http://www.elink.ibmlink.ibm.com/public/applications/publications/cgibin/pbi.cgi"><strong>IBM Publications Center</strong></a>
+ または「WebSphere MQ collection kit」(SK2T-0730) から入手可能です。</p>
+
+<dl>
+<dt>
+<strong><a name="JMSServer_name"></a>名前</strong>
+</dt>
+<dd>IBM WebSphere Application Server 内で、JMS サーバーを管理目的で使用する際の名前。
+<p>この名前は変更しないでください。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">単位</td>
+<td align="left" valign="top" class="base">該当なし</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">WebSphere 内部 JMS サーバー</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">該当なし</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JMSServer_description"></a>説明</strong>
+</dt>
+<dd>IBM WebSphere Application Server 内で管理目的で使用する、JMS サーバーの説明。
+<p>このストリングは変更しないでください。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+
+
+
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">WebSphere 内部 JMS サーバー</td>
+
+</tr>
+
+
+
+
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JMSServer_numThreads"></a>スレッド数</strong>
+            &nbsp;
+            </dt>
+<dd>Publish/Subscribe マッチング・エンジンが使用する並行スレッド数
+<p>並行スレッド数は、小さい数値に限定して設定する必要があります。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">整数</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">単位</td>
+<td align="left" valign="top" class="base">スレッド</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">1</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">1 以上</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JMSServer_queueNames"></a>キュー名</strong>
+</dt>
+<dd>この JMS サーバーがホストするキューの名前。
+各キュー名は、別々の行で指定する必要があります。
+<p>このフィールドにリストされるキューは、
+それぞれが、同じ管理名を持つ別々のキュー管理オブジェクトを持たなければなりません。
+キューをアプリケーションで使用可能にするには、WebSphere キューを定義し、
+そのキューをホストすることになるホストの「JMS サーバー」パネルで、キューの名前をこのフィールドに追加します。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ASCII</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">単位</td>
+<td align="left" valign="top" class="base">キュー名</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">該当なし</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">このフィールドへの個々の入力は 45 文字までのキュー名で、
+キューに定義された WebSphere キュー管理オブジェクトと正確に (大文字小文字の使用など) 一致しなければなりません。
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JMSServer_executionState"></a>初期状態</strong>
+</dt>
+<dd>次に再始動したときの JMS サーバーが保持すべき状態を指定します。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">列挙型</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">単位</td>
+<td align="left" valign="top" class="base">該当なし</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">開始済み</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>開始済み</strong>
+</dt>
+<dd>JMS サーバーは自動的に始動します。</dd>
+
+<dt>
+<strong>停止済み</strong>
+</dt>
+<dd>JMS サーバーは自動的には始動されません。
+デプロイ済みのエンタープライズ・アプリケーションが JMS サーバーの提供する JMS サーバー機能を使用する場合、
+システム管理者は手動で JMS サーバーを始動するか、このプロパティーの「開始済み」値を選択して、
+JMS サーバーを再始動する必要があります。
+</dd>
+
+</dl>
+<p>アプリケーション・サーバー用の JMS サーバーを再始動するには、
+そのアプリケーション・サーバーを停止してから再始動します。
+</p>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</body>
+</html>

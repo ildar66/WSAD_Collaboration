@@ -1,0 +1,83 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>HTTP-SSL-Konfiguration</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_transssl"></a>
+<h2>
+<img alt="[Fixpack 5.0.2 und h&ouml;her]" src="v502.gif" border="0">HTTP-SSL-Konfiguration</h2>
+
+<p>Verwenden Sie diese Seite, um die SSL-Sicherheit (Secure Sockets Layer) auf Transportebene zu konfigurieren.
+Sie k&ouml;nnen diese Konfiguration verwenden, wenn ein Webservice ein Client eines anderen Webservice ist.
+</p>
+
+<p>Zum Aktivieren von HTTP-SSL (oder HTTPS) k&ouml;nnen Sie die Sicherheit auf Transportebene verwenden. Die Sicherheit auf
+Transportebene kann unabh&auml;ngig von der Sicherheit auf Nachrichtenebene aktiviert und inaktiviert werden.
+Weil die Sicherheit auf Transportebene den niedrigsten Sicherheitsgrad bietet, sollten Sie die Sicherheit auf Nachrichtenebene
+verwenden, falls eine Webservice-Anwendung unbedingt gesch&uuml;tzt werden muss.
+</p>
+
+<p>Gehen Sie zum Anzeigen dieser Seite der Administrationskonsole wie folgt vor:<ol>
+
+<li>Klicken Sie auf <strong>Anwendungen &gt; Enterprise-Anwendungen &gt; </strong><em>Anwendungsname</em>. </li>
+
+<li>Klicken Sie unter "Zugeh&ouml;rige Elemente" auf <strong>Webmodule &gt; </strong><em>Name_der_URI-Datei</em><strong> &gt;
+Web Services: Sicherheitsbindungen des Clients</strong>.</li>
+
+<li>Klicken Sie unter "HTTP-SSL-Konfiguration" auf <strong>Bearbeiten</strong>. </li>
+
+</ol>
+</p>
+
+<p>Sie k&ouml;nnen die HTTP-SSL-Basisauthentifizierung auch wie folgt festlegen:
+<ol>
+
+<li>Klicken Sie auf <strong>Anwendungen &gt; Enterprise-Anwendungen &gt; </strong><em>Anwendungsname</em>. </li>
+
+<li>Klicken Sie unter "Zugeh&ouml;rige Elemente" auf <strong>Webmodule &gt; </strong><em>Name_der_URI-Datei</em><strong> &gt;
+Web Services: Sicherheitsbindungen des Clients</strong>.</li>
+
+<li>Klicken Sie unter <strong>HTTP-Basiskonfiguration</strong> auf <strong>Bearbeiten</strong>.</li>
+
+</ol>
+</p>
+
+<dl>
+<dt>
+<strong><a name="sec_transsslconfigen"></a>HTTP-SSL aktiviert</strong>
+</dt>
+<dd>W&auml;hlen Sie diese Option aus, um f&uuml;r den HTTP-Transport an diesem Port die &Uuml;bertragung &uuml;ber sichere Sockets
+zu aktivieren.
+Wenn diese Option aktiviert ist, verwendet WebSphere Application Server
+die HTTP-SSL-Konfiguration.
+</dd>
+<dt>
+<strong><a name="sec_transsslconfigalias"></a>HTTP-SSL-Konfiguration </strong>
+</dt>
+<dd>Der f&uuml;r den HTTP-Transport an diesem Port zu verwendende Aliasname der SSL-Konfiguration.
+
+<p>Diese Option wird verwendet, wenn Sie <strong>HTTP-SSL aktiviert</strong> ausw&auml;hlen. Die SSL-Aliasnamen
+werden im SSL-Konfigurationsrepertoire definiert, das Sie unter <strong>Sicherheit &gt; SSL</strong> konfigurieren k&ouml;nnen.</p>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>Zugeh&ouml;rige Informationen</strong>
+</p>
+<a href="uwbs_websvcb.html">Web Services: Standardbindungen f&uuml;r die Web-Services-Sicherheit</a>
+<br>
+
+<a href="uwbs_wsclientbind.html">Web Services: Sicherheitsbindungen des Clients </a>
+<br>
+
+<a href="uwbs_wsservrbind.html">Web Services: Sicherheitsbindungen des Servers</a>
+<br>
+
+</div>
+</body>
+</html>

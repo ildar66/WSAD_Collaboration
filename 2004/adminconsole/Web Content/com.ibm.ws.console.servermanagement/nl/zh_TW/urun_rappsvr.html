@@ -1,0 +1,290 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>應用程式伺服器設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="urun_rappsvr"></a>
+<h2>應用程式伺服器設定</h2>
+
+<p>請利用這個頁面來檢視或變更應用程式伺服器實例的設定。</p>
+
+<p>如果要檢視這個管理主控台頁面，請按一下<strong>伺服器 &gt; 應用程式伺服器 &gt; </strong><em>server_name</em>。
+</p>
+
+<p>
+<strong>配置</strong>標籤提供可編輯的欄位，而<strong>執行時期</strong>標籤提供唯讀資訊。只有在伺服器執行中時，<strong>執行時期</strong>標籤才能使用。
+</p>
+
+<div>
+<p>
+<strong>「配置」標籤</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="Server_name_description"></a>名稱
+</strong>
+</dt>
+<dd>指定伺服器的邏輯名稱。在節點中，伺服器名稱必須是唯一的。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">server1</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="StateManageable_initialState_description"></a>起始狀態</strong>
+</dt>
+<dd>指定第一次啟動伺服器時所要求的元件執行狀態。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">已啟動</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationServer_classloaderPolicy_description"></a>應用程式類別載入器原則</strong>
+</dt>
+<dd>指定要使用單一類別載入器來載入所有應用程式，或每個應用程式都使用不同的類別載入器。
+
+<p>選項有 SINGLE 和 MULTIPLE。預設值是每個應用程式都使用個別類別載入器 (MULTIPLE)。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">MULTIPLE</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ApplicationServer_classloaderMode_description"></a>應用程式類別載入模式</strong>
+</dt>
+<dd>指定類別載入器應該先在母別載入器中搜尋，或先在應用程式類別載入器中搜尋，來載入類別。
+JDK 類別載入器和 WebSphere 類別載入器的標準都是 PARENT_FIRST。
+您的應用程式可以指定 PARENT_LAST 來置換母類別載入器中所包含的類別，但如果您混合使用已置換的類別及非置換的類別，這個動作可能會造成 ClassCastException 或 LinkageErrors。
+
+<p>選項是 PARENT_FIRST 和 PARENT_LAST。預設值是在應用程式類別載入器中搜尋前，先在母類別載入器中搜尋來載入類別。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">PARENT_FIRST</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>「執行時期」標籤</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="rappsvr-rt1"></a>程序 ID</strong>
+            &nbsp;
+            </dt>
+<dd>指定識別程序的字串。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="rappsvr-rt2"></a>Cell 名稱</strong>
+            &nbsp;
+            </dt>
+<dd>指定應用程式伺服器的 Cell 名稱。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base"><em>host_name</em>Network</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="rappsvr-rt3"></a>節點名稱</strong>
+            &nbsp;
+            </dt>
+<dd>指定應用程式伺服器的節點名稱。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="rappsvr-rt4"></a>狀態</strong>
+            &nbsp;
+            </dt>
+<dd>指出應用程式伺服器的狀態是已啟動或已停止
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">已啟動</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>相關資訊</strong>
+</p>
+<a href="rcon_buttons.html">管理主控台按鈕</a>
+<br>
+
+<a href="rcon_pageusage.html">管理主控台頁面特性</a>
+<br>
+
+<a href="uagt_radmin.html">管理服務設定</a>
+<br>
+
+<a href="urun_rclassloader.html">類別載入器集合</a>
+<br>
+
+<a href="urun_rapp.html">企業應用程式集合</a>
+<br>
+
+<a href="urun_rsvr_services.html">自訂服務集合</a>
+<br>
+
+<a href="utrb_debugsvc.html">對服務詳細資料進行除錯</a>
+<br>
+
+<a href="udyn_rcachesettings.html">動態快取服務設定</a>
+<br>
+
+<a href="uejb_recnt.html">EJB 儲存區設定</a>
+<br>
+
+<a href="urun_rendpoint.html">端點集合</a>
+<br>
+
+<a href="utrb_servicelogs.html">IBM 服務日誌設定</a>
+<br>
+
+<a href="utrb_logtrace.html">記載和追蹤設定</a>
+<br>
+
+<a href="umb_smlp.html">訊息接聽器埠集合</a>
+<br>
+
+<a href="uorb_rsetg.html">管理主控台中的 Object Request Broker 服務設定</a>
+<br>
+
+<a href="uprf_rmonitorsettings.html">效能監視服務設定</a>
+<br>
+
+<a href="urun_rconfproc.html">程序定義設定</a>
+<br>
+
+<a href="urun_rproperty.html">自訂內容集合</a>
+<br>
+
+<a href="urun_rsvrcomp.html">伺服器元件集合</a>
+<br>
+
+<a href="utrb_traceservice.html">診斷追蹤服務設定</a>
+<br>
+
+<a href="udat_contranserv.html">交易服務設定</a>
+<br>
+
+<a href="uweb_rcont.html">Web 儲存區設定</a>
+<br>
+
+</div>
+</body>
+</html>

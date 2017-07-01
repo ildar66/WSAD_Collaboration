@@ -1,0 +1,108 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Einstellungen f&uuml;r das JAAS-Anmeldemodul (Java Authentication Authorization Service)</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecjaaslogin"></a>
+<h2>Einstellungen f&uuml;r das JAAS-Anmeldemodul (Java Authentication Authorization Service)</h2>
+
+<p>Auf dieser Seite k&ouml;nnen Sie die Konfigurationseinstellungen f&uuml;r das JAAS-Anmeldemodul definieren. </p>
+
+<p>Klicken Sie zum Anzeigen dieser Seite der Administrationskonsole auf
+<strong>Sicherheit</strong> &gt; <strong>JAAS-Konfiguration</strong> &gt; <strong>Anwendungsanmeldungen</strong> &gt; <em>Aliasname</em> &gt; <strong>JAAS-Anmeldemodule</strong>.</p>
+
+<div>
+<p>
+<strong>Register "Konfiguration"</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="JAASLoginModule_moduleClassName_description"></a>Klassenname des Moduls</strong>
+</dt>
+<dd>Gibt den Klassennamen des angegebenen Anmeldemoduls an.
+<p>Die vom WebSphere-Produkt definierten Standardanmeldemodule verwenden eine Proxy-LoginModule-Klasse,
+<samp>com.ibm.ws.security.common.auth.module.WSLoginModuleProxy</samp>.
+Diese Proxy-Klasse l&auml;dt das WebSphere-Anmeldemodul mit dem Klassenlader des Thread-Kontextes und delegiert
+alle Operationen an die <em>echte</em> Implementierung des Anmeldemoduls. Die echte Implementierung des
+Anmeldemoduls ist als delegierte Option in der Optionskonfiguration angegeben. Die Proxy-Klasse wird
+ben&ouml;tigt, da die Klassenlader der JDK-Anwendung die Klassenlader des WebSphere-Produkts nicht erkennen
+k&ouml;nnen. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JAASLoginModule_authenticationStrategy_description"></a>Authentifizierungsverfahren</strong>
+</dt>
+<dd>Gibt das Authentifizierungsverhalten beim Abarbeiten der Anmeldemodule im Stack an.
+<p>Das Authentifizierungsverfahren wird vom JAAS-Authentifizierungsprovider bereitgestellt.
+In JAAS implementiert das Interface LoginModule das Authentifizierungsverfahren. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">Erforderlich</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">Erforderlich, Vorausgesetzt, Ausreichend und Optional</td>
+
+</tr>
+
+</table>
+
+<p>In der Anzeige <strong>Zus&auml;tzliche Merkmale der Optionen</strong> k&ouml;nnen Sie zus&auml;tzliche Optionen angeben. Diese
+Name-/Wert-Paare werden bei der Initialisierung an die Anmeldemodule &uuml;bergeben. Das ist eines der Verfahren,
+mit dem Daten an Anmeldemodule &uuml;bergeben werden.
+</p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Zugeh&ouml;rige Informationen</strong>
+</p>
+<a href="rcon_buttons.html">Kn&ouml;pfe in der Adminstrationskonsole</a>
+<br>
+
+<a href="rcon_pageusage.html">Funktionen auf den Seiten der Administrationskonsole</a>
+<br>
+
+<a href="rcon_scope.html">Geltungsbereichseinstellungen f&uuml;r die Administrationskonsole</a>
+<br>
+
+<a href="rcon_filter.html">Filtereinstellungen f&uuml;r die Administrationskonsole</a>
+<br>
+
+<a href="rcon_preferences.html">Vorgaben f&uuml;r die Administrationskonsole</a>
+<br>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Bindung f&uuml;r Anforderungsempf&auml;nger</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_reqrecvr"></a>
+<h2>
+<img alt="[Fixpack 5.0.2 und h&ouml;her]" src="v502.gif" border="0">Bindung f&uuml;r Anforderungsempf&auml;nger</h2>
+
+<p>Verwenden Sie diese Seite, um die Bindungskonfiguration f&uuml;r den Empfang von Anforderungsnachrichten
+f&uuml;r die Web-Services-Sicherheit zu definieren. </p>
+
+<p>Gehen Sie zum Anzeigen dieser Seite der Administrationskonsole wie folgt vor:<ol>
+
+<li>Klicken Sie auf <strong>Anwendungen &gt; Enterprise-Anwendungen &gt; </strong><em>Anwendungsname</em>. </li>
+
+<li>Klicken Sie unter "Zugeh&ouml;rige Elemente" auf <strong>Webmodule</strong> &gt; <em>Name_der_URI-Datei</em> &gt; <strong>Web Services: Sicherheitsbindungen des Servers</strong>. </li>
+
+<li>Klicken Sie unter "Anforderungsempf&auml;nger" auf
+<strong>Bearbeiten</strong>.</li>
+
+</ol>
+</p>
+
+<dl>
+<dt>
+<strong><a name="sec_signing"></a>Signaturdaten</strong>
+</dt>
+<dd>Die Konfiguration f&uuml;r die Signaturparameter. Die Signaturdaten werden verwendet, um Teile einer Nachricht, die
+den Hauptteil (Body), die Zeitmarke und das Benutzernamen-Token enthalten, zu signieren und zu validieren. 
+<p>Sie k&ouml;nnen diese Parameter auch f&uuml;r die Validierung von X.509-Zertifikaten verwenden, wenn
+in der Konfiguration auf Serverebene als Authentifizierungsmethode IDAssertion und als ID-Typ X509Certificate definiert sind.
+In solchen F&auml;llen m&uuml;ssen Sie nur das Feld <strong>Zertifikatpfad</strong> ausf&uuml;llen.</p>
+
+</dd>
+<dt>
+<strong><a name="sec_encrypt"></a>Verschl&uuml;sselungsdaten</strong>
+</dt>
+<dd>Die Konfiguration f&uuml;r die Ver- und Entschl&uuml;sselungsparameter.
+Die Konfiguration wird verwendet, um die Teile der Nachrichten mit dem Hauptteil
+und dem Benutzernamen-Token zu verschl&uuml;sseln und zu entschl&uuml;sseln. </dd>
+<dt>
+<strong><a name="sec_trustancdescr"></a>Trust Anchor</strong>
+</dt>
+<dd>Eine Liste mit Keystore-Objekten, die die gesicherten Stammzertifikate enthalten, die von einer Zertifizierungsinstanz
+(CA) ausgestellt wurden. 
+<p>Die Zertifizierungsinstanz authentifiziert einen Benutzer und stellt ein Zertifikat aus.
+Die API CertPath verwendet die Zertifikate, um die Zertifizierungskette der eingehenden,
+Sicherheits-Token im X.509-Format oder der gesicherten, selbst unterzeichneten Zertifikate zu validieren.</p>
+
+</dd>
+<dt>
+<strong><a name="sec_collcert"></a>Collection Certificate Store</strong>
+</dt>
+<dd>Eine Liste ungesicherter, tempor&auml;rer Zertifikatdateien. 
+<p>Der Collection Certificate Store enth&auml;lt eine Kette ungesicherter, tempor&auml;rer Zertifikate.
+Die API CertPath versucht, diese Zertifikate zu validieren, die auf dem Trust Anchor basieren. </p>
+
+</dd>
+<dt>
+<strong><a name="sec_keyldesc"></a>Key Locator</strong>
+</dt>
+<dd>Eine Liste mit Key-Locator-Objekten, die die Schl&uuml;ssel f&uuml;r digitale Signatur und Verschl&uuml;sselung
+aus einer Keystore-Datei oder einem Repository abrufen.
+Der Key Locator ordnet einen Namen oder logischen Namen einem Aliasnamen oder eine authentifizierte Identit&auml;t
+einem Schl&uuml;ssel zu. Dieser logische Name wird zum Suchen eines Schl&uuml;ssels in einer Key-Locator-Implementierung
+verwendet. </dd>
+<dt>
+<strong><a name="sec_trstiddesc"></a>Trusted ID Evaluator</strong>
+</dt>
+<dd>Eine Liste der Trusted ID Evaluator, die festlegt, ob die identit&auml;tszusichernde Instanz
+oder der Nachrichtensender als vertrauensw&uuml;rdig eingestuft wird.
+
+<p>Die Trusted ID Evaluator werden verwendet, um weitere Identit&auml;ten zwischen Servern zu
+authentifizieren. Beispiel: Ein Client sendet die Identit&auml;t von Benutzer A zur Authentifizierung an den Server 1. Server 1
+setzt Aufrufe an den Server 2 ab (Downstream), sichert die Identit&auml;t von Benutzer A zu und f&uuml;gt
+Benutzer-ID und Kennwort von Server 1 hinzu.
+Server 2 versucht, das Vertrauensverh&auml;ltnis zu Server 1 herzustellen, indem er dessen
+Benutzer-ID und Kennwort authentifiziert und basierend auf der TrustedIDEvaluator-Implementierung die Vertrauensw&uuml;rdigkeit pr&uuml;ft. Wenn
+der Authentifizierungsprozess und die Vertrauenspr&uuml;fung erfolgreich verlaufen, vertraut
+Server 2 darauf, dass Server 1 Benutzer A authentifiziert hat, und es wird ein Berechtigungsnachweis
+f&uuml;r Benutzer A in Server 2 erstellt, so dass dieser die Anforderung absetzen kann. </p>
+
+</dd>
+<dt>
+<strong><a name="sec_logmapdesc"></a>Anmeldezuordnungen</strong>
+</dt>
+<dd>Eine Liste von Konfigurationen f&uuml;r die Validierung der Token in eingehenden Nachrichten.
+
+<p>Anmeldezuordnungen ordnen die Authentifizierungsmethode der JAAS-Konfiguration zu. </p>
+
+<p>Verwenden Sie zum Konfigurieren von JAAS die Administrationskonsole. Klicken Sie auf
+<strong>Sicherheit &gt; JAAS-Konfiguration</strong>.</p>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>Zugeh&ouml;rige Informationen</strong>
+</p>
+<a href="uwbs_encrypt.html">Verschl&uuml;sselungsdaten</a>
+<br>
+
+</div>
+</body>
+</html>

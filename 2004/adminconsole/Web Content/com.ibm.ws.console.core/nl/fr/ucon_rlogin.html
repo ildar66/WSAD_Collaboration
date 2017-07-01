@@ -1,0 +1,156 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Param&egrave;tres de connexion</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="urun_rlogin"></a>
+<h2>Param&egrave;tres de connexion</h2>
+
+<p>Cette page permet d'indiquer l'utilisateur de la console d'administration de  WebSphere Application Server. Si vous utilisez la s&eacute;curit&eacute; globale,
+ vous devez &eacute;galement indiquer un mot de passe.</p>
+
+<p>La sp&eacute;cification d'un utilisateur permet de reprendre un travail
+commenc&eacute; avec le produit.
+Une fois l'ID utilisateur entr&eacute;,
+cliquez sur <strong>OK</strong> pour passer &agrave; la page suivante et acc&eacute;der &agrave; la
+console d'administration.</p>
+
+<p>Pour afficher cette page, d&eacute;marrez la console d'administration.</p>
+
+<dl>
+<dt>
+<strong><a name="logon_desc"></a>ID utilisateur</strong>
+</dt>
+<dd>Indique une cha&icirc;ne identifiant l'utilisateur. L'ID
+utilisateur doit &ecirc;tre unique pour le serveur d'administration.
+<p>Le travail que vous effectuez dans ce produit et que vous
+sauvegardez avant de quitter l'application est enregistr&eacute; dans une
+configuration pouvant &ecirc;tre identifi&eacute;e par l'ID utilisateur que vous avez saisi.
+ Pour acc&eacute;der ult&eacute;rieurement au travail effectu&eacute; sous cet ID
+utilisateur, sp&eacute;cifiez celui-ci sur la page de connexion.</p>
+
+<p>Si vous vous connecter &agrave; partir d'une machine client qui dispose
+d'un navigateur ouvert dans la console d'administration et que vous vous connectez
+au m&ecirc;me serveur, vos deux connexions peuvent partager le m&ecirc;me objet de session HTTP,
+que vous vous connectiez en utilisant ou non des ID utilisateur diff&eacute;rents. Vous devez utiliser deux types de navigateur (par exemple, Microsoft
+Internet Explorer et Netscape Communicator) pour vous connecter &agrave; la
+console d'administration &agrave; partir de la m&ecirc;me machine client afin
+d'utiliser deux objets de session HTTP, que vous utilisiez ou non le
+m&ecirc;me ID utilisateur. Cela signifie que si vous avez besoin de deux
+sessions simultan&eacute;es sur la m&ecirc;me machine client, acc&eacute;dez &agrave; la console
+d'administration &agrave; partir de deux types de navigateur.</p>
+
+<p>Vous pouvez utiliser le m&ecirc;me type de navigateur pour vous
+connecter deux fois &agrave; la console mais vous devez vous connecter &agrave;
+diff&eacute;rents h&ocirc;tes physiques et utiliser diff&eacute;rents ID utilisateur.  Par exemple, supposons que Paul se connecte &agrave; la console
+d'administration sous l'ID utilisateur <em>paul</em> sur l'h&ocirc;te physique <em>monh&ocirc;te1</em> &agrave;
+l'aide d'un navigateur Internet Explorer. Paul peut se connecter &agrave; la
+m&ecirc;me console une deuxi&egrave;me fois &agrave; l'aide d'un navigateur Internet
+Explorer mais il peut utiliser un ID utilisateur diff&eacute;rent (tel que
+<em>peggy</em>) et un h&ocirc;te physique diff&eacute;rent (tel que <em>monh&ocirc;te2</em>).</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="UserExists_information"></a>Un autre utilisateur est actuellement connect&eacute; avec le m&ecirc;me nom d'utilisateur.</strong>
+</dt>
+<dd>Indique si l'utilisateur doit &ecirc;tre d&eacute;connect&eacute; et si le
+travail doit se poursuivre avec l'D utilisateur sp&eacute;cifi&eacute; ou si la
+page Connexion doit &ecirc;tre affich&eacute;e de nouveau afin de sp&eacute;cifier un
+autre ID utilisateur ou s'il faut attendre que l'utilisateur se
+d&eacute;connecte.
+<p>Cette zone appara&icirc;t si l'utilisateur a ferm&eacute; un navigateur Web
+pendant l'exploration de la console d'administration sans s'&ecirc;tre
+pr&eacute;alablement d&eacute;connect&eacute; et a ensuite ouvert un nouvel explorateur
+en tentant d'acc&eacute;der &agrave; la console d'administration.</p>
+
+</dd>
+<dt>
+<strong><a name="ChangesFound_restore"></a>Utiliser la configuration ma&icirc;tresse</strong>
+</dt>
+<dd>Si l'option est activ&eacute;e, cela signifie que vous souhaitez
+utiliser la configuration administrative par d&eacute;faut et non celle
+utilis&eacute;e en dernier pour la session de l'utilisateur.
+ Les modifications apport&eacute;es &agrave; la session de l'utilisateur depuis la
+derni&egrave;re sauvegarde de la configuration d'administration seront
+perdues.
+<p>Cette zone appara&icirc;t uniquement si l'utilisateur a modifi&eacute; la
+configuration d'administration et s'est ensuite d&eacute;connect&eacute; sans
+sauvegarder les modifications.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">El&eacute;ment bool&eacute;en</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">false</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ChangesFound_recover"></a>R&eacute;cup&eacute;rer les modifications apport&eacute;es lors de la session pr&eacute;c&eacute;dente</strong>
+</dt>
+<dd>Si l'option est activ&eacute;e, cela signifie que vous souhaitez
+utiliser la m&ecirc;me configuration administrative que celle
+utilis&eacute;e en dernier pour la session de l'utilisateur. Les
+modifications apport&eacute;es par l'utilisateur depuis la derni&egrave;re
+sauvegarde de la configuration d'administration pour la session de
+l'utilisateur sont r&eacute;cup&eacute;r&eacute;es.
+<p>Cette zone appara&icirc;t uniquement si l'utilisateur a modifi&eacute; la
+configuration d'administration et s'est ensuite d&eacute;connect&eacute; sans
+sauvegarder les modifications.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">El&eacute;ment bool&eacute;en</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">true</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>Informations connexes</strong>
+</p>
+<a href="rcon_buttons.html">Boutons de la console administrative</a>
+<br>
+
+</div>
+</body>
+</html>

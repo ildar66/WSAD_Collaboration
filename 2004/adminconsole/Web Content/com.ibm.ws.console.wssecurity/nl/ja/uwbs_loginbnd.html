@@ -1,0 +1,95 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>ログイン・バインディング構成の設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_loginbnd"></a>
+<h2>
+<img alt="[修正パッケージ 5.0.2 以降]" src="v502.gif" border="0">ログイン・バインディング構成の設定</h2>
+
+<p>このページを使用して、暗号化パラメーターおよび暗号化解除パラメーターを構成します。
+</p>
+
+<p>プラグ可能トークンは、Java Authentication and Authorization Service
+(JAAS) CallBackHandler (javax.security.auth.callback.CallBackHandler) インターフェースを使用して、
+メッセージに挿入するトークンを生成します。
+以下のリストでは、CallBack をサポートのインプリメンテーションについて記載しています。
+<dl>
+<dt>
+<strong>com.ibm.wsspi.wssecurity.auth.callback.BinaryTokenCallback</strong>
+</dt>
+<dd>このインプリメンテーションは、メッセージに <samp>&lt;wsse:BinarySecurityToken/@ValueType&gt;</samp> として挿入されるバイナリー・トークンを生成する際に使用します。</dd>
+<dt>
+<strong>javax.security.auth.callback.NameCallback and javax.security.auth.callback.NameCallback</strong>
+</dt>
+<dd>このインプリメンテーションは、メッセージに <samp>&lt;wsse:UsernameToken&gt;</samp> として挿入されるユーザー名トークンを生成する際に使用します。</dd>
+<dt>
+<strong>com.ibm.wsspi.wssecurity.auth.callback.XMLTokenSenderCallback</strong>
+</dt>
+<dd>このインプリメンテーションは、eXtensible Markup Language (XML) トークンを生成するために使用され、メッセージに <samp>&lt;SAML: Assertion&gt;</samp> エレメントとして挿入されます。</dd>
+<dt>
+<strong>com.ibm.wsspi.wssecurity.auth.callback.PropertyCallback</strong>
+</dt>
+<dd>このインプリメンテーションは、バインディング・ファイルで指定されているプロパティーを取得する際に使用します。</dd>
+</dl>
+</p>
+
+<p>この管理コンソール・ページを表示するには、以下のステップを実行します。<ol>
+
+<li>「<strong>アプリケーション</strong>」&gt;「<strong>エンタープライズ・アプリケーション</strong>」&gt;「<em>application_name</em> 」をクリックします。</li>
+
+<li>「Related Items」の下の「<strong>Web モジュール</strong>」&gt;「<em>URI_file_name</em>」&gt;「<strong>Web Services: Client Security Bindings</strong>」をクリックします。</li>
+
+<li>「Request Sender Bindings」の下の「<strong>編集</strong>」&gt;「<strong>Login Binding</strong>」をクリックします。</li>
+
+</ol>
+</p>
+
+<p>暗号化情報が使用不可の場合は「<strong>なし</strong>」を選択してください。</p>
+
+<p>暗号化情報が使用可能な場合は、「<strong>Dedicated Login Binding</strong>」を選択して、以下のフィールドで構成を指定してください。</p>
+
+<dl>
+<dt>
+<strong><a name="sec_authmeth"></a>認証メソッド</strong>
+</dt>
+<dd>認証メソッドの固有の名前を指定します。</dd>
+<dt>
+<strong><a name="sec_cbhand"></a>Callback Handler</strong>
+</dt>
+<dd>コールバック・ハンドラーの名前を指定します。コールバック・ハンドラーは、javax.security.auth.callback.CallbackHandler インターフェースをインプリメントしている必要があります。</dd>
+<dt>
+<strong><a name="sec_userid"></a>Basic Auth User ID</strong>
+</dt>
+<dd>基本認証のユーザー名を指定します。Basic Auth 認証メソッドを使用すると、バインディング・ファイルにユーザー ID とパスワードを定義することができます。</dd>
+<dt>
+<strong><a name="sec_authpass"></a>Basic Auth Password</strong>
+</dt>
+<dd>基本認証のパスワードを指定します。</dd>
+<dt>
+<strong><a name="sec_uri"></a>Token Type URI</strong>
+</dt>
+<dd>トークン・タイプに Uniform Resource Identifiers (URI) を指定します。この情報は、XML トークン <samp>&lt;SAML:
+Assertion&gt;</samp> の <samp>&lt;wsse:BinarySecurityToken&gt;/ValueType</samp> として挿入されます。
+</dd>
+<dt>
+<strong><a name="sec_lname"></a>Token Type Local Name</strong>
+</dt>
+<dd>トークン・タイプのローカル名を指定します。この情報は、XML トークン <samp>&lt;SAML:
+Assertion&gt;</samp> の <samp>&lt;wsse:BinarySecurityToken&gt;/ValueType</samp> として挿入されます。
+</dd>
+</dl>
+<div>
+<p>
+<strong>関連情報</strong>
+</p>
+<a href="uwbs_wsclientbind.html">Web サービス: クライアント・セキュリティーのバインディング・コレクション</a>
+<br>
+
+</div>
+</body>
+</html>

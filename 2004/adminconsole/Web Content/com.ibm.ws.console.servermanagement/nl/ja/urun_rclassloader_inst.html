@@ -1,0 +1,83 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>クラス・ローダーの設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="urun_rclassloader_inst"></a>
+<h2>クラス・ローダーの設定</h2>
+
+<p>このページを使用して、
+アプリケーション・サーバー上に存在するアプリケーションのクラス・ローダーを構成します。</p>
+
+<p>この管理コンソール・ページを表示するには、「<strong>サーバー</strong>」&gt;「<strong>アプリケーション・サーバー</strong>」&gt;「<em>server_name</em>」&gt;「<strong>Classloader</strong>」&gt;「<em>class_loader_ID</em>」をクリックします。</p>
+
+<div>
+<p>
+<strong>「構成」タブ</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="Classloader_classloaderID_description"></a>クラス・ローダー ID</strong>
+</dt>
+<dd>クラス・ローダー・インスタンスを識別するサーバーに固有のストリングです。
+この ID は製品によって割り当てられます。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="Classloader_classloaderMode_description"></a>クラス・ローダー・モード</strong>
+</dt>
+<dd>アプリケーション・クラス・ローダー・ポリシーが SINGLE であるときに、
+クラス・ローダー・モードを指定します。PARENT_FIRST を指定すると、
+クラス・ローダーはローカル・クラスパスからクラスのロードを試行する前に、
+親クラス・ローダーにクラスのロードを委任します。PARENT_LAST を指定した場合、クラス・ローダーは親にクラスのロードを委任する前に、
+ローカルのクラスパスからクラスをロードしようとします。
+これによりアプリケーション・クラス・ローダーは親クラス・ローダーに存在するクラスの独自のバージョンをオーバーライドして、
+提供することができます。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">PARENT_FIRST</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>関連情報</strong>
+</p>
+<a href="rcon_buttons.html">管理コンソールのボタン</a>
+<br>
+
+<a href="rcon_pageusage.html">管理コンソール・ページのフィーチャー</a>
+<br>
+
+</div>
+</body>
+</html>

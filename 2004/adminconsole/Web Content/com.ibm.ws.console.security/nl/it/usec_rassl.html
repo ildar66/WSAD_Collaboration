@@ -1,0 +1,165 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Impostazioni SSL (Secure Sockets Layer) per le propriet&agrave; personalizzate</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecrassl"></a>
+<h2>Impostazioni SSL (Secure Sockets Layer) per le propriet&agrave; personalizzate</h2>
+
+<p>Utilizzare questa pagina per configurare le impostazioni SSL (Secure Sockets
+Layer) aggiuntive di un alias definito.</p>
+
+<p>Per visualizzare questa pagina della console di gestione, fare clic su <strong>Sicurezza</strong> &gt;
+<strong>SSL</strong> &gt; <em>nome_alias</em> &gt; <strong>Propriet&agrave; personalizzate</strong>.</p>
+
+<div>
+<p>
+<strong>Scheda Configurazione</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="field_name"></a>Propriet&agrave; personalizzate </strong>
+</dt>
+<dd>Specifica le coppie nome-valore che &egrave; possibile utilizzare per configurare
+ulteriori impostazioni SSL oltre quelle disponibili nell'interfaccia di gestione <samp>com.ibm.ssl.protocol</samp>. 
+<p>&Egrave; il protocollo SSL utilizzato (inclusa la versione corrispondente). I valori consentiti sono
+      SSL, SSLv2, SSLv3, TLS o TLSv1. Il valore predefinito, SSL, &egrave;
+compatibile con le versioni precedenti degli altri protocolli
+SSL.</p>
+
+<dl>
+
+<dt>
+<strong>com.ibm.ssl.keyStoreProvider</strong>
+</dt>
+<dd>Il nome del provider della memoria delle chiavi
+da utilizzare. Specificare uno dei provider di sicurezza elencati nel file <samp>java.security</samp>,
+con un'implementazione keystore. Il valore predefinito &egrave;
+        IBMJCE.</dd>
+
+<dt>
+<strong>com.ibm.ssl.keyManager</strong>
+</dt>
+<dd>Il nome dell'algoritmo di gestione chiavi da utilizzare. Specificare un algoritmo di gestione chiavi
+implementato da uno dei provider di sicurezza elencati nel file <samp>java.security</samp>. Il valore predefinito &egrave; IbmX509.  </dd>
+
+<dt>
+<strong>com.ibm.ssl.trustStoreProvider</strong>
+</dt>
+<dd>Il nome del provider di memoria sicura da utilizzare. Specificare uno dei provider di sicurezza elencati nel file <samp>java.security</samp>, con un'implementazione truststore. Il valore predefinito &egrave;
+        IBMJCE. </dd>
+
+<dt>
+<strong>com.ibm.ssl.trustManager</strong>
+</dt>
+<dd>Il nome dell'algoritmo di gestione sicuro da
+utilizzare. Specificare un algoritmo di gestione sicuro
+implementato da uno dei provider di sicurezza elencati nel file <samp>java.security</samp>. Il valore predefinito &egrave; IbmX509.  </dd>
+
+<dt>
+<strong>com.ibm.ssl.trustStoreType</strong>
+</dt>
+<dd>Il tipo o il formato del file truststore. I valori permessi sono JKS, PKCS12, JCEK. Il valore predefinito &egrave; JKS.</dd>
+
+<dt>
+<strong>com.ibm.ssl.enabledCipherSuites</strong>
+</dt>
+<dd>L'elenco dei pacchetti di crittografia da abilitare.
+Per impostazione predefinita, non viene impostato e la serie di pacchetti di crittografia utilizzati viene determinata dal valore del livello di sicurezza (Alo, Medio o Basso). Un insieme di codici &egrave; una combinazione di
+algoritmi crittografici utilizzati per una connessione SSL. Immettere un elenco, separato da spazi, di uno dei pacchetti di crittografia: <ul>
+
+<li>SSL_RSA_WITH_RC4_128_MD5 </li>
+
+<li>SSL_RSA_WITH_RC4_128_SHA </li>
+
+<li>SSL_RSA_WITH_DES_CBC_SHA </li>
+
+<li>SSL_RSA_WITH_3DES_EDE_CBC_SHA </li>
+
+<li>SSL_DHE_RSA_WITH_DES_CBC_SHA</li>
+
+<li>SSL_DHE_RSA_WITH_3DES_EDE_CBC_SHA </li>
+
+<li>SSL_DHE_DSS_WITH_DES_CBC_SHA </li>
+
+<li>SSL_DHE_DSS_WITH_3DES_EDE_CBC_SHA </li>
+
+<li>SSL_RSA_EXPORT_WITH_RC4_40_MD5 </li>
+
+<li>SSL_RSA_EXPORT_WITH_DES40_CBC_SHA </li>
+
+<li>SSL_RSA_EXPORT_WITH_RC2_CBC_40_MD5</li>
+
+<li>SSL_DHE_RSA_EXPORT_WITH_DES40_CBC_SHA </li>
+
+<li>SSL_DHE_DSS_EXPORT_WITH_DES40_CBC_SHA </li>
+
+<li>SSL_RSA_WITH_NULL_MD5 </li>
+
+<li>SSL_RSA_WITH_NULL_SHA </li>
+
+<li>SSL_DH_anon_WITH_RC4_128_MD5</li>
+
+<li>SSL_DH_anon_WITH_DES_CBC_SHA </li>
+
+<li>SSL_DH_anon_WITH_3DES_EDE_CBC_SHA </li>
+
+<li>SSL_DH_anon_EXPORT_WITH_RC4_40_MD5 </li>
+
+<li>SSL_DH_anon_EXPORT_WITH_DES40_CBC_SHA</li>
+
+</ul>
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati:</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+</table>
+</dd>
+
+</dl>
+
+</dd>
+<dt>
+<strong><a name="SecureSocketLayer_cryptoHardware_description"></a>Token crittografico</strong>
+</dt>
+<dd>Specifica le informazioni relative ai token crittografici correlati al supporto
+SSL.
+<p>Un token crittografico &egrave; un'unit&agrave; hardware o software con un'implementazione keystore
+incorporata. I valori esatti dei seguenti campi possono essere
+rilevati
+nella documentazione dell'unit&agrave; crittografica supportata.</p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informazioni correlate</strong>
+</p>
+<a href="rcon_buttons.html">Pulsanti della console di gestione</a>
+<br>
+
+<a href="rcon_pageusage.html">Funzioni della pagina della console di gestione</a>
+<br>
+
+<a href="rcon_scope.html">Impostazioni ambito della console di gestione</a>
+<br>
+
+<a href="rcon_filter.html">Impostazioni di filtro della console di gestione</a>
+<br>
+
+<a href="rcon_preferences.html">Impostazioni delle preferenze della console di gestione</a>
+<br>
+
+</div>
+</body>
+</html>

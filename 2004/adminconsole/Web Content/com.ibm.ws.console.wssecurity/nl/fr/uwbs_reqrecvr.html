@@ -1,0 +1,127 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Collection Liaison de r&eacute;cepteur de demande</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_reqrecvr"></a>
+<h2>
+<img alt="[Fix Pack 5.0.2 and later]" src="v502.gif" border="0">Collection Liaison de r&eacute;cepteur de demande</h2>
+
+<p>Cette page permet d'indiquer la configuration de liaison
+applicable &agrave; la r&eacute;ception de demandes pour la s&eacute;curit&eacute; des services Web.</p>
+
+<p>Pour afficher cette page de la console d'administration, suivez la proc&eacute;dure ci-apr&egrave;s. <ol>
+
+<li>Cliquez sur <strong>Applications &gt; Applications d'entreprise &gt; </strong><em>nom_application</em>. </li>
+
+<li>Dans la section Articles li&eacute;s, cliquez sur <strong>Modules Web</strong> &gt; <em>nom_fichier_URI</em> &gt; <strong>Services
+Web Services : Liaisons de s&eacute;curit&eacute; du serveur</strong>. </li>
+
+<li>Dans la section Liaison de r&eacute;cepteur de r&eacute;ponse,
+cliquez sur <strong>Edition</strong>.</li>
+
+</ol>
+</p>
+
+<dl>
+<dt>
+<strong><a name="sec_signing"></a>Informations relatives &agrave; la signature</strong>
+</dt>
+<dd>Indique la configuration des param&egrave;tres de signature. Les
+informations de signature sont utilis&eacute;es pour signer et valider
+certaines parties d'un message, notamment le corps, l'horodatage
+et le jeton du nom d'utilisateur. 
+<p>Vous pouvez &eacute;galement utiliser ces param&egrave;tres pour la validation des certificats X.509
+lorsque la m&eacute;thode d'authentification est IDAssertion et que le type d'ID est X509Certificate
+dans la configuration au niveau serveur. Dans de tels cas, vous devez uniquement compl&eacute;ter les
+zones <strong>Chemin d'acc&egrave;s au certificat</strong>.</p>
+
+</dd>
+<dt>
+<strong><a name="sec_encrypt"></a>Informations de chiffrement</strong>
+</dt>
+<dd>Indique la configuration des param&egrave;tres de chiffrement et de
+d&eacute;chiffrement.
+Cette configuration permet de chiffrer et
+de d&eacute;chiffrer des parties du message, y compris le corps du message et le
+jeton du nom d'utilisateur.</dd>
+<dt>
+<strong><a name="sec_trustancdescr"></a>Ancres
+de s&eacute;curisation</strong>
+</dt>
+<dd>Indique la liste d'objet du magasin de donn&eacute;es qui contiennent
+les certificats racine s&eacute;curis&eacute;s, auto-sign&eacute;s par une autorit&eacute; de
+certification. 
+<p>L'autorit&eacute; de certification authentifie un utilisateur et &eacute;met un certificat.
+L'API CertPath utilise le certificat pour valider la cha&icirc;ne de
+certificats des jetons de s&eacute;curit&eacute; X.509 entrants ou les
+certificats dignes de confiance et auto-sign&eacute;s.</p>
+
+</dd>
+<dt>
+<strong><a name="sec_collcert"></a>Magasin de certificats de collection</strong>
+</dt>
+<dd>Indique une liste de fichiers de certificat interm&eacute;diaires, non
+s&eacute;curis&eacute;s. 
+<p>Le magasin de certificats de collection contient une cha&icirc;ne de
+certificats interm&eacute;diaires, non s&eacute;curis&eacute;s. L'API CertPath tente de valider
+ces certificats bas&eacute;s sur l'ancre de s&eacute;curisation.</p>
+
+</dd>
+<dt>
+<strong><a name="sec_keyldesc"></a>Localisateurs de cl&eacute;s</strong>
+</dt>
+<dd>Indique une liste de localisateurs de cl&eacute;s qui extraient les cl&eacute;s
+pour la signature num&eacute;rique et le chiffrement &agrave; partir d'un fichier
+de cl&eacute;s ou d'un r&eacute;f&eacute;rentiel.
+Le localisateur de cl&eacute;s mappe un nom ou un nom logique vers un alias ou
+mappe une identit&eacute; authentifi&eacute;e vers une cl&eacute;. Ce nom logique permet de
+localiser une cl&eacute; dans l'impl&eacute;mentation d'adresse de cl&eacute;.</dd>
+<dt>
+<strong><a name="sec_trstiddesc"></a>Evaluateurs d'ID dignes de confiance</strong>
+</dt>
+<dd>Indique une liste d'&eacute;valuateurs d'ID dignes de confiance qui
+d&eacute;terminent s'il convient de faire confiance &agrave; l'autorit&eacute; de v&eacute;rification
+d'identit&eacute; ou &agrave; l'&eacute;metteur du message.
+<p>Les &eacute;valuateurs d'ID dignes de confiance permettent d'authentifier des
+identit&eacute;s suppl&eacute;mentaires &agrave; partir d'un serveur vers un autre serveur. Par
+exemple, un client envoie l'identit&eacute; de l'utilisateur A au serveur 1 &agrave; des
+fins d'authentification. Le serveur 1 lance un appel en aval vers le
+serveur 2, v&eacute;rifie l'identit&eacute; de l'utilisateur A et inclut l'ID
+utilisateur et le mot de passe du serveur 1. Le serveur 2 tente d'&eacute;tablir
+une relation de confiance avec le serveur 1 en authentifiant son ID
+utilisateur et son mot de passe et en contr&ocirc;lant l'accr&eacute;ditation en se
+basant sur l'impl&eacute;mentation TrustedIDEvaluator. Si le processus
+d'authentification et le contr&ocirc;le d'accr&eacute;ditation aboutissent, le serveur
+2 reconna&icirc;t que le serveur 1 a authentifi&eacute; l'utilisateur A et une
+accr&eacute;ditation est cr&eacute;&eacute;e afin que l'utilisateur A du serveur 2 puisse
+appeler la demande.</p>
+
+</dd>
+<dt>
+<strong><a name="sec_logmapdesc"></a>Mappages de connexion</strong>
+</dt>
+<dd>Indique une liste de configurations pour la validation
+de jetons dans les messages entrants.
+<p>Les mappages de connexions mappent la m&eacute;thode d'authentification vers
+la configuration JAAS (Java Authentication and Authorization Service).</p>
+
+<p>Pour configurer JAAS, utilisez la console d'administration et cliquez sur <strong>S&eacute;curit&eacute;
+&gt; Configuration JAAS</strong>.</p>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>Informations connexes</strong>
+</p>
+<a href="uwbs_encrypt.html">Collection des informations de chiffrement</a>
+<br>
+
+</div>
+</body>
+</html>

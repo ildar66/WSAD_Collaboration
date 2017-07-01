@@ -1,0 +1,423 @@
+﻿<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>グローバル・セキュリティーの設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecrgsp"></a>
+<h2>
+<img alt="[修正パッケージ 5.0.2 以降]" src="v502.gif" border="0">グローバル・セキュリティーの設定</h2>
+
+<p>このページを使用してセキュリティーを構成します。
+セキュリティーを使用可能にすると、グローバル・レベルでセキュリティー設定が行えるようになります。
+セキュリティーが使用不可になっていると、WebSphere Application Server のパフォーマンスは 10% から 20% 向上します。
+したがって、セキュリティーが不要なときには、セキュリティーを使用不可にすることを考慮してください。</p>
+
+<p>この管理コンソール・ページを表示するには、「<strong>セキュリティー</strong>」&gt;「<strong>グローバル・セキュリティー</strong>」をクリックします。</p>
+
+<div>
+<p>初めてセキュリティーの構成を行うときには、問題を回避するために、資料の
+『グローバル・セキュリティーの構成』に記載されたステップを行ってください。
+セキュリティーを構成した後で、レジストリーまたは認証メカニズム・パネルに対して行った変更の妥当性を
+検査してください。
+「<strong>適用</strong>」をクリックして、ユーザー・レジストリー設定を妥当性検査します。
+構成されたユーザー・レジストリーに対するサーバー ID の認証を試みます。
+グローバル・セキュリティーを使用可能にした後でユーザー・レジストリー設定を妥当性検査すると、
+初めてサーバーを再始動するときに問題を回避することができます。
+</p>
+</div>
+
+<div>
+<p>
+<strong>「構成」タブ</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="Security_enabled_description"></a>使用可能</strong>
+</dt>
+<dd>サーバーがセキュリティー・サブシステムを使用可能にするように指定します。
+<p>このフラグは、WebSphere Application Server 情報では通常、<em>グローバル・セキュリティー・フラグ</em> と呼ばれています。 セキュリティーを使用可能にするときには、認証メカニズムの構成を設定し、
+選択されたユーザー・レジストリー構成で有効なユーザー ID とパスワードを指定してください。
+</p>
+
+
+
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型:</td>
+<td align="left" valign="top" class="base">ブール</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト:</td>
+<td align="left" valign="top" class="base">使用不可</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="Security_enforceJava2Security_description"></a>Java 2 セキュリティーの実行</strong>
+</dt>
+<dd>Java 2 セキュリティーによる許可検査を使用可能にするのか、使用不可にするのかを指定します。デフォルトでは、Java 2 セキュリティーは使用不可になっています。
+ただし、グローバル・セキュリティーを使用可能にすると、自動的に Java 2 セキュリティーが使用可能になります。グローバル・セキュリティーが使用可能になっている場合にも、Java 2 セキュリティーを使用不可にすることができます。
+<p>Java 2 セキュリティーが使用可能になっているときに、アプリケーションが
+デフォルト・ポリシーで与えられるよりも多くの Java 2 セキュリティー許可を要求する場合、
+そのアプリケーションは、アプリケーションの <samp>app.policy</samp> ファイルまたは <samp>was.policy</samp> ファイル
+に必要な許可が与えられるまでは、正しく実行できない可能性があります。
+必要なすべての許可を与えられていないアプリケーションは、AccessControl 例外を生成します。Java 2 セキュリティーに関する詳しい説明については、インフォセンターおよび『<em>Java 2 セキュリティー
+および動的ポリシー</em>』のセクションを参照してください。
+</p>
+
+<p>グローバル・セキュリティーを使用可能にした後にサーバーが再始動しなくなった場合には、
+セキュリティーを使用不可にしてください。
+ <samp>$&lt;install_root&gt;&yen;bin</samp> ディレクトリーに進み、<samp>wsadmin -conntype NONE</samp> コマンドを実行します。 <samp>wsadmin&gt;</samp> プロンプトで <samp>securityoff</samp> と入力し、次に <samp>exit</samp> と入力してコマンド・プロンプトに戻ります。セキュリティーを使用不可にしてサーバーを再始動し、管理コンソールを介して誤っている設定を検査します。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型:</td>
+<td align="left" valign="top" class="base">ブール</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト:</td>
+<td align="left" valign="top" class="base">使用不可</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲:</td>
+<td align="left" valign="top" class="base">使用可能または使用不可</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="Security_useDomainQualifiedUserNames_description"></a>ドメイン修飾ユーザー名の使用</strong>
+</dt>
+<dd>ユーザー名を、そのユーザー名が入っているセキュリティー・ドメインで修飾することを指定します。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型:</td>
+<td align="left" valign="top" class="base">ブール</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト:</td>
+<td align="left" valign="top" class="base">使用不可</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲:</td>
+<td align="left" valign="top" class="base">使用可能または使用不可</td>
+
+</tr>
+
+</table>
+
+
+<p>
+<img alt="[5.0 のみ]" src="v50x.gif" border="0"><img alt="[修正パッケージ 5.0.1]" src="v501x.gif" border="0">「<strong>セキュリティー</strong>」&gt;「<strong>グローバル・セキュリティー </strong>」構成パネルで「<strong>ドメイン修飾ユーザー名の使用</strong>」を指定すると、Enterprise Bean から getCallerPrincipal() へのランタイム呼び出しによって戻される修飾名の前に、レルムが 2 回付加されます。例えば、フォーマットの戻りは realm/realm/user となります。API を呼び出すときは、戻された値から最初のレルムを取り除いてかまいません。サーブレット API getUserPrincipal() は、
+正しく動作します。</p>
+
+</dd>
+<dt>
+<strong><a name="Security_cacheTimeout_description"></a>キャッシュ・タイムアウト</strong>
+</dt>
+<dd>セキュリティー・キャッシュのタイムアウト値を秒単位で指定します。
+この値は相対タイムアウト値です。
+
+<p>WebSphere Application Server のセキュリティーが使用可能になっている場合、
+セキュリティー・キャッシュのタイムアウトによってパフォーマンスが影響を受ける可能性があります。
+このタイムアウト設定値では、セキュリティー関連のキャッシュのリフレッシュ頻度が指定されます。
+キャッシュに入るのは、Bean、許可、および信任状に関するセキュリティー情報です。キャッシュ・タイムアウトが満了すると、キャッシュされた情報はすべて無効になります。
+その後でその情報に関する要求が行われると、データベースが検索されます。情報を獲得するために、Lightweight Directory Access Protocol(LDAP) バインドまたはネイティブの認証を呼び出すことが
+必要になる場合があります。そのサイトの使用パターンとセキュリティーの必要性を検討して、アプリケーションに最適な
+トレードオフを決定してください。</p>
+
+<p>20 分間のパフォーマンス・テストでは、
+タイムアウトが生じないようにキャッシュ・タイムアウトを設定すると、
+パフォーマンスが 40% 向上します。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型:</td>
+<td align="left" valign="top" class="base">整数</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">単位:</td>
+<td align="left" valign="top" class="base">秒</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト:</td>
+<td align="left" valign="top" class="base">600</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲:</td>
+<td align="left" valign="top" class="base">30 秒より大</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="Security_issuePermissionWarning_description"></a>許可警告の発行</strong>
+</dt>
+<dd>
+<em>許可警告の発行</em> が使用可能になっている場合、
+アプリケーションになんらかのカスタム認可が与えられているときには、
+アプリケーションのデプロイメント時およびアプリケーション開始時に
+セキュリティー・ランタイムが警告を発します。
+カスタム許可とは、JDK 許可ではなく、ユーザー・アプリケーションによって定義された許可のことです。
+JDK 許可は、<samp>package java.*</samp> および <samp>javax.*</samp> で定義されている許可です。
+<p>WebSphere 製品は、ポリシー・ファイル管理をサポートしています。
+この製品には多数のポリシー・ファイルがあり、その中には静的なものと動的なものがあります。
+動的ポリシーは、特定タイプのリソースの許可についてのテンプレートです。
+動的ポリシー・テンプレートでは、コード・ベースが定義されていないか、または相対コード・ベースが使用されています。
+実際のコード・ベースは、構成データおよびランタイム・データから動的に作成されます。<samp>filter.policy</samp> ファイルには、J2EE 1.3 仕様に従って、
+アプリケーションが持つべきではないアクセス権のリストが入っています。
+アクセス権の詳細については、インフォセンターの『Java 2 セキュリティー・ポリシー管理』
+の項目を参照してください。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型:</td>
+<td align="left" valign="top" class="base">ブール</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト:</td>
+<td align="left" valign="top" class="base">使用不可</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲:</td>
+<td align="left" valign="top" class="base">使用可能または使用不可</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="Security_activeProtocol_description"></a>アクティブなプロトコル</strong>
+</dt>
+<dd>セキュリティーが使用可能になっている場合
+の、Remote Method Invocation over the Internet Inter-ORB Protocol (RMI IIOP)  要求のための
+アクティブな認証プロトコルを指定します。前のリリースでは、Security
+Authentication Service (SAS)  プロトコルが唯一の使用可能なプロトコルでした。         
+<p>Common Secure Interoperability Version 2 (CSIv2) と呼ばれるオブジェクト管理グループ (OMG) はさらなる
+ベンダー・インターオペラビリティーおよび追加機能をサポートします。セキュリティー・ドメインに含まれるすべてのサーバーが
+バージョン Version 5.0 のサーバーである場合、プロトコルとして <strong>CSI</strong> を指定します。
+3.x または 4.x のサーバーが存在する場合には、<strong>CSI and SAS</strong> を指定してください。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型:</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト:</td>
+<td align="left" valign="top" class="base">BOTH</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲:</td>
+<td align="left" valign="top" class="base">CSI and SAS、CSI</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="Security_activeAuthMechanism_description"></a>アクティブな認証メカニズム</strong>
+</dt>
+<dd>セキュリティーが使用可能になっている場合のアクティブな認証プロトコルを指定します。
+
+
+<p>WebSphere Application Server バージョン 5 では、Simple WebSphere Authentication Mechanism (SWAM) と
+Lightweight Third Party Authentication (LTPA) という認証メカニズムがサポートされています。</p>
+
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型:</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト:</td>
+<td align="left" valign="top" class="base">SWAM (WebSphere Application Server)</td>
+
+</tr>
+
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲:</td>
+<td align="left" valign="top" class="base">SWAM、LTPA</td>
+
+</tr>
+
+</table>
+
+
+</dd>
+<dt>
+<strong><a name="Security_activeUserRegistry_description"></a>アクティブなユーザー・レジストリー</strong>
+</dt>
+<dd>セキュリティーが使用可能になっている場合の
+アクティブなユーザー・レジストリーを指定します。
+
+<p>以下のユーザー・レジストリーのうちの 1 つについて、設定を構成することができます。<ul>
+
+
+<li>ローカル・オペレーティング・システム</li>
+
+<li>LDAP ユーザー・レジストリー。
+ユーザーおよびグループが外部 LDAP ディレクトリーに置かれている場合には、LDAP ユーザー・レジストリーの設定値が
+使用されます。セキュリティーが使用可能になっていて、これらのプロパティーのどれかが変更されている場合、「
+<strong>グローバル・セキュリティー</strong> 」パネルに進み、「
+<strong>適用</strong>」または「<strong>OK</strong>」をクリックして変更内容を確認してください。</li>
+
+<li>カスタム・ユーザー・レジストリー</li>
+
+</ul>
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型:</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト:</td>
+<td align="left" valign="top" class="base">Local OS</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲:</td>
+<td align="left" valign="top" class="base">Local OS、LDAP、カスタム</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="Security_fips"></a>Use FIPS</strong>
+            &nbsp;
+            <img alt="[修正パッケージ 5.0.2 以降]" src="v502.gif" border="0"></dt>
+<dd>FIPS (連邦情報処理規格) 承認済みの暗号アルゴリズムを使用可能にします。
+
+<p>「<strong>Use FIPS</strong>」が使用可能になっている場合には、Lightweight Third Party Authentication
+(LTPA) インプリメンテーションは IBMJCEFIPS を使用します。IBMJCEFIPS は、DES、Triple-DES、および
+AES で、連邦情報処理標準 (FIPS) 承認済み暗号アルゴリズムをサポートしています。
+ただし LTPA キーは、WebSphere Application Server の以前のリリースと互換性がありますが、LTPA トークンは以前のリリースとは互換性はありません。
+</p>
+
+<p>WebSphere Application Server では、IBMJSSEFIPS という FIPS 承認済みの Java Secure Socket Extension (JSSE) プロバイダーを提供しています。FIPS 承認済みの JSSE には Secure Sockets Layer (SSL)
+プロトコルとの互換性がないので、Transport Layer Security (TLS) プロトコルが必要です。FIPS 承認済みの JSSE プロバイダーおよび TLS プロトコルを指定せずに「
+<strong>Use FIPS</strong>」チェック・ボックスを選択すると、「<strong>グローバル・セキュリティー</strong>」パネルの上部に以下のエラー・メッセージが
+表示されます。<pre class="program">
+<font style="font-family: arial"><samp>The security policy is set to use only FIPS approved cryptographic algorithms.
+However at least one SSL configuration may not be using a FIPS approved JSSE provider.
+FIPS approved cryptographic algorithms may not be used in those cases.
+</samp></font>
+</pre>この問題を訂正するには、以下のいずれかのタスクを完了して、「<strong>SSL Configuration Repertoires</strong>」パネルで JSSE プロバイダーおよびセキュリティー・プロトコルを構成してください。
+<ul>
+
+<li>「<strong>セキュリティー</strong>」&gt;「<strong>SSL</strong>」をクリックし、既存の構成を修正する。</li>
+
+<li>「<strong>新規</strong>」をクリックし、新しい構成を作成する。
+</li>
+
+</ul>
+</p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>関連情報</strong>
+</p>
+<a href="rcon_buttons.html">管理コンソールのボタン</a>
+<br>
+
+<a href="rcon_pageusage.html">管理コンソール・ページのフィーチャー</a>
+<br>
+
+<a href="rcon_scope.html">管理コンソールの有効範囲設定</a>
+<br>
+
+<a href="rcon_filter.html">管理コンソールのフィルター設定</a>
+<br>
+
+<a href="rcon_preferences.html">管理コンソールの設定の変更</a>
+<br>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,363 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>连接池设置</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="Connection_pool_settings"></a>
+<h2>连接池设置</h2>
+
+<p>使用此页面配置连接池设置。</p>
+
+<p>该管理控制台页面对一系列资源类型是公共的；例如，JDBC 数据源和 JMS 队列连接工厂。
+要查看此页面，其路径取决于资源类型，但通常选择资源提供程序的实例，再选择资源类型实例，然后单击<strong>连接池</strong>。例如：单击<strong>资源</strong> &gt; <strong>JDBC
+提供程序</strong> &gt; <strong>JDBC_provider</strong> &gt; <strong>数据源</strong> &gt; <strong>data_source</strong> &gt; <strong>连接池</strong>。</p>
+
+<div>
+<p>
+<strong>&ldquo;配置&rdquo;选项卡</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="Connectionpool_detail_contextID"></a>作用域</strong>
+</dt>
+<dd>指定可看到此资源定义的级别 － 单元、节点或服务器级别。
+<p>资源（如 JDBC 提供程序、名称空间绑定或共享库）可以在多个作用域上定义，在较特定的作用域上定义的资源覆盖较一般作用域上定义的重复项。</p>
+
+<p>注意，无论定义的资源的作用域是什么，资源的属性仅在单个服务器级别上应用。例如，如果您在单元级别上定义数据源的作用域（它在该单元内是唯一的），则该单元中的所有用户都可以查找和使用该数据源。然而，资源属性设置对于单元中的每台服务器是本地的。例如，如果您定义<em>最大连接数</em>为 10，那么该单元中的每台服务器都可以有 10 个连接。<dl>
+<dt>
+<strong>单元</strong>
+</dt>
+<dd>最常规的作用域。在&ldquo;单元&rdquo;作用域上定义的资源对于所有节点和服务器都是可见的，除非它们被覆盖了。
+要查看单元作用域中定义的资源，不要在作用域选择表单中指定服务器或节点名。</dd>
+<dt>
+<strong>节点</strong>
+</dt>
+<dd>多数资源类型的缺省作用域。在&ldquo;节点&rdquo;作用域上定义的资源覆盖任何在&ldquo;单元&rdquo;作用域上定义的重复项，并且对于相同节点上的所有服务器都是可见的，除非它们在该节点上的服务器作用域中被覆盖了。要查看节点作用域中定义的资源，不要指定服务器，但是要在作用域选择表单中选择节点名。</dd>
+<dt>
+<strong>服务器</strong>
+</dt>
+<dd>定义资源的最特定作用域。在&ldquo;服务器&rdquo;作用域上定义的资源覆盖任何在&ldquo;单元&rdquo;作用域或父&ldquo;节点&rdquo;作用域上定义的重复资源定义，并且它们仅对于特定服务器是可见的。要查看服务器作用域中定义的资源，在作用域选择表单中指定服务器名和节点名。
+</dd>
+</dl>
+</p>
+
+<p>当创建资源时，它们总是创建到面板中所选的当前作用域中。要在其它作用域中查看作用域，在作用域选择表单中指定不同的节点或服务器。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ConnectionPool_connectionTimeout_displayName"></a>连接超时 </strong>
+</dt>
+<dd>指定间隔（以秒为单位），这个间隔时间过后连接请求超时并抛出 ConnectionWaitTimeoutException。
+<p> 达到连接特定连接池的最大值（<em>最大连接数</em>）时，等待是必需的。例如，如果<em>连接超时</em>设置为 300 并且
+达到了最大连接数，则池管理器为可用的物理连接等待 300 秒。如果物理连接在此时间内<em>不是</em>可用的，则池管理器抛出 ConnectionWaitTimeoutException。它通常不会重试 <em>getConnection()</em> 方法，因为如果必需更长的等待时间，您应该设置<em>连接超时</em>设置为更高的值。因此，如果应用程序捕捉了此异常，那么管理员应该复查应用程序的期待用法，并相应地调整连接池和数据库。</p>
+
+<p>如果连接超时设置为 0，则只要必需，池管理器就会等待直到分配一个连接为止（这在
+连接数下降到<em>最大连接数</em>值以下时发生）。</p>
+
+<p>如果最大连接数设置为 0，其允许无限多个物理连接数，则将忽略连接超时值。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">整型</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">单位</td>
+<td align="left" valign="top" class="base">秒</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">180</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">范围</td>
+<td align="left" valign="top" class="base">0 到最大整数</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ConnectionPool_maxConnections_displayName"></a>最大连接数</strong>
+</dt>
+<dd>指定您可以在此池中创建的最大物理连接数。
+<p>这些是到后端资源的物理连接。一旦达到此数，便不再创建新的物理连接，并且请求者会等待直到当前使用的物理连接返回池或抛出 ConnectionWaitTimeoutException。</p>
+
+<p>例如，如果最大连接值设置为 5，并已使用了 5 个物理连接，则池管理器等待连接超时中指定的时间，直至物理连接为空闲。</p>
+
+<p>如果最大连接数设置为 0，则忽略连接超时值。</p>
+
+<p>要获得更好的性能，将连接池的值设置为小于 Web 容器中最大连接数的值选项。设置的越小（如 10-30 个连接），性能比高设置（如 100）更好。</p>
+
+<p>如果使用了克隆，为每个克隆存在一个数据池。配置数据库最大连接数时，了解数据池的个数很重要。</p>
+
+<p>您可以使用 Tivoli 性能查看器查找池中的最佳连接数。如果并发等待者的数目大于 0，但是 CPU 负载未接近 100%，考虑增加连接池大小。如果使用百分比的值一直低于正常工作负载，考虑减少池中的连接数。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">整型</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">10</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">范围</td>
+<td align="left" valign="top" class="base">0 到最大整数</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ConnectionPool_minConnections_displayName"></a>最小连接数</strong>
+</dt>
+<dd>指定要保持的最小物理连接数。
+<p>直到达到这个数以前，池维护线程不废弃物理连接。但是，不尝试使连接数达到这个数。如果设置了寿命超时的值，则不保持最小值。所有时效到期的连接都废弃。</p>
+
+<p>例如，如果最小连接数值设置为 3，并且已创建了一个物理连接，则未使用超时线程不废弃该连接。同样的原因，线程不自动创建达到最小连接数设置的两个其它物理连接。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">整型</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">1</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">范围</td>
+<td align="left" valign="top" class="base">0 到最大整数</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ConnectionPool_reapTime_displayName"></a>获得时间</strong>
+</dt>
+<dd>指定运行池维持线程之间的间隔（以秒为单位）。
+<p> 例如，如果&ldquo;获得时间&rdquo;设置为 60，则池维持线程每 60 秒运行一次。<em>获得时间</em>间隔影响<em>未使用超时</em>和<em>时效超时</em>设置的准确度。间隔越小，准确度越大。如果启用了池维持线程，则您应该将&ldquo;获得时间&rdquo;值设置为小于&ldquo;未使用超时&rdquo;和&ldquo;时效超时&rdquo;的值。当池维持线程运行时，它废弃所有保持未使用的连接（未使用时间长于&ldquo;未使用超时&rdquo;中指定的时间值），直到它到达<em>最小连接数</em>中指定的连接数。池维持线程还废弃所有活动时间长于&ldquo;时效超时&rdquo;中指定的时间值的连接。</p>
+
+<p> 获得时间间隔还影响性能。更短的间隔意味着池维持线程将更频繁的运行并降低性能。</p>
+
+<p>要禁用池维持线程，&ldquo;获得时间&rdquo;设置为 0，或&ldquo;未使用超时&rdquo;和&ldquo;时效超时&rdquo;都设置
+为 0。禁用池维持线程的建议方法是设置&ldquo;获得时间&rdquo;为 0，在这种情况下，将忽略&ldquo;未使用超时&rdquo;和&ldquo;时效超时&rdquo;。但是，如果&ldquo;未使用超时&rdquo;和&ldquo;时效超时&rdquo;都设置为 0，则池维持线程将运行，但是仅废弃由于非零超时值引起的超时的物理连接。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">整型</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">单位</td>
+<td align="left" valign="top" class="base">秒</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">180</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">范围</td>
+<td align="left" valign="top" class="base">0 到最大整数</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ConnectionPool_unusedTimeout_displayName"></a>未使用超时</strong>
+</dt>
+<dd>指定废弃未使用或空闲连接后的间隔，以秒为单位。
+<p> 为了优化性能，设置&ldquo;未使用超时&rdquo;值高于&ldquo;获得超时&rdquo;值。仅当未使用的当前连接数超过最小连接数设置时，才废弃未使用物理连接。例如，如果未使用超时
+设置为 120，并且启用池维持线程（获得时间不是 0），则将废弃两分钟没有使用的任何物理连接。注意，这个超时的准确度和性能都受到&ldquo;获得时间&rdquo;值的影响。请参阅&ldquo;获得时间&rdquo;以获取更多信息。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">整型</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">单位</td>
+<td align="left" valign="top" class="base">秒</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">1800</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">范围</td>
+<td align="left" valign="top" class="base">0 到最大整数</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ConnectionPool_agedTimeout_displayName"></a>时效超时</strong>
+</dt>
+<dd>指定废弃物理连接前的间隔（以秒为单位）。
+<p> 设置<em>时效超时</em>为 0 支持活动的物理连接不限定地保留在池中。为了优化性能，设置&ldquo;时效超时&rdquo;值高于&ldquo;获得超时&rdquo;值。例如，如果&ldquo;时效超时&rdquo;设置为 1200，并且&ldquo;获得时间&rdquo;不是 0，则从池中废弃已经存在 1200 秒（20 分钟）的所有物理连接。注意，这个超时的准确度和性能都受到&ldquo;获得时间&rdquo;值的影响。请参阅&ldquo;获得时间&rdquo;以获取更多信息。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">整型</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">单位</td>
+<td align="left" valign="top" class="base">秒</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">0</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">范围</td>
+<td align="left" valign="top" class="base">0 到最大整数</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ConnectionPool_purgePolicy_displayName"></a>清除策略</strong>
+</dt>
+<dd>  指定检测到<em>旧文件连接</em>或<em>致命连接错误</em>时指定如何清除连接。
+<p>有效值是 <strong>EntirePool</strong> 和 <strong>FailingConnectionOnly</strong>。JCA 数据源可以任选一个选项。WebSphere V4.0 数据源总是有 <strong>EntirePool</strong> 的清除策略。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省</td>
+<td align="left" valign="top" class="base">EntirePool</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">范围</td>
+<td align="left" valign="top" class="base">
+<dl>
+<dt>
+<strong>EntirePool</strong>
+</dt>
+<dd>池中所有连接被标记为旧的。立即关闭任何未使用的连接。关闭在使用的连接并在该连接上进行下一个操作期间抛出 <em>StaleConnectionException</em>。来自应用程序的后继 <em>getConnection</em> 请求导致打开到数据库的新连接。使用此清除策略时，可能会不必要地关闭池中不是旧文件连接的一些连接。然而，这种情况不太可能会发生。在多数情况下，EntirePool 的清除策略是最佳选项。</dd>
+<dt>
+<strong>FailingConnectionOnly</strong>
+</dt>
+<dd>仅关闭导致 <em>StaleConnectionException</em> 的连接。尽管此设置消除不必要地关闭有效连接的可能性时，但从应用程序角度，它使恢复更为复杂。因为仅关闭了当前失败连接，极有可能使应用程序的下一个 <em>getConnection</em> 请求从池中返回也是旧文件的连接，导致更多旧文件连接异常。</dd>
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>相关信息</strong>
+</p>
+<a href="rcon_buttons.html">管理控制台按钮</a>
+<br>
+
+<a href="rcon_pageusage.html">管理控制台页面功能</a>
+<br>
+
+</div>
+</body>
+</html>

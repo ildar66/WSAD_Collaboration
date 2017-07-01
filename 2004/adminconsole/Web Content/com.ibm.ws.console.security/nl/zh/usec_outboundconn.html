@@ -1,0 +1,119 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>公共安全互操作性传输出站设置</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecoutboundconn"></a>
+<h2>公共安全互操作性传输出站设置</h2>
+
+<p>使用此页面指定当为出站请求与下行服务器进行通信时此服务器使用的传输和安全套接字层（SSL）设置。</p>
+
+<p>要查看此管理控制台页面，单击<strong>安全性 &gt; 认证协议 &gt; CSI 出站传输</strong>。</p>
+
+<div>
+<p>
+<strong>&ldquo;配置&rdquo;选项卡</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="Transport_o_description"></a>传输</strong>
+</dt>
+<dd>指定客户机进程是否使用已连接传输的一台服务器连接到服务器。
+<p>您可选择使用 <strong>SSL</strong>、<strong>TCP/IP</strong> 或<strong>两者</strong>作为服务器支持的出站传输。如果指定 <strong>TCP/IP</strong>，服务器仅支持 TCP/IP 并且无法启动与下行服务器的 SSL 连接。如果您指定 <strong>SSL 支持的</strong>，则此服务器可以启动 TCP/IP 或 SSL 连接。如果您指定 <strong>SSL 必需的</strong>，则此服务器必须使用 SSL 启动与下行服务器的连接。当您确实指定 SSL 时，确定您要将哪个 SSL 配置设置集用于出站配置。此决策确定用于到下行服务器的出站连接的密钥文件和信任文件。例如，考虑下列情况：<dl>
+
+<dt>
+<strong>TCP/IP</strong>
+</dt>
+<dd>此服务器将仅打开与下行服务器的 TCP/IP 连接。</dd>
+
+<dt>
+<strong>SSL 支持的</strong>
+</dt>
+<dd>此服务器将打开与任何支持它们的下行服务器的 SSL 连接，以及与任何不支持它们的下行服务器的 TCP/IP 连接。</dd>
+
+<dt>
+<strong>SSL 必需的</strong>
+</dt>
+<dd>此服务器总是打开与下行服务器的 SSL 连接。</dd>
+
+</dl>
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省：</td>
+<td align="left" valign="top" class="base">SSL 支持的</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">范围：</td>
+<td align="left" valign="top" class="base">TCP/IP、SSL 必需的、SSL 支持的</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SSLSettings_ibm_o_description"></a>SSL 设置</strong>
+</dt>
+<dd>指定出站连接的预定义的 SSL 设置列表。这些设置在&ldquo;SSL 配置指令表&rdquo;面板中配置。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型：</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">缺省：</td>
+<td align="left" valign="top" class="base">DefaultSSLSettings</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">范围：</td>
+<td align="left" valign="top" class="base">在&ldquo;SSL 配置指令表&rdquo;面板中配置的任何 SSL 设置</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>相关信息</strong>
+</p>
+<a href="rcon_buttons.html">管理控制台按钮</a>
+<br>
+
+<a href="rcon_pageusage.html">管理控制台页面功能</a>
+<br>
+
+<a href="rcon_scope.html">管理控制台作用域设置</a>
+<br>
+
+<a href="rcon_filter.html">管理控制台过滤器设置</a>
+<br>
+
+<a href="rcon_preferences.html">管理控制台首选项设置</a>
+<br>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+   "http://dtdserver/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.hps.july.rts.auth.object" >
+    <class name="RTSRole" table="rts_roles" mutable="false">
+        <id name="id" column="roleid" type="integer" unsaved-value="0">
+            <generator class="native"/>
+        </id>
+        <property name="name" column="rolename" type="string"/>
+    </class>
+</hibernate-mapping>

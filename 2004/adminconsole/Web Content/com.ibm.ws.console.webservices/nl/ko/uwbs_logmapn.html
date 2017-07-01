@@ -1,0 +1,231 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>로그인 맵핑 구성 설정</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_logmapn"></a>
+<h2>
+<img alt="[릴리스 5.1 이상]" src="v51.gif" border="0">로그인 맵핑 구성 설정</h2>
+
+<p>이 페이지를 참조하여 수신 메시지 내 보안 토큰의 유효성을
+검증하는 데 사용되는 JAAS(Java Authentication and Authorization
+Service) 로그인 구성 설정을 지정하십시오. </p>
+
+<p>이 관리 콘솔 페이지를 보려면, 다음 단계를 완료하십시오. <ol>
+
+<li>
+<strong>서버 &gt; Application Servers &gt; </strong><em>server_name</em>을 클릭하십시오. </li>
+
+<li>추가 등록 정보 아래에서 <strong>웹 서비스: 웹 서비스 보안을 위한
+기본 바인딩 &gt; 로그인 맵핑 &gt; 새로 작성</strong>을 클릭하십시오. </li>
+
+</ol>
+</p>
+
+<dl>
+<dt>
+<strong><a name="sec_logmapauth"></a>인증 메소드</strong>
+</dt>
+<dd>인증 메소드를 지정합니다. 
+<p>어느 문자열이나 사용할 수 있지만, 문자열이 서비스 레벨 구성의 요소와
+일치해야 합니다. 다음 단어는 예약되어 있으며, 특별한 의미가 있습니다. <dl>
+
+<dt>
+<strong>BasicAuth</strong>
+</dt>
+<dd>사용자 이름 및 암호를 모두 사용합니다. </dd>
+<dt>
+<strong>IDAssertion</strong>
+</dt>
+<dd>사용자 이름만 사용하나 TrustedIDEvaluator를 사용하여 수신 중인 서버에 추가 신뢰가 설정되어야 합니다. </dd>
+<dt>
+<strong>Signature</strong>
+</dt>
+<dd>서명자의 식별 이름(DN)을 사용합니다. </dd>
+<dt>
+<strong>LTPA</strong>
+</dt>
+<dd>토큰의 유효성을 검증합니다. </dd>
+</dl>
+</p>
+
+</dd>
+<dt>
+<strong><a name="sec_jaas"></a>JAAS 구성 이름</strong>
+</dt>
+<dd>JAAS(Java Authentication and Authorization Service) 구성의
+이름을 지정합니다. 
+<p>관리 콘솔에서 <strong>보안
+&gt; JAAS 구성 &gt; 응용프로그램</strong>을 클릭하여 JAAS 구성을 지정하십시오. </p>
+
+</dd>
+<dt>
+<strong><a name="sec_class"></a>콜백 핸들러 팩토리 클래스 이름</strong>
+</dt>
+<dd>CallbackHandler 클래스의 팩토리 이름을 지정합니다. 
+<p>이 필드에는 <samp>com.ibm.wsspi.wssecurity.auth.callback.CallbackHandlerFactory</samp> 클래스를
+구현해야 합니다. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">기본값:</td>
+<td align="left" valign="top" class="base">com.ibm.wsspi.wssecurity.auth.callback.CallbackHandlerFactory</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="sec_tokenuri"></a>토큰 유형 URI</strong>
+</dt>
+<dd>승인된 보안 토큰의 유형을 선언하는 네임 스페이스 URI(Uniform Resource Identifier)를
+지정합니다. 
+<p>2진 보안 토큰이 승인되는 경우, 값은 요소의 ValueType
+속성을 선언합니다. ValueType 요소는 보안 토큰의 유형 및
+해당 네임 스페이스를 식별합니다. XML(eXtensible Markup Language) 토큰이 승인되는 경우,
+값은 XML 토큰의 맨 위 레벨 요소 이름을 선언합니다. </p>
+
+<p>
+<strong>인증 메소드</strong> 필드에 예약어가 이전에 지정되어 있는 경우,
+이 필드는 무시됩니다. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형:</td>
+<td align="left" valign="top" class="base">비 ASCII 문자를 제외하고 번호 부호(#), 퍼센트 부호 및 대괄호([ ])를 포함하는
+유니코드 문자. </td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="sec_tokenlname"></a>토큰 유형 로컬 이름</strong>
+</dt>
+<dd>보안 토큰 유형의 로컬 이름(예를 들어, X509v3)을 지정합니다. 
+<p>2진 보안 토큰이 승인되는 경우, 값은 요소의 ValueType
+속성을 선언합니다. ValueType 속성은 보안 토큰 및 해당 네임 스페이스를
+식별합니다. XML(eXtensible Markup Language) 토큰이 승인되는 경우,
+값은 XML 토큰의 맨 위 레벨 요소 이름을 선언합니다. </p>
+
+<p>
+<strong>인증 메소드</strong> 필드에 예약어가 이전에 지정되어 있는 경우,
+이 필드는 무시됩니다. </p>
+
+</dd>
+<dt>
+<strong><a name="sec_lognoncemaxage"></a>Nonce 최대 유효 기간</strong>
+            &nbsp;
+            <img alt="[릴리스 5.1 이상]" src="v51.gif" border="0"></dt>
+<dd>nonce 시간 소인이 만기되기까지의 시간을 지정합니다.
+Nonce는 무작위로 생성된 값입니다. 
+<p>
+<strong>Nonce 최대 유효 기간</strong> 필드에 최소 300초를 지정해야 합니다.
+그러나 최대값은 서버 레벨 또는 셀 레벨에서
+<strong>Nonce 캐시 제한시간</strong> 필드에 지정된 초 수를 초과할 수 없습니다.
+<strong>서버 &gt; Application Servers  &gt; </strong><em>server_name</em>을 클릭하여 서버 레벨에
+<strong>Nonce 최대 유효 기간</strong> 값을 지정할 수 있습니다. 추가 등록 정보 아래에서 <strong>웹 서비스: 웹 서비스 보안을 위한 기본 바인딩</strong>을
+클릭하십시오. <strong>보안 &gt; 웹 서비스 &gt; 등록 정보</strong>를 클릭하여 셀 레벨에
+<strong>Nonce 최대 유효 기간</strong> 값을 지정할 수 있습니다. </p>
+
+<p>
+<strong>중요:</strong> 이 패널의 <strong>Nonce 최대 유효 기간</strong> 필드는 선택적이며,
+BasicAuth 인증 메소드가 지정된 경우에만
+유효합니다. 다른 인증 메소드를 지정하고 이 필드에 값을 지정하려는 경우,
+<samp>Nonce is not supported for authentication methods other than BasicAuth.</samp>라는
+오류 메시지가
+표시되며 지정된 값을 제거해야 합니다. BasicAuth를 지정했으나 <strong>Nonce
+최대 유효 기간</strong> 필드에 값을 지정하지 않은 경우, 웹 서비스 보안 런타임은
+서버 레벨에서 <strong>Nonce 최대 유효 기간</strong> 값을 검색합니다. 서버 레벨에서 값이 발견되지 않은 경우,
+런타임은 세벨 레벨을 검색합니다.
+서버 레벨과 셀 레벨 모두에서 값이 발견되지 않은 경우, 기본값은 300초입니다.
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">기본값</td>
+<td align="left" valign="top" class="base">300초</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">범위</td>
+<td align="left" valign="top" class="base">300에서 <strong>Nonce 캐시 제한시간</strong>초까지</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="sec_lognonceclockskew"></a>Nonce Clock Skew</strong>
+            &nbsp;
+            <img alt="[릴리스 5.1 이상]" src="v51.gif" border="0"></dt>
+<dd>WebSphere
+Application Server가 메시지의 경과 시간을 점검할 때 고려할 Clock Skew 값을 지정합니다.
+Nonce는 무작위로 생성된 값입니다. 
+<p>
+<strong>Nonce Clock Skew</strong> 필드에 최소 300초를 지정해야 합니다.
+그러나 최대값은 로그인 맵핑 패널에서 <strong>Nonce 최대 유효 기간</strong> 필드에 지정한 초 수를 초과할 수 없습니다.
+</p>
+
+<p>
+<strong>중요:</strong> 이 패널의 <strong>Nonce Clock Skew</strong> 필드는 선택적이며,
+BasicAuth 인증 메소드가 지정된 경우에만
+유효합니다. 다른 인증 메소드를 지정하고 이 필드에 값을 지정하려는 경우,
+<samp>BasicAuth가 아닌 인증 메소드에는 Nonce가 지원되지
+않습니다.</samp>라는 오류 메시지가
+표시되며 지정된 값을 제거해야 합니다. BasicAuth를 지정했으나 <strong>Nonce
+Clock Skew</strong> 필드에 값을 지정하지 않은 경우, 웹 서비스 보안 런타임은
+서버 레벨에서 <strong>Nonce
+Clock Skew</strong> 값을 검색합니다. 서버 레벨에서 값이 발견되지 않은 경우,
+런타임은 세벨 레벨을 검색합니다.
+서버 레벨과 셀 레벨 모두에서 값이 발견되지 않은 경우, 기본값은 0초입니다.
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">기본값</td>
+<td align="left" valign="top" class="base">0초</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">범위</td>
+<td align="left" valign="top" class="base">0에서 <strong>Nonce 최대 유효 기간</strong>초까지</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>관련 정보</strong>
+</p>
+<a href="uwbs_logmap.html">로그인 맵핑 콜렉션</a>
+<br>
+
+<a href="uwbs_noncecellprop.html">Nonce 셀 레벨 등록 정보</a>
+<br>
+
+</div>
+</body>
+</html>

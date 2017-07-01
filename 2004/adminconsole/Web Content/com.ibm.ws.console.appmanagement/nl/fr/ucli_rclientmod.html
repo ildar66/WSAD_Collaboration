@@ -1,0 +1,106 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Param&egrave;tres d'assemblage de l'application client</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="ucli_rclientmod"></a>
+<h2>Param&egrave;tres d'assemblage de l'application client</h2>
+
+<p>Cette page permet de sp&eacute;cifier les propri&eacute;t&eacute;s
+d'assemblage des clients d'application J2EE.</p>
+<dl>
+<dt>
+<strong><a name="file_name"></a>Nom de fichier (requis, cha&icirc;ne)</strong>
+</dt>
+<dd>Sp&eacute;cifie le nom de fichier du module client d'application par rapport au niveau
+sup&eacute;rieur du fichier EAR.
+<p>S'il s'agit d'un module autonome, le nom de fichier est le chemin d'acc&egrave;s complet de l'archive.</p>
+
+</dd>
+<dt>
+<strong><a name="alternative_DD"></a>Alternative DD</strong>
+</dt>
+<dd>Indique le nom de fichier d'un autre descripteur de d&eacute;ploiement
+pouvant &ecirc;tre utilis&eacute; dans le fichier JAR du module &agrave; la place du
+descripteur d'origine.
+<p>Ce fichier est la version post&eacute;rieure &agrave; l'assemblage du fichier de
+descripteur de d&eacute;ploiement.
+Il est possible d'&eacute;diter le descripteur d'origine pour r&eacute;soudre les
+d&eacute;pendances et les informations de s&eacute;curit&eacute;. L'utilisation d'un autre descripteur vous permet de
+conserver intact le descripteur d'origine.
+La valeur de la propri&eacute;t&eacute; Alternative DD doit &ecirc;tre indiqu&eacute;e sous la forme
+du chemin complet d'acc&egrave;s au fichier de descripteur relativement
+au r&eacute;pertoire racine du module. Par convention, ce fichier se trouve dans le r&eacute;pertoire <samp>ALT-INF</samp>. Si cette propri&eacute;t&eacute; n'est pas sp&eacute;cifi&eacute;e, le
+fichier descripteur de d&eacute;ploiement est lu directement dans le
+fichier JAR du module.</p>
+
+</dd>
+<dt>
+<strong><a name="classpath"></a>Chemin d'acc&egrave;s aux classes</strong>
+</dt>
+<dd>Sp&eacute;cifie le chemin d'acc&egrave;s complet des classes contenant
+le code d&eacute;pendant qui ne figure pas dans le fichier JAR du
+client d'application. 
+<p>Indiquez des
+valeurs relatives au r&eacute;pertoire racine du fichier EAR, s&eacute;par&eacute;es par
+des espaces. Les valeurs absolues faisant r&eacute;f&eacute;rence &agrave; des fichiers ou
+des r&eacute;pertoires du disque dur sont ignor&eacute;es. Utilisez un point et une
+barre oblique (./) pour indiquer des classes absentes des fichiers JAR
+mais pr&eacute;sentes &agrave; la racine du fichier EAR. Prenons l'exemple
+d'arborescence ci-dessous, dans lequel le fichier monapp.ear contient un
+fichier JAR de client d'application nomm&eacute; <samp>client.jar</samp>. Les autres classes se
+trouvent dans <samp>class1.jar</samp> et <samp>class2.zip</samp>. La classe nomm&eacute;e
+xyz.class est absente du fichier JAR, mais se trouve bien &agrave;
+la racine du fichier EAR : <samp>myapp.ear/client.jar
+myapp.ear/class1.jar myapp.ear/class2.zip myapp.ear/xyz.class</samp>.  Sp&eacute;cifiez class1.jar class2.zip ./ comme valeur de la
+propri&eacute;t&eacute; Chemin d'acc&egrave;s aux classes. (Ne d&eacute;signez que le r&eacute;pertoire des
+fichiers
+<samp>.class</samp>).</p>
+
+</dd>
+<dt>
+<strong><a name="display_name"></a>Nom affich&eacute; (requis, cha&icirc;ne)</strong>
+</dt>
+<dd>Indique un nom abr&eacute;g&eacute; destin&eacute; &agrave; &ecirc;tre affich&eacute; par les interfaces graphiques.
+<p></p>
+
+</dd>
+<dt>
+<strong><a name="small_icon"></a>Petite ic&ocirc;ne</strong>
+</dt>
+<dd>Indique un fichier JPEG ou GIF contenant une image de petite
+taille (16x16 pixels).
+<p>L'image permet de repr&eacute;senter le client d'application sous forme d'ic&ocirc;ne
+dans une GUI.</p>
+
+</dd>
+<dt>
+<strong><a name="large_icon"></a>Grande ic&ocirc;ne</strong>
+</dt>
+<dd>Indique le fichier JPEG ou GIF contenant une image de grande taille (32x32 pixels). 
+<p>L'image permet de repr&eacute;senter le client d'application sous forme d'ic&ocirc;ne
+dans une GUI.</p>
+
+</dd>
+<dt>
+<strong><a name="description"></a>Description</strong>
+</dt>
+<dd>Contient un texte d&eacute;crivant le client d'application.
+<p></p>
+
+</dd>
+<dt>
+<strong><a name="main_class"></a>Classe main (requis, cha&icirc;ne)</strong>
+</dt>
+<dd>Sp&eacute;cifie le nom de chemin complet de la classe main de
+ce client d'application.
+<p></p>
+
+</dd>
+</dl>
+</body>
+</html>

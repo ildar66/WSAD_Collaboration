@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+<!--    <bean id="com.hps.april" class="com.hps.april.common.utils.context.AprilApplicationContextFactory" singleton="true" lazy-init="true">-->
+<!--		<property name="configLocations" ref="com.hps.april_configLocations"/>-->
+<!--	</bean>-->
+<!---->
+<!--	<bean id="com.hps.april_configLocations" class="com.hps.april.common.utils.context.AprilResourceLoader" singleton="true">-->
+<!--		<property name="resourceLocations">-->
+<!--			<value>classpath*:/META-INF/ctx-april-*.xml</value>-->
+<!--		</property>-->
+<!--	</bean>	-->
+
+   <bean id="com.hps.april" class="com.hps.april.common.utils.context.AprilApplicationContextFactory" lazy-init="true">
+		<property name="configLocations">
+			<list>
+     			<value>/META-INF/ctx-april-common-database.xml</value>
+	     		<value>/META-INF/ctx-april-common-interceptors.xml</value>
+	     		<value>/META-INF/ctx-april-auth-dao.xml</value>
+	     		<value>/META-INF/ctx-april-auth-service.xml</value>
+
+				<value>/META-INF/ctx-april-permits-equipments-dao.xml</value>
+				<value>/META-INF/ctx-april-permits-equipments-service.xml</value>
+
+				<value>/META-INF/ctx-april-permits-missingEquipments-dao.xml</value>
+				<value>/META-INF/ctx-april-permits-missingEquipments-service.xml</value>
+
+				<value>/META-INF/ctx-april-permits-dao.xml</value>
+				<value>/META-INF/ctx-april-permits-service.xml</value>
+
+			</list>
+		</property>
+   	</bean>
+
+
+<!--    <bean id="com.hps.april" lazy-init="true"-->
+<!--    	class="org.springframework.context.support.ClassPathXmlApplicationContext">-->
+<!--     	<constructor-arg>-->
+<!--     		<list>-->
+<!--     			<value>/META-INF/ctx-april-common-database.xml</value>-->
+<!--	     		<value>/META-INF/ctx-april-common-interceptors.xml</value>-->
+<!--	     		<value>/META-INF/ctx-april-auth-dao.xml</value>-->
+<!--	     		<value>/META-INF/ctx-april-auth-service.xml</value>-->
+<!--				<value>/META-INF/ctx-april-*.xml</value>-->
+<!--			</list>-->
+<!--		</constructor-arg>-->
+<!--   	</bean>-->
+
+
+</beans>

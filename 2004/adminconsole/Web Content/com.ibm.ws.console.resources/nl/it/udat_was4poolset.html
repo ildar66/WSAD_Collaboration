@@ -1,0 +1,397 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Impostazioni del lotto connessioni (Versione 4)</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="Connection_poolV4_settings"></a>
+<h2>Impostazioni del lotto connessioni (Versione 4)</h2>
+
+<p>Utilizzare questa pagina per creare un lotto connessioni per un'origine dati
+della Versione 4.0.</p>
+
+<p>Per visualizzare questa pagina della console di gestione, fare clic su <strong>Risorse</strong>
+&gt; <strong>Provider JDBC</strong> &gt; <em>provider_JDBC</em> &gt; <strong>Origini dati (Versione 4)</strong>
+&gt; <em>origine_dati</em> &gt; <strong>Lotto connessioni</strong>.</p>
+
+<div>
+<p>
+<strong>Scheda Configurazione</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="WAS40ConnectionPool_detail_contextID"></a>Ambito</strong>
+</dt>
+<dd>Specifica il livello in cui &egrave; visibile questa definizione di risorsa -- il
+livello cella, nodo o server.
+<p>&Egrave; possibile definire in pi&ugrave; ambiti, risorse quali provider di JDBC, collegamenti
+spazio nome o librerie condivise, insieme a risorse definite in ambiti pi&ugrave; specifici che
+sovrascrivono i duplicati definiti in ambiti pi&ugrave; generali.</p>
+
+<p>Notare che non &egrave; importante l'ambito di una risorsa definita, le propriet&agrave; della
+risorsa si applicano solo ad un singolo livello del server. Ad esempio, se si definisce
+l'ambito di un'origine dati al livello Cella, tutti gli utenti possono ricercare e
+utilizzare quella origine dati che risulta univoca all'interno di quella cella. Tuttavia,
+le impostazioni delle propriet&agrave; di risorsa sono locali per ogni server
+all'interno della Cella. Ad esempio, se si imposta <em>numero massimo connessioni</em> su
+10, ogni server in quella cella pu&ograve; disporre di 10 connessioni.<dl>
+
+<dt>
+<strong>Cella</strong>
+</dt>
+<dd>L'ambito pi&ugrave; generale.  Le risorse definite nell'ambito cella sono
+visibili da tutti i nodi e i server, a meno che non siano state sovrascritte. Per visualizzare le risorse definite nell'ambito cella, non specificare il nome di un
+server o di un nodo nel modulo di selezione dell'ambito.</dd>
+
+<dt>
+<strong>Nodo</strong>
+</dt>
+<dd>L'ambito predefinito per la maggior parte dei tipi
+di risorse.  Le risorse definite nell'ambito nodo sovrascrivono
+gli eventuali duplicati definiti nell'ambito cella e sono
+visibili a tutti i server sullo stesso nodo, a meno che non siano
+state sovrascritte in un ambito server sul quel nodo. Per
+visualizzare le risorse definite in un ambito nodo, non specificare
+un server ma selezionare il nome di un nodo nel modulo di selezione
+dell'ambito.</dd>
+
+<dt>
+<strong>Server</strong>
+</dt>
+<dd>L'ambito pi&ugrave; specifico per la definizione delle
+risorse.  Le risorse definite nell'ambito server sovrascrivono eventuali
+definizioni di risorse duplicate specificate nell'ambito cella o
+nell'ambito nodo parent e sono visibili solo in un determinato server. Per
+visualizzare le risorse definite in un ambito server, specificare il
+nome di un server e il nome di un nodo nel modulo di selezione
+dell'ambito.</dd>
+
+</dl>
+</p>
+
+<p>Quando le risorse vengono generate, vengono sempre create nell'ambito corrente
+selezionato nel pannello.   Per visualizzare le
+risorse in altri ambiti, specificare un nodo o un server diverso nel
+modulo di selezione dell'ambito.  </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Stringa</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WAS40ConnectionPool_minimumPoolSize_description"></a>Dimensione minima lotto </strong>
+</dt>
+<dd>Specifica il numero minimo di connessioni da gestire nel lotto.  
+<p>La dimensione minima del lotto pu&ograve; influire sulle prestazioni di
+un'applicazione.  Lotti pi&ugrave; piccoli richiedono meno sovraccarico
+quando la domanda &egrave; minima, in quanto sono poche le connessioni al database
+che vengono tenute aperte.  Quando la domanda &egrave; elevata, la risposta
+alle prime applicazioni &egrave; lenta in quanto vengono create nuove connessioni se tutte le
+altre nel lotto sono utilizzate.  </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Numero intero</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">1</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo</td>
+<td align="left" valign="top" class="base">Qualsiasi numero intero non negativo.</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WAS40ConnectionPool_maximumPoolSize_description"></a>Dimensione massima lotto </strong>
+</dt>
+<dd>Specifica il numero massimo di connessioni da gestire nel lotto. 
+<p> Se viene
+raggiunto il numero massimo consentito di connessioni e se queste sono tutte in uso, le altre richieste rimarranno
+in  attesa fino a quando non verr&agrave; raggiunto il numero di secondi stabilito nel timeout di connessione. La dimensione massima del lotto pu&ograve; influire
+sulle prestazioni di un'applicazione.  Lotti pi&ugrave; grandi richiedono
+pi&ugrave; sovraccarico quando la domanda &egrave; elevata in quanto le
+connessioni al database aperte sono maggiori nella domanda di picco.
+ Queste connessioni persistono fino a quando non vengono disattivate al di
+fuori del lotto.  Se il valore massimo &egrave; minore, il tempo di
+attesa potrebbe essere pi&ugrave; lungo o potrebbero verificarsi errori di timeout
+di connessione durante le ore di massimo uso.  Assicurarsi che il database sia in grado
+di supportare il numero massimo di connessioni nel server delle applicazioni, oltre a
+qualsiasi carico esterno al server delle applicazioni.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Numero intero</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">10</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo</td>
+<td align="left" valign="top" class="base">Qualsiasi numero intero positivo</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WAS40ConnectionPool_connectionTimeout_description"></a>Timeout connessione </strong>
+</dt>
+<dd> Specifica il numero massimo di secondi che l'applicazione attende per una
+connessione dal lotto prima che il tempo scada e venga generata un'eccezione
+ConnectionWaitTimeoutException per l'applicazione.
+<p>L'impostazione di questo valore su 0 disabilita il timeout di
+connessione.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Numero intero</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&agrave;</td>
+<td align="left" valign="top" class="base">Secondi</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">180</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo</td>
+<td align="left" valign="top" class="base">Qualsiasi numero intero non negativo.</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WAS40ConnectionPool_idleTimeout_description"></a>Timeout di inattivit&agrave; </strong>
+</dt>
+<dd>Specifica il numero massimo di secondi in cui un collegamento inattivo (non
+assegnato) pu&ograve; rimanere nel lotto prima di essere rimosso per liberare risorse. 
+<p>Le connessioni devono essere disattivate ed eliminate dal lotto in quanto mantenere le
+connessioni al database aperte pu&ograve; causare problemi di memoria del database.  Tuttavia
+non tutte le connessioni vengono disattivate e rimosse dal
+lotto anche se sono scadute rispetto all'impostazione Timeout di inattivit&agrave;.
+ Una
+connessione non viene disattivata se la sua rimozione
+fa scendere il lotto al di sotto della dimensione minima.  L'impostazione
+di questo valore su 0 disabilita il timeout di inattivit&agrave;.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Numero intero</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&agrave;</td>
+<td align="left" valign="top" class="base">Secondi</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">1800</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo</td>
+<td align="left" valign="top" class="base">Qualsiasi numero intero non negativo.</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WAS40ConnectionPool_orphanTimeout_description"></a>Timeout per mancato collegamento </strong>
+</dt>
+<dd>Specifica il numero massimo di secondi in cui un'applicazione pu&ograve; mantenere
+una connessione senza utilizzarla, prima che la connessione venga restituita al lotto. 
+<p>Se non viene eseguita alcuna attivit&agrave; su una connessione
+assegnata per un periodo pi&ugrave; lungo di quello dell'impostazione
+Timeout per mancato collegamento, la connessione viene contrassegnata per
+la disattivazione.  Trascorsi altri secondi di Timeout per mancato collegamento, se la
+connessione non viene utilizzata, viene restituita al lotto.  Se l'applicazione tenta di utilizzare di nuovo
+la connessione, viene generata un'eccezione StaleConnectionException.  Le connessioni elencate in una transazione non vengono marcate per la disattivazione.  L'impostazione di questo valore su 0 disabilita
+il timeout per mancato collegamento. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Numero intero</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&agrave;</td>
+<td align="left" valign="top" class="base">Secondi</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">1800</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo</td>
+<td align="left" valign="top" class="base">Qualsiasi numero intero non negativo.</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WAS40ConnectionPool_statementCacheSize_description"></a>Dimensione cache istruzioni </strong>
+</dt>
+<dd> Specifica il numero di istruzioni preparate memorizzate nella cache da
+mantenere per la connessione.
+<p>Per impostare la dimensione cache sul valore pi&ugrave; alto, evitando che vengano scaricate
+istruzioni dalla cache, seguire le operazioni seguenti: per ciascuna applicazione che
+utilizza quest'origine dati su un particolare server, aggiungere il numero di istruzioni
+univoche preparate (come determinato dalla stringa <em>sql</em>, e,
+contemporaneamente, dal tipo di scorrimento). Questo rappresenta il numero massimo di
+possibili istruzioni preparate che &egrave; possibile memorizzare nella cache su una connessione
+specificata durante il ciclo di vita del server. Se si imposta la dimensione della cache su
+questo valore, non ci saranno mai istruzioni eliminate dalla cache. Questa opzione
+fornisce prestazioni migliori. Tuttavia, a causa di potenziali limiti delle risorse ci&ograve; non &egrave; sempre possibile.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Numero intero</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">10</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo</td>
+<td align="left" valign="top" class="base">Qualsiasi numero intero non negativo.</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WAS40ConnectionPool_disableAutoConnectionCleanup_description"></a>Ripulitura automatica connessioni  </strong>
+</dt>
+<dd>Specifica se il software di gestione dei lotti di connessioni deve chiudere
+automaticamente le connessioni dall'origine dati al termine di una transazione. 
+<p> Il valore predefinito &egrave; <em>false</em> e indica che, quando una transazione viene
+completata, WebSphere Application Server chiude la connessione e la restituisce al lotto.  Qualsiasi uso
+della connessione in seguito al termine della transazione determina una
+StaleConnectionException, in quanto la connessione &egrave; stata chiusa e restituita al lotto.  Questo
+meccanismo assicura che le connessioni non vengono mantenute a tempo
+indeterminato dall'applicazione.  Se il valore &egrave; impostato su <em>true</em>, la connessione
+non viene restituita al lotto alla fine di una transazione.  In questo caso, l'applicazione deve restituire la
+connessione al lotto chiamando <em>close()</em>.  Se l'applicazione non
+chiude la connessione, il lotto potrebbe esaurire le connessioni disponibili per altre
+applicazioni.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo dati</td>
+<td align="left" valign="top" class="base">Casella di controllo</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Predefinito</td>
+<td align="left" valign="top" class="base">False (deseleziona)</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informazioni correlate</strong>
+</p>
+<a href="rcon_buttons.html">Pulsanti della console di gestione</a>
+<br>
+
+<a href="rcon_pageusage.html">Funzioni della pagina della console di gestione</a>
+<br>
+
+</div>
+</body>
+</html>

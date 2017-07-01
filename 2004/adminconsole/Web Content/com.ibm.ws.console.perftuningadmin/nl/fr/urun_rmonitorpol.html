@@ -1,0 +1,164 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Param&egrave;tres de r&egrave;gles de supervision</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="urun_rmonitorpol"></a>
+<h2>Param&egrave;tres de r&egrave;gles de supervision</h2>
+
+<p>Cette page permet d'afficher ou de modifier les param&egrave;tres
+qui contr&ocirc;lent la mani&egrave;re dont l'agent de noeud contr&ocirc;le et relance
+un processus.</p>
+
+<p>Pour afficher la page de la console d'administration, s&eacute;lectionnez
+<strong>Serveurs &gt; Serveurs d'applications &gt; </strong><em>nom_serveur</em><strong> &gt; D&eacute;finition des processus&gt;
+R&egrave;gles de supervision</strong>.</p>
+
+<div>
+<p>
+<strong>Onglet Configuration</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="MonitoringPolicy_maximumStartupAttempts_description"></a>Nombre maximal de tentatives de d&eacute;marrage</strong>
+</dt>
+<dd>Indique le nombre maximal de tentatives de d&eacute;marrage du
+serveur d'applications avant abandon.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Entier</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MonitoringPolicy_pingInterval_description"></a>Intervalle entre commandes ping</strong>
+</dt>
+<dd>Indique la fr&eacute;quence des tentatives de communication entre
+le processus parent, tel que l'agent de noeud, et le processus qu'il
+a g&eacute;n&eacute;r&eacute;, tel qu'un serveur d'applications.
+ Augmentez ou diminuez cette valeur en fonction des imp&eacute;ratifs de
+red&eacute;marrage des serveurs en &eacute;chec. Une valeur plus faible entra&icirc;ne
+une d&eacute;tection pr&eacute;coce des &eacute;checs, tandis qu'une valeur plus &eacute;lev&eacute;e
+entra&icirc;ne une r&eacute;duction de la fr&eacute;quence de lancement des commandes ping
+et donc du temps syst&egrave;me utilis&eacute; pour cette d&eacute;tection.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Entier</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MonitoringPolicy_pingTimeout_description"></a>D&eacute;lai d'expiration de la commande ping</strong>
+</dt>
+<dd>Lorsqu'un processus parent (par exemple, un gestionnaire
+de processus) engendre un processus enfant (par exemple, un serveur),
+le processus parent sonde le processus enfant en lui envoyant une
+commande ping pour d&eacute;terminer s'il a &eacute;t&eacute; g&eacute;n&eacute;r&eacute; avec succ&egrave;s. Ce param&egrave;tre sp&eacute;cifie, en secondes, le d&eacute;lai au terme duquel le
+processus parent consid&egrave;re que le processus enfant a &eacute;chou&eacute; s'il
+n'obtient pas de r&eacute;ponse.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Entier</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Unit&eacute;</td>
+<td align="left" valign="top" class="base">Seconde</td>
+
+</tr>
+
+</table>
+</dd>
+<dt>
+<strong><a name="MonitoringPolicy_autoRestart_description"></a>Red&eacute;marrage automatique</strong>
+</dt>
+<dd>Indique si le processus doit red&eacute;marrer automatiquement en cas d'&eacute;chec. 
+ Par d&eacute;faut, le processus red&eacute;marre automatiquement.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Bool&eacute;en</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">true</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MonitoringPolicy_nodeRestartState_description"></a>Etat de red&eacute;marrage du noeud</strong>
+</dt>
+<dd>Indique l'&eacute;tat du processus apr&egrave;s l'arr&ecirc;t et le
+red&eacute;marrage du noeud. Les options possibles sont : <em>ARRETE</em>, <em>EN COURS D'EXECUTION</em>, <em>PRECEDENT</em>.
+ La valeur par d&eacute;faut est <em>ARRETE</em>.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">ARRETE</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Plage de valeurs</td>
+<td align="left" valign="top" class="base">Les valeurs valides sont ARRETE, EN COURS D'EXECUTION et
+PRECEDENT.</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informations connexes</strong>
+</p>
+<a href="rcon_buttons.html">Boutons de la console administrative</a>
+<br>
+
+<a href="rcon_pageusage.html">Caract&eacute;ristiques de la page de la console d'administration</a>
+<br>
+
+</div>
+</body>
+</html>

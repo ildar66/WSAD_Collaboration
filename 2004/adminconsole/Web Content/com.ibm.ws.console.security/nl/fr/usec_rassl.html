@@ -1,0 +1,176 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Param&egrave;tres SSL (Secure Sockets Layer) pour les propri&eacute;t&eacute;s
+personnalis&eacute;es</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecrassl"></a>
+<h2>Param&egrave;tres SSL (Secure Sockets Layer) pour les propri&eacute;t&eacute;s
+personnalis&eacute;es</h2>
+
+<p>Cette page permet de configurer des param&egrave;tres SSL (Secure
+Sockets Layer) pour un alias d&eacute;fini.</p>
+
+<p>Pour afficher cette page de la console d'administration, cliquez sur <strong>S&eacute;curit&eacute;</strong> &gt; <strong>SSL</strong> &gt; <em>nom_alias</em> &gt; <strong>Propri&eacute;t&eacute;s personnalis&eacute;es</strong>.</p>
+
+<div>
+<p>
+<strong>Onglet Configuration</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="field_name"></a>Propri&eacute;t&eacute;s personnalis&eacute;es </strong>
+</dt>
+<dd>Indique les paires nom-valeur pouvant &ecirc;tre utilis&eacute;s pour
+configurer des param&egrave;tres SSL suppl&eacute;mentaires qui s'ajoutent &agrave;
+celles d&eacute;j&agrave; disponibles dans l'interface d'administration <samp>com.ibm.ssl.protocol</samp>. 
+<p>Il s'agit du protocole SSL employ&eacute; (incluant sa version). Les valeurs admises sont SSL, SSLv2, SSLv3, TLS ou TLSv1. La valeur par d&eacute;faut, SSL, est compatible avec les autres protocoles
+SSL.</p>
+
+<dl>
+
+<dt>
+<strong>com.ibm.ssl.keyStoreProvider</strong>
+</dt>
+<dd>nom du fournisseur du
+magasin de cl&eacute;s &agrave; utiliser. S&eacute;lectionnez un des fournisseurs de
+s&eacute;curit&eacute; r&eacute;pertori&eacute;s dans le fichier <samp>java.security</samp>, qui
+impl&eacute;mente un magasin de cl&eacute;s. La valeur pas d&eacute;faut est IBMJCE.</dd>
+
+<dt>
+<strong>com.ibm.ssl.keyManager</strong>
+</dt>
+<dd>nom de l'algorithme de
+gestion de cl&eacute;s &agrave; utiliser. S&eacute;lectionnez un des algorithmes de gestion
+impl&eacute;ment&eacute;s par un des fournisseurs de s&eacute;curit&eacute; indiqu&eacute;s dans le fichier <samp>java.security</samp>. La valeur pas d&eacute;faut est IbmX509.  </dd>
+
+<dt>
+<strong>com.ibm.ssl.trustStoreProvider</strong>
+</dt>
+<dd>nom du fournisseur
+de magasin s&eacute;curis&eacute; &agrave; utiliser. S&eacute;lectionnez un des fournisseurs de
+s&eacute;curit&eacute; indiqu&eacute;s dans le fichier <samp>java.security</samp>, qui dispose
+d'une impl&eacute;mentation de magasin de cl&eacute;s. La valeur pas d&eacute;faut est IBMJCE. </dd>
+
+<dt>
+<strong>com.ibm.ssl.trustManager</strong>
+</dt>
+<dd>nom de l'algorithme de
+gestion s&eacute;curis&eacute;e &agrave; utiliser. S&eacute;lectionnez un des algorithmes de
+gestion s&eacute;curis&eacute;s impl&eacute;ment&eacute;s par un des fournisseurs de s&eacute;curit&eacute;
+indiqu&eacute;s dans le fichier <samp>java.security</samp>. La valeur pas d&eacute;faut est IbmX509.  </dd>
+
+<dt>
+<strong>com.ibm.ssl.trustStoreType</strong>
+</dt>
+<dd>Type ou format du fichier de
+magasin s&eacute;curis&eacute;. Les
+valeurs admises sont JKS, PKCS12 et JCEK. La
+valeur pas d&eacute;faut est JKS.</dd>
+
+<dt>
+<strong>com.ibm.ssl.enabledCipherSuites</strong>
+</dt>
+<dd>liste d'algorithmes
+de cryptographie &agrave; activer.
+Par d&eacute;faut, cet &eacute;l&eacute;ment n'est pas d&eacute;fini et l'ensemble des algorithmes de
+cryptographie sont d&eacute;termin&eacute;es par la valeur du niveau de s&eacute;curit&eacute;
+(Elev&eacute;e, Moyenne ou Faible). Un algorithme de
+cryptographie est une combinaison d'algorithmes utilis&eacute;e pour une
+connexion SSL. Entrez une liste, en s&eacute;parant chaque entr&eacute;e par une virgule, des
+algorithmes de cryptographie suivants : <ul>
+
+<li>SSL_RSA_WITH_RC4_128_MD5 </li>
+
+<li>SSL_RSA_WITH_RC4_128_SHA </li>
+
+<li>SSL_RSA_WITH_DES_CBC_SHA </li>
+
+<li>SSL_RSA_WITH_3DES_EDE_CBC_SHA </li>
+
+<li>SSL_DHE_RSA_WITH_DES_CBC_SHA</li>
+
+<li>SSL_DHE_RSA_WITH_3DES_EDE_CBC_SHA </li>
+
+<li>SSL_DHE_DSS_WITH_DES_CBC_SHA </li>
+
+<li>SSL_DHE_DSS_WITH_3DES_EDE_CBC_SHA </li>
+
+<li>SSL_RSA_EXPORT_WITH_RC4_40_MD5 </li>
+
+<li>SSL_RSA_EXPORT_WITH_DES40_CBC_SHA </li>
+
+<li>SSL_RSA_EXPORT_WITH_RC2_CBC_40_MD5</li>
+
+<li>SSL_DHE_RSA_EXPORT_WITH_DES40_CBC_SHA </li>
+
+<li>SSL_DHE_DSS_EXPORT_WITH_DES40_CBC_SHA </li>
+
+<li>SSL_RSA_WITH_NULL_MD5 </li>
+
+<li>SSL_RSA_WITH_NULL_SHA </li>
+
+<li>SSL_DH_anon_WITH_RC4_128_MD5</li>
+
+<li>SSL_DH_anon_WITH_DES_CBC_SHA </li>
+
+<li>SSL_DH_anon_WITH_3DES_EDE_CBC_SHA </li>
+
+<li>SSL_DH_anon_EXPORT_WITH_RC4_40_MD5 </li>
+
+<li>SSL_DH_anon_EXPORT_WITH_DES40_CBC_SHA</li>
+
+</ul>
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es :</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+</table>
+</dd>
+
+</dl>
+
+</dd>
+<dt>
+<strong><a name="SecureSocketLayer_cryptoHardware_description"></a>Jeton de chiffrement</strong>
+</dt>
+<dd>Informations sur les jetons de chiffrement utilis&eacute;s pour
+le support SSL.
+<p>Un jeton de chiffrement est un dispositif mat&eacute;riel ou logiciel qui dispose d'une impl&eacute;mentation de stockage de cl&eacute; int&eacute;gr&eacute;e. Reportez-vous
+aux valeurs exactes des zones suivantes dans la documentation de
+votre dispositif de chiffrement.</p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informations connexes</strong>
+</p>
+<a href="rcon_buttons.html">Boutons de la console administrative</a>
+<br>
+
+<a href="rcon_pageusage.html">Caract&eacute;ristiques de la page de la console d'administration</a>
+<br>
+
+<a href="rcon_scope.html">Param&egrave;tres de la port&eacute;e de la console administrative</a>
+<br>
+
+<a href="rcon_filter.html">Param&egrave;tres de filtrage de la console administrative</a>
+<br>
+
+<a href="rcon_preferences.html">Param&egrave;tres des pr&eacute;f&eacute;rences de la console administrative</a>
+<br>
+
+</div>
+</body>
+</html>

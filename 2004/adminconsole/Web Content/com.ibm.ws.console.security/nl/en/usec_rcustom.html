@@ -1,0 +1,150 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Custom user registry settings</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecrcustom"></a>
+<h2>Custom user registry settings</h2>
+
+<p>Use this page to configure the custom user registry.</p>
+
+<p>To view this administrative console page, click <strong>Security</strong> &gt; <strong>User
+Registries</strong> &gt; <strong>Custom</strong>.</p>
+
+<p>Once the properties are set in this panel, click <strong>Apply</strong>. Use the <strong>Properties</strong> panel
+for additional properties that the custom registry requires. When security
+is enabled and any of these properties change, go to the <strong>Global Security</strong> panel
+and click <strong>Apply</strong> to validate the changes. </p>
+
+<div>
+<p>
+<strong>Configuration tab</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="UserRegistry_serverId_description"></a>Server User ID</strong>
+</dt>
+<dd>Specifies the user ID under which the server runs, for security
+purposes. 
+<p>This server ID represents a valid user in the custom registry.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type:</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="UserRegistry_serverPassword_description"></a>Server User Password </strong>
+</dt>
+<dd>Specifies the password corresponding to the security server ID.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type:</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="CustomUserRegistry_customRegistryClassName_description"></a>Custom Registry Classname </strong>
+</dt>
+<dd>Specifies a dot-separated class name that implements the <samp>com.ibm.websphere.security.UserRegistry
+interface</samp>.
+<p>Put the custom registry class name in the class path. A suggested location
+is the <samp>%install_root%/lib/ext</samp> directory. Although the
+custom registry implements the <samp>com.ibm.websphere.security.UserRegistry</samp> interface,
+for backward compatibility, a user registry can alternately implement the <samp>com.ibm.websphere.security.CustomRegistry</samp> interface.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type:</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default:</td>
+<td align="left" valign="top" class="base">com.ibm.websphere.security.FileRegistrySample</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="CustomUserRegistry_ignoreCase_description"></a>Ignore Case</strong>
+</dt>
+<dd>Specifies that a case insensitive authorization check is performed.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default:</td>
+<td align="left" valign="top" class="base">Enabled</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range:</td>
+<td align="left" valign="top" class="base">Enabled or Disabled</td>
+
+</tr>
+
+</table>
+
+<div>Use the <strong>Custom Properties</strong> link to add any additional properties
+required to initialize the custom registry. The following property is pre-defined
+by the product; set this property only when required: <ul>
+
+<li>WAS_UseDisplayName--When set to <samp>true</samp>, the methods getCallerPrincipal(),
+getUserPrincipal(), getRemoteUser() return the display name. By default, the <samp>securityName</samp> of
+the user is returned. This is primarily introduced to support backward compatibility
+with the Version 4.0 custom registry.</li>
+
+</ul>
+</div>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Related information</strong>
+</p>
+<a href="rcon_buttons.html">Administrative console buttons</a>
+<br>
+
+<a href="rcon_pageusage.html">Administrative console page features</a>
+<br>
+
+<a href="rcon_scope.html">Administrative console scope settings</a>
+<br>
+
+<a href="rcon_filter.html">Administrative console filter settings</a>
+<br>
+
+<a href="rcon_preferences.html">Administrative console preference settings</a>
+<br>
+
+</div>
+</body>
+</html>

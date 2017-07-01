@@ -1,0 +1,177 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>資源配接器設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="manage_resource_adapter"></a>
+<h2>資源配接器設定</h2>
+
+<p>請利用這個頁面來指定「資源配接器」的設定。</p>
+
+<p>這個資源配接器可由 IBM 以外的協力廠商提供。
+通常，單一資源配接器只能連接到一個類型的後端系統 (EIS)，但它可以支援該 EIS 的許多不同的連線配置。資源配接器有許多配置內容定義在 J2C 規格中，由提供程式碼的供應商來設定。
+</p>
+
+<p>如果要檢視這個管理主控台頁面，請按一下<strong>資源</strong> &gt; <strong>資源配接器</strong> &gt; <em>resource_adapter</em>。</p>
+
+<div>
+<p>
+<strong>「配置」標籤</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="J2CResourceAdapter_detail_contextID"></a>範圍</strong>
+</dt>
+<dd>指定這個資源定義的層次是可見的 -- Cell、節點或伺服器層次。
+
+<p>WebSphere 5.0 容許如「JDBC 提供者」、「名稱空間連結」或「共用程式庫」的資源在多個範圍中，因為定義在特定範圍的資源會置換定義在更一般範圍的重複者。<dl>
+
+<dt>
+<strong>Cell</strong>
+</dt>
+<dd>最一般的範圍。所有「節點」及伺服器都能看到 Cell 範圍中所定義的資源，除非它們已遭到置換。
+如果要檢視 Cell 範圍中所定義的資源，請不要在範圍選擇表單中指定伺服器或節點名稱。</dd>
+
+<dt>
+<strong>節點</strong>
+</dt>
+<dd>大部分資源類型的預設範圍。定義在「節點」範圍中的資源會置換任何定義在 Cell 範圍中的重複者，而且同一節點上的所有伺服器都能看到它們，除非它們在該節點上的伺服器範圍中遭到置換。如果要檢視節點範圍中所定義的資源，請不要指定伺服器，但在範圍選擇表單中選取一個節點名稱。</dd>
+
+<dt>
+<strong>伺服器</strong>
+</dt>
+<dd>定義資源的最特定範圍。
+定義在「伺服器」範圍的資源會置換任何定義在 Cell 範圍或「母節點」範圍的重複資源定義，而且僅特定伺服器能夠看到它們。如果要檢視定義在伺服器範圍中的資源，請在範圍選擇表單中指定伺服器名稱和節點名稱。</dd>
+
+</dl>
+</p>
+
+<p>當建立資源時，始終都會建立它們，並放入畫面中所選取的現行範圍。
+如果要檢視其他範圍中的資源，請在範圍選擇表單中指定不同的節點或伺服器。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2EEResourceProvider_name_description"></a>名稱
+</strong>
+</dt>
+<dd>指定資源提供者的名稱。
+<p>沒有空格的字串表示資源提供者的有意義文字 ID。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2EEResourceProvider_description_description"></a>說明
+</strong>
+</dt>
+<dd>指定資源 Factory 的文字說明。
+<p>用來說明資源 Factory 及其目的之自由形式字串。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2CResourceAdapter_archivePath_description"></a>保存檔路徑</strong>
+</dt>
+<dd>指定這個資源配接器的模組所在之 .RAR 檔的路徑。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2EEResourceProvider_classpath_description"></a>類別路徑</strong>
+</dt>
+<dd> 指定共同形成資源提供者類別位置的路徑或 JAR 檔名稱的清單。
+
+<p>這包括資源配接器所需的任何其他程式庫。
+資源配接器程式碼庫本身會自動新增到類別路徑中，但如果需要 .RAR 外的任何東西，您可以在這裡指定它。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2EEResourceProvider_nativepath_description"></a>原生路徑</strong>
+</dt>
+<dd>指定形成資源提供者原生程式庫之位置的路徑清單。
+
+<p>資源配接器程式碼庫本身會自動新增到類別路徑中，但如果需要 .RAR 外的任何東西，您可以在這裡指定它。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>相關資訊</strong>
+</p>
+<a href="rcon_buttons.html">管理主控台按鈕</a>
+<br>
+
+<a href="rcon_pageusage.html">管理主控台頁面特性</a>
+<br>
+
+</div>
+</body>
+</html>

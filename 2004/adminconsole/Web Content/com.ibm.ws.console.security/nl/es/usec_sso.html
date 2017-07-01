@@ -1,0 +1,152 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Valores de inicio de sesi&oacute;n &uacute;nico</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecsso"></a>
+<h2>Valores de inicio de sesi&oacute;n &uacute;nico</h2>
+
+<p>Utilice esta p&aacute;gina para establecer los valores de
+configuraci&oacute;n del inicio de sesi&oacute;n &uacute;nico (SSO).</p>
+
+<p>Para ver esta p&aacute;gina de la consola administrativa, pulse
+<strong>Seguridad</strong> &gt; <strong>Mecanismos de autenticaci&oacute;n</strong> &gt;
+<strong>LTPA</strong> &gt; <strong>Inicio de sesi&oacute;n &uacute;nico (SSO)</strong>.</p>
+
+<div>
+<p>
+<strong>Pesta&ntilde;a Configuraci&oacute;n</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="SingleSignon_requiresSSL_description"></a>Necesita SSL</strong>
+</dt>
+<dd>Especifica que el inicio de sesi&oacute;n &uacute;nico s&oacute;lo se habilita
+cuando las peticiones se realizan a trav&eacute;s de conexiones SSL HTTPS.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos:</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n:</td>
+<td align="left" valign="top" class="base">Inhabilitar</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango:</td>
+<td align="left" valign="top" class="base">Habilitar o Inhabilitar</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SingleSignon_domainName_description"></a>Nombre de dominio</strong>
+</dt>
+<dd>Especifica el nombre de dominio (por ejemplo, .ibm.com) para
+todos los sistemas principales de inicio de sesi&oacute;n &uacute;nico.
+<p>Si no se especifica ning&uacute;n valor, el navegador Web toma como valor por
+omisi&oacute;n el nombre de sistema principal en el que est&aacute; ejecut&aacute;ndose la
+aplicaci&oacute;n Web.  Esto limitar&aacute; la cookie HTTP (generado para fines SSO) solamente al sistema principal que lo ha originado. Limitar la cookie HTTP puede no ser aconsejable si hay
+m&aacute;s de un sistema principal que participe en el dominio SSO. Dejar vac&iacute;o el atributo de nombre de dominio s&oacute;lo es aconsejable si se est&aacute;n ejecutando varios sistemas principales virtuales con diferentes nombres de dominio en el mismo sistema principal f&iacute;sico. Dejar vac&iacute;o este campo permite que su navegador Web tome como valor por omisi&oacute;n el nombre de dominio de cada sistema principal virtual diferente.  Si no se especifica expl&iacute;citamente un nombre
+de dominio en este campo, entonces se utilizar&aacute; este valor para todos los
+sistemas principales virtuales y, de este modo, quedar&aacute;n limitados a un
+s&oacute;lo dominio, lo que en algunas situaciones no resulta recomendable.</p>
+
+<p>Si un dominio se especifica expl&iacute;citamente, todos los URL utilizados
+para acceder a los recursos Web protegidos contienen el nombre de sistema
+principal de DNS (Sistema de nombre de dominio) del servidor.
+Por ejemplo,
+una vez que se haya configurado la seguridad global para LTPA y se haya
+especificado un nombre de dominio SSO expl&iacute;citamente, se puede acceder a
+la consola administrativa mediante el siguiente URL:
+<strong>http://susistppal.austin.ibm.com:9090/admin</strong>, donde
+<em>susistppal.austin.ibm.com</em> se sustituye por el nombre de sistema
+principal de DNS del servidor.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos:</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SingleSignon_enabled_description"></a>Habilitado</strong>
+</dt>
+<dd>Especifica que la funci&oacute;n de inicio de sesi&oacute;n &uacute;nico est&aacute; habilitada.
+<p>Las aplicaciones Web que utilizan las p&aacute;ginas de inicio de sesi&oacute;n de
+estilo FormLogin de J2EE (como por ejemplo, la consola administrativa de
+WebSphere Application Server) requieren que el inicio de sesi&oacute;n &uacute;nico
+(SSO) est&eacute; habilitado. S&oacute;lo debe inhabilitar SSO para ciertas
+configuraciones avanzadas donde las cookies de tipo SSO LTPA no son
+necesarias.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos:</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n:</td>
+<td align="left" valign="top" class="base">Habilitado</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango:</td>
+<td align="left" valign="top" class="base">Habilitado o Inhabilitado</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informaci&oacute;n relacionada</strong>
+</p>
+<a href="rcon_buttons.html">Botones de la consola de administraci&oacute;n</a>
+<br>
+
+<a href="rcon_pageusage.html">Caracter&iacute;sticas de la p&aacute;gina de la consola administrativa</a>
+<br>
+
+<a href="rcon_scope.html">Valores de &aacute;mbito de la consola administrativa</a>
+<br>
+
+<a href="rcon_filter.html">Valores de filtro de la consola administrativa</a>
+<br>
+
+<a href="rcon_preferences.html">Valores de preferencias de la consola administrativa</a>
+<br>
+
+</div>
+</body>
+</html>

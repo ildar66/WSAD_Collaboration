@@ -1,0 +1,156 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Valores de configuraci&oacute;n del localizador de claves</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_keyln"></a>
+<h2>
+<img alt="[Fix Pack 5.0.2 y posterior]" src="v502.gif" border="0">Valores de configuraci&oacute;n del localizador de claves</h2>
+
+<p>Utilice esta p&aacute;gina para especificar los valores de los localizadores de claves</p>
+
+<p>Para ver esta p&aacute;gina de la consola administrativa, realice los pasos siguientes:<ol>
+
+<li>Pulse <strong>Servidores &gt; Servidores de aplicaciones &gt; </strong><em>nombre_servidor</em>.
+</li>
+
+<li>En Propiedades adicionales, pulse <strong>Servicios Web: Enlaces por omisi&oacute;n
+para Web Services Security &gt; Localizadores de claves &gt; Nuevo</strong>.</li>
+
+</ol>
+</p>
+
+<dl>
+<dt>
+<strong><a name="sec_keylname"></a>Nombre del localizador de claves   </strong>
+</dt>
+<dd>Especifica el nombre del localizador de claves.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="sec_keylclass"></a>Nombre de clase del localizador de claves </strong>
+</dt>
+<dd>Especifica el nombre de la implementaci&oacute;n de clases del
+localizador de claves.
+<p>WebSphere Application Server tiene las siguientes implementaciones de  clases de localizadores de claves por omisi&oacute;n:<dl>
+<dt>
+<strong>com.ibm.wsspi.wssecurity.config.WSldKeyStoreMapKeyLocator</strong>
+</dt>
+<dd>Esta clase la utiliza el remitente de la respuesta y correlaciona una identidad autenticada con una clave. Si se utiliza el cifrado, esta clase se utiliza para localizar una clave con la cifrar el mensaje de la respuesta. La clase com.ibm.wsspi.wssecurity.config.WSldKeyStoreMapKeyLocator permite
+correlacionar una identidad autenticada desde el credencial del proceso de
+invocaci&oacute;n de la hebra actual con una clave que se utiliza para cifrar el
+mensaje.
+Si hay una identidad autenticada en la hebra actual, la clase correlaciona
+el ID con el nombre correlacionado. Por ejemplo, el usuario1 se correlaciona con <samp>mappedName_1</samp>.
+De lo contrario, name="default". Cuando no se encuentra una clave
+coincidente, la identidad autenticada se correlaciona con la clave por
+omisi&oacute;n especificada en el archivo de enlace.</dd>
+<dt>
+<strong>com.ibm.wsspi.wssecurity.config.KeyStoreKeyLocator</strong>
+</dt>
+<dd>Esta clase
+la utiliza el receptor de la respuesta, el emisor de la petici&oacute;n y el
+receptor de la petici&oacute;n y correlaciona un nombre con un alias. El proceso de cifrado utiliza esta clase para obtener una clave con la que cifrar un
+mensaje y el proceso de signatura digital utiliza esta clase para obtener una clave con la que firmar un mensaje. La clase com.ibm.wsspi.wssecurity.config.KeyStoreKeyLocator correlaciona un nombre l&oacute;gico con un alias de clave en el archivo de almac&eacute;n de claves. Por ejemplo, la clave #105115176771 se correlaciona con <samp>CN=Alice,
+O=IBM, c=US</samp>.</dd>
+</dl>
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Tipo de datos</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valores por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">com.ibm.wsspi.wssecurity.config.KeyStoreKeyLocator</td>
+<td align="left" valign="top" class="base">com.ibm.wsspi.wssecurity.config.WSldKeyStoreMayKeyLocator</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="sec_keystpass"></a>Contrase&ntilde;a del almac&eacute;n de claves</strong>
+</dt>
+<dd>Especifica la contrase&ntilde;a que se utilizar para acceder al archivo de
+almac&eacute;n de claves.</dd>
+<dt>
+<strong><a name="sec_keystpath"></a>V&iacute;a de acceso del almac&eacute;n de claves</strong>
+</dt>
+<dd>Especifica la ubicaci&oacute;n del archivo de almac&eacute;n de claves.
+<p>Utilice ${USER_INSTALL_ROOT} ya que esta v&iacute;a de acceso se ampl&iacute;a hasta
+la v&iacute;a de acceso de WebSphere Application Server en la m&aacute;quina.</p>
+
+</dd>
+<dt>
+<strong><a name="sec_keysttype"></a>Tipo de almac&eacute;n de claves</strong>
+</dt>
+<dd>Especifica el tipo del archivo de almac&eacute;n de claves.
+<p>El valor de este campo es <strong>JKS</strong> o <strong>JCEKS</strong>: <dl>
+
+<dt>
+<strong>JKS</strong>
+</dt>
+<dd>Utilice esta opci&oacute;n si no est&aacute; utilizando JCE (Java Cryptography Extensions).</dd>
+<dt>
+<strong>JCEKS</strong>
+</dt>
+<dd>Utilice esta opci&oacute;n si est&aacute; utilizando JCE (Java
+Cryptography Extensions).</dd>
+</dl>
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n</td>
+<td align="left" valign="top" class="base">JKS</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Rango</td>
+<td align="left" valign="top" class="base">JKS, JCEKS</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>Informaci&oacute;n relacionada</strong>
+</p>
+<a href="uwbs_keyl.html">Grupo de localizadores de claves</a>
+<br>
+
+<a href="uwbs_keylak.html">Grupo de claves</a>
+<br>
+
+</div>
+</body>
+</html>

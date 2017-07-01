@@ -1,0 +1,206 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>登入對映配置設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_logmapn"></a>
+<h2>
+<img alt="[5.1 版和更新版本]" src="v51.gif" border="0">登入對映配置設定</h2>
+
+<p>請利用這個頁面來指定用來驗證送入訊息內的安全記號的 Java 鑑別和授權服務 (JAAS) 登入配置設定。
+</p>
+
+<p>如果要檢視這個管理主控台頁面，請完成下列步驟：
+<ol>
+
+<li>按一下<strong>伺服器 &gt; 應用程式伺服器 &gt; </strong><em>server_name</em>。</li>
+
+<li>在「其他內容」之下，按一下 <strong>Web 服務：Web 服務安全的預設連結 &gt; 登入對映 &gt; 新的</strong>。</li>
+
+</ol>
+</p>
+
+<dl>
+<dt>
+<strong><a name="sec_logmapauth"></a>鑑別方法</strong>
+</dt>
+<dd>指定鑑別方法。
+<p>您可以使用任何字串，但字串必須符合服務層次配置中的元素。
+以下是保留字，它們有特殊意義：
+<dl>
+
+<dt>
+<strong>BasicAuth</strong>
+</dt>
+<dd>採用使用者名稱和密碼</dd>
+<dt>
+<strong>IDAssertion</strong>
+</dt>
+<dd>只用使用者名稱，但需要利用 TrustedIDEvaluator 在接收端伺服器建立其他信任關係</dd>
+<dt>
+<strong>Signature</strong>
+</dt>
+<dd>使用簽章者的識別名稱 (DN)。</dd>
+<dt>
+<strong>LTPA</strong>
+</dt>
+<dd>驗證記號</dd>
+</dl>
+</p>
+
+</dd>
+<dt>
+<strong><a name="sec_jaas"></a>JAAS 配置名稱</strong>
+</dt>
+<dd>指定 Java 鑑別和授權服務 (JAAS) 配置的名稱。
+
+<p>請利用管理主控台，按一下<strong>安全 &gt; JAAS 配置 &gt; 應用程式</strong>來指定您的 JAAS 配置。
+</p>
+
+</dd>
+<dt>
+<strong><a name="sec_class"></a>回呼處理常式 Factory 類別名稱</strong>
+</dt>
+<dd>指定 CallbackHandler 類別的 Factory 名稱。
+<p>您必須在這個欄位中實作 <samp>com.ibm.wsspi.wssecurity.auth.callback.CallbackHandlerFactory</samp> 類別。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值：</td>
+<td align="left" valign="top" class="base">com.ibm.wsspi.wssecurity.auth.callback.CallbackHandlerFactory</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="sec_tokenuri"></a>記號類型 URI</strong>
+</dt>
+<dd>指定表示接受的安全記號類型之名稱空間統一資源識別碼 (URI)。
+<p>如果接受二進位安全記號，這個值就表示元素中的 ValueType 屬性。ValueType 元素用來識別安全記號類型及其名稱空間。
+如果接受可延伸標記語言 (XML) 記號，這個值就表示 XML 記號的最上層元素名稱。</p>
+
+<p>如果先前在<strong>鑑別方法</strong>欄位中指定了保留字，就會忽略這個欄位。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型：</td>
+<td align="left" valign="top" class="base">除了非 ASCII 字元的 Unicode 字元，但包括井號 (#)、錢幣符號 (%) 和方括弧 ([ ])。</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="sec_tokenlname"></a>記號類型本端名稱</strong>
+</dt>
+<dd>指定安全記號類型的本端名稱，如 X509v3。
+<p>如果接受二進位安全記號，這個值就表示元素中的 ValueType 屬性。ValueType 屬性用來識別安全記號類型及其名稱空間。
+如果接受可延伸標記語言 (XML) 記號，這個值就表示 XML 記號的最上層元素名稱。</p>
+
+<p>如果先前在<strong>鑑別方法</strong>欄位中指定了保留字，就會忽略這個欄位。</p>
+
+</dd>
+<dt>
+<strong><a name="sec_lognoncemaxage"></a>Nonce 存在期間上限
+</strong>
+            &nbsp;
+            <img alt="[5.1 版和更新版本]" src="v51.gif" border="0"></dt>
+<dd>指定 Nonce 時間戳記到期之前的時間（秒）。Nonce 是隨機產生的值。
+
+<p>您必須在 <strong>Nonce 存在期間上限</strong>欄位中，指定至少 300 秒。
+不過，最大值不能超出伺服器層次或 Cell 層次的 <strong>Nonce 快取逾時值</strong>欄位所指定的秒數。
+您可以按一下<strong>伺服器 &gt; 應用程式伺服器 &gt; </strong><em>server_name</em> 來指定伺服器層次的 <strong>Nonce 存在期間上限</strong>值。
+在「其他內容」之下，按一下 <strong>Web 服務：Web 服務安全的預設連結</strong>。您可以按一下<strong>安全 &gt; Web 服務 &gt; 內容</strong>來指定 Cell 層次的 <strong>Nonce 存在期間上限</strong>值。
+</p>
+
+<p>
+<strong>重要事項：</strong>這個畫面的 <strong>Nonce 存在期間上限</strong>欄位是選用的，只有在指定了 BasicAuth 鑑別方法時才有效。如果您指定另一個鑑別方法，且試圖指定這個欄位的值，就會出現下列錯誤，您必須移除指定的值：
+<samp>不支援 BasicAuth 以外的鑑別方法使用 Nonce。</samp>
+如果您指定 BasicAuth，但沒有指定 <strong>Nonce 存在期間上限</strong>欄位的值，Web 服務安全執行時期會搜尋伺服器層次的 <strong>Nonce 存在期間上限</strong>值。
+如果找不到伺服器層次的值，執行時期會搜尋 Cell 層次。
+如果伺服器層次和 Cell 層次的值都找不到，預設值就是 300 秒。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">300 秒</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">300 至 <strong>Nonce 快取逾時值</strong>秒</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="sec_lognonceclockskew"></a>Nonce 計時器偏差
+</strong>
+            &nbsp;
+            <img alt="[5.1 版和更新版本]" src="v51.gif" border="0"></dt>
+<dd>指定 WebSphere Application Server 檢查訊息即時性時所要考量的計時器偏差值（秒）。Nonce 是隨機產生的值。
+
+<p>您必須在 <strong>Nonce 時鐘偏差</strong>欄位中，指定至少 0 秒。
+不過，最大值不能超出這個「登入對映」畫面的 <strong>Nonce 存在期間上限</strong>所指定的秒數。
+</p>
+
+<p>
+<strong>重要事項：</strong>這個畫面的 <strong>Nonce 時鐘偏差</strong>欄位是選用的，只有在指定了 BasicAuth 鑑別方法時才有效。如果您指定另一個鑑別方法，且試圖指定這個欄位的值，就會出現下列錯誤，您必須移除指定的值：
+<samp>不支援 BasicAuth 以外的鑑別方法使用 Nonce。</samp>
+如果您指定 BasicAuth，但沒有指定 <strong>Nonce 時鐘偏差</strong>欄位的值，Web 服務安全執行時期會搜尋伺服器層次的 <strong>Nonce 時鐘偏差</strong>值。
+如果找不到伺服器層次的值，執行時期會搜尋 Cell 層次。
+如果伺服器層次和 Cell 層次的值都找不到，預設值就是 0 秒。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">0 秒</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">0 至 <strong>Nonce 存在期間上限</strong>秒</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>相關資訊</strong>
+</p>
+<a href="uwbs_logmap.html">登入對映集合</a>
+<br>
+
+<a href="uwbs_noncecellprop.html">Nonce Cell 層次內容
+</a>
+<br>
+
+</div>
+</body>
+</html>

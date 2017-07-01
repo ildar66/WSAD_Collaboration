@@ -1,0 +1,156 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Benutzerdefinierte Einstellungen f&uuml;r Optimierungsparameter</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="tune_para_custom"></a>
+<h2>Benutzerdefinierte Einstellungen f&uuml;r Optimierungsparameter</h2>
+
+<p>Auf dieser Seite k&ouml;nnen Sie Optimierungsparameter f&uuml;r verteilte Sitzungen anpassen.</p>
+
+<p>Klicken Sie zum Anzeigen dieser Seite der Administrationskonsole auf
+<strong>Server</strong> &gt;
+<strong>Anwendungsserver</strong> &gt; <em>Servername</em> &gt; <strong>Webcontainer</strong> &gt; <strong>Sitzungsverwaltung</strong> &gt;
+<strong>Einstellungen f&uuml;r verteilte Umgebung</strong> &gt; <strong>Benutzerdefinierte Optimierungsparameter</strong> &gt;
+<strong>Benutzerdefinierte Einstellungen</strong>.</p>
+
+<div>
+<p>
+<strong>Register "Konfiguration"</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="TuningParams_writeFrequency_description"></a>Schreibfrequenz </strong>
+</dt>
+<dd>Legt fest, wann die Sitzung in den persistenten Speicher geschrieben wird.
+
+<p></p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Ende des Servlet-Service</td>
+<td align="left" valign="top" class="base">Eine Sitzung f&uuml;hrt einen Schreibzugriff auf eine Datenbank oder eine andere
+Instanz des WebSphere Application Server durch, nachdem das Servlet die Ausf&uuml;hrung abschlie&szlig;t. </td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Manuelle Aktualisierung</td>
+<td align="left" valign="top" class="base">Die Synchronisierung des IBMSession-Objekts durch das Programm ist erforderlich, um die
+Sitzungsdaten in die Datenbank oder eine andere Instanz des WebSphere Application Server zu schreiben. </td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Zeitgest&uuml;tzt</td>
+<td align="left" valign="top" class="base">Eine Sitzung f&uuml;hrt einen Schreibzugriff auf eine Datenbank oder eine andere Instanz des WebSphere
+Application Server auf der Basis des angegebenen Werts f&uuml;r das Schreibintervall durch. Standardwert: 10 Sekunden.</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="TuningParams_writeContents_description"></a>Inhalt des Schreibvorgangs </strong>
+</dt>
+<dd>Gibt an, ob nur die aktualisierten Attribute oder alle Sitzungsattribute in den
+externen Speicher geschrieben werden sollen, unabh&auml;ngig davon, ob sie ge&auml;ndert wurden. Das externe
+Verzeichnis kann eine Datenbank oder eine andere Anwendungsserverinstanz sein. 
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Nur aktualisierte Attribute</td>
+<td align="left" valign="top" class="base">Nur aktualisierte Attribute werden in den persistenten Speicher geschrieben.
+</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Alle Sitzungsattribute</td>
+<td align="left" valign="top" class="base">Alle Attribute werden in den persistenten Speicher geschrieben.
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="TuningParams_scheduleInvalidation_description"></a>Plan f&uuml;r die Bereinigung von Sitzungen erstellen </strong>
+</dt>
+<dd> Gibt an, wann die ung&uuml;ltigen Sitzungen aus einer Datenbank oder einer anderen
+Anwendungsserverinstanz gel&ouml;scht werden sollen. 
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Plan f&uuml;r die Bereinigung von verteilten Sitzungen erstellen</td>
+<td align="left" valign="top" class="base">Aktiviert den geplanten Bereinigungsprozess
+f&uuml;r das L&ouml;schen der invalidierten HTTP-Sitzungen aus dem externen
+Verzeichnis. Wenn Sie diese Option aktivieren,
+wird die Anzahl der Aktualisierungen einer Datenbank oder einer anderen
+Anwendungsserverinstanz, die erforderlich sind, um die HTTP-Sitzungen aufrechtzuerhalten, verringert.
+Wenn diese Option nicht aktiviert ist, wird im Abstand von wenigen Minuten ein Prozess ausgef&uuml;hrt, der
+invalidierte HTTP-Sitzungen entfernt.<p>Wenn diese Option aktiviert ist, gibt die Einstellung die beiden
+Stunden am Tag an, zu denen der Prozess die invalidierten Sitzungen aus dem externen
+Verzeichnis l&ouml;scht. Geben Sie die Zeiten an, zu denen die Aktivit&auml;t auf den Anwendungsservern am
+geringsten ist. Ein externes Verzeichnis kann eine Datenbank oder eine andere Anwendungsserverinstanz sein. </p>
+</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Erste Uhrzeit (0 - 23)</td>
+<td align="left" valign="top" class="base">Gibt die erste Stunde in Westeurop&auml;ischer Zeit
+an, in der die invalidierten Sitzungen aus dem externen Verzeichnis gel&ouml;scht werden.
+Dieser Wert muss eine positive ganze Zahl zwischen 0 und 23 sein. Dieser Wert ist nur g&uuml;ltig, wenn die Option
+"G&uuml;ltigkeitsdauer planen" aktiviert ist. </td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Zweite Uhrzeit (0 - 23)</td>
+<td align="left" valign="top" class="base">Gibt die zweite Stunde in Westeurop&auml;ischer Zeit an, in der die
+invalidierten Sitzungen aus dem externen Verzeichnis gel&ouml;scht werden.
+Dieser Wert muss eine positive ganze Zahl zwischen 0 und 23 sein. Dieser Wert ist nur g&uuml;ltig, wenn die Option
+"G&uuml;ltigkeitsdauer planen" aktiviert ist. </td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Zugeh&ouml;rige Informationen</strong>
+</p>
+<a href="rcon_buttons.html">Kn&ouml;pfe in der Adminstrationskonsole</a>
+<br>
+
+<a href="rcon_pageusage.html">Funktionen auf den Seiten der Administrationskonsole</a>
+<br>
+
+<a href="rcon_preferences.html">Vorgaben f&uuml;r die Administrationskonsole</a>
+<br>
+
+<a href="uprs_rtuning_parameters.html">Einstellungen f&uuml;r Optimierungsparameter </a>
+<br>
+
+</div>
+</body>
+</html>

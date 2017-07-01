@@ -1,0 +1,429 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>管理コンソールでのオブジェクト・リクエスト・ブローカー・サービス設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uorbsetg"></a>
+<h2>管理コンソールでのオブジェクト・リクエスト・ブローカー・サービス設定</h2>
+
+<p>このページを使用して、Java オブジェクト・リクエスト・ブローカー (ORB) サービスを構成します。</p>
+
+<p>この管理コンソール・ページを表示するには、「<strong>サーバー</strong>」<strong>&gt;</strong>「<strong>アプリケーション・サーバー</strong>」<strong>&gt;</strong>「<em>serverName</em>」<strong>&gt;</strong>「<strong>ORB サービス</strong>」をクリックします。</p>
+
+<p>内部オブジェクト・リクエスト・ブローカー (ORB) 処理を制御するために、いくつかの設定値が使用可能です。
+Enterprise Bean を含むアプリケーションの場合、これらの設定値を使用してアプリケーション・パフォーマンスを向上させます。
+デフォルト・サーバーまたは管理可能ドメイン内に構成されている任意のアプリケ
+ーション・サーバーについて、これらの設定値を変更することができます。</p>
+
+<div>
+<p>
+<strong>「構成」タブ</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="ObjectRequestBroker_requestTimeout_description"></a>要求タイムアウト</strong>
+            &nbsp;
+            </dt>
+<dd>要求メッセージについてタイムアウトとなるまでに待機する秒数を指定します。
+<p>コマンド行スクリプトで使用する場合、このシステム・プロパティーの完全名は com.ibm.CORBA.RequestTimeout です。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">整数</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">単位</td>
+<td align="left" valign="top" class="base">秒</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">180</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">0 から 300</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ObjectRequestBroker_requestRetriesCount_description"></a>Request retries count</strong>
+            &nbsp;
+            </dt>
+<dd>サーバーに障害が起こった場合、ORB が要求の送信を試みる回数を指定します。
+再試行によって、一時的なネットワーク障害からリカバリーできることもあります。
+
+<p>コマンド行スクリプトで使用する場合、このシステム・プロパティーの完全名は com.ibm.CORBA.requestRetriesCount です。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">整数</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">1</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">1 から 10</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ObjectRequestBroker_requestRetriesDelay_description"></a>Request retries delay</strong>
+            &nbsp;
+            </dt>
+<dd>要求を再試行してから、次に再試行するまでの間隔をミリ秒単位で指定します。
+
+<p>コマンド行スクリプトで使用する場合、このシステム・プロパティーの完全名は com.ibm.CORBA.requestRetriesDelay です。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">整数</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">単位</td>
+<td align="left" valign="top" class="base">ミリ秒</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">0</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">0 から 60</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ObjectRequestBroker_connectionCacheMaximum_description"></a>最大接続キャッシュ</strong>
+            &nbsp;
+            </dt>
+<dd>サービスの接続キャッシュを占有できる最大接続数を指定します。サーバー・サイドの ORB に接続する
+同時クライアントが多数ある場合は、重い負荷 (1000 クライアントまで) をサポートするように、このパラメーターを増やすことができます。
+
+<p>コマンド行スクリプトで使用する場合、このシステム・プロパティーの完全名は com.ibm.CORBA.MaxOpenConnections です。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">整数</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">単位</td>
+<td align="left" valign="top" class="base">接続数</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">240</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ObjectRequestBroker_connectionCacheMinimum_description"></a>最小接続キャッシュ</strong>
+            &nbsp;
+            </dt>
+<dd>サービスの接続キャッシュを占有できる最小接続数を指定します。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">整数</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">単位</td>
+<td align="left" valign="top" class="base">接続数</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">100</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ObjectRequestBroker_commTraceEnabled_description"></a>ORB トレース</strong>
+            &nbsp;
+            </dt>
+<dd>ORB GIOP メッセージのトレースを使用可能にします。
+<p>この設定は、2 つのシステム・プロパティー (com.ibm.CORBA.Debug と com.ibm.CORBA.CommTrace) に影響を与えます。
+コマンド行スクリプトを使用してこの 2 つのプロパティーを設定する場合は、
+どちらも「<samp>true</samp>」に設定して、GIOP メッセージのトレースを使用可能にしなければなりません。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ブール</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">使用不可 (<samp>false</samp>)</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ObjectRequestBroker_locateRequestTimeout_description"></a>要求タイムアウトの位置指定</strong>
+            &nbsp;
+            </dt>
+<dd>LocateRequest メッセージでタイムアウトになるまで待機する秒数を指定します。
+<p>コマンド行スクリプトで使用する場合、このシステム・プロパティーの完全名は com.ibm.CORBA.LocateRequestTimeout です。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">整数</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">単位</td>
+<td align="left" valign="top" class="base">秒</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">180</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">0 から 300</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ObjectRequestBroker_forceTunnel_description"></a>Force tunneling</strong>
+            &nbsp;
+            </dt>
+<dd>クライアント ORB が HTTP トンネリングの使用を試行する方法を制御します。
+<p>直接アクセスの場合、このプロパティーの完全名は com.ibm.CORBA.ForceTunnel です。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base"><samp>常になし</samp></td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">有効な値は「<samp>常に行う</samp>」、「<samp>常になし</samp>」、または「<samp>要求時</samp>」です。</td>
+
+</tr>
+
+</table>
+
+<p>以下は、有効な値についての追加情報です。<dl>
+
+<dt>
+<strong>常に行う</strong>
+</dt>
+<dd>即時に HTTP トンネリングを使用します。
+TCP 接続を最初に試行することはありません。</dd>
+
+<dt>
+<strong>常になし</strong>
+</dt>
+<dd>HTTP トンネリングを使用不可にします。
+TCP 接続が失敗した場合、CORBA システム例外 (COMM_FAILURE) がスローされます。</dd>
+
+<dt>
+<strong>要求時</strong>
+</dt>
+<dd>TCP 接続が失敗した場合に、HTTP トンネリングを使用します。</dd>
+
+</dl>
+</p>
+
+</dd>
+<dt>
+<strong><a name="ObjectRequestBroker_tunnelAgentURL_description"></a>トンネル・エージェント URL</strong>
+            &nbsp;
+            </dt>
+<dd>HTTP トンネリングをサポートするために使用されるサーブレットの URL を指定します。
+<p>これは、<samp>http://w3.mycorp.com:81/servlet/com.ibm.CORBA.services.IIOPTunnelServlet</samp> や、<samp>http://applethost:port/servlet/com.ibm.CORBA.services.IIOPTunnelServlet</samp> (アプレットの場合) というような、適切な形式の URL である必要があります。
+「<strong>HTTP トンネリング</strong>」が設定されている場合は、このフィールドは必須です。</p>
+
+<p>コマンド行スクリプトで使用する場合、このシステム・プロパティーの完全名は com.ibm.CORBA.TunnelAgentURL です。</p>
+
+</dd>
+<dt>
+<strong><a name="ObjectRequestBroker_noLocalCopies_description"></a>参照による受け渡し</strong>
+            &nbsp;
+            </dt>
+<dd>ORB がパラメーターを渡す方法を指定します。可能であれば、ORB は値によるパラメーターの代わりに参照によるパラメーターを渡します。これにより、オブジェクト・コピーが行われないようにします。
+参照による受け渡しが有効になっていない場合、各リモート・メソッド呼び出しに先立ってパラメーターがスタックにコピーされるため、コストがかかる可能性があります。
+
+<p>EJB クライアントと EJB サーバーが同じ WebSphere Application Server
+インスタンスにインストールされていて、かつ、
+クライアントとサーバーがリモート・インターフェースを使用している場合は、
+参照による受け渡しを使用可能にすると、パフォーマンスを最高 50% 向上させることができます。
+参照による受け渡しによってパフォーマンスが改善されるのは、非プリミティブ・オブジェクト・タイプが
+パラメーターとして渡される場合だけです。
+したがって、int および float は、呼び出しモデルに関係なく常にコピーされます。
+</p>
+
+<p>このプロパティーを使用可能にすると、予期しない振る舞いをする場合があるので、注意してください。
+リモート・メソッドによってオブジェクト参照が変更されると、呼び出し側が変更されることがあります。</p>
+
+<p>コマンド行スクリプトで使用する場合、このシステム・プロパティーの完全名は com.ibm.CORBA.iiop.noLocalCopies です。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ブール</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">使用不可 (false)</td>
+
+</tr>
+
+</table>
+
+<p>リモート・インターフェースで Enterprise Bean にこのオプションを使用すると、
+EJB 仕様バージョン 2.0 に違反することになります (セクション 5.4 を参照)。EJB メソッドまたは EJB ホーム・メソッドへ渡されるオブジェクト参照はコピーされず、破壊を受けやすくなる可能性があります。
+</p>
+
+<p>次の例を検討してみましょう。<pre>Iterator iterator = collection.iterator();
+MyPrimaryKey pk = new MyPrimaryKey();
+while (iterator.hasNext()) {
+   pk.id = (String) iterator.next();
+   MyEJB myEJB = myEJBHome.findByPrimaryKey(pk);
+}</pre>
+</p>
+
+<p>この例では、同じ MyPrimaryKey オブジェクトへの参照が、毎回異なる ID 値で WebSphere Application Server に渡されます。
+「参照による受け渡し」を<samp>使用可能</samp>にしてこのコードを実行すると
+、アプリケーション・サーバー内に問題が生じます。これは、複数の
+Enterprise Bean が同じ MyPrimaryKey オブジェクトを参照するためです。
+この問題を回避するには、「参照による受け渡し」を使用可能にするときに
+、システム・プロパティー
+com.ibm.websphere.ejbcontainer.allowPrimaryKeyMutation を
+<samp>true</samp> に設定してください。
+「参照による受け渡し」を <samp>true</samp> に設定すると、EJB コンテナーが PrimaryKey オブジェクトのローカル・コピーを作成します。
+ただし、その結果、「参照による受け渡し」の設定によるパフォーマンス上の利点が少し失われます。
+</p>
+
+<p>一般に、オブジェクト参照をパラメーターとして Enterprise Bean メソ
+ッドまたは EJB ホーム・メソッドに渡すアプリケーション・コードは、念入
+りに調べて、そのオブジェクト参照を渡すことにより、データの保全性が失わ
+れるなどの問題が生じないかどうかを確認する必要があります。
+</p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>関連情報</strong>
+</p>
+<a href="rcon_buttons.html">管理コンソールのボタン</a>
+<br>
+
+<a href="uejb_rthrd.html">スレッド・プール設定</a>
+<br>
+
+</div>
+</body>
+</html>

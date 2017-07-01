@@ -1,0 +1,77 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>「Web 模組部署」設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uweb_rwar"></a>
+<h2>「Web 模組部署」設定</h2>
+
+<p> 請利用這個頁面來配置 Web 模組部署的實例。
+</p>
+
+<p>如果要檢視這個管理主控台頁面，請按一下<strong>應用程式</strong> &gt; <strong>企業應用程式</strong> &gt; <em>application_instance</em> &gt; <strong>Web 模組</strong> &gt; <em>Web Module_instance</em>。</p>
+
+<dl>
+<dt>
+<strong><a name="rwar_uri"></a>URI</strong>
+</dt>
+<dd>指定一個 URI，以在相對於應用程式 URL 而解析時，指定模組保存檔內容在檔案系統中的位置。
+如果模組套裝在部署應用程式或企業保存檔 (EAR) 中，這個 URI 就必須符合應用程式部署描述子中的 ModuleRef URI。
+</dd>
+<dt>
+<strong><a name="rwar_altdd"></a>替代 DD</strong>
+</dt>
+<dd>指定用來取代模組 JAR 檔中的原始部署描述子檔之替代部署描述子檔名稱。
+
+<p> 這個檔案是部署描述子檔的<em>後組合</em>版本。
+您可以編輯原始部署描述子檔來解析相依性和安全資訊。
+指定使用替代的部署描述子會將原始部署描述子檔保持不變。
+</p>
+
+<p>
+<em>替代 DD</em> 內容的值必須是相對於模組根目錄的部署描述子檔的完整路徑名稱。
+依照慣例，檔案會在 <samp>ALT-INF</samp> 目錄中。
+如果沒有指定這個內容，就會讀取模組 JAR 檔中的部署描述子檔。
+</p>
+
+</dd>
+<dt>
+<strong><a name="rwar_wt"></a>啟動加權</strong>
+</dt>
+<dd>指定模組的啟動次序。
+加權較低的模組比較高的模組先啟動。</dd>
+<dt>
+<strong><a name="rwar_classloaderMode_description"></a>類別載入器模式</strong>
+</dt>
+<dd>指定類別載入器應該先在母別載入器中搜尋，或先在應用程式類別載入器中搜尋，來載入類別。
+JDK 類別載入器和 WebSphere 類別載入器的標準都是 PARENT_FIRST。
+您的應用程式可以指定 PARENT_LAST 來置換母類別載入器中所包含的類別，但如果您混合使用已置換的類別及非置換的類別，這個動作可能會造成 ClassCastException 或 LinkageErrors。
+
+<p>選項是 PARENT_FIRST 和 PARENT_LAST。預設值是在應用程式類別載入器中搜尋前，先在母類別載入器中搜尋來載入類別。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">PARENT_FIRST</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</body>
+</html>

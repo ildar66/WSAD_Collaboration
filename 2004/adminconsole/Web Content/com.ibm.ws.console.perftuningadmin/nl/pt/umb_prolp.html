@@ -1,0 +1,363 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Listener port settings</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="ListenerPort"></a>
+<h2>Listener port settings</h2>
+
+<p>A listener port is used to simplify administration of the association
+between a connection factory, destination, and deployed message-driven bean.</p>
+
+<p>Use this panel to view or change the configuration properties of the selected
+listener port.</p>
+
+<p>To view this administrative console page, click <strong>Servers-&gt; <em>application_server</em>-&gt;
+Message Listener Service-&gt; Listener Ports-&gt; <em>listener_port</em></strong>
+</p>
+
+<dl>
+<dt>
+<strong><a name="ListenerPort_name"></a>Name</strong>
+</dt>
+<dd>The name by which the listener port is known for administrative
+purposes.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ListenerPort_initialState"></a>Initial state</strong>
+</dt>
+<dd>The state that you want the listener port to have when the application
+server is next restarted
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Units</td>
+<td align="left" valign="top" class="base">Not applicable</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">Started</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range</td>
+<td align="left" valign="top" class="base">
+<dl>
+<dt>
+<strong>Started</strong>
+</dt>
+<dd>When the application server is next started, the listener port is started
+automatically.</dd>
+<dt>
+<strong>Stopped</strong>
+</dt>
+<dd>When the application server is next started, the listener port is not
+started automatically. If message-driven beans are to use this listener port
+on the application server, the system administrator must start the port manually
+or select the Started value of this property then restart the application
+server.</dd>
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ListenerPort_description"></a>Description</strong>
+</dt>
+<dd>A description of the listener port, for administrative purposes
+within IBM WebSphere Application Server.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ListenerPort_connectionFactoryJNDIName"></a>Connection factory JNDI name</strong>
+</dt>
+<dd>The JNDI name for the JMS connection factory to be used by the
+listener port; for example, <samp>jms/connFactory1</samp>.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ListenerPort_destinationJNDIName"></a>Destination JNDI name</strong>
+</dt>
+<dd>The JNDI name for the destination to be used by the listener port;
+for example, <samp>jms/destn1</samp>.
+<p>If the extended messaging service is to use this listener port to handle
+late responses, the value of this property must match the JMS response destination
+on the output port used by the sender bean.</p>
+
+<p>You cannot use a temporary destination for late responses.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ListenerPort_maxSessions"></a>Maximum sessions</strong>
+</dt>
+<dd>Specifies the maximum number of concurrent sessions that a listener
+can have with the JMS server to process messages.
+<p>Each session corresponds to a separate listener thread and therefore controls
+the number of concurrently processed messages. Adjust this parameter when
+the JMS server does not fully use the available capacity of the machine and
+if you do not need to process messages in a specific message order.</p>
+
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Units</td>
+<td align="left" valign="top" class="base">Sessions</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">1 </td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range</td>
+<td align="left" valign="top" class="base">1 through 2147483647</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Recommended</td>
+<td align="left" valign="top" class="base">
+<ul>
+
+<li>If you want to process messages in a strict message order, set the value
+to 1, so only one thread is ever processing messages.</li>
+
+<li>If you want to process multiple messages simultaneously (known as "message
+concurrency"), set this property to a value greater than 1. Keep this value
+as low as possible to prevent overloading client applications.  A good starting
+point for a 100% JMS workload with short transaction times is 2 to 4 sessions
+per processor. If longer running transactions exist, you may need more sessions,
+which should be determined by experimentation.</li>
+
+</ul>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ListenerPort_maxRetries"></a>Maximum retries</strong>
+</dt>
+<dd>The maximum number of times that the listener tries to deliver
+a message before the listener is stopped, in the range 0 through 2147483647.
+<p>The maximum number of times that the listener tries to deliver a message
+to a message-driven bean instance before the listener is stopped.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Units</td>
+<td align="left" valign="top" class="base">Retry attempts</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">0 (no retries)</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range</td>
+<td align="left" valign="top" class="base">0 (no retries) through 2147483647</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ListenerPort_maxMessages"></a>Maximum messages</strong>
+</dt>
+<dd>The maximum number of messages that the listener can process in
+one session with the JMS server.
+<p>For WebSphere embedded messaging or WebSphere MQ as the JMS provider, the
+listener processes all messages in the session as one batch within the same
+transaction. For a generic JMS provider, the listener processes each message
+in the session within a separate transaction.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Units</td>
+<td align="left" valign="top" class="base">Number of messages</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">1</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range</td>
+<td align="left" valign="top" class="base">1 through 2147483647</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Recommended</td>
+<td align="left" valign="top" class="base">
+<p>
+<em>For WebSphere embedded messaging or WebSphere MQ as the JMS
+provider</em>, if you want to process multiple messages in a single transaction,
+then set this value to more than 1. This enables multiple messages to be batch-processed
+into a single transaction, and eliminates much of the overhead of transactions
+on JMS messages.<p>
+<b>Note: </b>
+<ul>
+
+<li>If one message in the batch fails processing with an exception, the entire
+batch of messages is put back on the queue for processing.</li>
+
+<li>Any resource lock held by any of the interactions for the individual messages
+are held for the duration of the entire batch.</li>
+
+<li>Depending on the amount of processing that messages need, and if XA transactions
+are being used, setting a value greater than 1 can cause the transaction to
+time out. If an XA transaction does time out routinely because of processing
+multiple messages, set this property to 1 (to limit processing to one message
+per transaction).</li>
+
+</ul>
+</p>
+</p>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</body>
+</html>

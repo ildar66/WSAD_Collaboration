@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+
+<!--
+ Copyright 2003 Sun Microsystems, Inc. All rights reserved.
+ SUN PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+-->
+
+<!DOCTYPE faces-config PUBLIC
+  "-//Sun Microsystems, Inc.//DTD JavaServer Faces Config 1.0//EN"
+  "http://java.sun.com/dtd/web-facesconfig_1_0.dtd">
+
+<!-- =========== FULL CONFIGURATION FILE ================================== -->
+
+<faces-config>
+	<lifecycle>
+		<phase-listener>com.ibm.faces.webapp.ValueResourcePhaseListener</phase-listener>
+	</lifecycle>
+	<managed-bean>
+		<managed-bean-name>pc_PortfolioJSF</managed-bean-name>
+		<managed-bean-class>pagecode.PortfolioJSF</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>pc_HelloJSF</managed-bean-name>
+		<managed-bean-class>pagecode.HelloJSF</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>pc_Response</managed-bean-name>
+		<managed-bean-class>pagecode.Response</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>root</managed-bean-name>
+		<managed-bean-class>com.ibm.odcb.tutorial.businessobjects.Root</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>hello</managed-bean-name>
+		<managed-bean-class>com.ibm.odcb.simple.businessobjects.Hello</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<navigation-rule>
+		<from-view-id>/PortfolioJSF.jsp</from-view-id>
+		<navigation-case>
+			<from-action>#{pc_PortfolioJSF.doUpperTabbedPanel_finishAction}</from-action>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/response.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/response.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/PortfolioJSF.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+</faces-config>

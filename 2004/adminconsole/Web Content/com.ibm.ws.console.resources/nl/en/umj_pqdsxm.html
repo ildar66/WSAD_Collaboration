@@ -1,0 +1,939 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>WebSphere MQ queue settings (MQ Config)</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="MQSeriesQueueHost"></a>
+<h2>WebSphere MQ queue settings (MQ Config)</h2>
+
+<p>Use this panel to view or change the configuration properties defined
+to WebSphere MQ for the selected queue destination.</p>
+
+<p>A queue destination is used to configure the properties of a JMS queue.
+A queue for use with the WebSphere MQ JMS provider has the following extra
+properties defined to WebSphere MQ.<p>
+<b>Notes: </b>
+<ul>
+
+<li>Some properties displayed are read-only and cannot be changed.</li>
+
+<li>To be able to view or change properties, the WebSphere MQ Queue Manager
+on which the queue resides must be configured for remote administration and
+be running.</li>
+
+<li>The property values that you specify must match the values that you specified
+when configuring WebSphere MQ JMS resources. For more information about configuring
+WebSphere MQ JMS resources, see the WebSphere MQ <cite>Using Java</cite> book;
+for example from the WebSphere MQ multiplatform library Web page at <img border="0" alt="Target can be accessed only when this topic is linked to the World Wide Web" src="web.gif">&nbsp;&nbsp;               
+   <a target="_blank" href="http://www.ibm.com/software/ts/mqseries/library/manualsa/manuals/crosslatest.html"><strong>http://www.ibm.com/software/ts/mqseries/library/manualsa/manuals/crosslatest.html</strong></a>
+.</li>
+
+<li>In WebSphere MQ, names can have a maximum of 48 characters, with the exception
+of channels which have a maximum of 20 characters.</li>
+
+</ul>
+</p>
+</p>
+
+<p>To view this administrative console page, click <strong>Resources-&gt; WebSphere
+MQ JMS Provider-&gt; (In content pane, under Additional Properties) WebSphere
+MQ Queue Destinations-&gt; <em>destination_name</em>-&gt; (In content pane,
+under Additional Properties) MQ Config</strong>
+</p>
+
+<dl>
+<dt>
+<strong><a name="MQSeriesQueue_baseQueueName"></a>Base queue name</strong>
+</dt>
+<dd>The name of the queue to which messages are sent, on the queue
+manager specified by the <strong>Base queue manager name</strong> property.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_baseQueueManagerName"></a>Base queue manager name</strong>
+</dt>
+<dd>The name of the WebSphere MQ queue manager to which messages are
+sent.
+<p>This queue manager provides the queue specified by the <strong>Base queue name</strong> property.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_queueManagerHost"></a>Queue manager host</strong>
+</dt>
+<dd>The name of host for the queue manager on which the queue destination
+is created.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_queueManagerPort"></a>Queue manager port</strong>
+</dt>
+<dd>The number of the port used by the queue manager on which this
+queue is defined.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range</td>
+<td align="left" valign="top" class="base">A valid TCP/IP port number. This port must be configured on the WebSphere
+MQ queue manager. </td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_serverConnectionChannelName"></a>Server connection channel name</strong>
+</dt>
+<dd>The name of the channel used for connection to the WebSphere MQ
+queue manager.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range</td>
+<td align="left" valign="top" class="base">1 through 20 ASCII characters</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_userName"></a>User ID</strong>
+</dt>
+<dd>The user ID used, with the <strong>Password</strong> property, for authentication
+when connecting to the queue manager to define the queue destination.
+<p>If you specify a value for the <strong>User name</strong> property, you must also
+specify a value for the <strong>Password</strong> property.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_password"></a>Password</strong>
+</dt>
+<dd>The password, used with the <strong>User name</strong> property, for authentication
+when connecting to the queue manager to define the queue destination.
+<p>If you specify a value for the <strong>User name</strong> property, you must also
+specify a value for the <strong>Password</strong> property.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue"></a>Name</strong>
+</dt>
+<dd>The name of the queue defined to the WebSphere MQ queue manager.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range</td>
+<td align="left" valign="top" class="base">1 through 48 ASCII characters.</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_description"></a>Description</strong>
+</dt>
+<dd>The WebSphere MQ queue description, for administrative purposes
+within WebSphere MQ.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range</td>
+<td align="left" valign="top" class="base">1 through 64 ASCII characters.</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue.inhibitPut"></a>Inhibit Put</strong>
+</dt>
+<dd>Whether or not put operations are allowed for this queue.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Units</td>
+<td align="left" valign="top" class="base">Not applicable</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">Cleared</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>Allowed</strong>
+</dt>
+<dd>Put operations are allowed for this queue.</dd>
+
+<dt>
+<strong>Not allowed</strong>
+</dt>
+<dd>Put operations are not allowed for this queue.</dd>
+
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_persistence"></a>Persistence</strong>
+</dt>
+<dd>Whether all messages sent to the destination
+are persistent, non-persistent, or have their persistence defined by the application
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Units</td>
+<td align="left" valign="top" class="base">Not applicable</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">APPLICATION_DEFINED</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>Application defined</strong>
+</dt>
+<dd>Messages on the destination have their persistence
+defined by the application that put them onto the queue.</dd>
+
+<dt>
+<strong>Queue defined</strong>
+</dt>
+<dd>[WebSphere MQ destination only] Messages on the destination have their persistence
+defined by the WebSphere MQ queue definition properties.</dd>
+
+<dt>
+<strong>Persistent</strong>
+</dt>
+<dd>Messages on the destination are persistent.</dd>
+
+<dt>
+<strong>Non persistent</strong>
+</dt>
+<dd>Messages on the destination are not persistent.</dd>
+
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_clusterName"></a>Cluster name</strong>
+</dt>
+<dd>The name of the cluster to which the WebSphere MQ queue manager
+belongs.
+<p>If you specify a value for <strong>Cluster name</strong>, you cannot specify a value
+for <strong>Cluster name list</strong>. Cluster names must conform to the rules described
+in the <cite>WebSphere MQ MQSC Command Reference</cite> book.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+
+
+
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range</td>
+<td align="left" valign="top" class="base">A valid WebSphere MQ name for a queue manager cluster, as 1 through
+48 ASCII characters</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_clusterNameList"></a>Cluster name list</strong>
+</dt>
+<dd>The name of the cluster namelist to which the WebSphere MQ queue
+manager belongs.
+<p>If you specify a value for <strong>Cluster name</strong>, you cannot specify a value
+for <strong>Cluster name list</strong>.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+
+
+
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range</td>
+<td align="left" valign="top" class="base">A valid WebSphere MQ name for a list of queue manager clusters, as
+1 through 48 ASCII characters</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_defaultBind"></a>Default Binding</strong>
+</dt>
+<dd>The default binding to be used when the queue is defined as a cluster
+queue.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+
+
+
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range</td>
+<td align="left" valign="top" class="base">A<dl>
+
+<dt>
+<strong>On open</strong>
+</dt>
+<dd>The queue handle is bound to a specific instance of the
+cluster queue when the queue is opened.</dd>
+
+<dt>
+<strong> Not fixed</strong>
+</dt>
+<dd>The queue handle is not bound to any particular instance
+of the cluster queue. This allows the queue manager to select a specific queue
+instance when the message is put, and to change that selection subsequently
+should the need arise.</dd>
+
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue.inhibitGet"></a>Inhibit Get</strong>
+</dt>
+<dd>Whether or not get operations are allowed for this queue.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Units</td>
+<td align="left" valign="top" class="base">Not applicable</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">Cleared</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>Allowed</strong>
+</dt>
+<dd>Get operations are allowed for this queue.</dd>
+
+<dt>
+<strong>Not allowed</strong>
+</dt>
+<dd>Get operations are not allowed for this queue.</dd>
+
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_maxQueueDepth"></a>Maximum queue depth</strong>
+</dt>
+<dd>The maximum number of messages allowed on the queue.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Units</td>
+<td align="left" valign="top" class="base">Messages</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base"></td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range</td>
+<td align="left" valign="top" class="base">A value greater than or equal to zero, and less than or equal to:<ul>
+
+<li>999 999 999 if the queue is on OS/390</li>
+
+<li>640 000 if the queue is on any other WebSphere MQ platform</li>
+
+</ul>
+<p>For more information about the maximum value allowed, see the <cite>WebSphere
+MQ MQSC Command Reference</cite>.</p>
+<p>If this value is reduced, any message
+that is already on the queue are not affected, even if the number of messages
+exceeds the new maximum.</p>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_maxMessageLength"></a>Maximum Message Length</strong>
+</dt>
+<dd>The maximum length, in bytes, of messages on this queue.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Units</td>
+<td align="left" valign="top" class="base">Bytes</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base"></td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range</td>
+<td align="left" valign="top" class="base">A value greater than or equal to zero, and less than or equal to
+the maximum message length for the queue manager and WebSphere MQ platform.
+For more information about the maximum value allowed, see the <cite>WebSphere
+MQ MQSC Command Reference</cite>.<p>If this value is reduced, any message
+that is already on the queue are not affected, even if the message length
+exceeds the new maximum.</p>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_shareability"></a>Shareability</strong>
+</dt>
+<dd>Whether multiple applications can get messages from this queue.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Units</td>
+<td align="left" valign="top" class="base">Not applicable</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">Not shareable</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>Not shareable</strong>
+</dt>
+<dd>Only one application instance can get messages from
+the queue.</dd>
+
+<dt>
+<strong>Shareable</strong>
+</dt>
+<dd>More than one application instance can get messages
+from the queue.</dd>
+
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_inputOpenOption"></a>Input Open Option</strong>
+</dt>
+<dd>The default share option for applications opening this queue for
+input
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Units</td>
+<td align="left" valign="top" class="base">Not applicable</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">Cleared</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>Exclusive</strong>
+</dt>
+<dd>The open request is for exclusive input from the queue.</dd>
+
+<dt>
+<strong>Shared</strong>
+</dt>
+<dd>The open request is for shared input from the queue.</dd>
+
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_messageDeliverySequence"></a>Message Delivery Sequence</strong>
+</dt>
+<dd>The order in which messages are delivered from the queue in response
+to get requests.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Units</td>
+<td align="left" valign="top" class="base">Not applicable</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">Priority</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>Priority</strong>
+</dt>
+<dd>Messages are delivered in first-in-first-out (FIFO) order
+within priority. This is the default supplied with WebSphere MQ, but your
+installation might have changed it.</dd>
+
+<dt>
+<strong>FIFO</strong>
+</dt>
+<dd>Messages are delivered in FIFO order. Priority is ignored
+for messages on this queue.</dd>
+
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_backoutThreshold"></a>Backout threshold</strong>
+</dt>
+<dd>The maximum number of times that a message can be backed out. If
+this threshold is reached, the message is requeued on the backout queue specified
+by the <strong>Backout Requeue name</strong> property.
+<p>The WebSphere MQ queue manager keeps a record of the number of times that
+each message has been backed out. When this number reaches a configurable
+threshold, the connection consumer requeues the message on a named backout
+queue. If this requeue fails for any reason, the message is removed from the
+queue and either requeued to the dead-letter queue, or discarded.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">0</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>0</strong>
+</dt>
+<dd>Never requeue messages</dd>
+
+<dt>
+<strong>1 or more</strong>
+</dt>
+<dd>The number of times that a message has been backed,
+at which the message is requeued on a named backout queue.</dd>
+
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_backoutRequeue"></a>Backout Requeue name</strong>
+</dt>
+<dd>The name of the backout queue to which messages are requeued if
+they have been backed out more than the backout threshold.
+<p>The WebSphere MQ queue manager keeps a record of the number of times that
+each message has been backed out. When this number reaches a configurable
+threshold, the connection consumer requeues the message on a named backout
+queue. If this requeue fails for any reason, the message is removed from the
+queue and either requeued to the dead-letter queue, or discarded.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range</td>
+<td align="left" valign="top" class="base">1 through 48 characters.</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_hardenGetBackout"></a>Harden Get Backout </strong>
+</dt>
+<dd>Whether hardening should be used to ensure that the count of the
+number of times that a message has been backed out is accurate.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Units</td>
+<td align="left" valign="top" class="base">Not applicable</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">Cleared</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>Not hardened</strong>
+</dt>
+<dd>The count is not hardened. This is the default supplied
+with WebSphere MQ, but your installation might have changed it.</dd>
+
+<dt>
+<strong>Hardened</strong>
+</dt>
+<dd>The count is hardened.</dd>
+
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</body>
+</html>

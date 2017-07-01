@@ -1,0 +1,147 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Einstellungen f&uuml;r eingehende CSI-Transporte</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecinboundconn"></a>
+<h2>Einstellungen f&uuml;r eingehende CSI-Transporte</h2>
+
+<p>Auf dieser Seite k&ouml;nnen Sie angeben, welche Listener-Ports ge&ouml;ffnet und welche SSL-Einstellungen
+verwendet werden sollen. Diese Spezifikationen legen fest, welchen Transport ein Client oder Upstream-Server
+verwendet, um mit diesem Server hinsichtlich eingehender Verbindungen zu kommunizieren. </p>
+
+<p>Klicken Sie zum Anzeigen dieser Seite der Administrationskonsole auf <strong>Sicherheit</strong> &gt; <strong>Authentifizierungsprotokoll</strong> &gt; <strong>Eingehende CSI-Transporte</strong>.</p>
+
+<div>
+<p>
+<strong>Register "Konfiguration"</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="Transport_i_description"></a>Transport</strong>
+</dt>
+<dd>Gibt an, ob die Clientprozesse mit einem der f&uuml;r den Server konfigurierten
+Transportverfahren eine Verbindung zum Server herstellen.
+<p>Sie k&ouml;nnen als Transportverfahren f&uuml;r eingehende Nachrichten, die ein Server unterst&uuml;tzen soll, SSL
+und/oder TCP/IP festlegen.  Bei Angabe von <strong>TCP/IP</strong> legen Sie fest, dass der Server nur TCP/IP
+unterst&uuml;tzt und keine SSL-Verbindungen empfangen kann.  Wenn
+Sie <strong>SSL unterst&uuml;tzt</strong> angeben, kann der Server TCP/IP- und SSL-Verbindungen unterst&uuml;tzen. Bei Angabe
+von <strong>SSL erforderlich</strong> legen Sie fest, dass jeder Server, der mit diesem Server
+kommuniziert, SSL verwenden muss.  </p>
+
+<p>Wenn Sie <strong>SSL unterst&uuml;tzt</strong> oder <strong>SSL erforderlich</strong> angeben, m&uuml;ssen Sie festlegen, welche Gruppe
+der SSL-Konfigurationseinstellungen Sie f&uuml;r die Konfiguration von eingehenden Verbindungen verwenden m&ouml;chten. Mit dieser Entscheidung legen Sie fest, welche Schl&uuml;sseldatei und welche
+Trust-Datei f&uuml;r Verbindungen, die auf diesem Server eingehen, verwendet werden sollen. </p>
+
+<p>Standardm&auml;&szlig;ig werden SSL-Ports f&uuml;r Common Secure Interoperability Version 2 (CSIv2)
+und Security Authentication Service (SAS) dynamisch generiert. In den F&auml;llen, in denen Sie die
+SSL-Ports auf Anwendungsservern fixieren m&uuml;ssen, klicken Sie auf <strong>Server</strong> &gt; <strong>Anwendungsserver</strong> &gt;
+<em>Servername</em> &gt; <strong>Endpunkte</strong>. Konfigurieren Sie die folgenden zu fixierenden Ports.
+Die Port-Nummer null zeigt an, dass zur Laufzeit eine dynamische Zuordnung vorgenommen wird. <pre class="program">
+<font style="font-family: arial">CSIV2_SSL_MUTUALAUTH_LISTENER_ADDRESS 
+CSIV2_SSL_SERVERAUTH_LISTENER_ADDRESS 
+SAS_SSL_SERVERAUTH_LISTENER_ADDRESS</font>
+</pre>
+</p>
+
+<p>
+<ul>
+
+<li>
+<strong>TCP/IP</strong>: Nur ein TCP/IP-Listener-Port wird ge&ouml;ffnet, und alle eingehenden Anforderungen sind
+nicht durch SSL gesch&uuml;tzt. </li>
+
+<li>
+<strong>SSL unterst&uuml;tzt</strong>: Ein TCP/IP- und ein SSL-Listener-Port werden ge&ouml;ffnet, und die
+meisten eingehenden Anforderungen werden &uuml;ber SSL empfangen. </li>
+
+<li>
+<strong>SSL erforderlich</strong>: Nur ein SSL-Listener-Port wird ge&ouml;ffnet, und alle Anforderungen werden
+&uuml;ber SSL-Verbindungen empfangen. Wenn Sie <strong>SSL erforderlich</strong> ausw&auml;hlen, m&uuml;ssen Sie auch <strong>CSI</strong> als
+aktives Authentifizierungsprotokoll ausw&auml;hlen. Wenn Sie <strong>CSI und SAS</strong> ausw&auml;hlen, muss f&uuml;r SAS ein
+TCP/IP-Socket ge&ouml;ffnet sein, damit einige spezielle Anforderungen durchgef&uuml;hrt werden k&ouml;nnen. </li>
+
+</ul>
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">SSL unterst&uuml;tzt</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">TCP/IP, SSL erforderlich, SSL unterst&uuml;tzt</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SSLSettings_csi_i_description"></a>SSL-Einstellungen</strong>
+</dt>
+<dd>Gibt eine Liste von vordefinierten SSL-Einstellungen f&uuml;r eingehende Verbindungen an. Diese Einstellungen werden in der Anzeige "SSL-Repertoire" konfiguriert.
+<p></p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">SSL-Standardeinstellungen</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">Alle SSL-Einstellungen, die im SSL-Konfigurationsrepertoire
+konfiguriert wurden.
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Zugeh&ouml;rige Informationen</strong>
+</p>
+<a href="rcon_buttons.html">Kn&ouml;pfe in der Adminstrationskonsole</a>
+<br>
+
+<a href="rcon_pageusage.html">Funktionen auf den Seiten der Administrationskonsole</a>
+<br>
+
+<a href="rcon_scope.html">Geltungsbereichseinstellungen f&uuml;r die Administrationskonsole</a>
+<br>
+
+<a href="rcon_filter.html">Filtereinstellungen f&uuml;r die Administrationskonsole</a>
+<br>
+
+<a href="rcon_preferences.html">Vorgaben f&uuml;r die Administrationskonsole</a>
+<br>
+
+</div>
+</body>
+</html>

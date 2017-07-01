@@ -1,0 +1,65 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Raccolta collegamenti mittente richiesta</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_reqsend"></a>
+<h2>
+<img alt="[Fix Pack 5.0.2 e successive]" src="v502.gif" border="0">Raccolta collegamenti mittente richiesta</h2>
+
+<p>Utilizzare questa pagina per specificare la configurazione di collegamento per inviare i messaggi di richiesta per la sicurezza dei servizi Web (WS-Security, Web Services Security).</p>
+
+<p>Per visualizzare questa pagina della console di gestione, completare le seguenti operazioni:<ol>
+
+<li>Fare clic su <strong>Applicazioni &gt; Applicazioni enterprise &gt; </strong><em>nome_applicazione</em>. </li>
+
+<li>In Elementi correlati, fare clic su <strong>Moduli Web</strong> &gt; <em>nome_file_URI</em> &gt; <strong>Servizi Web: collegamenti sicurezza client</strong>.</li>
+
+<li>In Collegamento mittente richiesta, fare clic su <strong>Modifica</strong>.</li>
+
+</ol>
+</p>
+
+<dl>
+<dt>
+<strong><a name="sec_signing"></a>Informazioni sulla firma</strong>
+</dt>
+<dd>Specifica la configurazione per i parametri di firma. Le informazioni sulla firma vengono utilizzate per firmare e convalidare parti di un messaggio, inclusi struttura e data/ora.
+<p>&Egrave; inoltre possibile utilizzare questi parametri per la convalida X.509 quando, nella configurazione a livello del server, il <em>Metodo di autenticazione</em> &egrave; <samp>IDAssertion</samp> e il <em>Tipo ID</em> &egrave; <samp>X509Certificate</samp>. In questi casi, &egrave; obbligatorio compilare solo i campi <em>Percorso certificato</em>.</p>
+
+</dd>
+<dt>
+<strong><a name="sec_encrypt"></a>Informazioni sulla codifica</strong>
+</dt>
+<dd>Specifica la configurazione dei parametri di codifica e di decodifica.
+Le informazioni sulla codifica vengono utilizzate per la codifica e la decodifica di varie parti di un messaggio, inclusi struttura e token nome utente.</dd>
+<dt>
+<strong><a name="sec_keyldesc"></a>Indicatori di posizione della chiave</strong>
+</dt>
+<dd>Specifica un elenco di oggetti indicatori di posizione della chiave che richiamano le chiavi per la firma digitale e la codifica da un file di memorizzazione delle chiavi o da un contenitore.
+L'indicatore di posizione della chiave mappa un nome o un nome logico su un alias o mappa un'identit&agrave; autenticata su una chiave. Questo nome logico viene utilizzato per individuare una chiave in un'implementazione dell'indicatore di posizione della chiave.</dd>
+<dt>
+<strong><a name="sec_logmapdesc"></a>Mappature di login</strong>
+</dt>
+<dd>Specifica un elenco di configurazioni per la convalida dei token all'interno  dei messaggi in entrata.
+<p>Le mappature di login mappano il metodo autenticato sulla configurazione JAAS (Java Authentication and Authorization Service).</p>
+
+<p>Per configurare JAAS, utilizzare la console di gestione e fare clic su <strong>Sicurezza
+&gt; Configurazione JAAS</strong>.</p>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>Informazioni correlate</strong>
+</p>
+<a href="uwbs_encrypt.html">Raccolta di informazioni di codifica</a>
+<br>
+
+</div>
+</body>
+</html>

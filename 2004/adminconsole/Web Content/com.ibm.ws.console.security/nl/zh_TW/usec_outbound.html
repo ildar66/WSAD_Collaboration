@@ -1,0 +1,182 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Common Secure Interoperability 離埠鑑別設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecoutbound"></a>
+<h2>
+<img alt="[修正套件 5.0.1 和更新版本]" src="v501.gif" border="0">Common Secure Interoperability 離埠鑑別設定</h2>
+
+<p>請利用這個頁面來指定在伺服器是另一個下游伺服器的用戶端時，它應該支援的特性。</p>
+
+<p>如果要檢視這個管理主控台頁面，請按一下<strong>安全 &gt; 鑑別通訊協定 &gt; CSI 離埠鑑別</strong>。</p>
+
+<p>鑑別特性包括三個鑑別層次，它們可以同時使用：<dl>
+<dt>
+<strong>傳輸層</strong>
+</dt>
+<dd>傳輸層是最低層，可包含 Secure Socket Layer (SSL) 用戶端憑證，作為身分識別使用。</dd>
+<dt>
+<strong>訊息層</strong>
+</dt>
+<dd>訊息層可包含使用者 ID 和密碼或通過鑑別的記號。</dd>
+<dt>
+<strong>屬性層</strong>
+</dt>
+<dd>屬性層可包含本身是來自已通過鑑別的上游伺服器之身分的身分記號。
+屬性層的優先順序最高，接著是訊息層，然後是傳輸層。
+如果這個伺服器三層全部傳送，下游伺服器就只會使用屬性層。只有在 SSL 用戶端憑證是離埠要求期間所提供的唯一資訊時，身分識別才會使用 SSL 用戶端憑證。
+</dd>
+</dl>  
+</p>
+
+<div>
+<p>
+<strong>「配置」標籤</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="BasicAuthentication_o_description"></a>基本鑑別</strong>
+</dt>
+<dd>指定要不要從用戶端傳送使用者 ID 和密碼給伺服器來進行鑑別。
+<p>這類型的鑑別是在訊息層進行的。
+如果憑證類型是可轉遞的（如小型認證機構 (LTPA)），基本鑑別也包括委派已通過鑑別的憑證所提供的憑證記號。
+基本鑑別是指在訊息層上進行的任何鑑別，它同時表示使用者 ID 和密碼以及記號型鑑別。
+</p>
+
+<p>選取<strong>基本鑑別</strong>會決定它是必要的或支援的。
+選取<strong>需要</strong>表示在伺服器離埠進入下游伺服器時，下游伺服器必須支援這個伺服器的基本鑑別才能連接。
+選取<strong>支援</strong>表示這個伺服器不一定在下游伺服器執行基本鑑別。
+如果配置的話，仍可能執行其他鑑別方法。
+選取<strong>絕不</strong>表示這個伺服器絕不會將訊息層記號離埠傳送給下游伺服器。
+如果下游伺服器需要基本鑑別，就不會嘗試連線。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型：</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ClientCertificateAuthentication_o_description"></a>用戶端憑證鑑別</strong>
+</dt>
+<dd>指定在建立伺服器和下游伺服器之間的 SSL 連線時，要不要利用配置的金鑰儲存庫檔其中的用戶端憑證來接受伺服器的鑑別（前提是下游伺服器支援用戶端憑證鑑別）。
+
+<p>用戶端憑證鑑別的效能通常比訊息層鑑別好，但需要其他設定步驟。
+這些其他步驟包括確認這個伺服器有個人憑證，以及下游伺服器有這個伺服器的簽章者憑證。
+</p>
+
+<p>如果您選取用戶端憑證鑑別，請決定它是需要或支援。
+選取<strong>需要</strong>表示這個伺服器只有在也配置了用戶端憑證鑑別的情況下，才能連接到下游伺服器。
+選取<strong>支援</strong>表示這個伺服器會與任何下游伺服器執行用戶端憑證鑑別，但不一定會使用用戶端憑證鑑別，這會隨著下游伺服器支不支援它而不同。
+選取<strong>絕不</strong>表示這個用戶端不會接受任何下游伺服器的用戶端憑證鑑別。
+這個限制可防止存取任何需要用戶端憑證鑑別的下游伺服器。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型：</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="IdentityAssertion_o_description"></a>身分確認</strong>
+</dt>
+<dd>指定在下游 Enterprise Bean 呼叫期間，要不要一個伺服器接著一個伺服器來確認身分。
+
+<p>確認的身分就是 Enterprise Bean 的執行模式所決定的呼叫認證。
+如果執行模式是<strong>用戶端</strong>，身分就是用戶端的身分。
+如果執行模式是<strong>系統</strong>，身分就是伺服器的身分。
+如果執行模式是<strong>指定的</strong>，身分就是指定的身分。
+接收端伺服器會接收身分識別記號中的身分，也會接收用戶端鑑別記號中的傳送端伺服器身分。
+接收端伺服器會驗證傳送端伺服器的身分來確定可信的身分。
+</p>
+
+<p>當在 <strong>CSIv2 鑑別離埠</strong>畫面中指定身分確認時，您也必須在「CSIv2 鑑別離埠」畫面中，依所支援或所要求的選取基本鑑別。
+這個動作使您能夠提交伺服器身分和身分記號，讓接收端伺服器能夠<em>信任</em>傳送端伺服器。
+若沒有依所支援或所要求來指定基本鑑別，就不會建立信任，身分確認會失敗。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型：</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="StatefulSession_description"></a>Stateful 階段作業</strong>
+</dt>
+<dd>指定在鑑別期間，要不要重複使用安全資訊。
+這個選項通常用來增加效能。
+
+<p>用戶端與伺服器之間的第一次聯絡必須充分地加以鑑別。
+不過，含有效階段作業的所有後續聯絡會重複使用安全資訊。
+用戶端會傳遞環境定義 ID 給伺服器，這個 ID 用來查閱階段作業。
+
+環境定義 ID 將局限為連線，如此將保證唯一性。
+每當安全階段作業無效時，如果啟用鑑別重試（這是預設值），用戶端安全攔截程式會驗證用戶端階段作業，且會透通地重新提出要求。
+比方說，如果階段作業不在伺服器中；伺服器會失敗且會回復作業。
+</p>
+
+<p>如果停用這個值時，每一個方法呼叫都必須重新鑑別。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型：</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>相關資訊</strong>
+</p>
+<a href="rcon_buttons.html">管理主控台按鈕</a>
+<br>
+
+<a href="rcon_pageusage.html">管理主控台頁面特性</a>
+<br>
+
+<a href="rcon_scope.html">管理主控台範圍設定</a>
+<br>
+
+<a href="rcon_filter.html">管理主控台過濾器設定</a>
+<br>
+
+<a href="rcon_preferences.html">管理主控台喜好設定</a>
+<br>
+
+</div>
+</body>
+</html>

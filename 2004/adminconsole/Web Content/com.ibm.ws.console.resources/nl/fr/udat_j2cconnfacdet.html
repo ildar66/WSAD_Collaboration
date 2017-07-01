@@ -1,0 +1,323 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Param&egrave;tres Fabriques de connexions J2C</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="J2C_connection_factory"></a>
+<h2>Param&egrave;tres Fabriques de connexions J2C</h2>
+
+<p>Cette page permet de d&eacute;finir les param&egrave;tres d'une fabrique
+de connexions. </p>
+
+<p>Pour afficher cette page de la console d'administration,
+cliquez sur <strong>Ressources</strong> &gt; <strong>Adaptateurs de ressources</strong>
+&gt; <em>adaptateur_ressources</em> &gt; <strong>Fabriques de connexions
+J2C</strong> &gt; <em>fabrique_connexions</em>.</p>
+
+<div>
+<p>
+<strong>Onglet Configuration</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="J2CConnectionfactory_detail_contextID"></a>Port&eacute;e</strong>
+</dt>
+<dd>Indique &agrave; quel niveau cette d&eacute;finition de ressource est visible :
+cellule, noeud ou serveur.
+<p>Des ressources telles que les fournisseurs JDBC, les liaisons d'espace de noms et les
+biblioth&egrave;ques partag&eacute;es peuvent &ecirc;tre d&eacute;finies &agrave; plusieurs niveaux. Dans ce cas, pour une ressource donn&eacute;e, la d&eacute;finition
+figurant au niveau le plus sp&eacute;cifique (par exemple, le serveur) l'emporte sur l'&eacute;ventuelle d&eacute;finition homologue figurant &agrave; un
+niveau plus g&eacute;n&eacute;ral (par exemple, la cellule).</p>
+
+<p>Notez que quelle que soit la port&eacute;e d'une ressource d&eacute;finie, les propri&eacute;t&eacute;s de cette
+ressource s'appliquent uniquement au niveau d'un serveur individuel. Par exemple, si vous
+d&eacute;finissez la port&eacute;e d'une source de donn&eacute;es au niveau cellule, tous les utilisateurs de
+cette cellule peuvent rechercher et utiliser cette source de donn&eacute;es, laquelle est unique
+au sein de cette cellule. Cependant, les param&egrave;tres de propri&eacute;t&eacute; de la ressource sont locaux &agrave; chaque serveur de la cellule. Par exemple, si vous attribuez la valeur 10
+&agrave; la propri&eacute;t&eacute; <em>Nombre maximal de connexions</em>, chaque serveur de cette cellule pourra
+avoir 10 connexions.<dl>
+
+<dt>
+<strong>Cellule</strong>
+</dt>
+<dd>Niveau de port&eacute;e le plus g&eacute;n&eacute;ral.  Les ressources d&eacute;finies au niveau cellule
+sont visibles depuis tous les noeuds et serveurs de cette cellule, sauf si elles sont red&eacute;finies
+&agrave; un niveau inf&eacute;rieur. Pour visualiser les ressources d&eacute;finies au niveau cellule, ne sp&eacute;cifiez pas
+de nom de serveur ni de nom de noeud dans le formulaire de s&eacute;lection de port&eacute;e.</dd>
+
+<dt>
+<strong>Noeud</strong>
+</dt>
+<dd>Port&eacute;e par d&eacute;faut de la plupart des types de ressources.  Les ressources d&eacute;finies
+au niveau noeud l'emportent sur les &eacute;ventuelles d&eacute;finitions homologues figurant au niveau cellule
+et sont visibles depuis tous les serveurs du noeud consid&eacute;r&eacute;, sauf si elles sont red&eacute;finies &agrave; un niveau
+serveur sur ce noeud. Pour visualiser les ressources d&eacute;finies au niveau d'un noeud, ne sp&eacute;cifiez pas de
+serveur dans le formulaire de s&eacute;lection de port&eacute;e ; sp&eacute;cifiez simplement le nom du noeud concern&eacute;.</dd>
+
+<dt>
+<strong>Serveur</strong>
+</dt>
+<dd>Niveau de port&eacute;e le plus sp&eacute;cifique pour la d&eacute;finition des ressources.  Les ressources
+d&eacute;finies au niveau d'un serveur l'emportent sur les &eacute;ventuelles d&eacute;finitions homologues apparaissant au niveau
+de la cellule parente ou du noeud parent ; elles sont visibles uniquement
+depuis ce serveur. Pour visualiser les ressources d&eacute;finies au niveau d'un serveur, sp&eacute;cifiez le nom de ce
+serveur ainsi que celui de son noeud parent dans le formulaire de s&eacute;lection de port&eacute;e.</dd>
+
+</dl>
+</p>
+
+<p>Lorsque des ressources sont cr&eacute;&eacute;es, elles le sont toujours dans la port&eacute;e en cours,
+c'est-&agrave;-dire celle qui est s&eacute;lectionn&eacute;e dans le formulaire.   Pour afficher les ressources d'autres port&eacute;es, sp&eacute;cifiez un noeud ou un serveur
+diff&eacute;rent dans le formulaire de s&eacute;lection de port&eacute;e.  </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">String (cha&icirc;ne)</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2CConnectionFactory_displayName"></a>Nom</strong>
+</dt>
+<dd>Indique la liste des noms affich&eacute;s de la fabrique de connexions.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">String (cha&icirc;ne)</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2CConnectionFactory_jndiName_displayName"></a>Nom JNDI</strong>
+</dt>
+<dd>Indique le nom JNDI de cette fabrique de connexions.
+<p>Par exemple, vous pouvez indiquer le nom <em>eis/myECIConnection</em>.</p>
+
+<p>Une fois la valeur d&eacute;finie, sauvegardez-la et red&eacute;marrez le serveur. Cette cha&icirc;ne doit appara&icirc;tre lorsque vous ex&eacute;cutez <em>dumpNameSpace</em>. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">String (cha&icirc;ne)</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">eis/<em>nom_affich&eacute;</em></td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2CConnectionFactory_description_displayName"></a>Description</strong>
+</dt>
+<dd>Texte d&eacute;crivant cette fabrique de connexions.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">String (cha&icirc;ne)</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2CConnectionFactory_category_displayName"></a>Cat&eacute;gorie</strong>
+</dt>
+<dd>Cha&icirc;ne que vous pouvez utiliser pour classifier ou grouper cette fabrique de connexions.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">String (cha&icirc;ne)</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2CConnectionFactory_authMechanismPreference_displayName"></a>Pr&eacute;f&eacute;rences d'authentification</strong>
+</dt>
+<dd>Indique les m&eacute;canismes d'authentification d&eacute;finis pour
+cette fabrique de connexions. 
+<p>Cette option indique quel m&eacute;canisme d'authentification d&eacute;fini pour
+l'adaptateur de ressources correspondant s'applique &agrave; cette fabrique
+de connexions.  Les valeurs applicables en fonction des capacit&eacute;s de l'adaptateur de ressources sont <em>KERBEROS</em>, <em>MOT_PASSE_BASE</em> et <em>Aucun</em>.  </p>
+
+<p>Si vous s&eacute;lectionnez Aucun, le composant d'application doit g&eacute;rer
+l'authentification (&lt;res-auth&gt;Application&lt;/res-auth&gt;).  Dans
+ce cas, l'ID utilisateur et le mot de passe sont extraits des
+&eacute;l&eacute;ments suivants : <ul>
+
+<li>l'alias d'authentification g&eacute;r&eacute; par composant,</li>
+
+<li>les propri&eacute;t&eacute;s personnalis&eacute;es du nom d'utilisateur et du mot de passe,</li>
+
+<li>les cha&icirc;nes transmises dans la m&eacute;thode getConnection.</li>
+
+</ul>
+</p>
+
+<p>Par exemple, si deux m&eacute;canismes d'authentification sont d&eacute;finis
+pour un adaptateur de ressources dans le document <em>ra.xml</em> : <ul>
+
+<li>&lt;authentication-mechanism-type&gt;BasicPassword&lt;/authentication-mechanism-type&gt;</li>
+
+<li>&lt;authentication-mechanism-type&gt;Kerbv5&lt;/authentication-mechanism-type&gt;</li>
+
+</ul>Les pr&eacute;f&eacute;rences d'authentification d&eacute;finissent le m&eacute;canisme &agrave;
+utiliser pour l'authentification g&eacute;r&eacute;e par conteneur.  Une exception est g&eacute;n&eacute;r&eacute;e lors du d&eacute;marrage du serveur si vous avez
+s&eacute;lectionn&eacute; un m&eacute;canisme qui n'est pas pris en
+charge par l'adaptateur de ressources.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Liste de s&eacute;lection</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut</td>
+<td align="left" valign="top" class="base">MOT_PASSE_BASE </td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2CConnectionFactory_authDataAlias_displayName"></a>Alias d'authentification g&eacute;r&eacute; par composant</strong>
+</dt>
+<dd>D&eacute;finit les donn&eacute;es d'authentification pour la
+connexion g&eacute;r&eacute;e par composant &eacute;tablie avec la ressource. 
+Faites votre choix parmi les alias figurant sous <strong>S&eacute;curit&eacute;</strong> &gt; <strong>Configuration JAAS</strong> &gt; <strong>Donn&eacute;es d'authentification J2C</strong>.
+<p>Pour d&eacute;finir un alias qui n'appara&icirc;t pas dans la liste,
+proc&eacute;dez comme suit :<ul>
+
+<li>Cliquez sur <strong>Valider</strong> pour afficher les rubriques connexes. </li>
+
+<li>Cliquez sur <strong>&gt;Entr&eacute;es des donn&eacute;es d'autorisation J2C</strong>.</li>
+
+<li>D&eacute;finissez un alias.</li>
+
+<li>Cliquez sur le nom de la fabrique de connexions dans la partie
+sup&eacute;rieure de la page <em>Entr&eacute;es des donn&eacute;es d'autorisation J2C</em>
+pour revenir &agrave; la page de la fabrique de connexions.</li>
+
+<li>S&eacute;lectionnez l'alias.</li>
+
+</ul> 
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Liste de s&eacute;lection</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2CConnectionFactory_mappingModule_authDataAlias_displayName"></a>Alias d'authentification g&eacute;r&eacute; par conteneur</strong>
+</dt>
+<dd>Indique les donn&eacute;es d'authentification (cha&icirc;ne de caract&egrave;res convertie en ID utilisateur et mot de passe) g&eacute;r&eacute;es par conteneur pour une connexion &agrave; la ressource.
+Faites votre choix parmi les alias figurant sous <strong>S&eacute;curit&eacute;</strong> &gt; <strong>Configuration JAAS</strong> &gt; <strong>Donn&eacute;es d'authentification J2C</strong>.
+<p>Pour d&eacute;finir un alias qui n'appara&icirc;t pas dans la liste,
+proc&eacute;dez comme suit :<ul>
+
+<li>Cliquez sur <strong>Valider</strong> pour afficher les rubriques connexes. </li>
+
+<li>Cliquez sur <strong>&gt;Entr&eacute;es des donn&eacute;es d'autorisation J2C</strong>.</li>
+
+<li>D&eacute;finissez un alias.</li>
+
+<li>Cliquez sur le nom de la fabrique de connexions dans la partie
+sup&eacute;rieure de la page <em>Entr&eacute;es des donn&eacute;es d'autorisation J2C</em>
+pour revenir &agrave; la page de la fabrique de connexions.</li>
+
+<li>S&eacute;lectionnez l'alias.</li>
+
+</ul> 
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Liste de s&eacute;lection</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="J2C_mappingConfigAlias"></a>Alias de configuration de mappage</strong>
+</dt>
+<dd>Permet aux utilisateurs de faire leur choix dans la liste <strong>S&eacute;curit&eacute;</strong> &gt; <strong>Configuration JAAS</strong> &gt; <strong>Configuration de connexion de l'application</strong>.
+
+<p>La configuration JAAS <strong>DefaultPrincipalMapping</strong> associe l'alias de connexion &agrave; l'ID utilisateur et au mot de passe. 
+  Vous pouvez d&eacute;finir et utiliser d'autres configurations de mappage.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">Liste de s&eacute;lection</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informations connexes</strong>
+</p>
+<a href="rcon_buttons.html">Boutons de la console administrative</a>
+<br>
+
+<a href="rcon_pageusage.html">Caract&eacute;ristiques de la page de la console d'administration</a>
+<br>
+
+</div>
+</body>
+</html>

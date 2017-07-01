@@ -1,0 +1,101 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Datenbankeinstellungen</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="database_settings"></a>
+<h2>Datenbankeinstellungen</h2>
+
+<p>Auf dieser Seite k&ouml;nnen Sie die Einstellungen f&uuml;r die Unterst&uuml;tzung von Datenbanksitzungen
+angeben. </p>
+
+<p>Klicken Sie zum Anzeigen dieser Seite der Administrationskonsole auf
+<strong>Server</strong> &gt; <strong>Anwendungsserver</strong> &gt; <em>Servername</em> &gt; <strong>Webcontainer</strong> &gt;
+<strong>Sitzungsverwaltung</strong> &gt; <strong>Einstellungen f&uuml;r verteilte Umgebung</strong> &gt; <strong>Datenbank</strong>.</p>
+
+<div>
+<p>
+<strong>Register "Konfiguration"</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="SessionDatabasePersistence_datasourceJNDIName_description"></a>JNDI-Name der Datenquelle</strong>
+</dt>
+<dd>Gibt die Beschreibung der Datenquelle an. 
+<p>Der JNDI-Name der nicht XA-f&auml;higen Datenquelle, aus der die Sitzungsverwaltung Datenbankverbindungen
+anfordert. Wenn der JNDI-Name der Datenquelle beispielsweise "jdbc/sessions" ist, geben Sie "jdbc/sessions" ein.  Die
+Datenquelle setzt sich aus einem Pool mit Datenbankverbindungen und einer Konfiguration dieses Pools
+(z. B. die Poolgr&ouml;&szlig;e) zusammen. Die Datenquelle muss bereits als
+konfigurierte Ressource in der Umgebung vorhanden sein. </p>
+
+</dd>
+<dt>
+<strong><a name="SessionDatabasePersistence_userId_description"></a>Benutzer-ID</strong>
+            &nbsp;
+            </dt>
+<dd>Gibt die Benutzer-ID f&uuml;r den Datenbankzugriff an.</dd>
+<dt>
+<strong><a name="SessionDatabasePersistence_password_description"></a>Kennwort</strong>
+            &nbsp;
+            </dt>
+<dd>Gibt das Kennwort f&uuml;r den Datenbankzugriff an.</dd>
+<dt>
+<strong><a name="SessionDatabasePersistence_password2_description"></a>Kennwort best&auml;tigen</strong>
+            &nbsp;
+            </dt>
+<dd>Gibt das Kennwort erneut ein, um die Richtigkeit der ersten Eingabe zu best&auml;tigen.</dd>
+<dt>
+<strong><a name="SessionDatabasePersistence_db2RowSize_description"></a>Gr&ouml;&szlig;e f&uuml;r DB2-Zeile</strong>
+            &nbsp;
+            </dt>
+<dd>Gibt die Seitengr&ouml;&szlig;e des Tabellenbereichs an, die bei Verwendung einer DB2-Datenbank f&uuml;r die
+Sitzungstabelle konfiguriert wurde. Die g&uuml;ltigen Werte lauten 4, 8, 16 und 32 KB.
+  Die
+Standardzeilengr&ouml;&szlig;e ist 4 KB.
+<p>Die
+Standardzeilengr&ouml;&szlig;e ist 4 KB. Unter DB2 kann dieser Wert erh&ouml;ht werden.
+Auf diese Weise kann die
+Leistung der Datenbank in einigen Umgebungen verbessert werden.  Wenn Sie einen anderen Wert als 4 angeben, m&uuml;ssen Sie auch den zu verwendenden Tabellenbereichsnamen angeben. 
+F&uuml;r 4-KB-Seiten ist die Angabe des Tabellenbereichsnamens optional. </p>
+
+</dd>
+<dt>
+<strong><a name="SessionDatabasePersistence_tableSpaceName_description"></a>Tabellenbereichsname</strong>
+            &nbsp;
+            </dt>
+<dd>Gibt den f&uuml;r die Sitzungstabelle zu verwendenden Tabellenbereich an. 
+<p>Dieser Wert ist erforderlich, wenn als Gr&ouml;&szlig;e f&uuml;r die DB2-Seite ein anderer Wert als 4 KB angegeben wurde. </p>
+
+</dd>
+<dt>
+<strong><a name="TuningParams_usingRowSchema_description"></a>Multirow-Sitzungen verwenden  </strong>
+</dt>
+<dd>Gibt an, ob alle Instanzen der Anwendungsdaten in eine separate Zeile der Datenbank geschrieben
+werden sollen, wodurch pro Sitzung gr&ouml;&szlig;ere Datenmengen gespeichert werden k&ouml;nnen. Die Auswahl dieser Option
+kann in bestimmten Szenarios eine bessere Leistung bewirken. Wenn das Multirow-Schema nicht aktiviert ist, k&ouml;nnen Exemplare der Anwendungsdaten in eine Zeile
+geschrieben werden.</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Zugeh&ouml;rige Informationen</strong>
+</p>
+<a href="rcon_buttons.html">Kn&ouml;pfe in der Adminstrationskonsole</a>
+<br>
+
+<a href="rcon_pageusage.html">Funktionen auf den Seiten der Administrationskonsole</a>
+<br>
+
+<a href="rcon_filter.html">Filtereinstellungen f&uuml;r die Administrationskonsole</a>
+<br>
+
+<a href="rcon_preferences.html">Vorgaben f&uuml;r die Administrationskonsole</a>
+<br>
+
+</div>
+</body>
+</html>

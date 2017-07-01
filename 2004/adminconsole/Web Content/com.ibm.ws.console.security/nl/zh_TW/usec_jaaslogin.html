@@ -1,0 +1,109 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Java 鑑別授權服務登入模組設定
+</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecjaaslogin"></a>
+<h2>Java 鑑別授權服務登入模組設定
+</h2>
+
+<p>您可以利用這個頁面，來定義 Java 鑑別授權服務 (JAAS) 登入配置的登入模組。
+</p>
+
+<p>如果要檢視這個管理頁面，請按一下<strong>安全</strong> &gt; <strong>JAAS 配置</strong> &gt; <strong>應用程式登入配置</strong> &gt; <em>alias_name</em> &gt; <strong>JAAS 登入模組</strong>。</p>
+
+<div>
+<p>
+<strong>「配置」標籤</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="JAASLoginModule_moduleClassName_description"></a>模組類別名稱</strong>
+</dt>
+<dd>指定給定登入模組的類別名稱。
+<p>Websphere 產品所定義的預設登入模組使用 Proxy LoginModule 類別 com.ibm.ws.security.common.auth.module.WSLoginModuleProxy。
+這個 Proxy 類別會利用執行緒環境定義類別載入器來載入 WebSphere 登入模組，並且會將所有作業委派給<em>真正的</em>登入模組實作。
+在選項配置中，真正的登入模組實作是指定為委派選項。
+您還得具備 Proxy 類別，因為 Developer Kit 應用程式類別載入器看不見 Websphere 產品類別載入器。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型：</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="JAASLoginModule_authenticationStrategy_description"></a>鑑別策略</strong>
+</dt>
+<dd>將鑑別行為指定為在登入模組堆疊中向下鑑別。
+
+<p>JAAS 鑑別提供者會提供鑑別策略。
+在 JAAS，鑑別策略是透過 LoginModule 介面來實作。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型：</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值：</td>
+<td align="left" valign="top" class="base">必要的
+</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍：</td>
+<td align="left" valign="top" class="base">必要、必備、充足和選用
+</td>
+
+</tr>
+
+</table>
+
+<p>請在<strong>選項其他內容</strong>中指定其他選項。在起始設定期間，會將這些名稱和值配對傳遞給登入模組。
+這是將資訊傳遞給登入模組的機制之一。</p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>相關資訊</strong>
+</p>
+<a href="rcon_buttons.html">管理主控台按鈕</a>
+<br>
+
+<a href="rcon_pageusage.html">管理主控台頁面特性</a>
+<br>
+
+<a href="rcon_scope.html">管理主控台範圍設定</a>
+<br>
+
+<a href="rcon_filter.html">管理主控台過濾器設定</a>
+<br>
+
+<a href="rcon_preferences.html">管理主控台喜好設定</a>
+<br>
+
+</div>
+</body>
+</html>

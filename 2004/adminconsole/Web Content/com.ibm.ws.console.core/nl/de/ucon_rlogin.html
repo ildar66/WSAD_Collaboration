@@ -1,0 +1,146 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Einstellungen f&uuml;r Anmeldung</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="urun_rlogin"></a>
+<h2>Einstellungen f&uuml;r Anmeldung</h2>
+
+<p>Auf dieser Seite k&ouml;nnen Sie den Benutzer f&uuml;r die Administrationskonsole des WebSphere Application Server
+angeben. Wenn Sie die
+globale Sicherheitseinrichtung verwenden, m&uuml;ssen Sie auch ein Kennwort angeben.</p>
+
+<p>Geben Sie einen Benutzer an, haben Sie zu einem sp&auml;teren Zeitpunkt die M&ouml;glichkeit, die
+mit dem Produkt bereits durchgef&uuml;hrte Arbeit wieder aufzunehmen. Klicken Sie
+nach der Eingabe einer Benutzer-ID auf <strong>OK</strong>, um zur n&auml;chsten Seite zu
+wechseln und die Administrationskonsole aufzurufen. </p>
+
+<p>Starten Sie zum Anzeigen dieser Seite die Administrationskonsole.</p>
+
+<dl>
+<dt>
+<strong><a name="logon_desc"></a>Benutzer-ID</strong>
+</dt>
+<dd>Gibt eine Zeichenfolge zur Bezeichnung des Benutzers an. Die Benutzer-ID
+muss auf dem Administrationsserver eindeutig sein.
+<p>Arbeit, die Sie mit dem Produkt durchgef&uuml;hrt und dann vor dem Schlie&szlig;en
+des Produkts gespeichert haben, wird in einer Konfiguration gespeichert,
+die &uuml;ber den Benutzernamen, den Sie eingeben, identifiziert wird.
+ Wenn Sie
+sp&auml;ter auf die Arbeit, die unter dieser Benutzer-ID durchgef&uuml;hrt wurde,
+zugreifen m&ouml;chten, geben Sie die Benutzer-ID auf der Seite "Anmelden" an.</p>
+
+<p>Wenn Sie sich &uuml;ber eine Clientmaschine anmelden, auf der gegenw&auml;rtig ein Browser in der
+Administrationskonsole ge&ouml;ffnet ist, und Sie eine Verbindung zu demselben Server herstellen, k&ouml;nnen die zwei
+Verbindungen dasselbe HTTP-Sitzungsobjekt verwenden, unabh&auml;ngig davon, ob Sie sich unter verschiedenen
+Benutzer-IDs anmelden. Sie m&uuml;ssen zwei verschiedene Browsertypen verwenden (z. B. Microsoft
+Internet Explorer und Netscape Communicator), um sich von einer Clientmaschine an der
+Administrationskonsole anmelden und mit zwei verschiedenen HTTP-Sitzungsobjekten arbeiten zu k&ouml;nnen,
+unabh&auml;ngig davon, ob Sie dieselbe Benutzer-ID verwenden. Das hei&szlig;t, wenn Sie mit zwei gleichzeitigen
+Sitzungen auf einer Clientmaschine arbeiten m&ouml;chten, m&uuml;ssen Sie mit zwei verschiedenen Browsertypen auf die
+Administrationskonsole zugreifen. </p>
+
+<p>Beachten Sie, dass Sie denselben Browsertyp verwenden k&ouml;nnen, um sich zweimal an der Konsole
+anzumelden, die Anmeldungen m&uuml;ssen jedoch mit verschiedenen physischen Hosts und
+Benutzer-IDs durchgef&uuml;hrt werden. Nehmen Sie z. B. an, dass Joe sich mit dem Browser Internet Explorer unter der
+Benutzer-ID <em>joe</em> auf dem physischen Host <em>meinhost1</em> anmeldet. Joe kann sich kann sich mit dem
+Internet Explorer ein zweites Mal an derselben Konsole anmelden, muss jedoch eine andere Benutzer-ID (z.
+B. <em>peggy</em>) und einen anderen physischen Host (z. B. <em>meinhost2</em>) verwenden.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="UserExists_information"></a>Es ist bereits ein anderer Benutzer unter dieser Benutzer-ID angemeldet </strong>
+</dt>
+<dd>Gibt an, ob der Benutzer abgemeldet und die Arbeit mit der
+angegebenen Benutzer-ID fortgesetzt werden soll oder ob die Seite "Anmelden"
+erneut aufgerufen und eine andere Benutzer-ID eingegeben bzw. auf das
+Abmelden des Benutzers gewartet werden soll.
+<p>Dieses Feld erscheint, wenn der Benutzer einen Webbrowser beim Durchsuchen der
+Administrationskonsole geschlossen hat, ohne sich vorher abzumelden, dann einen
+neuen Browser ge&ouml;ffnet und anschlie&szlig;end versucht hat, auf die Administrationskonsole
+zuzugreifen.</p>
+
+</dd>
+<dt>
+<strong><a name="ChangesFound_restore"></a>Mit der Master-Konfiguration arbeiten</strong>
+</dt>
+<dd>Gibt bei Aktivierung an, dass Sie die Standardkonfiguration der
+Administration und nicht die Konfiguration der letzten Benutzersitzung verwenden m&ouml;chten.
+&Auml;nderungen, die seit dem letzten Speichern der
+Administrationskonfiguration vorgenommen wurden, gehen verloren.
+<p>Das Feld erscheint nur, wenn der Benutzer die Administrationskonfiguration
+ge&auml;ndert und sich dann ohne Speichern der &Auml;nderungen abgemeldet hat.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Boolescher Wert</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">false</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ChangesFound_recover"></a>In der vorherigen Sitzung vorgenommene &Auml;nderungen wiederherstellen</strong>
+</dt>
+<dd>Gibt bei Aktivierung an, dass Sie die Konfiguration der letzten Benutzersitzung
+verwenden m&ouml;chten. Stellt &Auml;nderungen, die der Benutzer seit dem letzten Speichern der
+Administrationskonfiguration f&uuml;r die Benutzersitzung vorgenommen hat, wieder her.
+<p>Das Feld erscheint nur, wenn der Benutzer die Administrationskonfiguration
+ge&auml;ndert und sich dann ohne Speichern der &Auml;nderungen abgemeldet hat.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Boolescher Wert</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">true</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>Zugeh&ouml;rige Informationen</strong>
+</p>
+<a href="rcon_buttons.html">Kn&ouml;pfe in der Adminstrationskonsole</a>
+<br>
+
+</div>
+</body>
+</html>

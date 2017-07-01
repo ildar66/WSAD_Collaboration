@@ -1,0 +1,143 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Valores de entrada de configuraci&oacute;n JAAS (Java Authentication and Authorization Service)</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecjaas"></a>
+<h2>
+<img alt="[Fix Pack 5.0.1 y posterior]" src="v501.gif" border="0">Valores de entrada de configuraci&oacute;n JAAS (Java Authentication and Authorization Service)</h2>
+
+<p>Utilice esta p&aacute;gina para especificar una lista de configuraciones de inicio de
+sesi&oacute;n JAAS (Java Authentication and Authorization Service) para que las utilice el c&oacute;digo de
+aplicaci&oacute;n, incluidos los enterprise beans, los archivos JSP (Java Server Pages), los servlets
+y los adaptadores de recursos.</p>
+
+<p>Para ver esta p&aacute;gina de la consola administrativa, pulse
+<strong>Seguridad</strong> &gt; <strong>Configuraci&oacute;n JAAS</strong> &gt; <strong>Configuraci&oacute;n
+del inicio de sesi&oacute;n de la aplicaci&oacute;n</strong>.</p>
+
+<p>Se le recomienda que lea la documentaci&oacute;n de JAAS del InfoCenter antes
+de comenzar a definir los m&oacute;dulos de inicio de sesi&oacute;n adicionales que se
+utilizan para fines de autenticaci&oacute;n durante el tiempo de ejecuci&oacute;n de
+seguridad de WebSphere Application Server. Puede definir configuraciones de inicio de sesi&oacute;n adicionales para las aplicaciones. No obstante, si LoginModule de WebSphere
+Application Server (<samp>com.ibm.ws.security.common.auth.module.WSLoginModuleImpl</samp>) no se
+utiliza o si LoginModule no genera una credencial que WebSphere Application Server pueda
+reconocer, durante el tiempo de ejecuci&oacute;n de seguridad de WebSphere Application Server no se
+puede utilizar el sujeto autenticado de estas configuraciones de inicio de sesi&oacute;n para realizar
+una comprobaci&oacute;n de autorizaci&oacute;n para acceder a los recursos.</p>
+
+<p>
+<p>
+<img alt="[Fix Pack 5.0.1 y posterior]" src="v501.gif" border="0"><b>Nota: </b>Debe invocar los programas clientes Java que utilizan JAAS (Java Authentication and Authorization Service) para la
+autenticaci&oacute;n con un archivo de configuraci&oacute;n JAAS especificado. El
+producto WebSphere proporciona el archivo de configuraci&oacute;n JAAS por
+omisi&oacute;n, wsjaas_client.conf en el &lt;directorio
+ra&iacute;z_instalaci&oacute;n&gt;/properties. Este archivo de configuraci&oacute;n se
+establece en el archivo
+<em>/&lt;ra&iacute;z_instalaci&oacute;n&gt;/bin/launchClient.bat</em> como <strong>set
+JAAS_LOGIN_CONFIG=-Djava.security.auth.login.config=%WAS_HOME%\properties\wsjaas_client.conf</strong>.<p>Si no se utiliza el archivo launchClient.bat para invocar los
+programas cliente Java, aseg&uacute;rese de que el archivo de
+configuraci&oacute;n JAAS correspondiente se pasa a la m&aacute;quina virtual Java
+con el distintivo <em>-Djava.security.auth.login.config</em>. </p>
+</p>
+</p>
+
+<dl>
+<dt>
+<strong>ClientContainer</strong>
+</dt>
+<dd>Especifica la configuraci&oacute;n de inicio de sesi&oacute;n utilizada por la aplicaci&oacute;n del
+contenedor del cliente, que utiliza la API CallbackHandler definida en el descriptor de
+despliegue del contenedor del cliente.
+<p>ClientContainer es la configuraci&oacute;n de inicio de sesi&oacute;n por omisi&oacute;n para WebSphere
+Application Server. No elimine este valor por omisi&oacute;n, ya que otras aplicaciones que lo utilizan fallar&aacute;n.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n:</td>
+<td align="left" valign="top" class="base">ClientContainer</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong>DefaultPrincipalMapping</strong>
+</dt>
+<dd>Especifica la configuraci&oacute;n de inicio de sesi&oacute;n que utilizan los conectores Java 2 para correlacionar usuarios con los principales definidos en las <strong>Entradas de datos de autenticaci&oacute;n de J2C</strong>.
+<p>DefaultPrincipalMapping es la configuraci&oacute;n de inicio de sesi&oacute;n por omisi&oacute;n para WebSphere
+Application Server. No elimine este valor por omisi&oacute;n, ya que otras aplicaciones que lo utilizan fallar&aacute;n. La configuraci&oacute;n de inicio de sesi&oacute;n de DefaultPrincipalMapping autentica a
+los usuarios durante el tiempo de ejecuci&oacute;n de seguridad de WebSphere Application Server. Utilice las credenciales del sujeto autenticado que devuelve
+esta configuraci&oacute;n de inicio de sesi&oacute;n como comprobaci&oacute;n de autorizaci&oacute;n para acceder a los
+recursos de WebSphere Application Server. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n:</td>
+<td align="left" valign="top" class="base">ClientContainer</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong>WSLogin</strong>
+</dt>
+<dd>Especifica si todas las aplicaciones pueden utilizar la configuraci&oacute;n de WSLogin
+para realizar la autenticaci&oacute;n durante el tiempo de ejecuci&oacute;n de seguridad de WebSphere
+Application Server.
+<p>Esta configuraci&oacute;n de inicio de sesi&oacute;n no reconoce CallbackHandler que est&aacute; definido en el descriptor de despliegue del contenedor del cliente. Para utilizar esta funci&oacute;n, utilice la
+configuraci&oacute;n de inicio de sesi&oacute;n de ClientContainer.</p>
+
+<p>WSLogin es la configuraci&oacute;n de inicio de sesi&oacute;n por omisi&oacute;n para WebSphere Application
+Server. No elimine este valor por omisi&oacute;n, ya que otras aplicaciones que lo utilizan fallar&aacute;n.
+Esta configuraci&oacute;n de inicio de sesi&oacute;n autentica a los usuarios durante la
+ejecuci&oacute;n de seguridad de WebSphere Application Server. Utilice las credenciales del sujeto autenticado
+que devuelven estas configuraciones de inicio de sesi&oacute;n como comprobaci&oacute;n de autorizaci&oacute;n para acceder a los recursos
+de WebSphere Application Server.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valor por omisi&oacute;n:</td>
+<td align="left" valign="top" class="base">ClientContainer</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>Informaci&oacute;n relacionada</strong>
+</p>
+<a href="rcon_buttons.html">Botones de la consola de administraci&oacute;n</a>
+<br>
+
+<a href="rcon_pageusage.html">Caracter&iacute;sticas de la p&aacute;gina de la consola administrativa</a>
+<br>
+
+<a href="rcon_scope.html">Valores de &aacute;mbito de la consola administrativa</a>
+<br>
+
+<a href="rcon_filter.html">Valores de filtro de la consola administrativa</a>
+<br>
+
+<a href="rcon_preferences.html">Valores de preferencias de la consola administrativa</a>
+<br>
+
+</div>
+</body>
+</html>

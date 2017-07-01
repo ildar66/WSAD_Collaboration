@@ -1,0 +1,253 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Param&egrave;tres de la source de donn&eacute;es (version 4)</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="WAS40_Data_source_detail"></a>
+<h2>Param&egrave;tres de la source de donn&eacute;es (version 4)</h2>
+
+<p>Utilisez cette page pour cr&eacute;er une source de donn&eacute;es de type version 4.0. Les sources de donn&eacute;es version 4.0 utilisent l'architecture du gestionnaire de connexions de WebSphere Application Server version 4.0. Tous les modules EJB 1.x doivent utiliser ce type de source
+de donn&eacute;es.</p>
+
+<p>Pour afficher cette page de la console d'administration, cliquez
+sur <strong>Ressources</strong> &gt; <strong>Fournisseurs JDBC</strong> &gt;
+<em>fournisseur_JDBC</em> &gt; <strong>Sources de donn&eacute;es (version 4.0)</strong> &gt; <em>source_donn&eacute;es</em>.</p>
+
+<div>
+<p>
+<strong>Onglet Configuration</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="WAS40DataSource_detail_contextID"></a>Port&eacute;e</strong>
+</dt>
+<dd>Indique &agrave; quel niveau cette d&eacute;finition de ressource est visible :
+cellule, noeud ou serveur.
+<p>Des ressources telles que les fournisseurs JDBC, les liaisons d'espace de noms et les
+biblioth&egrave;ques partag&eacute;es peuvent &ecirc;tre d&eacute;finies &agrave; plusieurs niveaux. Dans ce cas, pour une ressource donn&eacute;e, la d&eacute;finition
+figurant au niveau le plus sp&eacute;cifique (par exemple, le serveur) l'emporte sur l'&eacute;ventuelle d&eacute;finition homologue figurant &agrave; un
+niveau plus g&eacute;n&eacute;ral (par exemple, la cellule).</p>
+
+<p>Notez que quelle que soit la port&eacute;e d'une ressource d&eacute;finie, les propri&eacute;t&eacute;s de cette
+ressource s'appliquent uniquement au niveau d'un serveur individuel. Par exemple, si vous
+d&eacute;finissez la port&eacute;e d'une source de donn&eacute;es au niveau cellule, tous les utilisateurs de
+cette cellule peuvent rechercher et utiliser cette source de donn&eacute;es, laquelle est unique
+au sein de cette cellule. Cependant, les param&egrave;tres de propri&eacute;t&eacute; de la ressource sont locaux &agrave; chaque serveur de la cellule. Par exemple, si vous attribuez la valeur 10
+&agrave; la propri&eacute;t&eacute; <em>Nombre maximal de connexions</em>, chaque serveur de cette cellule pourra
+avoir 10 connexions.<dl>
+
+<dt>
+<strong>Cellule</strong>
+</dt>
+<dd>Niveau de port&eacute;e le plus g&eacute;n&eacute;ral.  Les ressources d&eacute;finies au niveau cellule
+sont visibles depuis tous les noeuds et serveurs de cette cellule, sauf si elles sont red&eacute;finies
+&agrave; un niveau inf&eacute;rieur. Pour visualiser les ressources d&eacute;finies au niveau cellule, ne sp&eacute;cifiez pas
+de nom de serveur ni de nom de noeud dans le formulaire de s&eacute;lection de port&eacute;e.</dd>
+
+<dt>
+<strong>Noeud</strong>
+</dt>
+<dd>Port&eacute;e par d&eacute;faut de la plupart des types de ressources.  Les ressources d&eacute;finies
+au niveau noeud l'emportent sur les &eacute;ventuelles d&eacute;finitions homologues figurant au niveau cellule
+et sont visibles depuis tous les serveurs du noeud consid&eacute;r&eacute;, sauf si elles sont red&eacute;finies &agrave; un niveau
+serveur sur ce noeud. Pour visualiser les ressources d&eacute;finies au niveau d'un noeud, ne sp&eacute;cifiez pas de
+serveur dans le formulaire de s&eacute;lection de port&eacute;e ; sp&eacute;cifiez simplement le nom du noeud concern&eacute;.</dd>
+
+<dt>
+<strong>Serveur</strong>
+</dt>
+<dd>Niveau de port&eacute;e le plus sp&eacute;cifique pour la d&eacute;finition des ressources.  Les ressources
+d&eacute;finies au niveau d'un serveur l'emportent sur les &eacute;ventuelles d&eacute;finitions homologues apparaissant au niveau
+de la cellule parente ou du noeud parent ; elles sont visibles uniquement
+depuis ce serveur. Pour visualiser les ressources d&eacute;finies au niveau d'un serveur, sp&eacute;cifiez le nom de ce
+serveur ainsi que celui de son noeud parent dans le formulaire de s&eacute;lection de port&eacute;e.</dd>
+
+</dl>
+</p>
+
+<p>Lorsque des ressources sont cr&eacute;&eacute;es, elles le sont toujours dans la port&eacute;e en cours,
+c'est-&agrave;-dire celle qui est s&eacute;lectionn&eacute;e dans le formulaire.   Pour afficher les ressources d'autres port&eacute;es, sp&eacute;cifiez un noeud ou un serveur
+diff&eacute;rent dans le formulaire de s&eacute;lection de port&eacute;e.  </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">String (cha&icirc;ne)</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WAS40DataSource_databasename_description"></a>Nom</strong>
+</dt>
+<dd>Nom affich&eacute; de la ressource. 
+<p>Par exemple, vous pouvez indiquer <em>Source de donn&eacute;es test</em> dans cette zone.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">String (cha&icirc;ne)</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WAS40DataSource_jndiName_description"></a>Nom JNDI</strong>
+</dt>
+<dd>Indique le nom JNDI (Java Naming and Directory Interface). 
+<p>Les environnements informatiques r&eacute;partis utilisent souvent des
+services d'annuaire et de nommage pour obtenir des composants et des
+ressources partag&eacute;s. Les services de nommage et d'annuaire associent des noms &agrave; des
+emplacements, des services, des informations et des ressources.  </p>
+
+<p>Les services de nommage fournissent des mappages nom-vers-objet. Les
+services d'annuaire et de nommage fournissent des informations sur les
+objets et des outils de recherche n&eacute;cessaires pour localiser ces objets. </p>
+
+<p>Il existe un grand nombre d'impl&eacute;mentations de services d'annuaire
+et les interfaces associ&eacute;es varient.   L'interface JNDI
+fournit une interface commune utilis&eacute;e pour
+acc&eacute;der &agrave; diff&eacute;rents services d'annuaire et de nommage.</p>
+
+<p>Par exemple, vous pouvez indiquer le nom
+<em>jdbc/markSection</em>.</p>
+
+<p>Si vous n'indiquez pas de valeur dans cette zone, un nom JNDI est
+g&eacute;n&eacute;r&eacute; &agrave; partir du nom de la source de donn&eacute;es. Par exemple, un nom de source de donn&eacute;es markSection g&eacute;n&egrave;re le nom
+JNDI <em>jdbc/markSection</em>.</p>
+
+<p>Une fois la valeur d&eacute;finie, sauvegardez-la et red&eacute;marrez le
+serveur. Cette cha&icirc;ne doit appara&icirc;tre lorsque vous ex&eacute;cutez
+<em>dumpnamespace</em>.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">String (cha&icirc;ne)</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WAS40DataSource_Description_Description"></a>Description</strong>
+</dt>
+<dd>Texte d&eacute;crivant la ressource. 
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">String (cha&icirc;ne)</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WAS40DataSource_Category_Description"></a>Cat&eacute;gorie</strong>
+</dt>
+<dd>Cha&icirc;ne de cat&eacute;gorie que vous pouvez utiliser
+pour classifier ou grouper la ressource. 
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">String (cha&icirc;ne)</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WAS40DataSource_databaseName_displayName"></a>Nom de la base de donn&eacute;es </strong>
+</dt>
+<dd>Nom de la base de donn&eacute;es &agrave; laquelle cette source de donn&eacute;es donne acc&egrave;s. 
+<p>Par exemple, vous pouvez indiquer le nom
+<em>EXEMPLE</em>. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">String (cha&icirc;ne)</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WAS40DataSource_defaultUser_displayName"></a>ID utilisateur par d&eacute;faut</strong>
+</dt>
+<dd>Indique le nom d'utilisateur &agrave; utiliser pour la connexion &agrave; la
+base de donn&eacute;es.
+<p>Par exemple, vous pouvez utiliser l'ID
+<em>db2admin</em>. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">String (cha&icirc;ne)</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WAS40DataSource_defaultPassword_displayName"></a>Mot de passe par d&eacute;faut </strong>
+</dt>
+<dd>Indique le mot de passe utilis&eacute; pour la connexion &agrave; la
+base de donn&eacute;es. 
+<p>Par exemple, vous pouvez utiliser le mot de passe
+<em>db2admin</em>.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es</td>
+<td align="left" valign="top" class="base">String (cha&icirc;ne)</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informations connexes</strong>
+</p>
+<a href="rcon_buttons.html">Boutons de la console administrative</a>
+<br>
+
+<a href="rcon_pageusage.html">Caract&eacute;ristiques de la page de la console d'administration</a>
+<br>
+
+</div>
+</body>
+</html>

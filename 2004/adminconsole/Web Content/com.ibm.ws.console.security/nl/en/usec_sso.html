@@ -1,0 +1,149 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Single signon settings</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecsso"></a>
+<h2>Single signon settings</h2>
+
+<p>Use this page to set the configuration values for single signon
+(SSO).</p>
+
+<p>To view this administrative console page, click <strong>Security</strong> &gt; <strong>Authentication
+Mechanisms</strong> &gt; <strong>LTPA</strong> &gt; <strong>Single Signon (SSO)</strong>.</p>
+
+<div>
+<p>
+<strong>Configuration tab</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="SingleSignon_requiresSSL_description"></a>Requires SSL</strong>
+</dt>
+<dd>Specifies that the single signon function is enabled only when
+requests are made over HTTPS Secure Sockets Layer (SSL) connections.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type:</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default:</td>
+<td align="left" valign="top" class="base">Disable</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range:</td>
+<td align="left" valign="top" class="base">Enable or Disable</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SingleSignon_domainName_description"></a>Domain Name</strong>
+</dt>
+<dd>Specifies the domain name (.ibm.com, for example) for all single
+signon hosts.
+<p>If no value is specified, the user Web browser defaults to
+the value of the host name where the Web application is running.  This restricts
+the HTTP cookie (generated for SSO purposes) only to the host that originated
+it. Restricting the HTTP cookie can be undesirable if there is more than one
+host participating in the SSO domain. Leaving the domain name attribute empty
+is only desirable if multiple virtual hosts with different domain names are
+running on the same physical host. Leaving this field empty allows your Web
+browser to default the domain name to each different virtual host.  If a domain
+name is explicitly specified in this field, then that value is used for all
+virtual hosts and thereby restricting them to a single domain, which can be
+undesirable in some situations.</p>
+
+<p>If a domain name is explicitly specified, then all URLs used to access
+protected Web resources contain the server domain name system (DNS) host name.
+For example, once global security is configured for LTPA and an explicit SSO
+domain name is specified, then the administrative console is accessible with
+the following URL:  <samp>http://yourhost.austin.ibm.com:9090/admin</samp>, where <em>yourhost.austin.ibm.com</em> is
+replaced with your server DNS host name.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type:</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SingleSignon_enabled_description"></a>Enabled</strong>
+</dt>
+<dd>Specifies that the single signon function is enabled.
+<p>Web applications that use J2EE FormLogin style login pages (such as the
+WebSphere Application Server administrative console) require single signon
+(SSO) enablement. Only disable SSO for certain advanced configurations where
+LTPA SSO type cookies are not required.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type:</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default:</td>
+<td align="left" valign="top" class="base">Enabled</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range:</td>
+<td align="left" valign="top" class="base">Enabled or Disabled</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Related information</strong>
+</p>
+<a href="rcon_buttons.html">Administrative console buttons</a>
+<br>
+
+<a href="rcon_pageusage.html">Administrative console page features</a>
+<br>
+
+<a href="rcon_scope.html">Administrative console scope settings</a>
+<br>
+
+<a href="rcon_filter.html">Administrative console filter settings</a>
+<br>
+
+<a href="rcon_preferences.html">Administrative console preference settings</a>
+<br>
+
+</div>
+</body>
+</html>

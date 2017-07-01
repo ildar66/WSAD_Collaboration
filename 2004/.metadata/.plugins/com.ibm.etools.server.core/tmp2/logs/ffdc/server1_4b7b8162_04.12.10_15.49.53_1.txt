@@ -1,0 +1,556 @@
+------Start of DE processing------ = [04.12.10 15:49:53:281 MSK] , key = java.sql.SQLException com.ibm.ws.rsadapter.spi.WSRdbManagedConnectionImpl.destroy 1005
+Exception = java.sql.SQLException
+Source = com.ibm.ws.rsadapter.spi.WSRdbManagedConnectionImpl.destroy
+probeid = 1005
+Stack Dump = java.sql.SQLException: ????????? ??? ?????????? ?????? java.net.SocketException: Connection reset by peer: socket write error
+	at com.informix.util.IfxErrMsg.getSQLException(IfxErrMsg.java:423)
+	at com.informix.jdbc.IfxSqli.flip(IfxSqli.java:2402)
+	at com.informix.jdbc.IfxSqli.receiveMessage(IfxSqli.java:2201)
+	at com.informix.jdbc.IfxSqli.executeOpenDatabase(IfxSqli.java:1703)
+	at com.informix.jdbcx.IfxSqliConnReUsableConnection.close(IfxSqliConnReUsableConnection.java:95)
+	at com.ibm.ws.rsadapter.spi.WSRdbManagedConnectionImpl.destroy(WSRdbManagedConnectionImpl.java:1999)
+	at com.ibm.ejs.j2c.MCWrapper.destroy(MCWrapper.java:1327)
+	at com.ibm.ejs.j2c.poolmanager.FreePool.removeParkedConnection(FreePool.java:524)
+	at com.ibm.ejs.j2c.poolmanager.PoolManager.fatalErrorNotification(PoolManager.java:818)
+	at com.ibm.ejs.j2c.MCWrapper.connectionErrorOccurred(MCWrapper.java:1719)
+	at com.ibm.ejs.j2c.ConnectionEventListener.connectionErrorOccurred(ConnectionEventListener.java:291)
+	at com.ibm.ws.rsadapter.spi.WSRdbManagedConnectionImpl.processConnectionErrorOccurredEvent(WSRdbManagedConnectionImpl.java:1375)
+	at com.ibm.ws.rsadapter.jdbc.WSJdbcConnection.fireConnectionErrorEvent(WSJdbcConnection.java:941)
+	at com.ibm.ws.rsadapter.jdbc.WSJdbcUtil.mapException(WSJdbcUtil.java:846)
+	at com.ibm.ws.rsadapter.jdbc.WSJdbcPreparedStatement.executeQuery(WSJdbcPreparedStatement.java:439)
+	at com.hps.july.sync.model.dao.GenericDAO.executeSelect(GenericDAO.java:572)
+	at com.hps.july.sync.model.dao.ImpGenericDAO.findDbsPositionsPage(ImpGenericDAO.java:48)
+	at com.hps.july.sync.session.dao.ReferencesFinderPersistence.findDbsPositions_Page(ReferencesFinderPersistence.java:128)
+	at com.hps.july.collaboration.helper.ReferencesHelper.searchDbsPositionsFromDAO(ReferencesHelper.java:72)
+	at com.hps.july.collaboration.helper.ReferencesHelper.searchDbsPositions_Page(ReferencesHelper.java:59)
+	at com.hps.july.collaboration.formbean.ReferencesForm_Page.doTask(ReferencesForm_Page.java:81)
+	at com.hps.july.collaboration.action.ReferencesAction_Page.perform(ReferencesAction_Page.java:40)
+	at org.apache.struts.action.ActionServlet.processActionPerform(ActionServlet.java:1787)
+	at org.apache.struts.action.ActionServlet.process(ActionServlet.java:1586)
+	at org.apache.struts.action.ActionServlet.doPost(ActionServlet.java:510)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:760)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:853)
+	at com.ibm.ws.webcontainer.servlet.StrictServletInstance.doService(StrictServletInstance.java:110)
+	at com.ibm.ws.webcontainer.servlet.StrictLifecycleServlet._service(StrictLifecycleServlet.java:174)
+	at com.ibm.ws.webcontainer.servlet.IdleServletState.service(StrictLifecycleServlet.java:313)
+	at com.ibm.ws.webcontainer.servlet.StrictLifecycleServlet.service(StrictLifecycleServlet.java:116)
+	at com.ibm.ws.webcontainer.servlet.ServletInstance.service(ServletInstance.java:283)
+	at com.ibm.ws.webcontainer.servlet.ValidServletReferenceState.dispatch(ValidServletReferenceState.java:42)
+	at com.ibm.ws.webcontainer.servlet.ServletInstanceReference.dispatch(ServletInstanceReference.java:40)
+	at com.ibm.ws.webcontainer.webapp.WebAppRequestDispatcher.handleWebAppDispatch(WebAppRequestDispatcher.java:983)
+	at com.ibm.ws.webcontainer.webapp.WebAppRequestDispatcher.dispatch(WebAppRequestDispatcher.java:564)
+	at com.ibm.ws.webcontainer.webapp.WebAppRequestDispatcher.forward(WebAppRequestDispatcher.java:200)
+	at com.ibm.ws.webcontainer.srt.WebAppInvoker.doForward(WebAppInvoker.java:119)
+	at com.ibm.ws.webcontainer.srt.WebAppInvoker.handleInvocationHook(WebAppInvoker.java:276)
+	at com.ibm.ws.webcontainer.cache.invocation.CachedInvocation.handleInvocation(CachedInvocation.java:71)
+	at com.ibm.ws.webcontainer.cache.invocation.CacheableInvocationContext.invoke(CacheableInvocationContext.java:116)
+	at com.ibm.ws.webcontainer.srp.ServletRequestProcessor.dispatchByURI(ServletRequestProcessor.java:186)
+	at com.ibm.ws.webcontainer.oselistener.OSEListenerDispatcher.service(OSEListener.java:334)
+	at com.ibm.ws.webcontainer.http.HttpConnection.handleRequest(HttpConnection.java:56)
+	at com.ibm.ws.http.HttpConnection.readAndHandleRequest(HttpConnection.java:618)
+	at com.ibm.ws.http.HttpConnection.run(HttpConnection.java:439)
+	at com.ibm.ws.util.ThreadPool$Worker.run(ThreadPool.java:672)
+
+Dump of callerThis = 
+Object type = com.ibm.ws.rsadapter.spi.WSRdbManagedConnectionImpl
+  _______________________________________________________________________
+  
+      First Failure Data Capture information for
+            com.ibm.ws.rsadapter.spi.WSRdbManagedConnectionImpl@1230c16d
+  _______________________________________________________________________
+  
+  ONE PHASE ENABLED
+
+  Database Type:
+    null
+
+  Transaction State:
+    NO_TRANSACTION_ACTIVE
+
+  Statement Cache Size (maximum):
+    10
+
+  Key:
+    [B@451e816d
+
+  Performance Monitoring Instrumentation:
+    null
+
+  Log Writer:
+    null
+
+  Default AutoCommit:
+    true
+
+  Current AutoCommit:
+    true
+
+  Current Isolation:
+    REPEATABLE READ
+
+  Support isolation level switching: 
+    false
+
+  Current Catalog:
+    july
+
+  Current readOnly:
+    false
+
+  Current TypeMap:
+    {}
+
+  Thread ID:
+    null
+
+  Already Processed Interaction Pending Event?
+    false
+
+  Underlying Connection Object: com.informix.jdbcx.IfxSqliConnReUsableConnection@644416d
+    com.informix.jdbcx.IfxSqliConnReUsableConnection@644416d
+
+  Underlying PooledConnection Object: com.informix.jdbcx.IfxPooledConnection@678016d
+    com.informix.jdbcx.IfxPooledConnection@678016d
+
+  SQLJ Default Context: null
+    null
+
+  Driver version:
+    2.21.JC2
+
+  Database version:
+    9.30.UC1
+
+  Connection Event Listeners:
+
+  
+  Maximum Handle List Size: 15
+
+  Handle Count: 0
+
+  Handles:
+
+    null
+    null
+    null
+    null
+    null
+    null
+    null
+    null
+    null
+    null
+    null
+    null
+    null
+    null
+    null
+  
+  State Manager:
+    com.ibm.ws.rsadapter.spi.WSStateManager@2b80c16d
+
+  XA Resource:
+    null
+
+  SPI LocalTransaction :
+    null
+
+  ManagedConnectionMetaData:
+    null
+
+  Statement Cache:
+    
+com.ibm.ws.rsadapter.spi.CacheMap@2a8d016d
+Number of entries:   0
+Maximum entries:     10
+Number of buckets:   13
+Maximum bucket size: 5
+Number of discards:  0
+
+BUCKET SIZE PREV NEXT
+  000  000  013  013
+  001  000  013  013
+  002  000  013  013
+  003  000  013  013
+  004  000  013  013
+  005  000  013  013
+  006  000  013  013
+  007  000  013  013
+  008  000  013  013
+  009  000  013  013
+  010  000  013  013
+  011  000  013  013
+  012  000  013  013
+  013  LRU       013
+  014  MRU  013
+
+
+  _______________________________________________________________________
+  
+      First Failure Data Capture information for
+            com.ibm.ws.rsadapter.spi.WSConnectionRequestInfoImpl@4
+  _______________________________________________________________________
+  
+  User Name:
+    null
+
+  Password:
+    null
+
+  Isolation Level:
+    REPEATABLE READ
+
+  Catalog:
+    null
+
+  Is Read Only?
+    null
+
+  Type Map:
+    null
+
+  Hash Code:
+    4
+
+  Support isolation switching on connection:
+    false
+
+  Handle type:
+    java.sql.Connection
+
+  _______________________________________________________________________
+  
+      First Failure Data Capture information for
+            com.ibm.ws.rsadapter.spi.WSManagedConnectionFactoryImpl@898416c
+  _______________________________________________________________________
+  
+  Detection of multithreaded access is
+    DISABLED
+
+  DataSource properties:
+    {ifxGL_DATETIME=, ifxNODEFDAC=, description=, password=******, informixAllowNewLine=false, ifxPROTOCOLTRACEFILE=, portNumber=1541, enableMultithreadedAccessDetection=false, ifxIFX_DIRECTIVES=, ifxLDAP_IFXBASE=, ifxLDAP_PASSWD=, ifxNEWLOCALE=, ifxCPMMaxConnections=, ifxINFORMIXOPCACHE=, ifxCPMMinAgeLimit=, loginTimeout=, preTestSQLString=SELECT 1 FROM TABLE1, ifxPSORT_DBTEMP=, ifxJDBCTEMP=, ifxUSEV5SERVER=, ifxSQLH_TYPE=, ifxIFX_USEPUT=, ifxPROXY=, ifxINFORMIXSTACKSIZE=, ifxGL_DATE=, dataSourceName=, ifxPLCONFIG=, ifxPLOAD_LO_PATH=, ifxDBSPACETEMP=, ifxDELIMIDENT=, ifxPATH=, ifxCPMMaxPoolSize=, ifxDBCENTURY=, ifxSECURITY=, serverName=beeinf, ifxDB_LOCALE=, dataStoreHelperClass=com.ibm.websphere.rsadapter.InformixDataStoreHelper, ifxPROTOCOLTRACE=, ifxTRACEFILE=, ifxLDAP_URL=, databaseName=july, ifxCPMMinPoolSize=, ifxINFORMIXCONTIME=, user=dima, ifxOPTOFC=, ifxIFXHOST=192.168.18.201, dataSourceClass=com.informix.jdbcx.IfxConnectionPoolDataSource, ifxDBDATE=, ifxTRACE=, ifxSQLH_LOC=, ifxDBTEMP=, ifxCPMServiceInterval=, statementCacheSize=10, ifxOPTCOMPIND=, ifxLDAP_USER=, ifxPDQPRIORITY=, ifxLOBCACHE=, roleName=, ifxPSORT_NPROCS=, ifxOPT_GOAL=, ifxDBTIME=, ifxIFX_AUTOFREE=, ifxSQLH_FILE=, ifxINFORMIXCONRETRY=, ifxCLIENT_LOCALE=, ifxFET_BUF_SIZE=, ifxDBANSIWARN=, ifxENABLE_TYPE_CACHE=, ifxUSE_DTENV=, ifxDBUPSPACE=, informixLockModeWait=2, ifxCPMInitPoolSize=, ifxSTMT_CACHE=, ifxCPMAgeLimit=, ifxNEWCODESET=}
+
+  Database Type:
+    null
+
+  DataStoreHelper:
+    com.ibm.websphere.rsadapter.InformixDataStoreHelper@991c16c
+
+  Description:
+    null
+
+  InternalDataStoreHelper:
+    com.ibm.ws.rsadapter.spi.InternalGenericDataStoreHelper@1156416c
+
+  Login Timeout:
+    0
+
+  Log Writer:
+    null
+
+  Performance Monitoring Instrumentation:
+    null
+
+  Statement Cache Size (maximum):
+    10
+
+  Transaction Resource Registration:
+    dynamic
+
+  Transaction Branches are set to be Loosely Coupled: 
+    false
+
+  Connection Factory Type:
+    com.ibm.ws.rsadapter.jdbc.WSJdbcDataSource
+
+  Implicit Handle Reactivation is
+    ENABLED
+
+  Listing CCI ConnectionFactories:
+
+  
+  Listing JDBC ConnectionFactories (DataSources):
+
+    com.ibm.ejs.j2c.ConnectionManager@34b8170 --> com.ibm.ws.rsadapter.jdbc.WSJdbcDataSource@75b6c163
+  
+  _______________________________________________________________________
+  
+      First Failure Data Capture information for
+            com.ibm.ws.rsadapter.spi.WSRdbDataSource@1347816c
+  _______________________________________________________________________
+  
+  DataSource Implementation Class Name:
+    com.informix.jdbcx.IfxConnectionPoolDataSource
+
+  DataSource Name:
+    null
+
+  DataStoreHelper:
+    com.ibm.websphere.rsadapter.InformixDataStoreHelper@991c16c
+
+  DataSource properties:
+    {ifxGL_DATETIME=, ifxNODEFDAC=, description=, password=******, informixAllowNewLine=false, ifxPROTOCOLTRACEFILE=, portNumber=1541, enableMultithreadedAccessDetection=false, ifxIFX_DIRECTIVES=, ifxLDAP_IFXBASE=, ifxLDAP_PASSWD=, ifxNEWLOCALE=, ifxCPMMaxConnections=, ifxINFORMIXOPCACHE=, ifxCPMMinAgeLimit=, loginTimeout=, preTestSQLString=SELECT 1 FROM TABLE1, ifxPSORT_DBTEMP=, ifxJDBCTEMP=, ifxUSEV5SERVER=, ifxSQLH_TYPE=, ifxIFX_USEPUT=, ifxPROXY=, ifxINFORMIXSTACKSIZE=, ifxGL_DATE=, dataSourceName=, ifxPLCONFIG=, ifxPLOAD_LO_PATH=, ifxDBSPACETEMP=, ifxDELIMIDENT=, ifxPATH=, ifxCPMMaxPoolSize=, ifxDBCENTURY=, ifxSECURITY=, serverName=beeinf, ifxDB_LOCALE=, dataStoreHelperClass=com.ibm.websphere.rsadapter.InformixDataStoreHelper, ifxPROTOCOLTRACE=, ifxTRACEFILE=, ifxLDAP_URL=, databaseName=july, ifxCPMMinPoolSize=, ifxINFORMIXCONTIME=, user=dima, ifxOPTOFC=, ifxIFXHOST=192.168.18.201, dataSourceClass=com.informix.jdbcx.IfxConnectionPoolDataSource, ifxDBDATE=, ifxTRACE=, ifxSQLH_LOC=, ifxDBTEMP=, ifxCPMServiceInterval=, statementCacheSize=10, ifxOPTCOMPIND=, ifxLDAP_USER=, ifxPDQPRIORITY=, ifxLOBCACHE=, roleName=, ifxPSORT_NPROCS=, ifxOPT_GOAL=, ifxDBTIME=, ifxIFX_AUTOFREE=, ifxSQLH_FILE=, ifxINFORMIXCONRETRY=, ifxCLIENT_LOCALE=, ifxFET_BUF_SIZE=, ifxDBANSIWARN=, ifxENABLE_TYPE_CACHE=, ifxUSE_DTENV=, ifxDBUPSPACE=, informixLockModeWait=2, ifxCPMInitPoolSize=, ifxSTMT_CACHE=, ifxCPMAgeLimit=, ifxNEWCODESET=}
+
+  ONE PHASE ENABLED
+
+  Underlying DataSource Object: com.informix.jdbcx.IfxConnectionPoolDataSource@3a51c16c
+    com.informix.jdbcx.IfxConnectionPoolDataSource@3a51c16c
+
+
+==> Performing default dump from com.ibm.ws.rsadapter.DiagnosticModuleForAdapter  = Fri Dec 10 15:49:53 MSK 2004
+This is a FFDC log generated for the Default Resource Adapter from source = com.ibm.ws.rsadapter.spi.WSRdbManagedConnectionImpl.destroy
+The exception caught = java.sql.SQLException: ????????? ??? ?????????? ?????? java.net.SocketException: Connection reset by peer: socket write error
+Operating System = Windows 2000 5.0 x86
+Classpath = C:\Program Files\IBM\WebSphere Studio\runtimes\base_v51/properties;C:\Program Files\IBM\WebSphere Studio\runtimes\base_v51/properties;C:\Program Files\IBM\WebSphere Studio\runtimes\base_v51/lib/bootstrap.jar;C:\Program Files\IBM\WebSphere Studio\runtimes\base_v51/lib/j2ee.jar;C:\Program Files\IBM\WebSphere Studio\runtimes\base_v51/lib/lmproxy.jar;C:\Program Files\IBM\WebSphere Studio\runtimes\base_v51/lib/urlprotocols.jar;C:/Program Files/IBM/WebSphere Studio/wstools/eclipse/plugins/com.ibm.etools.websphere.tools.common_5.1.1.1/runtime/wteServers.jar;C:/Program Files/IBM/WebSphere Studio/wstools/eclipse/plugins/com.ibm.etools.websphere.tools.common_5.1.1.1/runtime/wasToolsCommon.jar
+Ext dirs = C:\Program Files\IBM\WebSphere Studio\runtimes\base_v51\java\jre\lib\ext
+Other related data. If null, nothing was passed in = 
+null
+
+The Objects' instance variables are printed below recursively 2 levels deep = 
+Object type = com.ibm.ws.rsadapter.spi.WSRdbManagedConnectionImpl
+  _______________________________________________________________________
+  
+      First Failure Data Capture information for
+            com.ibm.ws.rsadapter.spi.WSRdbManagedConnectionImpl@1230c16d
+  _______________________________________________________________________
+  
+  ONE PHASE ENABLED
+
+  Database Type:
+    null
+
+  Transaction State:
+    NO_TRANSACTION_ACTIVE
+
+  Statement Cache Size (maximum):
+    10
+
+  Key:
+    [B@451e816d
+
+  Performance Monitoring Instrumentation:
+    null
+
+  Log Writer:
+    null
+
+  Default AutoCommit:
+    true
+
+  Current AutoCommit:
+    true
+
+  Current Isolation:
+    REPEATABLE READ
+
+  Support isolation level switching: 
+    false
+
+  Current Catalog:
+    july
+
+  Current readOnly:
+    false
+
+  Current TypeMap:
+    {}
+
+  Thread ID:
+    null
+
+  Already Processed Interaction Pending Event?
+    false
+
+  Underlying Connection Object: com.informix.jdbcx.IfxSqliConnReUsableConnection@644416d
+    com.informix.jdbcx.IfxSqliConnReUsableConnection@644416d
+
+  Underlying PooledConnection Object: com.informix.jdbcx.IfxPooledConnection@678016d
+    com.informix.jdbcx.IfxPooledConnection@678016d
+
+  SQLJ Default Context: null
+    null
+
+  Driver version:
+    2.21.JC2
+
+  Database version:
+    9.30.UC1
+
+  Connection Event Listeners:
+
+  
+  Maximum Handle List Size: 15
+
+  Handle Count: 0
+
+  Handles:
+
+    null
+    null
+    null
+    null
+    null
+    null
+    null
+    null
+    null
+    null
+    null
+    null
+    null
+    null
+    null
+  
+  State Manager:
+    com.ibm.ws.rsadapter.spi.WSStateManager@2b80c16d
+
+  XA Resource:
+    null
+
+  SPI LocalTransaction :
+    null
+
+  ManagedConnectionMetaData:
+    null
+
+  Statement Cache:
+    
+com.ibm.ws.rsadapter.spi.CacheMap@2a8d016d
+Number of entries:   0
+Maximum entries:     10
+Number of buckets:   13
+Maximum bucket size: 5
+Number of discards:  0
+
+BUCKET SIZE PREV NEXT
+  000  000  013  013
+  001  000  013  013
+  002  000  013  013
+  003  000  013  013
+  004  000  013  013
+  005  000  013  013
+  006  000  013  013
+  007  000  013  013
+  008  000  013  013
+  009  000  013  013
+  010  000  013  013
+  011  000  013  013
+  012  000  013  013
+  013  LRU       013
+  014  MRU  013
+
+
+  _______________________________________________________________________
+  
+      First Failure Data Capture information for
+            com.ibm.ws.rsadapter.spi.WSConnectionRequestInfoImpl@4
+  _______________________________________________________________________
+  
+  User Name:
+    null
+
+  Password:
+    null
+
+  Isolation Level:
+    REPEATABLE READ
+
+  Catalog:
+    null
+
+  Is Read Only?
+    null
+
+  Type Map:
+    null
+
+  Hash Code:
+    4
+
+  Support isolation switching on connection:
+    false
+
+  Handle type:
+    java.sql.Connection
+
+  _______________________________________________________________________
+  
+      First Failure Data Capture information for
+            com.ibm.ws.rsadapter.spi.WSManagedConnectionFactoryImpl@898416c
+  _______________________________________________________________________
+  
+  Detection of multithreaded access is
+    DISABLED
+
+  DataSource properties:
+    {ifxGL_DATETIME=, ifxNODEFDAC=, description=, password=******, informixAllowNewLine=false, ifxPROTOCOLTRACEFILE=, portNumber=1541, enableMultithreadedAccessDetection=false, ifxIFX_DIRECTIVES=, ifxLDAP_IFXBASE=, ifxLDAP_PASSWD=, ifxNEWLOCALE=, ifxCPMMaxConnections=, ifxINFORMIXOPCACHE=, ifxCPMMinAgeLimit=, loginTimeout=, preTestSQLString=SELECT 1 FROM TABLE1, ifxPSORT_DBTEMP=, ifxJDBCTEMP=, ifxUSEV5SERVER=, ifxSQLH_TYPE=, ifxIFX_USEPUT=, ifxPROXY=, ifxINFORMIXSTACKSIZE=, ifxGL_DATE=, dataSourceName=, ifxPLCONFIG=, ifxPLOAD_LO_PATH=, ifxDBSPACETEMP=, ifxDELIMIDENT=, ifxPATH=, ifxCPMMaxPoolSize=, ifxDBCENTURY=, ifxSECURITY=, serverName=beeinf, ifxDB_LOCALE=, dataStoreHelperClass=com.ibm.websphere.rsadapter.InformixDataStoreHelper, ifxPROTOCOLTRACE=, ifxTRACEFILE=, ifxLDAP_URL=, databaseName=july, ifxCPMMinPoolSize=, ifxINFORMIXCONTIME=, user=dima, ifxOPTOFC=, ifxIFXHOST=192.168.18.201, dataSourceClass=com.informix.jdbcx.IfxConnectionPoolDataSource, ifxDBDATE=, ifxTRACE=, ifxSQLH_LOC=, ifxDBTEMP=, ifxCPMServiceInterval=, statementCacheSize=10, ifxOPTCOMPIND=, ifxLDAP_USER=, ifxPDQPRIORITY=, ifxLOBCACHE=, roleName=, ifxPSORT_NPROCS=, ifxOPT_GOAL=, ifxDBTIME=, ifxIFX_AUTOFREE=, ifxSQLH_FILE=, ifxINFORMIXCONRETRY=, ifxCLIENT_LOCALE=, ifxFET_BUF_SIZE=, ifxDBANSIWARN=, ifxENABLE_TYPE_CACHE=, ifxUSE_DTENV=, ifxDBUPSPACE=, informixLockModeWait=2, ifxCPMInitPoolSize=, ifxSTMT_CACHE=, ifxCPMAgeLimit=, ifxNEWCODESET=}
+
+  Database Type:
+    null
+
+  DataStoreHelper:
+    com.ibm.websphere.rsadapter.InformixDataStoreHelper@991c16c
+
+  Description:
+    null
+
+  InternalDataStoreHelper:
+    com.ibm.ws.rsadapter.spi.InternalGenericDataStoreHelper@1156416c
+
+  Login Timeout:
+    0
+
+  Log Writer:
+    null
+
+  Performance Monitoring Instrumentation:
+    null
+
+  Statement Cache Size (maximum):
+    10
+
+  Transaction Resource Registration:
+    dynamic
+
+  Transaction Branches are set to be Loosely Coupled: 
+    false
+
+  Connection Factory Type:
+    com.ibm.ws.rsadapter.jdbc.WSJdbcDataSource
+
+  Implicit Handle Reactivation is
+    ENABLED
+
+  Listing CCI ConnectionFactories:
+
+  
+  Listing JDBC ConnectionFactories (DataSources):
+
+    com.ibm.ejs.j2c.ConnectionManager@34b8170 --> com.ibm.ws.rsadapter.jdbc.WSJdbcDataSource@75b6c163
+  
+  _______________________________________________________________________
+  
+      First Failure Data Capture information for
+            com.ibm.ws.rsadapter.spi.WSRdbDataSource@1347816c
+  _______________________________________________________________________
+  
+  DataSource Implementation Class Name:
+    com.informix.jdbcx.IfxConnectionPoolDataSource
+
+  DataSource Name:
+    null
+
+  DataStoreHelper:
+    com.ibm.websphere.rsadapter.InformixDataStoreHelper@991c16c
+
+  DataSource properties:
+    {ifxGL_DATETIME=, ifxNODEFDAC=, description=, password=******, informixAllowNewLine=false, ifxPROTOCOLTRACEFILE=, portNumber=1541, enableMultithreadedAccessDetection=false, ifxIFX_DIRECTIVES=, ifxLDAP_IFXBASE=, ifxLDAP_PASSWD=, ifxNEWLOCALE=, ifxCPMMaxConnections=, ifxINFORMIXOPCACHE=, ifxCPMMinAgeLimit=, loginTimeout=, preTestSQLString=SELECT 1 FROM TABLE1, ifxPSORT_DBTEMP=, ifxJDBCTEMP=, ifxUSEV5SERVER=, ifxSQLH_TYPE=, ifxIFX_USEPUT=, ifxPROXY=, ifxINFORMIXSTACKSIZE=, ifxGL_DATE=, dataSourceName=, ifxPLCONFIG=, ifxPLOAD_LO_PATH=, ifxDBSPACETEMP=, ifxDELIMIDENT=, ifxPATH=, ifxCPMMaxPoolSize=, ifxDBCENTURY=, ifxSECURITY=, serverName=beeinf, ifxDB_LOCALE=, dataStoreHelperClass=com.ibm.websphere.rsadapter.InformixDataStoreHelper, ifxPROTOCOLTRACE=, ifxTRACEFILE=, ifxLDAP_URL=, databaseName=july, ifxCPMMinPoolSize=, ifxINFORMIXCONTIME=, user=dima, ifxOPTOFC=, ifxIFXHOST=192.168.18.201, dataSourceClass=com.informix.jdbcx.IfxConnectionPoolDataSource, ifxDBDATE=, ifxTRACE=, ifxSQLH_LOC=, ifxDBTEMP=, ifxCPMServiceInterval=, statementCacheSize=10, ifxOPTCOMPIND=, ifxLDAP_USER=, ifxPDQPRIORITY=, ifxLOBCACHE=, roleName=, ifxPSORT_NPROCS=, ifxOPT_GOAL=, ifxDBTIME=, ifxIFX_AUTOFREE=, ifxSQLH_FILE=, ifxINFORMIXCONRETRY=, ifxCLIENT_LOCALE=, ifxFET_BUF_SIZE=, ifxDBANSIWARN=, ifxENABLE_TYPE_CACHE=, ifxUSE_DTENV=, ifxDBUPSPACE=, informixLockModeWait=2, ifxCPMInitPoolSize=, ifxSTMT_CACHE=, ifxCPMAgeLimit=, ifxNEWCODESET=}
+
+  ONE PHASE ENABLED
+
+  Underlying DataSource Object: com.informix.jdbcx.IfxConnectionPoolDataSource@3a51c16c
+    com.informix.jdbcx.IfxConnectionPoolDataSource@3a51c16c
+
+
++Data for directive [defaultadapter] obtained. = 
+==> Dump complete for com.ibm.ws.rsadapter.DiagnosticModuleForAdapter  = Fri Dec 10 15:49:53 MSK 2004

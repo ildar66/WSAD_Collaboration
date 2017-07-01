@@ -1,0 +1,286 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Web サービス・サーバーのデプロイメント記述子の表示</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_vwsdd"></a>
+<h2>
+<img alt="[修正パッケージ 5.0.2 以降]" src="v502.gif" border="0">Web サービス・サーバーのデプロイメント記述子の表示</h2>
+
+<p>このページを使用して、サーバーのデプロイメント記述子の設定を表示します。</p>
+
+<p>この管理コンソール・ページを表示するには、以下のステップを実行します。<ol>
+
+<li>「<strong>アプリケーション</strong>」&gt;「<strong>エンタープライズ・アプリケーション</strong>」&gt;「<em>application_name</em> 」をクリックします。</li>
+
+<li>「Related Items」の下の「<strong>Web モジュール</strong>」&gt;「<em>URI_file_name</em> 」&gt;「<strong>View
+Web Services Server Deployment Descriptor</strong>」をクリックします。</li>
+
+</ol>
+</p>
+
+<p>WebSphere Application Server には、
+アプリケーション・レベルおよびサーバー・レベルという 2 つのバインディング・レベルがあります。 WebSphere
+Application Server Network Deployment には、アプリケーション・レベル、サーバー・レベル、
+およびセル・レベルという 3 つのバインディング・レベルがあります。 以下のインプリメンテーションの説明は、アプリケーション・レベルのバインディングを構成する方法を示したものです。サーバー・レベルのバインディング (これがデフォルトです) を構成する場合は、
+以下のステップを完了します。<ol>
+
+<li>「<strong>サーバー</strong>」&gt;「<strong>アプリケーション・サーバー</strong>」&gt;「<em>server_name</em> 」をクリックします。</li>
+
+<li>「Related Items」の下の「<strong>Web Services: Default bindings for Web Services Security</strong>」をクリックします。</li>
+
+</ol>セル・レベルのバインディングを構成する場合は、「<strong>セキュリティー</strong>」&gt;「<strong>Web サービス</strong>」をクリックします。<ul>
+
+<li>
+<a href="#digsign">要求のディジタル署名の検証</a>
+</li>
+
+<li>
+<a href="#reqdecrypt">要求の暗号化解除</a>
+</li>
+
+<li> 
+<a href="#basicauth">BasicAuth 認証</a>
+</li>
+
+<li>
+<a href="#idassert">識別 (ID) 表明認証</a>
+</li>
+
+<li>
+<a href="#idasserttrust">Signature トラスト・モードによる識別 (ID) 表明認証</a>
+</li>
+
+<li>
+<a href="#respsign">応答の署名</a>
+</li>
+
+<li>
+<a href="#respencr">応答の暗号化</a>
+</li>
+
+</ul>
+</p>
+
+<div>
+<a name="digsign"></a>
+<p class="sectiontitle">
+<b>要求のディジタル署名の検証</b>
+</p>
+<p>保全性制約 (署名が必要) が定義されている場合は、
+バインディング・ファイルに署名情報がすでに構成されていることを確認してください。</p>
+<p>署名パラメーターを構成するには、以下のステップを完了します。<ol>
+
+<li>「<strong>アプリケーション</strong>」&gt;「<strong>エンタープライズ・アプリケーション</strong>」&gt;「<em>application_name</em> 」をクリックします。</li>
+
+<li>「Related Items」の下の「<strong>Web モジュール</strong>」&gt;「<em>URI_file_name</em>」&gt;「<strong>Web Services: Server Security Bindings</strong>」をクリックします。
+</li>
+
+<li>「Request Receiver Binding」列で、「<strong>編集</strong>」&gt;「<strong>Signing Information</strong>」をクリックします。</li>
+
+</ol>
+</p>
+<p>トラスト・アンカーを構成するには、以下のステップを完了します。<ol>
+
+<li>「<strong>サーバー</strong>」&gt;「<strong>アプリケーション・サーバー</strong>」&gt;「<em>server_name</em> 」をクリックします。</li>
+
+<li>「追加プロパティー」の下の「<strong>Web Services: Default bindings for Web Services Security</strong>」&gt;「<strong>Trust Anchors</strong>」をクリックします。</li>
+
+</ol>
+</p>
+<p>コレクション証明書ストアを構成するには、以下のステップを完了します。<ol>
+
+<li>「<strong>サーバー</strong>」&gt;「<strong>アプリケーション・サーバー</strong>」&gt;「<em>server_name</em> 」をクリックします。</li>
+
+<li>「Related Items」の下の「<strong>Web Services:
+Default bindings for Web Services Security</strong>」&gt;「<strong>Collection Certificate Store</strong>」をクリックします。</li>
+
+</ol>
+</p>
+<p>鍵ロケーターを構成するには、以下のステップを完了します。<ol>
+
+<li>「<strong>サーバー</strong>」&gt;「<strong>アプリケーション・サーバー</strong>」&gt;「<em>server_name</em> 」をクリックします。</li>
+
+<li>「追加プロパティー」の下の「<strong>Web Services: Default bindings for Web Services Security</strong>」&gt;「<strong>Key Locators</strong>」をクリックします。</li>
+
+</ol>
+</p>
+</div>
+
+<div>
+<a name="reqdecrypt"></a>
+<p class="sectiontitle">
+<b>要求の暗号化解除</b>
+</p>
+<p>機密性制約 (暗号化) が指定されている場合は、暗号化情報が定義されていることを確認してください。</p>
+<p>
+暗号化情報パラメーターを構成するには、以下のステップを完了します。<ol>
+
+<li>「<strong>エンタープライズ・アプリケーション</strong>」&gt;「<em>application_name</em> 」をクリックします。</li>
+
+<li>「Related Items」の下の「<strong>Web モジュール</strong>」をクリックします。</li>
+
+<li>「追加プロパティー」の下の「<strong>Web Services: Server Security Bindings</strong>」をクリックします。「Request Receiver Binding」の下の「<strong>編集</strong>」&gt;「<strong>Encryption Information</strong>」をクリックします。</li>
+
+</ol>
+</p>
+<p>鍵ロケーターを構成するには、以下のステップを完了します。<ol>
+
+<li>「<strong>サーバー</strong>」&gt;「<strong>アプリケーション・サーバー</strong>」&gt;「<em>server_name</em> 」をクリックします。</li>
+
+<li>「追加プロパティー」の下の「<strong>Web Services: Default bindings for Web Services Security</strong>」&gt;「<strong>Key Locators</strong>」をクリックします。</li>
+
+</ol>
+</p>
+</div>
+
+<div>
+<a name="basicauth"></a>
+<p class="sectiontitle">
+<b> BasicAuth 認証</b>
+</p>
+<p> BasicAuth が必須のセキュリティー・トークンとして構成されている場合は、
+バインディング・ファイルに CallbackHandler を指定し、基本認証データを収集してください。以下に、CallBack をサポートするインプリメンテーションをリストします。<dl>
+<dt>
+<strong>com.ibm.wsspi.wssecurity.auth.callback.GuiPromptCallbackHandler</strong>
+</dt>
+<dd>このインプリメンテーションでは、インターフェース・パネルで BasicAuth 情報 (ユーザー名とパスワード) を求めるプロンプトが出されます。</dd>
+<dt>
+<strong>com.ibm.wsspi.wssecurity.auth.callback.NonPromptCallbackHandler</strong>
+</dt>
+<dd>このインプリメンテーションでは、バインディング・ファイルから BasicAuth 情報が読み取られます。</dd>
+<dt>
+<strong>com.ibm.wsspi.wssecurity.auth.callback.StdPromptCallbackHandler</strong>
+</dt>
+<dd>このインプリメンテーションでは、標準入力 (stdin) プロンプトを使用して、ユーザー名とパスワードを求めるプロンプトが出されます。</dd>
+</dl>
+</p>
+<p>ログイン・マッピング情報を構成するには、以下のステップを完了します。<ol>
+
+<li>「<strong>サーバー</strong>」&gt;「<strong>アプリケーション・サーバー</strong>」&gt;「<em>server_name</em> 」をクリックします。</li>
+
+<li>「追加プロパティー」の下の「<strong>Web Services: Default bindings for Web Services Security</strong>」&gt;「<strong>Login Mappings</strong>」をクリックします。</li>
+
+</ol>
+</p>
+</div>
+
+<div>
+<a name="idassert"></a>
+<p class="sectiontitle">
+<b>BasicAuth トラスト・モードによる識別 (ID) 表明認証</b>
+</p>
+<p>com.ibm.wsspi.wssecurity.auth.callback.NonPromptCallbackHandler インプリメンテーションで、バインディング・ファイルにログイン・バインディングを構成します。
+ダウンストリーム・サーバー上の TrustedIDEvaluator が信頼する
+BasicAuth ユーザー ID とパスワードを指定します。</p>
+<p>ログイン・マッピング情報を構成するには、以下のステップを完了します。<ol>
+
+<li>「<strong>サーバー</strong>」&gt;「<strong>アプリケーション・サーバー</strong>」&gt;「<em>server_name</em> 」をクリックします。</li>
+
+<li>「追加プロパティー」の下の「<strong>Web Services: Default bindings for Web Services Security</strong>」&gt;「<strong>Login Mappings</strong>」をクリックします。</li>
+
+</ol>
+</p>
+</div>
+
+<div>
+<a name="idasserttrust"></a>
+<p class="sectiontitle">
+<b>Signature トラスト・モードによる識別 (ID) 表明認証</b>
+</p>
+<p>鍵ロケーターを指している署名鍵を使用して、署名情報をバインディング・ファイルに構成します。
+この鍵ロケーターには、ダウンストリーム・サーバーが信頼する X.509 証明書が含まれています。</p>
+<p>ログイン・マッピング情報を構成するには、以下のステップを完了します。<ol>
+
+<li>「<strong>サーバー</strong>」&gt;「<strong>アプリケーション・サーバー</strong>」&gt;「<em>server_name</em> 」をクリックします。</li>
+
+<li>「追加プロパティー」の下の「<strong>Web Services: Default bindings for Web Services Security</strong>」&gt;「<strong>Login Mappings</strong>」をクリックします。</li>
+
+</ol>
+</p>
+<p>
+<samp>WSLogin</samp> は、Java Authentication and Authorization Service (JAAS) が使用するログイン構成の名前です。JAAS を構成するには、「<strong>セキュリティー</strong>」&gt;「<strong>JAAS 構成</strong>」&gt;「<strong>Application Logins</strong>」をクリックします。</p>
+<p>バインディング内の <samp>&lt;TrustedIDEvaluatorRef&gt;</samp> タグの値は、<samp>&lt;TrustedIDEvaluator&gt;</samp> 名の値に一致している必要があります。</p>
+<p>トラステッド ID エバリュエーターを構成するには、以下のステップを完了します。<ol>
+
+<li>「<strong>サーバー</strong>」&gt;「<strong>アプリケーション・サーバー</strong>」&gt;「<em>server_name</em> 」をクリックします。</li>
+
+<li>「Additional Services」の下の「<strong>Web Services: Default bindings for Web Services Security</strong>」&gt;「<strong>Trusted ID Evaluators</strong>」をクリックします。</li>
+
+</ol>
+</p>
+</div>
+
+<div>
+<a name="respsign"></a>
+<p class="sectiontitle">
+<b>応答の署名</b>
+</p>
+<p>保全性制約 (ディジタル署名) が定義されている場合は、バインディング・ファイルに署名情報がすでに構成されていることを確認してください。</p>
+<p>
+署名情報を構成するには、以下のステップを完了します。<ol>
+
+<li>「<strong>アプリケーション</strong>」&gt;「<strong>エンタープライズ・アプリケーション</strong>」&gt;「<em>application_name</em> 」をクリックします。</li>
+
+<li>「Related Items」の下の「<strong>Web モジュール</strong>」&gt;「<em>URI_file_name</em>」&gt;「<strong>Web Services: Server Security Bindings</strong>」をクリックします。
+</li>
+
+<li>「Request Receiver Binding」列で、「<strong>編集</strong>」&gt;「<strong>Signing Information</strong>」をクリックします。</li>
+
+</ol>
+</p>
+<p>鍵ロケーターを構成するには、以下のステップを完了します。<ol>
+
+<li>「<strong>サーバー</strong>」&gt;「<strong>アプリケーション・サーバー</strong>」&gt;「<em>server_name</em> 」をクリックします。</li>
+
+<li>「追加プロパティー」の下の「<strong>Web Services: Default bindings for Web Services Security</strong>」&gt;「<strong>Key Locators</strong>」をクリックします。</li>
+
+</ol>
+</p>
+</div>
+
+<div>
+<a name="respencr"></a>
+<p class="sectiontitle">
+<b>応答の暗号化</b>
+</p>
+<p>機密性制約 (暗号化) が指定されている場合は、暗号化情報が定義されていることを確認してください。</p>
+<p>暗号化情報を指定するには、以下のステップを完了します。<ol>
+
+<li>「<strong>エンタープライズ・アプリケーション</strong>」&gt;「<em>application_name</em> 」をクリックします。</li>
+
+<li>「Related Items」の下の「<strong>Web モジュール</strong>」をクリックします。</li>
+
+<li>「追加プロパティー」の下の「<strong>Web Services: Server Security Bindings</strong>」をクリックします。</li>
+
+<li>「Request Receiver Binding」の下の「<strong>編集</strong>」&gt;「<strong>Encryption Information</strong>」をクリックします。</li>
+
+</ol>
+</p>
+<p>鍵ロケーターを構成するには、以下のステップを完了します。<ol>
+
+<li>「<strong>サーバー</strong>」&gt;「<strong>アプリケーション・サーバー</strong>」&gt;「<em>server_name</em> 」をクリックします。</li>
+
+<li>「追加プロパティー」の下の「<strong>Web Services: Default bindings for Web Services Security</strong>」&gt;「<strong>Key Locators</strong>」をクリックします。</li>
+
+</ol>
+</p>
+</div>
+
+<div>
+<p>
+<strong>関連情報</strong>
+</p>
+<a href="uwbs_websvcb.html">Web サービス: Web サービス・セキュリティーのデフォルト・バインディング・コレクション</a>
+<br>
+
+<a href="uwbs_vwcdd.html">Web サービス・クライアントのデプロイメント記述子の表示</a>
+<br>
+
+</div>
+</body>
+</html>

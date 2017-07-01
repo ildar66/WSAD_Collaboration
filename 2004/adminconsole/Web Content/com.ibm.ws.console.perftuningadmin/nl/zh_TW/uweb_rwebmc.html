@@ -1,0 +1,70 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Web 模組設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uweb_rwebmc"></a>
+<h2>Web 模組設定</h2>
+
+<p> 請利用這個頁面來配置 Web 模組設定。
+</p>
+
+<p>請在管理主控台中遍訪下列路徑來存取這個頁面：</p>
+
+<pre>
+<strong>企業應用程式</strong> &gt; <strong>企業應用程式</strong> &gt; <em>application_instance</em> &gt; <strong>Web 模組</strong>
+</pre>
+
+<dl>
+<dt>
+<strong><a name="rwebm_uri"></a>URI</strong>
+</dt>
+<dd>指定一個 URL，以在相對於應用程式 URL 而解析時，指定模組保存檔內容在檔案系統中的位置。
+如果模組套裝在部署應用程式或企業保存檔 (EAR) 中，這個 URI 就必須符合應用程式部署描述子中的 ModuleRef URI。
+</dd>
+<dt>
+<strong><a name="rwebm_name"></a>名稱
+</strong>
+</dt>
+<dd>指定模組的唯一顯示名稱。
+</dd>
+<dt>
+<strong><a name="rweb_altdd"></a>替代 DD</strong>
+</dt>
+<dd>指定用來取代模組 JAR 檔中的原始部署描述子檔之替代部署描述子檔名稱。
+
+<p> 這個檔案是部署描述子檔的<em>後組合</em>版本。
+您可以編輯原始部署描述子檔來解析相依性和安全資訊。
+指定使用替代的部署描述子會將原始部署描述子檔保持不變。
+</p>
+
+<p>
+<em>替代 DD</em> 內容的值必須是相對於模組根目錄的部署描述子檔的完整路徑名稱。
+依照慣例，檔案會在 <samp>ALT-INF</samp> 目錄中。
+如果沒有指定這個內容，就會讀取模組 JAR 檔中的部署描述子檔。
+</p>
+
+</dd>
+<dt>
+<strong><a name="rwebm_wt"></a>啟動加權</strong>
+</dt>
+<dd>指定模組的啟動次序。
+加權較低的模組比較高的模組先啟動。</dd>
+<dt>
+<strong><a name="rwebm_webinf"></a>喜好 WEB-INF 類別</strong>
+</dt>
+<dd>指定在 WEB-INF 中，要在任何其他類別之前載入的類別。
+建議您實作應用程式類別載入器，以便在載入常駐於全儲存區程式庫 JAR 檔中的類別和資源之前，先載入 WAR 檔內所套裝的類別和資源。
+</dd>
+<dt>
+<strong><a name="rwebm_init"></a>起始狀態</strong>
+</dt>
+<dd>指定在伺服器啟動時，這個應用程式的預設狀態。
+</dd>
+</dl>
+</body>
+</html>

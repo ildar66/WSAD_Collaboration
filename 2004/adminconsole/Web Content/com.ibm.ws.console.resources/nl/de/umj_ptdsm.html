@@ -1,0 +1,857 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Einstellungen f&uuml;r WebSphere-MQ-Topics</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="MQTopic"></a>
+<h2>Einstellungen f&uuml;r WebSphere-MQ-Topics</h2>
+
+<p>In dieser Anzeige k&ouml;nnen Sie die Konfigurationsmerkmale der ausgew&auml;hlten
+Zieladresse f&uuml;r ein Topic, die mit dem WebSphere-MQ-JMS-Provider verwendet werden
+soll, anzeigen oder
+&auml;ndern. </p>
+
+<p>&Uuml;ber die Zieladresse f&uuml;r ein Topic werden die Merkmale eines
+JMS-Topic f&uuml;r den zugeordneten JMS-Provider konfiguriert. Verbindungen zum Topic werden von der zugeordneten
+Verbindungs-Factory f&uuml;r Topics erstellt. Ein Topic, das mit dem WebSphere-MQ-JMS-Provider verwendet
+werden soll, hat die folgenden Merkmale: <p>
+<b>Anmerkung: </b>
+<ul>
+
+<li>Die Merkmalwerte, die Sie angeben, m&uuml;ssen mit den Werten, die Sie bei der Konfiguration von WebSphere-MQ-JMS-Ressourcen angegeben haben, &uuml;bereinstimmen. Weitere Informationen zur Konfiguration der
+WebSphere-MQ-JMS-Ressourcen enth&auml;lt die Ver&ouml;ffentlichung zu WebSphere MQ <cite>Using Java</cite>.</li>
+
+<li>In WebSphere MQ d&uuml;rfen Namen h&ouml;chstens 48 Zeichen lang sein, mit Ausnahme der Kanalnamen, die h&ouml;chstens 20
+Zeichen lang sein d&uuml;rfen.</li>
+
+</ul>
+</p>
+</p>
+
+<p>Klicken Sie zum Anzeigen dieser Seite der Administrationskonsole auf <strong>Ressourcen -&gt; WebSphere-MQ-JMS-Provider
+-&gt; (im Inhaltsteilfenster unter "Weitere Merkmale") Zieladressen f&uuml;r WebSphere-MQ-Topics -&gt; <em>Zieladresse</em></strong>.</p>
+
+<dl>
+<dt>
+<strong><a name="MQTopic_name"></a>Name</strong>
+</dt>
+<dd>Der Name, unter dem dieses Topic f&uuml;r die Administration in IBM WebSphere Application Server
+gef&uuml;hrt wird. <table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+</dd>
+<dt>
+<strong><a name="MQTopic_jndiName"></a>JNDI-Name</strong>
+</dt>
+<dd>Der JNDI-Name, der zum Binden des Topic an den
+Namespace des Anwendungsservers verwendet wird.<p>Verwenden Sie als Konvention den vollst&auml;ndig qualifizierten JNDI-Namen, z. B.
+im Format jms/<em>Name</em>. Dabei bezeichnet <em>Name</em>
+den logischen Namen der Ressource.</p>
+<p>Dieser Name wird verwendet, um
+die Bindungsinformationen f&uuml;r die Plattform zu verlinken. Die Bindung ordnet die im Deployment-Deskriptor des Moduls definierten
+Ressourcen den "echten" (physischen) Ressourcen zu, die &uuml;ber die Plattform
+an JNDI gebunden sind.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+</dd>
+<dt>
+<strong><a name="MQTopic_description"></a>Beschreibung</strong>
+</dt>
+<dd>Eine Beschreibung des Topic f&uuml;r die Administration in IBM WebSphere Application Server.
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">Keiner</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopic_category"></a>Kategorie </strong>
+</dt>
+<dd>Eine Kategorie, die
+verwendet wird, um dieses Topic f&uuml;r Ihre Administrationsdaten unter IBM WebSphere Application Server zu
+klassifizieren bzw. zu gruppieren.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopic_persistence"></a>Persistenz</strong>
+</dt>
+<dd>Gibt an, ob alle Nachrichten, die an die
+Zieladresse
+gesendet werden, persistent oder nicht persistent sind bzw. ob deren
+Persistenz von der Anwendung definiert wurde.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Einheiten</td>
+<td align="left" valign="top" class="base">Nicht anwendbar</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">DEFINITION DURCH ANWENDUNG</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>Von Anwendung definiert</strong>
+</dt>
+<dd>Die Persistenz von Nachrichten, die sich an der
+Zieladresse befinden, wird
+von der Anwendung, die die Nachrichten in die Warteschlange gestellt hat, definiert.</dd>
+
+<dt>
+<strong>Von Warteschlange definiert</strong>
+</dt>
+<dd>[Nur Zieladressen f&uuml;r MQSeries-JMS-Warteschlange]
+Die Persistenz der an der Zieladresse befindlichen Nachrichten wird von den Merkmalen der
+WebSphere-MQ-Warteschlangendefinition definiert.</dd>
+
+<dt>
+<strong>Persistent</strong>
+</dt>
+<dd>Die Nachrichten an der Zieladresse sind persistent.</dd>
+
+<dt>
+<strong>Nicht persistent</strong>
+</dt>
+<dd>Die Nachrichten an der Zieladresse sind nicht
+persistent.</dd>
+
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopic_priority"></a>Priorit&auml;t</strong>
+</dt>
+<dd>Gibt an, ob die Nachrichtenpriorit&auml;t
+f&uuml;r diese Zieladresse von der Anwendung oder vom Merkmal
+<strong>Angegebene Priorit&auml;t</strong> angegeben wurde.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Einheiten</td>
+<td align="left" valign="top" class="base">Nicht anwendbar</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">DEFINITION DURCH ANWENDUNG</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>Von Anwendung definiert</strong>
+</dt>
+<dd>Die Priorit&auml;t von Nachrichten,
+die sich an dieser Zieladresse befinden, wird von der Anwendung, die die Nachrichten
+an die Zieladresse gestellt hat, definiert.</dd>
+
+<dt>
+<strong>Von Warteschlange definiert</strong>
+</dt>
+<dd>[Nur Zieladressen f&uuml;r MQSeries-JMS-Warteschlange]
+Die Persistenz der an der Zieladresse befindlichen Nachrichten wird von den Merkmalen der
+WebSphere-MQ-Warteschlangendefinition definiert.</dd>
+
+<dt>
+<strong>Angegeben</strong>
+</dt>
+<dd>Die Priorit&auml;t von Nachrichten, die sich an dieser Zieladresse
+befinden, wird vom Merkmal <strong>Angegebene Priorit&auml;t</strong> definiert.
+<em>Wenn Sie diese
+Option ausw&auml;hlen, m&uuml;ssen Sie eine Priorit&auml;t f&uuml;r das Merkmal
+<strong>Angegebene Priorit&auml;t</strong> definieren.</em>
+</dd>
+
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopic_specifiedPriority"></a>Angegebene Priorit&auml;t</strong>
+</dt>
+<dd>Wird f&uuml;r das Merkmal <strong>Priorit&auml;t</strong> der Wert <samp>Angegeben</samp> definiert, geben Sie hier die
+Nachrichtenpriorit&auml;t im Bereich von 0 (niedrigste Priorit&auml;t) bis 9 (h&ouml;chste Priorit&auml;t) an.
+<p>Wird f&uuml;r das Merkmal <strong>Priorit&auml;t</strong> der Wert <samp>Angegeben</samp>
+definiert, haben Nachrichten, die in diese Warteschlange gestellt
+werden, den vom Merkmal angegebenen Priorit&auml;tswert.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Einheiten</td>
+<td align="left" valign="top" class="base">Nachrichtenpriorit&auml;tsstufe</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">Keiner</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">0 (niedrigste Priorit&auml;t) bis 9 (h&ouml;chste Priorit&auml;t)</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopic_expiry"></a>Verfallszeit</strong>
+</dt>
+<dd>Gibt an, ob die Verfallszeit
+von der Anwendung oder vom Merkmal <strong>Angegebene
+Verfallszeit</strong> definiert wird, oder ob Nachrichten in der
+Warteschlange nicht ung&uuml;ltig werden (eine unbegrenzte Verfallszeit haben).
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Einheiten</td>
+<td align="left" valign="top" class="base">Nicht anwendbar</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">DEFINITION DURCH ANWENDUNG</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>Von Anwendung definiert</strong>
+</dt>
+<dd>Das Zeitlimit f&uuml;r die G&uuml;ltigkeitsdauer von
+Nachrichten, die sich in dieser Warteschlange befinden, wird von der
+Anwendung, die die Nachrichten in die Warteschlange gestellt hat, definiert.</dd>
+
+<dt>
+<strong>Angegeben</strong>
+</dt>
+<dd>Die Verfallszeit f&uuml;r Nachrichten, die sich in dieser Warteschlange befinden, wird vom Merkmal
+<strong>Angegebene Verfallszeit</strong> definiert.
+<em>Wenn Sie diese Option ausw&auml;hlen, m&uuml;ssen Sie ein
+Zeitlimit f&uuml;r das Merkmal <strong>Angegebene Verfallszeit</strong>
+definieren.</em>
+</dd>
+
+<dt>
+<strong>Unbegrenzt</strong>
+</dt>
+<dd>Nachrichten, die sich in dieser
+Warteschlange befinden, haben keine Verfallszeit,
+die Nachrichten werden also nicht ung&uuml;ltig.</dd>
+
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopic_specifiedExpiry"></a>Angegebene Verfallszeit</strong>
+</dt>
+<dd>Wenn f&uuml;r das Merkmal <strong>Verfallszeitlimit</strong> der Wert
+<samp>Angegeben</samp> definiert wird,
+geben Sie den Zeitraum in Millisekunden (gr&ouml;&szlig;er als 0) an. Nach
+Ablauf dieses Zeitraums werden Nachrichten, die sich in dieser Warteschlange befinden, ung&uuml;ltig.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Einheiten</td>
+<td align="left" valign="top" class="base">Millisekunden</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">Keiner</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">Gr&ouml;&szlig;er-gleich 0
+<ul>
+
+<li>Der Wert 0 zeigt an, dass f&uuml;r die Nachrichten kein Zeitlimit
+festgelegt wurde.</li> 
+
+<li>Abgesehen von 0 k&ouml;nnen ganzzahlige Werte angegeben werden, die
+einen Zeitraum in Millisekunden angeben.</li>
+
+</ul>
+
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopic_baseTopicName"></a>Name des Basis-Topic</strong>
+</dt>
+<dd>Der Name des Topic, an das Nachrichten gesendet werden.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">Ist vom verwendeten Broker abh&auml;ngig. N&auml;here Einzelheiten hierzu finden Sie in der Dokumentation zu Ihrem Broker,
+z. B. in der Bibliothek zu <cite>WebSphere MQ Event Broker</cite> auf der Website
+<img border="0" alt="Zugriff auf das Ziel ist nur m&ouml;glich, wenn dieses Topic mit dem World Wide Web verlinkt ist " src="web.gif">&nbsp;&nbsp;               
+   <a target="_blank" href="http://www-3.ibm.com/software/ts/mqseries/library/manualsa/manuals/wsmqebv21.html"><strong>http://www-3.ibm.com/software/ts/mqseries/library/manualsa/manuals/wsmqebv21.html</strong></a>
+.</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopic_CCSID"></a>CCSID</strong>
+</dt>
+<dd>Die CCSID (Coded Character Set Identifier, ID des codierten Zeichensatzes),
+die vom WebSphere MQ Queue Manager verwendet wird.
+
+<p>Diese CCSID muss von WebSphere MQ unterst&uuml;tzt werden.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Einheiten</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">Keiner</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">1 bis 65535</td>
+
+</tr>
+
+</table>
+
+<p>Weitere Informationen zu den unterst&uuml;tzten CCSIDs und zum Konvertieren von Nachrichtendaten
+aus einem codierten Zeichensatz in einen anderen finden Sie in den Handb&uuml;chern
+<cite>WebSphere MQ System Administration</cite>
+und <cite>WebSphere MQ Application Programming Reference</cite>.
+Sie finden diese Handb&uuml;cher f&uuml;r die verschiedenen Plattformen auf den Webseiten von WebSphere MQ, wie z. B.
+<img border="0" alt="Zugriff auf das Ziel ist nur m&ouml;glich, wenn dieses Topic mit dem World Wide Web verlinkt ist " src="web.gif">&nbsp;&nbsp;               
+   <a target="_blank" href="http://www-3.ibm.com/software/ts/mqseries/library/manualsa/manuals/crosslatest.html.html"><strong>http://www-3.ibm.com/software/ts/mqseries/library/manualsa/manuals/platspecific.html</strong></a>
+,
+dem <img border="0" alt="Zugriff auf das Ziel ist nur m&ouml;glich, wenn dieses Topic mit dem World Wide Web verlinkt ist " src="web.gif">&nbsp;&nbsp;               
+   <a target="_blank" href="http://www.elink.ibmlink.ibm.com/public/applications/publications/cgibin/pbi.cgi"><strong>IBM Publications Center</strong></a>
+ und im
+WebSphere MQ Collection Kit, SK2T-0730.</p>
+</dd>
+<dt>
+<strong><a name="MQTopic_useNativeEncoding"></a>Native Codierung verwenden</strong>
+</dt>
+<dd>W&auml;hlen Sie dieses Markierungsfeld aus, um anzuzeigen, dass die Zieladresse der Warteschlange (entsprechende Codierungswerte f&uuml;r die
+Java-Plattform) die native Codierung verwenden soll.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Einheiten</td>
+<td align="left" valign="top" class="base">Nicht anwendbar</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">Gel&ouml;scht</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>Gel&ouml;scht</strong>
+</dt>
+<dd>Die native Codierung wird nicht verwendet, also m&uuml;ssen Sie die
+Merkmale die f&uuml;r Integer-, Dezimal- und Gleitkommacodierung angeben.</dd>
+
+<dt>
+<strong>Ausgew&auml;hlt</strong>
+</dt>
+<dd>Die native Codierung wird verwendet (um
+entsprechende Codierungswerte f&uuml;r die Java-Plattform bereitzustellen).</dd>
+
+</dl>
+<p>Weitere Informationen zur Codierung von Merkmalen enth&auml;lt die
+Ver&ouml;ffentlichung zu WebSphere MQ <cite>Using Java</cite>.</p>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopic_integerEncoding"></a>Integer-Codierung</strong>
+</dt>
+<dd>Wenn die native Codierung nicht aktiviert ist, m&uuml;ssen Sie angeben, ob die
+Codierung von ganzen Zahlen normal oder umgekehrt durchgef&uuml;hrt wird.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Einheiten</td>
+<td align="left" valign="top" class="base">Nicht anwendbar</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">NORMAL</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>NORMAL</strong>
+</dt>
+<dd>Die Codierung von ganzen Zahlen wird normal durchgef&uuml;hrt.</dd>
+
+<dt>
+<strong>REVERSED</strong>
+</dt>
+<dd>Die Integer-Codierung  wird umgekehrt durchgef&uuml;hrt.</dd>
+
+</dl>
+<p>Weitere Informationen zur Codierung von Merkmalen enth&auml;lt die
+Ver&ouml;ffentlichung zu WebSphere MQ <cite>Using Java</cite>.</p>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopic_decimalEncoding"></a>Dezimalcodierung</strong>
+</dt>
+<dd>Wenn die native Codierung nicht aktiviert ist, m&uuml;ssen Sie angeben, ob die
+Dezimalcodierung normal oder umgekehrt durchgef&uuml;hrt wird.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Einheiten</td>
+<td align="left" valign="top" class="base">Nicht anwendbar</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">NORMAL</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>NORMAL</strong>
+</dt>
+<dd>Die normale Dezimalcodierung wird verwendet. </dd>
+
+<dt>
+<strong>REVERSED</strong>
+</dt>
+<dd>Die umgekehrte Dezimalcodierung wird verwendet. </dd>
+
+</dl>
+<p>Weitere Informationen zur Codierung von Merkmalen enth&auml;lt die
+Ver&ouml;ffentlichung zu WebSphere MQ <cite>Using Java</cite>.</p>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopic_floatingPointEncoding"></a>Gleitkommacodierung</strong>
+</dt>
+<dd>Wenn die native Codierung nicht aktiviert ist, m&uuml;ssen Sie den Typ
+der Gleitkommacodierung ausw&auml;hlen. 
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Einheiten</td>
+<td align="left" valign="top" class="base">Nicht anwendbar</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">IEEENORMAL</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>IEEENORMAL</strong>
+</dt>
+<dd>Die Gleitkommacodierung des Typs "IEEE Normal" wird verwendet. </dd>
+
+<dt>
+<strong>IEEEREVERSED</strong>
+</dt>
+<dd>Die Gleitkommacodierung des Typs "IEEE Reversed" wird verwendet. </dd>
+
+<dt>
+<strong>S390</strong>
+</dt>
+<dd>Die Gleitkommacodierung des Typs "S390" wird verwendet. </dd>
+
+</dl>
+<p>Weitere Informationen zur Codierung von Merkmalen enth&auml;lt die
+Ver&ouml;ffentlichung zu WebSphere MQ <cite>Using Java</cite>.</p>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopic_targetClient"></a>Typ des Ziel-Clients</strong>
+</dt>
+<dd>Gibt an, ob die empfangende Anwendung JMS-kompatibel oder eine
+herk&ouml;mmliche WebSphere-MQ-Anwendung ist.
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">Enum</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Einheiten</td>
+<td align="left" valign="top" class="base">Nicht anwendbar</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">MQ</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>MQ</strong>
+</dt>
+<dd>Das Ziel ist eine JMS-fremde, herk&ouml;mmliche
+WebSphere-MQ-Anwendung.</dd>
+
+<dt>
+<strong>JMS</strong>
+</dt>
+<dd>Das Ziel ist eine JMS-kompatible Anwendung.</dd>
+
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopic_brokerDurSubQueue"></a>Broker Dur Sub Queue</strong>
+</dt>
+<dd>Der Name der Warteschlange f&uuml;r den Broker, von der Nachrichten zu dauerhaften Subskriptionen abgerufen werden.
+<p>Der Name der Warteschlange f&uuml;r den Broker, von der Nachrichten zu dauerhaften Subskriptionen abgerufen werden. Der Subskribent gibt den
+Namen der Warteschlange an, wenn er eine Subskription registriert.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Einheiten</td>
+<td align="left" valign="top" class="base">ASCII-Zeichen (US-Englisch)</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">Keiner</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">1 bis 48 ASCII-Zeichen</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQTopic_brokerDurCCSubQueue"></a>Broker CC Dur Sub Queue</strong>
+</dt>
+<dd>Der Name der Warteschlange f&uuml;r den Broker, von der Nachrichten zu dauerhaften Subskriptionen f&uuml;r einen Verbindungsnutzer
+abgerufen werden. 
+Dieses Merkmal gilt nur f&uuml;r die Verwendung des Webcontainers.
+<p>Der Name der Warteschlange f&uuml;r den Broker, von der Nachrichten zu dauerhaften Subskriptionen f&uuml;r einen Verbindungsnutzer
+abgerufen werden. 
+Dieses Merkmal gilt nur f&uuml;r die Verwendung des Webcontainers.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Datentyp</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Einheiten</td>
+<td align="left" valign="top" class="base">ASCII-Zeichen (US-Englisch)</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Standardwert</td>
+<td align="left" valign="top" class="base">Keiner</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Bereich</td>
+<td align="left" valign="top" class="base">1 bis 48 ASCII-Zeichen</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</body>
+</html>

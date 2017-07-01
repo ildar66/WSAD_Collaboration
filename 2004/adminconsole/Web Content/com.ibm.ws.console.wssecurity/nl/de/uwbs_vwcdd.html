@@ -1,0 +1,320 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Deployment-Deskriptor des Web-Services-Clients anzeigen</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_vwcdd"></a>
+<h2>
+<img alt="[Fixpack 5.0.2 und h&ouml;her]" src="v502.gif" border="0">Deployment-Deskriptor des Web-Services-Clients anzeigen</h2>
+
+<p>Verwenden Sie diese Seite, um den Deployment-Deskriptor des Clients anzuzeigen.</p>
+
+<p>Gehen Sie zum Anzeigen dieser Seite der Administrationskonsole wie folgt vor:<ol>
+
+<li>Klicken Sie auf <strong>Anwendungen &gt; Enterprise-Anwendungen &gt; </strong><em>Anwendungsname</em>. </li>
+
+<li>Klicken Sie unter "Zugeh&ouml;rige Elemente" auf <strong>Webmodule</strong> &gt; <em>Name_der_URI-Datei</em> &gt; <strong>Deployment-Deskriptor des Web-Services-Clients anzeigen</strong>.</li>
+
+</ol>
+</p>
+
+<p>WebSphere Application Server unterst&uuml;tzt zwei Bindungsebenen: Bindungen auf Anwendungsebene und Bindungen auf Serverebene. WebSphere Application
+Server Network Deployment unterst&uuml;tzt drei Bindungsebenen: Bindungen auf Anwendungsebene, Bindungen auf Serverebene und Bindungen auf Zellenebene. Die Informationen in den folgenden Implementierungsbeschreibungen
+veranschaulichen die Konfiguration auf Anwendungsebene. Gehen Sie zum Konfigurieren der Bindungen auf Serverebene (Standardbindungen)
+wie folgt vor:
+<ol>
+
+<li>Klicken Sie auf <strong>Server &gt; Anwendungsserver &gt; </strong><em>Servername</em>.</li>
+
+<li>Klicken Sie unter "Zugeh&ouml;rige Elemente"
+auf <strong>Web Services: Standardbindungen f&uuml;r die Sicherheit von Web Services</strong>. </li>
+
+<li>Klicken Sie zum Konfigurieren der Bindungen auf Zellenebene auf <strong>Sicherheit &gt; Web Services</strong>.</li>
+
+</ol> 
+<p>
+<b>Anmerkung: </b>Wenn der Webserver als Client auftritt, werden die
+Standardbindungen verwendet.</p>Wenn Sie eine der folgenden Konfigurationen verwenden, m&uuml;ssen
+Sie sicherstellen, dass der Deployment-Deskriptor ordnungsgem&auml;&szlig; konfiguriert ist:<ul>
+
+<li>
+<a href="#reqsign">Signatur der Anforderung</a>
+</li>
+
+<li>
+<a href="#reqencrypt">Verschl&uuml;sselung der Anforderung</a>
+</li>
+
+<li>
+<a href="#basicauth">BasicAuth-Authentifizierung</a>
+</li>
+
+<li>
+<a href="#idassert">IdAssertion-Authentifizierung</a>
+</li>
+
+<li>
+<a href="#idasserttrust">IDAssertion-Authentifizierung mit der Signatur
+TrustMode</a>
+</li>
+
+<li>
+<a href="#respdsig">&Uuml;berpr&uuml;fung der digitalen Signatur der Antwort</a>
+</li>
+
+<li>
+<a href="#respdecr">Entschl&uuml;sselung der Antwort</a>
+</li>
+
+</ul>
+</p>
+
+<div>
+<a name="reqsign"></a>
+<p class="sectiontitle">
+<b>Signatur der Anforderung</b>
+</p>
+<p>Wenn Integrit&auml;tsbeschr&auml;nkungen
+(digitale Signatur) angegeben sind, m&uuml;ssen Sie sicherstellen, dass in den Bindungsdateien Signaturdaten
+konfiguriert sind.</p>
+<p>Geben Sie zum Konfigurieren der Parameter f&uuml;r die Signatur wie folgt vor:
+<ol>
+
+<li>Klicken Sie auf <strong>Anwendungen &gt; Enterprise-Anwendungen &gt; </strong><em>Anwendungsname</em>. </li>
+
+<li>Klicken Sie unter "Zugeh&ouml;rige Elemente" auf <strong>Webmodule &gt; </strong><em>Name_der_URI-Datei</em> <strong>Web
+Services: Sicherheitsbindungen des Clients</strong>. </li>
+
+<li>Klicken Sie in der Spalte "Bindung des Antwortempf&auml;ngers" auf
+<strong>Bearbeiten &gt; Signaturdaten &gt; Neu</strong>.</li>
+
+</ol>
+</p>
+<p>Gehen Sie zum Konfigurieren der Key Locator wie folgt vor:<ol>
+
+<li>Klicken Sie auf <strong>Server &gt; Anwendungsserver &gt; </strong><em>Servername</em>.</li>
+
+<li>Klicken Sie unter "Weitere Merkmale" auf <strong>Web Services:
+Standardbindungen f&uuml;r die Sicherheit von Web Services &gt; Key Locator</strong>.</li>
+
+</ol>
+</p>
+</div>
+
+<div>
+<a name="reqencrypt"></a>
+<p class="sectiontitle">
+<b>Verschl&uuml;sselung der Anforderung</b>
+</p>
+<p>Wenn Vertraulichkeitseinschr&auml;nkungen
+(Verschl&uuml;sselung) definiert sind, m&uuml;ssen Sie sicherstellen, dass in den Bindungsdateien Verschl&uuml;sselungsdaten konfiguriert
+sind. </p>
+<p>Gehen Sie zum Konfigurieren der Parameter f&uuml;r die Verschl&uuml;sselungsdaten wie folgt vor:
+<ol>
+
+<li>Klicken Sie auf <strong>Anwendungen &gt; Enterprise-Anwendungen &gt; </strong><em>Anwendungsname</em>. </li>
+
+<li>Klicken Sie unter "Zugeh&ouml;rige Element" auf <strong>Webmodule &gt; </strong><em>Name_der_URI-Datei</em> <strong> &gt;
+Web Services: Sicherheitsbindungen des Clients</strong>. </li>
+
+<li>Klicken Sie in der Spalte "Bindung des Antwortempf&auml;ngers" auf
+<strong>Bearbeiten &gt; Verschl&uuml;sselungsdaten &gt; Neu</strong>.</li>
+
+</ol>
+</p>
+<p>Gehen Sie zum Konfigurieren der Key Locator wie folgt vor:</p>
+<p>Klicken Sie auf <strong>Server &gt; Anwendungsserver &gt; </strong><em>Servername</em>.</p>
+<p>Klicken Sie unter "Weitere Merkmale" auf <strong>Web Services:
+Standardbindungen f&uuml;r die Sicherheit von Web Services &gt; Key Locator</strong>.</p>
+</div>
+
+<div>
+<a name="basicauth"></a>
+<p class="sectiontitle">
+<b>BasicAuth-Authentifizierung</b>
+</p>
+<p>Wenn
+BasicAuth als erforderliches Sicherheits-Token konfiguriert ist, geben Sie in der Bindungsdatei den
+CallbackHandler f&uuml;r die Erfassung der Daten f&uuml;r die Basisauthentifizierung an. Die folgende Liste enth&auml;lt
+die Implementierungen der CallBack-Unterst&uuml;tzung:
+<dl>
+<dt>
+<strong>com.ibm.wsspi.wssecurity.auth.callback.GuiPromptCallbackHandler</strong>
+</dt>
+<dd>Die Implementierung
+fordert Sie in einer Schnittstelle zur Eingabe von Daten f&uuml;r die
+Basisauthentifizierung (Benutzername und Kennwort) auf. </dd>
+<dt>
+<strong>com.ibm.wsspi.wssecurity.auth.callback.NonPromptCallbackHandler</strong>
+</dt>
+<dd>Diese Implementierung liest die
+Daten f&uuml;r die Basisauthentifizierung aus der Bindungsdatei. </dd>
+<dt>
+<strong>com.ibm.wsspi.wssecurity.auth.callback.StdPromptCallbackHandler</strong>
+</dt>
+<dd>Diese Implementierung fordert Sie zur Eingabe eines Benutzernamens und eines Kennworts in der Standardeingabe (stdin) auf.</dd>
+</dl>
+</p>
+<p>Gehen Sie zum Konfigurieren der Informationen f&uuml;r die Anmeldebindungen wie folgt vor:
+<ol>
+
+<li>Klicken Sie auf <strong>Anwendungen &gt; Enterprise-Anwendungen &gt; </strong><em>Anwendungsname</em>. </li>
+
+<li>Klicken Sie unter "Zugeh&ouml;rige Elemente" auf <strong>Webmodule &gt; </strong><em>Name_der_URI-Datei</em> <strong> &gt;
+Web Services: Sicherheitsbindungen des Clients</strong>.</li>
+
+<li>Klicken Sie
+unter "Bindungen des Anforderungssenders" auf <strong>Bearbeiten &gt; Anmeldebindung</strong>.</li>
+
+</ol>
+</p>
+</div>
+
+<div>
+<a name="idassert"></a>
+<p class="sectiontitle">
+<b>IDAssertion-Authentifizierung mit dem Trust-Modus BasicAuth </b>
+</p>
+<p>Konfigurieren
+Sie in der Bindungsdatei eine Anmeldebindung mit einer Implementierung von com.ibm.wsspi.wssecurity.auth.callback.NonPromptCallbackHandler.
+Geben Sie f&uuml;r die Basisauthentifizierung (BasicAuth) eine Benutzer-ID und ein Kennwort ein, das ein TrustedIDEvaluator
+in einem Downstream-Server als vertrauensw&uuml;rdig einstuft. </p>
+<p>Gehen Sie zum Konfigurieren der Informationen f&uuml;r die Anmeldebindungen wie folgt vor:
+<ol>
+
+<li>Klicken Sie auf <strong>Anwendungen &gt; Enterprise-Anwendungen &gt; </strong><em>Anwendungsname</em>. </li>
+
+<li>Klicken Sie unter
+"Zugeh&ouml;rige Elemente" auf <strong>Webmodule &gt; </strong><em>Name_der_URI-Datei</em><strong> &gt;
+Web Services: Sicherheitsbindungen des Clients</strong>.</li>
+
+<li>Klicken Sie
+unter <strong>Bindungen des Anforderungssenders</strong> auf <strong>Bearbeiten &gt; Anmeldebindung</strong>.</li>
+
+</ol>
+</p>
+</div>
+
+<div>
+<a name="idasserttrust"></a>
+<p class="sectiontitle">
+<b>IDAssertion-Authentifizierung mit Signature TrustMode</b>
+</p>
+<p>Konfigurieren
+Sie in der Bindungsdatei die Signaturdaten mit einem Signaturschl&uuml;ssel, der auf einen Key Locator zeigt. Der
+Key Locator enth&auml;lt das X.509-Zertifikat, das der Downstream-Server als vertrauensw&uuml;rdig einstuft. </p>
+<p>Sie konfigurieren die Zusicherung der Identit&auml;t wie folgt:
+<ol>
+
+<li>Klicken Sie auf <strong>Server &gt; Anwendungsserver &gt; </strong><em>Servername</em>.</li>
+
+<li>Klicken Sie unter "Weitere Merkmale" auf <strong>Web
+Services: Standardbindungen f&uuml;r die Sicherheit von Web Service &gt; Anmeldezuordnungen &gt; IDAssertion</strong>.</li>
+
+</ol>
+</p>
+<p>Gehen Sie zum Konfigurieren der Informationen f&uuml;r die Anmeldebindungen wie folgt vor:
+<ol>
+
+<li>Klicken Sie auf <strong>Anwendungen &gt; Enterprise-Anwendungen &gt; </strong><em>Anwendungsname</em>. </li>
+
+<li>Klicken Sie unter
+"Zugeh&ouml;rige Elemente" auf <strong>Webmodule &gt; </strong><em>Name_der_URI-Datei</em> <strong> &gt;
+Web Services: Sicherheitsbindungen des Clients</strong>.</li>
+
+<li>Klicken Sie
+unter "Bindungen des Anforderungssenders" auf <strong>Bearbeiten &gt; Anmeldebindung</strong>.</li>
+
+</ol>
+</p>
+</div>
+
+<div>
+<a name="respdsig"></a>
+<p class="sectiontitle">
+<b>&Uuml;berpr&uuml;fung der digitalen Signatur der Antwort</b>
+</p>
+<p>Wenn Integrit&auml;tsbeschr&auml;nkungen
+(digitale Signatur erforderlich) angegeben sind, m&uuml;ssen Sie sicherstellen, dass in den Bindungsdateien Signaturdaten
+konfiguriert sind.</p>
+<p>Geben Sie zum Konfigurieren der Parameter f&uuml;r die Signatur wie folgt vor:
+<ol>
+
+<li>Klicken Sie auf <strong>Anwendungen &gt; Enterprise-Anwendungen &gt; </strong><em>Anwendungsname</em>. </li>
+
+<li>Klicken Sie unter "Zugeh&ouml;rige Element" auf <strong>Webmodule &gt; </strong><em>Name_der_URI-Datei</em> <strong> &gt;
+Web Services: Sicherheitsbindungen des Clients</strong>. </li>
+
+<li>Klicken Sie in der Spalte "Bindung des Antwortempf&auml;ngers" auf
+<strong>Bearbeiten &gt; Signaturdaten &gt; Neu</strong>.</li>
+
+</ol>
+</p>
+<p>Gehen Sie zum Konfigurieren der Trust Anchor wie folgt vor:<ol>
+
+<li>Klicken Sie auf <strong>Server &gt; Anwendungsserver &gt; </strong><em>Servername</em>.</li>
+
+<li>Klicken Sie unter "Weitere Merkmale" auf <strong>Web
+Services: Standardbindungen f&uuml;r die Sicherheit von Web Services &gt; Trust Anchor &gt; Neu</strong>.</li>
+
+</ol>
+</p>
+<p>Gehen Sie zum Konfigurieren des Collection Certificate Store wie folgt vor:
+<ol>
+
+<li>Klicken Sie auf <strong>Server &gt; Anwendungsserver &gt; </strong><em>Servername</em>.</li>
+
+<li>Klicken Sie unter "Weitere Merkmale" auf <strong>Web
+Services: Standardbindungen f&uuml;r die Sicherheit von Web Services &gt; Collection Certificate
+Store &gt; Neu</strong>.</li>
+
+</ol>
+</p>
+</div>
+
+<div>
+<a name="respdecr"></a>
+<p class="sectiontitle">
+<b>Entschl&uuml;sselung der Antwort</b>
+</p>
+<p>Wenn Vertraulichkeitseinschr&auml;nkungen
+(Verschl&uuml;sselung) definiert sind, m&uuml;ssen Sie sicherstellen, dass Verschl&uuml;sselungsdaten definiert
+sind. </p>
+<p>Gehen Sie zum Konfigurieren der Verschl&uuml;sselungsdaten wie folgt vor:
+<ol>
+
+<li>Klicken Sie auf <strong>Anwendungen &gt; Enterprise-Anwendungen &gt; </strong><em>Anwendungsname</em>. </li>
+
+<li>Klicken Sie unter "Zugeh&ouml;rige Element" auf <strong>Webmodule &gt; </strong>&lt;<em>Name_der_URI-Datei</em> <strong> &gt;
+Web Services: Sicherheitsbindungen des Clients</strong>. </li>
+
+<li>Klicken Sie in der Spalte "Bindung des Antwortempf&auml;ngers" auf
+<strong>Bearbeiten &gt; Verschl&uuml;sselungsdaten &gt; Neu</strong>.</li>
+
+</ol>
+</p>
+<p>Gehen Sie zum Konfigurieren der Key Locator wie folgt vor:<ol>
+
+<li>Klicken Sie auf <strong>Server &gt; Anwendungsserver &gt; </strong><em>Servername</em>.</li>
+
+<li>Klicken Sie unter "Weitere Merkmale" auf <strong>Web Services:
+Standardbindungen f&uuml;r die Sicherheit von Web Services &gt; Key Locator</strong>.</li>
+
+</ol>
+</p>
+</div>
+
+<div>
+<p>
+<strong>Zugeh&ouml;rige Informationen</strong>
+</p>
+<a href="uwbs_websvcb.html">Web Services: Standardbindungen f&uuml;r die Web-Services-Sicherheit</a>
+<br>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Param&egrave;tres des communications entrantes CSI (Common Secure
+Interoperability)</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecinboundconn"></a>
+<h2>Param&egrave;tres des communications entrantes CSI (Common Secure
+Interoperability)</h2>
+
+<p>Cette page permet d'indiquer les ports d'&eacute;coute &agrave; ouvrir et les
+param&egrave;tres SSL (Secure Sockets Layer) &agrave; utiliser. Ces sp&eacute;cifications
+d&eacute;terminent quel transport est utilis&eacute; par un client ou un serveur en
+amont pour communiquer avec ce serveur pour les demandes entrantes.</p>
+
+<p>Pour afficher cette page de la console d'administration, cliquez sur <strong>S&eacute;curit&eacute;</strong> &gt; <strong>Protocole d'authentification</strong> &gt; <strong>Transport des communications entrantes CSI</strong>.</p>
+
+<div>
+<p>
+<strong>Onglet Configuration</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="Transport_i_description"></a>Transport</strong>
+</dt>
+<dd>Indique si les processus client se connectent au serveur &agrave;
+l'aide de l'un des transports connect&eacute;s du serveur.
+<p>Vous pouvez choisir d'utilise le protocole SSL (Secure Socket Layer),
+TCP/IP ou les deux protocoles comme transport de communication entrante
+pris en charge par un serveur.  Si vous indiquez <strong>TCP/IP</strong>, le serveur
+prend uniquement en charge TCP/IP et ne peut pas accepter les connexions
+SSL. Si vous indiquez que <strong>SSL est pris en charge</strong>, ce serveur
+peut prendre en charge les connexions TCP/IP
+ou SSL. Si vous indiquez que <strong>SSL-Required est requis</strong>, tout serveur communiquant avec ce serveur doit utiliser SSL.</p>
+
+<p>Si vous sp&eacute;cifiez que le protocole SSL est <strong>pris en charge</strong> ou
+<strong>requis</strong>, vous devez choisir quel ensemble de param&egrave;tres de
+configuration SSL vous souhaitez utiliser pour la configuration des
+communications entrantes.
+Ce choix d&eacute;termine le fichier de cl&eacute;s et le
+fichier de relations de confiance utilis&eacute;s pour les connexions entrantes
+sur ce serveur.</p>
+
+<p>Par d&eacute;faut, les ports SSL pour CSIv2 (Common Secure
+Interoperability Version 2) et SAS (Security Authentication Service)
+sont g&eacute;n&eacute;r&eacute;s dynamiquement. Si vous devez corriger les ports SSL sur les serveurs
+d'applications, cliquez sur <strong>Serveurs</strong> &gt; <strong>Serveurs d'applications</strong> &gt; <em>nom_serveur</em> &gt; <strong>Noeuds finaux</strong>. Configurez
+les ports suivants afin qu'ils soient corrig&eacute;s. Le num&eacute;ro de port z&eacute;ro
+indique que ce port sera attribu&eacute; de mani&egrave;re dynamiquement lors de
+l'ex&eacute;cution. <pre class="program">
+<font style="font-family: arial">CSIV2_SSL_MUTUALAUTH_LISTENER_ADDRESS 
+CSIV2_SSL_SERVERAUTH_LISTENER_ADDRESS 
+SAS_SSL_SERVERAUTH_LISTENER_ADDRESS</font>
+</pre>
+</p>
+
+<p>
+<ul>
+
+<li>
+<strong>TCP/IP</strong> : Seul un port d'&eacute;coute TCP/IP est ouvert et les
+demandes entrantes ne sont pas prot&eacute;g&eacute;es par le protocole SSL.</li>
+
+<li>
+<strong>SSL pris en charge</strong> : Un port d'&eacute;coute TCP/IP et SSL
+est ouvert et la plupart des demandes arrivent via le protocole SSL.</li>
+
+<li>
+<strong>SSL requis</strong> : Seul un port SSL est ouvert et toutes les
+demandes arrivent via les connexions SSL. Si vous choisissez <strong>SSL
+requis</strong>, vous devez &eacute;galement s&eacute;lectionner <strong>CSI</strong> en tant que
+protocole d'authentification actif. Si vous choisissez <strong>CSI
+et SAS</strong>, l'ouverture d'une socket TCP/IP est requise par SAS pour
+certaines demandes sp&eacute;ciales.</li>
+
+</ul>
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut :</td>
+<td align="left" valign="top" class="base">SSL pris en charge</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Port&eacute;e :</td>
+<td align="left" valign="top" class="base">TCP/IP, SSL requis, SSL pris en charge</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SSLSettings_csi_i_description"></a>Param&egrave;tres SSL</strong>
+</dt>
+<dd>Indique une liste de param&egrave;tres SSL pr&eacute;d&eacute;finis parmi
+lesquels effectuer une
+s&eacute;lection pour les connexions de communications entrantes. Ces param&egrave;tres sont
+configur&eacute;s dans la sous-fen&ecirc;tre R&eacute;pertoire SSL.
+<p></p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Type de donn&eacute;es :</td>
+<td align="left" valign="top" class="base">Cha&icirc;ne</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valeur par d&eacute;faut :</td>
+<td align="left" valign="top" class="base">Param&egrave;tres SSL par d&eacute;faut</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Port&eacute;e :</td>
+<td align="left" valign="top" class="base">Tous les param&egrave;tres SSL configur&eacute;s dans le r&eacute;pertoire de
+configuration SSL.</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informations connexes</strong>
+</p>
+<a href="rcon_buttons.html">Boutons de la console administrative</a>
+<br>
+
+<a href="rcon_pageusage.html">Caract&eacute;ristiques de la page de la console d'administration</a>
+<br>
+
+<a href="rcon_scope.html">Param&egrave;tres de la port&eacute;e de la console administrative</a>
+<br>
+
+<a href="rcon_filter.html">Param&egrave;tres de filtrage de la console administrative</a>
+<br>
+
+<a href="rcon_preferences.html">Param&egrave;tres des pr&eacute;f&eacute;rences de la console administrative</a>
+<br>
+
+</div>
+</body>
+</html>

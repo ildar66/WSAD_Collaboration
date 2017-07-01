@@ -1,0 +1,126 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>EJB 儲存區設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uejbecnt"></a>
+<h2>EJB 儲存區設定</h2>
+
+<p>請利用這個頁面來配置和管理特定 EJB 儲存區。
+</p>
+
+<p>如果要檢視這個管理主控台頁面，請按一下<strong>伺服器</strong> <strong>&gt;</strong> <strong>應用程式伺服器</strong> <strong>&gt;</strong> <em>serverName</em> <strong>&gt;</strong> <strong>EJB 儲存區</strong>。</p>
+
+<div>
+<p>
+<strong>「配置」標籤</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="EJBContainer_passivationDirectory_description"></a>取消目錄</strong>
+</dt>
+<dd>指定儲存區將取消的 Stateful Session Bean 的持續性狀態儲存其中的目錄。
+<p>當作用中的 Bean 實例數目大於儲存區配置所指定的快取記憶體大小時，會取消 Bean。在取消 Stateful Bean 時，儲存區會將 Bean 實例序列化並放在取消目錄內的檔案中，且會捨棄 Bean 快取記憶體內的實例。稍後，如果收到對於這個取消的 Bean 實例的要求，儲存區會從取消目錄將它取出來，解除序列化，再送回快取記憶體中，將要求分派給它。如果任何步驟失敗（比方說，Bean 實例已不在取消目錄中），這個方法呼叫也會失敗。</p>
+
+</dd>
+<dt>
+<strong><a name="EJBContainer_inactivePoolCleanupInterval_description"></a>非作用中的儲存池清除間隔</strong>
+</dt>
+<dd>指定儲存區檢查可用的 Bean 實例儲存池來判斷能不能刪除若干實例以減少記憶體用量的間隔。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">整數</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">單位</td>
+<td align="left" valign="top" class="base">毫秒</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">大於 0</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="EJBContainer_defaultDatasourceJNDIName_description"></a>預設資料來源 JNDI 名稱
+</strong>
+</dt>
+<dd>指定當應用程式部署期間沒有指定任何資料來源時，所要使用的資料來源之 JNDI 名稱。
+這個設定不適合 EJB 2.x 標準 CMP Bean。
+
+<p>Servlet 和 Enterprise Bean 利用<em>資料來源</em>來取得這些連線。
+當配置儲存區時，您可以指定一個預設資料來源給儲存區。
+這個資料來源會成為使用儲存區管理持續性 (CMP) 的儲存區中所安裝的任何 Entity Bean 所使用的預設資料來源。
+</p>
+
+<p>儲存區的預設資料來源受到安全的維護。
+在指定它時，您必須提供存取資料來源的使用者 ID 和密碼。
+</p>
+
+<p>如果儲存區內每個 CMP Entity Bean 的配置裡都指定了資料來源，這時預設資料來源的指定是選用的。
+如果沒有指定預設資料來源，但 CMP Entity Bean 已安裝在儲存區中，且沒有指定資料來源給這個 Bean，應用程式就無法使用這個 CMP Entity Bean。</p>
+
+</dd>
+<dt>
+<strong><a name="StateManageable_initialState_description"></a>起始狀態</strong>
+</dt>
+<dd>指定在最初啟動伺服器時所要求的執行狀態。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">已啟動</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">有效值如下：<samp>已啟動</samp>和<samp>已停止</samp></td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>相關資訊</strong>
+</p>
+<a href="rcon_buttons.html">管理主控台按鈕</a>
+<br>
+
+<a href="uejb_rcash.html">EJB 快取設定</a>
+<br>
+
+</div>
+</body>
+</html>

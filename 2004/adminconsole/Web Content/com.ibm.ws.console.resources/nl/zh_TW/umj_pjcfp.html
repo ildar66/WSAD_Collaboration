@@ -1,0 +1,235 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>「一般 JMS Connection Factory」設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="GenericJMSConnectionFactory"></a>
+<h2>「一般 JMS Connection Factory」設定</h2>
+
+<p>請利用這個畫面來檢視或變更選取要搭配相關 JMS 提供者使用之 JMS Connection Factory 的配置內容。
+這些配置內容會控制如何建立連線來通往相關聯的 JMS 目的地。
+</p>
+
+<p>JMS Connection Factory 用來建立通往 JMS 目的地的連線。
+JMS Connection Factory 是相關聯的 JMS 提供者所建立的。
+一般 JMS 提供者（不是內嵌 WebSphere JMS Provider 或 WebSphere MQ JMS Provider）的 JMS Connection Factory 有下列內容：
+</p>
+
+<p>如果要檢視這個管理主控台頁面，請按一下<strong>資源 -&gt; 一般 JMS 提供者 -&gt; <em>provider_name</em>-&gt; JMS Connection Factory -&gt; <em>connection_factory</em></strong>。</p>
+
+<dl>
+<dt>
+<strong><a name="GenericJMSConnectionFactory_Name"></a>名稱
+</strong>
+</dt>
+<dd>用來識別這個 JMS Connection Factory，供 IBM WebSphere Application Server 內管理作業使用的名稱。在相關聯的 JMS 提供者內，名稱必須是唯一的。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="GenericJMSConnectionFactory_type"></a>Type</strong>
+</dt>
+<dd>這個 Connection Factory 要用來建立 JMS Queue Destination 或 JMS Topic Destination。
+<p>請選取下列選項之一：<dl>
+
+<dt>
+<strong>佇列</strong>
+</dt>
+<dd>點對點傳訊所用的 JMS Queue Connection Factory。
+</dd>
+
+<dt>
+<strong>主題</strong>
+</dt>
+<dd>發佈/訂閱傳訊所用的 JMS Topic Connection Factory</dd>
+
+</dl>
+</p>
+
+</dd>
+<dt>
+<strong><a name="GenericJMSConnectionFactory_externaljndiName"></a>JNDI 名稱</strong>
+</dt>
+<dd>將 Connection Factory 連結至應用程式伺服器名稱空間時所用的 JNDI 名稱。<p>請依照慣例使用完整的 JNDI 名稱；比方說，在 jms/<em>Name</em> 格式中，<em>Name</em> 是資源的邏輯名稱。
+</p>
+<p>這個名稱用來鏈結平台的連結資訊。
+連結會將模組部署描述子所定義的資源關聯到由平台連結至 JNDI 內的實際（實體）資源。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+</table>
+</dd>
+<dt>
+<strong><a name="GenericJMSConnectionFactory_description"></a>說明
+</strong>
+</dt>
+<dd>這個 Connection Factory 的說明，供 IBM WebSphere Application Server 內管理作業使用。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">空值</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="category"></a>種類</strong>
+</dt>
+<dd>就您的 IBM WebSphere Application Server 管理記錄，用來分類或分組這個 Connection Factory 的種類。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="AuthDataAlias"></a>內容管理鑑別別名</strong>
+</dt>
+<dd>這個別名指定使用者 ID 和密碼以便針對應用程式管理鑑別來鑑別 JMS 提供者的連線。
+<p>這個內容提供已定義給 WebSphere Application Server 的 J2C 鑑別資料項目別名清單。您可以選取一個資料項目別名來鑑別到 JMS 提供者的新連線。
+</p>
+
+<p>如果您已啟用 WebSphere Application Server 廣域安全，請選取一個指定使用者 ID 和密碼的別名來鑑別到 JMS 提供者的新連線。
+這個別名的使用，是根據應用程式元件部署描述子的 Connection Factory 資源參照中所宣告的資源鑑別 (res-auth) 設定而定。
+</p>
+
+<p>
+<b>附註: </b>使用者 ID 若超過 12 字元就無法與內嵌的 WebSphere JMS Provider 一起用於鑑別。
+比方說，預設的 Windows NT 使用者 ID <strong>Administrator</strong> 就無效，內嵌的 WebSphere 傳訊不能用它，因為它包含 13 個字元。
+因此，WebSphere JMS Provider  Connection Factory 的鑑別別名必須指定少於 12 個字元的使用者 ID。</p>
+
+</dd>
+<dt>
+<strong><a name="mappingAuthDataAlias"></a>儲存區管理鑑別別名</strong>
+</dt>
+<dd>這個別名指定使用者 ID 和密碼以便針對儲存區管理來鑑別 JMS 提供者的連線。
+<p>這個內容提供已定義給 WebSphere Application Server 的 J2C 鑑別資料項目別名清單。您可以選取一個資料項目別名來鑑別到 JMS 提供者的新連線。
+</p>
+
+<p>如果您已啟用 WebSphere Application Server 廣域安全，請選取一個指定使用者 ID 和密碼的別名來鑑別到 JMS 提供者的新連線。
+這個別名的使用，是根據應用程式元件部署描述子的 Connection Factory 資源參照中所宣告的資源鑑別 (res-auth) 設定而定。
+</p>
+
+<p>
+<b>附註: </b>使用者 ID 若超過 12 字元就無法與內嵌的 WebSphere JMS Provider 一起用於鑑別。
+比方說，預設的 Windows NT 使用者 ID <strong>Administrator</strong> 就無效，內嵌的 WebSphere 傳訊不能用它，因為它包含 13 個字元。
+因此，WebSphere JMS Provider  Connection Factory 的鑑別別名必須指定少於 12 個字元的使用者 ID。</p>
+
+</dd>
+<dt>
+<strong><a name="GenericJMSConnectionFactory_type"></a>已啟用 XA</strong>
+</dt>
+<dd>指定 Connection Factory 要用在訊息的 XA 或非 XA 協調上，以及控制應用程式伺服器要不要使用 XA QCF/TCF。
+如果不會在相同交易中使用多重資源，請啟用 XA。
+<p>如果您將這個內容設為 <samp>NON_XA</samp>，JMS 階段作業仍會列在交易中，但它會使用資源管理程式本端交易呼叫（session.commit 和 session.rollback），而不是 XA 呼叫。
+此舉可以提升效能。
+但是，這也表示只有一個資源可以列在 WebSphere Application Server 的交易中。
+WebSphere Application Server Enterprise 中的最後一個參與者支援，可讓您將一個非 XA 資源與其他 XA 相容資源列在一起。
+</p>
+<p>如果 WebSphere Topic Connection Factory 將 <strong>Port</strong> 內容設為 <samp>DIRECT</samp>，便不會套用這個內容，而且其值一定是 <samp>NON_XA</samp>。
+</p>
+<table cellpadding="1">
+<tr>
+<th align="left" valign="top" class="base" style="background-color:#dedede">資料類型</th><td align="left" valign="top" class="base">列舉</td>
+</tr>
+<tr>
+<th align="left" valign="top" class="base" style="background-color:#dedede">單位</th><td align="left" valign="top" class="base">不適用</td>
+</tr>
+<tr>
+<th align="left" valign="top" class="base" style="background-color:#dedede">預設值</th><td align="left" valign="top" class="base">已啟用 XA</td>
+</tr>
+<tr>
+<th align="left" valign="top" class="base" style="background-color:#dedede">範圍</th><td align="left" valign="top" class="base">
+<dl>
+<dt>
+<strong>XA</strong>
+</dt>
+<dd>Connection Factory 供訊息的 XA 協調使用
+</dd>
+<dt>
+<strong>NON_XA</strong>
+</dt>
+<dd>Connection Factory 供訊息的非 XA 協調使用
+</dd>
+</dl>
+</td>
+<tr>
+<th align="left" valign="top" class="base" style="background-color:#dedede">建議
+</th><td align="left" valign="top" class="base">當收到的訊息佇列或主題是交易中的唯一資源時，請勿啟用 XA。
+當涉及包括其他佇列或主題在內的其他資源時，請啟用 XA。
+</td>
+</tr>
+</tr>
+</table>
+</dd>
+<dt>
+<strong><a name="ConnectionFactory_connectionPool"></a>連線儲存池</strong>
+</dt>
+<dd>指定一組選用的連線儲存池設定。
+<p>所有 J2C 連接器會共用連線儲存池內容。
+</p>
+<p>應用程式伺服器會將連線和階段作業與 JMS 提供者置於儲存池中，來提高效能。
+此舉與任何 WebSphere MQ 連線儲存池作業無關。
+您必須針對您的應用程式，來配置連線和階段作業儲存池內容，否則可能不會得到您所要的連線和階段作業行為。
+</p>
+<p>如果 JMS 資源的並行伺服器端存取作業超出預設值，請變更連線儲存池的大小。連線儲存池大小是以個別佇列或主題為基礎來設定的。
+請參閱下表，以取得詳細資料。</p>
+
+</dd>
+<dt>
+<strong><a name="ConnectionFactory_sessionPool"></a>階段作業儲存池</strong>
+</dt>
+<dd>一組選用的階段作業儲存池設定。
+
+<p>這個鏈結提供鏈結至所有 J2C 連接器共用的選用連線儲存池內容的畫面。</p>
+
+<p>應用程式伺服器會將連線和階段作業與 JMS 提供者置於儲存池中，來提高效能。
+此舉與任何 WebSphere MQ 連線儲存池作業無關。
+您必須針對您的應用程式，來配置連線和階段作業儲存池內容，否則可能不會得到您所要的連線和階段作業行為。
+</p>
+
+</dd>
+</dl>
+</body>
+</html>

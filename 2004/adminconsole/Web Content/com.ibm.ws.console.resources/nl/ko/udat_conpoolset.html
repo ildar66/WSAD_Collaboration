@@ -1,0 +1,420 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>연결 풀 설정</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="Connection_pool_settings"></a>
+<h2>연결 풀 설정</h2>
+
+<p>연결 풀 설정을 구성하려면 이 페이지를 사용하십시오. </p>
+
+<p>이 관리 콘솔 페이지는 여러 자원 유형(예: JDBC 데이터소스 및 JMS 대기열 연결 팩토리)에 공통입니다.
+경로는 자원 유형에 종속되지만, 이 페이지를 보기 위해 일반적으로 자원 프로바이더 인스턴스를 선택한 후 자원 유형 인스턴스를 선택하고 <strong>연결 풀</strong>을 클릭합니다. 
+예를 들면, <strong>자원</strong> &gt; <strong>JDBC
+프로바이더</strong> &gt; <strong>JDBC_provider</strong> &gt; <strong>데이터소스</strong> &gt; <strong>data_source</strong> &gt; <strong>연결 풀</strong>을 클릭하십시오. </p>
+
+<div>
+<p>
+<strong>구성 탭</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="Connectionpool_detail_contextID"></a>범위</strong>
+</dt>
+<dd>이 자원 정의가 표시될 수 있는 레벨(셀, 노드 또는 서버 레벨)을 지정합니다. 
+<p>JDBC 프로바이더, 네임 스페이스 바인딩 또는 공유 라이브러리와 같은 자원은 일반적인 범위에서 정의된 중복을 대체하는, 좀 더 특정한 범위에서 정의된
+자원을 가지는 다중 범위에서 정의될 수 있습니다.</p>
+
+<p>정의된 자원의 범위에 관계 없이, 자원의 등록 정보는
+개별 서버 레벨에서만 적용됩니다. 예를 들어 셀 레벨에서
+데이터소스의 범위를 정의하는 경우, 해당 셀의 모든 사용자는
+해당 데이터소스(셀 내에서 고유함)를 찾아보고 사용할 수 있습니다. 그러나
+자원 등록 정보 설정은 셀 내 각 서버에 로컬입니다. 예를
+들어 <em>최대 연결 수</em>를 10으로 정의하는 경우, 해당 셀 내 각 서버는
+13개의 연결을 가질 수 있습니다.<dl>
+<dt>
+<strong>셀</strong>
+</dt>
+<dd>가장 일반적인 범위. 셀 범위에서 정의된 자원은 대체되지 않는 한
+모든 노드 및 서버에서 표시 가능합니다.
+셀 범위에서 정의되는 자원을 보려면 범위 선택사항 양식에서
+서버 또는 노드 이름을 지정하지 마십시오. </dd>
+<dt>
+<strong>Node</strong>
+</dt>
+<dd>대부분의 자원 유형에 대한 기본 범위. 노드 범위에서 정의된 자원은
+셀 범위에서 정의된 임의의 중복을 대체하고 해당 노드의 서버 범위에서 대체되지 않는
+한 동일한 노드의 모든 서버에 표시 가능합니다. 노드 범위에서 정의되는 자원을 보려면 서버를 지정하지
+말고 범위 선택사항 양식에서 노드 이름을 선택하십시오. </dd>
+<dt>
+<strong>서버</strong>
+</dt>
+<dd>자원 정의에 대한 가장 특정한 범위. 서버 범위에서 정의되는
+자원은 셀 범위 및 상위 노드 범위에서 정의되는 모든 중복 자원 정의를
+대체하고 특정 서버에서만 볼 수 있습니다. 서버 범위에서 정의되는 자원을
+보려면 범위 선택사항 양식에서 서버 이름뿐 아니라 노드 이름을 선택하십시오. </dd>
+</dl>
+</p>
+
+<p>자원이 작성되면, 항상 패널에서 선택된 현재 범위로 작성됩니다. 다른 범위에서 자원을 보려면 범위 선택사항 양식에
+다른 노드 또는 서버를 지정하십시오. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">문자열</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ConnectionPool_connectionTimeout_displayName"></a>연결 제한시간</strong>
+</dt>
+<dd>이 간격 후에 연결 요청이 시간종료되고 ConnectionWaitTimeoutException이 발생하는 간격(초)을 지정합니다.
+<p> 최대 연결 수 값(<em>최대 연결 수</em>)에 도달하면 대기해야 합니다. 예를 들어, <em>연결 제한시간</em>이 300으로 설정되고
+최대 연결 수에 도달한 경우 풀 관리자는 사용 가능한 실제 연결까지 300초 동안 기다립니다.
+실제 연결이 해당 시간 안에 사용 가능하게 되지 <em>않는</em> 경우 풀 관리자는
+ConnectionWaitTimeoutException을 생성합니다.
+ 더 오랜 대기 시간이 요구되는 경우
+<em>Connection Timeout</em> 설정을 더 큰 값으로 설정해야 하기 때문에 <em>getConnection()</em> 메소드를
+재시도하는 것은 대체적으로 바람직하지 않습니다. 따라서 응용프로그램에 이 예외가 발생하는 경우, 관리자는 예상되는
+응용프로그램의 사용법을 검토하고 연결 풀 및 데이터베이스를 적절히 조정해야 합니다. </p>
+
+<p>연결 제한시간을 0으로 설정하는 경우 풀 관리자는 연결이 할당(연결 수가 <em>최대 연결 수</em> 밑으로 떨어질 때 발생함)될 때까지 기다립니다.</p>
+
+<p>최대 연결 수를 0으로 설정한 경우 실제 연결의 무한대 숫자를 가능하게 하며 연결 제한시간은 무시됩니다.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">정수</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">
+단위</td>
+<td align="left" valign="top" class="base">초</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">기본값</td>
+<td align="left" valign="top" class="base">180</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">범위</td>
+<td align="left" valign="top" class="base">0 - 최대 정수</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ConnectionPool_maxConnections_displayName"></a>최대 연결 수</strong>
+</dt>
+<dd>이 풀에 작성할 수 있는 실제 연결의 최대 수를 지정하십시오.
+<p>이들은 백엔드 자원에 대한 실제 연결입니다. 일단 이 수에 도달하면, 새로운 실제 연결이 작성되지 않으며
+요청자는 현재 사용 중인 실제 연결이 풀로 리턴될 때까지 대기하거나 ConnectionWaitTimeoutException이 발생됩니다.</p>
+
+<p>예를 들어, 최대 연결 수가 5로 설정되고 실제 접속 5건을 사용 중이면, 풀 관리자는 실제 접속의 연결 제한시간으로 지정한 시간만큼 대기합니다.</p>
+
+<p>최대 연결 수가 0으로 설정되면 연결 제한시간 값은 무시됩니다. </p>
+
+<p>성능을 개선하려면 연결 풀 값을 웹 컨테이너의 최대 연결 수 옵션에 지정한 값보다 낮게 설정하십시오. 설정값이 낮으면(예: 연결 10-30건)이 설정값이 높을 때(예: 100)보다 성능이 더 좋습니다. </p>
+
+<p>복제가 사용되는 경우 각 복제본에 대해 하나의 데이터 풀이 존재합니다. 데이터 풀의 갯수는 데이터베이스 최대 연결 수를 구성할 때 중요합니다.</p>
+
+<p>Tivoli Performance Viewer를 사용하여 풀에서 최적 연결 번호를
+찾을 수 있습니다. 동시 대기자 수가 0보다 크지만, CPU 로드가 100%에 가깝지 않으면 연결 풀 크기 증가를 고려하십시오. 사용률이 보통 워크로드보다 계속 낮으면, 풀의 연결 수를 줄이는 것이 좋습니다.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">정수</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">기본값</td>
+<td align="left" valign="top" class="base">10</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">범위</td>
+<td align="left" valign="top" class="base">0 - 최대 정수</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ConnectionPool_minConnections_displayName"></a>최소 연결 수</strong>
+</dt>
+<dd>유지보수해야 하는 실제 연결의 최소 수를 지정합니다.
+<p>이 숫자에 도달할 때까지는 풀 유지보수 스레드가 실제 연결을 버리는 일은 전혀 없습니다. 그러나 연결 건수를 이만큼 끌어 올리려고 하지 마십시오. 유효 제한시간의 값을 설정한 경우에는 최소값이 유지되지 않습니다. 유효 기간이 만료된 모든 연결은 버립니다.</p>
+
+<p>예를 들어, 최소 연결 수를 3으로 설정하고 실제 연결을 하나 작성하면, 미사용 제한시간 스레드는 이 연결을 버리지 않습니다.
+동일한 토큰에 의해 스레드는 최소 연결 수 설정에 도달하기 위해 두 개의 추가 실제 연결을 자동으로 작성하지 않습니다.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">정수</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">기본값</td>
+<td align="left" valign="top" class="base">1</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">범위</td>
+<td align="left" valign="top" class="base">0 - 최대 정수</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ConnectionPool_reapTime_displayName"></a>Reap 시간</strong>
+</dt>
+<dd>풀 유지보수 스레드 살행 사이의 간격(초)을 지정합니다.
+<p> 예를 들어 Reap 시간이 60으로 설정되는 경우 풀 유지보수 스레드는 60초마다
+실행합니다. <em>Reap 시간</em> 간격은 <em>미사용 제한시간</em> 및
+<em>유효 제한시간</em> 설정의 정확성에 영향을 줍니다. 간격이 작을수록 정확성은 더 큽니다. 풀
+유지보수 스레드가 사용 가능한 경우 Reap 시간을 미사용 제한시간 및 유효
+제한시간보다 작게 설정해야 합니다. 풀 유지보수 스레드가 실행할 때, 풀 유지보수 스레드는 미사용 제한시간에
+지정된 시간 값보다 길게 사용되지 않은 기존의 모든 연결을 <em>최소 연결 수</em>에 지정된 연결 수에 도달할 때까지
+버립니다. 풀 유지보수 스레드는 또한 유효 제한시간에 지정된 시간 값보다 오래 동안
+활성이었던 모든 연결을 버립니다.</p>
+
+<p> Reap 시간 간격은 또한 성능에 영향을 줍니다. 더 작은 간격은 풀 유지보수
+스레드가 더 자주 실행하여 성능이 떨어진다는 것을 의미합니다.</p>
+
+<p>풀 유지보수 스레드를 사용 불가능하게 하려면 Reap 시간을 0으로 설정하거나
+미사용 제한시간과 유효 제한시간 모두를 0으로 설정하십시오. 풀 유지보수 스레드를
+사용 불가능하는 바람직한 방법은 Reap 시간을 0으로 설정하는 것으로서,이 경우
+미사용 제한시간 및 유효 제한시간이 무시됩니다. 그러나 미사용 제한시간 및
+유효 제한시간을 0으로 설정하는 경우 풀 유지보수 스레드가 실행하지만 0이
+아닌 제한시간 값으로 인해 시간 종료하는 실제 연결만이 버려집니다.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">정수</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">
+단위</td>
+<td align="left" valign="top" class="base">초</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">기본값</td>
+<td align="left" valign="top" class="base">180</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">범위</td>
+<td align="left" valign="top" class="base">0 - 최대 정수</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ConnectionPool_unusedTimeout_displayName"></a>사용되지 않은 제한시간</strong>
+</dt>
+<dd>지정된 시간 후에 사용되지 않거나 대기 중인 연결이 버려지는 초 단위의 간격을 지정합니다.
+<p> 최적의 성능을 위해 Reap 제한시간 값보다 높은 사용되지 않은 제한시간 값을 설정하십시오. 사용되지 않은 실제 연결은
+사용되지 않는 연결의 현재 수가 최소 연결 수 설정을 초과하는 경우에만 버려집니다. 예를 들어 미사용 제한시간 값을
+120으로 설정하고 풀 유지보수 스레드가 사용 가능한 경우(Reap 시간이 0이 아님)
+2분 동안 사용되지 않았던 모든 실제 연결이 버려집니다. 성능뿐 아니라 이 제한시간의 정확성이 Reap 시간 값의
+영향을 받음을 주의하십시오. 자세한 정보는 Reap 시간을 참조하십시오.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">정수</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">
+단위</td>
+<td align="left" valign="top" class="base">초</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">기본값</td>
+<td align="left" valign="top" class="base">1800</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">범위</td>
+<td align="left" valign="top" class="base">0 - 최대 정수</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ConnectionPool_agedTimeout_displayName"></a>유효 제한시간 </strong>
+</dt>
+<dd>실제 연결이 버려지기 전의 초 단위의 간격을 지정합니다.
+<p> 
+<em>유효 기간 제한시간</em>을 0으로 설정하면 활성 중인 실제 연결을
+풀에 무기한으로 남아있게 지원합니다. 최적의 성능을 위해 Reap 제한시간 값보다 높은 유효 제한시간 값을
+설정하십시오. 예를 들어, 유효 기간 제한시간 값이 1200으로 설정되고 Reap 시간 값이 0이 아닌 경우, 1200초(20분) 동안
+존재한 실제 연결은 풀에서 버려집니다. 성능뿐 아니라 이 제한시간의 정확성은 Reap 시간 값에
+의해 영향을 받는 것에 유의하십시오. 자세한 정보는 Reap 시간을 참조하십시오.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">정수</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">
+단위</td>
+<td align="left" valign="top" class="base">초</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">기본값</td>
+<td align="left" valign="top" class="base">0</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">범위</td>
+<td align="left" valign="top" class="base">0 - 최대 정수</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="ConnectionPool_purgePolicy_displayName"></a>제거 정책 </strong>
+</dt>
+<dd>  
+<em>실효 연결</em> 또는 <em>치명적 연결 오류</em>가 발견될 때 연결을 제거하는 방법을 지정합니다.
+<p>유효한 값은 <strong>EntirePool</strong> 및 <strong>FailingConnectionOnly</strong>입니다. JCA
+데이터소스에도 옵션이 있을 수 있습니다. 
+WebSphere 버전 4.0 데이터소스에는 항상 <strong>EntirePool</strong> 제거 정책이 있습니다. </p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">데이터 유형</td>
+<td align="left" valign="top" class="base">문자열</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">기본값</td>
+<td align="left" valign="top" class="base">EntirePool</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">범위</td>
+<td align="left" valign="top" class="base">
+<dl>
+<dt>
+<strong>EntirePool</strong>
+</dt>
+<dd>풀 내의 모든 연결이 무효로 표시됩니다. 
+사용 중이 아닌 연결은 즉시 닫힙니다. 사용 중인 연결은 닫히고 해당 연결의 다음 조작 동안 <em>StaleConnectionException</em>이
+처리됩니다. 응용프로그램에서 후속 <em>getConnection</em> 요청은 데이터베이스 열기에 대한 새 연결의 결과를 초래하였습니다 .
+이 제거 정책을 사용할 경우 풀의 일부 연결이 실효되지 않을 때 불필요하게 닫힐 수도 있습니다. 그러나 이는 거의 발생하지
+않습니다. 대부분의 경우, EntirePool의 제거 정책이 최상의 선택입니다.</dd>
+<dt>
+<strong>FailingConnectionOnly</strong>
+</dt>
+<dd>
+<em>StaleConnectionException</em>이 발생한 연결만이 닫힙니다. 
+이 설정은 유효한 연결이 불필요하게 닫힐 가능성은 제거하나 좀더 복잡한 응용프로그램 perspective로부터 복구됩니다. 현재는 실패한 연결만 닫히기 때문에, 응용프로그램으로부터 다음 <em>getConnection</em> 요청이 스테일(stale)인 풀에서 연결을 리턴할 수 있고 이는 더 많은 스테일 연결 예외 결과를 발생시킵니다.</dd>
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>관련 정보</strong>
+</p>
+<a href="rcon_buttons.html">관리 콘솔 단추</a>
+<br>
+
+<a href="rcon_pageusage.html">관리 콘솔 페이지 기능</a>
+<br>
+
+</div>
+</body>
+</html>

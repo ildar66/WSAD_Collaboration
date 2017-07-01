@@ -1,0 +1,242 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Impostazioni di parametri di ottimizzazione</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="tune_para"></a>
+<h2>Impostazioni di parametri di ottimizzazione</h2>
+
+<p>Utilizzare questa pagina per impostare i parametri di ottimizzazione per le
+sessioni distribuite.</p>
+
+<p>Per visualizzare questa pagina della console di gestione, fare clic su <strong>Server</strong>
+&gt; <strong>Server delle applicazioni</strong> &gt; <em>nome_server</em> &gt; <strong>Contenitore Web</strong> &gt;
+<strong>Gestione sessioni</strong> &gt; <strong>Impostazioni ambiente distribuito</strong> &gt; <strong>Parametri di
+ottimizzazione personalizzati</strong>.</p>
+
+<div>
+<p>
+<strong>Scheda Configurazione</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="Tuning_level_description"></a>Livello di ottimizzazione</strong>
+</dt>
+<dd>Specifica che la funzione Gestione sessioni fornisce alcune impostazioni predefinite che
+influiscono sulle prestazioni.
+<p>Selezionare una delle impostazioni predefinite o personalizzarne una. Per personalizzare
+un'impostazione, selezionare una delle impostazioni predefinite che pi&ugrave; assomiglia all'impostazione
+desiderata, fare clic su <strong>Impostazioni personalizzate</strong>, apportare le modifiche, quindi fare
+clic su <strong>OK</strong>.</p>
+
+<div>
+<p class="sectiontitle">
+<b>Molto alta (ottimizza per prestazioni) </b>
+</p>
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Frequenza scrittura </td>
+<td align="left" valign="top" class="base">In base all'ora</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo scrittura </td>
+<td align="left" valign="top" class="base">300 secondi</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Contenuti di scrittura </td>
+<td align="left" valign="top" class="base">Solo attributi aggiornati</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Pianificazione ripulitura sessioni</td>
+<td align="left" valign="top" class="base">vero</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valore predefinito prima ora del giorno </td>
+<td align="left" valign="top" class="base">0</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valore predefinito seconda ora del giorno </td>
+<td align="left" valign="top" class="base">2</td>
+
+</tr>
+
+</table>
+</div>
+
+<div>
+<p class="sectiontitle">
+<b>Elevato</b>
+</p>
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Frequenza scrittura </td>
+<td align="left" valign="top" class="base">In base all'ora</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Intervallo scrittura </td>
+<td align="left" valign="top" class="base">300 secondi</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Contenuti scrittura </td>
+<td align="left" valign="top" class="base">Tutti gli attributi sessione</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Pianificazione ripulitura sessioni</td>
+<td align="left" valign="top" class="base">false</td>
+
+</tr>
+
+</table>
+</div>
+
+<div>
+<p class="sectiontitle">
+<b>Medio</b>
+</p>
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Frequenza scrittura </td>
+<td align="left" valign="top" class="base">Fine del servizio servlet</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Contenuti scrittura </td>
+<td align="left" valign="top" class="base">Solo attributi aggiornati</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Pianificazione ripulitura sessioni</td>
+<td align="left" valign="top" class="base">false</td>
+
+</tr>
+
+</table>
+</div>
+
+<div>
+<p class="sectiontitle">
+<b>Bassa (ottimizza per errore)</b>
+</p>
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Frequenza scrittura </td>
+<td align="left" valign="top" class="base">Fine del servizio servlet</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Contenuti scrittura </td>
+<td align="left" valign="top" class="base">Tutti gli attributi sessione</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Pianificazione ripulitura sessioni</td>
+<td align="left" valign="top" class="base">false</td>
+
+</tr>
+
+</table>
+</div>
+
+<div>
+<p class="sectiontitle">
+<b>Impostazioni personalizzate</b>
+</p>
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valore predefinito frequenza di scrittura</td>
+<td align="left" valign="top" class="base">In base all'ora</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valore predefinito intervallo scrittura </td>
+<td align="left" valign="top" class="base">10 secondi</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valore predefinito contenuti scrittura</td>
+<td align="left" valign="top" class="base">Tutti gli attributi sessione</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Valore predefinito pianificazione ripulitura sessioni</td>
+<td align="left" valign="top" class="base">false</td>
+
+</tr>
+
+</table>
+</div>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Informazioni correlate</strong>
+</p>
+<a href="rcon_buttons.html">Pulsanti della console di gestione</a>
+<br>
+
+<a href="rcon_pageusage.html">Funzioni della pagina della console di gestione</a>
+<br>
+
+<a href="rcon_preferences.html">Impostazioni delle preferenze della console di gestione</a>
+<br>
+
+<a href="uprs_rtuning_custom.html">Impostazioni personalizzate di parametri di ottimizzazione</a>
+<br>
+
+</div>
+</body>
+</html>

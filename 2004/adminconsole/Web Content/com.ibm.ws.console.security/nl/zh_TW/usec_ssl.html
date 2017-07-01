@@ -1,0 +1,427 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Secure Socket Layer 設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecssl"></a>
+<h2>Secure Socket Layer 設定</h2>
+
+<p>請利用這個頁面來配置伺服器的 Secure Socket Layer (SSL) 設定。</p>
+
+<p>如果要檢視這個管理主控台頁面，請按一下<strong>安全 &gt; SSL &gt; </strong><em>alias_name</em>。
+</p>
+
+
+
+
+<div>
+<p>
+<strong>「配置」標籤</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="Security_defaultSSLSettings_description"></a>別名</strong>
+</dt>
+<dd>指定特定 SSL 設定的名稱
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型：</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecureSocketLayer_keyFileName_description"></a>金鑰檔名稱</strong>
+</dt>
+<dd>指定包含公開金鑰和私密金鑰的 SSL 金鑰檔之完整路徑。
+
+
+
+<p>您可以利用金鑰管理公用程式來建立 SSL 金鑰檔，如果有硬體裝置的話，這個檔案可以對應於硬體裝置。
+不論是哪一種情況，除非指定了信任檔，否則，這個選項都會指出個人憑證和簽章者憑證的來源。
+預設 SSL 金鑰檔 <samp>DummyClientKeyFile.jks</samp> 和 <samp>DummyServerKeyFile.jks</samp> 包含自行簽章的個人測試憑證，在 2005 年 3 月 17 日到期。
+這個測試憑證只供測試環境使用。
+在正式作業環境中，永遠不應使用預設 SSL 金鑰檔，因為所有 WebSphere Application Server 安裝架構的私密金鑰都相同。
+請參閱 InfoCenter 中管理憑證的文章，以取得建立和管理 WebSphere Application Server 領域的數位憑證之相關資訊。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型：</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecureSocketLayer_keyFilePassword_description"></a>金鑰檔密碼
+</strong>
+</dt>
+<dd>指定存取 SSL 金鑰檔的密碼。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型：</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecureSocketLayer_keyFileFormat_description"></a>金鑰檔格式
+</strong>
+</dt>
+<dd>指定 SSL 金鑰檔的格式。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型：</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值：</td>
+<td align="left" valign="top" class="base">JKS</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍：</td>
+<td align="left" valign="top" class="base">JKS、JCEK、PKCS12
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecureSocketLayer_trustFileName_description"></a>信任檔名稱
+</strong>
+</dt>
+<dd>指定通往含有公開金鑰的信任檔之完整路徑。
+
+
+<p>您可以利用 WebSphere <em>bin</em> 目錄中所包括的金鑰管理公用程式來建立信任檔。
+當使用 Global Security Kit (GSkit)（另一個 SSL 實作）的金鑰管理公用程式時，無法使用 Java Secure Socket Extension (JSSE) 實作。
+</p>
+
+<p>但它不像 SSL 金鑰檔，不會參照個人憑證；只會擷取簽章者憑證。
+預設 SSL 信任檔 <samp>DummyClientTrustFile.jks</samp> 和 <samp>DummyServerTrustFile.jks</samp> 含有多個用來作為簽章者憑證的測試公開金鑰，它們可能會到期。WebSphere Application Server 4.0 版測試憑證的公開金鑰在 2004 年 1 月 15 日到期，
+WebSphere Application Server 第 5 版測試憑證和 WebSphere Application Server CORBA C++ 用戶端的公開金鑰在 2005 年 3 月 17 日到期。
+這個測試憑證只供測試環境使用。
+</p>
+
+<p>如果未指定信任檔，但指定了 SSL 金鑰檔，則會利用 SSL 金鑰檔來擷取簽章者憑證及個人憑證。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型：</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecureSocketLayer_trustFilePassword_description"></a>信任檔密碼
+</strong>
+</dt>
+<dd>指定存取 SSL 信任檔的密碼。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型：</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecureSocketLayer_trustFileFormat_description"></a>信任檔格式
+</strong>
+</dt>
+<dd>指定 SSL 信任檔的格式。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型：</td>
+<td align="left" valign="top" class="base">字串</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值：</td>
+<td align="left" valign="top" class="base">JKS</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍：</td>
+<td align="left" valign="top" class="base">JKS、JCEK、PKCS12
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecureSocketLayer_clientAuthentication_description"></a>用戶端鑑別
+</strong>
+</dt>
+<dd>指定當進行連線時，是否要基於鑑別目的，向用戶端要求憑證。
+
+<p>這個屬性只在 Web 儲存區 HTTP 傳輸使用它時才有效。
+當利用網際網路交互 ORB 通訊協定 (IIOP) 執行用戶端鑑別（EJB 要求）時，您必須在管理主控台左側的導覽窗格中，
+按一下<strong>安全</strong> &gt; <strong>鑑別通訊協定</strong> &gt; <strong>CSIv2 入埠</strong>或<strong>離埠鑑別</strong>。
+請按一下 <strong>SSL 用戶端憑證鑑別</strong>，以啟用它來處理這些要求。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型：</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值：</td>
+<td align="left" valign="top" class="base">停用</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍：</td>
+<td align="left" valign="top" class="base">啟用或停用</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecureSocketLayer_securityLevel_description"></a>安全層次
+</strong>
+</dt>
+<dd>指定伺服器是否要從預先配置的一組安全層次中選取。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型：</td>
+<td align="left" valign="top" class="base">有效值如下：<strong>低</strong>、<strong>中</strong>或<strong>高</strong>。
+<ul>
+
+<li>LOW（低）只指定數位簽章密碼（不加密）</li>
+
+<li>MEDIUM（中）只指定 40 位元的密碼（包括數位簽章）</li>
+
+<li>HIGH（高）只指定 128 位元的密碼（包括數位簽章）。</li>
+
+</ul>
+<p>如果要指定所有密碼或任何特定範圍，您可以設定 <strong>com.ibm.ssl.enabledCipherSuites</strong> 內容。
+</p>
+<p>請參閱 InfoCenter 中的 SSL 文件。
+</p>
+</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值：</td>
+<td align="left" valign="top" class="base">高</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍：</td>
+<td align="left" valign="top" class="base">低、中或高
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SSLConfig_cipherSuites_description"></a>密碼組合
+</strong>
+</dt>
+<dd>指定可以選取供 SSL 訊息交換期間使用的支援密碼組合清單。
+如果您在這裡個別選取密碼組合，您就會改寫「安全層次」欄位中所設定的密碼組合。
+
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型：</td>
+<td align="left" valign="top" class="base"> </td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值：</td>
+<td align="left" valign="top" class="base"></td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍：</td>
+<td align="left" valign="top" class="base"></td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SecureSocketLayer_enableCryptoHardwareSupport_description"></a>加密記號
+</strong>
+</dt>
+<dd>指定伺服器要啟用或停用加密硬體和軟體支援。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型：</td>
+<td align="left" valign="top" class="base">Boolean</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值：</td>
+<td align="left" valign="top" class="base">停用</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍：</td>
+<td align="left" valign="top" class="base">啟用或停用</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SystemSecureSocketLayer_provider"></a>提供者
+</strong>
+            &nbsp;
+            <img alt="[修正套件 5.0.2 和更新版本]" src="v502.gif" border="0"></dt>
+<dd>係指提供 Java 安全 API 的加密方面子集之具體實作的套件。
+<p> 如果您選取第一個按鈕，請從功能表中選取提供者。WebSphere Application Server 有下列預先定義的提供者：<strong>IBMJSSE</strong> 和 <strong>IBMJSSEFIPS</strong>。
+<strong>IBMJSSEFIPS</strong> 是美國聯邦資訊處理標準 (FIPS) 核准的 IBMJSSE 提供者版本。
+如果您選取第二個按鈕，請輸入自訂提供者。
+對於自訂提供者，您必須先利用「其他內容」下的<strong>自訂內容</strong>來輸入「密碼組合」。密碼組合和通訊協定值會隨著提供者而不同。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">資料類型</td>
+<td align="left" valign="top" class="base">整數</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">預設值</td>
+<td align="left" valign="top" class="base">100</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範圍</td>
+<td align="left" valign="top" class="base">1 至 86400</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="SystemSecureSocketLayer_protocol"></a>通訊協定</strong>
+            &nbsp;
+            <img alt="[修正套件 5.0.2 和更新版本]" src="v502.gif" border="0"></dt>
+<dd>指定所用的 SSL 通訊協定。
+<p>如果您使用 FIPS 核准的 JSSE（如 IBMJSSEFIPS），您就必須選取 TLS 通訊協定。
+由於 FIPS 核准的 JSSE 提供者不具備向下相容性，因此，使用 TLS 通訊協定的伺服器無法與使用 SSL 通訊協定的用戶端通訊。</p>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>相關資訊</strong>
+</p>
+<a href="rcon_buttons.html">管理主控台按鈕</a>
+<br>
+
+<a href="rcon_pageusage.html">管理主控台頁面特性</a>
+<br>
+
+<a href="rcon_scope.html">管理主控台範圍設定</a>
+<br>
+
+<a href="rcon_filter.html">管理主控台過濾器設定</a>
+<br>
+
+<a href="rcon_preferences.html">管理主控台喜好設定</a>
+<br>
+
+<a href="usec_rassl.html">自訂內容的 Secure Socket Layer 設定</a>
+<br>
+
+</div>
+</body>
+</html>

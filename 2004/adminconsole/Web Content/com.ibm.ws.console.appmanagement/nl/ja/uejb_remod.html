@@ -1,0 +1,82 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>EJB モジュール設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uejbemod"></a>
+<h2>EJB モジュール設定</h2>
+
+<p>このページを使用して、特定のデプロイ済み EJB モジュールの構成および管理を行います。
+</p>
+
+<p>
+<b>注: </b>変更を加えるために、個々の EJB モジュールを開始または停止することはできません。該当するアプリケーション全体を開始するか、停止する必要があります。</p>
+
+<p>この管理コンソール・ページを表示するには、「
+<strong>アプリケーション</strong>」<strong>&gt;</strong>「<strong>エンタープライズ・アプリケーション</strong>」<strong>&gt;</strong>「 <em>applicationName</em>」<strong>&gt;</strong>「 <strong>EJB モジュール</strong>」<strong>&gt;</strong>「<em>moduleName</em>」をクリックします。</p>
+
+<div>
+<p>
+<strong>「構成」タブ</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="ModuleDeployment_uri_description"></a>URI</strong>
+</dt>
+<dd>URI がアプリケーション URL に相対で解決されている場合は、これによって、
+ファイル・システム上のモジュール・アーカイブ・コンテンツの場所を指定します。
+この URI は、デプロイ済みアプリケーション (EAR) のデプロイメント記述子にある ModuleRef URI の URI と一致する必要があります。
+</dd>
+<dt>
+<strong><a name="ModuleDeployment_altdd_description"></a>代替 DD</strong>
+</dt>
+<dd>モジュールにインストール済みのデプロイメント記述子に代わって、
+実行時に使用されるデプロイメント記述子を指定します。
+</dd>
+<dt>
+<strong><a name="ModuleDeployment_startingWeight_description"></a>開始ウェイト</strong>
+</dt>
+<dd>サーバー始動時のモジュールの開始順序を指定します。
+開始ウェイトが一番低いモジュールから開始します。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">整数</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">5000</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">0 より大</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>関連情報</strong>
+</p>
+<a href="rcon_buttons.html">管理コンソールのボタン</a>
+<br>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,928 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>WebSphere MQ キュー設定 (MQ 構成)</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="MQSeriesQueueHost"></a>
+<h2>WebSphere MQ キュー設定 (MQ 構成)</h2>
+
+<p>このパネルを使用して、WebSphere MQ に定義した、
+選択したキュー宛先の構成プロパティーを表示または変更します。</p>
+
+<p>キュー宛先を使用して、JMS キューのプロパティーを構成します。
+WebSphere MQ JMS プロバイダーで使用するキューには、
+WebSphere MQ に定義された以下の追加プロパティーがあります。<p>
+<b>注: </b>
+<ul>
+
+<li>表示される一部のプロパティーは読み取り専用であるため、変更できません。</li>
+
+<li>これらのプロパティーを表示または変更するには、
+キューが常駐している WebSphere MQ Queue Manager をリモート管理用に構成して、実行する必要があります。</li>
+
+<li>指定するプロパティー値は、WebSphere MQ の JMS リソースを構成する際に指定した値と一致していなければなりません。
+WebSphere MQ JMS リソースの構成の詳細については、資料「<cite>WebSphere MQ Java の使用 </cite>」を参照してください。この資料は、WebSphere MQ マルチプラットフォーム・ライブラリーに関する Web ページ
+<img border="0" alt="ターゲットは、このトピックが WWW にリンクされている場合にのみアクセス可能です" src="web.gif">&nbsp;&nbsp;               
+   <a target="_blank" href="http://www.ibm.com/software/ts/mqseries/library/manualsa/manuals/crosslatest.html"><strong>http://www.ibm.com/software/ts/mqseries/library/manualsa/manuals/crosslatest.html</strong></a>
+
+などから入手することができます。</li>
+
+<li>WebSphere MQ では、名前には最大 48 文字まで使用できますが、
+チャネルの場合は例外で最大 20 文字までになります。</li>
+
+</ul>
+</p>
+</p>
+
+<p>この管理コンソール・ページを表示するには、「
+<strong>リソース</strong>」-&gt;「<strong>WebSphere MQ JMS プロバイダー</strong>」-&gt; (コンテンツ・ペイン内、「追加プロパティー」の下にある)「<strong>WebSphere MQ Queue Destinations</strong>」-&gt;「<strong><em>destination_name</em></strong>」-&gt; (コンテンツ・ペイン内、「追加プロパティー」の下にある)「<strong>MQ 構成</strong>」をクリックします。
+</p>
+
+<dl>
+<dt>
+<strong><a name="MQSeriesQueue_baseQueueName"></a>基本キュー名</strong>
+</dt>
+<dd>「<strong>基本キュー・マネージャー名</strong>」プロパティーで指定したキュー・マネージャー上のメッセージ送信先のキューの名前。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_baseQueueManagerName"></a>基本キュー・マネージャー名</strong>
+</dt>
+<dd>メッセージの送信先となる WebSphere MQ キュー・マネージャーの名前。
+
+<p>このキュー・マネージャーは、「<strong>基本キュー名</strong>」プロパティーで指定されたキューを提供します。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_queueManagerHost"></a>キュー・マネージャーのホスト</strong>
+</dt>
+<dd>キュー宛先が作成されるキュー・マネージャーのホストの名前。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_queueManagerPort"></a>キュー・マネージャーのポート</strong>
+</dt>
+<dd>このキューが定義されているキュー・マネージャーが使用するポートの番号。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">整数</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">有効な TCP/IP ポート番号。このポートは、WebSphere MQ キュー・マネージャー上で構成される必要があります。</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_serverConnectionChannelName"></a>サーバー接続チャネル名</strong>
+</dt>
+<dd>WebSphere MQ キュー・マネージャーへの接続に使用されるチャネルの名前。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">1 から 20 文字の ASCII 文字</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_userName"></a>ユーザー ID</strong>
+</dt>
+<dd>キュー宛先を定義するためにキュー・マネージャーに接続する際の認証のための、「
+<strong>パスワード</strong>」プロパティーとともに使用するユーザー ID。
+
+<p>「<strong>ユーザー名</strong>」プロパティーの値を指定する場合は、「
+<strong>パスワード</strong>」プロパティーにも値を指定する必要があります。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_password"></a>パスワード</strong>
+</dt>
+<dd>キュー宛先を定義するためにキュー・マネージャーに接続する際の認証のための、「
+<strong>ユーザー名</strong>」プロパティーとともに使用するパスワード。
+
+<p>「<strong>ユーザー名</strong>」プロパティーの値を指定する場合は、「
+<strong>パスワード</strong>」プロパティーにも値を指定する必要があります。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue"></a>名前</strong>
+</dt>
+<dd>WebSphere MQ キュー・マネージャーに定義されているキューの名前。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">1 から 48 文字の ASCII 文字</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_description"></a>説明</strong>
+</dt>
+<dd>WebSphere MQ で管理目的で使用する、WebSphere MQ キューの説明。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">1 から 64 文字の ASCII 文字</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue.inhibitPut"></a>プット 禁止</strong>
+</dt>
+<dd>PUT 操作をこのキューに許可するかどうかを指定します。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">列挙型</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">単位</td>
+<td align="left" valign="top" class="base">該当なし</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">クリア</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>許可</strong>
+</dt>
+<dd>PUT 操作がこのキューに許可されます。</dd>
+
+<dt>
+<strong>Not allowed</strong>
+</dt>
+<dd>PUT 操作がこのキューに許可されません。</dd>
+
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_persistence"></a>パーシスタンス</strong>
+</dt>
+<dd>宛先に送信されるすべてのメッセージが永続的か非永続的か、
+あるいはメッセージのパーシスタンスをアプリケーションで定義するかを指定します。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">列挙型</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">単位</td>
+<td align="left" valign="top" class="base">該当なし</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">APPLICATION_DEFINED</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>アプリケーションで定義</strong>
+</dt>
+<dd>宛先上のメッセージのパーシスタンスは、
+そのメッセージをキューに入れたアプリケーションで定義されます。
+</dd>
+
+<dt>
+<strong>Queue defined</strong>
+</dt>
+<dd>[WebSphere MQ 宛先のみ] 宛先上のメッセージのパーシスタンスは、
+WebSphere MQ キュー定義プロパティーで定義されます。</dd>
+
+<dt>
+<strong>パーシスタント</strong>
+</dt>
+<dd>宛先上のメッセージは永続的です。
+</dd>
+
+<dt>
+<strong>非パーシスタント</strong>
+</dt>
+<dd>宛先上のメッセージは永続的ではありません。
+</dd>
+
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_clusterName"></a>クラスター名</strong>
+</dt>
+<dd>WebSphere MQ キュー・マネージャーが属するクラスターの名前。
+<p>「<strong>クラスター名</strong>」に値を指定すると、「<strong>クラスター名リスト</strong>」には値を指定できません。
+クラスター名は、「
+<cite>WebSphere MQ MQSC Command Reference</cite>」で説明している規則に準拠していなければなりません。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+
+
+
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">キュー・マネージャー・クラスターで有効な WebSphere MQ 名。1 から 48 の ASCII 文字。</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_clusterNameList"></a>クラスター名リスト</strong>
+</dt>
+<dd>WebSphere MQ キュー・マネージャーが属するクラスターの名前リストの名前。
+<p>「<strong>クラスター名</strong>」に値を指定すると、「<strong>クラスター名リスト</strong>」には値を指定できません。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+
+
+
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">キュー・マネージャー・クラスターのリストで有効な WebSphere MQ 名。1 から 48 文字の ASCII 文字。</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_defaultBind"></a>Default Binding</strong>
+</dt>
+<dd>キューがクラスター・キューとして定義されている場合に使用されるデフォルトのバインディング。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">列挙型</td>
+
+</tr>
+
+
+
+
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">A<dl>
+
+<dt>
+<strong>On open</strong>
+</dt>
+<dd>キューがオープンしている場合、
+キュー・ハンドルは、クラスター・キューの特定のインスタンスにバインドされます。</dd>
+
+<dt>
+<strong> Not fixed</strong>
+</dt>
+<dd>キュー・ハンドルは、クラスター・キューの特定のインスタンスにバインドされていません。
+これにより、メッセージがプットされる際に、キュー・マネージャーは、特定のキュー・インスタンスを選択でき、
+必要が生じた場合には、後でその選択を変更できます。
+</dd>
+
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue.inhibitGet"></a>取得禁止</strong>
+</dt>
+<dd>取得操作をこのキューに許可するかどうかを指定します。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">列挙型</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">単位</td>
+<td align="left" valign="top" class="base">該当なし</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">クリア</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>許可</strong>
+</dt>
+<dd>取得操作がこのキューに許可されます。</dd>
+
+<dt>
+<strong>Not allowed</strong>
+</dt>
+<dd>取得操作がこのキューに許可されません。</dd>
+
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_maxQueueDepth"></a>Maximum queue depth</strong>
+</dt>
+<dd>キューに入れることができるメッセージの最大数。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">整数</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">単位</td>
+<td align="left" valign="top" class="base">メッセージ</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base"></td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">ゼロ以上で、下記の値以下の値。<ul>
+
+<li>キューが OS/390 上にある場合、999 999 999</li>
+
+<li>キューが別の WebSphere MQ プラットフォーム上にある場合、640 000</li>
+
+</ul>
+<p>指定可能な最大値についての詳細は、「
+<cite>WebSphere MQ MQSC Command Reference</cite>」を参照してください。
+</p>
+<p>この値が減らされた場合、メッセージ数が新規最大値を超えたとしても、
+すでにキュー上にあるメッセージはどれも影響を受けません。
+</p>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_maxMessageLength"></a>Maximum Message Length</strong>
+</dt>
+<dd>このキュー上でのメッセージのバイト単位の最大長。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">整数</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">単位</td>
+<td align="left" valign="top" class="base">バイト</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base"></td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">0 以上で、キュー・マネージャーおよび WebSphere MQ プラットフォームの最大メッセージ長以下の値。
+指定可能な最大値についての詳細は、「
+<cite>WebSphere MQ MQSC Command Reference</cite>」を参照してください。
+<p>この値が減らされた場合、メッセージ長が新規最大値を超えたとしても、
+すでにキュー上にあるメッセージはどれも影響を受けません。
+</p>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_shareability"></a>共有可能性</strong>
+</dt>
+<dd>複数のアプリケーションがこのキューからメッセージを取得できるかどうかを指定します。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">列挙型</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">単位</td>
+<td align="left" valign="top" class="base">該当なし</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">共有不能</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>共有不能</strong>
+</dt>
+<dd>このキューからメッセージを取得できるアプリケーション・インスタンスは、1 つだけです。</dd>
+
+<dt>
+<strong>共有可能</strong>
+</dt>
+<dd>複数のアプリケーション・インスタンスがこのキューからメッセージを取得できます。</dd>
+
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_inputOpenOption"></a>入力オープン・オプション</strong>
+</dt>
+<dd>入力のためにこのキューをオープンするアプリケーションに対するデフォルトの共有オプション
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">列挙型</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">単位</td>
+<td align="left" valign="top" class="base">該当なし</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">クリア</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>排他的</strong>
+</dt>
+<dd>オープン要求は、キューからの排他的入力用です。</dd>
+
+<dt>
+<strong>共有</strong>
+</dt>
+<dd>オープン要求は、キューからの共有入力用です。</dd>
+
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_messageDeliverySequence"></a>メッセージ・デリバリー・シーケンス</strong>
+</dt>
+<dd>取得要求に応じてキューからメッセージが配信される順序。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">列挙型</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">単位</td>
+<td align="left" valign="top" class="base">該当なし</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">優先順位</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>優先順位</strong>
+</dt>
+<dd>メッセージが、優先順位内で先入れ先出し法 (FIFO) で配信されます。
+これは WebSphere MQ でのデフォルトですが、インストール時に変更されることがあります。</dd>
+
+<dt>
+<strong>FIFO</strong>
+</dt>
+<dd>メッセージが FIFO 順序で配信されます。
+このキュー上のメッセージに対しては、優先順位が無視されます。</dd>
+
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_backoutThreshold"></a>バックアウトしきい値</strong>
+</dt>
+<dd>メッセージをバックアウトできる最大回数。
+このしきい値に達すると、<strong>バックアウト再キューイング名</strong>プロパティーで指定されているバックアウト・キュー上でメッセージが再キューイングされます。
+
+<p>WebSphere MQ Queue Manager は、それぞれのメッセージがバックアウトされた回数を記録しています。
+この数が、構成可能なしきい値に達すると、
+接続コンシューマーがメッセージを名前付きバックアウト・キューに再キューイングします。
+この再キューイングが何らかの理由で失敗した場合は、
+そのメッセージはキューから除去され、送達不能キューに再キューイングされるか、あるいは、廃棄されます。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">整数</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">0</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>0</strong>
+</dt>
+<dd>メッセージを再キューイングしません。</dd>
+
+<dt>
+<strong>1 以上</strong>
+</dt>
+<dd>メッセージが戻される回数。
+メッセージは、指定されたバックアウト・キューでこの回数だけ再キューイングされます。</dd>
+
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_backoutRequeue"></a>バックアウト再キューイング名</strong>
+</dt>
+<dd>メッセージがバックアウトしきい値を超えてバックアウトされた場合に、
+それらのメッセージが再キューイングされるバックアウト・キューの名前。
+
+<p>WebSphere MQ Queue Manager は、それぞれのメッセージがバックアウトされた回数を記録しています。
+この数が、構成可能なしきい値に達すると、
+接続コンシューマーがメッセージを名前付きバックアウト・キューに再キューイングします。
+この再キューイングが何らかの理由で失敗した場合は、
+そのメッセージはキューから除去され、送達不能キューに再キューイングされるか、あるいは、廃棄されます。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">Null</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">1 から 48 文字</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="MQSeriesQueue_hardenGetBackout"></a>バックアウト取得の強化</strong>
+</dt>
+<dd>メッセージのバックアウト回数のカウントを正確に保つために強化を使用するかどうかを指定します。
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">列挙型</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">単位</td>
+<td align="left" valign="top" class="base">該当なし</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">クリア</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">
+<dl>
+
+<dt>
+<strong>非強化</strong>
+</dt>
+<dd>カウントが強化されません。
+これは WebSphere MQ でのデフォルトですが、インストール時に変更されることがあります。</dd>
+
+<dt>
+<strong>強化</strong>
+</dt>
+<dd>カウントが強化されます。</dd>
+
+</dl>
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</body>
+</html>

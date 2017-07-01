@@ -1,0 +1,479 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.0//EN"
+                               "http://jakarta.apache.org/struts/dtds/struts-config_1_0.dtd">
+<struts-config>
+    <form-beans>
+        <form-bean name="com.ibm.ws.console.resources.ResourceEnvironmentProviderCollectionForm" type="com.ibm.ws.console.resources.env.ResourceEnvironmentProviderCollectionForm"/>
+        <form-bean name="com.ibm.ws.console.resources.ResourceEnvironmentProviderDetailForm" type="com.ibm.ws.console.resources.env.ResourceEnvironmentProviderDetailForm"/>
+        <form-bean name="com.ibm.ws.console.resources.ResourceEnvEntryCollectionForm" type="com.ibm.ws.console.resources.env.ResourceEnvEntryCollectionForm"/>
+        <form-bean name="com.ibm.ws.console.resources.ResourceEnvEntryDetailForm" type="com.ibm.ws.console.resources.env.ResourceEnvEntryDetailForm"/>
+        <form-bean name="com.ibm.ws.console.resources.ReferenceableCollectionForm" type="com.ibm.ws.console.resources.env.ReferenceableCollectionForm"/>
+        <form-bean name="com.ibm.ws.console.resources.ReferenceableDetailForm" type="com.ibm.ws.console.resources.env.ReferenceableDetailForm"/>
+        <form-bean name="com.ibm.ws.console.resources.URLProviderCollectionForm" type="com.ibm.ws.console.resources.url.URLProviderCollectionForm"/>
+        <form-bean name="com.ibm.ws.console.resources.URLProviderDetailForm" type="com.ibm.ws.console.resources.url.URLProviderDetailForm"/>
+        <form-bean name="com.ibm.ws.console.resources.URLCollectionForm" type="com.ibm.ws.console.resources.url.URLCollectionForm"/>
+        <form-bean name="com.ibm.ws.console.resources.URLDetailForm" type="com.ibm.ws.console.resources.url.URLDetailForm"/>
+        <form-bean name="com.ibm.ws.console.resources.MailProviderCollectionForm" type="com.ibm.ws.console.resources.mail.MailProviderCollectionForm"/>
+        <form-bean name="com.ibm.ws.console.resources.MailProviderDetailForm" type="com.ibm.ws.console.resources.mail.MailProviderDetailForm"/>
+        <form-bean name="com.ibm.ws.console.resources.MailSessionCollectionForm" type="com.ibm.ws.console.resources.mail.MailSessionCollectionForm"/>
+        <form-bean name="com.ibm.ws.console.resources.MailSessionDetailForm" type="com.ibm.ws.console.resources.mail.MailSessionDetailForm"/>
+        <form-bean name="com.ibm.ws.console.resources.ProtocolProviderCollectionForm" type="com.ibm.ws.console.resources.mail.ProtocolProviderCollectionForm"/>
+        <form-bean name="com.ibm.ws.console.resources.ProtocolProviderDetailForm" type="com.ibm.ws.console.resources.mail.ProtocolProviderDetailForm"/>
+        <form-bean name="com.ibm.ws.console.resources.JDBCProviderCollectionForm" type="com.ibm.ws.console.resources.jdbc.JDBCProviderCollectionForm"/>
+        <form-bean name="com.ibm.ws.console.resources.JDBCProviderDetailForm" type="com.ibm.ws.console.resources.jdbc.JDBCProviderDetailForm"/>
+        <form-bean name="com.ibm.ws.console.resources.DataSourceCollectionForm" type="com.ibm.ws.console.resources.jdbc.DataSourceCollectionForm"/>
+        <form-bean name="com.ibm.ws.console.resources.DataSourceDetailForm" type="com.ibm.ws.console.resources.jdbc.DataSourceDetailForm"/>
+        <form-bean name="com.ibm.ws.console.resources.WAS40DataSourceCollectionForm" type="com.ibm.ws.console.resources.jdbc.WAS40DataSourceCollectionForm"/>
+        <form-bean name="com.ibm.ws.console.resources.WAS40DataSourceDetailForm" type="com.ibm.ws.console.resources.jdbc.WAS40DataSourceDetailForm"/>
+        <form-bean name="com.ibm.ws.console.resources.WAS40ConnectionPoolDetailForm" type="com.ibm.ws.console.resources.jdbc.WAS40ConnectionPoolDetailForm"/>
+        <form-bean name="com.ibm.ws.console.resources.J2CResourceAdapterUploadForm" type="com.ibm.ws.console.resources.j2c.J2CResourceAdapterUploadForm"/>
+        <form-bean name="com.ibm.ws.console.resources.J2CResourceAdapterCollectionForm" type="com.ibm.ws.console.resources.j2c.J2CResourceAdapterCollectionForm"/>
+        <form-bean name="com.ibm.ws.console.resources.J2CResourceAdapterDetailForm" type="com.ibm.ws.console.resources.j2c.J2CResourceAdapterDetailForm"/>
+        <form-bean name="com.ibm.ws.console.resources.J2CConnectionFactoryCollectionForm" type="com.ibm.ws.console.resources.j2c.J2CConnectionFactoryCollectionForm"/>
+        <form-bean name="com.ibm.ws.console.resources.J2CConnectionFactoryDetailForm" type="com.ibm.ws.console.resources.j2c.J2CConnectionFactoryDetailForm"/>
+        <form-bean name="com.ibm.ws.console.resources.CMPConnectorFactoryCollectionForm" type="com.ibm.ws.console.resources.jdbc.CMPConnectorFactoryCollectionForm"/>
+        <form-bean name="com.ibm.ws.console.resources.CMPConnectorFactoryDetailForm" type="com.ibm.ws.console.resources.jdbc.CMPConnectorFactoryDetailForm"/>
+        <form-bean name="com.ibm.ws.console.resources.J2EEResourcePropertyCollectionForm" type="com.ibm.ws.console.resources.J2EEResourcePropertyCollectionForm"/>
+        <form-bean name="com.ibm.ws.console.resources.J2EEResourcePropertyDetailForm" type="com.ibm.ws.console.resources.J2EEResourcePropertyDetailForm"/>
+        <form-bean name="com.ibm.ws.console.resources.MQQueueCollectionForm"   type="com.ibm.ws.console.resources.jms.mqseries.MQQueueCollectionForm"  /> 
+        <form-bean name="com.ibm.ws.console.resources.MQQueueDetailForm"  type="com.ibm.ws.console.resources.jms.mqseries.MQQueueDetailForm" /> 
+        <form-bean name="com.ibm.ws.console.resources.MQSeriesQueueDetailForm"  type="com.ibm.ws.console.resources.jms.mqseries.MQSeriesQueueDetailForm" /> 
+        <form-bean name="com.ibm.ws.console.resources.MQQueueConnectionFactoryCollectionForm"  type="com.ibm.ws.console.resources.jms.mqseries.MQQueueConnectionFactoryCollectionForm" /> 
+        <form-bean name="com.ibm.ws.console.resources.MQQueueConnectionFactoryDetailForm"  type="com.ibm.ws.console.resources.jms.mqseries.MQQueueConnectionFactoryDetailForm" /> 
+        <form-bean name="com.ibm.ws.console.resources.MQTopicCollectionForm"  type="com.ibm.ws.console.resources.jms.mqseries.MQTopicCollectionForm" /> 
+        <form-bean name="com.ibm.ws.console.resources.MQTopicDetailForm"  type="com.ibm.ws.console.resources.jms.mqseries.MQTopicDetailForm" /> 
+        <form-bean name="com.ibm.ws.console.resources.MQTopicConnectionFactoryCollectionForm"  type="com.ibm.ws.console.resources.jms.mqseries.MQTopicConnectionFactoryCollectionForm" /> 
+        <form-bean name="com.ibm.ws.console.resources.MQTopicConnectionFactoryDetailForm"  type="com.ibm.ws.console.resources.jms.mqseries.MQTopicConnectionFactoryDetailForm" /> 
+        <form-bean name="com.ibm.ws.console.resources.WASQueueCollectionForm"  type="com.ibm.ws.console.resources.jms.internalmessaging.WASQueueCollectionForm" /> 
+        <form-bean name="com.ibm.ws.console.resources.WASQueueDetailForm"  type="com.ibm.ws.console.resources.jms.internalmessaging.WASQueueDetailForm" /> 
+        <form-bean name="com.ibm.ws.console.resources.WASQueueConnectionFactoryCollectionForm"  type="com.ibm.ws.console.resources.jms.internalmessaging.WASQueueConnectionFactoryCollectionForm" /> 
+        <form-bean name="com.ibm.ws.console.resources.WASQueueConnectionFactoryDetailForm"  type="com.ibm.ws.console.resources.jms.internalmessaging.WASQueueConnectionFactoryDetailForm" /> 
+        <form-bean name="com.ibm.ws.console.resources.WASTopicCollectionForm"  type="com.ibm.ws.console.resources.jms.internalmessaging.WASTopicCollectionForm" /> 
+        <form-bean name="com.ibm.ws.console.resources.WASTopicDetailForm"  type="com.ibm.ws.console.resources.jms.internalmessaging.WASTopicDetailForm" /> 
+        <form-bean name="com.ibm.ws.console.resources.WASTopicConnectionFactoryCollectionForm"  type="com.ibm.ws.console.resources.jms.internalmessaging.WASTopicConnectionFactoryCollectionForm" /> 
+        <form-bean name="com.ibm.ws.console.resources.WASTopicConnectionFactoryDetailForm"  type="com.ibm.ws.console.resources.jms.internalmessaging.WASTopicConnectionFactoryDetailForm" />
+        <form-bean name="com.ibm.ws.console.resources.ConnectionPoolDetailForm" type="com.ibm.ws.console.resources.ConnectionPoolDetailForm" />
+        <form-bean name="com.ibm.ws.console.resources.SessionPoolDetailForm" type="com.ibm.ws.console.resources.SessionPoolDetailForm" />
+        <form-bean name="com.ibm.ws.console.resources.JMSProviderCollectionForm"  type="com.ibm.ws.console.resources.jms.JMSProviderCollectionForm" /> 
+        <form-bean name="com.ibm.ws.console.resources.JMSProviderDetailForm"  type="com.ibm.ws.console.resources.jms.JMSProviderDetailForm" />
+        <form-bean name="com.ibm.ws.console.resources.GenericJMSConnectionFactoryCollectionForm"  type="com.ibm.ws.console.resources.jms.GenericJMSConnectionFactoryCollectionForm" /> 
+        <form-bean name="com.ibm.ws.console.resources.GenericJMSConnectionFactoryDetailForm"  type="com.ibm.ws.console.resources.jms.GenericJMSConnectionFactoryDetailForm" />
+        <form-bean name="com.ibm.ws.console.resources.GenericJMSDestinationCollectionForm"  type="com.ibm.ws.console.resources.jms.GenericJMSDestinationCollectionForm" /> 
+        <form-bean name="com.ibm.ws.console.resources.GenericJMSDestinationDetailForm"  type="com.ibm.ws.console.resources.jms.GenericJMSDestinationDetailForm" />
+        <form-bean name="com.ibm.ws.console.resources.JDBCProviderTemplateForm"  type="com.ibm.ws.console.resources.jdbc.JDBCProviderTemplateForm" />
+    </form-beans>
+    <global-forwards>
+        <forward name="J2CResourceAdapter.upload" path="J2CResourceAdapter.upload"/>
+        <forward name="J2CResourceAdapter.upload.remote.node.browse" path="J2CResourceAdapter.upload.remote.node.browse"/>
+    </global-forwards>
+    <action-mappings>
+        <action name ="com.ibm.ws.console.resources.forwardCmd" path="/com.ibm.ws.console.resources.forwardCmd" type="com.ibm.ws.console.core.action.ForwardAction">
+            <forward name="ResourceEnvironmentProvider.content.main" path="ResourceEnvironmentProvider.content.main"/>
+            <forward name="ResourceEnvEntry.content.main" path="ResourceEnvEntry.content.main"/>
+            <forward name="Referenceable.content.main" path="Referenceable.content.main"/>
+            <forward name="URLProvider.content.main" path="URLProvider.content.main"/>
+            <forward name="URL.content.main" path="URL.content.main"/>
+            <forward name="MailProvider.content.main" path="MailProvider.content.main"/>
+            <forward name="MailSession.content.main" path="MailSession.content.main"/>
+            <forward name="ProtocolProvider.content.main" path="ProtocolProvider.content.main"/>
+            <forward name="JDBCProvider.content.main" path="JDBCProvider.content.main"/>
+            <forward name="DataSource.content.main" path="DataSource.content.main"/>
+            <forward name="JDBCProvider.config.view" path="JDBCProvider.config.view"/>            <forward name="WAS40DataSource.content.main" path="WAS40DataSource.content.main"/>
+            <forward name="WAS40ConnectionPool.config.view" path="WAS40ConnectionPool.config.view"/>
+            <forward name="J2CResourceAdapter.content.main" path="J2CResourceAdapter.content.main"/>
+            <forward name="J2CConnectionFactory.content.main" path="J2CConnectionFactory.content.main"/>
+            <forward name="CMPConnectorFactory.content.main" path="CMPConnectorFactory.content.main"/>
+            <forward name="J2EEResourceProperty.content.main" path="J2EEResourceProperty.content.main"/>
+            <forward name="J2EEResourceProperty.readOnly.content.main" path="J2EEResourceProperty.readOnly.content.main"/>
+            <forward name="J2EEResourceProperty.valueEditable.content.main" path="J2EEResourceProperty.valueEditable.content.main"/>
+            <forward name="J2EEResourceProperty.ds.valueEditable.content.main" path="J2EEResourceProperty.ds.valueEditable.content.main"/>
+            <forward name="MQQueueConnectionFactory.content.main" path="MQQueueConnectionFactory.content.main"/>
+            <forward name="MQTopicConnectionFactory.content.main" path="MQTopicConnectionFactory.content.main"/>
+            <forward name="MQQueue.content.main" path="MQQueue.content.main"/>
+            <forward name="MQSeriesQueue.config.view" path="MQSeriesQueue.config.view"/>
+            <forward name="MQSeriesQueueHost.config.view" path="MQSeriesQueueHost.config.view"/>
+            <forward name="MQTopic.content.main" path="MQTopic.content.main"/>
+            <forward name="WASQueueConnectionFactory.content.main" path="WASQueueConnectionFactory.content.main"/>
+            <forward name="WASTopicConnectionFactory.content.main" path="WASTopicConnectionFactory.content.main"/>
+            <forward name="WASQueue.content.main" path="WASQueue.content.main"/>
+            <forward name="WASTopic.content.main" path="WASTopic.content.main"/>
+            <forward name="ConnectionPool.config.view" path="ConnectionPool.config.view"/>
+            <forward name="SessionPool.config.view" path="SessionPool.config.view"/>
+            <forward name="JMSProvider.content.main" path="JMSProvider.content.main"/>
+            <forward name="GenericJMSConnectionFactory.content.main" path="GenericJMSConnectionFactory.content.main"/>
+            <forward name="GenericJMSDestination.content.main" path="GenericJMSDestination.content.main"/>
+            <forward name="WASProvider.config.view" path="WASProvider.config.view"/>
+            <forward name="MQSeriesProvider.config.view" path="MQSeriesProvider.config.view"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.resources.URLProviderCollectionForm"
+            path="/uRLProviderCollection" type="com.ibm.ws.console.resources.url.URLProviderCollectionAction">
+            <forward name="success" path="URLProvider.config.view"/>
+            <forward name="uRLProviderCollection" path="URLProvider.content.main"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.resources.URLProviderDetailForm"
+            path="/uRLProviderDetail" type="com.ibm.ws.console.resources.url.URLProviderDetailAction" input="URLProvider.config.view">
+            <forward name="error" path="URLProvider.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.resources.forwardCmd.do?forwardName=URLProvider.content.main"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.resources.URLCollectionForm"
+            path="/uRLCollection" type="com.ibm.ws.console.resources.url.URLCollectionAction">
+            <forward name="success" path="URL.config.view"/>
+            <forward name="uRLCollection" path="URL.content.main"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.resources.URLDetailForm"
+            path="/uRLDetail" type="com.ibm.ws.console.resources.url.URLDetailAction" input="URL.config.view">
+            <forward name="error" path="URL.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.resources.forwardCmd.do?forwardName=URL.content.main"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.resources.ResourceEnvironmentProviderCollectionForm"
+            path="/resourceEnvironmentProviderCollection" type="com.ibm.ws.console.resources.env.ResourceEnvironmentProviderCollectionAction">
+            <forward name="success" path="ResourceEnvironmentProvider.config.view"/>
+            <forward name="resourceEnvironmentProviderCollection" path="ResourceEnvironmentProvider.content.main"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.resources.ResourceEnvironmentProviderDetailForm"
+            path="/resourceEnvironmentProviderDetail" type="com.ibm.ws.console.resources.env.ResourceEnvironmentProviderDetailAction" input="ResourceEnvironmentProvider.config.view">
+            <forward name="error" path="ResourceEnvironmentProvider.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.resources.forwardCmd.do?forwardName=ResourceEnvironmentProvider.content.main"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.resources.ResourceEnvEntryCollectionForm"
+            path="/resourceEnvEntryCollection" type="com.ibm.ws.console.resources.env.ResourceEnvEntryCollectionAction">
+            <forward name="success" path="ResourceEnvEntry.config.view"/>
+            <forward name="resourceEnvEntryCollection" path="ResourceEnvEntry.content.main"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.resources.ResourceEnvEntryDetailForm"
+            path="/resourceEnvEntryDetail" type="com.ibm.ws.console.resources.env.ResourceEnvEntryDetailAction" input="ResourceEnvEntry.config.view">
+            <forward name="error" path="ResourceEnvEntry.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.resources.forwardCmd.do?forwardName=ResourceEnvEntry.content.main"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.resources.ReferenceableCollectionForm"
+            path="/referenceableCollection" type="com.ibm.ws.console.resources.env.ReferenceableCollectionAction">
+            <forward name="success" path="Referenceable.config.view"/>
+            <forward name="referenceableCollection" path="Referenceable.content.main"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.resources.ReferenceableDetailForm"
+            path="/referenceableDetail" type="com.ibm.ws.console.resources.env.ReferenceableDetailAction" input="Referenceable.config.view">
+            <forward name="error" path="Referenceable.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.resources.forwardCmd.do?forwardName=Referenceable.content.main"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.resources.MailProviderCollectionForm"
+            path="/mailProviderCollection" type="com.ibm.ws.console.resources.mail.MailProviderCollectionAction">
+            <forward name="success" path="MailProvider.config.view"/>
+            <forward name="mailProviderCollection" path="MailProvider.content.main"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.resources.MailProviderDetailForm"
+            path="/mailProviderDetail" type="com.ibm.ws.console.resources.mail.MailProviderDetailAction" input="MailProvider.config.view">
+            <forward name="error" path="MailProvider.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.resources.forwardCmd.do?forwardName=MailProvider.content.main"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.resources.MailSessionCollectionForm"
+            path="/mailSessionCollection" type="com.ibm.ws.console.resources.mail.MailSessionCollectionAction">
+            <forward name="success" path="MailSession.config.view"/>
+            <forward name="mailSessionCollection" path="MailSession.content.main"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.resources.MailSessionDetailForm"
+            path="/mailSessionDetail" type="com.ibm.ws.console.resources.mail.MailSessionDetailAction" input="MailSession.config.view">
+            <forward name="error" path="MailSession.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.resources.forwardCmd.do?forwardName=MailSession.content.main"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.resources.ProtocolProviderCollectionForm"
+            path="/protocolProviderCollection" type="com.ibm.ws.console.resources.mail.ProtocolProviderCollectionAction">
+            <forward name="success" path="ProtocolProvider.config.view"/>
+            <forward name="protocolProviderCollection" path="ProtocolProvider.content.main"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.resources.ProtocolProviderDetailForm"
+            path="/protocolProviderDetail" type="com.ibm.ws.console.resources.mail.ProtocolProviderDetailAction" input="ProtocolProvider.config.view">
+            <forward name="error" path="ProtocolProvider.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.resources.forwardCmd.do?forwardName=ProtocolProvider.content.main"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.resources.JDBCProviderCollectionForm"
+            path="/jDBCProviderCollection" type="com.ibm.ws.console.resources.jdbc.JDBCProviderCollectionAction">
+            <forward name="success" path="JDBCProvider.config.view"/>
+            <forward name="jDBCProviderCollection" path="JDBCProvider.content.main"/>
+            <forward name="jDBCProviderTemplate" path="JDBCProviderTemplate.config.view"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.resources.JDBCProviderDetailForm"
+            path="/jDBCProviderDetail" type="com.ibm.ws.console.resources.jdbc.JDBCProviderDetailAction" input="JDBCProvider.config.view">
+            <forward name="error" path="JDBCProvider.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.resources.forwardCmd.do?forwardName=JDBCProvider.content.main"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.resources.DataSourceCollectionForm"
+            path="/dataSourceCollection" type="com.ibm.ws.console.resources.jdbc.DataSourceCollectionAction">
+            <forward name="success" path="DataSource.config.view"/>
+            <forward name="dataSourceCollection" path="DataSource.content.main"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.resources.DataSourceDetailForm"
+            path="/dataSourceDetail" type="com.ibm.ws.console.resources.jdbc.DataSourceDetailAction" input="DataSource.config.view">
+            <forward name="error" path="DataSource.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.resources.forwardCmd.do?forwardName=DataSource.content.main"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.resources.WAS40DataSourceCollectionForm"
+            path="/wAS40DataSourceCollection" type="com.ibm.ws.console.resources.jdbc.WAS40DataSourceCollectionAction">
+            <forward name="success" path="WAS40DataSource.config.view"/>
+            <forward name="wAS40DataSourceCollection" path="WAS40DataSource.content.main"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.resources.WAS40DataSourceDetailForm"
+            path="/wAS40DataSourceDetail" type="com.ibm.ws.console.resources.jdbc.WAS40DataSourceDetailAction" input="WAS40DataSource.config.view">
+            <forward name="error" path="WAS40DataSource.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.resources.forwardCmd.do?forwardName=WAS40DataSource.content.main"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.resources.WAS40ConnectionPoolDetailForm"
+            path="/wAS40ConnectionPoolDetail" type="com.ibm.ws.console.resources.jdbc.WAS40ConnectionPoolDetailAction" input="WAS40ConnectionPool.config.view">
+            <forward name="error" path="WAS40ConnectionPool.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.resources.forwardCmd.do?forwardName=WAS40DataSource.config.view"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.resources.J2CResourceAdapterUploadForm"
+            path="/j2CResourceAdapterUpload" type="com.ibm.ws.console.resources.j2c.J2CResourceAdapterUploadAction">
+            <forward name="reload" path="J2CResourceAdapter.upload"/>
+            <forward name="next" path="J2CResourceAdapter.install.rar.config.view"/>
+            <forward name="cancel" path="J2CResourceAdapter.content.main"/>
+            <forward name="nodebrowse" path="J2CResourceAdapter.upload.remote.node.browse"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.resources.J2CResourceAdapterCollectionForm"
+            path="/j2CResourceAdapterCollection" type="com.ibm.ws.console.resources.j2c.J2CResourceAdapterCollectionAction">
+            <forward name="success" path="J2CResourceAdapter.config.view"/>
+            <forward name="builtin" path="J2CResourceAdapter.builtin.config.view"/>
+            <forward name="j2CResourceAdapterCollection" path="J2CResourceAdapter.content.main"/>
+            <forward name="j2CResourceAdapterRarFileSelection" path="J2CResourceAdapter.upload"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.resources.J2CResourceAdapterDetailForm"
+            path="/j2CResourceAdapterDetail" type="com.ibm.ws.console.resources.j2c.J2CResourceAdapterDetailAction" input="J2CResourceAdapter.config.view">
+            <forward name="error" path="J2CResourceAdapter.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.resources.forwardCmd.do?forwardName=J2CResourceAdapter.content.main"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.resources.J2CConnectionFactoryCollectionForm"
+            path="/j2CConnectionFactoryCollection" type="com.ibm.ws.console.resources.j2c.J2CConnectionFactoryCollectionAction">
+            <forward name="success" path="J2CConnectionFactory.config.view"/>
+            <forward name="j2CConnectionFactoryCollection" path="J2CConnectionFactory.content.main"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.resources.J2CConnectionFactoryDetailForm"
+            path="/j2CConnectionFactoryDetail" type="com.ibm.ws.console.resources.j2c.J2CConnectionFactoryDetailAction" input="J2CConnectionFactory.config.view">
+            <forward name="error" path="J2CConnectionFactory.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.resources.forwardCmd.do?forwardName=J2CConnectionFactory.content.main"/>
+        </action>
+
+        <action
+            name="com.ibm.ws.console.resources.CMPConnectorFactoryCollectionForm"
+            path="/cMPConnectorFactoryCollection" type="com.ibm.ws.console.resources.jdbc.CMPConnectorFactoryCollectionAction">
+            <forward name="success" path="CMPConnectorFactory.config.view"/>
+            <forward name="cMPConnectorFactoryCollection" path="CMPConnectorFactory.content.main"/>
+        </action>
+        <action input="CMPConnectorFactory.config.view"
+            name="com.ibm.ws.console.resources.CMPConnectorFactoryDetailForm"
+            path="/cMPConnectorFactoryDetail" type="com.ibm.ws.console.resources.jdbc.CMPConnectorFactoryDetailAction">
+            <forward name="error" path="CMPConnectorFactory.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.resources.forwardCmd.do?forwardName=CMPConnectorFactory.content.main"/>
+        </action>
+
+        <action
+            name="com.ibm.ws.console.resources.J2EEResourcePropertyCollectionForm"
+            path="/j2EEResourcePropertyCollection" type="com.ibm.ws.console.resources.J2EEResourcePropertyCollectionAction">
+            <forward name="success" path="J2EEResourceProperty.config.view"/>
+            <forward name="readOnly" path="J2EEResourceProperty.readOnly.config.view"/>
+            <forward name="valueEditable" path="J2EEResourceProperty.valueEditable.config.view"/>
+            <forward name="dsvalueEditable" path="J2EEResourceProperty.ds.valueEditable.config.view"/>
+            <forward name="j2EEResourcePropertyCollection" path="J2EEResourceProperty.content.main"/>
+            <forward name="collectionReadOnly" path="J2EEResourceProperty.readOnly.content.main"/>
+            <forward name="collectionValueEditable" path="J2EEResourceProperty.valueEditable.content.main"/>
+            <forward name="collectionDSValueEditable" path="J2EEResourceProperty.ds.valueEditable.content.main"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.resources.J2EEResourcePropertyDetailForm"
+            path="/j2EEResourcePropertyDetail" type="com.ibm.ws.console.resources.J2EEResourcePropertyDetailAction" input="J2EEResourceProperty.config.view">
+            <forward name="error" path="J2EEResourceProperty.config.view"/>
+            <forward name="valueEditable" path="J2EEResourceProperty.valueEditable.config.view"/>
+            <forward name="dsvalueEditable" path="J2EEResourceProperty.ds.valueEditable.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.resources.forwardCmd.do?forwardName=J2EEResourceProperty.content.main"/>
+            <forward name="collectionValueEditable" path="com.ibm.ws.console.resources.forwardCmd.do?forwardName=J2EEResourceProperty.valueEditable.content.main"/>
+            <forward name="collectionDSValueEditable" path="com.ibm.ws.console.resources.forwardCmd.do?forwardName=J2EEResourceProperty.ds.valueEditable.content.main"/>
+            <forward name="collectionReadOnly" path="com.ibm.ws.console.resources.forwardCmd.do?forwardName=J2EEResourceProperty.readOnly.content.main"/>
+
+        </action>
+
+        <action name="com.ibm.ws.console.resources.MQQueueCollectionForm"
+            path="/mQQueueCollection" type="com.ibm.ws.console.resources.jms.mqseries.MQQueueCollectionAction">
+            <forward name="success" path="MQQueue.config.view"/>
+            <forward name="mQQueueCollection" path="MQQueue.content.main"/>
+        </action>
+        <action name="com.ibm.ws.console.resources.MQQueueDetailForm"
+            path="/mQQueueDetail" type="com.ibm.ws.console.resources.jms.mqseries.MQQueueDetailAction" input="MQQueue.config.view">
+            <forward name="error" path="MQQueue.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.resources.forwardCmd.do?forwardName=MQQueue.content.main"/>
+            <forward name="MQSeriesQueue.config.view" path="com.ibm.ws.console.resources.forwardCmd.do?forwardName=MQSeriesQueue.config.view&#38;lastPage=MQQueue.config.view"/>
+            <forward name="MQSeriesQueueHost.config.view" path="com.ibm.ws.console.resources.forwardCmd.do?forwardName=MQSeriesQueueHost.config.view&#38;lastPage=MQQueue.config.view"/>
+        </action>
+        <action name="com.ibm.ws.console.resources.MQSeriesQueueDetailForm"
+            path="/mQSeriesQueueDetail" type="com.ibm.ws.console.resources.jms.mqseries.MQSeriesQueueDetailAction" input="MQSeriesQueue.config.view">
+            <forward name="error" path="MQQueue.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.resources.forwardCmd.do?forwardName=MQQueue.content.main"/>
+        </action>
+        <action name="com.ibm.ws.console.resources.MQSeriesQueueDetailForm"
+            path="/mQSeriesQueueHostDetail" type="com.ibm.ws.console.resources.jms.mqseries.MQSeriesQueueHostDetailAction" input="MQSeriesQueueHost.config.view">
+            <forward name="error" path="MQQueue.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.resources.forwardCmd.do?forwardName=MQQueue.content.main"/>
+        </action>
+        <action name="com.ibm.ws.console.resources.MQQueueConnectionFactoryCollectionForm"
+            path="/mQQueueConnectionFactoryCollection" type="com.ibm.ws.console.resources.jms.mqseries.MQQueueConnectionFactoryCollectionAction">
+            <forward name="success" path="MQQueueConnectionFactory.config.view"/>
+            <forward name="mQQueueConnectionFactoryCollection" path="MQQueueConnectionFactory.content.main"/>
+        </action>
+        <action name="com.ibm.ws.console.resources.MQQueueConnectionFactoryDetailForm"
+            path="/mQQueueConnectionFactoryDetail" type="com.ibm.ws.console.resources.jms.mqseries.MQQueueConnectionFactoryDetailAction" input="MQQueueConnectionFactory.config.view">
+            <forward name="error" path="MQQueueConnectionFactory.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.resources.forwardCmd.do?forwardName=MQQueueConnectionFactory.content.main"/>
+        </action>
+        <action name="com.ibm.ws.console.resources.MQTopicCollectionForm"
+            path="/mQTopicCollection" type="com.ibm.ws.console.resources.jms.mqseries.MQTopicCollectionAction">
+            <forward name="success" path="MQTopic.config.view"/>
+            <forward name="mQTopicCollection" path="MQTopic.content.main"/>
+        </action>
+        <action name="com.ibm.ws.console.resources.MQTopicDetailForm"
+            path="/mQTopicDetail" type="com.ibm.ws.console.resources.jms.mqseries.MQTopicDetailAction" input="MQTopic.config.view">
+            <forward name="error" path="MQTopic.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.resources.forwardCmd.do?forwardName=MQTopic.content.main"/>
+        </action>
+        <action name="com.ibm.ws.console.resources.MQTopicConnectionFactoryCollectionForm"
+            path="/mQTopicConnectionFactoryCollection" type="com.ibm.ws.console.resources.jms.mqseries.MQTopicConnectionFactoryCollectionAction">
+            <forward name="success" path="MQTopicConnectionFactory.config.view"/>
+            <forward name="mQTopicConnectionFactoryCollection" path="MQTopicConnectionFactory.content.main"/>
+        </action>
+        <action name="com.ibm.ws.console.resources.MQTopicConnectionFactoryDetailForm"
+            path="/mQTopicConnectionFactoryDetail" type="com.ibm.ws.console.resources.jms.mqseries.MQTopicConnectionFactoryDetailAction" input="MQTopicConnectionFactory.config.view">
+            <forward name="error" path="MQTopicConnectionFactory.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.resources.forwardCmd.do?forwardName=MQTopicConnectionFactory.content.main"/>
+        </action>
+        <action name="com.ibm.ws.console.resources.WASQueueCollectionForm"
+            path="/wASQueueCollection" type="com.ibm.ws.console.resources.jms.internalmessaging.WASQueueCollectionAction">
+            <forward name="success" path="WASQueue.config.view"/>
+            <forward name="wASQueueCollection" path="WASQueue.content.main"/>
+        </action>
+        <action name="com.ibm.ws.console.resources.WASQueueDetailForm"
+            path="/wASQueueDetail" type="com.ibm.ws.console.resources.jms.internalmessaging.WASQueueDetailAction" input="WASQueue.config.view">
+            <forward name="error" path="WASQueue.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.resources.forwardCmd.do?forwardName=WASQueue.content.main"/>
+        </action>
+        <action name="com.ibm.ws.console.resources.WASQueueConnectionFactoryCollectionForm"
+            path="/wASQueueConnectionFactoryCollection" type="com.ibm.ws.console.resources.jms.internalmessaging.WASQueueConnectionFactoryCollectionAction">
+            <forward name="success" path="WASQueueConnectionFactory.config.view"/>
+            <forward name="wASQueueConnectionFactoryCollection" path="WASQueueConnectionFactory.content.main"/>
+        </action>
+        <action name="com.ibm.ws.console.resources.WASQueueConnectionFactoryDetailForm"
+            path="/wASQueueConnectionFactoryDetail" type="com.ibm.ws.console.resources.jms.internalmessaging.WASQueueConnectionFactoryDetailAction" input="WASQueueConnectionFactory.config.view">
+            <forward name="error" path="WASQueueConnectionFactory.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.resources.forwardCmd.do?forwardName=WASQueueConnectionFactory.content.main"/>
+        </action>
+        <action name="com.ibm.ws.console.resources.WASTopicCollectionForm"
+            path="/wASTopicCollection" type="com.ibm.ws.console.resources.jms.internalmessaging.WASTopicCollectionAction">
+            <forward name="success" path="WASTopic.config.view"/>
+            <forward name="wASTopicCollection" path="WASTopic.content.main"/>
+        </action>
+        <action name="com.ibm.ws.console.resources.WASTopicDetailForm"
+            path="/wASTopicDetail" type="com.ibm.ws.console.resources.jms.internalmessaging.WASTopicDetailAction" input="WASTopic.config.view">
+            <forward name="error" path="WASTopic.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.resources.forwardCmd.do?forwardName=WASTopic.content.main"/>
+        </action>
+        <action name="com.ibm.ws.console.resources.WASTopicConnectionFactoryCollectionForm"
+            path="/wASTopicConnectionFactoryCollection" type="com.ibm.ws.console.resources.jms.internalmessaging.WASTopicConnectionFactoryCollectionAction">
+            <forward name="success" path="WASTopicConnectionFactory.config.view"/>
+            <forward name="wASTopicConnectionFactoryCollection" path="WASTopicConnectionFactory.content.main"/>
+        </action>
+        <action name="com.ibm.ws.console.resources.WASTopicConnectionFactoryDetailForm"
+            path="/wASTopicConnectionFactoryDetail" type="com.ibm.ws.console.resources.jms.internalmessaging.WASTopicConnectionFactoryDetailAction" input="WASTopicConnectionFactory.config.view">
+            <forward name="error" path="WASTopicConnectionFactory.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.resources.forwardCmd.do?forwardName=WASTopicConnectionFactory.content.main"/>
+        </action>
+        <action name="com.ibm.ws.console.resources.ConnectionPoolDetailForm"
+            path="/connectionPoolDetail" type="com.ibm.ws.console.resources.ConnectionPoolDetailAction" input="ConnectionPool.config.view">
+            <forward name="error" path="ConnectionPool.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.resources.forwardCmd.do?forwardName=ConnectionPool.content.main"/>
+        </action>
+        <action name="com.ibm.ws.console.resources.SessionPoolDetailForm"
+            path="/sessionPoolDetail" type="com.ibm.ws.console.resources.SessionPoolDetailAction" input="SessionPool.config.view">
+            <forward name="error" path="SessionPool.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.resources.forwardCmd.do?forwardName=SessionPool.config.view"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.resources.JMSProviderCollectionForm"
+            path="/jMSProviderCollection" type="com.ibm.ws.console.resources.jms.JMSProviderCollectionAction">
+            <forward name="success" path="JMSProvider.config.view"/>
+            <forward name="jMSProviderCollection" path="JMSProvider.content.main"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.resources.JMSProviderDetailForm"
+            path="/jMSProviderDetail" type="com.ibm.ws.console.resources.jms.JMSProviderDetailAction" input="JMSProvider.config.view">
+            <forward name="error" path="JMSProvider.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.resources.forwardCmd.do?forwardName=JMSProvider.content.main"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.resources.GenericJMSConnectionFactoryCollectionForm"
+            path="/genericJMSConnectionFactoryCollection" type="com.ibm.ws.console.resources.jms.GenericJMSConnectionFactoryCollectionAction">
+            <forward name="success" path="GenericJMSConnectionFactory.config.view"/>
+            <forward name="genericJMSConnectionFactoryCollection" path="GenericJMSConnectionFactory.content.main"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.resources.GenericJMSConnectionFactoryDetailForm"
+            path="/genericJMSConnectionFactoryDetail" type="com.ibm.ws.console.resources.jms.GenericJMSConnectionFactoryDetailAction" input="GenericJMSConnectionFactory.config.view">
+            <forward name="error" path="GenericJMSConnectionFactory.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.resources.forwardCmd.do?forwardName=GenericJMSConnectionFactory.content.main"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.resources.GenericJMSDestinationCollectionForm"
+            path="/genericJMSDestinationCollection" type="com.ibm.ws.console.resources.jms.GenericJMSDestinationCollectionAction">
+            <forward name="success" path="GenericJMSDestination.config.view"/>
+            <forward name="genericJMSDestinationCollection" path="GenericJMSDestination.content.main"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.resources.GenericJMSDestinationDetailForm"
+            path="/genericJMSDestinationDetail" type="com.ibm.ws.console.resources.jms.GenericJMSDestinationDetailAction" input="GenericJMSDestination.config.view">
+            <forward name="error" path="GenericJMSDestination.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.resources.forwardCmd.do?forwardName=GenericJMSDestination.content.main"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.resources.WASProviderDetailForm"
+            path="/wASProviderDetail" type="com.ibm.ws.console.resources.jms.internalmessaging.WASProviderDetailAction" input="WASProvider.config.view">
+            <forward name="error" path="WASProvider.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.resources.forwardCmd.do?forwardName=WASProvider.config.view"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.resources.MQSeriesProviderDetailForm"
+            path="/mQSeriesProviderDetail" type="com.ibm.ws.console.resources.jms.mqseries.MQSeriesProviderDetailAction" input="MQSeriesProvider.config.view">
+            <forward name="error" path="MQSeriesProvider.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.resources.forwardCmd.do?forwardName=MQSeriesProvider.config.view"/>
+        </action>
+        <action
+            name="com.ibm.ws.console.resources.JDBCProviderTemplateForm"
+            path="/jDBCProviderTemplate" type="com.ibm.ws.console.resources.jdbc.JDBCProviderTemplateAction" input="JDBCProviderTemplate.config.view">
+            <forward name="error" path="JDBCProviderTemplate.config.view"/>
+            <forward name="success" path="com.ibm.ws.console.resources.forwardCmd.do?forwardName=JDBCProvider.config.view"/>
+            <forward name="cancel" path="com.ibm.ws.console.resources.forwardCmd.do?forwardName=JDBCProvider.content.main"/>
+        </action>
+ 
+    </action-mappings>
+</struts-config>

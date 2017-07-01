@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+   "http://dtdserver/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.hps.july.rts.object.channelinterface" >
+    <class name="ChannelInterface" table="rts_channelinterfaces"  >
+        <id name="id" column="id" type="integer" unsaved-value="0">
+            <generator class="native"/>
+        </id>
+        <property name="name" column="name" type="string"/>
+        <set name="interfaceTypes" inverse="true" cascade="all">
+            <key column="id"/>
+            <many-to-many column="interfaceId"
+                unique="true"
+                class="com.hps.july.rts.object.channelinterfacetype.ChannelInterfaceType"/>
+        </set>
+    </class>
+</hibernate-mapping>

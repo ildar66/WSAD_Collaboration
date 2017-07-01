@@ -1,0 +1,209 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Console groups and CORBA naming service groups</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="useccongroup"></a>
+<h2>Console groups and CORBA naming service groups</h2>
+
+<p>Use console groups page to give groups specific authority to administer
+the WebSphere Application Server using tools such as the administrative console
+or wsadmin scripting. The authority requirements are
+only effective when global security is enabled. Use the CORBA naming service
+groups page to manage CORBA Naming Service groups settings.</p>
+
+<p>To view the Console Groups administrative console page, click <strong>System
+Administration</strong> &gt; <strong>Console Groups</strong>. </p>
+
+<p>To view the CORBA naming service groups administrative console page, click <strong>Environment</strong> &gt; <strong>Naming</strong> &gt; <strong>CORBA
+Naming Service Groups</strong>.</p>
+
+<dl>
+<dt>
+<strong><a name="desc_groups_title"></a>Group (Console groups)</strong>
+</dt>
+<dd>Specifies groups.
+<p>The ALL_AUTHENTICATED and the EVERYONE groups can have the following role
+privileges: Administrator, Configurator, Operator, and Monitor.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type:</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range:</td>
+<td align="left" valign="top" class="base">ALL_AUTHENTICATED, EVERYONE</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="CORBA_desc_groups_title"></a>Group (CORBA naming service groups)</strong>
+</dt>
+<dd>Identifies CORBA naming service groups.
+<p>The ALL_AUTHENTICATED group has the following role privileges: CosNamingRead,
+CosNamingWrite, CosNamingCreate, and CosNamingDelete. The EVERYONE group indicates
+that the users in this group have CosNamingRead privileges only.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type:</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range:</td>
+<td align="left" valign="top" class="base">ALL_AUTHENTICATED, EVERYONE</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="label_role_desc"></a>Role (Console group)</strong>
+</dt>
+<dd>Specifies user roles.
+<p>The following administrative roles provide different degrees of authority
+needed to perform certain WebSphere Application Server administrative functions:<dl>
+<dt>
+<strong>Administrator</strong>
+</dt>
+<dd>The administrator role has operator permissions, configurator permissions,
+and the permission required to access sensitive data including server password,
+LTPA password and keys, and so on.</dd>
+<dt>
+<strong>Configurator</strong>
+</dt>
+<dd>The configurator role has monitor permissions and the ability to change
+the WebSphere Application Server configuration.</dd>
+<dt>
+<strong>Operator</strong>
+</dt>
+<dd>The operator role has monitor permissions and the ability to change the
+run-time state. For example, the operator can start or stop services.</dd>
+<dt>
+<strong>Monitor</strong>
+</dt>
+<dd>The monitor role has the least permissions. This role primarily confines
+the user to viewing the WebSphere Application Server configuration and current
+state.</dd>
+</dl>
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type:</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range:</td>
+<td align="left" valign="top" class="base">Administrator, Configurator, Operator, and Monitor</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="CORBA_label_role_desc"></a>Role (CORBA naming service groups)</strong>
+</dt>
+<dd>Identifies naming service group roles.
+<p>A number of naming roles are defined to provide degrees of authority needed
+to perform certain WebSphere naming service functions. The authorization policy
+is only enforced when global security is enabled.</p>
+
+<p> Four name space security roles are available: CosNamingRead, CosNamingWrite,
+CosNamingCreate, and CosNamingDelete. The names of the four roles are the
+same with WebSphere Advanced Edition, Version 4.0.2. However, the roles now
+have authority levels from low to high as follows:<dl>
+<dt>
+<strong>CosNamingRead</strong>
+</dt>
+<dd>Users can query the WebSphere name space using, for example, the Java
+Naming and Directory Interface (JNDI) lookup method. The special-subject <strong>EVERYONE</strong> is
+the default policy for this role.</dd>
+<dt>
+<strong>CosNamingWrite</strong>
+</dt>
+<dd>Users can perform write operations such as JNDI bind, rebind, or unbind,
+and CosNamingRead operations. The special-subject <strong>ALL_AUTHENTICATED</strong> is
+the default policy for this role.</dd>
+<dt>
+<strong>CosNamingCreate</strong>
+</dt>
+<dd>Users can create new objects in the name space through operations such
+as JNDI createSubcontext and CosNamingWrite operations. The special-subject <strong>ALL_AUTHENTICATED</strong> is
+the default policy for this role.</dd>
+<dt>
+<strong>CosNamingDelete</strong>
+</dt>
+<dd>Users can destroy objects in the name space, for example using the JNDI
+destroySubcontext method and CosNamingCreate operations. The special-subject <strong>ALL_AUTHENTICATED</strong> is
+the default policy for this role.</dd>
+</dl>
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type:</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range:</td>
+<td align="left" valign="top" class="base">CosNamingRead, CosNamingWrite, CosNamingCreate and CosNamingDelete</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>Related information</strong>
+</p>
+<a href="rcon_buttons.html">Administrative console buttons</a>
+<br>
+
+<a href="rcon_pageusage.html">Administrative console page features</a>
+<br>
+
+<a href="rcon_scope.html">Administrative console scope settings</a>
+<br>
+
+<a href="rcon_filter.html">Administrative console filter settings</a>
+<br>
+
+<a href="rcon_preferences.html">Administrative console preference settings</a>
+<br>
+
+</div>
+</body>
+</html>

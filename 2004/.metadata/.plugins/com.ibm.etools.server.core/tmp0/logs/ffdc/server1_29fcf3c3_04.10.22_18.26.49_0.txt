@@ -1,0 +1,74 @@
+------Start of DE processing------ = [04.10.22 18:26:49:516 MSD] , key = java.util.MissingResourceException com.ibm.ejs.sm.client.ui.NLS.NLS 166
+Exception = java.util.MissingResourceException
+Source = com.ibm.ejs.sm.client.ui.NLS.NLS
+probeid = 166
+Stack Dump = java.util.MissingResourceException: Can't find bundle for base name security, locale ru_RU
+	at java.util.ResourceBundle.throwMissingResourceException(ResourceBundle.java:723)
+	at java.util.ResourceBundle.getBundleImpl(ResourceBundle.java:694)
+	at java.util.ResourceBundle.getBundle(ResourceBundle.java:570)
+	at com.ibm.ejs.sm.client.ui.NLS.<init>(NLS.java:164)
+	at com.ibm.ejs.sm.client.ui.NLS.<init>(NLS.java:107)
+	at com.ibm.ws.security.util.Constants.<clinit>(Constants.java:85)
+	at com.ibm.ws.security.web.WebAppCache.<clinit>(WebAppCache.java:47)
+	at com.ibm.ws.security.core.ServerSecurityComponentImpl.uninstallWeb(ServerSecurityComponentImpl.java:217)
+	at com.ibm.ws.security.core.ServerSecurityComponentImpl.stateChanged(ServerSecurityComponentImpl.java:184)
+	at com.ibm.ws.runtime.component.ApplicationMgrImpl.stateChanged(ApplicationMgrImpl.java:371)
+	at com.ibm.ws.runtime.component.DeployedApplicationImpl.fireDeployedObjectEvent(DeployedApplicationImpl.java:726)
+	at com.ibm.ws.runtime.component.DeployedModuleImpl.setState(DeployedModuleImpl.java:85)
+	at com.ibm.ws.runtime.component.DeployedModuleImpl.stop(DeployedModuleImpl.java:356)
+	at com.ibm.ws.runtime.component.DeployedApplicationImpl.stop(DeployedApplicationImpl.java:568)
+	at com.ibm.ws.runtime.component.ApplicationMgrImpl.stopApplication(ApplicationMgrImpl.java:312)
+	at com.ibm.ws.runtime.component.ApplicationMgrImpl.stopApplication(ApplicationMgrImpl.java:478)
+	at com.ibm.ws.runtime.component.ApplicationMgrImpl$ApplicationNotifier.classChanged(ApplicationMgrImpl.java:524)
+	at com.ibm.ws.classloader.ClassLoaderManager.checkAndNotify(ClassLoaderManager.java:356)
+	at com.ibm.ws.classloader.ClassLoaderManager.access$100(ClassLoaderManager.java:31)
+	at com.ibm.ws.classloader.ClassLoaderManager$ReloadTimerTask.run(ClassLoaderManager.java:390)
+	at java.util.TimerThread.mainLoop(Timer.java:445)
+	at java.util.TimerThread.run(Timer.java:395)
+
+Dump of callerThis = 
+Object type = com.ibm.ejs.sm.client.ui.NLS
+com.ibm.ejs.sm.client.ui.NLS@1b8533c6
+
+Exception = java.util.MissingResourceException
+Source = com.ibm.ejs.sm.client.ui.NLS.NLS
+probeid = 166
+Dump of callerThis = 
+Object type = com.ibm.ejs.sm.client.ui.NLS
+  class$com$ibm$ejs$sm$client$ui$NLS = 
+    serialPersistentFields = {}
+    serialVersionUID = 3206093459760846163
+    allPermDomain = null
+    getPDperm = null
+    have_extensions = true
+  bundle = null
+  bundleName = security
+  baseClassPackage = com.ibm.ejs.resources
+  messages = 
+    class$com$ibm$ejs$sm$client$ui$NLS = this.class$com$ibm$ejs$sm$client$ui$NLS
+    bundle = 
+      lookup = java.util.Properties@14da33c1
+      class$java$util$ResourceBundle = java.lang.Class@378cb341
+      locale = java.util.Locale@2e8133c3
+      parent = null
+      cacheList = sun.misc.SoftCache@2a3a73cd
+      DEFAULT_NOT_FOUND = -1
+      underConstruction = java.util.Hashtable@2a4773cd
+      MAX_BUNDLES_SEARCHED = 3
+      CACHE_LOAD_FACTOR = 1.0
+      INITIAL_CACHE_SIZE = 25
+      cacheKey = java.util.ResourceBundle$ResourceCacheKey@2a40f3cd
+    bundleName = messages
+    baseClassPackage = com.ibm.ejs.resources
+    messages = this.messages
+    tc = this.tc
+  tc = 
+    ivLogger = null
+    ivResourceBundleName = com.ibm.ejs.resources.seriousMessages
+    ivDumpEnabled = false
+    defaultMessageFile = com.ibm.ejs.resources.seriousMessages
+    ivEntryEnabled = false
+    ivEventEnabled = false
+    ivDebugEnabled = false
+    ivName = com.ibm.ejs.sm.client.ui.NLS
+

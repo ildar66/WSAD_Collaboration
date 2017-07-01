@@ -1,0 +1,137 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>EJB cache settings</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uejbcash"></a>
+<h2>EJB cache settings</h2>
+
+<p>Use this page to configure and manage the cache for a specific
+EJB container. To determine the cache absolute limit, multiply the number
+of enterprise beans active in any given transaction by the total number of
+concurrent transactions expected. Then, add the number of active session bean
+instances. You can use the Tivoli
+Performance Viewer to view bean performance information.</p>
+
+<p>To view this administrative console page, click <strong>Servers</strong> <strong>&gt;</strong> <strong>Application
+Servers</strong> <strong>&gt;</strong> <em>serverName</em> <strong>&gt;</strong> <strong>EJB Container</strong> <strong>&gt;</strong> <strong>EJB
+Cache Settings</strong>.</p>
+
+<div>
+<p>
+<strong>Configuration tab</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="EJBCache_cleanupInterval_description"></a>Cleanup interval</strong>
+</dt>
+<dd>Specifies the interval at which the container attempts to remove
+unused items from the cache in order to reduce the total number of items to
+the value of the cache size.
+<p>The cache manager tries to maintain some unallocated entries that can be
+allocated quickly as needed. A background thread attempts to free some entries
+while maintaining some unallocated entries. If the thread runs while the application
+server is idle, when the application server needs to allocate new cache entries,
+it does not pay the performance cost of removing entries from the cache. In
+general, increase this parameter as the cache size increases.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Units</td>
+<td align="left" valign="top" class="base">Milliseconds</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range</td>
+<td align="left" valign="top" class="base">Greater than 0</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">3000</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="EJBCache_cacheSize_description"></a>Cache size</strong>
+</dt>
+<dd>Specifies the number of buckets in the active instance list within
+the EJB container.
+<p>A bucket can contain more than one active enterprise bean instance, but
+performance is maximized if each bucket in the table has a minimum number
+of instances assigned to it. When the number of active instances within the
+container exceeds the number of buckets, that is, the cache size, the container
+periodically attempts to reduce the number of active instances in the table
+by passivating some of the active instances. For the best balance of performance
+and memory, set this value to the maximum number of active instances expected
+during a typical workload.</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Data type</td>
+<td align="left" valign="top" class="base">Integer</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Units</td>
+<td align="left" valign="top" class="base">Buckets in the hash table</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Range</td>
+<td align="left" valign="top" class="base">Greater than 0. The container selects the next largest prime number
+equal to or greater than the specified value.</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">Default</td>
+<td align="left" valign="top" class="base">2053</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>Related information</strong>
+</p>
+<a href="rcon_buttons.html">Administrative console buttons</a>
+<br>
+
+<a href="uejb_recnt.html">EJB container settings</a>
+<br>
+
+</div>
+</body>
+</html>

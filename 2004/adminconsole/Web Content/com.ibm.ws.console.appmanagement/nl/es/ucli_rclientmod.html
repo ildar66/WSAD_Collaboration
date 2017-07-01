@@ -1,0 +1,82 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Valores de ensamblaje del cliente de aplicaciones</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="ucli_rclientmod"></a>
+<h2>Valores de ensamblaje del cliente de aplicaciones</h2>
+
+<p>Utilice esta p&aacute;gina para especificar las propiedades de ensamblaje de los clientes de aplicaciones J2EE.</p>
+<dl>
+<dt>
+<strong><a name="file_name"></a>Nombre de archivo (Necesario, Serie)</strong>
+</dt>
+<dd>Especifica el nombre de archivo del m&oacute;dulo del cliente de aplicaciones, relativo al nivel superior del archivo EAR (Enterprise Archive).
+<p>Si es un m&oacute;dulo aut&oacute;nomo, el nombre de archivo es el nombre completo
+de la v&iacute;a de acceso del archivador.</p>
+
+</dd>
+<dt>
+<strong><a name="alternative_DD"></a>DD alternativo</strong>
+</dt>
+<dd>Especifica el nombre de archivo de un archivo descriptor de despliegue alternativo que se debe utilizar en lugar del archivo descriptor de despliegue original en el archivo JAR (Java Archive) del m&oacute;dulo.
+<p>Este archivo es la versi&oacute;n posterior al ensamblaje del archivo descriptor de despliegue.
+(Puede editar el archivo descriptor de despliegue original para que resuelva las dependencias y la informaci&oacute;n de seguridad. Si dirige el uso del descriptor de despliegue alternativo puede conservar el archivo descriptor de despliegue original intacto).
+El valor de la propiedad DD alternativo debe ser el nombre completo de la v&iacute;a de acceso del archivo descriptor de despliegue relativo al directorio ra&iacute;z del m&oacute;dulo. Por convenio, el archivo se encuentra en el directorio <samp>ALT-INF</samp>. Si no se especifica esta propiedad, el archivo descriptor de despliegue se lee directamente desde el archivo JAR del m&oacute;dulo.</p>
+
+</dd>
+<dt>
+<strong><a name="classpath"></a>Classpath</strong>
+</dt>
+<dd>Especifica la classpath completa que contiene el c&oacute;digo dependiente no incluido en el archivo JAR del cliente de aplicaciones. 
+<p>Especifique los valores relativos al directorio ra&iacute;z del archivo EAR y separe los valores con espacios. Se ignorar&aacute;n los valores absolutos que hagan referencia a archivos o directorios de la unidad de disco duro. Para especificar clases que no est&aacute;n en archivos JAR, pero s&iacute; en el directorio ra&iacute;z del archivo EAR, utilice
+un punto y una barra inclinada (./). Observe la estructura de directorio del ejemplo siguiente
+en la que el archivo myapp.ear contiene el archivo JAR del cliente de aplicaciones llamado
+<samp>client.jar</samp>. Las clases adicionales residen en los archivos <samp>class1.jar</samp> y <samp>class2.zip</samp>. Una clase denominada xyz.class no se empaqueta en un archivo JAR sino que se encuentra en el directorio ra&iacute;z del archivo EAR <samp>myapp.ear/client.jar
+myapp.ear/class1.jar myapp.ear/class2.zip myapp.ear/xyz.class</samp>.  Especifique class1.jar
+class2.zip ./ como valor de la propiedad Classpath. (D&eacute; s&oacute;lo el nombre del directorio de los archivos <samp>.class</samp>)</p>
+
+</dd>
+<dt>
+<strong><a name="display_name"></a>Nombre de visualizaci&oacute;n (Necesario, Serie)</strong>
+</dt>
+<dd>Especifica un nombre abreviado que est&aacute; previsto para ser visualizado por las GUI.
+<p></p>
+
+</dd>
+<dt>
+<strong><a name="small_icon"></a>Icono peque&ntilde;o</strong>
+</dt>
+<dd>Especifica un archivo JPEG o GIF que contiene una imagen peque&ntilde;a (16x16 p&iacute;xeles).
+<p>La imagen se usa como icono para representar el cliente de aplicaciones en una GUI.</p>
+
+</dd>
+<dt>
+<strong><a name="large_icon"></a>Icono grande</strong>
+</dt>
+<dd>Especifica un archivo JPEG o GIF que contiene una imagen grande
+(32x32 p&iacute;xeles). 
+<p>La imagen se usa como icono para representar el cliente de aplicaciones en una GUI.</p>
+
+</dd>
+<dt>
+<strong><a name="description"></a>Descripci&oacute;n</strong>
+</dt>
+<dd>Contiene el texto que describe el cliente de aplicaciones.
+<p></p>
+
+</dd>
+<dt>
+<strong><a name="main_class"></a>Clase principal (Necesario, Serie)</strong>
+</dt>
+<dd>Especifica el nombre completo de la v&iacute;a de acceso de la clase principal de este cliente de aplicaciones.
+<p></p>
+
+</dd>
+</dl>
+</body>
+</html>

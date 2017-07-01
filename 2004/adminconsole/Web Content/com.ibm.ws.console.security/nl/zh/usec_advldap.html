@@ -1,0 +1,233 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>轻量级目录访问协议高级设置</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="usecadvldap"></a>
+<h2>轻量级目录访问协议高级设置</h2>
+
+<p>使用此页面配置当用户和组驻留在外部 LDAP 目录中时使用的高级轻量级目录访问协议（LDAP）用户注册表设置。</p>
+
+<p>要查看此管理页面，单击<strong>安全性</strong> &gt; <strong>用户注册表</strong> &gt; <strong>LDAP</strong> <strong>高级LDAP 设置</strong>。</p>
+
+<p>所有用户和相关组过滤器的缺省值已在相应的字段中完成。可以根据您的要求更改这些值。这些缺省值基于在 <strong>LDAP 设置</strong>面板中所选的 LDAP 服务器类型。如果类型更改（例如从 NETSCAPE 改为 SECUREWAY），缺省过滤器自动更改。当缺省过滤器值更改时，LDAP 服务器类型更改为<strong>定制</strong>以表明正在使用定制过滤器。当启用了安全性并且更改任何这些属性时，转至<strong>全局安全性</strong>面板并单击<strong>应用</strong>或<strong>确定</strong>以确认更改。</p>
+
+<div>
+<p>
+<strong>&ldquo;配置&rdquo;选项卡</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="LDAPSearchFilter_userFilter_description"></a>用户过滤器
+</strong>
+</dt>
+<dd>指定 LDAP 搜索用户注册表的用户过滤器。
+<p>此选项通常用于安全性角色到用户指定。它指定用于在目录服务中查找用户的属性。例如，要根据用户的用户标识查找用户，指定 <samp>(ampersand(uid=%v)(objectclass=inetOrgPerson)</samp>，其中 <samp>ampersand</samp> 是 and 符号（&amp;）。要获得更多的关于该语法的信息，请参阅 LDAP 目录服务文档。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型：</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LDAPSearchFilter_groupFilter_description"></a>组过滤器</strong>
+</dt>
+<dd>指定 LDAP 搜索组注册表的组过滤器。
+<p>在安全性角色到组的指定中通常会使用此选项。它指定用于在目录服务中查找组的属性。要获得更多的关于该语法的信息，请参阅 LDAP 目录服务文档。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型：</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LDAPSearchFilter_userIdMap_description"></a>用户标识映射</strong>
+</dt>
+<dd>指定将用户的缩写名映射到 LDAP 条目的 LDAP 过滤器。
+<p>指定在显示用户时代表用户的一条信息。例如，要按用户的标识显示类型<samp>对象类 = inetOrgPerson</samp> 的条目，指定 <samp>inetOrgPerson:uid</samp>。此字段用分号（;）来定界多个对象类:属性对。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型：</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LDAPSearchFilter_groupIdMap_description"></a>组标识映射</strong>
+</dt>
+<dd>指定将组的缩写名映射到 LDAP 条目的 LDAP 过滤器。
+<p>指定在显示组时表示组的一条信息。例如，要按组名显示组，指定 <samp>*:cn</samp>。在这种情况下，星号（<samp>*</samp>）是搜索任何对象类的通配符。此字段采用多个 <samp>objectclass:property</samp> 对，以分号（;）定界。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型：</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LDAPSearchFilter_groupMemberIdMap_description"></a>组成员标识映射
+</strong>
+</dt>
+<dd>指定标识用户与组之间关系的过滤器。
+<p>对于目录类型 SecureWay、Netscape 和 Domino，此字段用分号（;）来定界多个 objectclass:property 对。在 objectclass:property 对中，objectclas 值与&ldquo;组过滤器&rdquo;中定义的 objectclas 相同，而属性是成员属性。如果 objectclass 值不匹配组过滤器中的 objectclass，如果组映射到安全性角色那么授权可能失败。要获得有关此语法的更多信息，请参阅 LDAP 目录服务文档。</p>
+
+<p>对于 IBM Directory Server、iPlanet Directory Server 和 Active Directory，此字段用分号（;）定界多个（<samp>组 attribute:member 属性</samp>）对。它们用于查找用户的组成员资格，这是通过枚举由给定用户处理的所有组属性实现的。例如，Active Directory 使用的属性对 <samp>(memberof:member)</samp>，和 IBM Directory Server 使用的属性对 (ibm-allGroup:member)。此字段也指定了对象类的哪个属性存储属于由此对象类代表的组的成员列表。
+对于受支持的 LDAP directory server，请参阅信息中心文章&ldquo;受支持的目录服务&rdquo;。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型：</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LDAPSearchFilter_certificateMapMode_description"></a>证书映射方式</strong>
+</dt>
+<dd>指定通过 EXACT_DN 还是 CERTIFICATE_FILTER 将 X.509 证书映射到 LDAP 目录。指定 CERTIFICATE_FILTER 使用指定的证书过滤器进行映射。
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型：</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="LDAPSearchFilter_certificateFilter_description"></a>证书过滤器</strong>
+</dt>
+<dd>指定是否使用过滤器证书映射属性，指定用于将客户机证书中的属性映射到 LDAP 注册表中条目的 LDAP 过滤器。
+
+<p> 要启用此字段选择，为证书映射单击 <strong>CERTIFICATE_FILTER</strong>。如果运行时多个 LDAP 条目与过滤器规范匹配，则认证失败，因为它导致模糊匹配。
+此过滤器的语法或结构是：<samp>LDAP attribute=${Client certificate attribute}</samp>（例如，<samp>uid=${SubjectCN}</samp>）。过滤器规范的左侧是 LDAP 属性，其取决于 LDAP 服务器配置使用的模式。过滤器规范的右侧是客户机证书的公共属性之一。右侧必须以美元符号（$）和左大括号（{）开始，并以右大括号（}）结束。您可使用下列在过滤器规范的右侧使用的证书属性值。字符串的大小写是重要的。<ul>
+
+<li>
+<samp>${UniqueKey} </samp>
+</li>
+
+<li>
+<samp>${PublicKey}</samp>
+</li>
+
+<li>
+<samp>${PublicKey}</samp>
+</li>
+
+<li>
+<samp>${Issuer}</samp>
+</li>
+
+<li>
+<samp>${NotAfter}</samp>
+</li>
+
+<li>
+<samp>${NotBefore}</samp>
+</li>
+
+<li>
+<samp>${SerialNumber}</samp>
+</li>
+
+<li>
+<samp>${SigAlgName}</samp>
+</li>
+
+<li>
+<samp>${SigAlgOID}</samp>
+</li>
+
+<li>
+<samp>${SigAlgParams}</samp>
+</li>
+
+<li>
+<samp>${SubjectCN}</samp>
+</li>
+
+<li>
+<samp>${Version}</samp>
+</li>
+
+</ul>
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">数据类型：</td>
+<td align="left" valign="top" class="base">String</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>相关信息</strong>
+</p>
+<a href="rcon_buttons.html">管理控制台按钮</a>
+<br>
+
+<a href="rcon_pageusage.html">管理控制台页面功能</a>
+<br>
+
+<a href="rcon_scope.html">管理控制台作用域设置</a>
+<br>
+
+<a href="rcon_filter.html">管理控制台过滤器设置</a>
+<br>
+
+<a href="rcon_preferences.html">管理控制台首选项设置</a>
+<br>
+
+<a href="usec_rprdap.html">轻量级目录访问协议设置</a>
+<br>
+
+</div>
+</body>
+</html>

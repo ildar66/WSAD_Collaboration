@@ -1,0 +1,65 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>動態快取服務設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="udyn_rcachesettings"></a>
+<h2>動態快取服務設定</h2>
+
+<p>請利用這個頁面來配置和管理動態快取服務設定。</p>
+
+<p>如果要檢視這個管理主控台頁面，請按一下<strong>伺服器</strong> &gt; <strong>應用程式伺服器</strong> &gt; <em>server</em> &gt; <strong>動態快取服務</strong>。</p>
+
+<div>
+<p>
+<strong>「配置」標籤</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="DynamicCache__startup_description"></a>啟動狀態</strong>
+</dt>
+<dd>指定要不要啟用動態快取。</dd>
+<dt>
+<strong><a name="DynamicCache_cacheSize_description"></a>快取記憶體大小</strong>
+</dt>
+<dd>指定一個正整數作為快取記憶體要保留的項目數上限。
+
+<p>請在這個欄位中輸入快取記憶體大小的值，範圍是 100-200,000。</p>
+
+</dd>
+<dt>
+<strong><a name="DynamicCache_defaultPriority_description"></a>預設優先順序</strong>
+</dt>
+<dd>指定快取項目的預設優先順序，決定項目保留在完整快取記憶體中的時間長度。
+
+<table border="1" cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base">預設值</td>
+<td align="left" valign="top" class="base">1
+</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="DynamicCache_enableDiskOffload_description"></a>磁碟卸載</strong>
+</dt>
+<dd>指定要不要啟用磁碟卸載。
+<p>依預設，動態快取可以維護記憶體中所配置的項目數。
+如果在快取記憶體已滿時建立新項目，會利用配置給每個快取項目的優先順序以及最久沒用的演算法來從快取記憶體中移除項目。
+另外，您也可以配置磁碟卸載，而不移除記憶體中的項目，以將它們複製到檔案系統中（位置是可配置的），等稍後再處理。
+</p>
+
+</dd>
+</dl>
+</div>
+</body>
+</html>

@@ -1,0 +1,318 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Einstellungen f&uuml;r die Anwendungsinstallation vorbereiten</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="urun_rapp_instw"></a>
+<h2>Einstellungen f&uuml;r die Anwendungsinstallation vorbereiten</h2>
+
+<p>Auf dieser Seite k&ouml;nnen Sie eine Anwendung (EAR-Datei) oder ein Modul (JAR- oder WAR-Datei) installieren.</p>
+
+<p>Klicken Sie, um diese Seite der Administrationskonsole anzuzeigen, auf <strong>Anwendungen &gt; Neue Anwendung
+installieren</strong>. </p>
+
+<p>F&uuml;hren Sie die Schritte auf dieser Seite durch, um eine Anwendung
+oder ein Modul zu installieren. Sie m&uuml;ssen zumindest den
+ersten Schritt durchf&uuml;hren. Ob Sie einige oder alle nachfolgenden
+Schritte durchf&uuml;hren, ist abh&auml;ngig davon, ob Sie eine Anwendung, ein
+EJB-Modul oder ein Webmodul installieren:</p>
+
+<dl>
+<dt>
+<strong><a name="app_deploy_path"></a>Pfad</strong>
+</dt>
+<dd>Gibt den vollst&auml;ndig qualifizierten Pfad zur .ear-, .jar- oder
+.war-Datei f&uuml;r die Enterprise-Anwendung an.
+<p>Verwenden Sie <strong>Lokaler Pfad</strong>, wenn der Browser und die Anwendungsdateien auf derselben
+Maschine
+installiert sind (unabh&auml;ngig davon, ob der Server auf der Maschine installiert ist).</p>
+
+<p>Verwenden Sie <strong>Serverpfad</strong>, wenn die Anwendungsdatei sich auf einem Knoten
+im aktuellen Zellenkontext befindet. Sie k&ouml;nnen das gesamte Dateisystem eines Knotens durchsuchen, wenn ein
+Knotenagent oder Deployment Manager auf diesem ausgew&auml;hlten Knoten ausgef&uuml;hrt wird. Beim Durchsuchen werden nur .ear-, .jar- oder .war-Dateien angezeigt. </p>
+
+<p>W&auml;hrend der Anwendungsinstallation werden die Anwendungsdateien in der Regel von einer Clientmaschine,
+auf der der Browser ausgef&uuml;hrt wird, auf die Servermaschine, auf der die Administrationskonsole ausgef&uuml;hrt
+wird, hochgeladen. Auf dieser Servermaschine wird das Deployment der Anwendungsdateien durchgef&uuml;hrt. In
+diesen F&auml;llen werden die auf die Servermaschine
+hochzuladenden EAR-, WAR- und JAR-Module mit dem Webbrowser ausgew&auml;hlt, in dem die Administrationskonsole
+ausgef&uuml;hrt wird.</p>
+
+<p>In manchen F&auml;llen jedoch befinden sich die Anwendungsdateien bereits im Dateisystem eines der Knoten in
+einer Zelle. Soll der Anwendungsserver diese
+Dateien installieren, m&uuml;ssen Sie die Option <strong>Serverpfad</strong> verwenden.</p>
+
+<p>Sie k&ouml;nnen diese Option auch verwenden, um eine Anwendungsdatei anzugeben, die
+sich bereits auf der Maschine, auf der der Anwendungsserver ausgef&uuml;hrt wird,
+befindet. Ein Beispiel f&uuml;r den in das Feld einzutragenden Wert unter Windows NT ist
+<samp>C:\WebSphere\AppServer\installableApps\test.ear</samp>.
+Wenn Sie ein eigenst&auml;ndiges WAR-Modul installieren, m&uuml;ssen Sie auch den Stammkontext angeben.
+</p>
+
+</dd>
+<dt>
+<strong><a name="app_deploy_contextRoot"></a>Stammkontext</strong>
+</dt>
+<dd>Gibt den Stammkontext der Webanwendung (WAR) an.
+<p>Dieses Feld wird nur zur Installation einer eigenst&auml;ndigen WAR-Datei verwendet. Der Stammkontext wird mit der definierten Servlet-Zuordnung (aus der WAR-Datei) zum
+vollst&auml;ndigen URL kombiniert, den die Benutzer eingeben
+m&uuml;ssen, um auf das Servlet zugreifen zu k&ouml;nnen. Beispiel: Wenn der Stammkontext /gettingstarted
+ist und die Servlet-Zuordnung MySession lautet, ergibt sich daraus der URL
+<samp>http://host:port/gettingstarted/MySession</samp>.</p>
+
+</dd>
+<dt>
+<strong><a name="app_deploy_genDefBindings"></a>Standardbindungen generieren
+</strong>
+</dt>
+<dd>Gibt an, ob Standardbindungen generiert werden sollen. Wenn Sie das Markierungsfeld ausw&auml;hlen, werden f&uuml;r alle unvollst&auml;ndigen Bindungen in der Anwendung
+Standardwerte angegeben. Vorhandene Bindungen werden nicht ge&auml;ndert. 
+<p>Durch Auswahl dieser Option k&ouml;nnen Sie direkt zum Schritt "Zusammenfassung"
+gehen und die Anwendung installieren, vorausgesetzt, keiner der Schritte ist mit einem roten Stern (*)
+gekennzeichnet. Ein roter Stern gibt an, dass der entsprechende Schritt unvollst&auml;ndige Daten hat und einen
+g&uuml;ltigen Wert ben&ouml;tigt. Pr&uuml;fen Sie in der Anzeige "Zusammenfassung" die Zelle, den Knoten und den
+Server, auf dem die Anwendung installiert ist. </p>
+
+<p>Bindungen werden wie folgt generiert:</p>
+
+<ul>
+
+<li>EJB-JNDI-Namen werden im Format <em>Pr&auml;fix</em>/<em>ejb-Name</em> generiert. Das
+Standardpr&auml;fix ist <samp>ejb</samp>, es kann jedoch &uuml;berschrieben werden. Der
+<em>ejb-Name</em> lautet wie im <samp>&lt;ejb-name&gt;</samp>-Tag des
+Deployment-Deskriptors angegeben.</li>
+
+<li>EJB-Referenzen werden wie folgt gebunden: Wenn ein &lt;ejb-link&gt; ermittelt wird,
+wird das ber&uuml;cksichtigt. Wird eine eindeutige Bean mit einem &uuml;bereinstimmenden Home- oder
+Local-Home-Interface als referenzierte Bean ermittelt, wird die Referenz automatisch aufgel&ouml;st.</li>
+
+<li>Bindungen der Ressourcenreferenzen werden vom &lt;res-ref-name&gt;-Tag
+abgeleitet.
+ Beachten Sie Folgendes: Es wird vorausgesetzt, dass der java:comp/env-Name mit dem globalen
+JNDI-Namen
+der Ressource identisch ist.</li>
+
+<li>Bindungen von Verbindungs-Factorys (f&uuml;r EJB-2.0-JAR-Dateien) werden auf der Grundlage des JNDI-Namens
+und der Berechtigungsangaben generiert. Dies f&uuml;hrt dazu, dass die Einstellungen
+der Standard-Verbindungs-Factory f&uuml;r jede
+EJB-2.0-jar-Datei in der zu installierenden Anwendung definiert werden. Es werden keine Bindungen von
+Verbindungs-Factorys auf Bean-Ebene generiert.</li>
+
+<li>Bindungen von Datenquellen (f&uuml;r EJB-1.1-JAR-Dateien) werden auf der Grundlage des JNDI-Namens und der
+Kombination aus Benutzername und Kennwort der Datenquelle generiert. Dies f&uuml;hrt dazu, dass f&uuml;r jede
+EJB-JAR-Datei Einstellungen der Standarddatenquelle definiert werden. Es werden keine Bindungen
+von Datenquellen auf Bean-Ebene generiert.</li>
+
+<li>MDB-Listener-Ports (Message Driven Bean, nachrichtengesteuerte Bean) werden vom &lt;ejb-name&gt;-Tag des
+MDB,
+an den die Zeichenfolge <samp>Port</samp> angeh&auml;ngt ist, abgeleitet.</li>
+
+<li>Bei .war-Dateien wird der virtuelle Host als <samp>Standard-Host</samp> definiert, wenn nicht
+anders angegeben.</li>
+
+</ul>
+
+<p>Das Standardverfahren ist f&uuml;r die meisten Anwendungen oder zumindest f&uuml;r die meisten Bindungen in den
+meisten Anwendungen ausreichend. In folgenden F&auml;llen ist das Verfahren jedoch nicht anwendbar:</p>
+
+<ul>
+
+<li>Sie m&ouml;chten die globalen JNDI-Namen einer oder mehrerer EJB-Dateien explizit steuern.</li>
+
+<li>Sie ben&ouml;tigen eine st&auml;rker unterteilte Steuerung der Bindungen von Datenquellen f&uuml;r CMPs. Das bedeutet, Sie haben mehrere Datenquellen und ben&ouml;tigen mehrere globale Datenquellen.</li>
+
+<li>Sie m&uuml;ssen Ressourcenreferenzen globalen JNDI-Namen von Ressourcen,
+die nicht mit dem java:comp/env-Namen identisch sind, zuordnen.</li>
+
+</ul>
+
+<p>In diesen F&auml;llen k&ouml;nnen Sie das Verhalten mit einem XML-Dokument (benutzerdefinierte
+Strategie) &auml;ndern. Sie k&ouml;nnen im Feld
+<strong>Spezifische Bindungsdatei</strong> eine benutzerdefinierte Strategie angeben und
+die in der Hilfe aufgef&uuml;hrten Beispiele &uuml;berpr&uuml;fen.</p>
+
+</dd>
+<dt>
+<strong><a name="app_deploy_prefixes"></a>Pr&auml;fixe</strong>
+</dt>
+<dd>Gibt die Pr&auml;fixe an, die f&uuml;r generierte JNDI-Namen verwendet werden sollen.
+
+</dd>
+<dt>
+<strong><a name="app_deploy_override"></a>&Uuml;berschreiben</strong>
+</dt>
+<dd>Gibt an, ob vorhandene Bindungen &uuml;berschrieben werden sollen.
+<p>Ist das Markierungsfeld ausgew&auml;hlt, werden die vorhandenen Bindungen von den generierten
+Bindungen &uuml;berschrieben.</p>
+
+</dd>
+<dt>
+<strong><a name="app_deploy_ejbCmpBindings"></a>CMP-Bindungen f&uuml;r EJB 1.1</strong>
+</dt>
+<dd>Gibt den JNDI-Namen der Standarddatenquelle an.
+<p>Ist der Radioknopf <strong>Standardbindungen f&uuml;r CMPs gem&auml;&szlig; EJB 1.1</strong> ausgew&auml;hlt, m&uuml;ssen Sie den JNDI-Namen f&uuml;r
+die
+Standarddatenquelle, die mit CMP-1.1-Beans verwendet werden soll, angeben. Geben Sie auch die Benutzer-ID f&uuml;r diese Standarddatenquelle an.</p>
+
+</dd>
+<dt>
+<strong><a name="app_deploy_connFacBindings"></a>Bindungen f&uuml;r Verbindungs-Factorys
+</strong>
+</dt>
+<dd>Gibt den JNDI-Namen der Standarddatenquelle an.
+<p>Ist der Radioknopf <strong>Standardbindungen f&uuml;r Verbindungs-Factorys</strong> ausgew&auml;hlt, m&uuml;ssen Sie
+den JNDI-Namen f&uuml;r die
+Standarddatenquelle, die mit den Bindungen verwendet werden soll, angeben. Geben Sie auch die Berechtigung f&uuml;r die Ressource an.</p>
+
+</dd>
+<dt>
+<strong><a name="app_deploy_virtualHost"></a>Virtueller Host
+</strong>
+</dt>
+<dd>Gibt den virtuellen Host f&uuml;r WAR-Module an. 
+
+</dd>
+<dt>
+<strong><a name="app_deploy_specificBindingsFile"></a>Spezifische Bindungsdatei</strong>
+</dt>
+<dd>Gibt eine Bindungsdatei an, die die Standardbindung &uuml;berschreibt.
+<p>Sie k&ouml;nnen das Verhalten der Standardbindung mit einem XML-Dokument
+(benutzerdefinierte <em>aka</em>-Strategie) &auml;ndern. Benutzerdefinierte Strategien
+erweitern die Standardstrategie, so dass Sie nur die Bereiche, in denen die
+Standardstrategie unzureichend ist, anpassen m&uuml;ssen.
+ Das hei&szlig;t, Sie m&uuml;ssen lediglich beschreiben, wie Sie die von der Standardstrategie
+generierten Bindungen &auml;ndern m&ouml;chten. Es ist nicht erforderlich, Bindungen f&uuml;r
+die gesamte Anwendung zu definieren. </p>
+
+<p>Nachfolgende kurze Beispiele f&uuml;r das &Uuml;berschreiben, die verschiedene Bereiche
+des Generators f&uuml;r Standardbindungen abdecken:</p>
+
+<p>
+<strong>JNDI-Namen einer EJB steuern</strong>
+
+</p>
+
+<pre>&lt;?xml version="1.0"?&gt;
+&lt;!DOCTYPE dfltbndngs SYSTEM "dfltbndngs.dtd"&gt;
+&lt;dfltbndngs&gt;
+  &lt;module-bindings&gt;
+    &lt;ejb-jar-binding&gt;
+      &lt;jar-name&gt;helloEjb.jar&lt;/jar-name&gt;
+&lt;!-- this name must match the module name in the .ear file -&gt;
+      &lt;ejb-bindings&gt;
+        &lt;ejb-binding&gt;
+         &lt;ejb-name&gt;HelloEjb&lt;/ejb-name&gt;
+&lt;!-- this must match the &lt;ejb-name&gt; entry in the EJB jar DD -&gt;
+         &lt;jndi-name&gt;com/acme/ejb/HelloHome&lt;/jndi-name&gt;
+        &lt;/ejb-binding&gt;
+      &lt;/ejb-bindings&gt;
+    &lt;/ejb-jar-binding&gt;
+  &lt;/module-bindings&gt;
+&lt;/dfltbndngs&gt;</pre>
+
+<p> 
+<strong>Bindung einer Verbindungs-Factory f&uuml;r eine EJB-JAR-Datei definieren</strong>
+
+</p>
+
+<pre>&lt;!DOCTYPE dfltbndngs SYSTEM "dfltbndngs.dtd"&gt;
+&lt;dfltbndngs&gt;
+  &lt;module-bindings&gt;
+    &lt;ejb-jar-binding&gt;
+      &lt;jar-name&gt;yourEjb20.jar&lt;/jar-name&gt;
+      &lt;connection-factory&gt;
+        &lt;jndi-name&gt;eis/jdbc/YourData_CMP&lt;/jndi-name&gt;
+        &lt;res-auth&gt;Container&lt;/res-auth&gt;
+      &lt;/connection-factory&gt;
+    &lt;/ejb-jar-binding&gt;
+  &lt;/module-bindings&gt;
+&lt;/dfltbndngs&gt;</pre>
+
+<p> 
+<strong>Bindung einer Verbindungs-Factory f&uuml;r eine EJB-Datei definieren</strong>
+
+</p>
+
+<pre>&lt;?xml version="1.0"&gt;
+&lt;!DOCTYPE dfltbndngs SYSTEM "dfltbndngs.dtd"&gt;
+&lt;dfltbndngs&gt;
+  &lt;module-bindings&gt;
+    &lt;ejb-jar-binding&gt;
+      &lt;jar-name&gt;yourEjb20.jar&lt;/jar-name&gt;
+      &lt;ejb-bindings&gt;
+        &lt;ejb-binding&gt;
+          &lt;ejb-name&gt;YourCmp20&lt;/ejb-name&gt;
+&lt;!-- this matches the ejb-name tag in the DD -&gt;
+          &lt;connection-factory&gt;
+           &lt;jndi-name&gt;eis/jdbc/YourData_CMP&lt;/jndi-name&gt;
+           &lt;res-auth&gt;PerConnFact&lt;/res-auth&gt;
+          &lt;/connection-factory&gt;
+        &lt;/ejb-binding&gt;
+      &lt;/ejb-bindings&gt;
+    &lt;/ejb-jar-binding&gt;
+ &lt;/module-bindings&gt;
+&lt;/dfltbndngs&gt;</pre>
+
+<p> 
+<strong>Bindung einer Ressourcenreferenz aus einer WAR-, EJB-JAR- oder J2EE-Client-JAR-Datei &uuml;berschreiben</strong>
+
+</p>
+
+<p>Nachfolgend ein Beispielcode f&uuml;r das &Uuml;berschreiben der Bindung einer Ressourcenreferenz aus einer
+WAR-Datei: Sie k&ouml;nnen einen &auml;hnlichen Code verwenden, um die Bindung einer Ressourcenreferenz aus einer EJB-JAR- oder
+J2EE-Client-JAR-Datei zu &uuml;berschreiben.</p>
+
+<pre>&lt;?xml version="1.0"?&gt;
+&lt;!DOCTYPE dfltbndngs SYSTEM "dfltbndngs.dtd"&gt;
+&lt;dfltbndngs&gt;
+  &lt;module-bindings&gt;
+    &lt;war-binding&gt;
+      &lt;jar-name&gt;hello.war&lt;/jar-name&gt;
+      &lt;resource-ref-bindings&gt;
+        &lt;resource-ref-binding&gt;
+          &lt;!-- the following must match the resource-ref in the DD -&gt;
+          &lt;resource-ref-name&gt;jdbc/MyDataSrc&lt;/resource-ref-name&gt;
+          &lt;jndi-name&gt;war/override/dataSource&lt;/jndi-name&gt;
+        &lt;/resource-ref-binding&gt;
+      &lt;/resource-ref-bindings&gt;
+    &lt;/war-binding&gt;
+  &lt;/module-bindings&gt;
+&lt;/dfltbndngs&gt;</pre>
+
+<p> 
+<strong>MDB-JMS-Listener-Ports &uuml;berschreiben</strong>
+
+</p>
+
+<pre>&lt;?xml version="1.0"?&gt;
+&lt;!DOCTYPE dfltbndngs SYSTEM "dfltbndngs.dtd"&gt;
+&lt;dfltbndngs&gt;
+  &lt;module-bindings&gt;
+    &lt;ejb-jar-binding&gt;
+      &lt;jar-name&gt;YourEjbJar.jar&lt;/jar-name&gt;
+      &lt;ejb-bindings&gt;
+        &lt;ejb-binding&gt;
+          &lt;ejb-name&gt;YourMDB&lt;/ejb-name&gt;
+          &lt;listener-port&gt;yourMdbListPort&lt;/listener-port&gt;
+        &lt;/ejb-binding&gt;
+      &lt;/ejb-bindings&gt;
+    &lt;/ejb-jar-binding&gt;
+  &lt;/module-bindings&gt;
+&lt;/dfltbndngs&gt;</pre>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>Zugeh&ouml;rige Informationen</strong>
+</p>
+<a href="rcon_buttons.html">Kn&ouml;pfe in der Adminstrationskonsole</a>
+<br>
+
+</div>
+</body>
+</html>

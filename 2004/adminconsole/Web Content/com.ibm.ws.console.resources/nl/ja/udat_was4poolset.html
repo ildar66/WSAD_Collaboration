@@ -1,0 +1,399 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>接続プール (バージョン 4) 設定</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="Connection_poolV4_settings"></a>
+<h2>接続プール (バージョン 4) 設定</h2>
+
+<p>このページを使用して、バージョン 4.0 データ・ソースの接続プールを作成します。
+</p>
+
+<p>この管理コンソール・ページを表示するには、「
+<strong>リソース</strong>」&gt;「<strong>JDBC プロバイダー</strong>」&gt;「<em>JDBC_provider</em>」&gt;「
+<strong>データ・ソース (バージョン 4)</strong>」&gt;「<em>data_source</em>」&gt;「<strong>接続プール</strong>」をクリックします。</p>
+
+<div>
+<p>
+<strong>「構成」タブ</strong>
+</p>
+<dl>
+<dt>
+<strong><a name="WAS40ConnectionPool_detail_contextID"></a>有効範囲</strong>
+</dt>
+<dd>このリソース定義を可視にするレベル (セル、ノード、またはサーバーの
+各レベル) を指定します。
+
+<p>JDBC プロバイダー、ネーム・スペース・バインディング、
+共用ライブラリーなどのリソースを複数の有効範囲で定義することが可能です。
+より限定的な有効範囲で定義されたリソースは、
+それより広い有効範囲で定義された重複するリソースをオーバーライドします。
+</p>
+
+<p>定義済みリソースの有効範囲が何であれ、そのリソースのプロパティーは
+個々のサーバー・レベルでのみ適用されることに注意して下さい。
+例えば、あるデータ・ソースの有効範囲を「セル」レベルで定義する場合、
+そのセルのすべてのユーザーが、そのデータ・ソースをルックアップおよび使用できます。
+このとき、そのデータ・ソースはそのセル内で固有です。ただし、リソース・プロパティーの設定値は、そのセル内の各サーバーに対してローカルです。例えば、<em>最大接続数</em> を 10 に設定する場合、そのセル内の
+各サーバーは 10 個の接続を使用できます。<dl>
+
+<dt>
+<strong>セル</strong>
+</dt>
+<dd>最も一般的な有効範囲です。「セル」有効範囲で定義されている
+リソースは、オーバーライドされない限り、すべてのノードおよびサーバーから可視です。
+「セル」有効範囲で定義されたリソースを表示する場合は、
+有効範囲選択フォームでサーバーまたはノードの名前を指定しないでください。
+</dd>
+
+<dt>
+<strong>ノード</strong>
+</dt>
+<dd>大部分のリソース・タイプのデフォルト有効範囲。
+「ノード」有効範囲で定義されたリソースは、「
+セル」有効範囲で定義されたすべての重複するリソースをオーバーライドします。
+同じノード上の「サーバー」有効範囲でオーバーライドされない限り、
+そのノード上のすべてのサーバーから可視です。
+「ノード」有効範囲で定義されたリソースを表示する場合は、
+有効範囲選択フォームで、サーバーを指定せず、ノード名を選択します。
+</dd>
+
+<dt>
+<strong>サーバー</strong>
+</dt>
+<dd>リソース定義で最も限定的な有効範囲です。「サーバー」
+有効範囲で定義されたリソースは、「セル」有効範囲または親の「ノード」有効範囲で
+定義されたすべての重複するリソース定義をオーバーライドし、
+特定のサーバーからのみ可視です。
+「サーバー」有効範囲で定義されたリソースを表示するには、
+有効範囲選択フォームで、ノード名だけでなくサーバー名も指定します。
+</dd>
+
+</dl>
+</p>
+
+<p>リソースが作成されるときは常に、パネルで選択されている現行の有効範囲内に
+作成されます。
+他の有効範囲でリソースを表示する場合は、有効範囲選択フォームで、
+別のノードまたはサーバーを指定します。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">ストリング</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WAS40ConnectionPool_minimumPoolSize_description"></a>最小プール・サイズ</strong>
+</dt>
+<dd>プール内で維持する最小接続数を指定します。
+
+<p>最小プール・サイズは、アプリケーションのパフォーマンスに影響します。
+プールが小さいほど、要求が少ない時にはオーバーヘッドは少なくて済みます。これは、
+データベースに対して開かれている接続が少ないためです。要求が多いときには、
+最初のアプリケーションは応答が遅くなります。これは、プール内のほかの接続がすべて
+使用中の場合、新しい接続が確立されるためです。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">整数</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">1</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">任意の負でない整数</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WAS40ConnectionPool_maximumPoolSize_description"></a>最大プール・サイズ</strong>
+</dt>
+<dd>プール内で維持する最大接続数を指定します。
+
+<p> 接続数が最大値に達してすべての接続が使用中の場合に、追加される接続要求は、
+接続タイムアウトとして指定された秒数が経過するまで待機します。
+最大プール・サイズは、アプリケーションのパフォーマンスに影響を与える可能性があります。
+プールが大きくなると、要求が多いときに必要となるオーバーヘッドも増えます。
+これは、要求がピークに達したときに、データベースに対して開かれる接続も増えるためです。
+これらの接続は、アイドル状態になってプールから除去されるまで持続されます。
+最大値が小さければ、待機時間が長くなるか、ピーク時の接続タイムアウト・
+エラーが発生する可能性があります。データベースが、アプリケーション・サーバーの
+外部のロードに加えて、アプリケーション・サーバー内での最大接続数をサポートできるようにしてください。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">整数</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">10</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">任意の正の整数</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WAS40ConnectionPool_connectionTimeout_description"></a>接続タイムアウト</strong>
+</dt>
+<dd> タイムアウトになり、アプリケーションに ConnectionWaitTimeoutException がスローされるまで、アプリケーションがプールからの接続を待機する最大秒数を指定します。
+
+<p>この値を 0 に設定すると、接続タイムアウトが使用不可になります。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">整数</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">単位</td>
+<td align="left" valign="top" class="base">秒</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">180</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">任意の負でない整数</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WAS40ConnectionPool_idleTimeout_description"></a>アイドル・タイムアウト</strong>
+</dt>
+<dd>プール内で維持されているアイドル (未割り振り) 接続が除去されて、
+リソースを解放するまでの最大秒数を指定します。
+
+<p>接続は、プールの外部ではアイドルにする必要があります。
+それは、接続をデータベースに対して開いた状態のままにすると、
+データベース・メモリーの問題の原因になる可能性があるためです。
+ただし、アイドル・タイムアウト設定の時間を経過した接続でも、
+すべてがプールの外部でアイドルとなるわけではありません。
+接続の除去によって、プールがその最小サイズより小さくなるような場合、接続はアイドルになりません。
+この値を 0 に設定すると、アイドル・タイムアウトが使用不可になります。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">整数</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">単位</td>
+<td align="left" valign="top" class="base">秒</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">1800</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">任意の負でない整数</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WAS40ConnectionPool_orphanTimeout_description"></a>孤立タイムアウト</strong>
+</dt>
+<dd>接続がプールに戻される前に、アプリケーションが接続を使用せずに
+接続を保持することのできる最大秒数を指定します。
+
+<p>孤立タイムアウトの設定値より長い間、
+割り振られた接続でアクティビティーが発生しない場合、接続は「孤立」とマークされます。
+もう 1 度孤立タイムアウトの秒数が経過して、引き続きその接続でアクティビティーが発生しなかった場合、この接続はプールに戻されます。アプリケーションが接続をもう 1 度使用しようとすると、アプリケーションに StaleConnectionException がスローされます。
+トランザクションに取り入れられている接続は、孤立することはありません。
+この値を 0 に設定すると、孤立タイムアウトが使用不可になります。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">整数</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">単位</td>
+<td align="left" valign="top" class="base">秒</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">1800</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">任意の負でない整数</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WAS40ConnectionPool_statementCacheSize_description"></a>ステートメントのキャッシュ・サイズ</strong>
+</dt>
+<dd> キャッシュに入れて、接続ごとに保持する準備済みステートメントの数を指定します。
+
+<p>どのキャッシュも廃棄しない場合、キャッシュ・サイズに設定する必要がある
+最大値は、次のように決定します。すなわち、特定のサーバーでこのデータ・ソースを
+使用するアプリケーションごとに、固有の準備済みステートメントの
+数 (<em>sql</em> ストリング、並行性、およびスクロール・タイプによって決定される) を合計します。
+これはサーバーの存続期間中、特定の接続上にキャッシュできる
+準備済みステートメントの最大数です。キャッシュ・サイズをこの値に設定する
+ということは、決してキャッシュ廃棄を行わないということです。これにより、
+パフォーマンスが向上します。ただし、リソースに制限がある場合もあるため、
+必ずしもそうなるとは限りません。</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">整数</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">10</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">範囲</td>
+<td align="left" valign="top" class="base">任意の負でない整数</td>
+
+</tr>
+
+</table>
+
+</dd>
+<dt>
+<strong><a name="WAS40ConnectionPool_disableAutoConnectionCleanup_description"></a>接続の自動クリーンアップ</strong>
+</dt>
+<dd>トランザクションの終了時に、
+接続プール・ソフトウェアがこのデータ・ソースからの接続を自動的に閉じるかどうかを指定します。
+<p> デフォルトは <em>false</em> です。これは、トランザクションが完了した時に、WebSphere Application Server が接続を閉じ、その接続をプールに戻すことを示します。
+トランザクション終了後に接続を使用しようとすると、StaleConnectionException が発生します。
+これは、すでに接続が閉じられ、プールに戻されているためです。
+このメカニズムは、アプリケーションが接続を無制限に保持しないことを保証します。
+値を「<em>true</em>」に設定すると、接続は、トランザクションの終了後もプールに戻されません。
+この場合、アプリケーションは <em>close()</em> を呼び出して、接続をプールに戻す必要があります。
+アプリケーションが接続を閉じないと、
+プール内の、他のアプリケーションが使用するための接続が使い尽くされることがあります。
+</p>
+
+<table cellpadding="1">
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">データ型</td>
+<td align="left" valign="top" class="base">チェック・ボックス</td>
+
+</tr>
+
+<tr>
+
+<td align="left" valign="top" class="base" style="background-color:#dedede">デフォルト</td>
+<td align="left" valign="top" class="base">False (チェックしない)</td>
+
+</tr>
+
+</table>
+
+</dd>
+</dl>
+</div>
+<div>
+<p>
+<strong>関連情報</strong>
+</p>
+<a href="rcon_buttons.html">管理コンソールのボタン</a>
+<br>
+
+<a href="rcon_pageusage.html">管理コンソール・ページのフィーチャー</a>
+<br>
+
+</div>
+</body>
+</html>

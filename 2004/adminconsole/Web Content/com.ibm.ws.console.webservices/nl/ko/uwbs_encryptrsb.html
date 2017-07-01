@@ -1,0 +1,171 @@
+<!--DITA to HTML transform for WAS-->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>암호화 정보 구성 설정</title>
+<link rel="stylesheet" href="was_style_help.css">
+
+</head>
+<body>
+<a name="uwbs_encryptrsb"></a>
+<h2>
+<img alt="[릴리스 5.1 이상]" src="v51.gif" border="0">암호화 정보 구성 설정</h2>
+
+<p>이 페이지를 참조하여 암호화 및 암호 해독 매개변수를 구성하십시오. </p>
+
+<p>서명 메소드, 요약 메소드 및 정규 메소드에 대해 이 페이지에 나열된
+스펙은 <em>XML Encryption Syntax and Processing: W3C Recommendation
+10 Dec 2002</em>라는 W3C(World Wide Web Consortium) 문서에 나와 있습니다. </p>
+
+<p>이 관리 콘솔 페이지를 보려면 다음 단계를 완료하십시오. <ol>
+
+<li>
+<strong>응용프로그램 &gt; 엔터프라이즈 응용프로그램 &gt; </strong><em>application_name</em>을 클릭하십시오. </li>
+
+<li>관련 항목 아래에서
+<strong>웹 모듈 &gt; </strong><em>URI_file_name</em> &gt; <strong>웹 서비스: 서버 보안 바인딩</strong>을 클릭하십시오.
+</li>
+
+<li>응답 송신자 바인딩에서 <strong>편집 &gt; 암호화 정보</strong>를 클릭하십시오. </li>
+
+<li>암호화 정보를 사용할 수 없는 경우 <strong>없음</strong>을 선택하십시오. </li>
+
+<li>암호화 정보가 사용 가능한 경우, <strong>전용 암호화 정보</strong>를 선택하십시오. </li>
+
+</ol>
+</p>
+
+<p></p>
+
+<p>그런 다음, 다음 필드에 구성을 지정하십시오. </p>
+
+<dl>
+<dt>
+<strong><a name="sec_name"></a>암호화 정보 이름</strong>
+</dt>
+<dd>암호화 정보의 이름을 지정합니다. </dd>
+<dt>
+<strong><a name="sec_klr"></a>키 위치 지정자 참조</strong>
+</dt>
+<dd>키 위치 지정자를 참조하는 데 사용하는 이름을 지정합니다. 
+<p>키 위치 지정자 참조를 지정하려면, <strong>서버 &gt; Application Server
+&gt; </strong><em>server_name</em>을 클릭하십시오. 추가 등록 정보
+아래에서 <strong>웹 서비스: 웹 서비스 보안을 위한 기본 바인딩 &gt; 키 위치 지정자</strong>를
+클릭하십시오. </p>
+
+</dd>
+<dt>
+<strong><a name="sec_ekn"></a>암호화 키 이름</strong>
+</dt>
+<dd>지정된 키 위치 지정자가 실제 키로 분석하는 암호화 키의
+이름을 지정합니다. </dd>
+<dt>
+<strong><a name="sec_eka"></a>키 암호화 알고리즘</strong>
+</dt>
+<dd>키 암호화 메소드의 알고리즘 URI를 지정합니다. 
+<p>다음은 지원되는 알고리즘입니다. <ul>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#rsa-1_5</samp>
+</li>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#kw-tripledes</samp>
+</li>
+
+</ul>
+</p>
+
+<p>다음과 같은 추가 알고리즘이 지원됩니다. <ul>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#kw-aes128</samp>
+</li>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#kw-aes256</samp>
+</li>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#kw-aes192</samp>
+</li>
+
+</ul>
+</p>
+
+<p>기본값으로 JCE(Java Cryptography Extension)는 제한 또는 한정된 기능을 가진 암호에 들어 있습니다. 192비트 및 256비트의 AES(Advanced Encryption Standard) 암호화 알고리즘을 사용하려면, 전기능 관할 정책 파일을 적용해야 합니다. 
+정책 파일 다운로드에 앞서, 나중에 원래 파일을 복원하려면 정책 파일을 겹쳐쓰기 전에 기존 파일(jre/lib/security/ 디렉토리의 local_policy.jar 및 US_export_policy.jar 파일)을 백업하십시오.
+정책 파일을 다운로드하려면 다음 단계 세트 중에서 하나를 완료하십시오. <ul>
+
+<li>AIX, Linux 및 Windows 플랫폼을 비롯하여 IBM Developer Kit, Java Technology Edition 버전 1.4.1을 사용하는 Application Server 플랫폼의 경우, 다음 단계를 완료하여 전기능 관할 정책 파일을 확보할 수 있습니다. <ul>
+
+<li>http://www.ibm.com/developerworks/java/jdk/security/index.html 웹 사이트로이동하십시오. </li>
+
+<li>
+<strong>정책 파일</strong>을 클릭하십시오. <p>시스템으로 unrestrict.jar 파일이 다운로드됩니다. </p>
+</li>
+
+</ul>
+</li>
+
+<li>Solaris 환경 및 HP-UX 플랫폼을 비롯하여 Sun 기반 JDK(Java Development Kit) 버전 1.4.1을 사용하는 Application Server 플랫폼의 경우, 다음 단계를 수행하여 전기능 관할 정책 파일을 확보할 수  있습니다. <ul>
+
+<li>http://java.sun.com/j2se/1.4.1/download.html 웹 사이트로 이동하십시오. </li>
+
+<li>웹 페이지의 맨 아래로 이동하여 JCE(Java Cryptography Extension) 전기능 관할 정책 파일 1.4.1 옆에 있는 다운로드를 클릭하십시오. 
+jce_policy-1_4_1.zip 파일이 시스템으로 다운로드됩니다. </li>
+
+</ul>
+</li>
+
+</ul>다음 단계 세트 중 하나를 수행한 후, JVM jre/lib/security/ 디렉토리에 두 개의 JAR(Java Archive) 파일이 작성됩니다. </p>
+
+</dd>
+<dt>
+<strong><a name="sec_dea"></a>데이터 암호화 알고리즘</strong>
+</dt>
+<dd>데이터 암호화 메소드의 알고리즘 URI(Uniform Resource Identifier)를 지정합니다. 
+<p>다음과 같은 알고리즘이 지원됩니다. <ul>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#tripledes-cbc</samp>
+</li>
+
+</ul>
+</p>
+
+<p>다음과 같은 추가 알고리즘이 지원됩니다. <ul>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#aes128-cbc</samp>
+</li>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#aes256-cbc</samp>
+</li>
+
+<li>
+<samp>http://www.w3.org/2001/04/xmlenc#aes192-cbc</samp>
+</li>
+
+</ul>
+</p>
+
+<p>기본값으로 JCE(Java Cryptography Extension)는 제한 또는 한정된 기능을 가진 암호에 들어 있습니다. 
+192비트 및 256비트의 AES 암호화 알고리즘을 사용하려면, 전기능 관할 정책 파일을 적용해야 합니다. </p>
+
+</dd>
+</dl>
+<div>
+<p>
+<strong>관련 정보</strong>
+</p>
+<a href="uwbs_encrypt.html">암호화 정보 콜렉션</a>
+<br>
+
+<a href="uwbs_keyl.html">키 위치 지정자 콜렉션</a>
+<br>
+
+</div>
+</body>
+</html>
